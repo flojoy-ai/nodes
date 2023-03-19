@@ -3,10 +3,7 @@ COMMAND:
       name: loop,
       key: LOOP,
       type: LOOP,
-      parameters:
-        {
-          num_loops: { type: "int", default: -1 },
-        },
+      parameters: { num_loops: { type: "int", default: 1 } },
       inputs:
         [
           { name: "end", id: "end", type: "source" },
