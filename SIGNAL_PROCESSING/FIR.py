@@ -6,7 +6,7 @@ import numpy as np
 def FIR(v, params):
     ''' Apply a low-pass FIR filter to an input vector. This
     filter takes a few inputs: the sample_rate (will be passed as a parameter
-    if the target node is not connected), the desired width of the
+    if the target node is not connected), the desired width of the 
     transition to the stop band and the corresponding attentuation, and
     lastly the cutoff frequency. '''
 
@@ -42,14 +42,14 @@ def FIR(v, params):
     # ... and then apply it to the signal
     filtered_x = signal.lfilter(taps, 1.0, x)
 
-    # Now, there are two considerations to be had. Firstly,
+    # Now, there are two considerations to be had. Firstly, 
     # there is a phase delay in the signal since we have applied finite
     # taps ...
     phase_delay = 0.5 * (N-1) / sample_rate
-    # ... and furthermore, the first N-1 samples are 'corrupted' in
-    # the sense that the filter 'sacrifies' them by the imposition
+    # ... and furthermore, the first N-1 samples are 'corrupted' in 
+    # the sense that the filter 'sacrifies' them by the imposition 
     # of the initial conditions.
     times = times[N-1:] - phase_delay
     filtered_x = filtered_x[N-1:]
-
+    
     return DataContainer(x = times, y = filtered_x)
