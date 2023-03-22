@@ -1,0 +1,13 @@
+
+COMMAND:
+      - {
+          name: KEITHLEY2400,
+          key: KEITHLEY,
+          type: KEITHLEY2400,
+          parameters:
+            {
+              comport: { type: string, default: '/dev/ttyUSB0' },
+              baudrate: { type: float, default: 9600 },
+              timeout: { type: float, default: 1 },
+            },
+        }
