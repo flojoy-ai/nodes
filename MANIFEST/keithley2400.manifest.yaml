@@ -2,7 +2,7 @@
 COMMAND:
       - {
           name: KEITHLEY2400,
-          key: KEITHLEY,
+          key: KEITHLEY2400,
           type: KEITHLEY2400,
           parameters:
             {
