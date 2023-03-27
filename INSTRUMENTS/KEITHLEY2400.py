@@ -30,18 +30,10 @@ def KEITHLEY2400 (dc,params):                  #params {comport, baudrate,timeou
     ser.write(b':SENS:CURR:PROT 1.05\n')  # Current protection set at 1.05A : Maximum for keithely 2400
 
     voltages = dc[0].y
-
-    print("Voltages to send to Keithley")
-    print(type(voltages))
-
-    #voltages=float(voltages_string)
-
     currents_neg = []  # measured currents
 
     for voltage in voltages:
         ser.write(b':SOUR:VOLT %f\n' % voltage)  # Source Tension (V)
-        print("voltage envoye au keithley")
-        print(voltage)
         ser.write(b':OUTP ON\n')  # Instrument output open
         ser.write(b':INIT\n')  # Start measuring
         ser.write(b':FETC?\n')  # Retrieve the measured values
@@ -50,13 +42,11 @@ def KEITHLEY2400 (dc,params):                  #params {comport, baudrate,timeou
         voltage_current_values = current_str.split(',')  # Split the string into measured values (Voltage, Current, Etc)
         currents_neg.append(-float(voltage_current_values[1]))  # Converts measured currents into float
 
-        print("Measurements")
-        print(currents_neg)
         ser.write(b':OUTP OFF\n')  # Close output from Instrument
 
 
     # Close Serial Communication
 
     ser.close()
-    #return DataContainer(x={"Voltages": voltages}, y={"Currents": currents_neg})
+
     return DataContainer(x={"Voltages": voltages, "Currents": currents_neg}, y=currents_neg)
