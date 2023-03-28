@@ -40,7 +40,7 @@ def SECOND_ORDER_SYSTEM(v, params):
     # v['data'] = y_primes[::-1]
 
     y_primes = np.insert(y_primes, 0, response)
-    print('-'*72+'\n'*5+f'Running iteration# {y_primes.size-1}' + ' , '+str(y_primes)+'\n'*5+'-'*72)
+    print('-'*72+'\n'*5+f'Running iteration# {y_primes.size-1}' + ' , '+str([y for y in y_primes])+'\n'*5+'-'*72)
     # We now write to memory ...
     SmallMemory().write_to_memory(node_id, memory_key, y_primes)
     # ... and return the result!
