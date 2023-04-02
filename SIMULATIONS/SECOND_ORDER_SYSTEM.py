@@ -29,19 +29,21 @@ def SECOND_ORDER_SYSTEM(v, params):
     else:
         raise TypeError("Error loading object from REDIS.")
     
-    y_primes = np.zeros((2,1)) if initialize else data
+    # We're going to store and read the data in reverse order to
+    # how it is accessed here. We will write the functionality
+    # below to assume the most recent time step is the first
+    # index. However, for visualization and external access,
+    # it makes the most sense to have the first time step
+    # as the first index!
+    y_primes = np.zeros((2,1)) if initialize else data[::-1]
  
     # Using input from controller as v[0].y ...
     response = ac * v[0].y + bpd * y_primes[0] - bd * y_primes[1]
     y_primes[1] = y_primes[0]
-    # we keep every bit of data. id-0 will still be the most recent
-    # bit of data, and id-1 will still be the second most recent, so it works out
-    # we do this so that we can pass it in reverse (earliest time first) to a visualization node
-    # v['data'] = y_primes[::-1]
 
+    #prepend the most recent result to the front of the histrory
     y_primes = np.insert(y_primes, 0, response)
-    # print('-'*72+'\n'*5+f'Running iteration# {y_primes.size-1}' + ' , '+str([y for y in y_primes])+'\n'*5+'-'*72)
-    # We now write to memory ...
-    SmallMemory().write_to_memory(node_id, memory_key, y_primes)
+    # We now write to memory, reversing the order ...
+    SmallMemory().write_to_memory(node_id, memory_key, y_primes[::-1])
     # ... and return the result!
     return DataContainer(x=v[0].y, y=float(y_primes[0])) #returns input output pair
