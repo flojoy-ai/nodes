@@ -1,9 +1,15 @@
 import traceback
-from flojoy import flojoy,DataContainer
+from flojoy import flojoy,DataContainer, JobResultBuilder
+import numpy as np
+from PIL import Image
 
 @flojoy
 def LOCAL_FILE(v, params):
     print('parameters passed to LOCAL_FILE: ', params)
+    red_channel = []
+    green_channel = []
+    blue_channel = []
+    alpha_channel = []
     try:
         filePath = ''
         y = {}
@@ -18,11 +24,20 @@ def LOCAL_FILE(v, params):
             if fileType == 'image' and opType == 'OD':
                 filePath = "../public/assets/object_detection.png"
         print ("File to be loaded: " + filePath)
-        with open(filePath, "rb") as fileToBeLoaded:
-            f = fileToBeLoaded.read()
-            y = [bytearray(f)]
-        fileToBeLoaded.close()
+        f = Image.open(filePath)
+        img_array = np.array(f)
+        if img_array.shape[2] == 4:
+            red_channel = img_array[:,:,0]
+            green_channel = img_array[:,:,1]
+            blue_channel = img_array[:,:,2]
+            alpha_channel = img_array[:,:,3]
+        else:
+            red_channel = img_array[:,:,0]
+            green_channel = img_array[:,:,1]
+            blue_channel = img_array[:,:,2]
+            alpha_channel = None
     except Exception:
         print(traceback.format_exc())
+    data_container = DataContainer(type = 'image',r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel)
 
-    return DataContainer(type = 'file', y = y, file_type = [fileType])
+    return JobResultBuilder().from_data(data_container).to_plot(plot_type='image')
