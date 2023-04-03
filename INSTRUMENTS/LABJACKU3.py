@@ -6,7 +6,7 @@ from flojoy import flojoy, DataContainer
 #import u3
 
 @flojoy
-def TEMPERATURE(dc,params):                  #params {nombre de sensor}
+def LABJACKU3 (dc,params):                  #params {nombre de sensor}
 
     #d = u3.U3()  # Create an instance of U3 class
     #d.configU3()  # First Configuration for the Object, Ports Input by default (0), if we want output, add FIODirection=255 in argument.
