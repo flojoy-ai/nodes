@@ -2,5 +2,6 @@ COMMAND:
   - {
       name: 'Line',
       key: 'LINE',
-      type: 'VISOR'
+      type: 'VISOR',
+      parameters: { referred_node: { type: node_reference, default: ''}},
     }
