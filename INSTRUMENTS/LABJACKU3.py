@@ -1,36 +1,23 @@
-from itertools import count
-
-import matplotlib.pyplot as plt
-import numpy as np
 from flojoy import flojoy, DataContainer
 
-import u3
+import u3                 #Import the library from LabJackPython in order to use our U3-LV device
 
 @flojoy
-def LABJACKU3 (dc, params):  # params {nombre de sensor}
+def LABJACKU3(dc, params):                           # params {nombre de sensor}
+    d = u3.U3()                                      # Create an instance of U3 class d.configU3()
+    d.configIO(FIOAnalog=255, EIOAnalog=0)           # Config the U3 for daq from temperature sensors
 
-    d = u3.U3()  # Create an instance of U3 class d.configU3()  # First Configuration for the Object, Ports Input
-    # by default (0), if we want output, add FIODirection=255 in argument.
+    voltages = []                                    # Declaration of variable
+    temperatures = []
+    temperatures_celcius = []
+    N = int(params["numbers"])
 
-    d.configIO(FIOAnalog=255, EIOAnalog=0)  # Config the communication with the LabJack sensor
+    for i in range(1, N):                            #Loop on the number of sensor you are using
+        voltage = d.getAIN(i-1)
+        temperature = voltage * 100.0
+        temperature_celcius = (temperature - 32) / 1.8 # Convert Voltage into temperature in Celcius
 
-    voltages = []
-    temperature = []
-    temperature_celcius = []
-
-    for i in params["numbers"]:
-        voltages[i] = d.getAIN(i-1)
-        print(voltages)
-
-        temperature[i] = (voltages[i] * 100.0)
-        temperature_celcius[i] = (temperature[i] - 32) / 1.8
-        print(temperature_celcius)
-
-    return DataContainer(x={"Numbers of sensors": params["numbers"], "Temperature": temperature}, y=temperature)
-
-
-
-# ani= FuncAnimation(plt.gcf(),animate,interval=1000)        #Plot les 6 sensors en fonction du temps
-# ani = FuncAnimation(plt.gcf(), animate2, interval=2000)  # Plot la Heatmap en fonction du temps
-
-# plt.show()
+        voltages.append(voltage)
+        temperatures.append(temperature)
+        temperatures_celcius.append(temperature_celcius)  # Save measurements in lists
+    return DataContainer(x={"Temperature": temperatures, "Temp en Celcius": temperatures_celcius}, y=temperatures_celcius)
