@@ -17,7 +17,6 @@ def LOADER(v, params):
     api_key = get_api_key()
     measurement_uuid = params['measurement_uuid']
     
-    print(" api_key: ", api_key)
     if api_key != '' and measurement_uuid != '':
         requests.post(f'{API_URI}/{measurement_uuid}', 
                       json={'api_key':api_key, 
