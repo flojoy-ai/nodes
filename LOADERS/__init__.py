@@ -1,1 +1,1 @@
-__all__= ["LOCAL_FILE", "CAMERA"]
+__all__= ["LOCAL_FILE", "CAMERA", 'LOADER']
