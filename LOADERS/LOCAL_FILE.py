@@ -2,6 +2,7 @@ import traceback
 from flojoy import flojoy,DataContainer, JobResultBuilder
 import numpy as np
 from PIL import Image
+from os import path
 
 @flojoy
 def LOCAL_FILE(v, params):
@@ -21,7 +22,7 @@ def LOCAL_FILE(v, params):
                     filePath = ctrlInput
                 elif len(filePath.strip()) == 0:
                     if opType == 'OD':
-                        filePath = "../public/assets/object_detection.png"
+                        filePath = path.join(path.dirname(path.abspath(__file__)), "assets", "object_detection.png")
                 print ("File to be loaded: " + filePath)
                 f = Image.open(filePath)
                 img_array = np.array(f.convert('RGBA'))
