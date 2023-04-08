@@ -22,21 +22,26 @@ def LOADER(v, params):
                       json={'api_key':api_key, 
                             'measurements': json.dumps({'data':v}, cls=PlotlyJSONEncoder),
                             'time': datetime.now().__str__()})
-    return JobResultBuilder().from_inputs(v).build()
+        return JobResultBuilder().from_inputs(v).build()
+    else:
+        not_found_key = 'FRONTIER_API_KEY' if api_key is '' else 'Measurement UUID'
+        raise KeyError(f'{not_found_key} not found!')
 
 
 def get_api_key():
     home = str(Path.home())
     api_key = ''
     path = os.path.join(home, '.flojoy/credentials')
-    if os.path.exists(path):
-        stream = open(path, 'r')
-        yaml_dict = yaml.load(stream, Loader=yaml.FullLoader)
-        if isinstance(yaml_dict, str) == True:
-            split_by_line = yaml_dict.split('\n')
-            for line in split_by_line:
-                if 'FRONTIER_API_KEY' in line:
-                    api_key = line.split(':')[1]
-        else:
-            api_key = yaml_dict['FRONTIER_API_KEY']
+    if not os.path.exists(path):
+        return api_key
+    
+    stream = open(path, 'r')
+    yaml_dict = yaml.load(stream, Loader=yaml.FullLoader)
+    if isinstance(yaml_dict, str) == True:
+        split_by_line = yaml_dict.split('\n')
+        for line in split_by_line:
+            if 'FRONTIER_API_KEY' in line:
+                api_key = line.split(':')[1]
+    else:
+        api_key = yaml_dict['FRONTIER_API_KEY']
     return api_key
