@@ -18,10 +18,13 @@ def LOADER(v, params):
     measurement_uuid = params['measurement_uuid']
     
     if api_key != '' and measurement_uuid != '':
-        requests.post(f'{API_URI}/{measurement_uuid}', 
+        try:
+            requests.post(f'{API_URI}/{measurement_uuid}', 
                       json={'api_key':api_key, 
-                            'measurements': json.dumps({'data':v}, cls=PlotlyJSONEncoder),
+                            'measurements': json.dumps({'data':v[0]}, cls=PlotlyJSONEncoder),
                             'time': datetime.now().__str__()})
+        except Exception as e:
+            raise e
         return JobResultBuilder().from_inputs(v).build()
     else:
         not_found_key = 'FRONTIER_API_KEY' if api_key is '' else 'Measurement UUID'
