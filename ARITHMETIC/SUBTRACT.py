@@ -14,4 +14,4 @@ def SUBTRACT(v, params):
 
     y = np.subtract(a, b)
 
-    return DataContainer(x = [a, b], y = y)
+    return DataContainer(x = {'a':a,'b':b}, y = y)

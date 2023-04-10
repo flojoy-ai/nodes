@@ -38,7 +38,7 @@ def SECOND_ORDER_SYSTEM(v, params):
     y_primes = np.zeros((2,1)) if initialize else data[::-1]
  
     # Using input from controller as v[0].y ...
-    response = ac * v[0].y + bpd * y_primes[0] - bd * y_primes[1]
+    response = ac * v[0].y[-1] + bpd * y_primes[0] - bd * y_primes[1]
     y_primes[1] = y_primes[0]
 
     #prepend the most recent result to the front of the histrory
@@ -46,4 +46,4 @@ def SECOND_ORDER_SYSTEM(v, params):
     # We now write to memory, reversing the order ...
     SmallMemory().write_to_memory(node_id, memory_key, y_primes[::-1])
     # ... and return the result!
-    return DataContainer(x=v[0].y, y=float(y_primes[0])) #returns input output pair
+    return DataContainer(x=v[0].y, y=np.ones_like(v[0].y)*float(y_primes[0])) #returns input output pair
