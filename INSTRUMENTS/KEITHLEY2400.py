@@ -49,4 +49,4 @@ def KEITHLEY2400 (dc,params):                  #params {comport, baudrate,timeou
 
     ser.close()
 
-    return DataContainer(x={"Voltages": voltages, "Currents": currents_neg}, y=currents_neg)
+    return DataContainer(x={"a": voltages, "b": currents_neg}, y=currents_neg)

@@ -20,4 +20,4 @@ def LABJACKU3(dc, params):                           # params {nombre de sensor}
         voltages.append(voltage)
         temperatures.append(temperature)
         temperatures_celcius.append(temperature_celcius)  # Save measurements in lists
-    return DataContainer(x={"Temperature": temperatures, "Temp en Celcius": temperatures_celcius}, y=temperatures_celcius)
+    return DataContainer(x={"a": temperatures, "b": temperatures_celcius}, y=temperatures_celcius)
