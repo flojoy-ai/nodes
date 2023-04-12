@@ -1,1 +1,1 @@
-__all__ = ["ADD", "MULTIPLY", "SUBTRACT"]
+__all__ = ["ADD", "MULTIPLY", "SUBTRACT", "ABS"]
