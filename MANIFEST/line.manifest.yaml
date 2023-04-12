@@ -3,5 +3,5 @@ COMMAND:
       name: 'Line',
       key: 'LINE',
       type: 'VISOR',
-      parameters: { referred_node: { type: node_reference, default: ''}},
+      parameters: {},
     }
