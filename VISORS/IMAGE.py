@@ -1,14 +1,6 @@
-from flojoy import flojoy
-from ..VISORS.template import init_template
+from flojoy import flojoy, JobResultBuilder, DataContainer
 
 @flojoy
 def IMAGE(v, params):
-
-    fig = dict(
-        data = [dict(
-            y = list(v[0].y[0]),
-            type='image'
-        )],
-        layout = dict(template = init_template())
-    )
-    return fig
+    data = DataContainer(type='image', r=v[0].r, g=v[0].g, b=v[0].b, a=v[0].a)
+    return JobResultBuilder().from_data(data).to_plot(plot_type='image')

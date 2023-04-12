@@ -27,4 +27,5 @@ def LINE(v, params):
             pass
         return JobResultBuilder().from_inputs([DataContainer(x=np.arange(0,len(y),1),y=y)]).build()
     else:
-        return JobResultBuilder().from_inputs(v).build()
+        return JobResultBuilder().from_inputs(v).to_plot(plot_type='line')
+
