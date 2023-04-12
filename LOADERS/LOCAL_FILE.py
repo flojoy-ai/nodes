@@ -38,8 +38,6 @@ def LOCAL_FILE(v, params):
                     alpha_channel = None
             except Exception:
                 print(traceback.format_exc())
-            data_container = DataContainer(type = 'image',r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel)
-
-            return JobResultBuilder().from_data(data_container).to_plot(plot_type='image')
+            return DataContainer(type = 'image',r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel)
         case _:
             return JobResultBuilder().from_inputs(v).build()

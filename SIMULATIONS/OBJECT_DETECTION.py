@@ -33,8 +33,7 @@ def OBJECT_DETECTION(v, params):
             green_channel = img_array[:,:,1]
             blue_channel = img_array[:,:,2]
             alpha_channel = None
-        data_container = DataContainer(type = 'image',r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel)
-        return JobResultBuilder().from_data(data_container).to_plot(plot_type='image')
+        return DataContainer(type = 'image',r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel)
     
     except Exception:
         print(traceback.format_exc())

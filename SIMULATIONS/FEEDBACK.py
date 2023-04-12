@@ -1,25 +1,18 @@
-from flojoy import flojoy, DataContainer
-import os
-from redis import Redis
-from rq.job import Job, NoSuchJobError
+from flojoy import flojoy, DataContainer, get_job_result
+from rq.job import NoSuchJobError
 import traceback
-REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
-REDIS_PORT = os.environ.get('REDIS_PORT', 6379)
 
 
 @flojoy
 def FEEDBACK(v, params):
     referred_node = params['referred_node']
-
-    x = v[0].y
-
+    
     try:
-        job = Job.fetch(referred_node, connection=Redis(
-            host=REDIS_HOST, port=REDIS_PORT))
-        y = job.result.y
-    except (Exception, NoSuchJobError):
-        y = v[0].y if len(v) > 0 else [1, 3, 2]
-        print(traceback.format_exc())
-        pass;
+        result = get_job_result(referred_node)
+        return result
+    except (Exception, NoSuchJobError) as e:
+        x = v[0].x
+        y = v[0].y
+        print("Job not found: ", e, traceback.format_exc())
+        return DataContainer(x=x, y=y)
 
-    return DataContainer(x=x, y=y)
