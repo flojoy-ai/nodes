@@ -1,6 +1,6 @@
 COMMAND:
   - {
-      name: conditional,
+      name: Conditional,
       key: CONDITIONAL,
       type: CONDITIONAL,
       parameters: { operator_type: { type: "string", default: ">=" } },

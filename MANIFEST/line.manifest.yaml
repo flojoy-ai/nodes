@@ -2,6 +2,6 @@ COMMAND:
   - {
       name: 'Line',
       key: 'LINE',
-      type: 'VISOR',
+      type: 'PLOTLY_VISOR',
       parameters: {},
     }
