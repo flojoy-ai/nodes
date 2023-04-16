@@ -2,7 +2,7 @@ COMMAND:
     - {
         name: "Invert",
         key: "INVERT",
-        type: "ARRAY_AND_MATRIX",
+        type: MATRIX_MANIPULATION,
         parameters: {
           rcond: {type: float, default: 1.0}
         }
