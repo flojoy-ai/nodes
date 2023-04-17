@@ -2,5 +2,5 @@ COMMAND:
   - {
       name: "Object Detection",
       key: "OBJECT_DETECTION",
-      type: "SIMULATION"
+      type: AI_OBJECT_DETECTION
     }

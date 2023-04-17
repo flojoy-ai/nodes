@@ -2,5 +2,5 @@ COMMAND:
   - {
       name: 'Histogram',
       key: 'HISTOGRAM',
-      type: 'VISOR'
+      type: 'PLOTLY_VISOR'
     }
