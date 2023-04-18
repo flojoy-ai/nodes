@@ -2,7 +2,7 @@ COMMAND:
   - {
       name: Camera,
       key: CAMERA,
-      type: LOADER,
+      type: WEB_CAM,
       parameters:
         {
           file_type: { type: "string", default: "image" },

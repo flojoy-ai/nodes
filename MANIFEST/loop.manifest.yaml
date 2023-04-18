@@ -1,6 +1,6 @@
 COMMAND:
   - {
-      name: loop,
+      name: Loop,
       key: LOOP,
       type: LOOP,
       parameters:
