@@ -13,8 +13,9 @@ def onVoltageRatioChange(self, voltageRatio):
 def PHIDGET22(dc, params):
     voltage = []
     pressions = []
+    N = int(params["n_sensors"])
 
-    for i in range(params.n_sensors):
+    for i in range(1,N):
         voltageRatioInput = VoltageRatioInput()
         voltageRatioInput.setChannel(i)
         voltageRatioInput.setOnVoltageRatioChangeHandler(
@@ -45,10 +46,10 @@ def PHIDGET22(dc, params):
     # voltageRatioInput3.openWaitForAttachment(5000)
     # voltageRatioInput4.openWaitForAttachment(5000)
 
-    try:
-        input("Press Enter to Stop\n")
-    except (Exception, KeyboardInterrupt):
-        pass
+    #try:
+    #    input("Press Enter to Stop\n")
+    #except (Exception, KeyboardInterrupt):
+    #    pass
 
     return DataContainer(x={"a": voltage, "b": pressions}, y=pressions)
 
