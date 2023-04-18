@@ -1,7 +1,7 @@
 COMMAND:
       - {
           name: LABJACKU3,
-          key: LABJACKU3,
+          key: LABJACK,
           type: LABJACKU3,
           parameters:
             {
