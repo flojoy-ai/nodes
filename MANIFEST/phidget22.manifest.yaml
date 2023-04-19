@@ -1,0 +1,10 @@
+COMMAND:
+      - {
+          name: PHIDGET22,
+          key: PHIDGET22,
+          type: PHIDGET,
+          parameters:
+            {
+              n_sensors: { type: int, default: 3}
+            },
+        }
