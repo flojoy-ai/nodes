@@ -8,6 +8,5 @@ COMMAND:
             {
               comport: { type: string, default: '/dev/ttyUSB0' },
               baudrate: { type: float, default: 9600 },
-              #timeout: { type: int, default: 1 },
             },
         }
