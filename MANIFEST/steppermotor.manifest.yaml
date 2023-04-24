@@ -1,0 +1,10 @@
+COMMAND:
+      - {
+          name: STEPPERMOTOR,
+          key: STEPPERMOTOR,
+          type: STEPPER,
+          parameters:
+            {
+              numbers_motor: { type: int, default: 0 },
+            },
+        }
