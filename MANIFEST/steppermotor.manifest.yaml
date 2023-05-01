@@ -1,10 +1,12 @@
 COMMAND:
       - {
-          name: STEPPERMOTOR,
-          key: STEPPERMOTOR,
+          name: STEPPERDRIVER_TIC,
+          key: STEPPERDRIVER_TIC,
           type: STEPPER,
           parameters:
             {
-              numbers_motor: { type: int, default: 0 },
+              speed: { type: int, default: 0 },
+              n_step: { type: int, default: 1 },
+              direction: { type: boolean, default: True },
             },
         }
