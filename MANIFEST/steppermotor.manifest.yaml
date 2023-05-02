@@ -5,8 +5,12 @@ COMMAND:
           type: STEPPER,
           parameters:
             {
-              speed: { type: int, default: 0 },
-              n_step: { type: int, default: 1 },
-              direction: { type: boolean, default: True },
+              speed1: {type: int, default: 2000000},      #Pulse par seconde
+              speed2: {type: int, default: 1000000},
+              position1: {type: int, default: 200},
+              position2: { type: int, default: -200},
+              position3: {type: int, default: 100},
+              position4: {type: int, default: -100},
+              #direction: { type: boolean, default: True },
             },
         }
