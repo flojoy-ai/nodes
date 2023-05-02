@@ -5,6 +5,7 @@ import numpy as np
 from datetime import datetime
 import plotly.express as px
 
+
 @flojoy
 def SERIAL(v, params):
     '''
