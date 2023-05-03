@@ -4,12 +4,12 @@ from utils.utils import compare_values
 
 @flojoy
 def CONDITIONAL(v, params):
-    operator = params['operator_type']
+    operator = params["operator_type"]
 
     x = v[1].y
     y = v[0].y
     bool_ = compare_values(x[0], y[0], operator)
-    
+
     data = None
     if operator in ["<=", "<"]:
         if not bool_:
@@ -24,4 +24,6 @@ def CONDITIONAL(v, params):
 
     next_direction = str(bool_).lower()
 
-    return JobResultBuilder().from_data(data).flow_to_directions([next_direction]).build()
+    return (
+        JobResultBuilder().from_data(data).flow_to_directions([next_direction]).build()
+    )

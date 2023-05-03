@@ -5,8 +5,8 @@ import traceback
 
 @flojoy
 def FEEDBACK(v, params):
-    referred_node = params['referred_node']
-    
+    referred_node = params["referred_node"]
+
     try:
         result = get_job_result(referred_node)
         return result
@@ -15,4 +15,3 @@ def FEEDBACK(v, params):
         y = v[0].y
         print("Job not found: ", e, traceback.format_exc())
         return DataContainer(x=x, y=y)
-
