@@ -1,5 +1,6 @@
 import plotly.graph_objects as go
 
+
 def init_template():
 
     template = go.layout.Template()
@@ -11,4 +12,3 @@ def init_template():
     # template.layout.margin = dict(t=0, l=10, b=10, r=0)
 
     return template
-
