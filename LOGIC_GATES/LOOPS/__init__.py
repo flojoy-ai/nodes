@@ -1,1 +1,1 @@
-__all__= ["LOOP", "GOTO"]
+__all__ = ["LOOP", "GOTO"]
