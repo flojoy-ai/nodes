@@ -2,7 +2,6 @@ import plotly.graph_objects as go
 
 
 def init_template():
-
     template = go.layout.Template()
 
     # pythonic autotyping of numeric strings

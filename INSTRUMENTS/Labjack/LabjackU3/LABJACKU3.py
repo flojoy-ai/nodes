@@ -32,7 +32,6 @@ def LABJACKU3(dc, params):  # params {nombre de sensor}
 
 @flojoy
 def LABJACKU3_MOCK(dc, params):  # params {nombre de sensor}
-
     print("running mock version of LabJackU3, number of sensor is set to 6 by default")
 
     voltages = []  # Declaration of variable

@@ -35,7 +35,9 @@ def CAMERA(v, params):
         camera.release()  # Release the camera for further use.
         del camera
 
-    except cv2.error as camera_error:  # Catch error for when a camera isn't detected. Should it throw an error for production?
+    except (
+        cv2.error
+    ) as camera_error:  # Catch error for when a camera isn't detected. Should it throw an error for production?
         pass
 
     if not camera_test:

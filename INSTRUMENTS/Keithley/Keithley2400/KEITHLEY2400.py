@@ -5,7 +5,6 @@ from flojoy import flojoy, DataContainer
 
 @flojoy
 def KEITHLEY2400(dc, params):  # params {comport, baudrate,timeout}
-
     # Serial communication with the instrument configuration
     ser = serial.Serial()
 
@@ -58,7 +57,6 @@ def KEITHLEY2400(dc, params):  # params {comport, baudrate,timeout}
 
 @flojoy
 def KEITHLEY2400_MOCK(dc, params):  # params {comport, baudrate,timeout}
-
     print("Running mock version of Keithley2400")
 
     voltages = dc[0].y

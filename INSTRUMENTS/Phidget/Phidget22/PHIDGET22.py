@@ -42,7 +42,6 @@ def PHIDGET22(dc, params):
 
 @flojoy
 def PHIDGET22_MOCK(dc, params):
-
     print(
         "running mock version of PHIDGET SENSOR, number of sensor is set to 4 by default"
     )
