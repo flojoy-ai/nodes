@@ -10,17 +10,19 @@ def LABJACKU3(dc, params):                           # params {nombre de sensor}
     voltages = []                                    # Declaration of variable
     temperatures = []
     temperatures_celcius = []
+    sensor_num = []
     N = int(params["numbers"])
 
-    for i in range(1, N):                            #Loop on the number of sensor you are using
-        voltage = d.getAIN(i-1)
+    for i in range(0, N):                            #Loop on the number of sensor you are using
+        voltage = d.getAIN(i)
         temperature = voltage * 100.0
         temperature_celcius = (temperature - 32) / 1.8 # Convert Voltage into temperature in Celcius
+        sensor_num.append(i+1)
 
         voltages.append(voltage)
         temperatures.append(temperature)
         temperatures_celcius.append(temperature_celcius)  # Save measurements in lists
-    return DataContainer(x={"a": temperatures, "b": temperatures_celcius}, y=temperatures_celcius)
+    return DataContainer(x={"a": sensor_num, "b": temperatures_celcius}, y=temperatures_celcius)
 
 
 @flojoy
