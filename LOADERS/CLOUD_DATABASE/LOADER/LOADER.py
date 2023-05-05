@@ -8,9 +8,11 @@ import yaml
 from flojoy import DataContainer, flojoy
 from flojoy.utils import PlotlyJSONEncoder
 
-FRONTIER_HOST = os.environ.get("FRONTIER_HOST")
-FORNTIER_PORT = os.environ.get("FRONTIER_PORT")
-API_URI = f"https://{FRONTIER_HOST}:{FORNTIER_PORT}/measurements"
+FRONTIER_URI = (
+    os.environ.get("FRONTIER_URI")
+    or "https://h5ao677rlf.execute-api.us-east-1.amazonaws.com"
+)
+MEASUREMENT_API = f"{FRONTIER_URI}/measurements"
 
 
 @flojoy
@@ -21,7 +23,7 @@ def LOADER(dc_inputs: list[DataContainer], params: dict):
     if api_key != "" and measurement_uuid != "":
         try:
             requests.post(
-                f"{API_URI}/{measurement_uuid}",
+                f"{MEASUREMENT_API}/{measurement_uuid}",
                 json={
                     "api_key": api_key,
                     "measurements": json.dumps(
