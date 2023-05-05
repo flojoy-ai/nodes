@@ -10,7 +10,7 @@ from flojoy.utils import PlotlyJSONEncoder
 
 FRONTIER_URI = (
     os.environ.get("FRONTIER_URI")
-    or "https://h5ao677rlf.execute-api.us-east-1.amazonaws.com"
+    or "https://cipfsgeml2.execute-api.us-east-1.amazonaws.com"
 )
 MEASUREMENT_API = f"{FRONTIER_URI}/measurements"
 
