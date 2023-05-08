@@ -15,6 +15,7 @@ def STEPPERDRIVER_TIC_KNOB(dc, params):
 
     knob_position = 4 * int(params["knob_value"])  # Retrieving data from the CRTL parameters define by the User
 
+
     tic.set_target_position(knob_position)  # Set target position for the first movement
 
     while tic.get_current_position() != tic.get_target_position():
