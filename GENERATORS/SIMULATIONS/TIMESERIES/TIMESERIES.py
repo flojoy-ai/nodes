@@ -1,6 +1,6 @@
 import numpy as np
 from flojoy import flojoy, DataContainer
-import pandas.util.testing as testing
+import pandas.testing as testing
 import traceback
 
 
