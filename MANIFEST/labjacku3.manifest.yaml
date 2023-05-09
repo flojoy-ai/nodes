@@ -1,10 +1,11 @@
 COMMAND:
-      - {
-          name: LABJACKU3,
-          key: LABJACKU3,
-          type: LABJACK,
-          parameters:
-            {
-              numbers: { type: int, default: 1 },
-            },
-        }
+  - name: LABJACKU3
+    key: LABJACKU3
+    type: LABJACK
+    parameters:
+      numbers:
+        type: int
+        default: 1
+    pip_dependencies:
+      - name: labjackpython
+        v: 2.1.0
