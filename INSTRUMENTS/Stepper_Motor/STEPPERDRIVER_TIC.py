@@ -16,18 +16,10 @@ def STEPPERDRIVER_TIC(dc, params):
 
     tic.set_target_position(positions[0])  # Set target position for the first movement
     tic.set_max_speed(int(params["speed1"]))  # Set maximum speed for the motor during first movement.
+    sleep(2)
 
-    while tic.get_current_position() != tic.get_target_position():
-        print("Position du moteur")
-        print(tic.get_current_position())
-        sleep(0.1)
-
-    tic.set_target_position(positions[1])   # Set target position for the second movement
-
-    while tic.get_current_position() != tic.get_target_position():
-        print("Vitesse du moteur en pulse/secondes: ")
-        print(tic.get_current_velocity())
-        sleep(0.1)
+    tic.set_target_position(positions[1])  # Set target position for the second movement
+    sleep(2)
 
     tic.set_max_speed(int(params["speed2"]))  # Set maximum speed for the motor during movement.
     tic.set_target_position(positions[2])
@@ -44,4 +36,4 @@ def STEPPERDRIVER_TIC(dc, params):
 
 @flojoy
 def STEPPERDRIVER_TIC_MOCK(dc, params):
-    return DataContainer(x={"a": voltage, "b": pressions}, y=pressions)
+    return DataContainer(x={"a": a, "b": b}, y=b)
