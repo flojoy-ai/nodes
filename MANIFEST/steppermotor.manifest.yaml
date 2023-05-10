@@ -1,16 +1,11 @@
 COMMAND:
       - {
-          name: STEPPERDRIVER_TIC,
-          key: STEPPERDRIVER_TIC,
+          name: STEPPER_DRIVER_TIC,
+          key: STEPPER_DRIVER_TIC,
           type: STEPPER,
           parameters:
             {
-              speed1: {type: int, default: 2000000},      #Pulse par seconde
-              speed2: {type: int, default: 1000000},
-              position1: {type: int, default: 200},
-              position2: { type: int, default: -200},
-              position3: {type: int, default: 100},
-              position4: {type: int, default: -100},
-              #direction: { type: boolean, default: True },
+              current_limit: {type: int, default: 30},
+              sleep_time:{type: int, default: 2}
             },
         }

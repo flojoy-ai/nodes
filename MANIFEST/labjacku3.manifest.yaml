@@ -5,6 +5,6 @@ COMMAND:
           type: LABJACK,
           parameters:
             {
-              numbers: { type: int, default: 1 },
+              sensor_numbers: { type: int, default: 1 },
             },
         }
