@@ -4,5 +4,7 @@ COMMAND:
           key: SELECT_ARRAY,
           type: SELECT_ARRAY,
           parameters:
-            { column: { type: float, default: 0}, },
+            { 
+              column: { type: float, default: 0 }, 
+            },
         }
