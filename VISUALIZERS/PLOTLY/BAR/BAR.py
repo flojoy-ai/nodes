@@ -13,5 +13,5 @@ def BAR(v, params):
         y = dc_input.y
     else:
         raise ValueError("unsupported input type for BAR node")
-    fig = px.scatter(x=x, y=y, mode="markers")
+    fig = px.scatter(x=x, y=y)
     return DataContainer(type="plotly", fig=fig, x=x, y=y)
