@@ -4,6 +4,13 @@ from skimage import data
 
 @flojoy
 def SKLEARNIMAGE(dc_inputs, params):
+    """
+    Mode designed to load example images from scikit-image.
+
+    Examples can be found here:
+    https://scikit-image.org/docs/stable/auto_examples/index.html
+
+    """
     img_key = params["img_key"]
 
     img_array = getattr(data, img_key)()
