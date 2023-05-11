@@ -1,0 +1,11 @@
+COMMAND:
+  - name: SK Learn Image
+    key: SKLEARNIMAGE
+    type: SAMPLE_IMAGE
+    parameters:
+      img_key:
+        type: string
+        default: astronaut
+    pip_dependencies:
+      - name: scikit-image
+        v: 0.20.0
