@@ -3,7 +3,7 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def CONSTANT(v, params):
+def CONSTANT(dc, params):
     """Generates a single x-y vector of numeric (floating point) constants"""
 
     if v.__len__() > 0:

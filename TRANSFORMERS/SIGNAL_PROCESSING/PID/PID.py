@@ -6,7 +6,7 @@ memory_key = "pid-info"
 
 
 @flojoy
-def PID(v, params):
+def PID(dc, params):
     # First let's get the parameters that won't change
     Kp = float(params["Kp"])
     Ki = float(params["Ki"])

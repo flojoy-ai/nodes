@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 
 
 @flojoy
-def LINE(v, params):
+def LINE(dc, params):
     dc_input = v[0]
     if dc_input.type == "ordered_pair":
         x = dc_input.x

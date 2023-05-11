@@ -4,7 +4,7 @@ from scipy import signal
 
 
 @flojoy
-def SINE(v, params):
+def SINE(dc, params):
     valid_waveforms = ["sine", "square", "triangle", "sawtooth"]
     x = None
     if v.__len__() > 0:

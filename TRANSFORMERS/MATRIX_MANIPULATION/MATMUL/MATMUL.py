@@ -3,7 +3,7 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def MATMUL(v, params):
+def MATMUL(dc, params):
     """Takes 2 input matrices, multiplies them, and returns the result"""
     a = np.eye(3)
     b = np.eye(3)

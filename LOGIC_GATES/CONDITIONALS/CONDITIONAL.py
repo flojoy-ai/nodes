@@ -3,7 +3,7 @@ from utils.utils import compare_values
 
 
 @flojoy
-def CONDITIONAL(v, params):
+def CONDITIONAL(dc, params):
     operator = params["operator_type"]
 
     x = v[1].y

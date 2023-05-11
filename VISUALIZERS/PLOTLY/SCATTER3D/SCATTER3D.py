@@ -3,7 +3,7 @@ from flojoy import DataContainer, flojoy
 
 
 @flojoy
-def SCATTER3D(v, params):
+def SCATTER3D(dc, params):
     dc_input = v[0]
     if dc_input.type == "ordered_triple":
         x = dc_input.x

@@ -3,7 +3,7 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def SUBTRACT(v, params):
+def SUBTRACT(dc, params):
     """Subtract 2 input vectors and return the result"""
     # print(' v in add node: ', v)
     a = [0]

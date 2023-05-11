@@ -3,7 +3,7 @@ import plotly.express as px
 
 
 @flojoy
-def BAR(v, params):
+def BAR(dc, params):
     dc_input = v[0]
     if dc_input.type == "ordered_pair":
         x = dc_input.x

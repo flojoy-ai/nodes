@@ -4,7 +4,7 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def BUTTER(v, params):
+def BUTTER(dc, params):
     """Apply a butterworth filter to an input vector"""
 
     print("Butterworth inputs:", v)

@@ -3,7 +3,7 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def LINSPACE(v, params):
+def LINSPACE(dc, params):
     x = None
     if v.__len__() > 0:
         x = v[0].y

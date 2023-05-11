@@ -3,7 +3,7 @@ import time
 
 
 @flojoy
-def TIMER(v, params):
+def TIMER(dc, params):
     print("executing timer")
 
     seconds = int(params["sleep_time"])

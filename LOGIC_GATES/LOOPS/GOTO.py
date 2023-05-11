@@ -2,7 +2,7 @@ from flojoy import JobResultBuilder, flojoy
 
 
 @flojoy
-def GOTO(v, params):
+def GOTO(dc, params):
     goto_node_id = params.get("goto_node_id", None)
     next_nodes = [goto_node_id] if goto_node_id is not None else []
 

@@ -4,7 +4,7 @@ import traceback
 
 
 @flojoy
-def RAND(v, params):
+def RAND(dc, params):
     x = None
     if len(v) > 0:
         x = v[0].y
@@ -16,7 +16,7 @@ def RAND(v, params):
 
 
 @flojoy
-def RAND_MOCK(v, params):
+def RAND_MOCK(dc, params):
     print("running mock version of rand")
     x = None
     if len(v) > 0:

@@ -3,7 +3,7 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def INVERT(v, params):
+def INVERT(dc, params):
     """Takes 2 inputs, one matrix and one rcond if not square matrix.
     Inverts them (or pseudo invert) and returns the result.
     If the entered value is a scalar it returns the multiplciative

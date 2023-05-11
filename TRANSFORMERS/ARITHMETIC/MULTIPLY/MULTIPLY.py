@@ -3,7 +3,7 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def MULTIPLY(v, params):
+def MULTIPLY(dc, params):
     """Takes 2 input vectors, multiplies them, and returns the result"""
     a = v[0].y
     b = v[1].y

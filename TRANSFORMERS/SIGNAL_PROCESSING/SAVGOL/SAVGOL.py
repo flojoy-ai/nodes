@@ -4,7 +4,7 @@ import warnings
 
 
 @flojoy
-def SAVGOL(v, params):
+def SAVGOL(dc, params):
     """Apply a Savitzky-Golay filter to an input vector.
     The default behaviour is implementing a 3-point moving average of the data."""
     print("Savgol inputs:", v)

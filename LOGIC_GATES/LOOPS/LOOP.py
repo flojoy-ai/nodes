@@ -48,7 +48,7 @@ class LoopData:
 
 
 @flojoy
-def LOOP(v, params):
+def LOOP(dc, params):
     num_loops = params.get("num_loops", 0)
     node_id = params.get("node_id", 0)
 
@@ -57,7 +57,7 @@ def LOOP(v, params):
     # infinite loop
     if num_loops == -1:
         print("infinite loop")
-        return build_result(inputs=v, is_loop_finished=False)
+        return build_result(inputs=dc, is_loop_finished=False)
 
     loop_data: LoopData = load_loop_data(node_id, num_loops)
     loop_data.print("at start ")
@@ -76,7 +76,7 @@ def LOOP(v, params):
 
     print("end loop\n\n")
 
-    return build_result(v, loop_data.is_finished)
+    return build_result(dc, loop_data.is_finished)
 
 
 def load_loop_data(node_id, default_num_loops) -> LoopData:

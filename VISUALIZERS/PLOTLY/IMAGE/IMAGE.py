@@ -4,7 +4,7 @@ import numpy as np
 
 
 @flojoy
-def IMAGE(v, params):
+def IMAGE(dc, params):
     dc_input = v[0]
     if dc_input.type == "image":
         r = dc_input.r

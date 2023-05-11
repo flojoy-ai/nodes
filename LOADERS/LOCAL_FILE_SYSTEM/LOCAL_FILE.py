@@ -6,7 +6,7 @@ from os import path
 
 
 @flojoy
-def LOCAL_FILE(v, params):
+def LOCAL_FILE(dc, params):
     print("parameters passed to LOCAL_FILE: ", params)
     file_type = params.get("file_type", "image")
     match file_type:

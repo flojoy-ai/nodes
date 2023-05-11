@@ -3,7 +3,7 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def SCATTER(v, params):
+def SCATTER(dc, params):
     dc_input = v[0]
     if dc_input.type == "ordered_pair":
         x = dc_input.x
