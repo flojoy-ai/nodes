@@ -4,7 +4,7 @@ import numpy as np
 
 @flojoy
 def SELECT_ARRAY(v, params):
-    '''
+    """
     Node to convert an input array with multiple columns
     to the selected ordered pair.
 
@@ -13,10 +13,10 @@ def SELECT_ARRAY(v, params):
     This node will select one of temperature and pressure columns to output.
 
     The x axis will be return unchanged.
-    '''
-    print('parameters passed to SELECT_ARRAY: ', params)
+    """
+    print("parameters passed to SELECT_ARRAY: ", params)
     # Index of the selected column.
-    COL = int(params.get('column', 0))
+    COL = int(params.get("column", 0))
 
     # Check for numpy type. Return unchanged data if not.
     if isinstance(v[0].y, np.ndarray):

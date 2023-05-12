@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 
 @flojoy
 def SERIAL(v, params):
-    '''
+    """
     Node to take simple time dependent 1d data from an Ardunio,
     or a similar serial device.
     For example you can record temperature following this tutorial:
@@ -39,12 +39,12 @@ def SERIAL(v, params):
     com_port: COM port of the serial device
 
     num_readings * record_period is roughly the run length in seconds.
-    '''
-    print('parameters passed to SERIAL: ', params)
-    COM_PORT = params.get('com_port', '/dev/ttyUSB0')
-    BAUD = int(params.get('BAUD_RATE', 9600))
-    NUM = int(params.get('num_readings', 100))
-    RECORD_PERIOD = float(params.get('record_period', 1))
+    """
+    print("parameters passed to SERIAL: ", params)
+    COM_PORT = params.get("com_port", "/dev/ttyUSB0")
+    BAUD = int(params.get("BAUD_RATE", 9600))
+    NUM = int(params.get("num_readings", 100))
+    RECORD_PERIOD = float(params.get("record_period", 1))
 
     ser = serial.Serial(COM_PORT, timeout=1, baudrate=BAUD)
     readings = []
@@ -56,13 +56,14 @@ def SERIAL(v, params):
         ts = datetime.now()
         s = ser.readline().decode()
         # Some readings may be empty.
-        if s != '':
-            reading = s[:-2].split(',')
+        if s != "":
+            reading = s[:-2].split(",")
             readings.append(reading)
 
             ts = datetime.now()
-            seconds = float(ts.hour * 3600 + ts.minute * 60
-                            + ts.second + ts.microsecond / 10**6)
+            seconds = float(
+                ts.hour * 3600 + ts.minute * 60 + ts.second + ts.microsecond / 10**6
+            )
 
             times.append(seconds)
 
@@ -78,20 +79,19 @@ def SERIAL(v, params):
     times = np.array(times)
     times -= times[0]
     readings = np.array(readings)
-    readings = readings.astype('float64')
+    readings = readings.astype("float64")
     # If there are two or more columns return a Plotly figure.
     if readings.ndim == 2:
-        data = go.Line(x=times, y=readings[:, 0], mode='markers')
+        data = go.Line(x=times, y=readings[:, 0], mode="markers")
         fig = go.Figure(data=data)
-        return DataContainer(type='plotly', fig=fig, x=times, y=readings)
+        return DataContainer(type="plotly", fig=fig, x=times, y=readings)
     else:
         return DataContainer(x=times, y=readings)
 
 
 @flojoy
 def Serial_MOCK(dc, params):
-
-    print('Running mock version of Serial')
+    print("Running mock version of Serial")
 
     x = np.linspace(0, 100, 100)
     y = np.linspace(0, 100, 100)
