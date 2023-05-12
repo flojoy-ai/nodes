@@ -1,6 +1,4 @@
 COMMAND:
-  - {
-      name: "Object Detection",
-      key: "OBJECT_DETECTION",
-      type: AI_OBJECT_DETECTION
-    }
+  - name: Object Detection
+    key: OBJECT_DETECTION
+    type: AI_OBJECT_DETECTION
