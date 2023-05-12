@@ -13,7 +13,8 @@ COMMAND:
                 type: float
                 default: 0.06
       pip_dependencies:
-                - name: Phidget22
+        - name : Phidget22
+          v : 1.14.20230331
 
 
 
