@@ -1,11 +1,11 @@
 COMMAND:
-  - name: LABJACKU3,
-    key: LABJACKU3,
-    type: LABJACK,
-    parameters:
-      sensor_numbers:
-      type: int
-      default: 1
-    pip_dependencies:
-      - name : Labjackpython
+    - name: LABJACKU3
+      key: LABJACKU3
+      type: LABJACK
+      parameters:
+        sensor_numbers:
+         type: int
+         default: 1
+      pip_dependencies:
+      - name : LabJackPython
         v: 2.1.0

@@ -1,11 +1,14 @@
 COMMAND:
-      - {
-          name: STEPPER_DRIVER_TIC,
-          key: STEPPER_DRIVER_TIC,
-          type: STEPPER,
-          parameters:
-            {
-              current_limit: {type: int, default: 30},
-              sleep_time:{type: int, default: 2}
-            },
-        }
+      - name: STEPPER_DRIVER_TIC
+        key: STEPPER_DRIVER_TIC
+        type: STEPPER
+        parameters:
+            current_limit:
+              type: int
+              default: 30
+            sleep_time:
+              type: int
+              default: 2
+        pip_dependencies:
+         - name : ticlib
+           v: 0.2.2

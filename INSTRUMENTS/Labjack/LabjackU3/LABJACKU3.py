@@ -1,4 +1,5 @@
 from flojoy import flojoy, DataContainer
+import LabJackPython
 import u3  # Import the library from LabJackPython in order to use our U3-LV device
 
 
