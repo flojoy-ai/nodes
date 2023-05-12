@@ -4,12 +4,12 @@ COMMAND:
     type: SIMULATION
     ui_component_id: default
     parameters:
-        start:
-          type: float
-          default: 10
-        end: 
-          type: float
-          default: 0
-        step: 
-          type: float
-          default: 1000
+      start:
+        type: float
+        default: 10
+      end:
+        type: float
+        default: 0
+      step:
+        type: float
+        default: 1000

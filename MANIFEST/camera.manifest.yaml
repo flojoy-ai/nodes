@@ -1,11 +1,11 @@
 COMMAND:
-  - {
-      name: Camera,
-      key: CAMERA,
-      type: WEB_CAM,
-      parameters:
-        {
-          file_type: { type: "string", default: "image" },
-          camera_ind: { type: "integer", default: 0 },
-        }
-    }
+  - name: Camera
+    key: CAMERA
+    type: WEB_CAM
+    parameters:
+      file_type:
+        type: string
+        default: image
+      camera_ind:
+        type: integer
+        default: 0

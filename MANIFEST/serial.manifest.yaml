@@ -1,13 +1,20 @@
 COMMAND:
-      - {
-          name: SERIAL,
-          key: SERIAL,
-          type: SERIAL,
-          parameters:
-            {
-              comport: { type: string, default: '/dev/ttyUSB0' },
-              baudrate: { type: float, default: 9600 },
-              num_readings: { type: float, default: 100 },
-              record_period: { type: float, default: 1},
-            },
-        }
+  - name: SERIAL
+    key: SERIAL
+    type: SERIAL
+    parameters:
+      comport:
+        type: string
+        default: "/dev/ttyUSB0"
+      baudrate:
+        type: float
+        default: 9600
+      num_readings:
+        type: float
+        default: 100
+      record_period:
+        type: float
+        default: 1
+    pip_dependencies:
+      - name: pyserial
+        v: 3.5

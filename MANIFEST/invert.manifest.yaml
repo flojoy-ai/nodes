@@ -1,10 +1,8 @@
 COMMAND:
-    - {
-        name: "Invert",
-        key: "INVERT",
-        type: MATRIX_MANIPULATION,
-        parameters: {
-          rcond: {type: float, default: 1.0}
-        }
-      }
-  
+  - name: Invert
+    key: INVERT
+    type: MATRIX_MANIPULATION
+    parameters:
+      rcond:
+        type: float
+        default: 1.0

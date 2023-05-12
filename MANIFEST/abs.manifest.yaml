@@ -1,7 +1,4 @@
 COMMAND:
-    - {
-        name: "Absolute",
-        key: "ABS",
-        type: "ARITHMETIC",
-      }
-  
+  - name: Absolute
+    key: ABS
+    type: ARITHMETIC
