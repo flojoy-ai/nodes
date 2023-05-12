@@ -40,4 +40,7 @@ def STEPPER_DRIVER_TIC_KNOB(dc, params):
 
 @flojoy
 def STEPPER_DRIVER_TIC_KNOB_MOCK(dc, params):
-    return DataContainer(x={"a": a, "b": b}, y=b)
+    """Mock function for the stepper driver node"""
+    positions = [50, 100, 150, 200]  # Setting default positions
+    speeds = [50000, 1000000, 150000, 200000]  # Setting default speeds
+    return DataContainer(x={"a": positions, "b": speeds}, y=positions)

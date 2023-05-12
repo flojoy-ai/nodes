@@ -41,10 +41,9 @@ def LABJACKU3_MOCK(dc, params):
     temperatures = []
     temperatures_celsius = []
     sensor_number = 6  # Mock Number of sensors
+    voltage = 0.6  # Mock value
 
     for i in range(1, sensor_number):
-        # Mock Value
-        voltage = 0.6
         # Convert Voltage into temperature in Celsius
         temperature = voltage * 100.0
         temperature_celsius = (temperature - 32) / 1.8
