@@ -1,13 +1,28 @@
 COMMAND:
-      - {
-          name: PHIDGET22,
-          key: PHIDGET22,
-          type: PHIDGET,
-          parameters:
-            {
-              n_sensors: { type: int, default: 3},
-              calibration1: { type: float, default: 0.015},
-              calibration2: {type: float, default: 0.06}
-            },
-        }
+    - name: PHIDGET22,
+      key: PHIDGET22,
+      type: PHIDGET,
+      parameters:
+             n_sensors:
+               type: int
+               default: 3
+             calibration1 :
+                type: float
+                default: 0.015
+             calibration2:
+                type: float
+                default: 0.06
+      pip_dependencies:
+                - name: Phidget22
 
+
+
+
+
+
+          parameters:
+            sensor_numbers:
+            type: int
+            default: 1
+          pip_dependencies:
+            - name : labjackpython
