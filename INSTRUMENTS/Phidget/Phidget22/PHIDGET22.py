@@ -11,7 +11,7 @@ def onVoltageRatioChange(self, voltageRatio):
 
 
 @flojoy
-def PHIDGET22(dc, params):
+def PHIDGET22(dc_inputs, params):
     voltage = []
     pressions = []
     N = int(params["n_sensors"])
@@ -41,7 +41,7 @@ def PHIDGET22(dc, params):
 
 
 @flojoy
-def PHIDGET22_MOCK(dc, params):
+def PHIDGET22_MOCK(dc_inputs, params):
     print(
         "running mock version of PHIDGET SENSOR, number of sensor is set to 4 by default"
     )

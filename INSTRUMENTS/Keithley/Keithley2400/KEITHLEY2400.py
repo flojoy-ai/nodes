@@ -4,7 +4,7 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def KEITHLEY2400(dc, params):  # params {comport, baudrate,timeout}
+def KEITHLEY2400(dc_inputs, params):  # params {comport, baudrate,timeout}
     # Serial communication with the instrument configuration
     ser = serial.Serial()
 
@@ -29,7 +29,7 @@ def KEITHLEY2400(dc, params):  # params {comport, baudrate,timeout}
         b":SENS:CURR:PROT 1.05\n"
     )  # Current protection set at 1.05A : Maximum for keithely 2400
 
-    voltages = dc[0].y
+    voltages = dc_inputs[0].y
     currents_neg = []  # measured currents
 
     for voltage in voltages:
@@ -56,10 +56,10 @@ def KEITHLEY2400(dc, params):  # params {comport, baudrate,timeout}
 
 
 @flojoy
-def KEITHLEY2400_MOCK(dc, params):  # params {comport, baudrate,timeout}
+def KEITHLEY2400_MOCK(dc_inputs, params):  # params {comport, baudrate,timeout}
     print("Running mock version of Keithley2400")
 
-    voltages = dc[0].y
+    voltages = dc_inputs[0].y
     currents_neg = []  # measured currents
 
     for voltage in voltages:

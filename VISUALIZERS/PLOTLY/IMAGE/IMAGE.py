@@ -4,8 +4,8 @@ import numpy as np
 
 
 @flojoy
-def IMAGE(dc, params):
-    dc_input = v[0]
+def IMAGE(dc_inputs, params):
+    dc_input = dc_inputs[0]
     if dc_input.type == "image":
         r = dc_input.r
         g = dc_input.g

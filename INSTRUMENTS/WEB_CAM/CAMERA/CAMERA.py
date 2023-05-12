@@ -4,7 +4,7 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def CAMERA(dc, params):
+def CAMERA(dc_inputs, params):
     """
     Take a picture from a connected camera using OpenCV.
     If no camera is connected, this will load the example image: "object_detection.png".

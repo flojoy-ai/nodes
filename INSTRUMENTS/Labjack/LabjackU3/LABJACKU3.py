@@ -4,7 +4,7 @@ import u3  # Import the library from LabJackPython in order to use our U3-LV dev
 
 
 @flojoy
-def LABJACKU3(dc, params):  # params {nombre de sensor}
+def LABJACKU3(dc_inputs, params):  # params {nombre de sensor}
     d = u3.U3()  # Create an instance of U3 class d.configU3()
     d.configIO(
         FIOAnalog=255, EIOAnalog=0
@@ -31,7 +31,7 @@ def LABJACKU3(dc, params):  # params {nombre de sensor}
 
 
 @flojoy
-def LABJACKU3_MOCK(dc, params):  # params {nombre de sensor}
+def LABJACKU3_MOCK(dc_inputs, params):  # params {nombre de sensor}
     print("running mock version of LabJackU3, number of sensor is set to 6 by default")
 
     voltages = []  # Declaration of variable

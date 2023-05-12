@@ -4,7 +4,7 @@ import numpy as np
 
 
 @flojoy
-def FIR(dc, params):
+def FIR(dc_inputs, params):
     """Apply a low-pass FIR filter to an input vector. This
     filter takes a few inputs: the sample_rate (will be passed as a parameter
     if the target node is not connected), the desired width of the
@@ -20,8 +20,8 @@ def FIR(dc, params):
     )
 
     try:
-        times = v[1].y  # v[0].x['i']
-        x = v[0].y  # this is the value of the signal
+        times = dc_inputs[1].y  # dc_inputs[0].x['i']
+        x = dc_inputs[0].y  # this is the value of the signal
     except IndexError:  # nothing input
         # lets create some default behaviour for testing
         nsamples = 400
