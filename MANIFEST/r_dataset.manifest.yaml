@@ -1,0 +1,11 @@
+COMMAND:
+  - name: R Dataset
+    key: R_DATASET
+    type: SAMPLE_DATASET
+    parameters:
+      dataset_key:
+        type: string
+        default: iris
+    pip_dependencies:
+      - name: rdatasets
+        v: 0.1.0
