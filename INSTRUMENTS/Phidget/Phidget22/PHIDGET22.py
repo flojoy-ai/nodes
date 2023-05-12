@@ -30,7 +30,9 @@ def PHIDGET22(dc, params):
         voltage.append(volt_i)  # Add Voltage to the list of measurements
 
         # Example of a Calibration to convert Voltage into pressions :
-        pression_i = (volt_i - float(params["calibration1"])) / float(arams["calibration2"])
+        pression_i = (volt_i - float(params["calibration1"])) / float(
+            arams["calibration2"]
+        )
 
         pressions.append(pression_i)
 
