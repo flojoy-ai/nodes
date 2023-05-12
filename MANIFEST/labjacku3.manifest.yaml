@@ -6,3 +6,6 @@ COMMAND:
       numbers:
         type: int
         default: 1
+    pip_dependencies:
+      - name: labjackpython
+        v: 2.1.0

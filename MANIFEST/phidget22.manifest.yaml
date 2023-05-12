@@ -6,3 +6,5 @@ COMMAND:
       n_sensors:
         type: int
         default: 3
+    pip_dependencies:
+      - name: Phidget22

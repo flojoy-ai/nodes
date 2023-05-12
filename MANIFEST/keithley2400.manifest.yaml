@@ -5,7 +5,10 @@ COMMAND:
     parameters:
       comport:
         type: string
-        default: "/dev/ttyUSB0"
+        default: '/dev/ttyUSB0'
       baudrate:
         type: float
         default: 9600
+    pip_dependencies:
+      - name: pyserial
+        v: 3.5
