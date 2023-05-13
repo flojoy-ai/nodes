@@ -1,5 +1,6 @@
 from flojoy import flojoy, DataContainer
 import plotly.graph_objects as go
+import pandas as pd
 
 
 @flojoy
@@ -18,15 +19,15 @@ def TABLE(dc_inputs: list[DataContainer], params: dict):
     """
     dc_input = dc_inputs[0]
     if dc_input.type in ["dataframe", "plotly"]:
-        df = dc_input.m
+        df = pd.DataFrame(dc_input.m)
         fig = go.Figure(
             data=[
                 go.Table(
-                    header=dict(values=list(df.columns)),
-                    cells=dict(values=[df[col] for col in df.columns]),
+                    header=dict(values=list(df.columns), align="left"),
+                    cells=dict(values=[df[col] for col in df.columns], align="left"),
                 )
             ]
         )
         return DataContainer(type="plotly", fig=fig, m=df)
     else:
-        raise ValueError("unsupported input type for Plotly TABLE node")
+        raise ValueError("unsupported DataContainer type for Plotly TABLE node")
