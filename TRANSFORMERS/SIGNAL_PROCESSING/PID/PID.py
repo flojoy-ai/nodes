@@ -51,4 +51,6 @@ def PID(dc_inputs, params):
     )
     print(regulation_error, output_signal)
     # ... and return the result
-    return DataContainer(x=dc_inputs[0].y, y=np.ones_like(dc_inputs[0].y) * output_signal)
+    return DataContainer(
+        x=dc_inputs[0].y, y=np.ones_like(dc_inputs[0].y) * output_signal
+    )
