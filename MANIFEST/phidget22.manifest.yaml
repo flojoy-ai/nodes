@@ -1,10 +1,10 @@
 COMMAND:
-      - {
-          name: PHIDGET22,
-          key: PHIDGET22,
-          type: PHIDGET,
-          parameters:
-            {
-              n_sensors: { type: int, default: 3}
-            },
-        }
+  - name: PHIDGET22
+    key: PHIDGET22
+    type: PHIDGET
+    parameters:
+      n_sensors:
+        type: int
+        default: 3
+    pip_dependencies:
+      - name: Phidget22
