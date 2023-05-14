@@ -1,0 +1,27 @@
+COMMAND:
+  - name: Periodogram
+    key: PERIODOGRAM
+    type: SCIPY_SIGNAL
+    parameters: 
+      fs: 
+        type: float
+        default: 1.0 
+      window: 
+        type: string
+        default: boxcar 
+      nfft: 
+        type: int
+        default:  
+      detrend: 
+        type: string
+        default: constant 
+      return_onesided: 
+        type: bool
+        default: True 
+      scaling: 
+        type: string
+        default: density 
+      axis: 
+        type: int
+        default: -1 
+        

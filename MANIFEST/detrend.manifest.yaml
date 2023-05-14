@@ -1,0 +1,18 @@
+COMMAND:
+  - name: Detrend
+    key: DETREND
+    type: SCIPY_SIGNAL
+    parameters: 
+      axis: 
+        type: int
+        default: -1 
+      type: 
+        type: string
+        default: linear 
+      bp: 
+        type: int
+        default: 0 
+      overwrite_data: 
+        type: bool
+        default: False 
+        

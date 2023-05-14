@@ -1,0 +1,39 @@
+COMMAND:
+  - name: Stft
+    key: STFT
+    type: SCIPY_SIGNAL
+    parameters: 
+      fs: 
+        type: float
+        default: 1.0 
+      window: 
+        type: string
+        default: hann 
+      nperseg: 
+        type: int
+        default: 256 
+      noverlap: 
+        type: int
+        default:  
+      nfft: 
+        type: int
+        default:  
+      detrend: 
+        type: bool
+        default: False 
+      return_onesided: 
+        type: bool
+        default: True 
+      boundary: 
+        type: string
+        default: zeros 
+      padded: 
+        type: bool
+        default: True 
+      axis: 
+        type: int
+        default: -1 
+      scaling: 
+        type: string
+        default: spectrum 
+        

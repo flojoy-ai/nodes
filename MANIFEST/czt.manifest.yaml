@@ -1,0 +1,18 @@
+COMMAND:
+  - name: Czt
+    key: CZT
+    type: SCIPY_SIGNAL
+    parameters: 
+      m: 
+        type: int
+        default:  
+      w: 
+        type: complex
+        default:  
+      a: 
+        type: complex
+        default: (1+0j) 
+      axis: 
+        type: int
+        default: -1 
+        

@@ -1,0 +1,6 @@
+COMMAND:
+  - name: Quadratic
+    key: QUADRATIC
+    type: SCIPY_SIGNAL
+    parameters: 
+        

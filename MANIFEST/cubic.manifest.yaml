@@ -1,0 +1,6 @@
+COMMAND:
+  - name: Cubic
+    key: CUBIC
+    type: SCIPY_SIGNAL
+    parameters: 
+        
