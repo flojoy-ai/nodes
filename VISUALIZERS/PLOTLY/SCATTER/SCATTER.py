@@ -2,6 +2,7 @@ import plotly.graph_objects as go
 from flojoy import flojoy, DataContainer
 import pandas as pd
 
+
 @flojoy
 def SCATTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Node creates a Plotly Scatter visualization for a given input data container."""

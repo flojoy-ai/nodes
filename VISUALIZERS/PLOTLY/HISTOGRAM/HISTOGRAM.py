@@ -2,6 +2,7 @@ from flojoy import flojoy, DataContainer
 import plotly.graph_objects as go
 import pandas as pd
 
+
 @flojoy
 def HISTOGRAM(dc_inputs: list[DataContainer], params: dict):
     """Node creates a Plotly Histogram visualization for a given input data container."""

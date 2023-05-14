@@ -26,4 +26,3 @@ def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         case _:
             raise ValueError("unsupported DataContainer type for LINE node")
     return DataContainer(type="plotly", fig=fig)
-

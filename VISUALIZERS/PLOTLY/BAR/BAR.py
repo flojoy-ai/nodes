@@ -2,6 +2,7 @@ from flojoy import flojoy, DataContainer
 import plotly.graph_objects as go
 import pandas as pd
 
+
 @flojoy
 def BAR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Node creates a Plotly Bar visualization for a given input data container."""
