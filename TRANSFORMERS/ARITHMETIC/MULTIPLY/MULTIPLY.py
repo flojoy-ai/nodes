@@ -11,4 +11,4 @@ def MULTIPLY(dc_inputs, params):
     x = dc_inputs[0].x
     y = np.multiply(a, b)
 
-    return DataContainer(x={"a": a, "b": b}, y=y)
+    return DataContainer(x=x, y=y)
