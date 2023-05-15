@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 
 
 @flojoy
-def SERIAL(v, params):
+def SERIAL(dc_inputs, params):
     """
     Node to take simple time dependent 1d data from an Ardunio,
     or a similar serial device.

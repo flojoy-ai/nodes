@@ -6,7 +6,7 @@ from os import path
 
 
 @flojoy
-def LOCAL_FILE(v, params):
+def LOCAL_FILE(dc_inputs, params):
     print("parameters passed to LOCAL_FILE: ", params)
     file_type = params["file_type"]
     match file_type:
@@ -47,4 +47,4 @@ def LOCAL_FILE(v, params):
                 a=alpha_channel,
             )
         case _:
-            return JobResultBuilder().from_inputs(v).build()
+            return JobResultBuilder().from_inputs(dc_inputs).build()
