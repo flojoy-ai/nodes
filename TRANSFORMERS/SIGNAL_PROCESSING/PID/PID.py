@@ -6,7 +6,7 @@ memory_key = "pid-info"
 
 
 @flojoy
-def PID(v, params):
+def PID(dc_inputs, params):
     # First let's get the parameters that won't change
     Kp = float(params["Kp"])
     Ki = float(params["Ki"])
@@ -26,7 +26,7 @@ def PID(v, params):
     regulation_error_primes = np.zeros((3, 1)) if initialize else data[1:]
     print(f"Recovered data: {data}")
 
-    regulation_error = v[0].y[
+    regulation_error = dc_inputs[0].y[
         -1
     ]  # constant node makes long list of items; just need the value so take last element
     integral += 0.5 * Ki * (regulation_error + regulation_error_primes[0])
@@ -51,4 +51,6 @@ def PID(v, params):
     )
     print(regulation_error, output_signal)
     # ... and return the result
-    return DataContainer(x=v[0].y, y=np.ones_like(v[0].y) * output_signal)
+    return DataContainer(
+        x=dc_inputs[0].y, y=np.ones_like(dc_inputs[0].y) * output_signal
+    )

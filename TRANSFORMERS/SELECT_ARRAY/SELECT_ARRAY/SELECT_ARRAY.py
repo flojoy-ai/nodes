@@ -3,7 +3,7 @@ import numpy as np
 
 
 @flojoy
-def SELECT_ARRAY(v, params):
+def SELECT_ARRAY(dc_inputs, params):
     """
     Node to convert an input array with multiple columns
     to the selected ordered pair.
@@ -19,11 +19,11 @@ def SELECT_ARRAY(v, params):
     COL = int(params.get("column", 0))
 
     # Check for numpy type. Return unchanged data if not.
-    if isinstance(v[0].y, np.ndarray):
-        x = v[0].x
-        y = v[0].y[:, int(COL)]
+    if isinstance(dc_inputs[0].y, np.ndarray):
+        x = dc_inputs[0].x
+        y = dc_inputs[0].y[:, int(COL)]
 
         return DataContainer(x=x, y=y)
 
     else:
-        return v[0]
+        return dc_inputs[0]

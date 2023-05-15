@@ -6,9 +6,9 @@ from os import path
 
 
 @flojoy
-def LOCAL_FILE(v, params):
+def LOCAL_FILE(dc_inputs, params):
     print("parameters passed to LOCAL_FILE: ", params)
-    file_type = params.get("file_type", "image")
+    file_type = params["file_type"]
     match file_type:
         case "image":
             red_channel = []
@@ -16,19 +16,15 @@ def LOCAL_FILE(v, params):
             blue_channel = []
             alpha_channel = []
             try:
-                filePath = ""
-                ctrlInput = params["path"]
-                opType = params["op_type"]
-                if ctrlInput is not None and len(ctrlInput.strip()) > 0:
-                    filePath = ctrlInput
-                elif len(filePath.strip()) == 0:
-                    if opType == "OD":
-                        filePath = path.join(
-                            path.dirname(path.abspath(__file__)),
-                            "assets",
-                            "object_detection.png",
-                        )
-                print("File to be loaded: " + filePath)
+                default_image_path = path.join(
+                    path.dirname(path.abspath(__file__)),
+                    "assets",
+                    "astronaut.png",
+                )
+                filePath = params["path"]
+                if filePath == "":
+                    filePath = default_image_path
+                print(" file will be loaded from: ", filePath)
                 f = Image.open(filePath)
                 img_array = np.array(f.convert("RGBA"))
                 if img_array.shape[2] == 4:
@@ -51,4 +47,4 @@ def LOCAL_FILE(v, params):
                 a=alpha_channel,
             )
         case _:
-            return JobResultBuilder().from_inputs(v).build()
+            return JobResultBuilder().from_inputs(dc_inputs).build()

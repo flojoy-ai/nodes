@@ -1,7 +1,5 @@
 COMMAND:
-  - {
-      name: Time Series,
-      key: TIMESERIES,
-      type: SIMULATION,
-      parameters: {}
-    }
+  - name: Time Series
+    key: TIMESERIES
+    type: SIMULATION
+    parameters: {}

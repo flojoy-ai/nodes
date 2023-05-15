@@ -1,6 +1,4 @@
 COMMAND:
-  - {
-      name: 'Bar Chart',
-      key: 'BAR',
-      type: 'PLOTLY_VISOR'
-    }
+  - name: Bar Chart
+    key: BAR
+    type: PLOTLY_VISOR
