@@ -18,6 +18,7 @@ def ADD(dc_inputs: list[DataContainer], params: dict):
     a = dc_inputs[0].y
     b = dc_inputs[1].y
 
+    x = dc_inputs[0].x
     y = np.add(a, b)
 
     return DataContainer(x={"a": a, "b": b}, y=y)
