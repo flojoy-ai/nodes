@@ -15,7 +15,7 @@ def SCATTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 dict_keys = list(dc_input.x.keys())
                 x = dc_input.x[dict_keys[0]]
             y = dc_input.y
-            fig.add_trace(go.Scatter(x=x, y=y, mode="markers"))
+            fig.add_trace(go.Scatter(x=x, y=y, mode="markers", marker=dict(size=4)))
         case "dataframe":
             df = pd.DataFrame(dc_input.m)
             for col in df.columns:
