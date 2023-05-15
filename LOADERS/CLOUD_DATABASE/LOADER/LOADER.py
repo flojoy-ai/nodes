@@ -59,3 +59,16 @@ def get_api_key():
     else:
         api_key = yaml_dict.get("FRONTIER_API_KEY", "")
     return api_key
+
+def set_api_key(api_key : str) -> bool:
+    home = str(Path.home())
+    path = os.path.join(home, ".flojoy/credentials")
+
+    if not os.path.exists(path):
+        return False
+    
+    stream = open(path, "r", encoding="utf-8")
+    yaml_dict = yaml.load(stream, Loader=yaml.FullLoader)
+    yaml_dict.put("FRONTIER_API_KEY", api_key)
+
+    return True
