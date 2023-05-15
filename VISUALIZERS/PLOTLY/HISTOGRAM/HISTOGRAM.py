@@ -17,7 +17,7 @@ def HISTOGRAM(dc_inputs: list[DataContainer], params: dict):
             y = dc_input.y
 
             # Want to show the distribution of y values on the x axis
-            fig.add_trace(go.Histogram(x=y)) 
+            fig.add_trace(go.Histogram(x=y))
         case "dataframe":
             df = pd.DataFrame(dc_input.m)
             for col in df.columns:
