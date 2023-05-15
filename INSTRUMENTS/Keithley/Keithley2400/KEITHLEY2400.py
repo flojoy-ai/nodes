@@ -6,14 +6,14 @@ from flojoy import flojoy, DataContainer
 @flojoy
 def KEITHLEY2400(dc, params):
     """
-    IV curve measurement with a Keithley 2400 source meter, sends voltages and mesure currents
+    IV curve measurement with a Keithley 2400 source meter, send voltages and measure currents
     """
 
-    # Serial communication with the instrument configuration
+    # Start serial communication with the instrument
     ser = serial.Serial()
 
     # Specific parameters
-    ser.port = params["comport"]  # Secify serial port for com
+    ser.port = params["comport"]  # Specify serial port for com
     ser.baudrate = params["baudrate"]  # Specify Baudrate
 
     # General parameters
@@ -30,7 +30,7 @@ def KEITHLEY2400(dc, params):
     ser.write(b':SENS:FUNC "CURR"\n')  # Measuring current
     ser.write(
         b":SENS:CURR:PROT 1.05\n"
-    )  # Current protection set at 1.05A (Keithely 2400)
+    )  # Current protection set at 1.05A (Keithley 2400)
 
     voltages = dc[0].y
     currents_neg = []  # measured currents
@@ -48,7 +48,6 @@ def KEITHLEY2400(dc, params):
         ser.write(b":OUTP OFF\n")  # Close output from Instrument
 
     # Close Serial Communication
-
     ser.close()
 
     return DataContainer(x={"a": voltages, "b": currents_neg}, y=currents_neg)
