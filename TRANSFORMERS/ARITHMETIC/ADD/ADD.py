@@ -21,4 +21,4 @@ def ADD(dc_inputs: list[DataContainer], params: dict):
     x = dc_inputs[0].x
     y = np.add(a, b)
 
-    return DataContainer(x={"a": a, "b": b}, y=y)
+    return DataContainer(x=x, y=y)
