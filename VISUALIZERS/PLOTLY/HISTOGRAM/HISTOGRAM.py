@@ -15,7 +15,7 @@ def HISTOGRAM(dc_inputs: list[DataContainer], params: dict):
                 dict_keys = list(dc_input.x.keys())
                 x = dc_input.x[dict_keys[0]]
             y = dc_input.y
-            fig.add_trace(go.Histogram(x=x, y=y))
+            fig.add_trace(go.Histogram(x=y))
         case "dataframe":
             df = pd.DataFrame(dc_input.m)
             for col in df.columns:
