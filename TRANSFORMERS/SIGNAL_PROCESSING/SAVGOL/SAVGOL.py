@@ -4,11 +4,11 @@ import warnings
 
 
 @flojoy
-def SAVGOL(v, params):
+def SAVGOL(dc_inputs, params):
     """Apply a Savitzky-Golay filter to an input vector.
     The default behaviour is implementing a 3-point moving average of the data."""
-    print("Savgol inputs:", v)
-    signal = v[0].y
+    print("Savgol inputs:", dc_inputs)
+    signal = dc_inputs[0].y
     window_length = int(params["wlen"])
     poly_order = int(params["porder"])
     if poly_order >= window_length:

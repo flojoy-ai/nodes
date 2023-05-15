@@ -6,17 +6,17 @@ from utils.object_detection.object_detection import detect_object
 
 
 @flojoy
-def OBJECT_DETECTION(v, params):
+def OBJECT_DETECTION(dc_inputs, params):
     try:
         red_channel = []
         green_channel = []
         blue_channel = []
         alpha_channel = []
         print("Detecting objects...")
-        r = v[0].r
-        g = v[0].g
-        b = v[0].b
-        a = v[0].a
+        r = dc_inputs[0].r
+        g = dc_inputs[0].g
+        b = dc_inputs[0].b
+        a = dc_inputs[0].a
         print(" a here: ", a)
         if a is not None:
             nparr = np.stack((r, g, b, a), axis=2)

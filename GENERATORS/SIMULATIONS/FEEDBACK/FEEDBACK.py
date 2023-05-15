@@ -4,14 +4,14 @@ import traceback
 
 
 @flojoy
-def FEEDBACK(v, params):
+def FEEDBACK(dc_inputs, params):
     referred_node = params["referred_node"]
 
     try:
         result = get_job_result(referred_node)
         return result
     except (Exception, NoSuchJobError) as e:
-        x = v[0].x
-        y = v[0].y
+        x = dc_inputs[0].x
+        y = dc_inputs[0].y
         print("Job not found: ", e, traceback.format_exc())
         return DataContainer(x=x, y=y)

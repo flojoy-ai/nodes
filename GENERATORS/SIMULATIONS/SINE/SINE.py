@@ -4,11 +4,11 @@ from scipy import signal
 
 
 @flojoy
-def SINE(v, params):
+def SINE(dc_inputs, params):
     valid_waveforms = ["sine", "square", "triangle", "sawtooth"]
     x = None
-    if v.__len__() > 0:
-        x = v[0].y
+    if dc_inputs.__len__() > 0:
+        x = dc_inputs[0].y
 
     waveform = params["waveform"]
     A = float(params["amplitude"])
