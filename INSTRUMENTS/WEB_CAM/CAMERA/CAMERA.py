@@ -1,61 +1,72 @@
 import cv2
 import os
 from flojoy import flojoy, DataContainer
+from PIL import Image
+import numpy as np
 
 
 @flojoy
-def CAMERA(dc_inputs, params):
+def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
-    Take a picture from a connected camera using OpenCV.
-    If no camera is connected, this will load the example image: "object_detection.png".
-    Perhaps after testing is finished, an error should be thrown if no camera was detected.
+    Takes a picture from a connected camera using OpenCV.
+    If no camera is connected, an error would be thrown.
     """
-    print("parameters passed to CAMERA: ", params)
-    y = {}
-    camera_test = False  # Value to test if image is the default image.
-
+    camera_ind = int(params["camera_ind"])
     try:
-        camera_index = int(params.get("camera_ind", -1))
-        camera = cv2.VideoCapture(
-            camera_index
-        )  # Camera indicator for selection of specific camera
-        test = camera.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-        # print('\n', test, '\n')  # Print to check if setting the resolution worked.
-        camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+        camera = cv2.VideoCapture(camera_ind)
 
-        (
-            return_value,
-            image,
-        ) = camera.read()  # Read camera. Return value can be useful for testing.
-        if image is None:
-            raise cv2.error
+        if not camera.isOpened():
+            raise cv2.error("Failed to open camera")
 
-        # print(image.shape)
-        camera_test = True  # Camera has been detected.
-        camera.release()  # Release the camera for further use.
+        result, frame = camera.read()
+
+        if not result:
+            raise cv2.error("Failed to capture image")
+        camera.release()
         del camera
 
-    except (
-        cv2.error
-    ) as camera_error:  # Catch error for when a camera isn't detected. Should it throw an error for production?
-        pass
+        # Split the image channels
+        red_channel = frame[:, :, 0]
+        green_channel = frame[:, :, 1]
+        blue_channel = frame[:, :, 2]
 
-    if not camera_test:
-        print("OpenCV cannot read the specified camera.")
-        print("Loading backup image.")
-        filePath = "../public/assets/object_detection.png"  # Load example image instead for testing.
-        # Load the file and put into bytearray.
-        print("File to be loaded: " + filePath)
-        with open(filePath, "rb") as fileToBeLoaded:
-            f = fileToBeLoaded.read()
-            # print(type(cv2.imread(filePath)))
-            y = [bytearray(f)]
-            # print(type(f))
-            # print(type(bytearray(f)))
-        fileToBeLoaded.close()
+        if frame.shape[2] == 4:
+            alpha_channel = frame[:, :, 3]
+        else:
+            alpha_channel = None
 
+        return DataContainer(
+            type="image",
+            r=red_channel,
+            g=green_channel,
+            b=blue_channel,
+            a=alpha_channel,
+        )
+
+    except cv2.error as camera_error:
+        raise camera_error
+
+
+@flojoy
+def CAMERA_MOCK(dc_inputs: list[DataContainer], params: dict):
+    print("Running mock version of CAMERA node...")
+
+    # Get the absolute path of the current directory
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    # Construct the path to the asset file
+    file_path = os.path.join(
+        current_dir, "assets", "astronaut.png"
+    )  # Load example image.
+    print("File to be loaded: ", file_path)
+    f = Image.open(file_path)
+    img_array = np.array(f.convert("RGBA"))
+    red_channel = img_array[:, :, 0]
+    green_channel = img_array[:, :, 1]
+    blue_channel = img_array[:, :, 2]
+    if img_array.shape[2] == 4:
+        alpha_channel = img_array[:, :, 3]
     else:
-        f = cv2.imencode(".png", image)[1]  # encode image to pass to next node.
-        y = [bytearray(f)]
-
-    return DataContainer(type="file", y=y, file_type=["image"])
+        alpha_channel = None
+    return DataContainer(
+        type="image", r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel
+    )

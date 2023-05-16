@@ -3,9 +3,9 @@ COMMAND:
     key: CAMERA
     type: WEB_CAM
     parameters:
-      file_type:
-        type: string
-        default: image
       camera_ind:
-        type: integer
+        type: float
         default: 0
+    pip_dependencies:
+      - name: opencv-python-headless
+        v: 4.7.0.72
