@@ -2,7 +2,7 @@ import json
 
 from node_sdk.small_memory import SmallMemory
 
-from flojoy import JobResultBuilder, flojoy
+from flojoy import JobResultBuilder, DataContainer, flojoy
 
 memory_key = "loop-info"
 
@@ -34,7 +34,7 @@ class LoopData:
         }
 
     @staticmethod
-    def from_data(node_id, data):
+    def from_data(node_id, data: dict):
         loop_data = LoopData(
             node_id,
             num_loops=data.get("num_loops", -1),
@@ -48,7 +48,7 @@ class LoopData:
 
 
 @flojoy
-def LOOP(dc_inputs, params):
+def LOOP(dc_inputs: list[DataContainer], params: dict):
     num_loops = params.get("num_loops", 0)
     node_id = params.get("node_id", 0)
 
@@ -79,7 +79,7 @@ def LOOP(dc_inputs, params):
     return build_result(dc_inputs, loop_data.is_finished)
 
 
-def load_loop_data(node_id, default_num_loops) -> LoopData:
+def load_loop_data(node_id, default_num_loops: int) -> LoopData:
     data = SmallMemory().read_memory(node_id, memory_key)
     loop_data = LoopData.from_data(
         node_id=node_id, data={"num_loops": default_num_loops, **data}
@@ -97,7 +97,7 @@ def delete_loop_data(node_id):
     print("delete loop data")
 
 
-def build_result(inputs, is_loop_finished):
+def build_result(inputs, is_loop_finished: bool):
     return (
         JobResultBuilder()
         .from_inputs(inputs)

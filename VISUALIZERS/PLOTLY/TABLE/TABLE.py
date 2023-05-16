@@ -4,7 +4,7 @@ import pandas as pd
 
 
 @flojoy
-def TABLE(dc_inputs: list[DataContainer], params: dict):
+def TABLE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Node creates a Plotly table visualization for a given input data container.
 
     Args:

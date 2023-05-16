@@ -4,7 +4,7 @@ import numpy as np
 
 
 @flojoy
-def FIR(dc_inputs, params):
+def FIR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Apply a low-pass FIR filter to an input vector. This
     filter takes a few inputs: the sample_rate (will be passed as a parameter
     if the target node is not connected), the desired width of the

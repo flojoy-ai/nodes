@@ -6,7 +6,7 @@ from utils.object_detection.object_detection import detect_object
 
 
 @flojoy
-def OBJECT_DETECTION(dc_inputs, params):
+def OBJECT_DETECTION(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     try:
         red_channel = []
         green_channel = []

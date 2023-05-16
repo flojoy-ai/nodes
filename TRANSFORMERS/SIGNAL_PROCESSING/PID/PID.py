@@ -6,7 +6,7 @@ memory_key = "pid-info"
 
 
 @flojoy
-def PID(dc_inputs, params):
+def PID(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     # First let's get the parameters that won't change
     Kp = float(params["Kp"])
     Ki = float(params["Ki"])

@@ -4,7 +4,7 @@ import u3  # Import the library from LabJackPython in order to use our U3-LV dev
 
 
 @flojoy
-def LABJACKU3(dc, params):
+def LABJACKU3(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Takes a number of sensors as parameters and return their temperature measurement"""
 
     voltages = []
@@ -36,7 +36,7 @@ def LABJACKU3(dc, params):
 
 
 @flojoy
-def LABJACKU3_MOCK(dc, params):
+def LABJACKU3_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Mock function for Labjack node"""
     voltages = []  # Declaration of variable
     temperatures = []

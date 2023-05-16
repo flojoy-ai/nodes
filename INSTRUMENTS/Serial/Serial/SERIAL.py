@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 
 
 @flojoy
-def SERIAL(dc_inputs, params):
+def SERIAL(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
     Node to take simple time dependent 1d data from an Ardunio,
     or a similar serial device.
@@ -90,7 +90,7 @@ def SERIAL(dc_inputs, params):
 
 
 @flojoy
-def Serial_MOCK(dc, params):
+def Serial_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     print("Running mock version of Serial")
 
     x = np.linspace(0, 100, 100)

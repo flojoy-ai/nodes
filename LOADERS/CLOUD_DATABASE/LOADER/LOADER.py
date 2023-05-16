@@ -16,7 +16,7 @@ MEASUREMENT_API = f"{FRONTIER_URI}/measurements"
 
 
 @flojoy
-def LOADER(dc_inputs: list[DataContainer], params: dict):
+def LOADER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     api_key = get_api_key()
     measurement_uuid = params["measurement_uuid"]
 
@@ -40,7 +40,7 @@ def LOADER(dc_inputs: list[DataContainer], params: dict):
         raise KeyError(f"{not_found_key} not found!")
 
 
-def get_api_key():
+def get_api_key() -> str:
     home = str(Path.home())
     api_key = ""
     path = os.path.join(home, ".flojoy/credentials")

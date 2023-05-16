@@ -10,7 +10,7 @@ def onVoltageRatioChange(self, voltageRatio):
 
 
 @flojoy
-def PHIDGET22(dc, params):
+def PHIDGET22(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Pressure Measurement with Phidget 22 sensors"""
     voltage = []
     pressions = []
@@ -31,7 +31,7 @@ def PHIDGET22(dc, params):
 
         # Example of a Calibration to convert Voltage into pressions :
         pression_i = (volt_i - float(params["calibration1"])) / float(
-            arams["calibration2"]
+            params["calibration2"]
         )
 
         pressions.append(pression_i)
@@ -40,7 +40,7 @@ def PHIDGET22(dc, params):
 
 
 @flojoy
-def PHIDGET22_MOCK(dc, params):
+def PHIDGET22_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Mock Function for the node Phidget 22"""
     voltage = []
     pressions = []

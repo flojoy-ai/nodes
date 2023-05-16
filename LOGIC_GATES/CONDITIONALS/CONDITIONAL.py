@@ -1,9 +1,12 @@
 from flojoy import flojoy, DataContainer, JobResultBuilder
+from typing import Union
 from utils.utils import compare_values
 
 
 @flojoy
-def CONDITIONAL(dc_inputs, params):
+def CONDITIONAL(
+    dc_inputs: list[DataContainer], params: dict
+) -> Union[DataContainer, dict]:
     operator = params["operator_type"]
 
     x = dc_inputs[1].y

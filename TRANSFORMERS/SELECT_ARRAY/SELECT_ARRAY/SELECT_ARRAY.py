@@ -3,7 +3,7 @@ import numpy as np
 
 
 @flojoy
-def SELECT_ARRAY(dc_inputs, params):
+def SELECT_ARRAY(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
     Node to convert an input array with multiple columns
     to the selected ordered pair.

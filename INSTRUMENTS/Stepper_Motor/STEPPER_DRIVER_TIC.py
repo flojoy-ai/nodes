@@ -6,7 +6,7 @@ from time import sleep
 
 
 @flojoy
-def STEPPER_DRIVER_TIC(dc, params):
+def STEPPER_DRIVER_TIC(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
     Takes current limit and sleep time as parameters and allow to control position
     and speed of a motor with a TIC driver
@@ -36,7 +36,9 @@ def STEPPER_DRIVER_TIC(dc, params):
 
 
 @flojoy
-def STEPPER_DRIVER_TIC_MOCK(dc, params):
+def STEPPER_DRIVER_TIC_MOCK(
+    dc_inputs: list[DataContainer], params: dict
+) -> DataContainer:
     """Mock function for the stepper driver
     returns positions and speeds"""
     positions = [50, 100, 150, 200]  # Setting default positions

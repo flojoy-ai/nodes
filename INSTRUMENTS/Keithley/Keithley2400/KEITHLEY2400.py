@@ -4,7 +4,7 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def KEITHLEY2400(dc, params):
+def KEITHLEY2400(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
     IV curve measurement with a Keithley 2400 source meter, send voltages and measure currents
     """
@@ -32,7 +32,7 @@ def KEITHLEY2400(dc, params):
         b":SENS:CURR:PROT 1.05\n"
     )  # Current protection set at 1.05A (Keithley 2400)
 
-    voltages = dc[0].y
+    voltages = dc_inputs[0].y
     currents_neg = []  # measured currents
 
     for voltage in voltages:
@@ -54,10 +54,10 @@ def KEITHLEY2400(dc, params):
 
 
 @flojoy
-def KEITHLEY2400_MOCK(dc, params):
+def KEITHLEY2400_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Mock Function for Keithley2400 node"""
 
-    voltages = dc[0].y
+    voltages = dc_inputs[0].y
     currents_neg = []  # measured currents
 
     for voltage in voltages:

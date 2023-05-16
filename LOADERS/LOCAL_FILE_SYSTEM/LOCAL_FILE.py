@@ -1,12 +1,15 @@
 import traceback
 from flojoy import flojoy, DataContainer, JobResultBuilder
+from typing import Union
 import numpy as np
 from PIL import Image
 from os import path
 
 
 @flojoy
-def LOCAL_FILE(dc_inputs, params):
+def LOCAL_FILE(
+    dc_inputs: list[DataContainer], params: dict
+) -> Union[DataContainer, dict]:
     print("parameters passed to LOCAL_FILE: ", params)
     file_type = params["file_type"]
     match file_type:

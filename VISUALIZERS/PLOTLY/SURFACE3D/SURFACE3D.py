@@ -3,7 +3,7 @@ from flojoy import DataContainer, flojoy
 
 
 @flojoy
-def SURFACE3D(dc_inputs, params):
+def SURFACE3D(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     dc_input = dc_inputs[0]
     if dc_input.type == "ordered_triple":
         x = dc_input.x
