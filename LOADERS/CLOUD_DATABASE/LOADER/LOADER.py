@@ -36,5 +36,7 @@ def LOADER(dc_inputs: list[DataContainer], params: dict):
             raise e
         return dc_inputs[0]
     else:
-        not_found_key = "FRONTIER_API_KEY" if api_key is not None else "Measurement UUID"
+        not_found_key = (
+            "FRONTIER_API_KEY" if api_key is not None else "Measurement UUID"
+        )
         raise KeyError(f"{not_found_key} not found!")
