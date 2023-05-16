@@ -14,7 +14,7 @@ def STEPPER_DRIVER_TIC_KNOB(dc, params):
 
     speed = int(params["speed"])
     sleep_time = int(params["sleep_time"])
-    current_limit = int(params["sleep_time"])
+    current_limit = int(params["current_limit"])
 
     # Converting the knob value into a position
     knob_position = 2 * int(params["knob_value"])
