@@ -1,0 +1,19 @@
+COMMAND:
+  - name: Image Smoothing
+    key: IMAGE_SMOOTHING
+    type: IMAGE_PROCESSING
+    parameters:
+      kernel:
+        type: float
+        default: 5
+      smoothing_type:
+        type: select
+        options:
+          - average
+          - gaussian
+          - median
+          - bilateral
+        default: average
+    pip_dependencies:
+      - name: opencv-python-headless
+        v: 4.7.0.72
