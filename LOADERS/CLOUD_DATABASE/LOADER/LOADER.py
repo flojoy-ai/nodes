@@ -68,8 +68,7 @@ def set_api_key(api_key: str) -> bool:
     if not os.path.exists(path):
         return False
 
-    stream = open(path, "r", encoding="utf-8")
-    yaml_dict = yaml.load(stream, Loader=yaml.FullLoader)
-    yaml_dict.put("FRONTIER_API_KEY", api_key)
-
+    with open(path, "r", encoding="utf-8") as stream:
+        yaml_dict = yaml.load(stream, Loader=yaml.FullLoader)
+        yaml_dict.put("FRONTIER_API_KEY", api_key)
     return True
