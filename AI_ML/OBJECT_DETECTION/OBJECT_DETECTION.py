@@ -20,7 +20,7 @@ def OBJECT_DETECTION(dc_inputs: list[DataContainer], params: dict) -> DataContai
     Raises:
         Exception: If an error occurs during object detection.
     """
-    dc_input:DataContainer = dc_inputs[0]
+    dc_input: DataContainer = dc_inputs[0]
     if dc_input.type != "image":
         raise ValueError(
             f"unsupported DataContainer type passed to OBJECT_DETECTION node: '{dc_input.type}'"

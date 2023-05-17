@@ -32,8 +32,8 @@ def LOCAL_FILE(
       If 'path' is empty, a default image path will be used.
 
     """
-    file_type:str = params["file_type"]
-    filePath:str = params["path"]
+    file_type: str = params["file_type"]
+    filePath: str = params["path"]
     match file_type:
         case "image":
             try:
