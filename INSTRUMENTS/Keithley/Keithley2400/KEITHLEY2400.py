@@ -10,7 +10,7 @@ def KEITHLEY2400(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
 
     # Start serial communication with the instrument
-    ser = serial.Serial()
+    ser: serial = serial.Serial()
 
     # Specific parameters
     ser.port = params["comport"]  # Specify serial port for com
@@ -33,7 +33,7 @@ def KEITHLEY2400(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     )  # Current protection set at 1.05A (Keithley 2400)
 
     voltages = dc_inputs[0].y
-    currents_neg = []  # measured currents
+    currents_neg: list[float] = []  # measured currents
 
     for voltage in voltages:
         ser.write(b":SOUR:VOLT %f\n" % voltage)  # Source Tension (V)
@@ -41,8 +41,10 @@ def KEITHLEY2400(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         ser.write(b":INIT\n")  # Start measuring
         ser.write(b":FETC?\n")  # Retrieve the measured values
 
-        current_str = ser.readline().decode("ascii").strip()  # Save answers in a string
-        voltage_current_values = current_str.split(",")  # Split the string
+        current_str: str = (
+            ser.readline().decode("ascii").strip()
+        )  # Save answers in a string
+        voltage_current_values: str = current_str.split(",")  # Split the string
         currents_neg.append(-float(voltage_current_values[1]))
 
         ser.write(b":OUTP OFF\n")  # Close output from Instrument

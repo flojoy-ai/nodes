@@ -12,13 +12,13 @@ def STEPPER_DRIVER_TIC(dc_inputs: list[DataContainer], params: dict) -> DataCont
     and speed of a motor with a TIC driver
     """
 
-    positions = [50, 100, 150, 200]  # Setting default positions
-    speeds = [50000, 1000000, 150000, 200000]  # Setting default speeds
-    current_limit = int(params["current_limit"])
-    sleep_time = int(params["sleep_time"])
+    positions: list[int] = [50, 100, 150, 200]  # Setting default positions
+    speeds: list[int] = [50000, 1000000, 150000, 200000]  # Setting default speeds
+    current_limit: int = int(params["current_limit"])
+    sleep_time: int = int(params["sleep_time"])
 
     # Declaration of the stepper driver
-    tic = TicUSB()
+    tic: TicUSB = TicUSB()
     tic.halt_and_set_position(0)  # Set the position to 0
     tic.set_current_limit(current_limit)  # Set the current limit of the TIC driver
     tic.energize()  # Turn on the driver
@@ -41,7 +41,7 @@ def STEPPER_DRIVER_TIC_MOCK(
 ) -> DataContainer:
     """Mock function for the stepper driver
     returns positions and speeds"""
-    positions = [50, 100, 150, 200]  # Setting default positions
-    speeds = [50000, 1000000, 150000, 200000]  # Setting default speeds
+    positions: list[int] = [50, 100, 150, 200]  # Setting default positions
+    speeds: list[int] = [50000, 1000000, 150000, 200000]  # Setting default speeds
 
     return DataContainer(x={"a": positions, "b": speeds}, y=speeds)

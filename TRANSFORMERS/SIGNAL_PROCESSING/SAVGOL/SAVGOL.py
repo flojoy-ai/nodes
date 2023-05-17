@@ -9,8 +9,8 @@ def SAVGOL(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     The default behaviour is implementing a 3-point moving average of the data."""
     print("Savgol inputs:", dc_inputs)
     signal = dc_inputs[0].y
-    window_length = int(params["wlen"])
-    poly_order = int(params["porder"])
+    window_length: int = int(params["wlen"])
+    poly_order: int = int(params["porder"])
     if poly_order >= window_length:
         warnings.warn(
             "Polynomial order is greater than the window size. Using p=w-1..."

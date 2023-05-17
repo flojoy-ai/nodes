@@ -4,7 +4,7 @@ from flojoy import DataContainer, flojoy
 
 @flojoy
 def SCATTER3D(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    dc_input = dc_inputs[0]
+    dc_input: DataContainer = dc_inputs[0]
     if dc_input.type == "ordered_triple":
         x = dc_input.x
         if isinstance(dc_input.x, dict):

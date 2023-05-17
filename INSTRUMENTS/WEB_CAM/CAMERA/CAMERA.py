@@ -11,11 +11,11 @@ def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     Perhaps after testing is finished, an error should be thrown if no camera was detected.
     """
     print("parameters passed to CAMERA: ", params)
-    y = {}
-    camera_test = False  # Value to test if image is the default image.
+    y: dict = {}
+    camera_test: bool = False  # Value to test if image is the default image.
 
     try:
-        camera_index = int(params.get("camera_ind", -1))
+        camera_index: int = int(params.get("camera_ind", -1))
         camera = cv2.VideoCapture(
             camera_index
         )  # Camera indicator for selection of specific camera
@@ -31,7 +31,7 @@ def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             raise cv2.error
 
         # print(image.shape)
-        camera_test = True  # Camera has been detected.
+        camera_test: bool = True  # Camera has been detected.
         camera.release()  # Release the camera for further use.
         del camera
 
@@ -43,7 +43,7 @@ def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     if not camera_test:
         print("OpenCV cannot read the specified camera.")
         print("Loading backup image.")
-        filePath = "../public/assets/object_detection.png"  # Load example image instead for testing.
+        filePath: str = "../public/assets/object_detection.png"  # Load example image instead for testing.
         # Load the file and put into bytearray.
         print("File to be loaded: " + filePath)
         with open(filePath, "rb") as fileToBeLoaded:

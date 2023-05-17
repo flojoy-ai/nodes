@@ -48,8 +48,8 @@ class LoopData:
 
 
 @flojoy
-def LOOP(dc_inputs: list[DataContainer], params: dict):
-    num_loops = params.get("num_loops", 0)
+def LOOP(dc_inputs: list[DataContainer], params: dict) -> dict:
+    num_loops: int = params.get("num_loops", 0)
     node_id = params.get("node_id", 0)
 
     print("\n\nstart loop:", node_id)

@@ -5,7 +5,7 @@ import numpy as np
 
 @flojoy
 def IMAGE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    dc_input = dc_inputs[0]
+    dc_input: DataContainer = dc_inputs[0]
     if dc_input.type == "image":
         r = dc_input.r
         g = dc_input.g
