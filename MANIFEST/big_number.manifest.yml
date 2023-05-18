@@ -1,0 +1,4 @@
+COMMAND:
+  - name: BIG_NUMBER
+    key: BIG_NUMBER
+    type: PLOTLY_VISOR
