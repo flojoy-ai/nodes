@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 
 
 @flojoy
-def SERIAL(dc_inputs, params):
+def SERIAL_TIMESERIES(dc_inputs, params):
     """
     Node to take simple time dependent 1d data from an Ardunio,
     or a similar serial device.
@@ -40,7 +40,7 @@ def SERIAL(dc_inputs, params):
 
     num_readings * record_period is roughly the run length in seconds.
     """
-    print("parameters passed to SERIAL: ", params)
+    print("parameters passed to SERIAL_TIMESERIES: ", params)
     COM_PORT = params.get("com_port", "/dev/ttyUSB0")
     BAUD = int(params.get("BAUD_RATE", 9600))
     NUM = int(params.get("num_readings", 100))
