@@ -41,8 +41,8 @@ def SERIAL_TIMESERIES(dc_inputs, params):
     num_readings * record_period is roughly the run length in seconds.
     """
     print("parameters passed to SERIAL_TIMESERIES: ", params)
-    COM_PORT = params["comport"]
-    BAUD = int(params.get("BAUD_RATE", 9600))
+    COM_PORT = params.get("comport", "dev/ttyACM0")
+    BAUD = int(params.get("baudrate", 9600))
     NUM = int(params.get("num_readings", 100))
     RECORD_PERIOD = float(params.get("record_period", 1))
 
@@ -62,7 +62,7 @@ def SERIAL_TIMESERIES(dc_inputs, params):
 
             ts = datetime.now()
             seconds = float(
-                ts.hour * 3600 + ts.minute * 60 + ts.second + ts.microsecond / 10**6
+                ts.hour * 3600 + ts.minute * 60 + ts.second + ts.microsecond / 10 ** 6
             )
 
             times.append(seconds)

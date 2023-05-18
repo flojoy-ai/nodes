@@ -5,7 +5,7 @@ COMMAND:
     parameters:
       comport:
         type: string
-        default: "/dev/ttyUSB0"
+        default: "/dev/ttyACM0"
       baudrate:
         type: float
         default: 9600
