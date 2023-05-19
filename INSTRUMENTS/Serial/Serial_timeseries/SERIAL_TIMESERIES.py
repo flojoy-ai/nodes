@@ -40,7 +40,9 @@ def SERIAL_TIMESERIES(dc_inputs, params):
 
     num_readings * record_period is roughly the run length in seconds.
     """
+    print("\n")
     print("parameters passed to SERIAL_TIMESERIES: ", params)
+    print("\n")
     COM_PORT = params["comport"]
     BAUD = int(params["baudrate"])
     NUM = int(params["num_readings"])
@@ -58,6 +60,8 @@ def SERIAL_TIMESERIES(dc_inputs, params):
         # Some readings may be empty.
         if s != "":
             reading = s[:-2].split(",")
+            if len(reading) == 1:
+                reading = reading[0]
             readings.append(reading)
 
             ts = datetime.now()
@@ -77,10 +81,18 @@ def SERIAL_TIMESERIES(dc_inputs, params):
                 sleep(RECORD_PERIOD - time1)
 
     times = np.array(times)
-    times -= times[0]
+    try:
+        times -= times[0]
+    except IndexError:
+        raise IndexError("No data detected from the Arduino")
 
     readings = np.array(readings)
     readings = readings.astype("float64")
+    print("Dimension de readings :")
+    print(readings.ndim)
+
+    print("Value de readings :")
+    print(readings)
     # If there are two or more columns return a Plotly figure.
     if readings.ndim == 2:
         data = go.Line(x=times, y=readings[:, 0], mode="markers")
