@@ -41,10 +41,10 @@ def SERIAL_TIMESERIES(dc_inputs, params):
     num_readings * record_period is roughly the run length in seconds.
     """
     print("parameters passed to SERIAL_TIMESERIES: ", params)
-    COM_PORT = params.get("comport", "dev/ttyACM0")
-    BAUD = int(params.get("baudrate", 9600))
-    NUM = int(params.get("num_readings", 100))
-    RECORD_PERIOD = float(params.get("record_period", 1))
+    COM_PORT = params["comport"]
+    BAUD = int(params["baudrate"])
+    NUM = int(params["num_readings"])
+    RECORD_PERIOD = float(params["record_period"])
 
     ser = serial.Serial(COM_PORT, timeout=1, baudrate=BAUD)
     readings = []
@@ -78,6 +78,7 @@ def SERIAL_TIMESERIES(dc_inputs, params):
 
     times = np.array(times)
     times -= times[0]
+
     readings = np.array(readings)
     readings = readings.astype("float64")
     # If there are two or more columns return a Plotly figure.
@@ -90,7 +91,7 @@ def SERIAL_TIMESERIES(dc_inputs, params):
 
 
 @flojoy
-def Serial_MOCK(dc, params):
+def SERIAL_TIMESERIES_MOCK(dc, params):
     print("Running mock version of Serial")
 
     x = np.linspace(0, 100, 100)
