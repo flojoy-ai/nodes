@@ -21,7 +21,11 @@ def SELECT_ARRAY(dc_inputs, params):
     # Check for numpy type. Return unchanged data if not.
     if isinstance(dc_inputs[0].y, np.ndarray):
         x = dc_inputs[0].x
-        y = dc_inputs[0].y[:, int(COL)]
+
+        if dc_inputs[0].y.ndim == 2:
+            y = dc_inputs[0].y[:, int(COL)]
+        else:
+            y = [dc_inputs[0].y[int(COL)]]
 
         return DataContainer(x=x, y=y)
 
