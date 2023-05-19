@@ -1,6 +1,6 @@
 COMMAND:
-  - name: SERIAL
-    key: SERIAL
+  - name: SERIAL_TIMESERIES
+    key: SERIAL_TIMESERIES
     type: SERIAL
     parameters:
       comport:

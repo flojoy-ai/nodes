@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 
 
 @flojoy
-def SERIAL(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def SERIAL_TIMESERIES(dc_inputs, params):
     """
     Node to take simple time dependent 1d data from an Ardunio,
     or a similar serial device.
@@ -40,15 +40,15 @@ def SERIAL(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     num_readings * record_period is roughly the run length in seconds.
     """
-    print("parameters passed to SERIAL: ", params)
+    print("parameters passed to SERIAL_TIMESERIES: ", params)
     COM_PORT = params.get("com_port", "/dev/ttyUSB0")
-    BAUD: int = int(params.get("BAUD_RATE", 9600))
-    NUM: int = int(params.get("num_readings", 100))
-    RECORD_PERIOD: float = float(params.get("record_period", 1))
+    BAUD = int(params.get("BAUD_RATE", 9600))
+    NUM = int(params.get("num_readings", 100))
+    RECORD_PERIOD = float(params.get("record_period", 1))
 
     ser = serial.Serial(COM_PORT, timeout=1, baudrate=BAUD)
-    readings: list[list[str]] = []
-    times: list[float] = []
+    readings = []
+    times = []
     # The first reading is commonly empty.
     s = ser.readline().decode()
 
@@ -57,28 +57,28 @@ def SERIAL(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         s = ser.readline().decode()
         # Some readings may be empty.
         if s != "":
-            reading: list[str] = s[:-2].split(",")
+            reading = s[:-2].split(",")
             readings.append(reading)
 
-            ts: datetime = datetime.now()
-            seconds: float = float(
+            ts = datetime.now()
+            seconds = float(
                 ts.hour * 3600 + ts.minute * 60 + ts.second + ts.microsecond / 10**6
             )
 
             times.append(seconds)
 
             if len(times) > 0:
-                time1: float = seconds - times[i]
+                time1 = seconds - times[i]
             else:
                 # Estimate execution time.
-                time1: float = 0.1
+                time1 = 0.1
 
             if time1 < RECORD_PERIOD:
                 sleep(RECORD_PERIOD - time1)
 
-    times: np.ndarray = np.array(times)
+    times = np.array(times)
     times -= times[0]
-    readings: np.ndarray = np.array(readings)
+    readings = np.array(readings)
     readings = readings.astype("float64")
     # If there are two or more columns return a Plotly figure.
     if readings.ndim == 2:
@@ -90,10 +90,10 @@ def SERIAL(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
 
 @flojoy
-def Serial_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def SERIAL_TIMESERIES_MOCK(dc, params):
     print("Running mock version of Serial")
 
-    x: np.ndarray = np.linspace(0, 100, 100)
-    y: np.ndarray = np.linspace(0, 100, 100)
+    x = np.linspace(0, 100, 100)
+    y = np.linspace(0, 100, 100)
 
     return DataContainer(x=x, y=y)
