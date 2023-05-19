@@ -90,7 +90,7 @@ def SERIAL_TIMESERIES(dc_inputs, params):
 
 
 @flojoy
-def Serial_MOCK(dc, params):
+def SERIAL_TIMESERIES_MOCK(dc, params):
     print("Running mock version of Serial")
 
     x = np.linspace(0, 100, 100)

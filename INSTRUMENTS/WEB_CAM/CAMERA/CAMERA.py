@@ -11,7 +11,7 @@ def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     Takes a picture from a connected camera using OpenCV.
     If no camera is connected, an error would be thrown.
     """
-    camera_ind = int(params["camera_ind"])
+    camera_ind: int = int(params["camera_ind"])
     try:
         camera = cv2.VideoCapture(camera_ind)
 
