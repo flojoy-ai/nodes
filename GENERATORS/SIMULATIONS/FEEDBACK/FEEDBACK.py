@@ -4,7 +4,7 @@ import traceback
 
 
 @flojoy
-def FEEDBACK(dc_inputs, params):
+def FEEDBACK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     referred_node = params["referred_node"]
 
     try:
