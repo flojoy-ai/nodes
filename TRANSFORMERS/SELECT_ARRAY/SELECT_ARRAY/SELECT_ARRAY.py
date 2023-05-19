@@ -27,7 +27,6 @@ def SELECT_ARRAY(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         else:
             y: np.ndarray = [dc_inputs[0].y[int(COL)]]
 
-
         return DataContainer(x=x, y=y)
 
     else:
