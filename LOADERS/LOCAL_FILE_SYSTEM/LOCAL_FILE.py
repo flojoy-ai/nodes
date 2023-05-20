@@ -1,11 +1,14 @@
 from flojoy import flojoy, DataContainer, JobResultBuilder
+from typing import Union
 import numpy as np
 from PIL import Image
 from os import path
 
 
 @flojoy
-def LOCAL_FILE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def LOCAL_FILE(
+    dc_inputs: list[DataContainer], params: dict
+) -> Union[DataContainer, dict]:
     """
     Load a local file and convert it to a DataContainer class.
 
@@ -29,8 +32,8 @@ def LOCAL_FILE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
       If 'path' is empty, a default image path will be used.
 
     """
-    file_type = params["file_type"]
-    filePath = params["path"]
+    file_type: str = params["file_type"]
+    filePath: str = params["path"]
     match file_type:
         case "image":
             try:

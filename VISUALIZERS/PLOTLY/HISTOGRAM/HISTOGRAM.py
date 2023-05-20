@@ -4,9 +4,9 @@ import pandas as pd
 
 
 @flojoy
-def HISTOGRAM(dc_inputs: list[DataContainer], params: dict):
+def HISTOGRAM(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Node creates a Plotly Histogram visualization for a given input data container."""
-    dc_input = dc_inputs[0]
+    dc_input: DataContainer = dc_inputs[0]
     fig = go.Figure()
     match dc_input.type:
         case "ordered_pair":

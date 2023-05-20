@@ -6,7 +6,7 @@ memory_key = "SECOND_ORDER_SYSTEM"
 
 
 @flojoy
-def SECOND_ORDER_SYSTEM(dc_inputs, params):
+def SECOND_ORDER_SYSTEM(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     # Let's first define things that won't change over
     # each iteration: time constants, etc ...
     d1 = float(params["d1"])  # first time constant in us, 250
