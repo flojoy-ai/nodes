@@ -79,8 +79,8 @@ def LOOP(dc_inputs: list[DataContainer], params: dict) -> dict:
     return build_result(dc_inputs, loop_data.is_finished)
 
 
-def load_loop_data(node_id, default_num_loops: int) -> LoopData:
-    data = SmallMemory().read_memory(node_id, memory_key)
+def load_loop_data(node_id, default_num_loops) -> LoopData:
+    data = SmallMemory().read_memory(node_id, memory_key) or {}
     loop_data = LoopData.from_data(
         node_id=node_id, data={"num_loops": default_num_loops, **data}
     )
