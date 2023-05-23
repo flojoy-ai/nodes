@@ -1,26 +1,29 @@
 from flojoy import flojoy, DataContainer, JobResultBuilder
+from typing import Union
 from utils.utils import compare_values
 
 
 @flojoy
-def CONDITIONAL(v, params):
+def CONDITIONAL(
+    dc_inputs: list[DataContainer], params: dict
+) -> Union[DataContainer, dict]:
     operator = params["operator_type"]
 
-    x = v[1].y
-    y = v[0].y
+    x = dc_inputs[1].y
+    y = dc_inputs[0].y
     bool_ = compare_values(x[0], y[0], operator)
 
     data = None
     if operator in ["<=", "<"]:
         if not bool_:
-            data = DataContainer(x=v[0].x, y=y)
+            data = DataContainer(x=dc_inputs[0].x, y=y)
         else:
-            data = DataContainer(x=v[1].x, y=x)
+            data = DataContainer(x=dc_inputs[1].x, y=x)
     else:
         if bool_:
-            data = DataContainer(x=v[0].x, y=y)
+            data = DataContainer(x=dc_inputs[0].x, y=y)
         else:
-            data = DataContainer(x=v[1].x, y=x)
+            data = DataContainer(x=dc_inputs[1].x, y=x)
 
     next_direction = str(bool_).lower()
 

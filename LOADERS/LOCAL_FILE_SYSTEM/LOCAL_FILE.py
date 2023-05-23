@@ -1,54 +1,67 @@
-import traceback
 from flojoy import flojoy, DataContainer, JobResultBuilder
+from typing import Union
 import numpy as np
 from PIL import Image
 from os import path
 
 
 @flojoy
-def LOCAL_FILE(v, params):
-    print("parameters passed to LOCAL_FILE: ", params)
-    file_type = params.get("file_type", "image")
+def LOCAL_FILE(
+    dc_inputs: list[DataContainer], params: dict
+) -> Union[DataContainer, dict]:
+    """
+    Load a local file and convert it to a DataContainer class.
+
+    Args:
+        dc_inputs (list[DataContainer]): List of input DataContainer objects.
+
+        params (dict): `file_type` : type of file to load.
+
+    Returns:
+        DataContainer: The loaded file as a DataContainer class.
+
+    Raises:
+        Exception: If there is an error loading the file.
+
+    Supported file types:
+    - "image": Load an image file and return the RGB(A) channels as a DataContainer class.
+    - Other file types: Return a DataContainer object with the same inputs.
+
+    Note:
+    - For the "image" file type, the path to the image file is specified in the 'path' parameter of 'params'.
+      If 'path' is empty, a default image path will be used.
+
+    """
+    file_type: str = params["file_type"]
+    filePath: str = params["path"]
     match file_type:
         case "image":
-            red_channel = []
-            green_channel = []
-            blue_channel = []
-            alpha_channel = []
             try:
-                filePath = ""
-                ctrlInput = params["path"]
-                opType = params["op_type"]
-                if ctrlInput is not None and len(ctrlInput.strip()) > 0:
-                    filePath = ctrlInput
-                elif len(filePath.strip()) == 0:
-                    if opType == "OD":
-                        filePath = path.join(
-                            path.dirname(path.abspath(__file__)),
-                            "assets",
-                            "object_detection.png",
-                        )
-                print("File to be loaded: " + filePath)
+                default_image_path = path.join(
+                    path.dirname(path.abspath(__file__)),
+                    "assets",
+                    "astronaut.png",
+                )
+                if filePath == "":
+                    filePath = default_image_path
+                print(" file will be loaded from: ", filePath)
                 f = Image.open(filePath)
                 img_array = np.array(f.convert("RGBA"))
+                red_channel = img_array[:, :, 0]
+                green_channel = img_array[:, :, 1]
+                blue_channel = img_array[:, :, 2]
                 if img_array.shape[2] == 4:
-                    red_channel = img_array[:, :, 0]
-                    green_channel = img_array[:, :, 1]
-                    blue_channel = img_array[:, :, 2]
                     alpha_channel = img_array[:, :, 3]
                 else:
-                    red_channel = img_array[:, :, 0]
-                    green_channel = img_array[:, :, 1]
-                    blue_channel = img_array[:, :, 2]
                     alpha_channel = None
-            except Exception:
-                print(traceback.format_exc())
-            return DataContainer(
-                type="image",
-                r=red_channel,
-                g=green_channel,
-                b=blue_channel,
-                a=alpha_channel,
-            )
+                return DataContainer(
+                    type="image",
+                    r=red_channel,
+                    g=green_channel,
+                    b=blue_channel,
+                    a=alpha_channel,
+                )
+            except Exception as e:
+                raise e
         case _:
-            return JobResultBuilder().from_inputs(v).build()
+            return JobResultBuilder().from_inputs(dc_inputs).build()

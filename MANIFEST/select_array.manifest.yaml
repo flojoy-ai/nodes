@@ -1,0 +1,8 @@
+COMMAND:
+  - name: SELECT_ARRAY
+    key: SELECT_ARRAY
+    type: SELECT_ARRAY
+    parameters:
+      column:
+        type: float
+        default: 0

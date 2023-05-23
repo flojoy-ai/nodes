@@ -5,57 +5,53 @@ from Phidget22.Devices.VoltageRatioInput import *
 
 
 def onVoltageRatioChange(self, voltageRatio):
-    print(
-        "VoltageRatio [" + str(self.getChannel()) + "]: " + str(voltageRatio)
-    )  # Declaration of the Event handler, Voltage changement
+    """Declaration of the Event handler, print Voltage variation for a channel"""
+    print("VoltageRatio [" + str(self.getChannel()) + "]: " + str(voltageRatio))
 
 
 @flojoy
-def PHIDGET22(dc, params):
-    voltage = []
-    pressions = []
+def PHIDGET22(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+    """Pressure Measurement with Phidget 22 sensors"""
+    voltage: list[float] = []
+    pressions: list[float] = []
     N = int(params["n_sensors"])
 
     for i in range(0, N):
-        voltageRatioInput = (
-            VoltageRatioInput()
-        )  # Creation of an instance of the VoltageRationInput class
-        voltageRatioInput.setChannel(
-            i
-        )  # Set Channel for Communication with the Phidget Interface Kit
-        voltageRatioInput.setOnVoltageRatioChangeHandler(
-            onVoltageRatioChange
-        )  # Assign the handler that will be called when the event occurs
-        voltageRatioInput.openWaitForAttachment(
-            5000
-        )  # Open the Channel after event handler is set
-        volt_i = voltageRatioInput.getVoltageRatio()  # Measure Voltage from the sensor
+        # Creation of an instance of the VoltageRationInput class
+        voltageRatioInput = VoltageRatioInput()
+        # Set Channel for Communication with the Phidget Interface Kit :
+        voltageRatioInput.setChannel(i)
+        # Assign the handler that will be called when the event occurs :
+        voltageRatioInput.setOnVoltageRatioChangeHandler(onVoltageRatioChange)
+        # Open the Channel after event handler is set :
+        voltageRatioInput.openWaitForAttachment(5000)
+
+        volt_i: float = (
+            voltageRatioInput.getVoltageRatio()
+        )  # Measure Voltage from the sensor
         voltage.append(volt_i)  # Add Voltage to the list of measurements
 
-        pression_i = (
-            volt_i - 0.015
-        ) / 0.06  # Example of a Calibration to convert Voltage into pression
+        # Example of a Calibration to convert Voltage into pressions :
+        pression_i: float = (volt_i - float(params["calibration1"])) / float(
+            params["calibration2"]
+        )
+
         pressions.append(pression_i)
 
     return DataContainer(x={"a": voltage, "b": pressions}, y=pressions)
 
 
 @flojoy
-def PHIDGET22_MOCK(dc, params):
-    print(
-        "running mock version of PHIDGET SENSOR, number of sensor is set to 4 by default"
-    )
-
-    voltage = []
-    pressions = []
+def PHIDGET22_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+    """Mock Function for the node Phidget 22"""
+    voltage: list[float] = []
+    pressions: list[float] = []
     N = 4
 
     for i in range(0, N):
-        volt_i = i * 10 + 4  # Scalar operation to modify data
+        volt_i: int = i * 10 + 4  # Scalar operation to modify data
         voltage.append(volt_i)  # Add Voltage to the list of measurements
-        pression_i = (
-            volt_i - 0.015
-        ) / 0.06  # Example of a Calibration to convert Voltage into pression
+        pression_i: float = (volt_i - 0.015) / 0.06
         pressions.append(pression_i)
 
     return DataContainer(x={"a": voltage, "b": pressions}, y=pressions)

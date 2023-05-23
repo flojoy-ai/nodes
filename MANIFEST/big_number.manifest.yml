@@ -1,0 +1,20 @@
+COMMAND:
+  - name: BIG_NUMBER
+    key: BIG_NUMBER
+    type: PLOTLY_VISOR
+    parameters:
+      suffix:
+        type: string
+        default: ""
+      prefix:
+        type: string
+        default: ""
+      relative_delta:
+        type: select
+        options:
+          - "true"
+          - "false"
+        default: "true"
+      title:
+        type: string
+        default: ""

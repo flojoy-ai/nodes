@@ -4,10 +4,10 @@ import traceback
 
 
 @flojoy
-def RAND(v, params):
+def RAND(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     x = None
-    if len(v) > 0:
-        x = v[0].y
+    if len(dc_inputs) > 0:
+        x = dc_inputs[0].y
         y = np.random.normal(size=len(x))
     else:
         y = np.random.normal(size=1000)
@@ -16,11 +16,11 @@ def RAND(v, params):
 
 
 @flojoy
-def RAND_MOCK(v, params):
+def RAND_MOCK(dc_inputs, params):
     print("running mock version of rand")
     x = None
-    if len(v) > 0:
-        x = v[0].y
+    if len(dc_inputs) > 0:
+        x = dc_inputs[0].y
         y = x
     else:
         y = np.full(

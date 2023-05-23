@@ -1,0 +1,17 @@
+COMMAND:
+      - name: STEPPER_DRIVER_TIC_KNOB
+        key: STEPPER_DRIVER_TIC_KNOB
+        type: STEPPER2
+        parameters:
+              knob_value:
+                type: int
+                default: 0
+              current_limit:
+                 type: int
+                 default: 30
+              speed :
+                type: int
+                default: 200000
+              sleep_time:
+                type: int
+                default: 2

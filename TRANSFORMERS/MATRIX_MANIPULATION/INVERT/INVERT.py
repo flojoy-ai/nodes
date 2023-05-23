@@ -3,24 +3,24 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def INVERT(v, params):
+def INVERT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Takes 2 inputs, one matrix and one rcond if not square matrix.
     Inverts them (or pseudo invert) and returns the result.
     If the entered value is a scalar it returns the multiplciative
     inverse 1/x"""
     print(f"INVERT params: {params}")
     a = np.eye(3)
-    b = float(params["rcond"])
+    b: float = float(params["rcond"])
 
-    if v.__len__ > 0:
+    if dc_inputs.__len__ > 0:
         if (
-            v[0].type == "ordered_pair"
+            dc_inputs[0].type == "ordered_pair"
         ):  # v[0] is a DataContainer object with type attribute
             print("Performing simple inversion")
-            a = v[0].y  # scalar valued
+            a = dc_inputs[0].y  # scalar valued
             return DataContainer(x=a, y=1 / a)
-        elif v[0].type == "matrix":
-            a = v[0].m
+        elif dc_inputs[0].type == "matrix":
+            a = dc_inputs[0].m
             if not a.shape[0] == a.shape[1]:
                 print("Not square matrix! Using pseudoinversion...")
                 assert (

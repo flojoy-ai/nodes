@@ -5,7 +5,7 @@ import traceback
 
 
 @flojoy
-def TIMESERIES(v, params):
+def TIMESERIES(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
     Generates a random timeseries vector
     """
