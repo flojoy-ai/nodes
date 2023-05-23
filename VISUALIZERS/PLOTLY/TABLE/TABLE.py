@@ -4,7 +4,7 @@ import pandas as pd
 
 
 @flojoy
-def TABLE(dc_inputs: list[DataContainer], params: dict):
+def TABLE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Node creates a Plotly table visualization for a given input data container.
 
     Args:
@@ -17,7 +17,7 @@ def TABLE(dc_inputs: list[DataContainer], params: dict):
     Raises:
     ValueError: If the input data container is not supported.
     """
-    dc_input = dc_inputs[0]
+    dc_input: DataContainer = dc_inputs[0]
     if dc_input.type in ["dataframe", "plotly"]:
         df = pd.DataFrame(dc_input.m)
         fig = go.Figure(

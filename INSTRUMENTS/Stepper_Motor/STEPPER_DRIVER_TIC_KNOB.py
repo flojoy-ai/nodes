@@ -6,21 +6,23 @@ from time import sleep
 
 
 @flojoy
-def STEPPER_DRIVER_TIC_KNOB(dc, params):
+def STEPPER_DRIVER_TIC_KNOB(
+    dc_inputs: list[DataContainer], params: dict
+) -> DataContainer:
     """
     Takes knob position as parameters to control the rotation of the motor and allow to control position
     and speed of a motor with a TIC driver
     """
 
-    speed = int(params["speed"])
-    sleep_time = int(params["sleep_time"])
-    current_limit = int(params["current_limit"])
+    speed: int = int(params["speed"])
+    sleep_time: int = int(params["sleep_time"])
+    current_limit: int = int(params["current_limit"])
 
     # Converting the knob value into a position
-    knob_position = 2 * int(params["knob_value"])
+    knob_position: int = 2 * int(params["knob_value"])
 
     # Declaration of the stepper driver (You can add serial number to specify the driver)
-    tic = TicUSB()
+    tic: TicUSB = TicUSB()
     tic.set_current_limit(current_limit)  # Set the current limit for the driver TIC
     tic.energize()  # Turn on the driver
     tic.exit_safe_start()  # The driver is now ready to receive commands
@@ -39,8 +41,10 @@ def STEPPER_DRIVER_TIC_KNOB(dc, params):
 
 
 @flojoy
-def STEPPER_DRIVER_TIC_KNOB_MOCK(dc, params):
+def STEPPER_DRIVER_TIC_KNOB_MOCK(
+    dc_inputs: list[DataContainer], params: dict
+) -> DataContainer:
     """Mock function for the stepper driver node"""
-    positions = [50, 100, 150, 200]  # Setting default positions
-    speeds = [50000, 1000000, 150000, 200000]  # Setting default speeds
+    positions: list[int] = [50, 100, 150, 200]  # Setting default positions
+    speeds: list[int] = [50000, 1000000, 150000, 200000]  # Setting default speeds
     return DataContainer(x={"a": positions, "b": speeds}, y=positions)

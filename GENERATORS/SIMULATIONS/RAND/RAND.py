@@ -4,7 +4,7 @@ import traceback
 
 
 @flojoy
-def RAND(dc_inputs, params):
+def RAND(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     x = None
     if len(dc_inputs) > 0:
         x = dc_inputs[0].y

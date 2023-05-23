@@ -6,11 +6,11 @@ memory_key = "pid-info"
 
 
 @flojoy
-def PID(dc_inputs, params):
+def PID(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     # First let's get the parameters that won't change
-    Kp = float(params["Kp"])
-    Ki = float(params["Ki"])
-    Kd = float(params["Kd"])
+    Kp: float = float(params["Kp"])
+    Ki: float = float(params["Ki"])
+    Kd: float = float(params["Kd"])
     node_id = params.get("node_id", 0)
     # Now we need some memory! We need to keep track of the running
     # integral value of the inputs (regulation errors), as well as
@@ -22,14 +22,16 @@ def PID(dc_inputs, params):
         initialize = False
     else:
         raise TypeError("Issue reading memory from REDIS.")
-    integral = 0 if initialize else data[0]
+    integral: int = 0 if initialize else data[0]
     regulation_error_primes = np.zeros((3, 1)) if initialize else data[1:]
     print(f"Recovered data: {data}")
 
     regulation_error = dc_inputs[0].y[
         -1
     ]  # constant node makes long list of items; just need the value so take last element
-    integral += 0.5 * Ki * (regulation_error + regulation_error_primes[0])
+    integral: float = integral + 0.5 * Ki * (
+        regulation_error + regulation_error_primes[0]
+    )
     output_signal = (
         Kp * regulation_error
         + integral
@@ -41,9 +43,9 @@ def PID(dc_inputs, params):
             + 3.0 * (regulation_error_primes[0] - regulation_error_primes[1])
         )
     )
-    regulation_error_primes[2] = regulation_error_primes[1]
-    regulation_error_primes[1] = regulation_error_primes[0]
-    regulation_error_primes[0] = regulation_error
+    regulation_error_primes[2]: float = regulation_error_primes[1]
+    regulation_error_primes[1]: float = regulation_error_primes[0]
+    regulation_error_primes[0]: float = regulation_error
 
     # Now write to memory ...
     SmallMemory().write_to_memory(
