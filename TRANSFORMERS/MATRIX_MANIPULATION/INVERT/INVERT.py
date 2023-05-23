@@ -10,7 +10,7 @@ def INVERT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     inverse 1/x"""
     print(f"INVERT params: {params}")
     a = np.eye(3)
-    b: float = float(params["rcond"])
+    b: float = params["rcond"]
 
     if dc_inputs.__len__ > 0:
         if (

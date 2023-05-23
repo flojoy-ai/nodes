@@ -8,9 +8,9 @@ memory_key = "pid-info"
 @flojoy
 def PID(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     # First let's get the parameters that won't change
-    Kp: float = float(params["Kp"])
-    Ki: float = float(params["Ki"])
-    Kd: float = float(params["Kd"])
+    Kp: float = params["Kp"]
+    Ki: float = params["Ki"]
+    Kd: float = params["Kd"]
     node_id = params.get("node_id", 0)
     # Now we need some memory! We need to keep track of the running
     # integral value of the inputs (regulation errors), as well as

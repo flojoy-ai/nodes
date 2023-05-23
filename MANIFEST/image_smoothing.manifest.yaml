@@ -4,7 +4,7 @@ COMMAND:
     type: IMAGE_PROCESSING
     parameters:
       kernel:
-        type: float
+        type: int
         default: 5
       smoothing_type:
         type: select

@@ -42,9 +42,9 @@ def SERIAL_TIMESERIES(dc_inputs, params):
     """
     print("parameters passed to SERIAL_TIMESERIES: ", params)
     COM_PORT = params.get("com_port", "/dev/ttyUSB0")
-    BAUD = int(params.get("BAUD_RATE", 9600))
-    NUM = int(params.get("num_readings", 100))
-    RECORD_PERIOD = float(params.get("record_period", 1))
+    BAUD = params.get("baudrate", 9600)
+    NUM = params.get("num_readings", 100)
+    RECORD_PERIOD = params.get("record_period", 1)
 
     ser = serial.Serial(COM_PORT, timeout=1, baudrate=BAUD)
     readings = []

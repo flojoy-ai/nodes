@@ -11,10 +11,10 @@ def SINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         x = dc_inputs[0].y
 
     waveform = params["waveform"]
-    A = float(params["amplitude"])
-    F = float(params["frequency"])
-    Y0 = float(params["offset"])
-    PHASE = float(params["phase"])
+    A = params["amplitude"]
+    F = params["frequency"]
+    Y0 = params["offset"]
+    PHASE = params["phase"]
     if waveform not in valid_waveforms:
         waveform = valid_waveforms[0]
         print("invalid waveform passed as param, using default:", waveform)

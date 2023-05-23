@@ -9,8 +9,8 @@ memory_key = "SECOND_ORDER_SYSTEM"
 def SECOND_ORDER_SYSTEM(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     # Let's first define things that won't change over
     # each iteration: time constants, etc ...
-    d1 = float(params["d1"])  # first time constant in us, 250
-    d2 = float(params["d2"])  # second time constant in us, 100
+    d1 = params["d1"]  # first time constant in us, 250
+    d2 = params["d2"]  # second time constant in us, 100
     node_id = params.get("node_id", 0)
 
     # ... and now some helper functions
