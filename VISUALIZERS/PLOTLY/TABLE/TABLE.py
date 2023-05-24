@@ -1,6 +1,7 @@
 from flojoy import flojoy, DataContainer
 import plotly.graph_objects as go
 import pandas as pd
+from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
@@ -18,16 +19,19 @@ def TABLE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     ValueError: If the input data container is not supported.
     """
     dc_input: DataContainer = dc_inputs[0]
+    node_name = __name__.split(".")[-1]
+    layout = plot_layout(title=node_name)
+    fig = go.Figure(layout=layout)
     if dc_input.type in ["dataframe", "plotly"]:
         df = pd.DataFrame(dc_input.m)
-        fig = go.Figure(
-            data=[
-                go.Table(
-                    header=dict(values=list(df.columns), align="left"),
-                    cells=dict(values=[df[col] for col in df.columns], align="left"),
-                )
-            ]
-        )
+        fig.data = [
+            go.Table(
+                header=dict(values=list(df.columns), align="left"),
+                cells=dict(values=[df[col] for col in df.columns], align="left"),
+            )
+        ]
         return DataContainer(type="plotly", fig=fig, m=df)
     else:
-        raise ValueError("unsupported DataContainer type for Plotly TABLE node")
+        raise ValueError(
+            f"unsupported DataContainer type passed for {node_name}: {dc_input.type}"
+        )
