@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 
 
 @flojoy
-def SERIAL_SINGLE_READING(dc_inputs, params):
+def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
     """
     Node to take a single reading of data from an Ardunio,
     or a similar serial device.
@@ -60,7 +60,7 @@ def SERIAL_SINGLE_READING(dc_inputs, params):
 
 
 @flojoy
-def SERIAL_SINGLE_READING_MOCK(dc, params):
+def SERIAL_SINGLE_MEASUREMENT_MOCK(dc, params):
     print("Running mock version of Serial")
 
     x = np.linspace(0, 100, 100)

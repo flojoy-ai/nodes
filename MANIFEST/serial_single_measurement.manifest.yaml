@@ -1,6 +1,6 @@
 COMMAND:
-  - name: SERIAL_SINGLE_READING
-    key: SERIAL_SINGLE_READING
+  - name: SERIAL_SINGLE_MEASUREMENT
+    key: SERIAL_SINGLE_MEASUREMENT
     type: SERIAL
     parameters:
       comport:
