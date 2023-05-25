@@ -11,7 +11,7 @@ def SERIAL_TIMESERIES(dc_inputs, params):
     """
     Node to take simple time dependent 1d data from an Ardunio,
     or a similar serial device.
-    For example you can record temperature following this tutorial:
+    For example, you can record temperature following this tutorial:
 
     https://learn.adafruit.com/thermistor/using-a-thermistor
 
@@ -88,11 +88,6 @@ def SERIAL_TIMESERIES(dc_inputs, params):
 
     readings = np.array(readings)
     readings = readings.astype("float64")
-    print("Dimension de readings :")
-    print(readings.ndim)
-
-    print("Value de readings :")
-    print(readings)
     # If there are two or more columns return a Plotly figure.
     if readings.ndim == 2:
         data = go.Line(x=times, y=readings[:, 0], mode="markers")
