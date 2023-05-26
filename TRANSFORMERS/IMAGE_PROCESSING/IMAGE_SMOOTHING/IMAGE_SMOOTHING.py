@@ -1,4 +1,3 @@
-import traceback
 from flojoy import flojoy, DataContainer
 import cv2
 import numpy as np

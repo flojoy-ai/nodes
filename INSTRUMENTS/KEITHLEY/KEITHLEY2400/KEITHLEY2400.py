@@ -1,4 +1,3 @@
-import numpy as np
 import serial
 from flojoy import flojoy, DataContainer
 
