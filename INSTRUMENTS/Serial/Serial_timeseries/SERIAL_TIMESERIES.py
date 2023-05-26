@@ -66,7 +66,7 @@ def SERIAL_TIMESERIES(dc_inputs, params):
 
             ts = datetime.now()
             seconds = float(
-                ts.hour * 3600 + ts.minute * 60 + ts.second + ts.microsecond / 10 ** 6
+                ts.hour * 3600 + ts.minute * 60 + ts.second + ts.microsecond / 10**6
             )
 
             times.append(seconds)
@@ -99,9 +99,6 @@ def SERIAL_TIMESERIES(dc_inputs, params):
 
 @flojoy
 def SERIAL_TIMESERIES_MOCK(dc, params):
-    print("Running mock version of Serial")
-
     x = np.linspace(0, 100, 100)
     y = np.linspace(0, 100, 100)
-
     return DataContainer(x=x, y=y)
