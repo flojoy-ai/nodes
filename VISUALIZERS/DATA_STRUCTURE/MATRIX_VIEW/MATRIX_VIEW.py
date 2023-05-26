@@ -12,7 +12,7 @@ d_dot = "$\\ddots$"
 l_dot = "$\\ldots$"
 
 
-def display_numpy_array_as_table(
+def numpy_2d_array_as_table(
     arr: np.ndarray,
     arr_shape: int,
     placeholder: str,
@@ -52,12 +52,56 @@ def display_numpy_array_as_table(
         new_arr[MIN_ALLOWED_SHAPE - 1, MIN_ALLOWED_SHAPE - row_cols_needed :] = l_dot
         new_arr[MIN_ALLOWED_SHAPE - 1, :] = l_dot
 
+    return new_arr.T
+
+
+def numpy_1d_array_as_table(arr: np.ndarray, placeholder: str):
+    if arr.size > MAX_ALLOWED_SHAPE:
+        converted_type = arr.astype(object)
+        new_arr = converted_type[:MAX_ALLOWED_SHAPE]
+        new_arr[MAX_ALLOWED_SHAPE - 2] = l_dot
+    elif arr.size < MIN_ALLOWED_SHAPE:
+        new_arr = np.full((MIN_ALLOWED_SHAPE,), placeholder, dtype=object)
+        new_arr[: arr.size] = arr[: arr.size]
+    else:
+        new_arr = arr
+    return new_arr.reshape(-1, 1)
+
+
+def numpy_array_as_table(arr: np.ndarray):
+    ndim = arr.ndim
+    if ndim == 1:
+        cell_values = numpy_1d_array_as_table(arr, l_dot)
+    elif ndim > 2:
+        raise ValueError("MATRIX_VIEW can process only 2D arrays!")
+    else:
+        row_shape, col_shape = arr.shape
+        if row_shape != col_shape:
+            raise ValueError("Rows and columns must be of same shape!")
+        cell_values = numpy_2d_array_as_table(arr, row_shape, d_dot)
+    return cell_values
+
+
+@flojoy
+def MATRIX_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+    dc_input = dc_inputs[0]
+    match dc_input.type:
+        case "matrix":
+            np_arr = dc_input.m
+            cell_values = numpy_array_as_table(np_arr)
+        case "ordered_pair":
+            np_arr = dc_input.y
+            cell_values = numpy_array_as_table(np_arr)
+        case _:
+            raise ValueError(
+                f"unsupported DataContainer type passed for MATRIX_VIEW: {dc_input.type}"
+            )
     fig = go.Figure(
         data=[
             go.Table(
                 header=dict(line={"width": 0}, values=[]),
                 cells=dict(
-                    values=new_arr.T,
+                    values=cell_values,
                     line={"width": 3},
                     font={"size": FONT_SIZE},
                     height=CELL_SIZE,
@@ -67,37 +111,17 @@ def display_numpy_array_as_table(
             )
         ]
     )
-    return fig
+    width = MAX_ALLOWED_SHAPE * CELL_SIZE + 80
+    height = width + 80
+    fig.layout = go.Layout(
+        autosize=False,
+        width=width,
+        height=height,
+        margin=dict(l=0, r=0, t=0, b=0),
+        xaxis=dict(visible=False),
+        yaxis=dict(visible=False),
+        hovermode="closest",
+        font=dict(size=FONT_SIZE),
+    )
 
-
-@flojoy
-def MATRIX_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    dc_input = dc_inputs[0]
-    if dc_input.type == "matrix":
-        matrix_data = dc_input.m
-        ndim = matrix_data.ndim
-        if ndim < 2 or ndim > 2:
-            raise ValueError("MATRIX_VIEW can process only 2D arrays!")
-        row_shape, col_shape = matrix_data.shape
-        if row_shape != col_shape:
-            raise ValueError("Rows and columns must be of same shape!")
-
-        fig = display_numpy_array_as_table(matrix_data, row_shape, d_dot)
-        width = MAX_ALLOWED_SHAPE * CELL_SIZE + 80
-        height = width + 80
-        fig.layout = go.Layout(
-            autosize=False,
-            width=width,
-            height=height,
-            margin=dict(l=0, r=0, t=0, b=0),
-            xaxis=dict(visible=False),
-            yaxis=dict(visible=False),
-            hovermode="closest",
-            font=dict(size=FONT_SIZE),
-        )
-
-        return DataContainer(type="plotly", fig=fig)
-    else:
-        raise ValueError(
-            f"unsupported DataContainer type passed for MATRIX_VIEW: {dc_input.type}"
-        )
+    return DataContainer(type="plotly", fig=fig)
