@@ -14,12 +14,12 @@ def STEPPER_DRIVER_TIC_KNOB(
     and speed of a motor with a TIC driver
     """
 
-    speed: int = int(params["speed"])
-    sleep_time: int = int(params["sleep_time"])
-    current_limit: int = int(params["current_limit"])
+    speed: int = params["speed"]
+    sleep_time: int = params["sleep_time"]
+    current_limit: int = params["current_limit"]
 
     # Converting the knob value into a position
-    knob_position: int = 2 * int(params["knob_value"])
+    knob_position: int = 2 * params["knob_value"]
 
     # Declaration of the stepper driver (You can add serial number to specify the driver)
     tic: TicUSB = TicUSB()

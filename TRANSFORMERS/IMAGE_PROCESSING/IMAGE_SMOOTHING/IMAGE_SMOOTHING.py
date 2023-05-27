@@ -18,7 +18,7 @@ def IMAGE_SMOOTHING(dc_inputs: list[DataContainer], params: dict) -> DataContain
     g = dc_input.g
     b = dc_input.b
     a = dc_input.a
-    kernel = int(params.get("kernel", 5))
+    kernel = params.get("kernel", 5)
     smoothing_type = params.get("smoothing_type", "average")
 
     if a is not None:

@@ -11,7 +11,7 @@ def LABJACKU3(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     temperatures: list[float] = []
     temperatures_celsius: list[float] = []
     sensor_num: list[int] = []
-    sensor_number: int = int(params["sensor_numbers"])
+    sensor_number: int = params["sensor_numbers"]
 
     # Create an instance of U3 class
     d = u3.U3()
