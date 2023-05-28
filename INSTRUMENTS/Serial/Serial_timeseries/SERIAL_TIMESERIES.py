@@ -11,7 +11,7 @@ def SERIAL_TIMESERIES(dc_inputs, params):
     """
     Node to take simple time dependent 1d data from an Ardunio,
     or a similar serial device.
-    For example you can record temperature following this tutorial:
+    For example, you can record temperature following this tutorial:
 
     https://learn.adafruit.com/thermistor/using-a-thermistor
 
@@ -40,7 +40,7 @@ def SERIAL_TIMESERIES(dc_inputs, params):
 
     num_readings * record_period is roughly the run length in seconds.
     """
-    print("parameters passed to SERIAL_TIMESERIES: ", params)
+
     COM_PORT = params.get("com_port", "/dev/ttyUSB0")
     BAUD = params.get("baudrate", 9600)
     NUM = params.get("num_readings", 100)
@@ -58,6 +58,8 @@ def SERIAL_TIMESERIES(dc_inputs, params):
         # Some readings may be empty.
         if s != "":
             reading = s[:-2].split(",")
+            if len(reading) == 1:
+                reading = reading[0]
             readings.append(reading)
 
             ts = datetime.now()
@@ -77,7 +79,11 @@ def SERIAL_TIMESERIES(dc_inputs, params):
                 sleep(RECORD_PERIOD - time1)
 
     times = np.array(times)
-    times -= times[0]
+    try:
+        times -= times[0]
+    except IndexError:
+        raise IndexError("No data detected from the Arduino")
+
     readings = np.array(readings)
     readings = readings.astype("float64")
     # If there are two or more columns return a Plotly figure.
@@ -91,9 +97,6 @@ def SERIAL_TIMESERIES(dc_inputs, params):
 
 @flojoy
 def SERIAL_TIMESERIES_MOCK(dc, params):
-    print("Running mock version of Serial")
-
     x = np.linspace(0, 100, 100)
     y = np.linspace(0, 100, 100)
-
     return DataContainer(x=x, y=y)
