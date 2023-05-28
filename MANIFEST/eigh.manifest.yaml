@@ -1,0 +1,9 @@
+COMMAND:
+  - name: Eigh
+    key: EIGH
+    type: NUMPY_LINALG
+    parameters: 
+      UPLO: 
+        type: string
+        default: L 
+        

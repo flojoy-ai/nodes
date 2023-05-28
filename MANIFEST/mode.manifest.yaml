@@ -1,0 +1,15 @@
+COMMAND:
+  - name: Mode
+    key: MODE
+    type: SCIPY_STATS
+    parameters: 
+      axis: 
+        type: int
+        default: 0 
+      nan_policy: 
+        type: string
+        default: propagate 
+      keepdims: 
+        type: bool
+        default:  
+        

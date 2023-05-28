@@ -1,0 +1,18 @@
+COMMAND:
+  - name: Describe
+    key: DESCRIBE
+    type: SCIPY_STATS
+    parameters: 
+      axis: 
+        type: int
+        default: 0 
+      ddof: 
+        type: int
+        default: 1 
+      bias: 
+        type: bool
+        default: True 
+      nan_policy: 
+        type: string
+        default: propagate 
+        

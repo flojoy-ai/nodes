@@ -1,0 +1,12 @@
+COMMAND:
+  - name: Normaltest
+    key: NORMALTEST
+    type: SCIPY_STATS
+    parameters: 
+      axis: 
+        type: int
+        default: 0 
+      nan_policy: 
+        type: string
+        default: propagate 
+        

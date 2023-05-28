@@ -34,7 +34,6 @@ def CZT(dc, params):
 			x=dc[0].y,
 			m=(int(params['m']) if params['m'] != '' else None),
 			w=(complex(params['w']) if params['w'] != '' else None),
-			a=(complex(params['a']) if params['a'] != '' else None),
 			axis=(int(params['axis']) if params['axis'] != '' else None),
 		)
 	)

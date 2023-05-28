@@ -1,0 +1,6 @@
+COMMAND:
+  - name: Cholesky
+    key: CHOLESKY
+    type: NUMPY_LINALG
+    parameters: 
+        

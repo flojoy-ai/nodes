@@ -9,9 +9,6 @@ COMMAND:
       w: 
         type: complex
         default:  
-      a: 
-        type: complex
-        default: (1+0j) 
       axis: 
         type: int
         default: -1 

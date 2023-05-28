@@ -1,0 +1,18 @@
+COMMAND:
+  - name: Tmin
+    key: TMIN
+    type: SCIPY_STATS
+    parameters: 
+      lowerlimit: 
+        type: None or float
+        default:  
+      axis: 
+        type: int
+        default: 0 
+      inclusive: 
+        type: bool
+        default: True 
+      nan_policy: 
+        type: string
+        default: propagate 
+        
