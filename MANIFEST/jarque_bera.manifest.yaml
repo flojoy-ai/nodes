@@ -2,5 +2,4 @@ COMMAND:
   - name: Jarque_bera
     key: JARQUE_BERA
     type: SCIPY_STATS
-    parameters: 
-        
+    
