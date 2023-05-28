@@ -20,7 +20,8 @@ def EIGVALS(dc, params):
 		A complex- or real-valued matrix whose eigenvalues will be computed.
 			'''
 	return DataContainer(
-		m=numpy.linalg.eigvals(
+		x=dc[0].y,
+		y=numpy.linalg.eigvals(
 			a=dc[0].y,
 			)
 	)

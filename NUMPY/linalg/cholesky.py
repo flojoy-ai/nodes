@@ -26,7 +26,8 @@ def CHOLESKY(dc, params):
 		input matrix.
 			'''
 	return DataContainer(
-		m=numpy.linalg.cholesky(
+		x=dc[0].y,
+		y=numpy.linalg.cholesky(
 			a=dc[0].y,
 			)
 	)

@@ -26,7 +26,8 @@ def TENSORINV(dc, params):
 		Must be a positive integer, default is 2.
 			'''
 	return DataContainer(
-		m=numpy.linalg.tensorinv(
+		x=dc[0].y,
+		y=numpy.linalg.tensorinv(
 			a=dc[0].y,
 			ind=(int(params['ind']) if params['ind'] != '' else None),
 		)

@@ -20,7 +20,8 @@ def INV(dc, params):
 		Matrix to be inverted.
 			'''
 	return DataContainer(
-		m=numpy.linalg.inv(
+		x=dc[0].y,
+		y=numpy.linalg.inv(
 			a=dc[0].y,
 			)
 	)

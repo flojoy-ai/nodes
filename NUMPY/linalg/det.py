@@ -17,7 +17,8 @@ def DET(dc, params):
 		Input array to compute determinants for.
 			'''
 	return DataContainer(
-		m=numpy.linalg.det(
+		x=dc[0].y,
+		y=numpy.linalg.det(
 			a=dc[0].y,
 			)
 	)

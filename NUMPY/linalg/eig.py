@@ -18,7 +18,8 @@ def EIG(dc, params):
 		be computed
 			'''
 	return DataContainer(
-		m=numpy.linalg.eig(
+		x=dc[0].y,
+		y=numpy.linalg.eig(
 			a=dc[0].y,
 			)
 	)

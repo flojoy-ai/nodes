@@ -27,7 +27,8 @@ def EIGVALSH(dc, params):
 		will always be treated as zero.
 			'''
 	return DataContainer(
-		m=numpy.linalg.eigvalsh(
+		x=dc[0].y,
+		y=numpy.linalg.eigvalsh(
 			a=dc[0].y,
 			UPLO=(str(params['UPLO']) if params['UPLO'] != '' else None),
 		)

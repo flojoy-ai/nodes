@@ -43,7 +43,8 @@ def COND(dc, params):
 		the root-of-sum-of-squares norm.
 			'''
 	return DataContainer(
-		m=numpy.linalg.cond(
+		x=dc[0].y,
+		y=numpy.linalg.cond(
 			x=dc[0].y,
 			p=(None(params['p']) if params['p'] != '' else None),
 		)

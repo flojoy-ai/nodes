@@ -35,7 +35,8 @@ def PINV(dc, params):
 	.. versionadded:: 1.17.0
 			'''
 	return DataContainer(
-		m=numpy.linalg.pinv(
+		x=dc[0].y,
+		y=numpy.linalg.pinv(
 			a=dc[0].y,
 			rcond=(float(params['rcond']) if params['rcond'] != '' else None),
 			hermitian=(bool(params['hermitian']) if params['hermitian'] != '' else None),

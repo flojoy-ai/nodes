@@ -27,7 +27,8 @@ def MATRIX_POWER(dc, params):
 		negative, or zero.
 			'''
 	return DataContainer(
-		m=numpy.linalg.matrix_power(
+		x=dc[0].y,
+		y=numpy.linalg.matrix_power(
 			a=dc[0].y,
 			n=(int(params['n']) if params['n'] != '' else None),
 		)

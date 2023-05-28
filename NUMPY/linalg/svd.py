@@ -38,7 +38,8 @@ def SVD(dc, params):
 	.. versionadded:: 1.17.0
 			'''
 	return DataContainer(
-		m=numpy.linalg.svd(
+		x=dc[0].y,
+		y=numpy.linalg.svd(
 			a=dc[0].y,
 			full_matrices=(bool(params['full_matrices']) if params['full_matrices'] != '' else None),
 			compute_uv=(bool(params['compute_uv']) if params['compute_uv'] != '' else None),

@@ -9,7 +9,8 @@ def EIGH(dc, params):
 		(conjugate symmetric) or a real symmetric matrix.
 			'''
 	return DataContainer(
-		m=numpy.linalg.eigh(
+		x=dc[0].y,
+		y=numpy.linalg.eigh(
 			a=dc[0].y,
 			UPLO=(str(params['UPLO']) if params['UPLO'] != '' else None),
 		)

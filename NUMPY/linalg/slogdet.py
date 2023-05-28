@@ -22,7 +22,8 @@ def SLOGDET(dc, params):
 		Input array, has to be a square 2-D array.
 			'''
 	return DataContainer(
-		m=numpy.linalg.slogdet(
+		x=dc[0].y,
+		y=numpy.linalg.slogdet(
 			a=dc[0].y,
 			)
 	)

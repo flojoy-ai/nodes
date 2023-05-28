@@ -39,7 +39,8 @@ def QR(dc, params):
 		
 			'''
 	return DataContainer(
-		m=numpy.linalg.qr(
+		x=dc[0].y,
+		y=numpy.linalg.qr(
 			a=dc[0].y,
 			mode=(str(params['mode']) if params['mode'] != '' else None),
 		)
