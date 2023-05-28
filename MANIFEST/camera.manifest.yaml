@@ -4,7 +4,7 @@ COMMAND:
     type: WEB_CAM
     parameters:
       camera_ind:
-        type: float
+        type: int
         default: 0
     pip_dependencies:
       - name: opencv-python-headless

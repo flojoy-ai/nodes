@@ -11,10 +11,10 @@ def FIR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     transition to the stop band and the corresponding attentuation, and
     lastly the cutoff frequency."""
 
-    sample_rate: float = float(params["sample_rate"])  # Hz
-    transition_width: float = float(params["transition_width"])  # Hz
-    stop_band_attenuation: float = float(params["stop_band_attenuation"])  # dB
-    cutoff_freq: float = float(params["cutoff_freq"])  # Hz
+    sample_rate: float = params["sample_rate"]  # Hz
+    transition_width: float = params["transition_width"]  # Hz
+    stop_band_attenuation: float = params["stop_band_attenuation"]  # dB
+    cutoff_freq: float = params["cutoff_freq"]  # Hz
     print(
         f"FIR params: {[sample_rate,transition_width,stop_band_attenuation,cutoff_freq]}"
     )

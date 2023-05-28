@@ -16,7 +16,7 @@ def SELECT_ARRAY(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
     print("parameters passed to SELECT_ARRAY: ", params)
     # Index of the selected column.
-    COL: int = int(params.get("column", 0))
+    COL: int = params.get("column", 0)
 
     # Check for numpy type. Return unchanged data if not.
     if isinstance(dc_inputs[0].y, np.ndarray):

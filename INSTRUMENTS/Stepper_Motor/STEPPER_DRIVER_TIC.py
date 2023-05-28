@@ -14,8 +14,8 @@ def STEPPER_DRIVER_TIC(dc_inputs: list[DataContainer], params: dict) -> DataCont
 
     positions: list[int] = [50, 100, 150, 200]  # Setting default positions
     speeds: list[int] = [50000, 1000000, 150000, 200000]  # Setting default speeds
-    current_limit: int = int(params["current_limit"])
-    sleep_time: int = int(params["sleep_time"])
+    current_limit: int = params["current_limit"]
+    sleep_time: int = params["sleep_time"]
 
     # Declaration of the stepper driver
     tic: TicUSB = TicUSB()

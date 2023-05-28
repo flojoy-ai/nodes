@@ -7,10 +7,10 @@ COMMAND:
         type: string
         default: "/dev/ttyACM0"
       baudrate:
-        type: float
+        type: int
         default: 9600
       num_readings:
-        type: float
+        type: int
         default: 100
       record_period:
         type: float

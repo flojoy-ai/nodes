@@ -14,7 +14,7 @@ def PHIDGET22(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Pressure Measurement with Phidget 22 sensors"""
     voltage: list[float] = []
     pressions: list[float] = []
-    N = int(params["n_sensors"])
+    N = params["n_sensors"]
 
     for i in range(0, N):
         # Creation of an instance of the VoltageRationInput class
@@ -32,9 +32,7 @@ def PHIDGET22(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         voltage.append(volt_i)  # Add Voltage to the list of measurements
 
         # Example of a Calibration to convert Voltage into pressions :
-        pression_i: float = (volt_i - float(params["calibration1"])) / float(
-            params["calibration2"]
-        )
+        pression_i: float = (volt_i - params["calibration1"]) / params["calibration2"]
 
         pressions.append(pression_i)
 

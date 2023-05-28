@@ -1,0 +1,4 @@
+COMMAND:
+  - name: Divide
+    key: DIVIDE
+    type: ARITHMETIC
