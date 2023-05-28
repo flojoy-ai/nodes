@@ -7,6 +7,6 @@ COMMAND:
         type: float
         default: 1e-15 
       hermitian: 
-        type: bool
+        type: boolean
         default: False 
         

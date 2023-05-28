@@ -16,7 +16,7 @@ COMMAND:
         type: string
         default: constant 
       return_onesided: 
-        type: bool
+        type: boolean
         default: True 
       scaling: 
         type: string

@@ -10,7 +10,7 @@ COMMAND:
         type: int
         default: 1 
       bias: 
-        type: bool
+        type: boolean
         default: True 
       nan_policy: 
         type: string

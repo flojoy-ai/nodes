@@ -13,6 +13,6 @@ COMMAND:
         type: int
         default: 0 
       keepdims: 
-        type: bool
+        type: boolean
         default: False 
         

@@ -13,6 +13,6 @@ COMMAND:
         type: string
         default: propagate 
       keepdims: 
-        type: bool
+        type: boolean
         default: False 
         

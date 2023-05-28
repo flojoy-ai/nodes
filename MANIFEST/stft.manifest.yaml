@@ -19,16 +19,16 @@ COMMAND:
         type: int
         default:  
       detrend: 
-        type: bool
+        type: boolean
         default: False 
       return_onesided: 
-        type: bool
+        type: boolean
         default: True 
       boundary: 
         type: string
         default: zeros 
       padded: 
-        type: bool
+        type: boolean
         default: True 
       axis: 
         type: int

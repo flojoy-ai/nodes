@@ -7,15 +7,15 @@ COMMAND:
         type: int
         default: 0 
       fisher: 
-        type: bool
+        type: boolean
         default: True 
       bias: 
-        type: bool
+        type: boolean
         default: True 
       nan_policy: 
         type: string
         default: propagate 
       keepdims: 
-        type: bool
+        type: boolean
         default: False 
         

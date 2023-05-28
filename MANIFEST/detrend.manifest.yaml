@@ -13,6 +13,6 @@ COMMAND:
         type: int
         default: 0 
       overwrite_data: 
-        type: bool
+        type: boolean
         default: False 
         

@@ -16,6 +16,6 @@ COMMAND:
         type: int
         default: -1 
       zero_phase: 
-        type: bool
+        type: boolean
         default: True 
         

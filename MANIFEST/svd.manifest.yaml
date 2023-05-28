@@ -4,12 +4,12 @@ COMMAND:
     type: NUMPY_LINALG
     parameters: 
       full_matrices: 
-        type: bool
+        type: boolean
         default: True 
       compute_uv: 
-        type: bool
+        type: boolean
         default: True 
       hermitian: 
-        type: bool
+        type: boolean
         default: False 
         
