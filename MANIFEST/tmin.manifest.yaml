@@ -4,7 +4,7 @@ COMMAND:
     type: SCIPY_STATS
     parameters: 
       lowerlimit: 
-        type: None or float
+        type: float
         default:  
       axis: 
         type: int
