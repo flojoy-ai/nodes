@@ -1,15 +1,12 @@
 ### Description
 
-Please include a summary of the newly created nodes and a little description of what the nodes does.
+- [ ] I've included a concise description of what each node does
 
-### Inputs & Outputs
+### Styleguide
 
-The newly created nodes should include the inputs and Outputs and a little description why its necessary.
+- [ ] My node adheres to the [styleguide](https://github.com/flojoy-io/nodes/blob/main/node_styleguide.md) for Flojoy nodes
 
-### Example APPS
+### Docs
 
-You should create one or mutiple example apps with the new nodes. And Link the Example APPS in the PULL REQUEST
+- [ ] I've submitted a PR for a documentation page for the new node(s) that contains usage examples (see docs.flojoy.io)
 
-### Integrating the Node
-
-It should contain checklist of steps to successfully integrate your node into the framework.
