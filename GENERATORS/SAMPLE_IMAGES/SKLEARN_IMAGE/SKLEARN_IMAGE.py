@@ -4,6 +4,7 @@ from skimage import data
 
 @flojoy
 def SKLEARN_IMAGE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+
     """Node designed to load example images from scikit-image.
 
     Examples can be found here:
