@@ -25,6 +25,9 @@ The ADD node can be used to add 2 or more numeric arrays, matrices, dataframes, 
 ## Node naming
 
 Node names should always appear in `ALL_CAPS`, using `code` styling when available. Words should be seperated with underscores. Because node names need to appear on node GUI elements, node name length should be optimized for shortness and never more than 20 characters.
+- Node function name, Node file name and Node key in the manifest file must be the same. Because it helps studio frontend to construct correct GitHub path for each node.
+- Folders in nodes directory should not contain any space. Words should be separated by using `_` underscore.
+- The category folder name should follow it's key from [`COMMAND_TREE` here](https://github.com/flojoy-io/studio/blob/develop/src/utils/ManifestLoader.ts#L89)
 
 ## Ease of use
 
