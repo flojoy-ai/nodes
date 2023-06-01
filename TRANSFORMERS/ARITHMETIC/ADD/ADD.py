@@ -1,6 +1,8 @@
 import numpy as np
 from flojoy import flojoy, DataContainer
 
+from nodes.node_utils import Reconciler
+
 
 @flojoy
 def ADD(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
@@ -15,10 +17,12 @@ def ADD(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         raise ValueError(
             f"To add the values, ADD node requires two inputs, {len(dc_inputs)} was given!"
         )
-    a = dc_inputs[0].y
-    b = dc_inputs[1].y
 
-    x = dc_inputs[0].x
-    y = np.add(a, b)
+    dc_reconciler = Reconciler()
+    cur_sum = dc_inputs[0]
+    for operand_n in dc_inputs[1:]:
+        # reconcile the types of the inputs before calling numpy
+        reconciled_lhs, reconciled_rhs = dc_reconciler.reconcile(cur_sum.y, operand_n.y)
+        cur_sum = np.add(reconciled_lhs, reconciled_rhs)
 
-    return DataContainer(x=x, y=y)
+    return DataContainer(x=dc_inputs[0].x, y=cur_sum)
