@@ -1,0 +1,8 @@
+COMMAND:
+  - name: READ_CSV
+    key: READ_CSV
+    type: FILE
+    parameters:
+      file_path:
+        type: string
+        default: "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv"
