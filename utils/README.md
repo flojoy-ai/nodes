@@ -47,11 +47,11 @@ class ImageProcessingReconciler(Reconciler):
     def image__image(self, lhs, rhs):
     	# special handling for reconciling two different images
     	... 
-    	return lhs, rhs
+    	return reconciled_lhs, reconciled_rhs
 
     def grayscale__image(self, lhs, rhs):
     	# special handling for reconciling a grayscale and an image
     	... 
-    	return lhs, rhs
+    	return reconciled_lhs, reconciled_rhs
 
 ```
