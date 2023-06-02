@@ -1,7 +1,5 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
-
-from nodes.node_utils import Reconciler
+from flojoy import flojoy, DataContainer, Reconciler
 
 
 @flojoy
