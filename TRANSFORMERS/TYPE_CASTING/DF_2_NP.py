@@ -1,16 +1,15 @@
-import numpy as np
+from numpy import asmatrix
+from pandas import to_numpy
 from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def DF_2_NP(dc_input: DataContainer(type="dataframe")) -> DataContainer:
+def DF_2_NP(dc_inputs : list[DataContainer(type="dataframe")], params : dict) -> DataContainer:
     """
-    Node to convert dataframe type data into matrix type data
+    Node to convert dataframe type data into matrix type data.
+    It takes one dataframe type data and converts it to matrix type data.
     """
-    if dc_input.type == "dataframe":
-        pdToNumpy = dc_input.to_numpy
-        numpyMatrix = np.asmatrix(pdToNumpy)
+    pdToNumpy = dc_inputs[0].m.to_numpy()
+    numpyMatrix = asmatrix(pdToNumpy)
 
-        return DataContainer(m=numpyMatrix)
-    else:
-        print("Invalid type of DataContainer")
+    return DataContainer(type="matrix", m=numpyMatrix)
