@@ -3,8 +3,14 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def DF_2_NP(dc_input: DataContainer):
+def DF_2_NP(dc_input: DataContainer(type="dataframe")) -> DataContainer:
+    """
+    Node to convert dataframe type data into matrix type data
+    """
     if dc_input.type == "dataframe":
         pdToNumpy = dc_input.to_numpy
         numpyMatrix = np.asmatrix(pdToNumpy)
-        dc_input.set_data(numpyMatrix)
+
+        return DataContainer(m=numpyMatrix)
+    else:
+        print("Invalid type of DataContainer")
