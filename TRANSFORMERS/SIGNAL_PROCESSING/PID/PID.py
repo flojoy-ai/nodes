@@ -16,7 +16,7 @@ def PID(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     # integral value of the inputs (regulation errors), as well as
     # the previous 3 values of the regulation error
     data = SmallMemory().read_memory(node_id, memory_key)
-    if type(data) == dict:
+    if data is None:
         initialize = True
     elif type(data) == np.ndarray:
         initialize = False

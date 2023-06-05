@@ -1,0 +1,322 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1544.1406772254813,
+                    "y": 309.7142857142858
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1544.1406772254813,
+                    "y": 309.7142857142858
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "SELECT_ARRAY-3d6c9d42-ba69-4d00-8ede-4a75d87c4cee",
+                "type": "SELECT_ARRAY",
+                "data": {
+                    "id": "SELECT_ARRAY-3d6c9d42-ba69-4d00-8ede-4a75d87c4cee",
+                    "label": "SELECT_ARRAY_1",
+                    "func": "SELECT_ARRAY",
+                    "type": "SELECT_ARRAY",
+                    "ctrls": {
+                        "column": {
+                            "functionName": "SELECT_ARRAY",
+                            "param": "column",
+                            "value": "0"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 627.1192105282848,
+                    "y": 104.25198394000293
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 627.1192105282848,
+                    "y": 104.25198394000293
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "SELECT_ARRAY-03541a39-a232-4571-a81d-4df94c19c325",
+                "type": "SELECT_ARRAY",
+                "data": {
+                    "id": "SELECT_ARRAY-03541a39-a232-4571-a81d-4df94c19c325",
+                    "label": "SELECT_ARRAY_2",
+                    "func": "SELECT_ARRAY",
+                    "type": "SELECT_ARRAY",
+                    "ctrls": {
+                        "column": {
+                            "functionName": "SELECT_ARRAY",
+                            "param": "column",
+                            "value": "1"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 614.6027915252406,
+                    "y": 536.040645969877
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 614.6027915252406,
+                    "y": 536.040645969877
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "SCATTER-0f6b5ddd-6646-4119-a8ab-5b95eb628fe3",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "SCATTER-0f6b5ddd-6646-4119-a8ab-5b95eb628fe3",
+                    "label": "SCATTER_1",
+                    "func": "SCATTER",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1048.0107102184566,
+                    "y": 61.98977155238117
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1048.0107102184566,
+                    "y": 61.98977155238117
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "SCATTER-f46dc017-b49f-43ff-bc6e-8a8175fa50e0",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "SCATTER-f46dc017-b49f-43ff-bc6e-8a8175fa50e0",
+                    "label": "SCATTER_2",
+                    "func": "SCATTER",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1043.1719153770464,
+                    "y": 485.27307504050464
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1043.1719153770464,
+                    "y": 485.27307504050464
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "SERIAL_TIMESERIES-fae97385-f983-4077-ab50-15bd03477608",
+                "type": "SERIAL",
+                "data": {
+                    "id": "SERIAL_TIMESERIES-fae97385-f983-4077-ab50-15bd03477608",
+                    "label": "SERIAL_TIMESERIES",
+                    "func": "SERIAL_TIMESERIES",
+                    "type": "SERIAL",
+                    "ctrls": {
+                        "comport": {
+                            "functionName": "SERIAL_TIMESERIES",
+                            "param": "comport",
+                            "value": "/dev/ttyUSB0"
+                        },
+                        "baudrate": {
+                            "functionName": "SERIAL_TIMESERIES",
+                            "param": "baudrate",
+                            "value": "9600"
+                        },
+                        "num_readings": {
+                            "functionName": "SERIAL_TIMESERIES",
+                            "param": "num_readings",
+                            "value": "10"
+                        },
+                        "record_period": {
+                            "functionName": "SERIAL_TIMESERIES",
+                            "param": "record_period",
+                            "value": "1"
+                        }
+                    },
+                    "pip_dependencies": [
+                        {
+                            "name": "pyserial",
+                            "v": 3.5
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 180.7392990498203,
+                    "y": 282.54427222502665
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 180.7392990498203,
+                    "y": 282.54427222502665
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "SELECT_ARRAY-3d6c9d42-ba69-4d00-8ede-4a75d87c4cee",
+                "sourceHandle": "main",
+                "target": "SCATTER-0f6b5ddd-6646-4119-a8ab-5b95eb628fe3",
+                "targetHandle": "SCATTER",
+                "id": "reactflow__edge-SELECT_ARRAY-3d6c9d42-ba69-4d00-8ede-4a75d87c4ceemain-SCATTER-0f6b5ddd-6646-4119-a8ab-5b95eb628fe3SCATTER"
+            },
+            {
+                "source": "SELECT_ARRAY-03541a39-a232-4571-a81d-4df94c19c325",
+                "sourceHandle": "main",
+                "target": "SCATTER-f46dc017-b49f-43ff-bc6e-8a8175fa50e0",
+                "targetHandle": "SCATTER",
+                "id": "reactflow__edge-SELECT_ARRAY-03541a39-a232-4571-a81d-4df94c19c325main-SCATTER-f46dc017-b49f-43ff-bc6e-8a8175fa50e0SCATTER"
+            },
+            {
+                "source": "SCATTER-f46dc017-b49f-43ff-bc6e-8a8175fa50e0",
+                "sourceHandle": "main",
+                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "targetHandle": "END",
+                "id": "reactflow__edge-SCATTER-f46dc017-b49f-43ff-bc6e-8a8175fa50e0main-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
+            },
+            {
+                "source": "SCATTER-0f6b5ddd-6646-4119-a8ab-5b95eb628fe3",
+                "sourceHandle": "main",
+                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "targetHandle": "END",
+                "id": "reactflow__edge-SCATTER-0f6b5ddd-6646-4119-a8ab-5b95eb628fe3main-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
+            },
+            {
+                "source": "SERIAL_TIMESERIES-fae97385-f983-4077-ab50-15bd03477608",
+                "sourceHandle": "main",
+                "target": "SELECT_ARRAY-3d6c9d42-ba69-4d00-8ede-4a75d87c4cee",
+                "targetHandle": "SELECT_ARRAY",
+                "id": "reactflow__edge-SERIAL_TIMESERIES-fae97385-f983-4077-ab50-15bd03477608main-SELECT_ARRAY-3d6c9d42-ba69-4d00-8ede-4a75d87c4ceeSELECT_ARRAY"
+            },
+            {
+                "source": "SERIAL_TIMESERIES-fae97385-f983-4077-ab50-15bd03477608",
+                "sourceHandle": "main",
+                "target": "SELECT_ARRAY-03541a39-a232-4571-a81d-4df94c19c325",
+                "targetHandle": "SELECT_ARRAY",
+                "id": "reactflow__edge-SERIAL_TIMESERIES-fae97385-f983-4077-ab50-15bd03477608main-SELECT_ARRAY-03541a39-a232-4571-a81d-4df94c19c325SELECT_ARRAY"
+            }
+        ],
+        "viewport": {
+            "x": 197.88510420585555,
+            "y": 38.16888746940003,
+            "zoom": 0.7622193595343526
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Numeric Input",
+            "minWidth": 1,
+            "minHeight": 1,
+            "hidden": false,
+            "id": "ctrl-917255d4-18d6-4c96-88f0-0d0797b10c09",
+            "layout": {
+                "x": 0,
+                "y": 1,
+                "h": 2,
+                "w": 2,
+                "i": "ctrl-917255d4-18d6-4c96-88f0-0d0797b10c09",
+                "minH": 1,
+                "minW": 1,
+                "static": false
+            },
+            "param": {
+                "id": "SELECT_ARRAY_SELECT_ARRAY_1_column",
+                "functionName": "SELECT_ARRAY",
+                "param": "column",
+                "nodeId": "SELECT_ARRAY-3d6c9d42-ba69-4d00-8ede-4a75d87c4cee",
+                "inputId": "ctrl-917255d4-18d6-4c96-88f0-0d0797b10c09",
+                "type": "float"
+            },
+            "val": 0
+        },
+        {
+            "type": "input",
+            "name": "Numeric Input",
+            "minWidth": 1,
+            "minHeight": 1,
+            "hidden": false,
+            "id": "ctrl-f26735ab-ddf9-4614-bf9a-12684213347c",
+            "layout": {
+                "x": 0,
+                "y": 3,
+                "h": 2,
+                "w": 2,
+                "i": "ctrl-f26735ab-ddf9-4614-bf9a-12684213347c",
+                "minH": 1,
+                "minW": 1,
+                "static": false
+            },
+            "param": {
+                "id": "SELECT_ARRAY_SELECT_ARRAY_2_column",
+                "functionName": "SELECT_ARRAY",
+                "param": "column",
+                "nodeId": "SELECT_ARRAY-03541a39-a232-4571-a81d-4df94c19c325",
+                "inputId": "ctrl-f26735ab-ddf9-4614-bf9a-12684213347c",
+                "type": "float"
+            },
+            "val": 0
+        },
+        {
+            "name": "Numeric Input",
+            "type": "input",
+            "key": "NUMERIC_INPUT",
+            "minHeight": 1,
+            "minWidth": 1,
+            "hidden": false,
+            "id": "ctrl-9368ae69-8b4c-4f3c-a74b-bb28239f8a42",
+            "layout": {
+                "x": 0,
+                "y": 5,
+                "h": 2,
+                "w": 2,
+                "i": "ctrl-9368ae69-8b4c-4f3c-a74b-bb28239f8a42",
+                "minH": 1,
+                "minW": 1,
+                "static": false
+            },
+            "param": {
+                "id": "SERIAL_TIMESERIES_SERIAL_TIMESERIES_num_readings",
+                "functionName": "SERIAL_TIMESERIES",
+                "param": "num_readings",
+                "nodeId": "SERIAL_TIMESERIES-fae97385-f983-4077-ab50-15bd03477608",
+                "inputId": "ctrl-9368ae69-8b4c-4f3c-a74b-bb28239f8a42",
+                "type": "float"
+            },
+            "val": 100
+        }
+    ]
+}
