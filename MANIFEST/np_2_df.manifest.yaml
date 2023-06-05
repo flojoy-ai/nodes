@@ -1,4 +1,4 @@
 COMMAND:
   - name: Np_To_Df
     key: NP_2_DF
-    type: TRANSFORMERS
+    type: TYPE_CASTING

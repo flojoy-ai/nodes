@@ -1,4 +1,4 @@
 COMMAND:
   - name: Df_To_Np
     key: DF_2_NP
-    type: TRANSFORMERS
+    type: TYPE_CASTING
