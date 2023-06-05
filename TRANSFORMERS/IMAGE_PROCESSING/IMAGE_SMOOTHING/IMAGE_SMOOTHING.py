@@ -4,8 +4,7 @@ import numpy as np
 
 
 @flojoy
-def IMAGE_SMOOTHING(dc_inputs: list[DataContainer],
-                    params: dict) -> DataContainer:
+def IMAGE_SMOOTHING(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
     Apply image smoothing operation on the input `DataContainer` class,
     specifically for the 'image' type,
@@ -30,9 +29,7 @@ def IMAGE_SMOOTHING(dc_inputs: list[DataContainer],
     """
     dc_input = dc_inputs[0]
     if dc_input.type != "image":
-        raise ValueError(
-            f"unsupported data IMAGE_SMOOTHING node: '{dc_input.type}'"
-        )
+        raise ValueError(f"unsupported data IMAGE_SMOOTHING node: '{dc_input.type}'")
     r = dc_input.r
     g = dc_input.g
     b = dc_input.b
@@ -54,8 +51,7 @@ def IMAGE_SMOOTHING(dc_inputs: list[DataContainer],
             case "median":
                 image = cv2.medianBlur(rgba_image, kernel)
             case "bilateral":
-                image = cv2.bilateralFilter(rgba_image, kernel,
-                                            kernel * 5, kernel * 5)
+                image = cv2.bilateralFilter(rgba_image, kernel, kernel * 5, kernel * 5)
         try:
             r, g, b, a = cv2.split(image)
         except:
