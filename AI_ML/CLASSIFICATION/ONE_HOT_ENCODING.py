@@ -7,8 +7,8 @@ def ONE_HOT_ENCODING(dc_inputs: list[DataContainer], params: dict) -> DataContai
     """The ONE_HOT_ENCODING node creates a one hot encoding from a list of categorical features.
     Parameters
     ----------
-    categories : array-like of str | int, optional
-    columns: list of str
+    categories : list of str or list of int, optional
+    columns: list of str, optional
 
     Returns
     -------
@@ -25,8 +25,6 @@ def ONE_HOT_ENCODING(dc_inputs: list[DataContainer], params: dict) -> DataContai
 
     categories = params.get("categories", [])
     columns = params.get("columns", [])
-    if len(columns) == 0:
-        columns = None
 
     if categories:
         data = pd.DataFrame({"category": categories})
@@ -39,5 +37,10 @@ def ONE_HOT_ENCODING(dc_inputs: list[DataContainer], params: dict) -> DataContai
     if not dc:
         raise ValueError(f"ONE_HOT_ENCODING node did not receive input DataContainer")
 
-    encoded = pd.get_dummies(dc.m, columns=columns, dtype=int)
+    if columns:
+        encoded = pd.get_dummies(dc.m[columns])
+    else:
+        cat_df = dc.m.select_dtypes(include=["object", "category"])
+        encoded = pd.get_dummies(cat_df, dtype=int)
+
     return DataContainer(type="dataframe", m=encoded)
