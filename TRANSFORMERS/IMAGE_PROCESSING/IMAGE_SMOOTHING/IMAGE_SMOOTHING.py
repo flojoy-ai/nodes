@@ -8,6 +8,20 @@ def IMAGE_SMOOTHING(dc_inputs: list[DataContainer], params: dict) -> DataContain
     """
     Apply image smoothing operation on the input `DataContainer` class, specifically for the 'image' type,
     represented by the RGB(A) channels.
+
+    Args:
+    dc_inputs (list[DataContainer]): List of DataContainer objects containing image channels.
+    params (dict): Additional parameters for image smoothing.
+    
+    Params:
+    kernel: The strength of the smoothing. A large value will lead to stronger smoothing.
+    smoothing_type: The type of smoothing to use (https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html).
+
+    Returns:
+    DataContainer: A `DataContainer` class of type 'image' representing the output image with image smoothing results.
+
+    Raises:
+    Exception: If an error occurs during smoothing.
     """
     dc_input = dc_inputs[0]
     if dc_input.type != "image":
