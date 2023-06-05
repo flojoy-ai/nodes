@@ -5,7 +5,9 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def DF_2_NP(dc_inputs : list[DataContainer(type="dataframe")], params : dict) -> DataContainer:
+def DF_2_NP(
+    dc_inputs: list[DataContainer(type="dataframe")], params: dict
+) -> DataContainer:
     """
     Node to convert dataframe type data into matrix type data.
     It takes one dataframe type data and converts it to matrix type data.
@@ -19,4 +21,3 @@ def DF_2_NP(dc_inputs : list[DataContainer(type="dataframe")], params : dict) ->
     except Exception:
         print(traceback.format_exc())
         raise
-
