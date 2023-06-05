@@ -32,13 +32,20 @@ def NP_2_DF(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             blue = dc_inputs[0].b
 
             if dc_inputs[0].a == None:
+                merge = np.stack((red, green, blue), axis=2)
+                merge = merge.reshape(-1, merge.shape[-1])
+                print("------------------------------------------------", merge)
+                df = pd.DataFrame(merge)
                 return DataContainer(
-                    type="dataframe", m=np.stack((red, green, blue), axis=2)
+                    type="dataframe", m=df
                 )
             else:
                 alpha = dc_inputs[0].a
+                merge = np.stack((red, green, blue, alpha), axis=2)
+                print("------------------------------------------------", merge)
+                df = pd.DataFrame(merge)
                 return DataContainer(
-                    type="dataframe", m=np.stack((red, green, blue, alpha), axis=2)
+                    type="dataframe", m=df
                 )
 
         case "scalar":

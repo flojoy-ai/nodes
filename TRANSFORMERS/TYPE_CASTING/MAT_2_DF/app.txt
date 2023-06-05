@@ -1,0 +1,118 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-25d4884c-0c33-43d5-87b0-cfea55a24350",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "LINE-25d4884c-0c33-43d5-87b0-cfea55a24350",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 853.5001424288464,
+                    "y": 175.58952182389925
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 853.5001424288464,
+                    "y": 175.58952182389925
+                },
+                "dragging": true
+            },
+            {
+                "width": 190,
+                "height": 115,
+                "id": "END-b1c86448-6805-4081-bc7a-55ceb3d56005",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-b1c86448-6805-4081-bc7a-55ceb3d56005",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1435.469598388447,
+                    "y": 260.8338022323869
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1435.469598388447,
+                    "y": 260.8338022323869
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 135,
+                "id": "MAT_2_DF-c5e9381e-ccc5-4e2d-bbf3-bd741271b3c8",
+                "type": "TYPE_CASTING",
+                "data": {
+                    "id": "MAT_2_DF-c5e9381e-ccc5-4e2d-bbf3-bd741271b3c8",
+                    "label": "MAT_2_DF",
+                    "func": "MAT_2_DF",
+                    "type": "TYPE_CASTING",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 527.5781006448823,
+                    "y": 287.95393385898115
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 527.5781006448823,
+                    "y": 287.95393385898115
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LINE-25d4884c-0c33-43d5-87b0-cfea55a24350",
+                "sourceHandle": "main",
+                "target": "END-b1c86448-6805-4081-bc7a-55ceb3d56005",
+                "targetHandle": "END",
+                "id": "reactflow__edge-LINE-25d4884c-0c33-43d5-87b0-cfea55a24350main-END-b1c86448-6805-4081-bc7a-55ceb3d56005END"
+            },
+            {
+                "source": "MAT_2_DF-c5e9381e-ccc5-4e2d-bbf3-bd741271b3c8",
+                "sourceHandle": "main",
+                "target": "LINE-25d4884c-0c33-43d5-87b0-cfea55a24350",
+                "targetHandle": "LINE",
+                "id": "reactflow__edge-MAT_2_DF-c5e9381e-ccc5-4e2d-bbf3-bd741271b3c8main-LINE-25d4884c-0c33-43d5-87b0-cfea55a24350LINE"
+            }
+        ],
+        "viewport": {
+            "x": 386.73223201420785,
+            "y": 173.6927085078579,
+            "zoom": 1.1728043427269372
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
