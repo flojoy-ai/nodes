@@ -1,4 +1,5 @@
 from scipy import signal, fft
+from numpy import abs
 from flojoy import flojoy, DataContainer
 
 
@@ -36,18 +37,15 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     signal_value = dc.y
     x = dc.x
 
-   # First to avoid spectral leakage, we need to apply a
-   # window function to the signal
-    fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
     if window_type:
         window = signal.get_window(window_type, len(signal_value))
-        result = fourier * window
-    else:
-        result = fourier
-    frequency = fft.fftfreq(len(x))
+        fourier = (
+            fft.rfft(signal_value * window) if real else fft.fft(signal_value * window)
+        )
+        result = abs(fourier * window)
+    else:  # no window applied
+        fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
+        result = abs(fourier)
+    frequency = fft.rfftfreq(len(x)) if real else fft.fftfreq(len(x))
 
     return DataContainer(x=frequency, y=result)
-
-
-
-

@@ -1,0 +1,11 @@
+COMMAND:
+  - name: Fast Fourier Transform
+    key: FFT
+    type: SIGNAL_PROCESSING
+    parameters:
+      window_type:
+        type: string
+        default: ""
+      real_signal:
+       type: boolean
+       default: false
