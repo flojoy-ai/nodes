@@ -1,0 +1,216 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LABJACKU3-da654963-a9c7-4668-bbf5-5c04d14065f1",
+                "type": "LABJACK",
+                "data": {
+                    "id": "LABJACKU3-da654963-a9c7-4668-bbf5-5c04d14065f1",
+                    "label": "LABJACKU3",
+                    "func": "LABJACKU3",
+                    "type": "LABJACK",
+                    "ctrls": {
+                        "numbers": {
+                            "functionName": "LABJACKU3",
+                            "param": "numbers",
+                            "value": "6"
+                        }
+                    },
+                    "pip_dependencies": [
+                        {
+                            "name": "labjackpython",
+                            "v": "2.1.0"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 501.52747152415037,
+                    "y": 328.9688571496145
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 501.52747152415037,
+                    "y": 328.9688571496145
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "GOTO-ffb40d6a-c197-4010-8a99-8672d63939e6",
+                "type": "LOOP",
+                "data": {
+                    "id": "GOTO-ffb40d6a-c197-4010-8a99-8672d63939e6",
+                    "label": "GOTO",
+                    "func": "GOTO",
+                    "type": "LOOP",
+                    "ctrls": {
+                        "goto_node_id": {
+                            "functionName": "GOTO",
+                            "param": "goto_node_id",
+                            "value": "LOOP-931e5323-9532-4bc3-af39-0cb17c079331"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 1247.241757238436,
+                    "y": 318.96885714961445
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1247.241757238436,
+                    "y": 318.96885714961445
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 181,
+                "id": "LOOP-931e5323-9532-4bc3-af39-0cb17c079331",
+                "type": "LOOP",
+                "data": {
+                    "id": "LOOP-931e5323-9532-4bc3-af39-0cb17c079331",
+                    "label": "LOOP",
+                    "func": "LOOP",
+                    "type": "LOOP",
+                    "ctrls": {
+                        "num_loops": {
+                            "functionName": "LOOP",
+                            "param": "num_loops",
+                            "value": "10"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "end",
+                            "id": "end",
+                            "type": "source"
+                        },
+                        {
+                            "name": "body",
+                            "id": "body",
+                            "type": "source"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 101.52747152415034,
+                    "y": 251.82600000675723
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 101.52747152415034,
+                    "y": 251.82600000675723
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-2cf1ce1a-e1be-4aed-87d1-b240e7673f52",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-2cf1ce1a-e1be-4aed-87d1-b240e7673f52",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1215.8131858098645,
+                    "y": 68.9688571496144
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1215.8131858098645,
+                    "y": 68.9688571496144
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "BAR-9baa21b1-ef0f-4b3a-9eac-86ad8d9df7d7",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "BAR-9baa21b1-ef0f-4b3a-9eac-86ad8d9df7d7",
+                    "label": "BAR",
+                    "func": "BAR",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 832.9560429527219,
+                    "y": 287.54028572104295
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 832.9560429527219,
+                    "y": 287.54028572104295
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LOOP-931e5323-9532-4bc3-af39-0cb17c079331",
+                "sourceHandle": "body",
+                "target": "LABJACKU3-da654963-a9c7-4668-bbf5-5c04d14065f1",
+                "targetHandle": "LABJACKU3",
+                "id": "reactflow__edge-LOOP-931e5323-9532-4bc3-af39-0cb17c079331body-LABJACKU3-da654963-a9c7-4668-bbf5-5c04d14065f1LABJACKU3"
+            },
+            {
+                "source": "LABJACKU3-da654963-a9c7-4668-bbf5-5c04d14065f1",
+                "sourceHandle": "main",
+                "target": "BAR-9baa21b1-ef0f-4b3a-9eac-86ad8d9df7d7",
+                "targetHandle": "BAR",
+                "id": "reactflow__edge-LABJACKU3-da654963-a9c7-4668-bbf5-5c04d14065f1main-BAR-9baa21b1-ef0f-4b3a-9eac-86ad8d9df7d7BAR"
+            },
+            {
+                "source": "BAR-9baa21b1-ef0f-4b3a-9eac-86ad8d9df7d7",
+                "sourceHandle": "main",
+                "target": "GOTO-ffb40d6a-c197-4010-8a99-8672d63939e6",
+                "targetHandle": "GOTO",
+                "id": "reactflow__edge-BAR-9baa21b1-ef0f-4b3a-9eac-86ad8d9df7d7main-GOTO-ffb40d6a-c197-4010-8a99-8672d63939e6GOTO"
+            },
+            {
+                "source": "LOOP-931e5323-9532-4bc3-af39-0cb17c079331",
+                "sourceHandle": "end",
+                "target": "END-2cf1ce1a-e1be-4aed-87d1-b240e7673f52",
+                "targetHandle": "END",
+                "id": "reactflow__edge-LOOP-931e5323-9532-4bc3-af39-0cb17c079331end-END-2cf1ce1a-e1be-4aed-87d1-b240e7673f52END"
+            }
+        ],
+        "viewport": {
+            "x": 280.39350600472176,
+            "y": 94.24473945324536,
+            "zoom": 0.8555103158038797
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
