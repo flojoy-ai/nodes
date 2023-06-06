@@ -5,6 +5,10 @@ import pandas as pd
 @flojoy
 def ONE_HOT_ENCODING(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """The ONE_HOT_ENCODING node creates a one hot encoding from a list of categorical features.
+    The `categories` parameter can be used to generate a one hot encoding without having to pass a dataframe.
+    By default, all categorical columns in the input dataframe will be encoded. The `columns`
+    parameter can be used to specify the columns to encode.
+
     Parameters
     ----------
     categories : list of str or list of int, optional
