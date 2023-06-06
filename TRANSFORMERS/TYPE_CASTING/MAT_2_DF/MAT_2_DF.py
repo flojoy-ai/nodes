@@ -5,20 +5,25 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def MAT_2_DF(
-    dc_inputs: list[DataContainer], params: dict
-) -> DataContainer:
+def MAT_2_DF(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
     Node to convert matrix type data into dataframe type data.
     It takes one matrix type data and converts it to dataframe type data.
+
+    Parameters
+    ----------
+        None
+
+    Returns
+    -------
+        dataframe
+            Converted matrix value from the input
     """
-    try:
-        
-        npData = dc_inputs[0].m
-        npArray = asarray(npData)
-        df = pd.DataFrame(npArray)
+    if dc_inputs[0].type == "matrix":
+        np_data = dc_inputs[0].m
+        np_array = asarray(np_data)
+        df = pd.DataFrame(np_array)
 
         return DataContainer(type="dataframe", m=df)
-    except Exception:
-        print(traceback.format_exc())
-        raise
+    else:
+        raise Exception("Invalid type")
