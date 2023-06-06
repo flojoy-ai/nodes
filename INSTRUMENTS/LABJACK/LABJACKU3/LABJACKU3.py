@@ -30,9 +30,11 @@ def LABJACKU3(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         temperatures.append(temperature)
         temperatures_celsius.append(temperature_celsius)
 
-    return DataContainer(type="ordered_pair",
-                         x={"a": sensor_num, "b": temperatures_celsius}, y=temperatures_celsius
-                         )
+    return DataContainer(
+        type="ordered_pair",
+        x={"a": sensor_num, "b": temperatures_celsius},
+        y=temperatures_celsius,
+    )
 
 
 @flojoy
