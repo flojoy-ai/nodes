@@ -11,7 +11,7 @@ def LABJACKU3(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     temperatures: list[float] = []
     temperatures_celsius: list[float] = []
     sensor_num: list[int] = []
-    sensor_number: int = params["sensor_numbers"]
+    sensor_number: int = params["numbers"]
 
     # Create an instance of U3 class
     d = u3.U3()
@@ -30,9 +30,9 @@ def LABJACKU3(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         temperatures.append(temperature)
         temperatures_celsius.append(temperature_celsius)
 
-    return DataContainer(
-        x={"a": sensor_num, "b": temperatures_celsius}, y=temperatures_celsius
-    )
+    return DataContainer(type="ordered_pair",
+                         x={"a": sensor_num, "b": temperatures_celsius}, y=temperatures_celsius
+                         )
 
 
 @flojoy
