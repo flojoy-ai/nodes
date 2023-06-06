@@ -3,6 +3,7 @@ import numpy as np
 import plotly.graph_objects as go
 import pandas as pd
 from nodes.VISUALIZERS.template import plot_layout
+from typing import cast
 
 
 @flojoy
@@ -26,7 +27,17 @@ def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 fig.add_trace(go.Scatter(x=df.index, y=df[col], mode="lines", name=col))
                 fig.update_layout(xaxis_title="X Axis", yaxis_title="Y Axis")
         case "matrix":
-            fig.add_trace(go.Line(x=np.arange(len(dc_input.m)), y=dc_input.m))
+            y_columns: np.ndarray = dc_input.m
+            for i, col in enumerate(y_columns.T):
+                fig.add_trace(
+                    go.Scatter(
+                        x=np.arange(0, col.size),
+                        y=col,
+                        mode="lines",
+                        name=i,
+                    )
+                )
+
         case _:
             raise ValueError(
                 f"unsupported DataContainer type passed for {node_name}: {dc_input.type}"

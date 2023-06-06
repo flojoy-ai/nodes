@@ -1,5 +1,3 @@
-import traceback
-from numpy import asmatrix, asarray
 import pandas as pd
 from flojoy import flojoy, DataContainer
 
@@ -19,12 +17,13 @@ def DF_2_NP(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         numpy array
             Converted dataframe value from the input
     """
-    if dc_inputs[0].type == "dataframe":
-        pd_data = dc_inputs[0].m
-        pd_to_numpy = pd.DataFrame(pd_data).to_numpy(dtype=object)
-        pd_to_numpy = pd_to_numpy[:, :-1]
-        # numpyMatrix = asmatrix(pdToNumpy)
+    dc_input = dc_inputs[0]
+    if dc_input.type == "dataframe":
+        df = pd.DataFrame(dc_inputs[0].m)
+        df_to_numpy = df.to_numpy(dtype=object)
 
-        return DataContainer(type="matrix", m=pd_to_numpy)
+        return DataContainer(type="matrix", m=df_to_numpy)
     else:
-        raise Exception("Invalid type")
+        raise ValueError(
+            f"unsupported DataContainer type passed for DF_2_NP : {dc_input.type}"
+        )
