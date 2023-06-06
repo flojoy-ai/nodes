@@ -1,0 +1,266 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 135,
+                "id": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "start": {
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": "0"
+                        },
+                        "end": {
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": "0.6"
+                        },
+                        "step": {
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": "10"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 1.3714312052589008,
+                    "y": 280.86285687947384
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1.3714312052589008,
+                    "y": 280.86285687947384
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2",
+                "type": "KEITHLEY2400",
+                "data": {
+                    "id": "KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2",
+                    "label": "KEITHLEY2400",
+                    "func": "KEITHLEY2400",
+                    "type": "KEITHLEY2400",
+                    "ctrls": {
+                        "comport": {
+                            "functionName": "KEITHLEY2400",
+                            "param": "comport",
+                            "value": "/dev/ttyUSB0"
+                        },
+                        "baudrate": {
+                            "functionName": "KEITHLEY2400",
+                            "param": "baudrate",
+                            "value": "9600"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 411.6611111244576,
+                    "y": 279.7462908670198
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 411.6611111244576,
+                    "y": 279.7462908670198
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-7ebef9ed-07f9-4363-abc6-16e0d50589f7",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-7ebef9ed-07f9-4363-abc6-16e0d50589f7",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1226.0471936627987,
+                    "y": 282.4445145949168
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1226.0471936627987,
+                    "y": 282.4445145949168
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "LINE-f9a46878-a550-45e4-9564-d2fcb73a8134",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "LINE-f9a46878-a550-45e4-9564-d2fcb73a8134",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 784.8859596750218,
+                    "y": 242.04955647111308
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 784.8859596750218,
+                    "y": 242.04955647111308
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
+                "sourceHandle": "main",
+                "target": "KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2",
+                "targetHandle": "KEITHLEY2400",
+                "id": "reactflow__edge-LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135cemain-KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2KEITHLEY2400"
+            },
+            {
+                "source": "KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2",
+                "sourceHandle": "main",
+                "target": "LINE-f9a46878-a550-45e4-9564-d2fcb73a8134",
+                "targetHandle": "LINE",
+                "id": "reactflow__edge-KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2main-LINE-f9a46878-a550-45e4-9564-d2fcb73a8134LINE"
+            },
+            {
+                "source": "LINE-f9a46878-a550-45e4-9564-d2fcb73a8134",
+                "sourceHandle": "main",
+                "target": "END-7ebef9ed-07f9-4363-abc6-16e0d50589f7",
+                "targetHandle": "END",
+                "id": "reactflow__edge-LINE-f9a46878-a550-45e4-9564-d2fcb73a8134main-END-7ebef9ed-07f9-4363-abc6-16e0d50589f7END"
+            }
+        ],
+        "viewport": {
+            "x": 226.6796457828928,
+            "y": 31.056018042519327,
+            "zoom": 0.6853504029717089
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            },
+            "param": {
+                "id": "LINSPACE_LINSPACE_start",
+                "functionName": "LINSPACE",
+                "param": "start",
+                "nodeId": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
+                "inputId": "INPUT_PLACEHOLDER",
+                "type": "float"
+            },
+            "val": 0
+        },
+        {
+            "type": "input",
+            "name": "Numeric Input",
+            "minWidth": 1,
+            "minHeight": 1,
+            "hidden": false,
+            "id": "ctrl-ea31ed1b-1e45-4f56-a3e2-763e1b5ed939",
+            "layout": {
+                "x": 0,
+                "y": 1,
+                "h": 2,
+                "w": 2,
+                "i": "ctrl-ea31ed1b-1e45-4f56-a3e2-763e1b5ed939",
+                "minH": 1,
+                "minW": 1,
+                "static": false
+            },
+            "param": {
+                "id": "LINSPACE_LINSPACE_end",
+                "functionName": "LINSPACE",
+                "param": "end",
+                "nodeId": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
+                "inputId": "ctrl-ea31ed1b-1e45-4f56-a3e2-763e1b5ed939",
+                "type": "float"
+            },
+            "val": 0.6
+        },
+        {
+            "type": "input",
+            "name": "Numeric Input",
+            "minWidth": 1,
+            "minHeight": 1,
+            "hidden": false,
+            "id": "ctrl-d950fa9c-10f6-4466-9043-01cb5812ed88",
+            "layout": {
+                "x": 0,
+                "y": 2,
+                "h": 2,
+                "w": 2,
+                "i": "ctrl-d950fa9c-10f6-4466-9043-01cb5812ed88",
+                "minH": 1,
+                "minW": 1,
+                "static": false
+            },
+            "param": {
+                "id": "LINSPACE_LINSPACE_step",
+                "functionName": "LINSPACE",
+                "param": "step",
+                "nodeId": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
+                "inputId": "ctrl-d950fa9c-10f6-4466-9043-01cb5812ed88",
+                "type": "float"
+            },
+            "val": 10
+        },
+        {
+            "type": "input",
+            "name": "Text Input",
+            "minWidth": 1,
+            "minHeight": 1,
+            "hidden": false,
+            "id": "ctrl-01e8bbab-f3a8-4fc3-8bd5-18c69b7ca3b1",
+            "layout": {
+                "x": 0,
+                "y": 3,
+                "h": 2,
+                "w": 2,
+                "i": "ctrl-01e8bbab-f3a8-4fc3-8bd5-18c69b7ca3b1",
+                "minH": 1,
+                "minW": 1,
+                "static": false
+            },
+            "param": {
+                "id": "KEITHLEY2400_KEITHLEY2400_comport",
+                "functionName": "KEITHLEY2400",
+                "param": "comport",
+                "nodeId": "KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2",
+                "inputId": "ctrl-01e8bbab-f3a8-4fc3-8bd5-18c69b7ca3b1",
+                "type": "string"
+            },
+            "val": "/dev/ttyUSB0"
+        }
+    ]
+}
