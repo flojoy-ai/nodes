@@ -3,6 +3,7 @@
         "nodes": [
             {
                 "width": 150,
+<<<<<<< HEAD
                 "height": 150,
                 "id": "LABJACKU3-da654963-a9c7-4668-bbf5-5c04d14065f1",
                 "type": "LABJACK",
@@ -11,10 +12,21 @@
                     "label": "LABJACKU3",
                     "func": "LABJACKU3",
                     "type": "LABJACK",
+=======
+                "height": 135,
+                "id": "LABJACKU3-22ac4986-5417-4f3c-b6e4-76fa44e2308c",
+                "type": "LABJACKU3",
+                "data": {
+                    "id": "LABJACKU3-22ac4986-5417-4f3c-b6e4-76fa44e2308c",
+                    "label": "LABJACKU3",
+                    "func": "LABJACKU3",
+                    "type": "LABJACKU3",
+>>>>>>> origin
                     "ctrls": {
                         "numbers": {
                             "functionName": "LABJACKU3",
                             "param": "numbers",
+<<<<<<< HEAD
                             "value": "6"
                         }
                     },
@@ -34,11 +46,27 @@
                 "positionAbsolute": {
                     "x": 501.52747152415037,
                     "y": 328.9688571496145
+=======
+                            "value": "4"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 253.78212193602948,
+                    "y": 279.5606363949159
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 253.78212193602948,
+                    "y": 279.5606363949159
+>>>>>>> origin
                 },
                 "dragging": true
             },
             {
                 "width": 150,
+<<<<<<< HEAD
                 "height": 150,
                 "id": "GOTO-ffb40d6a-c197-4010-8a99-8672d63939e6",
                 "type": "LOOP",
@@ -64,16 +92,44 @@
                 "positionAbsolute": {
                     "x": 1247.241757238436,
                     "y": 318.96885714961445
+=======
+                "height": 135,
+                "id": "END-d7ec1fd5-3d8c-4619-b4ee-565b5e7072bf",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-d7ec1fd5-3d8c-4619-b4ee-565b5e7072bf",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 709.9425194019852,
+                    "y": -61.663681244002845
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 709.9425194019852,
+                    "y": -61.663681244002845
+>>>>>>> origin
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 181,
+<<<<<<< HEAD
                 "id": "LOOP-931e5323-9532-4bc3-af39-0cb17c079331",
                 "type": "LOOP",
                 "data": {
                     "id": "LOOP-931e5323-9532-4bc3-af39-0cb17c079331",
+=======
+                "id": "LOOP-e57b3b0a-df51-471b-a787-b44fbb8a7396",
+                "type": "LOOP",
+                "data": {
+                    "id": "LOOP-e57b3b0a-df51-471b-a787-b44fbb8a7396",
+>>>>>>> origin
                     "label": "LOOP",
                     "func": "LOOP",
                     "type": "LOOP",
@@ -81,7 +137,11 @@
                         "num_loops": {
                             "functionName": "LOOP",
                             "param": "num_loops",
+<<<<<<< HEAD
                             "value": "10"
+=======
+                            "value": "2"
+>>>>>>> origin
                         }
                     },
                     "inputs": [
@@ -99,6 +159,7 @@
                     "selected": false
                 },
                 "position": {
+<<<<<<< HEAD
                     "x": 101.52747152415034,
                     "y": 251.82600000675723
                 },
@@ -106,10 +167,20 @@
                 "positionAbsolute": {
                     "x": 101.52747152415034,
                     "y": 251.82600000675723
+=======
+                    "x": -227.53676184432658,
+                    "y": 230.48354617955033
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -227.53676184432658,
+                    "y": 230.48354617955033
+>>>>>>> origin
                 },
                 "dragging": true
             },
             {
+<<<<<<< HEAD
                 "width": 210,
                 "height": 130,
                 "id": "END-2cf1ce1a-e1be-4aed-87d1-b240e7673f52",
@@ -130,10 +201,39 @@
                 "positionAbsolute": {
                     "x": 1215.8131858098645,
                     "y": 68.9688571496144
+=======
+                "width": 150,
+                "height": 150,
+                "id": "GOTO-c0b855ea-11fb-4783-82b4-a2933367f127",
+                "type": "LOOP",
+                "data": {
+                    "id": "GOTO-c0b855ea-11fb-4783-82b4-a2933367f127",
+                    "label": "GOTO",
+                    "func": "GOTO",
+                    "type": "LOOP",
+                    "ctrls": {
+                        "goto_node_id": {
+                            "functionName": "GOTO",
+                            "param": "goto_node_id",
+                            "value": "LOOP-e57b3b0a-df51-471b-a787-b44fbb8a7396"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 1098.3691040567865,
+                    "y": 281.15565993376396
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1098.3691040567865,
+                    "y": 281.15565993376396
+>>>>>>> origin
                 },
                 "dragging": true
             },
             {
+<<<<<<< HEAD
                 "width": 380,
                 "height": 293,
                 "id": "BAR-9baa21b1-ef0f-4b3a-9eac-86ad8d9df7d7",
@@ -142,11 +242,22 @@
                     "id": "BAR-9baa21b1-ef0f-4b3a-9eac-86ad8d9df7d7",
                     "label": "BAR",
                     "func": "BAR",
+=======
+                "width": 225,
+                "height": 226,
+                "id": "SCATTER-938764eb-12e1-4d35-805c-e9bbd76b75af",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "SCATTER-938764eb-12e1-4d35-805c-e9bbd76b75af",
+                    "label": "SCATTER 1",
+                    "func": "SCATTER",
+>>>>>>> origin
                     "type": "PLOTLY_VISOR",
                     "ctrls": {},
                     "selected": false
                 },
                 "position": {
+<<<<<<< HEAD
                     "x": 832.9560429527219,
                     "y": 287.54028572104295
                 },
@@ -154,12 +265,22 @@
                 "positionAbsolute": {
                     "x": 832.9560429527219,
                     "y": 287.54028572104295
+=======
+                    "x": 658.6840510501657,
+                    "y": 232.63558754405483
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 658.6840510501657,
+                    "y": 232.63558754405483
+>>>>>>> origin
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
+<<<<<<< HEAD
                 "source": "LOOP-931e5323-9532-4bc3-af39-0cb17c079331",
                 "sourceHandle": "body",
                 "target": "LABJACKU3-da654963-a9c7-4668-bbf5-5c04d14065f1",
@@ -192,11 +313,46 @@
             "x": 280.39350600472176,
             "y": 94.24473945324536,
             "zoom": 0.8555103158038797
+=======
+                "source": "LOOP-e57b3b0a-df51-471b-a787-b44fbb8a7396",
+                "sourceHandle": "end",
+                "target": "END-d7ec1fd5-3d8c-4619-b4ee-565b5e7072bf",
+                "targetHandle": "END",
+                "id": "reactflow__edge-LOOP-e57b3b0a-df51-471b-a787-b44fbb8a7396end-END-d7ec1fd5-3d8c-4619-b4ee-565b5e7072bfEND"
+            },
+            {
+                "source": "LOOP-e57b3b0a-df51-471b-a787-b44fbb8a7396",
+                "sourceHandle": "body",
+                "target": "LABJACKU3-22ac4986-5417-4f3c-b6e4-76fa44e2308c",
+                "targetHandle": "LABJACKU3",
+                "id": "reactflow__edge-LOOP-e57b3b0a-df51-471b-a787-b44fbb8a7396body-LABJACKU3-22ac4986-5417-4f3c-b6e4-76fa44e2308cLABJACKU3"
+            },
+            {
+                "source": "LABJACKU3-22ac4986-5417-4f3c-b6e4-76fa44e2308c",
+                "sourceHandle": "main",
+                "target": "SCATTER-938764eb-12e1-4d35-805c-e9bbd76b75af",
+                "targetHandle": "SCATTER",
+                "id": "reactflow__edge-LABJACKU3-22ac4986-5417-4f3c-b6e4-76fa44e2308cmain-SCATTER-938764eb-12e1-4d35-805c-e9bbd76b75afSCATTER"
+            },
+            {
+                "source": "SCATTER-938764eb-12e1-4d35-805c-e9bbd76b75af",
+                "sourceHandle": "main",
+                "target": "GOTO-c0b855ea-11fb-4783-82b4-a2933367f127",
+                "targetHandle": "GOTO",
+                "id": "reactflow__edge-SCATTER-938764eb-12e1-4d35-805c-e9bbd76b75afmain-GOTO-c0b855ea-11fb-4783-82b4-a2933367f127GOTO"
+            }
+        ],
+        "viewport": {
+            "x": 226.6796457828928,
+            "y": 31.056018042519327,
+            "zoom": 0.6853504029717089
+>>>>>>> origin
         }
     },
     "ctrlsManifest": [
         {
             "type": "input",
+<<<<<<< HEAD
             "name": "Slider",
             "id": "INPUT_PLACEHOLDER",
             "hidden": false,
@@ -211,6 +367,86 @@
                 "minW": 2,
                 "i": "INPUT_PLACEHOLDER"
             }
+=======
+            "name": "Numeric Input",
+            "minWidth": 1,
+            "minHeight": 1,
+            "hidden": false,
+            "id": "ctrl-e0d152a4-48de-49ea-94c4-374c380d1b4d",
+            "layout": {
+                "x": 0,
+                "y": 1,
+                "h": 2,
+                "w": 2,
+                "i": "ctrl-e0d152a4-48de-49ea-94c4-374c380d1b4d",
+                "minH": 1,
+                "minW": 1,
+                "static": false
+            },
+            "param": {
+                "id": "LABJACKU3_LABJACKU3_numbers",
+                "functionName": "LABJACKU3",
+                "param": "numbers",
+                "nodeId": "LABJACKU3-22ac4986-5417-4f3c-b6e4-76fa44e2308c",
+                "inputId": "ctrl-e0d152a4-48de-49ea-94c4-374c380d1b4d",
+                "type": "int"
+            },
+            "val": 1
+        },
+        {
+            "type": "input",
+            "name": "Numeric Input",
+            "minWidth": 1,
+            "minHeight": 1,
+            "hidden": false,
+            "id": "ctrl-4ec6e17c-d92f-4a49-b455-dae1c3fad457",
+            "layout": {
+                "x": 0,
+                "y": 1,
+                "h": 2,
+                "w": 2,
+                "i": "ctrl-4ec6e17c-d92f-4a49-b455-dae1c3fad457",
+                "minH": 1,
+                "minW": 1,
+                "static": false
+            },
+            "param": {
+                "id": "LOOP_LOOP_num_loops",
+                "functionName": "LOOP",
+                "param": "num_loops",
+                "nodeId": "LOOP-e57b3b0a-df51-471b-a787-b44fbb8a7396",
+                "inputId": "ctrl-4ec6e17c-d92f-4a49-b455-dae1c3fad457",
+                "type": "int"
+            },
+            "val": -1
+        },
+        {
+            "type": "input",
+            "name": "Node Reference",
+            "minWidth": 2,
+            "minHeight": 2,
+            "hidden": false,
+            "id": "ctrl-54e69f6f-2b5e-4434-8257-cc586d8cb5b9",
+            "layout": {
+                "x": 0,
+                "y": 2,
+                "h": 2,
+                "w": 2,
+                "i": "ctrl-54e69f6f-2b5e-4434-8257-cc586d8cb5b9",
+                "minH": 2,
+                "minW": 2,
+                "static": false
+            },
+            "param": {
+                "id": "GOTO_GOTO_goto_node_id",
+                "functionName": "GOTO",
+                "param": "goto_node_id",
+                "nodeId": "GOTO-c0b855ea-11fb-4783-82b4-a2933367f127",
+                "inputId": "ctrl-54e69f6f-2b5e-4434-8257-cc586d8cb5b9",
+                "type": "node_reference"
+            },
+            "val": "LOOP-e57b3b0a-df51-471b-a787-b44fbb8a7396"
+>>>>>>> origin
         }
     ]
 }
