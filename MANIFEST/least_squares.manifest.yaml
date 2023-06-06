@@ -1,5 +1,4 @@
 COMMAND:
-  - name: Least Squares
+  - name: LEAST_SQUARES
     key: LEAST_SQUARES
     type: REGRESSION
-    parameters: {}
