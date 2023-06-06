@@ -23,7 +23,7 @@ def SECOND_ORDER_SYSTEM(dc_inputs: list[DataContainer], params: dict) -> DataCon
     # Now we require memory. The only thing we need in memory is the last two
     # values the system had in this basic example.
     data = SmallMemory().read_memory(node_id, memory_key)
-    if type(data) == dict:
+    if data is None:
         initialize = True
     elif type(data) == np.ndarray:
         initialize = False
