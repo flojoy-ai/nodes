@@ -1,0 +1,11 @@
+COMMAND:
+  - name: ONE_HOT_ENCODING
+    key: ONE_HOT_ENCODING
+    type: CLASSIFICATION
+    parameters:
+      categories:
+        type: array
+        default: ""
+      columns:
+        type: array
+        default: ""
