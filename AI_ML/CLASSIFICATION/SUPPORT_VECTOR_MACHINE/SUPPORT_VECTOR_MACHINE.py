@@ -15,7 +15,7 @@ def SUPPORT_VECTOR_MACHINE(
 
     Parameters
     ----------
-    label_col: str
+    target: str
         The column name of the label in the input dataframe.
     kernel: 'linear' | 'poly' | 'rvm', default='linear'
         Specifies the kernel type to be used in the algorithm.
@@ -31,11 +31,6 @@ def SUPPORT_VECTOR_MACHINE(
             "SUPPORT_VECTOR_MACHINE requires both training data and input data"
         )
 
-    label_col: Union[str, int] = params.get("label_col")
-    if not label_col:
-        label_col = -1
-    kernel = params.get("kernel", "linear")
-
     training_data = dc_inputs[0]
     input_data = dc_inputs[1]
 
@@ -49,29 +44,35 @@ def SUPPORT_VECTOR_MACHINE(
             f"unsupported DataContainer type passed to SUPPORT_VECTOR_MACHINE node for input: {training_data.type}"
         )
 
-    if training_data.type == "dataframe":
-        le = preprocessing.LabelEncoder()
-        df = cast(pd.DataFrame, training_data.m)
+    target: str = params["target"]
+    kernel: str = params.get("kernel", "linear")
 
-        if isinstance(label_col, str):
-            col = training_data[label_col]
-            encoded_labels = le.fit_transform(col)
-            train = df.drop(label_col, axis=1).to_numpy()
-        else:
-            col = training_data.iloc[:, label_col]
-            encoded_labels = le.fit_transform(col)
-            train = df.drop(df.columns[label_col], axis=1).to_numpy()
+    le = preprocessing.LabelEncoder()
+
+    if training_data.type == "dataframe":
+        df = cast(pd.DataFrame, training_data.m)
+        if not target:
+            target = str(df.columns[-1])
+
+        col = df[target]
+        train = df.drop(target, axis=1).to_numpy()
+    # Other case is matrix
     else:
-        train = []
-        encoded_labels = []
+        # assume the last column is the label
+        data = cast(np.ndarray, training_data.m)
+        col = data[:, -1]
+
+        # remove the last column
+        train = np.delete(data, -1, axis=1)
 
     X = train
-    Y = encoded_labels
+    Y = le.fit_transform(col)
 
     clf = svm.SVC(kernel=kernel)
     clf.fit(X, Y)
 
     prediction = clf.predict(input_data.m)
-    prediction = pd.DataFrame(prediction)
+    prediction = le.inverse_transform(prediction)
+    prediction = pd.DataFrame({target: prediction})
 
     return DataContainer(type="dataframe", m=prediction)
