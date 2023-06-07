@@ -24,19 +24,17 @@ def numpy_array_as_table(arr: np.ndarray, placeholder: str):
         new_arr = arr
     return new_arr.reshape(-1, 1)
 
+
 @flojoy
 def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     dc_input = dc_inputs[0]
 
     match dc_input.type:
         case "ordered_pair":
-            data = np.asarray(dc_input.y)
-            #data = np.asarray([[[[1],[2]],[[3],[4]]]])
+            data = dc_input.y
             cell_values = numpy_array_as_table(data, l_dot)
         case "dataframe":
-            data = pd.DataFrame(dc_input).to_numpy()
-            data = data[:-1]
-            print(data)
+            data = pd.DataFrame(dc_input.m).to_numpy(dtype=object)
             cell_values = numpy_array_as_table(data, l_dot)
         case "matrix":
             data = np.asarray(dc_input.m)
@@ -73,7 +71,7 @@ def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     )
     if dc_input.type == "image":
         width = MAX_ALLOWED_SHAPE * CELL_SIZE + 800
-        
+
     else:
         width = MAX_ALLOWED_SHAPE * CELL_SIZE + 80
     height = width + 80
