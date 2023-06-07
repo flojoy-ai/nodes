@@ -6,25 +6,18 @@ from PIL import ImageFilter, Image
 
 @flojoy
 def EDGE_DETECTION(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """
-    Apply edge detection operation on the input `DataContainer` class,
-    specifically for the 'image' type, represented by the RGB(A) channels.
+    """The EDGE_DETECTION node detects edges in the image passed to it.
+    This is done through the the Pillow image filter FIND_EDGES.
+    Note that the image is converted to greyscale during this processing.
 
-    Note that the image is coverted to greyscale during processing.
+    Parameters
+    ----------
+    None
 
-    Args:
-        dc_inputs (list[DataContainer]): List of input DataContainer objects.
-
-        params (dict): None for this node.
-
-    Returns:
-        DataContainer: The loaded file as a DataContainer class.
-
-    Raises:
-        Exception: If there is an handling the image.
-
-    Supported file types:
-    - "image": Load an image file and return the RGB(A) channels as a DataContainer class.
+    Returns
+    -------
+    image
+        The image with detected edges in white.
     """
     dc_input = dc_inputs[0]
     if dc_input.type != "image":
