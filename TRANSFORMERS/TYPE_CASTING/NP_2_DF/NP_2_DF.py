@@ -19,23 +19,23 @@ def NP_2_DF(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
     dc_input = dc_inputs[0]
     match (dc_input.type):
-        case "dataframe":
+        case "dataframe" | "parametric_dataframe":
             return dc_input
 
-        case "ordered_pair":
+        case "ordered_pair" | "parametric_ordered_pair":
             df = pd.DataFrame(dc_input.y)
             return DataContainer(type="dataframe", m=df)
 
-        case "ordered_triple":
+        case "ordered_triple" | "parametric_ordered_triple":
             df = pd.DataFrame(dc_input.z)
             return DataContainer(type="dataframe", m=df)
 
-        case "matrix" | "grayscale":
+        case "matrix" | "grayscale" | "parametric_matrix" | "parametric_grayscale":
             np_array = np.asarray(dc_input.m)
             df = pd.DataFrame(np_array)
             return DataContainer(type="dataframe", m=df)
 
-        case "image":
+        case "image" | "parametric_image":
             red = dc_input.r
             green = dc_input.g
             blue = dc_input.b
@@ -52,13 +52,6 @@ def NP_2_DF(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 df = pd.DataFrame(merge)
                 return DataContainer(type="dataframe", m=df)
         case _:
-            raise Exception("Invalid type")
-
-        # case "scalar":
-        #     cToArray = np.asarray(dc_inputs[0].c)  # Not too sure about this part
-        #     df = pd.DataFrame(cToArray)
-        #     return DataContainer(type="dataframe", m=df)
-
-        # case "plotly":
-        #     df = pd.DataFrame(dc_inputs[0].fig)  # Not too sure about this part
-        #     return DataContainer(type="dataframe", m=df)
+            raise ValueError(
+                f"unsupported DataContainer type passed for NP_2_DF : {dc_input.type}"
+            )
