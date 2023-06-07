@@ -1,0 +1,8 @@
+COMMAND:
+  - name: Extract Columns 
+    key: EXTRACT_COLUMNS 
+    type: EXTRACTORS
+    parameters:
+      columns:
+        type: array
+        default: ""
