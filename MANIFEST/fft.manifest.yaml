@@ -4,7 +4,25 @@ COMMAND:
     type: SIGNAL_PROCESSING
     parameters:
       window_type:
-        type: string
+        type: select
+        options:
+          - boxcar
+          - triang
+          - blackman
+          - hamming
+          - hann
+          - bartlett
+          - flattop
+          - parzen
+          - bohman
+          - blackmanharris
+          - nuttall
+          - barthann
+          - cosine
+          - exponential
+          - tukey
+          - taylor
+          - lanczos
         default: ""
       real_signal:
        type: boolean
