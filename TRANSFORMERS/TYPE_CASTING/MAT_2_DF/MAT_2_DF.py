@@ -12,12 +12,12 @@ def MAT_2_DF(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     Parameters
     ----------
-        None
+    None
 
     Returns
     -------
-        dataframe
-            Converted matrix value from the input
+    dataframe
+        Converted matrix value from the input
     """
     dc_input = dc_inputs[0]
     if dc_input.type == "matrix":

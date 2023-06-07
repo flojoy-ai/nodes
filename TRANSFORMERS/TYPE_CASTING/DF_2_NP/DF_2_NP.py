@@ -14,12 +14,12 @@ def DF_2_NP(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     Returns
     -------
-        numpy array
-            Converted dataframe value from the input
+    numpy array
+        Converted dataframe value from the input
     """
     dc_input = dc_inputs[0]
     if dc_input.type == "dataframe":
-        df = pd.DataFrame(dc_inputs[0].m)
+        df = dc_input.m
         df_to_numpy = df.to_numpy(dtype=object)
 
         return DataContainer(type="matrix", m=df_to_numpy)
