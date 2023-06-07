@@ -4,7 +4,14 @@ COMMAND:
     type: CONDITIONAL
     parameters:
       operator_type:
-        type: string
+        type: select
+        options:
+          - "<="
+          - ">"
+          - "<"
+          - ">="
+          - "!="
+          - "=="
         default: ">="
     inputs:
       - name: x
