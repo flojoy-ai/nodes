@@ -2,9 +2,7 @@ from flojoy import flojoy, DataContainer
 import pandas as pd
 import numpy as np
 from sklearn import svm, preprocessing
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-from typing import Union, cast
+from typing import cast
 
 
 @flojoy
