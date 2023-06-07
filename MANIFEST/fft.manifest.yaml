@@ -25,5 +25,8 @@ COMMAND:
           - lanczos
         default: ""
       real_signal:
-       type: boolean
-       default: false
+        type: boolean
+        default: false
+      sample_rate:
+        type: int
+        default: 1

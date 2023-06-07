@@ -34,6 +34,8 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         )
     window_type: str = params["window_type"]  # Type of window function
     real: bool = params["real_signal"]
+    sample_rate: int = params["sample_rate"]
+
     signal_value = dc.y
     x = dc.x
 
@@ -42,10 +44,11 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         fourier = (
             fft.rfft(signal_value * window) if real else fft.fft(signal_value * window)
         )
-        result = abs(fourier * window)
     else:  # no window applied
         fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
-        result = abs(fourier)
-    frequency = fft.rfftfreq(len(x)) if real else fft.fftfreq(len(x))
+    fourier = fft.fftshift(fourier)
+    frequency = fft.rfftfreq(x.shape[-1], 1 / sample_rate) if real else fft.fftfreq(x.shape[-1])
+    frequency = fft.fftshift(frequency)
 
+    result = abs(fourier)
     return DataContainer(x=frequency, y=result)
