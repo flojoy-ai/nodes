@@ -92,4 +92,4 @@ COMMAND:
         default: iris
     pip_dependencies:
       - name: rdatasets
-        v: 0.1.0
+        v: "0.1.0"
