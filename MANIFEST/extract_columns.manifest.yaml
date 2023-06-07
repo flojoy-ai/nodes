@@ -3,6 +3,6 @@ COMMAND:
     key: EXTRACT_COLUMNS
     type: DATAFRAME
     parameters:
-      target:
+      columns:
         type: array
         default: ""

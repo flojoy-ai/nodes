@@ -10,7 +10,7 @@ COMMAND:
         id: input
         type: source
     parameters:
-      label_col:
+      target:
         type: string
         default: ""
       kernel:
