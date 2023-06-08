@@ -50,7 +50,9 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     else:  # no window applied
         fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
     fourier = fft.fftshift(fourier)
-    frequency = fft.rfftfreq(x.shape[-1], 1 / sample_rate) if real else fft.fftfreq(x.shape[-1])
+    frequency = (
+        fft.rfftfreq(x.shape[-1], 1 / sample_rate) if real else fft.fftfreq(x.shape[-1])
+    )
     frequency = fft.fftshift(frequency)
 
     result = abs(fourier)
