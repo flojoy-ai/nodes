@@ -23,7 +23,7 @@ COMMAND:
           - tukey
           - taylor
           - lanczos
-        default: ""
+        default: none
       real_signal:
         type: boolean
         default: false
