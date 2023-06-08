@@ -1,18 +1,18 @@
 from flojoy import flojoy, DataContainer
 import pandas as pd
+from typing import cast
 
 
 @flojoy
 def ONE_HOT_ENCODING(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The ONE_HOT_ENCODING node creates a one hot encoding from a list of categorical features.
-    The `categories` parameter can be used to generate a one hot encoding without having to pass a dataframe.
-    By default, all categorical columns in the input dataframe will be encoded. The `columns`
-    parameter can be used to specify the columns to encode.
+    """The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe containing categorical features.
 
     Parameters
     ----------
     categories : list of str or list of int, optional
+        A list of categories, can be used to generate a one hot encoding without having to pass a dataframe.
     columns: list of str, optional
+        Specifies the columns to encode. By default, the node will encode all categorical columns.
 
     Returns
     -------
@@ -44,7 +44,8 @@ def ONE_HOT_ENCODING(dc_inputs: list[DataContainer], params: dict) -> DataContai
     if columns:
         encoded = pd.get_dummies(dc.m[columns])
     else:
-        cat_df = dc.m.select_dtypes(include=["object", "category"])
+        df = cast(pd.DataFrame, dc.m)
+        cat_df = df.select_dtypes(include=["object", "category"])
         encoded = pd.get_dummies(cat_df, dtype=int)
 
     return DataContainer(type="dataframe", m=encoded)

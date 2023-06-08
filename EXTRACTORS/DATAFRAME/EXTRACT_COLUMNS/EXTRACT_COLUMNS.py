@@ -5,7 +5,8 @@ from typing import List, cast
 
 @flojoy
 def EXTRACT_COLUMNS(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """
+    """The EXTRACT_COLUMNS node takes an input dataframe and returns a dataframe with only the specified columns.
+
     Parameters
     ----------
     columns: list of str

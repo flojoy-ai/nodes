@@ -9,13 +9,13 @@ from typing import cast
 def SUPPORT_VECTOR_MACHINE(
     dc_inputs: list[DataContainer], params: dict
 ) -> DataContainer:
-    """The SUPPORT_VECTOR_MACHINE node is used to train a support vector machine model.
+    """The SUPPORT_VECTOR_MACHINE node is used to train a support vector machine model for classification tasks.
 
     Parameters
     ----------
-    target: str
+    target: str, optional
         The column name of the label in the input dataframe.
-    kernel: 'linear' | 'poly' | 'rvm', default='linear'
+    kernel: 'linear' | 'poly' | 'rvm' | 'sigmoid', default='linear'
         Specifies the kernel type to be used in the algorithm.
 
     Returns
@@ -39,7 +39,7 @@ def SUPPORT_VECTOR_MACHINE(
 
     if input_data.type != "dataframe" and input_data.type != "matrix":
         raise ValueError(
-            f"unsupported DataContainer type passed to SUPPORT_VECTOR_MACHINE node for input: {training_data.type}"
+            f"unsupported DataContainer type passed to SUPPORT_VECTOR_MACHINE node for input: {input_data.type}"
         )
 
     target: str = params["target"]
@@ -53,7 +53,7 @@ def SUPPORT_VECTOR_MACHINE(
             target = str(df.columns[-1])
 
         col = df[target]
-        train = df.drop(target, axis=1).to_numpy()
+        train = cast(pd.DataFrame, df.drop(target, axis=1)).to_numpy()
     # Other case is matrix
     else:
         # assume the last column is the label

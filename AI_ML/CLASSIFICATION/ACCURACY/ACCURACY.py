@@ -5,6 +5,20 @@ from typing import cast
 
 @flojoy
 def ACCURACY(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+    """The ACCURACY node takes two dataframes with the true and predicted labels from a classification task,
+    and indicates whether the prediction was correct or not. These dataframes should both be single columns.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    dataframe
+        The input predictions dataframe, with an extra boolean column "prediction_correct".
+
+    """
+
     if len(dc_inputs) != 2:
         raise ValueError("ACCURACY node requires both true data and predicted data")
 
