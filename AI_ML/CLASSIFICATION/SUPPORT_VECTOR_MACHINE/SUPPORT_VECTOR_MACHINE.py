@@ -43,6 +43,10 @@ def SUPPORT_VECTOR_MACHINE(
             f"unsupported DataContainer type passed to SUPPORT_VECTOR_MACHINE node for input: {input_data.type}"
         )
 
+    with open("/home/jeff/test.txt", "w+") as f:
+        f.write(str(training_data) + "\n")
+        f.write(str(input_data))
+
     target: str = params["target"]
     kernel: str = params.get("kernel", "linear")
 
@@ -64,13 +68,20 @@ def SUPPORT_VECTOR_MACHINE(
         # remove the last column
         train = np.delete(data, -1, axis=1)
 
+    # TODO: Implement data scaling for SVM?
+
     X = train
     Y = le.fit_transform(col)
 
     clf = svm.SVC(kernel=kernel)
     clf.fit(X, Y)
 
-    prediction = clf.predict(input_data.m)
+    if input_data.type == "dataframe":
+        input_arr = cast(pd.DataFrame, input_data.m).to_numpy()
+    else:
+        input_arr = cast(np.ndarray, input_data.m)
+
+    prediction = clf.predict(input_arr)
     prediction = le.inverse_transform(prediction)
     prediction = pd.DataFrame({target: prediction})
 
