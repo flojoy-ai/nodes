@@ -10,6 +10,7 @@ def SUPPORT_VECTOR_MACHINE(
     dc_inputs: list[DataContainer], params: dict
 ) -> DataContainer:
     """The SUPPORT_VECTOR_MACHINE node is used to train a support vector machine model for classification tasks.
+    It takes a dataframe of labelled training data, and a dataframe of unlabelled input data.
 
     Parameters
     ----------
