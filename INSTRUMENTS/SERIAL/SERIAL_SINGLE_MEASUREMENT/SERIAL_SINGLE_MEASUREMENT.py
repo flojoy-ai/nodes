@@ -29,8 +29,10 @@ def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
     print(",")
     println(reading1)
 
-    If there is more than one column, the SELECT_ARRAY node must be
-    used after this node.
+    This node will receive the data from the arduino as a string and will split
+    the string using "," as separators.
+    It will return the measurement in a table of float that we'll be able to plot using visualization nodes from Flojoy
+
 
     params:
     BAUD_RATE: Baud rate for the serial device.
@@ -44,19 +46,19 @@ def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
     # The first reading is commonly empty.
     s = ser.readline().decode()
 
-    # Some readings may be empty. Try a second time if so.
+    # Some readings may be empty at first because it takes time before receiving the data. Try a second time if so.
     if s != "":
         reading = s[:-2].split(",")
     else:
         s = ser.readline().decode()
-        reading = s[:-2].split(",")
+        print(" decode testbis: ", str(s))
+        reading = s[:-2].split(",")  # Store the measured values
 
-    reading = np.array(reading)
-    reading = reading.astype("float64")
+    reading = np.array(reading)  # Create an array
+    reading = reading.astype("float64")  # Convert the array to float
+    x = np.arange(0, reading.size)  # Create a second array
 
-    data = go.Line(x=[0], y=[0], mode="markers")
-    fig = go.Figure(data=data)
-    return DataContainer(type="plotly", fig=fig, x=[0], y=reading)
+    return DataContainer(type="ordered_pair", x=x, y=reading)
 
 
 @flojoy
