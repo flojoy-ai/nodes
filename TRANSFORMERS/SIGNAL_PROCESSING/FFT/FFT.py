@@ -15,6 +15,9 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         the node will apply a window to the signal to avoid spectral leakage
     real_signal: boolean
         whether the input signal is real or complex
+    sample_rate: int
+        the sample rate of the real signal, if the input is complex, it will default to 1
+        regardless of the input
 
     Returns
     -------
