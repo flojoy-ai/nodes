@@ -14,7 +14,7 @@ def TIMER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     sleep_time: int
         number of seconds to sleep
     """
-    seconds: int = params["sleep_time"]
+    seconds: float = params["sleep_time"]
     node_id = params["node_id"]
     jobset_id = params["jobset_id"]
     r_time = seconds
