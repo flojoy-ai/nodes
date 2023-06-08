@@ -34,12 +34,12 @@ def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
     it using "," as separators. Then it returns the values measured in a list names reading.
 
 
-    Parameters : 
+    Parameters :
     ------------
     BAUD_RATE: Float
     Baud rate for the serial communication.
 
-    COM_PORT: String 
+    COM_PORT: String
     Define the COM port on which the Serial device is connected
     """
     print("parameters passed to SERIAL_TIMESERIES: ", params)
