@@ -6,9 +6,6 @@ import pandas as pd
 CELL_SIZE = 50
 FONT_SIZE = 10
 MAX_ALLOWED_SHAPE = 10
-MIN_ALLOWED_SHAPE = 4
-v_dot = "$\\vdots$"
-d_dot = "$\\ddots$"
 l_dot = "$\\ldots$"
 
 
@@ -17,9 +14,6 @@ def numpy_array_as_table(arr: np.ndarray, placeholder: str):
         converted_type = arr.astype(object)
         new_arr = converted_type[:MAX_ALLOWED_SHAPE]
         new_arr[MAX_ALLOWED_SHAPE - 2] = l_dot
-    elif arr.size < MIN_ALLOWED_SHAPE:
-        new_arr = np.full((MIN_ALLOWED_SHAPE,), placeholder, dtype=object)
-        new_arr[: arr.size] = arr[: arr.size]
     else:
         new_arr = arr
     return new_arr.reshape(-1, 1)
@@ -28,7 +22,7 @@ def numpy_array_as_table(arr: np.ndarray, placeholder: str):
 @flojoy
 def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
-    It takes "ordered_pair", "dataframe", "matrix", and "image" as input type
+    The ARRAY_VIEW node takes "ordered_pair", "dataframe", "matrix", and "image" as input type
     and displays its visualization in array format.
 
     Parameters

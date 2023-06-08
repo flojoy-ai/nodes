@@ -85,7 +85,7 @@ def numpy_array_as_table(arr: np.ndarray):
 @flojoy
 def MATRIX_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
-    It takes "matrix" or "ordered_pair" type as input type and displays its visualization
+    The MATRIX_VIEW node "matrix" or "ordered_pair" type as input type and displays its visualization
     using plotly table in matrix format.
 
     Parameters
