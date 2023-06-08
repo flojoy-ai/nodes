@@ -27,17 +27,31 @@ def numpy_array_as_table(arr: np.ndarray, placeholder: str):
 
 @flojoy
 def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    dc_input = dc_inputs[0]
+    """
+    It takes "ordered_pair", "dataframe", "matrix", and "image" as input type
+    and displays its visualization in array format.
 
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    plotly
+        Visualization of the input data in array format
+    """
+
+    dc_input = dc_inputs[0]
     match dc_input.type:
         case "ordered_pair":
             data = dc_input.y
             cell_values = numpy_array_as_table(data, l_dot)
         case "dataframe":
             data = pd.DataFrame(dc_input.m).to_numpy(dtype=object)
+            data = data[:, :-1]
             cell_values = numpy_array_as_table(data, l_dot)
         case "matrix":
-            data = np.asarray(dc_input.m)
+            data = dc_input.m
             cell_values = numpy_array_as_table(data, l_dot)
         case "image":
             red = dc_input.r
@@ -53,6 +67,10 @@ def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 merge = np.stack((red, green, blue, alpha), axis=2)
                 merge = merge.reshape(-1, merge.shape[-1])
                 cell_values = numpy_array_as_table(merge, l_dot)
+        case _:
+            raise ValueError(
+                f"unsupported DataContainer type passed for ARRAY_VIEW: {dc_input.type}"
+            )
 
     fig = go.Figure(
         data=[
@@ -69,7 +87,7 @@ def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             )
         ]
     )
-    if dc_input.type == "image":
+    if dc_input.type == "image" or dc_input.type == "dataframe":
         width = MAX_ALLOWED_SHAPE * CELL_SIZE + 800
 
     else:
