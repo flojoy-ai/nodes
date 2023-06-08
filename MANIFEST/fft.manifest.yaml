@@ -6,6 +6,7 @@ COMMAND:
       window_type:
         type: select
         options:
+          - none
           - boxcar
           - triang
           - blackman

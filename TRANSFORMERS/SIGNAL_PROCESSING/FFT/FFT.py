@@ -41,9 +41,7 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     sample_rate: int = params["sample_rate"]  # Hz
 
     if sample_rate <= 0:
-        raise ValueError(
-            f"Sample rate must be greater than 0"
-        )
+        raise ValueError(f"Sample rate must be greater than 0")
 
     signal_value = dc.y
     x = dc.x
