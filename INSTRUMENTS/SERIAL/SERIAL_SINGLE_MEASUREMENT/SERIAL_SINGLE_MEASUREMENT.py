@@ -29,30 +29,23 @@ def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
     print(",")
     println(reading1)
 
-    This node will receive the data from the arduino as a string and will split
-    the string using "," as separators.
-    It will return the measurement in a table of float that we'll be able to plot using visualization nodes from Flojoy
+    The SERIAL_SINGLE_MEASUREMENT receive data from the arduino serial console as a string and split
+    it using "," as separators. Then it returns the values measured in a list names reading.
 
 
     params:
     BAUD_RATE: Baud rate for the serial device.
-    com_port: COM port of the serial device
+    COM_PORT: COM port of the serial device
     """
     print("parameters passed to SERIAL_TIMESERIES: ", params)
     COM_PORT = params["comport"]
     BAUD = int(params["baudrate"])
 
     ser = serial.Serial(COM_PORT, timeout=1, baudrate=BAUD)
-    # The first reading is commonly empty.
-    s = ser.readline().decode()
-
-    # Some readings may be empty at first because it takes time before receiving the data. Try a second time if so.
-    if s != "":
-        reading = s[:-2].split(",")
-    else:
+    s = ""
+    while s == "":
         s = ser.readline().decode()
-        print(" decode testbis: ", str(s))
-        reading = s[:-2].split(",")  # Store the measured values
+        reading = s[:-2].split(",")
 
     reading = np.array(reading)  # Create an array
     reading = reading.astype("float64")  # Convert the array to float
