@@ -9,8 +9,9 @@ import plotly.graph_objects as go
 @flojoy
 def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
     """
-    Node to take a single reading of data from an Ardunio,
+    The SERIAL_SINGLE_MEASUREMENT Node takes a single reading of data from an Ardunio,
     or a similar serial device.
+
     For example you can record temperature following this tutorial:
 
     https://learn.adafruit.com/thermistor/using-a-thermistor
@@ -33,9 +34,13 @@ def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
     it using "," as separators. Then it returns the values measured in a list names reading.
 
 
-    params:
-    BAUD_RATE: Baud rate for the serial device.
-    COM_PORT: COM port of the serial device
+    Parameters : 
+    ------------
+    BAUD_RATE: Float
+    Baud rate for the serial communication.
+
+    COM_PORT: String 
+    Define the COM port on which the Serial device is connected
     """
     print("parameters passed to SERIAL_TIMESERIES: ", params)
     COM_PORT = params["comport"]
@@ -45,7 +50,8 @@ def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
     s = ""
     while s == "":
         s = ser.readline().decode()
-        reading = s[:-2].split(",")
+
+    reading = s[:-2].split(",")
 
     reading = np.array(reading)  # Create an array
     reading = reading.astype("float64")  # Convert the array to float

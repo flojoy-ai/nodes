@@ -41,10 +41,11 @@ def SERIAL_TIMESERIES(dc_inputs, params):
     num_readings * record_period is roughly the run length in seconds.
     """
 
-    COM_PORT = params.get("com_port", "/dev/ttyUSB0")
-    BAUD = params.get("baudrate", 9600)
-    NUM = params.get("num_readings", 100)
-    RECORD_PERIOD = params.get("record_period", 1)
+    """COM_PORT = params.get("com_port")"""
+    COM_PORT = params["comport"]
+    BAUD = params["baudrate"]
+    NUM = params["num_readings"]
+    RECORD_PERIOD = params["record_period"]
 
     ser = serial.Serial(COM_PORT, timeout=1, baudrate=BAUD)
     readings = []
