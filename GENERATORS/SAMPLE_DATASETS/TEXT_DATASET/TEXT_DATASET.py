@@ -36,15 +36,35 @@ def TEXT_DATASET(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         'talk.politics.mideast',
         'talk.politics.misc',
         'talk.religion.misc'
+    remove_headers: boolean, default=false
+        Remove the headers from the data.
+    remove_footers: boolean, default=false
+        Remove the footers from the data.
+    remove_quotes: boolean, default=false
+        Remove the quotes from the data.
     """
 
     subset = params.get("subset", "train")
     categories = params.get("categories", None)
+    remove_headers = params.get("remove_headers", False)
+    remove_footers = params.get("remove_footers", False)
+    remove_quotes = params.get("remove_quotes", False)
+
+    to_remove = []
+    if remove_headers:
+        to_remove.append("headers")
+    if remove_footers:
+        to_remove.append("footers")
+    if remove_quotes:
+        to_remove.append("quotes")
+    to_remove = tuple(to_remove)
 
     if categories:
-        newsgroups = fetch_20newsgroups(subset=subset, categories=categories)
+        newsgroups = fetch_20newsgroups(
+            subset=subset, categories=categories, remove=to_remove
+        )
     else:
-        newsgroups = fetch_20newsgroups(subset=subset)
+        newsgroups = fetch_20newsgroups(subset=subset, remove=to_remove)
 
     newsgroups = cast(Bunch, newsgroups)
     data = newsgroups.data
