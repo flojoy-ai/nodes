@@ -1,0 +1,188 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 190,
+                "height": 115,
+                "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": true
+                },
+                "position": {
+                    "x": 1481.1276538172046,
+                    "y": 301.7443219065692
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 1481.1276538172046,
+                    "y": 301.7443219065692
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 135,
+                "id": "LINSPACE-b70dcbec-87fc-47bd-98dc-26c01de91881",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-b70dcbec-87fc-47bd-98dc-26c01de91881",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "start": {
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": "10"
+                        },
+                        "end": {
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": "0"
+                        },
+                        "step": {
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": "1000"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 335.60460405758,
+                    "y": 414.5947652926823
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 335.60460405758,
+                    "y": 414.5947652926823
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 135,
+                "id": "LINSPACE-0c193475-a070-4357-b9f6-1cc8320c8a65",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-0c193475-a070-4357-b9f6-1cc8320c8a65",
+                    "label": "LINSPACE_1",
+                    "func": "LINSPACE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "start": {
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": "10"
+                        },
+                        "end": {
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": "0"
+                        },
+                        "step": {
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": "1000"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 337.2242660007536,
+                    "y": 164.02507602827643
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 337.2242660007536,
+                    "y": 164.02507602827643
+                },
+                "dragging": true
+            },
+            {
+                "width": 99,
+                "height": 115,
+                "id": "SUBTRACT-be7bf775-eca1-4008-9d78-7164cf815da0",
+                "type": "ARITHMETIC",
+                "data": {
+                    "id": "SUBTRACT-be7bf775-eca1-4008-9d78-7164cf815da0",
+                    "label": "SUBTRACT",
+                    "func": "SUBTRACT",
+                    "type": "ARITHMETIC",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "y",
+                            "id": "sub_y",
+                            "type": "target"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 984.775645730269,
+                    "y": 300.51837909623805
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 984.775645730269,
+                    "y": 300.51837909623805
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "SUBTRACT-be7bf775-eca1-4008-9d78-7164cf815da0",
+                "sourceHandle": "main",
+                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "targetHandle": "END",
+                "id": "reactflow__edge-SUBTRACT-be7bf775-eca1-4008-9d78-7164cf815da0main-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
+            },
+            {
+                "source": "LINSPACE-0c193475-a070-4357-b9f6-1cc8320c8a65",
+                "sourceHandle": "main",
+                "target": "SUBTRACT-be7bf775-eca1-4008-9d78-7164cf815da0",
+                "targetHandle": "SUBTRACT",
+                "id": "reactflow__edge-LINSPACE-0c193475-a070-4357-b9f6-1cc8320c8a65main-SUBTRACT-be7bf775-eca1-4008-9d78-7164cf815da0SUBTRACT"
+            },
+            {
+                "source": "LINSPACE-b70dcbec-87fc-47bd-98dc-26c01de91881",
+                "sourceHandle": "main",
+                "target": "SUBTRACT-be7bf775-eca1-4008-9d78-7164cf815da0",
+                "targetHandle": "sub_y",
+                "id": "reactflow__edge-LINSPACE-b70dcbec-87fc-47bd-98dc-26c01de91881main-SUBTRACT-be7bf775-eca1-4008-9d78-7164cf815da0sub_y"
+            }
+        ],
+        "viewport": {
+            "x": 296.7009684013002,
+            "y": 78.64846027544155,
+            "zoom": 0.8997754917401063
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
