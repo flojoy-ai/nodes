@@ -5,9 +5,12 @@ import pandas as pd
 from typing import cast
 
 
+# TODO: Add more datasets to this node.
 @flojoy
 def TEXT_DATASET(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """The TEXT_DATASET node loads the 20 newsgroups dataset from scikit-learn.
+    The data is returned as a dataframe with one column containing the text
+    and the other containing the category.
 
     Parameters
     ----------
