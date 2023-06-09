@@ -11,22 +11,18 @@ def OPEN_MATLAB(
     dc_inputs: list[DataContainer], params: dict
 ) -> Union[DataContainer, dict]:
     """The OPEN_MATLAB node loads a local file of the .mat file format.
-    Note that only ordered pair (x, y) data can be loaded.
-
-    If the x and y variables are inverted from the expected result,
-    the xy_inverse parameter can be used as a correction.
+    Note that if multiple 'tabs' of data are used, the number of rows
+    must match in order to stack the arrays.
 
     Parameters
     ----------
-    xy_inverse : str
-        inverse x and y outputs (x=y, y=x). True or False
     file_path : str
         path to the file to be loaded.
 
     Returns:
     --------
     DataContainer:
-        type 'ordered_pair' x, y
+        type 'dataframe', m
     """
     file_path: str = params["path"]
 
