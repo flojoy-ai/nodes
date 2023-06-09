@@ -5,8 +5,8 @@ COMMAND:
     ui_component_id: default
     parameters:
       row:
-        type: float
+        type: int
         default: 2
       column:
-        type: float
+        type: int
         default: 2
