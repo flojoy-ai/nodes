@@ -4,10 +4,10 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "READ_CSV-f07d69b0-5e7d-4e4a-bd73-4f5f36b12868",
+                "id": "READ_CSV-38331dac-1614-41e6-aa28-c7ab6ba620a4",
                 "type": "FILE",
                 "data": {
-                    "id": "READ_CSV-f07d69b0-5e7d-4e4a-bd73-4f5f36b12868",
+                    "id": "READ_CSV-38331dac-1614-41e6-aa28-c7ab6ba620a4",
                     "label": "READ CSV",
                     "func": "READ_CSV",
                     "type": "FILE",
@@ -21,23 +21,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -16.91010051588964,
-                    "y": 44.73721596714296
+                    "x": 30.299117370698312,
+                    "y": 176.16569145577284
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -16.91010051588964,
-                    "y": 44.73721596714296
+                    "x": 30.299117370698312,
+                    "y": 176.16569145577284
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "READ_CSV-71733e8e-0f93-4b59-afc8-87ea114fb7e7",
+                "id": "READ_CSV-46e0dbba-c159-4856-b711-a391ff19d5ea",
                 "type": "FILE",
                 "data": {
-                    "id": "READ_CSV-71733e8e-0f93-4b59-afc8-87ea114fb7e7",
+                    "id": "READ_CSV-46e0dbba-c159-4856-b711-a391ff19d5ea",
                     "label": "READ CSV 1",
                     "func": "READ_CSV",
                     "type": "FILE",
@@ -51,23 +51,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -8.338671944461026,
-                    "y": 216.1657873957143
+                    "x": 37.441974513555465,
+                    "y": 386.16569145577273
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -8.338671944461026,
-                    "y": 216.1657873957143
+                    "x": 37.441974513555465,
+                    "y": 386.16569145577273
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 212,
-                "id": "SUPPORT_VECTOR_MACHINE-22a392cb-075d-47da-a315-1c622dd133d4",
+                "id": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
                 "type": "CLASSIFICATION",
                 "data": {
-                    "id": "SUPPORT_VECTOR_MACHINE-22a392cb-075d-47da-a315-1c622dd133d4",
+                    "id": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
                     "label": "SUPPORT VECTOR MACHINE",
                     "func": "SUPPORT_VECTOR_MACHINE",
                     "type": "CLASSIFICATION",
@@ -98,23 +98,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 325.9470423412532,
-                    "y": 91.88007311000013
+                    "x": 351.72768879926974,
+                    "y": 230.45140574148695
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 325.9470423412532,
-                    "y": 91.88007311000013
+                    "x": 351.72768879926974,
+                    "y": 230.45140574148695
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-dc339ac0-3a0e-4705-aa19-69b3d3fcf244",
+                "id": "END-697d4147-82db-45c9-85aa-dca67fdf672a",
                 "type": "TERMINATOR",
                 "data": {
-                    "id": "END-dc339ac0-3a0e-4705-aa19-69b3d3fcf244",
+                    "id": "END-697d4147-82db-45c9-85aa-dca67fdf672a",
                     "label": "END",
                     "func": "END",
                     "type": "TERMINATOR",
@@ -122,42 +122,73 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 607.3756137698247,
-                    "y": 149.0229302528573
+                    "x": 1138.870545942127,
+                    "y": 269.0228343129156
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 607.3756137698247,
-                    "y": 149.0229302528573
+                    "x": 1138.870545942127,
+                    "y": 269.0228343129156
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-b029c659-e458-42b1-88b8-7a6f6711e76f",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "TABLE-b029c659-e458-42b1-88b8-7a6f6711e76f",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 651.7276887992699,
+                    "y": 189.02283431291568
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 651.7276887992699,
+                    "y": 189.02283431291568
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "SUPPORT_VECTOR_MACHINE-22a392cb-075d-47da-a315-1c622dd133d4",
+                "source": "READ_CSV-38331dac-1614-41e6-aa28-c7ab6ba620a4",
                 "sourceHandle": "main",
-                "target": "END-dc339ac0-3a0e-4705-aa19-69b3d3fcf244",
-                "targetHandle": "END",
-                "id": "reactflow__edge-SUPPORT_VECTOR_MACHINE-22a392cb-075d-47da-a315-1c622dd133d4main-END-dc339ac0-3a0e-4705-aa19-69b3d3fcf244END"
-            },
-            {
-                "source": "READ_CSV-f07d69b0-5e7d-4e4a-bd73-4f5f36b12868",
-                "sourceHandle": "main",
-                "target": "SUPPORT_VECTOR_MACHINE-22a392cb-075d-47da-a315-1c622dd133d4",
+                "target": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
                 "targetHandle": "train",
-                "id": "reactflow__edge-READ_CSV-f07d69b0-5e7d-4e4a-bd73-4f5f36b12868main-SUPPORT_VECTOR_MACHINE-22a392cb-075d-47da-a315-1c622dd133d4train"
+                "id": "reactflow__edge-READ_CSV-38331dac-1614-41e6-aa28-c7ab6ba620a4main-SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31train"
             },
             {
-                "source": "READ_CSV-71733e8e-0f93-4b59-afc8-87ea114fb7e7",
+                "source": "READ_CSV-46e0dbba-c159-4856-b711-a391ff19d5ea",
                 "sourceHandle": "main",
-                "target": "SUPPORT_VECTOR_MACHINE-22a392cb-075d-47da-a315-1c622dd133d4",
+                "target": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
                 "targetHandle": "input",
-                "id": "reactflow__edge-READ_CSV-71733e8e-0f93-4b59-afc8-87ea114fb7e7main-SUPPORT_VECTOR_MACHINE-22a392cb-075d-47da-a315-1c622dd133d4input"
+                "id": "reactflow__edge-READ_CSV-46e0dbba-c159-4856-b711-a391ff19d5eamain-SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31input"
+            },
+            {
+                "source": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
+                "sourceHandle": "main",
+                "target": "TABLE-b029c659-e458-42b1-88b8-7a6f6711e76f",
+                "targetHandle": "TABLE",
+                "id": "reactflow__edge-SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31main-TABLE-b029c659-e458-42b1-88b8-7a6f6711e76fTABLE"
+            },
+            {
+                "source": "TABLE-b029c659-e458-42b1-88b8-7a6f6711e76f",
+                "sourceHandle": "main",
+                "target": "END-697d4147-82db-45c9-85aa-dca67fdf672a",
+                "targetHandle": "END",
+                "id": "reactflow__edge-TABLE-b029c659-e458-42b1-88b8-7a6f6711e76fmain-END-697d4147-82db-45c9-85aa-dca67fdf672aEND"
             }
         ],
         "viewport": {
-            "x": 51.964285714285666,
+            "x": 40.964285714285666,
             "y": 190.74999999999997,
             "zoom": 0.5
         }
