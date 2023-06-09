@@ -26,14 +26,14 @@ def OPEN_MATLAB(
     """
     file_path: str = params["path"]
 
-    if file_path == '':
+    if file_path == "":
         file_path = path.join(
             path.dirname(path.abspath(__file__)),
             "assets",
             "default.mat",
         )
 
-    if file_path[-4:] != '.mat':
+    if file_path[-4:] != ".mat":
         raise ValueError(f"File type {file_path[-4:]} unsupported.")
 
     if not path.exists(file_path):
