@@ -1,15 +1,11 @@
 import json
 import os
-from datetime import datetime
 import requests
 from flojoy import DataContainer, flojoy
 from flojoy.utils import PlotlyJSONEncoder, get_frontier_api_key
 
-FRONTIER_URI: str = (
-    os.environ.get("FRONTIER_URI")
-    or "https://cipfsgeml2.execute-api.us-east-1.amazonaws.com"
-)
-MEASUREMENT_API: str = f"{FRONTIER_URI}/measurements"
+FRONTIER_URI: str = os.environ.get("FRONTIER_URI") or "https://frontier-next.vercel.app"
+MEASUREMENT_API: str = f"{FRONTIER_URI}/api/streaming"
 
 
 @flojoy
@@ -20,13 +16,11 @@ def LOADER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     if api_key is not None and measurement_uuid != "":
         try:
             requests.post(
-                f"{MEASUREMENT_API}/{measurement_uuid}",
+                MEASUREMENT_API,
                 json={
                     "api_key": api_key,
-                    "measurements": json.dumps(
-                        {"data": dc_inputs[0]}, cls=PlotlyJSONEncoder
-                    ),
-                    "time": datetime.now().__str__(),
+                    "measurement_id": measurement_uuid,
+                    "measurement": json.dumps(dc_inputs[0], cls=PlotlyJSONEncoder),
                 },
             )
         except Exception as e:
