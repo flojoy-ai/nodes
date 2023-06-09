@@ -1,0 +1,5 @@
+COMMAND:
+  - name: ARRAY_VIEW
+    key: ARRAY_VIEW
+    type: DATA_STRUCTURE
+    ui_component_id: PLOTLY_VISOR
