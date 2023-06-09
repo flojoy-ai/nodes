@@ -1,0 +1,15 @@
+COMMAND:
+  - name: Table
+    key: TABLE
+    type: SAMPLE_DATASETS
+    parameters:
+      subset:
+        type: select
+        options:
+          - train 
+          - test 
+          - all
+        default: train
+      categories:
+        type: array
+        default: ""
