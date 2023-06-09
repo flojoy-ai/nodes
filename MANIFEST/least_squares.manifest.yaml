@@ -2,3 +2,10 @@ COMMAND:
   - name: LEAST_SQUARES
     key: LEAST_SQUARES
     type: REGRESSION
+    inputs:
+      - name: x
+        id: first
+        type: target
+      - name: y
+        id: second
+        type: target

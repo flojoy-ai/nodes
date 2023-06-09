@@ -11,9 +11,7 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
 
     Parameters
     ----------
-    dc_inputs (list[DataContainer]: List of DataContainer objects containing
-            a coefficient matrix and dependent variable)
-            params (dict): Additional parameters for least squares method (not used in this function)
+    None
 
     Returns
     -------
@@ -21,30 +19,34 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
         x: input matrix (data points)
         y: fitted line computed with returned regression weights
     """
+
     x : np.ndarray = np.eye(3)
     y : np.ndarray = np.eye(3)
     a : np.ndarray = np.eye(3)
-    
-    if (len(dc_inputs) < 0): 
+ 
+    if (len(dc_inputs) < 2): 
             raise ValueError(
             f"To compute least squares, LEAST_SQUARES node requires two inputs, {len(dc_inputs)} was given!"
     )
 
-    if (dc_inputs[0].type == "ordered_pair"):
+    if (dc_inputs[0].type == "ordered_pair" and dc_inputs[1].type == "ordered_pair"):
         x = np.array(dc_inputs[0].y)
         y = np.array(dc_inputs[1].y)
 
-        if x.shape[0] != y.shape[0]:
-            print("matrix dimensions do not match.")
+        try:
+            a = np.vstack([x, np.ones(len(x))]).T
+            p = np.linalg.lstsq(a, y, rcond=None)[0]
+        except np.linalg.LinAlgError:
+            raise ValueError("Least Square Computation failed.")
+    
+        p = p[0:len(p)-1]
+        res = np.array(p, dtype=float) * np.array(x, dtype=float)
+        res = np.ndarray.flatten(res)
 
-        else:
-            try:
-                a = np.vstack([x, np.ones(len(x))]).T
-                res = np.linalg.lstsq(a, y, rcond=None)[0]
-            except np.linalg.LinAlgError:
-                raise ValueError("Least Square Computation failed.")
+        # line types only accept 1D array
+        return DataContainer(type="ordered_pair", x=np.arange(0, len(res)), y=res) 
 
-    elif (dc_inputs[0].typpe == "matrix"):
+    elif (dc_inputs[0].type == "matrix" and dc_inputs[1].type == "matrix"):
         x = np.array(dc_inputs[0].m)
         y = np.array(dc_inputs[1].m)
 
@@ -54,12 +56,17 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
         else:
             try:
                 a = np.vstack([x, np.ones(len(x))]).T
-                res = np.linalg.lstsq(a, y, rcond=None)[0]
+                p = np.linalg.lstsq(a, y, rcond=None)[0]
             except np.linalg.LinAlgError:
-                raise ValueError("Least Square Computation failed.")  
+                raise ValueError("Least Square Computation failed.") 
+            
+            p = p[0:len(p)-1]
+            res = np.array(p, dtype=float) * np.array(x, dtype=float)
+            return DataContainer(type="matrix", m=res)
+
     else:
         raise ValueError(
             f"unsupported DataContainer type passed to LEAST_SQUARES node: '{dc_inputs[0].type}'"
         )
 
-    return DataContainer(type="matrix", m=res)
+    return DataContainer(type="matrix", m=np.eye(3))
