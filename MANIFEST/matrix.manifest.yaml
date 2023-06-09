@@ -1,0 +1,12 @@
+COMMAND:
+  - name: Matrix
+    key: MATRIX
+    type: SIMULATION
+    ui_component_id: default
+    parameters:
+      row:
+        type: float
+        default: 2
+      column:
+        type: float
+        default: 2
