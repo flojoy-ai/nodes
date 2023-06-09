@@ -54,13 +54,12 @@ def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
             if dc_input.a == None:
                 merge = np.stack((red, green, blue), axis=2)
-                merge = merge.reshape(-1, merge.shape[-1])
-                cell_values = numpy_array_as_table(merge, l_dot)
             else:
                 alpha = dc_inputs[0].a
                 merge = np.stack((red, green, blue, alpha), axis=2)
-                merge = merge.reshape(-1, merge.shape[-1])
-                cell_values = numpy_array_as_table(merge, l_dot)
+
+            merge = merge.reshape(-1, merge.shape[-1])
+            cell_values = numpy_array_as_table(merge, l_dot)
         case _:
             raise ValueError(
                 f"unsupported DataContainer type passed for ARRAY_VIEW: {dc_input.type}"
