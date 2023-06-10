@@ -21,6 +21,7 @@ clone()
 
 
 clone "$DOC_REPOSITORY" "$DOC_FOLDER"
+
 git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
 git config core.ignorecase false
 
@@ -29,7 +30,7 @@ if git branch -a | grep -q $DOC_BRANCH; then
   git pull
   cd $GITHUB_WORKSPACE
   python3 write_doc_string.py $DOC_FOLDER
-  cd $FOLDER
+  cd $DOC_FOLDER
   if git status --porcelain | grep -q .; then
     echo "There are changes in the branch."
     git add .
@@ -55,6 +56,7 @@ else
 fi
 
 clone "$STUDIO_REPOSITORY" "$STUDIO_FOLDER"
+
 git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
 git config core.ignorecase false
 
