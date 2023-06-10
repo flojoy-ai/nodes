@@ -1,0 +1,42 @@
+#!/bin/bash
+
+PR_NUM="${{github.event.pull_request.number}}"
+REPOSITORY="flojoy-io/docs"
+FOLDER="bin/$REPOSITORY"
+BRANCH_NAME="update-node-docs-$PR_NUM"
+GIT_URL=https://x-access-token:$APP_TOKEN@github.com/$REPOSITORY.git
+git clone --no-single-branch $GIT_URL $FOLDER
+cd $FOLDER
+git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
+git config core.ignorecase false
+git pull
+git fetch origin
+if git branch -a | grep -q $BRANCH_NAME; then
+  git checkout $BRANCH_NAME
+  git pull
+  cd ${{github.workspace}}
+  python3 write_doc_string.py $FOLDER
+  cd $FOLDER
+  if git status --porcelain | grep -q .; then
+    echo "There are changes in the branch."
+    git add .
+    git commit -m "$LAST_COMMIT_MSG"
+    git push origin $BRANCH_NAME
+  fi
+else
+  git checkout -b $BRANCH_NAME
+  cd ${{github.workspace}}
+  python3 write_doc_string.py $FOLDER
+  cd $FOLDER
+  if git status --porcelain | grep -q .; then
+    git add .
+    git commit -m "$LAST_COMMIT_MSG"
+    git push -u origin $BRANCH_NAME --force
+    gh pr create \
+      --body "corresponding PR in nodes: https://github.com/flojoy-io/nodes/pull/$PR_NUM" \
+      --title "Update nodes doc from PR: $PR_NUM" \
+      --head "$BRANCH_NAME" \
+      --base "main" \
+      --assignee $USER_NAME
+  fi
+fi
