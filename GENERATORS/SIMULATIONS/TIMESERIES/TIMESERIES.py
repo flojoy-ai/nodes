@@ -1,6 +1,6 @@
 import numpy as np
 from flojoy import flojoy, DataContainer
-import pandas.testing as testing
+import pandas as pd
 import traceback
 
 
@@ -13,7 +13,7 @@ def TIMESERIES(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     try:
         np.random.seed(1)
         testing.N, testing.K = 1000, 1  # rows, columns
-        df = testing.makeTimeDataFrame(freq="MS")
+        df = pd.util.testing.makeTimeDataFrame(freq="MS")
         return DataContainer(x=df.index.to_numpy(), y=df["A"].to_numpy())
     except Exception:
         print(traceback.format_exc())
