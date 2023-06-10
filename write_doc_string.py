@@ -1,6 +1,7 @@
 import os
 import yaml
 import sys
+import textwrap
 
 path = os.path
 
@@ -126,13 +127,26 @@ def write_file_recursive(file_path: str, content: str):
         file.write(content)
 
 
+def compare_two_str(first_str: str, second_str: str) -> bool:
+    return first_str.replace("\n", "").replace(" ", "") != second_str.replace(
+        "\n", ""
+    ).replace(" ", "")
+
+
+def get_content(file_path: str):
+    with open(file_path, "r") as opened_file:
+        c = opened_file.read()
+        opened_file.close()
+        return c
+
+
 def process_python_file(input_file_path: str, output_path: str, manifest_map: dict):
     input_dir, input_file_name = path.split(input_file_path)
     node_name = input_file_name.replace(".py", "")
     if not manifest_map.get(node_name, None):
         return
-    with open(input_file_path, "r") as file:
-        content = file.read()
+
+    content = get_content(input_file_path)
 
     # Extract docstring
     docstring = extract_docstring(content)
@@ -143,7 +157,12 @@ def process_python_file(input_file_path: str, output_path: str, manifest_map: di
     # Write docstring to a file
     docstring_file_path = path.join(output_path, autogen_dir_name, "docstring.txt")
     if not path.exists(docstring_file_path):
-        write_file_recursive(docstring_file_path, docstring)
+        write_file_recursive(docstring_file_path, textwrap.dedent(docstring))
+    else:
+        doc_str = get_content(docstring_file_path)
+        diff = compare_two_str(docstring, doc_str)
+        if diff:
+            write_file_recursive(docstring_file_path, textwrap.dedent(docstring))
 
     # Write function code to a file
     function_code_file_path = path.join(
@@ -151,6 +170,11 @@ def process_python_file(input_file_path: str, output_path: str, manifest_map: di
     )
     if not path.exists(function_code_file_path):
         write_file_recursive(function_code_file_path, function_code)
+    else:
+        func_str = get_content(function_code_file_path)
+        diff = compare_two_str(func_str, function_code)
+        if diff:
+            write_file_recursive(function_code_file_path, function_code)
 
     # write parameters
     map_item = manifest_map.get(node_name, None)
@@ -163,6 +187,11 @@ def process_python_file(input_file_path: str, output_path: str, manifest_map: di
     parameters_file_path = path.join(output_path, autogen_dir_name, "parameters.yaml")
     if not path.exists(parameters_file_path):
         write_file_recursive(parameters_file_path, param_content)
+    else:
+        existing_params = get_content(parameters_file_path)
+        diff = compare_two_str(existing_params, param_content)
+        if diff:
+            write_file_recursive(parameters_file_path, param_content)
 
     # appendix
     appendix_dir_path = path.join(output_path, "appendix")
@@ -187,15 +216,13 @@ def process_python_file(input_file_path: str, output_path: str, manifest_map: di
             md_file_path = path.join(
                 output_path, path.basename(input_file_path).replace(".py", ".md")
             )
-            with open(md_file_path) as appendix_f:
-                c = appendix_f.read()
-                appendix_f.close()
-                for line in lines:
-                    if line["new"] in c:
-                        pass
-                    else:
-                        c = c.replace(line["prev"], line["new"])
-                write_file_recursive(md_file_path, c)
+            c = get_content(md_file_path)
+            for line in lines:
+                if line["new"] in c:
+                    pass
+                else:
+                    c = c.replace(line["prev"], line["new"])
+            write_file_recursive(md_file_path, c)
 
     # examples
     has_example = False
@@ -203,10 +230,13 @@ def process_python_file(input_file_path: str, output_path: str, manifest_map: di
     for f in ["app.txt", "example.md", "output.txt"]:
         if path.exists(path.join(input_dir, f)):
             has_example = True
-            with open(path.join(input_dir, f), "r") as file:
-                c = file.read()
-                file.close()
-                if not path.exists(path.join(example_dir_path, f)):
+            c = get_content(path.join(input_dir, f))
+            if not path.exists(path.join(example_dir_path, f)):
+                write_file_recursive(path.join(example_dir_path, f), c)
+            else:
+                existing_c = get_content(path.join(example_dir_path, f))
+                diff = compare_two_str(c, existing_c)
+                if diff:
                     write_file_recursive(path.join(example_dir_path, f), c)
         else:
             has_example = False
@@ -219,6 +249,10 @@ def process_python_file(input_file_path: str, output_path: str, manifest_map: di
     )
     if not path.exists(md_file_path):
         write_file_recursive(md_file_path, md_file_content)
+    else:
+        if not path.exists(path.join(example_dir_path, f)) and has_example:
+            print("writing md file for: ", node_name, " has example: ", has_example)
+            write_file_recursive(md_file_path, md_file_content)
 
 
 def extract_docstring(content: str):
@@ -229,6 +263,7 @@ def extract_docstring(content: str):
 
         # Extract the docstring
         docstring = content[docstring_start + 3 : docstring_end]
+
         return docstring
     return ""
 
@@ -256,7 +291,7 @@ def generate_manifest_map():
     return manifest_map
 
 
-nodes_dir = "."
+nodes_dir = path.abspath(path.curdir)
 manifest_dir = path.join(nodes_dir, "MANIFEST")
 
 
@@ -270,7 +305,9 @@ def write_doc_string(docs_dir: str):
                 and "test" not in file
                 and file.split(".py")[0] != "__init__"
             ):
-                docs_file_path = path.join(docs_dir, "nodes", root)
+                path_index = root.index("nodes")
+                path_from_second_dir = root[path_index:]
+                docs_file_path = path.join(docs_dir, path_from_second_dir)
                 file_path = path.join(root, file)
                 process_python_file(file_path, docs_file_path, manifest_map)
 
@@ -279,4 +316,5 @@ docs_dir = ""
 if __name__ == "__main__":
     docs_dir_path = sys.argv[1]
     docs_dir = path.abspath(path.join(docs_dir_path, "docs"))
+    print(" docs dir: ", docs_dir)
 write_doc_string(docs_dir=docs_dir)
