@@ -16,7 +16,7 @@ def PROPHET(dc: List[DataContainer], params: Dict[str, Any]) -> DataContainer:
     df = pd.DataFrame(dict(ds=ts, y=y))
     model = Prophet()
     model.fit(df)
-    future = model.make_future_dataframe(periods=365)
+    future = model.make_future_dataframe(periods=params["periods"])
     forecast = model.predict(future)
     fig = plot_plotly(model, forecast)
 

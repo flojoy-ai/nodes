@@ -2,3 +2,7 @@ COMMAND:
   - name: Prophet Plot
     key: PROPHET
     type: PLOTLY_VISOR
+    parameters:
+      periods:
+        type: int
+        default: 365
