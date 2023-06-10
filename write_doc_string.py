@@ -10,7 +10,7 @@ N_PATH = "nodes/"
 
 def get_md_file_content(file_path: str, node_label: str, has_example: bool):
     file_dir, _ = path.split(file_path)
-    nodes_index = file_dir.replace("\\", "/").find(N_PATH)
+    nodes_index = file_dir.replace("\\", "/").rfind(N_PATH)
     node_path = file_dir[nodes_index:].replace("\\", "/").replace(N_PATH, "")
     node_file_path = (
         file_path[nodes_index:]
@@ -305,7 +305,7 @@ def write_doc_string(docs_dir: str):
                 and "test" not in file
                 and file.split(".py")[0] != "__init__"
             ):
-                path_index = root.index("nodes")
+                path_index = nodes_dir.rfind("nodes")
                 path_from_second_dir = root[path_index:]
                 docs_file_path = path.join(docs_dir, path_from_second_dir)
                 file_path = path.join(root, file)
