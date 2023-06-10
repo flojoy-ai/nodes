@@ -13,8 +13,8 @@ git config core.ignorecase false
 
 clone()
 {
-  $REPO=$1
-  $LOC=$2
+  REPO=$1
+  LOC=$2
   GIT_URL=https://x-access-token:$APP_TOKEN@github.com/$REPO.git
   git clone --no-single-branch $GIT_URL $LOC
   cd $LOC
