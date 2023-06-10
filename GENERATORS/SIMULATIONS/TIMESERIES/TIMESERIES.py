@@ -15,5 +15,6 @@ def TIMESERIES(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         testing.N, testing.K = 1000, 1  # rows, columns
         df = pd.util.testing.makeTimeDataFrame(freq="MS")
         return DataContainer(x=df.index.to_numpy(), y=df["A"].to_numpy())
-    except Exception:
+    except Exception as e:
         print(traceback.format_exc())
+        raise e
