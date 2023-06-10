@@ -47,6 +47,7 @@ jobs:
           USER_NAME: ${{ github.event.pull_request.user.login }}
           USER_EMAIL: ${{ steps.email.outputs.email }}
           LAST_COMMIT_MSG: ${{ env.LAST_COMMIT_MSG }}
-
+          PR_NUM: ${{github.event.pull_request.number}}
+          GITHUB_WORKSPACE: ${{github.workspace}}
         run: |
           bash create_pr

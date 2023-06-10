@@ -1,6 +1,5 @@
 #!/bin/bash
 
-PR_NUM="${{github.event.pull_request.number}}"
 REPOSITORY="flojoy-io/docs"
 FOLDER="bin/$REPOSITORY"
 BRANCH_NAME="update-node-docs-$PR_NUM"
@@ -14,7 +13,7 @@ git fetch origin
 if git branch -a | grep -q $BRANCH_NAME; then
   git checkout $BRANCH_NAME
   git pull
-  cd ${{github.workspace}}
+  cd $GITHUB_WORKSPACE
   python3 write_doc_string.py $FOLDER
   cd $FOLDER
   if git status --porcelain | grep -q .; then
@@ -25,7 +24,7 @@ if git branch -a | grep -q $BRANCH_NAME; then
   fi
 else
   git checkout -b $BRANCH_NAME
-  cd ${{github.workspace}}
+  cd $GITHUB_WORKSPACE
   python3 write_doc_string.py $FOLDER
   cd $FOLDER
   if git status --porcelain | grep -q .; then
