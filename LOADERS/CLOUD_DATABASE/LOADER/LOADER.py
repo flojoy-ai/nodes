@@ -4,7 +4,7 @@ import requests
 from flojoy import DataContainer, flojoy
 from flojoy.utils import PlotlyJSONEncoder, get_frontier_api_key
 
-FRONTIER_URI: str = os.environ.get("FRONTIER_URI") or "https://frontier-next.vercel.app"
+FRONTIER_URI: str = os.environ.get("FRONTIER_URI") or "https://frontier.flojoy.io"
 MEASUREMENT_API: str = f"{FRONTIER_URI}/api/streaming"
 
 
