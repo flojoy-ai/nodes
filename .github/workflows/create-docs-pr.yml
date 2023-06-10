@@ -1,0 +1,89 @@
+on:
+  pull_request:
+    branches:
+      - main
+
+name: create-docs-pr
+
+jobs:
+  send-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Get last commit message
+        id: message
+        run: echo "::set-output name=message::$(git log -1 --pretty=format:"%s" ${{ github.event.pull_request.head.sha }})"
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Generate token
+        id: generate_token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+
+      - name: Get username
+        id: username
+        run: echo "::set-output name=username::${{ github.event.pull_request.user.login }}"
+
+      - name: Get email
+        id: email
+        uses: KRANTHI0918/get-github-email-by-username-action@v2.1
+        with:
+          github-username: ${{ steps.username.outputs.username }}
+
+      - name: Send pull-request
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
+          APP_TOKEN: ${{ steps.generate_token.outputs.token }}
+          USER_NAME: ${{ steps.username.outputs.username }}
+          USER_EMAIL: ${{ steps.email.outputs.email }}
+          LAST_COMMIT_MSG: ${{ steps.message.outputs.message }}
+        run: |
+          #!/bin/bash
+
+          PR_NUM="${{github.event.pull_request.number}}"
+          REPOSITORY="smahmed776/repo-2"
+          FOLDER="bin/$REPOSITORY"
+          BRANCH_NAME="update-node-docs-$PR_NUM"
+          GIT_URL=https://x-access-token:$APP_TOKEN@github.com/flojoy-io/docs.git
+          git clone --no-single-branch $GIT_URL $FOLDER
+          cd $FOLDER
+          git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
+          git pull
+          git fetch origin
+          if git branch -a | grep -q $BRANCH_NAME; then
+            git checkout $BRANCH_NAME
+            git pull
+            cd ${{github.workspace}}
+            python3 write_doc_string.py $FOLDER
+            cd $FOLDER
+            if git status --porcelain | grep -q .; then
+              echo "There are changes in the branch."
+              git add .
+              git commit -m $LAST_COMMIT_MSG
+              git push origin $BRANCH_NAME
+            fi
+          else
+            git checkout -b $BRANCH_NAME
+            cd ${{github.workspace}}
+            python3 write_doc_string.py $FOLDER
+            cd $FOLDER
+            if git status --porcelain | grep -q .; then
+              git add .
+              git commit -m $LAST_COMMIT_MSG
+              git push -u origin $BRANCH_NAME --force
+              gh pr create \
+                --body "corresponding PR in nodes: https://github.com/flojoy-io/nodes/pull/$PR_NUM" \
+                --title "Update nodes doc from PR: $PR_NUM" \
+                --head "$BRANCH_NAME" \
+                --base "main" \
+                --assignee $USER_NAME
+            fi
+          fi
