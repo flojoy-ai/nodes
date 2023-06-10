@@ -65,6 +65,7 @@ jobs:
           git clone --no-single-branch $GIT_URL $FOLDER
           cd $FOLDER
           git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
+          git config core.ignorecase false
           git pull
           git fetch origin
           if git branch -a | grep -q $BRANCH_NAME; then
