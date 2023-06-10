@@ -11,10 +11,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Get last commit message
-        id: message
-        run: echo "::set-output name=message::$(git log -1 --pretty=format:"%s" ${{ github.event.pull_request.head.sha }})"
-      
+   
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -37,9 +34,6 @@ jobs:
           github-username: ${{ github.event.pull_request.user.login }}
       
       - name: Get last commit message
-        env:
-          USER_NAME: ${{ github.event.pull_request.user.login }}
-          USER_EMAIL: ${{ steps.email.outputs.email }}
         run: |
           cd ${{ github.workspace }}
           git fetch origin ${{ github.head_ref }}
