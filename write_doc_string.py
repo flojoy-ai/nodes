@@ -127,6 +127,10 @@ def write_file_recursive(file_path: str, content: str):
 
 
 def process_python_file(input_file_path: str, output_path: str, manifest_map: dict):
+    input_dir, input_file_name = path.split(input_file_path)
+    node_name = input_file_name.replace(".py", "")
+    if not manifest_map.get(node_name, None):
+        return
     with open(input_file_path, "r") as file:
         content = file.read()
 
@@ -149,8 +153,6 @@ def process_python_file(input_file_path: str, output_path: str, manifest_map: di
         write_file_recursive(function_code_file_path, function_code)
 
     # write parameters
-    input_dir, input_file_name = path.split(input_file_path)
-    node_name = input_file_name.replace(".py", "")
     map_item = manifest_map.get(node_name, None)
     param_content = ""
     if map_item is not None:
