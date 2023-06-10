@@ -7,9 +7,6 @@ STUDIO_REPOSITORY="flojoy-io/studio"
 STUDIO_FOLDER="bin/$STUDIO_REPOSITORY"
 STUDIO_BRANCH="update-node-manifest-$PR_NUM"
 
-git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
-git config core.ignorecase false
-
 
 clone()
 {
@@ -24,12 +21,14 @@ clone()
 
 
 clone "$DOC_REPOSITORY" "$DOC_FOLDER"
+git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
+git config core.ignorecase false
 
 if git branch -a | grep -q $DOC_BRANCH; then
   git checkout $DOC_BRANCH
   git pull
   cd $GITHUB_WORKSPACE
-  python3 write_doc_string.py $FOLDER
+  python3 write_doc_string.py $DOC_FOLDER
   cd $FOLDER
   if git status --porcelain | grep -q .; then
     echo "There are changes in the branch."
@@ -40,8 +39,8 @@ if git branch -a | grep -q $DOC_BRANCH; then
 else
   git checkout -b $DOC_BRANCH
   cd $GITHUB_WORKSPACE
-  python3 write_doc_string.py $FOLDER
-  cd $FOLDER
+  python3 write_doc_string.py $DOC_FOLDER
+  cd $DOC_FOLDER
   if git status --porcelain | grep -q .; then
     git add .
     git commit -m "$LAST_COMMIT_MSG"
@@ -56,6 +55,8 @@ else
 fi
 
 clone "$STUDIO_REPOSITORY" "$STUDIO_FOLDER"
+git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
+git config core.ignorecase false
 
 if git branch -a | grep -q $STUDIO_BRANCH; then
   git checkout $STUDIO_BRANCH
