@@ -23,7 +23,7 @@ clone()
 }
 
 
-clone $DOC_REPOSITORY $DOC_FOLDER
+clone "$DOC_REPOSITORY" "$DOC_FOLDER"
 
 if git branch -a | grep -q $DOC_BRANCH; then
   git checkout $DOC_BRANCH
@@ -55,7 +55,7 @@ else
   fi
 fi
 
-clone $STUDIO_REPOSITORY $STUDIO_FOLDER
+clone "$STUDIO_REPOSITORY" "$STUDIO_FOLDER"
 
 if git branch -a | grep -q $STUDIO_BRANCH; then
   git checkout $STUDIO_BRANCH
