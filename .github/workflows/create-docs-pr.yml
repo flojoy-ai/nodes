@@ -32,6 +32,7 @@ jobs:
         uses: KRANTHI0918/get-github-email-by-username-action@v2.1
         with:
           github-username: ${{ github.event.pull_request.user.login }}
+          token: ${{ steps.generate_token.outputs.token }}
       
       - name: Get last commit message
         run: |
