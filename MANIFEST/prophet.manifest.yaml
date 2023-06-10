@@ -1,0 +1,4 @@
+COMMAND:
+  - name: Prophet Plot
+    key: PROPHET
+    type: PLOTLY_VISOR
