@@ -268,7 +268,7 @@ def write_doc_string(docs_dir: str):
                 and "test" not in file
                 and file.split(".py")[0] != "__init__"
             ):
-                docs_file_path = path.join(docs_dir, root)
+                docs_file_path = path.join(docs_dir, "nodes", root)
                 file_path = path.join(root, file)
                 process_python_file(file_path, docs_file_path, manifest_map)
 
