@@ -14,13 +14,15 @@ jobs:
       - name: Get last commit message
         id: message
         run: echo "::set-output name=message::$(git log -1 --pretty=format:"%s" ${{ github.event.pull_request.head.sha }})"
+      
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.10
+          python-version: "3.10"
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+        
       - name: Generate token
         id: generate_token
         uses: tibdex/github-app-token@v1
@@ -28,31 +30,38 @@ jobs:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.PRIVATE_KEY }}
 
-      - name: Get username
-        id: username
-        run: echo "::set-output name=username::${{ github.event.pull_request.user.login }}"
-
       - name: Get email
         id: email
         uses: KRANTHI0918/get-github-email-by-username-action@v2.1
         with:
-          github-username: ${{ steps.username.outputs.username }}
+          github-username: ${{ github.event.pull_request.user.login }}
+      
+      - name: Get last commit message
+        env:
+          USER_NAME: ${{ github.event.pull_request.user.login }}
+          USER_EMAIL: ${{ steps.email.outputs.email }}
+        run: |
+          cd ${{ github.workspace }}
+          git fetch origin ${{ github.head_ref }}
+          git checkout ${{ github.head_ref }}
+          echo "LAST_COMMIT_MSG=$(git log -1 --pretty=format:'%s' '${{ github.event.pull_request.head.sha }}' )" >> "$GITHUB_ENV"
 
       - name: Send pull-request
         env:
           GH_TOKEN: ${{ steps.generate_token.outputs.token }}
           APP_TOKEN: ${{ steps.generate_token.outputs.token }}
-          USER_NAME: ${{ steps.username.outputs.username }}
+          USER_NAME: ${{ github.event.pull_request.user.login }}
           USER_EMAIL: ${{ steps.email.outputs.email }}
-          LAST_COMMIT_MSG: ${{ steps.message.outputs.message }}
+          LAST_COMMIT_MSG: ${{ env.LAST_COMMIT_MSG }}
+
         run: |
           #!/bin/bash
 
           PR_NUM="${{github.event.pull_request.number}}"
-          REPOSITORY="smahmed776/repo-2"
+          REPOSITORY="flojoy-io/docs"
           FOLDER="bin/$REPOSITORY"
           BRANCH_NAME="update-node-docs-$PR_NUM"
-          GIT_URL=https://x-access-token:$APP_TOKEN@github.com/flojoy-io/docs.git
+          GIT_URL=https://x-access-token:$APP_TOKEN@github.com/$REPOSITORY.git
           git clone --no-single-branch $GIT_URL $FOLDER
           cd $FOLDER
           git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
