@@ -3,7 +3,7 @@ on:
     branches:
       - main
 
-name: create-docs-pr
+name: create-studio-docs-pr
 
 jobs:
   send-pull-request:
@@ -50,5 +50,6 @@ jobs:
           LAST_COMMIT_MSG: ${{ env.LAST_COMMIT_MSG }}
           PR_NUM: ${{github.event.pull_request.number}}
           GITHUB_WORKSPACE: ${{github.workspace}}
+          PR_BRANCH: ${{ github.head_ref }}
         run: |
           bash create_pr
