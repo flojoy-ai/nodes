@@ -265,6 +265,14 @@ def extract_docstring(content: str):
         docstring = content[docstring_start + 3 : docstring_end]
 
         return docstring
+    elif "'''" in content:
+        docstring_start = content.find("'''")
+        docstring_end = content.find("'''", docstring_start + 3)
+
+        # Extract the docstring
+        docstring = content[docstring_start + 3 : docstring_end]
+
+        return docstring
     return ""
 
 

@@ -1,0 +1,5 @@
+COMMAND:
+  - name: Eig
+    key: EIG
+    type: NUMPY_LINALG
+    

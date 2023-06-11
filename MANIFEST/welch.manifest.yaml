@@ -1,0 +1,36 @@
+COMMAND:
+  - name: Welch
+    key: WELCH
+    type: SCIPY_SIGNAL
+    parameters: 
+      fs: 
+        type: float
+        default: 1.0 
+      window: 
+        type: string
+        default: hann 
+      nperseg: 
+        type: int
+        default:  
+      noverlap: 
+        type: int
+        default:  
+      nfft: 
+        type: int
+        default:  
+      detrend: 
+        type: string
+        default: constant 
+      return_onesided: 
+        type: boolean
+        default: True 
+      scaling: 
+        type: string
+        default: density 
+      axis: 
+        type: int
+        default: -1 
+      average: 
+        type: string
+        default: mean 
+        

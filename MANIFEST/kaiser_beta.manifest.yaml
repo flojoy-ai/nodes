@@ -1,0 +1,5 @@
+COMMAND:
+  - name: Kaiser_beta
+    key: KAISER_BETA
+    type: SCIPY_SIGNAL
+    
