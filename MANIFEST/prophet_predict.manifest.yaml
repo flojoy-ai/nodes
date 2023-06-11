@@ -9,3 +9,6 @@ COMMAND:
       run_forecast:
         type: bool
         default: true
+    pip_dependencies:
+      - name: prophet
+        v: 1.1.4

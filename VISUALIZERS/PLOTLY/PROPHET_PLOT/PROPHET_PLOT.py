@@ -1,17 +1,12 @@
 from nodes.VISUALIZERS.template import plot_layout
 from flojoy import flojoy, DataContainer
 from typing import Any, Dict, List
-
+from prophet import Prophet
+from prophet.plot import plot_plotly
+from prophet.serialize import model_from_json
 
 @flojoy
 def PROPHET_PLOT(dc: List[DataContainer], params: Dict[str, Any]) -> DataContainer:
-    print("PROPHET PLOT plot_plotly")
-    try:
-        from prophet import Prophet
-        from prophet.plot import plot_plotly
-        from prophet.serialize import model_from_json
-    except ImportError:
-        raise Exception("You must install prophet for this node")
     if not len(dc):
         raise ValueError("Must receive a prophet model to plot forecast")
     if "prophet" not in dc[0].extra:
