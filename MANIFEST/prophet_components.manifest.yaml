@@ -1,0 +1,8 @@
+COMMAND:
+  - name: Prophet Components
+    key: PROPHET_COMPONENTS
+    type: PLOTLY_VISOR
+    parameters:
+      periods:
+        type: int
+        default: 365

@@ -1,6 +1,6 @@
 COMMAND:
   - name: Prophet Plot
-    key: PROPHET
+    key: PROPHET_PLOT
     type: PLOTLY_VISOR
     parameters:
       periods:

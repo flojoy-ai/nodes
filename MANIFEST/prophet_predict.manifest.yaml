@@ -1,0 +1,11 @@
+COMMAND:
+  - name: Prophet Predict
+    key: PROPHET_PREDICT
+    type: PREDICT_TIME_SERIES
+    parameters:
+      periods:
+        type: int
+        default: 365
+      run_forecast:
+        type: bool
+        default: true
