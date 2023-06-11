@@ -1,0 +1,215 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "READ_CSV-38331dac-1614-41e6-aa28-c7ab6ba620a4",
+                "type": "FILE",
+                "data": {
+                    "id": "READ_CSV-38331dac-1614-41e6-aa28-c7ab6ba620a4",
+                    "label": "READ CSV",
+                    "func": "READ_CSV",
+                    "type": "FILE",
+                    "ctrls": {
+                        "file_path": {
+                            "functionName": "READ_CSV",
+                            "param": "file_path",
+                            "value": "~/Downloads/iris_train.csv"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 30.299117370698312,
+                    "y": 176.16569145577284
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 30.299117370698312,
+                    "y": 176.16569145577284
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "READ_CSV-46e0dbba-c159-4856-b711-a391ff19d5ea",
+                "type": "FILE",
+                "data": {
+                    "id": "READ_CSV-46e0dbba-c159-4856-b711-a391ff19d5ea",
+                    "label": "READ CSV 1",
+                    "func": "READ_CSV",
+                    "type": "FILE",
+                    "ctrls": {
+                        "file_path": {
+                            "functionName": "READ_CSV",
+                            "param": "file_path",
+                            "value": "~/Downloads/iris_test_no_label.csv"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 37.441974513555465,
+                    "y": 386.16569145577273
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 37.441974513555465,
+                    "y": 386.16569145577273
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 212,
+                "id": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
+                "type": "CLASSIFICATION",
+                "data": {
+                    "id": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
+                    "label": "SUPPORT VECTOR MACHINE",
+                    "func": "SUPPORT_VECTOR_MACHINE",
+                    "type": "CLASSIFICATION",
+                    "ctrls": {
+                        "target": {
+                            "functionName": "SUPPORT_VECTOR_MACHINE",
+                            "param": "target",
+                            "value": ""
+                        },
+                        "kernel": {
+                            "functionName": "SUPPORT_VECTOR_MACHINE",
+                            "param": "kernel",
+                            "value": "linear"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "train",
+                            "id": "train",
+                            "type": "source"
+                        },
+                        {
+                            "name": "input",
+                            "id": "input",
+                            "type": "source"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 351.72768879926974,
+                    "y": 230.45140574148695
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 351.72768879926974,
+                    "y": 230.45140574148695
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-697d4147-82db-45c9-85aa-dca67fdf672a",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-697d4147-82db-45c9-85aa-dca67fdf672a",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1138.870545942127,
+                    "y": 269.0228343129156
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1138.870545942127,
+                    "y": 269.0228343129156
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-b029c659-e458-42b1-88b8-7a6f6711e76f",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "TABLE-b029c659-e458-42b1-88b8-7a6f6711e76f",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 651.7276887992699,
+                    "y": 189.02283431291568
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 651.7276887992699,
+                    "y": 189.02283431291568
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "READ_CSV-38331dac-1614-41e6-aa28-c7ab6ba620a4",
+                "sourceHandle": "main",
+                "target": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
+                "targetHandle": "train",
+                "id": "reactflow__edge-READ_CSV-38331dac-1614-41e6-aa28-c7ab6ba620a4main-SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31train"
+            },
+            {
+                "source": "READ_CSV-46e0dbba-c159-4856-b711-a391ff19d5ea",
+                "sourceHandle": "main",
+                "target": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
+                "targetHandle": "input",
+                "id": "reactflow__edge-READ_CSV-46e0dbba-c159-4856-b711-a391ff19d5eamain-SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31input"
+            },
+            {
+                "source": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
+                "sourceHandle": "main",
+                "target": "TABLE-b029c659-e458-42b1-88b8-7a6f6711e76f",
+                "targetHandle": "TABLE",
+                "id": "reactflow__edge-SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31main-TABLE-b029c659-e458-42b1-88b8-7a6f6711e76fTABLE"
+            },
+            {
+                "source": "TABLE-b029c659-e458-42b1-88b8-7a6f6711e76f",
+                "sourceHandle": "main",
+                "target": "END-697d4147-82db-45c9-85aa-dca67fdf672a",
+                "targetHandle": "END",
+                "id": "reactflow__edge-TABLE-b029c659-e458-42b1-88b8-7a6f6711e76fmain-END-697d4147-82db-45c9-85aa-dca67fdf672aEND"
+            }
+        ],
+        "viewport": {
+            "x": 40.964285714285666,
+            "y": 190.74999999999997,
+            "zoom": 0.5
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
