@@ -21,11 +21,11 @@ def SCATTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             fig.add_trace(go.Scatter(x=x, y=y, mode="markers", marker=dict(size=4)))
         case "dataframe":
             df = pd.DataFrame(dc_input.m)
-            first_col = df.iloc[:, 0]  
+            first_col = df.iloc[:, 0]
             is_timeseries = False
             if pd.api.types.is_datetime64_any_dtype(first_col):
                 is_timeseries = True
-            if is_timeseries:                     
+            if is_timeseries:
                 for col in df.columns:
                     if col != df.columns[0]:
                         fig.add_trace(
@@ -36,7 +36,7 @@ def SCATTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                     fig.add_trace(
                         go.Scatter(x=df.index, y=df[col], mode="markers", name=col)
                     )
-                
+
         case _:
             raise ValueError(
                 f"unsupported DataContainer type passed for {node_name}: {dc_input.type}"

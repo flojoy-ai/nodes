@@ -48,7 +48,7 @@ def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                             name=col,
                         )
                     )
-                
+
         case "matrix":
             y_columns: np.ndarray = dc_input.m
             for i, col in enumerate(y_columns.T):
