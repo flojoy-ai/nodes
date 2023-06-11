@@ -1,0 +1,98 @@
+#!/bin/bash
+
+DOC_REPOSITORY="flojoy-io/docs"
+DOC_FOLDER="bin/$DOC_REPOSITORY"
+DOC_BRANCH="update-node-docs-$PR_NUM"
+STUDIO_REPOSITORY="flojoy-io/studio"
+STUDIO_FOLDER="bin/$STUDIO_REPOSITORY"
+STUDIO_BRANCH="update-node-manifest-$PR_NUM"
+
+
+clone()
+{
+  REPO=$1
+  LOC=$2
+  GIT_URL=https://x-access-token:$APP_TOKEN@github.com/$REPO.git
+  git clone --no-single-branch $GIT_URL $LOC
+  cd $LOC
+  git pull
+  git fetch origin
+}
+
+
+clone "$DOC_REPOSITORY" "$DOC_FOLDER"
+
+git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
+git config core.ignorecase false
+
+if git branch -a | grep -q $DOC_BRANCH; then
+  git checkout $DOC_BRANCH
+  git pull
+  cd $GITHUB_WORKSPACE
+  python3 write_doc_string.py $DOC_FOLDER
+  cd $DOC_FOLDER
+  if git status --porcelain | grep -q .; then
+    echo "There are changes in the branch."
+    git add .
+    git commit -m "$LAST_COMMIT_MSG"
+    git push origin $DOC_BRANCH
+  fi
+else
+  git checkout -b $DOC_BRANCH
+  cd $GITHUB_WORKSPACE
+  python3 write_doc_string.py $DOC_FOLDER
+  cd $DOC_FOLDER
+  if git status --porcelain | grep -q .; then
+    git add .
+    git commit -m "$LAST_COMMIT_MSG"
+    git push -u origin $DOC_BRANCH --force
+    gh pr create \
+      --body "corresponding PR in nodes: https://github.com/flojoy-io/nodes/pull/$PR_NUM" \
+      --title "Update nodes doc from PR: $PR_NUM" \
+      --head "$DOC_BRANCH" \
+      --base "main" \
+      --assignee $USER_NAME
+  fi
+fi
+
+clone "$STUDIO_REPOSITORY" "$STUDIO_FOLDER"
+
+git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
+git config core.ignorecase false
+
+if git branch -a | grep -q $STUDIO_BRANCH; then
+  git checkout $STUDIO_BRANCH
+  git pull
+  git submodule update --init --recursive
+  cd PYTHON/nodes
+  git checkout $PR_BRANCH
+  git pull
+  cd ../../
+  if git status --porcelain | grep -q .; then
+    echo "There are changes in the branch."
+    git add .
+    git commit -m "$LAST_COMMIT_MSG"
+    git push origin $STUDIO_BRANCH
+  fi
+else
+  git checkout develop
+  git pull
+  git checkout -b $DOC_BRANCH
+  git checkout -b $STUDIO_BRANCH
+  git submodule update --init --recursive
+  cd PYTHON/nodes
+  git checkout $PR_BRANCH
+  git pull
+  cd ../../
+  if git status --porcelain | grep -q .; then
+    git add .
+    git commit -m "$LAST_COMMIT_MSG"
+    git push -u origin $STUDIO_BRANCH --force
+    gh pr create \
+      --body "corresponding PR in nodes: https://github.com/flojoy-io/nodes/pull/$PR_NUM" \
+      --title "Update submodule from PR: $PR_NUM" \
+      --head "$STUDIO_BRANCH" \
+      --base "develop" \
+      --assignee $USER_NAME
+  fi
+fi
