@@ -1,0 +1,137 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LOCAL_FILE-a9259621-d3ed-4459-b347-ea5c7598ef23",
+                "type": "LOCAL_FILE_SYSTEM",
+                "data": {
+                    "id": "LOCAL_FILE-a9259621-d3ed-4459-b347-ea5c7598ef23",
+                    "label": "LOCAL FILE",
+                    "func": "LOCAL_FILE",
+                    "type": "LOCAL_FILE_SYSTEM",
+                    "ctrls": {
+                        "file_type": {
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_type",
+                            "value": "image"
+                        },
+                        "path": {
+                            "functionName": "LOCAL_FILE",
+                            "param": "path",
+                            "value": ""
+                        }
+                    },
+                    "pip_dependencies": [
+                        {
+                            "name": "xlrd"
+                        },
+                        {
+                            "name": "lxml"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 67.02657239815413,
+                    "y": 171.76799388036227
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 67.02657239815413,
+                    "y": 171.76799388036227
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-97314e7b-4d8a-4837-b94d-9259c14c2bc1",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "IMAGE-97314e7b-4d8a-4837-b94d-9259c14c2bc1",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 439.8837152552969,
+                    "y": 121.76799388036227
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 439.8837152552969,
+                    "y": 121.76799388036227
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-d131e64e-8c1d-4f55-8e84-98d961a8d6b6",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-d131e64e-8c1d-4f55-8e84-98d961a8d6b6",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": true
+                },
+                "position": {
+                    "x": 921.3122866838686,
+                    "y": 177.48227959464788
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 921.3122866838686,
+                    "y": 177.48227959464788
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LOCAL_FILE-a9259621-d3ed-4459-b347-ea5c7598ef23",
+                "sourceHandle": "main",
+                "target": "IMAGE-97314e7b-4d8a-4837-b94d-9259c14c2bc1",
+                "targetHandle": "IMAGE",
+                "id": "reactflow__edge-LOCAL_FILE-a9259621-d3ed-4459-b347-ea5c7598ef23main-IMAGE-97314e7b-4d8a-4837-b94d-9259c14c2bc1IMAGE"
+            },
+            {
+                "source": "IMAGE-97314e7b-4d8a-4837-b94d-9259c14c2bc1",
+                "sourceHandle": "main",
+                "target": "END-d131e64e-8c1d-4f55-8e84-98d961a8d6b6",
+                "targetHandle": "END",
+                "id": "reactflow__edge-IMAGE-97314e7b-4d8a-4837-b94d-9259c14c2bc1main-END-d131e64e-8c1d-4f55-8e84-98d961a8d6b6END"
+            }
+        ],
+        "viewport": {
+            "x": 226.6796457828928,
+            "y": 31.056018042519327,
+            "zoom": 0.6853504029717089
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

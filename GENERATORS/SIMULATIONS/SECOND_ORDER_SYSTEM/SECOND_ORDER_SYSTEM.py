@@ -6,11 +6,11 @@ memory_key = "SECOND_ORDER_SYSTEM"
 
 
 @flojoy
-def SECOND_ORDER_SYSTEM(v, params):
+def SECOND_ORDER_SYSTEM(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     # Let's first define things that won't change over
     # each iteration: time constants, etc ...
-    d1 = float(params["d1"])  # first time constant in us, 250
-    d2 = float(params["d2"])  # second time constant in us, 100
+    d1 = params["d1"]  # first time constant in us, 250
+    d2 = params["d2"]  # second time constant in us, 100
     node_id = params.get("node_id", 0)
 
     # ... and now some helper functions
@@ -23,7 +23,7 @@ def SECOND_ORDER_SYSTEM(v, params):
     # Now we require memory. The only thing we need in memory is the last two
     # values the system had in this basic example.
     data = SmallMemory().read_memory(node_id, memory_key)
-    if type(data) == dict:
+    if data is None:
         initialize = True
     elif type(data) == np.ndarray:
         initialize = False
@@ -39,7 +39,7 @@ def SECOND_ORDER_SYSTEM(v, params):
     y_primes = np.zeros((2, 1)) if initialize else data[::-1]
 
     # Using input from controller as v[0].y ...
-    response = ac * v[0].y[-1] + bpd * y_primes[0] - bd * y_primes[1]
+    response = ac * dc_inputs[0].y[-1] + bpd * y_primes[0] - bd * y_primes[1]
     y_primes[1] = y_primes[0]
 
     # prepend the most recent result to the front of the histrory
@@ -48,5 +48,5 @@ def SECOND_ORDER_SYSTEM(v, params):
     SmallMemory().write_to_memory(node_id, memory_key, y_primes[::-1])
     # ... and return the result!
     return DataContainer(
-        x=v[0].y, y=np.ones_like(v[0].y) * float(y_primes[0])
+        x=dc_inputs[0].y, y=np.ones_like(dc_inputs[0].y) * float(y_primes[0])
     )  # returns input output pair

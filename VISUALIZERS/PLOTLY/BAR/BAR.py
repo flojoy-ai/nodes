@@ -1,13 +1,16 @@
 from flojoy import flojoy, DataContainer
 import plotly.graph_objects as go
 import pandas as pd
+from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
 def BAR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Node creates a Plotly Bar visualization for a given input data container."""
-    dc_input = dc_inputs[0]
-    fig = go.Figure()
+    dc_input: DataContainer = dc_inputs[0]
+    node_name = __name__.split(".")[-1]
+    layout = plot_layout(title=node_name)
+    fig = go.Figure(layout=layout)
     match dc_input.type:
         case "ordered_pair":
             x = dc_input.x
@@ -26,10 +29,10 @@ def BAR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                     )
                 else:
                     fig.add_trace(go.Bar(x=df.index, y=df[col], name=col))
-            fig.update_layout(
-                title="Bar Plot", xaxis_title="X Axis", yaxis_title="Y Axis"
-            )
+            fig.update_layout(xaxis_title="X Axis", yaxis_title="Y Axis")
         case _:
-            raise ValueError("unsupported DataContainer type for BAR node")
+            raise ValueError(
+                f"unsupported DataContainer type passed for {node_name}: {dc_input.type}"
+            )
 
     return DataContainer(type="plotly", fig=fig)

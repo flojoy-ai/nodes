@@ -11,5 +11,5 @@ COMMAND:
         type: float
         default: 0
       step:
-        type: float
+        type: int
         default: 1000

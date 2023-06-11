@@ -4,5 +4,5 @@ COMMAND:
     type: SELECT_ARRAY
     parameters:
       column:
-        type: float
+        type: int
         default: 0

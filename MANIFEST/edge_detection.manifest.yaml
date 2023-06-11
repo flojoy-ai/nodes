@@ -1,0 +1,9 @@
+COMMAND:
+  - name: Edge Detection
+    key: EDGE_DETECTION
+    type: IMAGE_PROCESSING
+    pip_dependencies:
+      - name: opencv-python-headless
+        v: "4.7.0.72"
+      - name: Pillow
+        v: "9.5.0"

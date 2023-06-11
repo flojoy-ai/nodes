@@ -4,27 +4,27 @@ import numpy as np
 
 
 @flojoy
-def FIR(v, params):
+def FIR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Apply a low-pass FIR filter to an input vector. This
     filter takes a few inputs: the sample_rate (will be passed as a parameter
     if the target node is not connected), the desired width of the
     transition to the stop band and the corresponding attentuation, and
     lastly the cutoff frequency."""
 
-    sample_rate = float(params["sample_rate"])  # Hz
-    transition_width = float(params["transition_width"])  # Hz
-    stop_band_attenuation = float(params["stop_band_attenuation"])  # dB
-    cutoff_freq = float(params["cutoff_freq"])  # Hz
+    sample_rate: float = params["sample_rate"]  # Hz
+    transition_width: float = params["transition_width"]  # Hz
+    stop_band_attenuation: float = params["stop_band_attenuation"]  # dB
+    cutoff_freq: float = params["cutoff_freq"]  # Hz
     print(
         f"FIR params: {[sample_rate,transition_width,stop_band_attenuation,cutoff_freq]}"
     )
 
     try:
-        times = v[1].y  # v[0].x['i']
-        x = v[0].y  # this is the value of the signal
+        times = dc_inputs[1].y  # v[0].x['i']
+        x = dc_inputs[0].y  # this is the value of the signal
     except IndexError:  # nothing input
         # lets create some default behaviour for testing
-        nsamples = 400
+        nsamples: int = 400
         times = np.arange(nsamples) / sample_rate
         test_x = (
             np.cos(2 * np.pi * 0.5 * times)
@@ -36,9 +36,9 @@ def FIR(v, params):
         x = test_x
 
     # first we need to define the nyquist rate ...
-    nyq_rate = sample_rate / 2.0
+    nyq_rate: float = sample_rate / 2.0
     # ... then the transition width relative to this
-    transition_width /= nyq_rate
+    transition_width: float = transition_width / nyq_rate
 
     # Now compute order and Kaiser param for the fitler
     N, beta = signal.kaiserord(stop_band_attenuation, transition_width)
@@ -52,7 +52,7 @@ def FIR(v, params):
     # Now, there are two considerations to be had. Firstly,
     # there is a phase delay in the signal since we have applied finite
     # taps ...
-    phase_delay = 0.5 * (N - 1) / sample_rate
+    phase_delay: float = 0.5 * (N - 1) / sample_rate
     # ... and furthermore, the first N-1 samples are 'corrupted' in
     # the sense that the filter 'sacrifies' them by the imposition
     # of the initial conditions.

@@ -4,17 +4,17 @@ from scipy import signal
 
 
 @flojoy
-def SINE(v, params):
+def SINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     valid_waveforms = ["sine", "square", "triangle", "sawtooth"]
     x = None
-    if v.__len__() > 0:
-        x = v[0].y
+    if dc_inputs.__len__() > 0:
+        x = dc_inputs[0].y
 
     waveform = params["waveform"]
-    A = float(params["amplitude"])
-    F = float(params["frequency"])
-    Y0 = float(params["offset"])
-    PHASE = float(params["phase"])
+    A = params["amplitude"]
+    F = params["frequency"]
+    Y0 = params["offset"]
+    PHASE = params["phase"]
     if waveform not in valid_waveforms:
         waveform = valid_waveforms[0]
         print("invalid waveform passed as param, using default:", waveform)

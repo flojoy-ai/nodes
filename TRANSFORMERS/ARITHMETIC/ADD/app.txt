@@ -1,0 +1,236 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 135,
+                "id": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "start": {
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": "10"
+                        },
+                        "end": {
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": "0"
+                        },
+                        "step": {
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": "1000"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": -85.71428571428574,
+                    "y": 363.4285714285712
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -85.71428571428574,
+                    "y": 363.4285714285712
+                },
+                "dragging": true
+            },
+            {
+                "width": 115,
+                "height": 115,
+                "id": "SINE-2cd08316-0a0c-4c13-9b1d-382ba4d74cbd",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "SINE-2cd08316-0a0c-4c13-9b1d-382ba4d74cbd",
+                    "label": "SINE",
+                    "func": "SINE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "frequency": {
+                            "functionName": "SINE",
+                            "param": "frequency",
+                            "value": "1"
+                        },
+                        "offset": {
+                            "functionName": "SINE",
+                            "param": "offset",
+                            "value": "0"
+                        },
+                        "amplitude": {
+                            "functionName": "SINE",
+                            "param": "amplitude",
+                            "value": "1"
+                        },
+                        "phase": {
+                            "functionName": "SINE",
+                            "param": "phase",
+                            "value": "0"
+                        },
+                        "waveform": {
+                            "functionName": "SINE",
+                            "param": "waveform",
+                            "value": "sine"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 197.14285714285717,
+                    "y": 283.2857142857143
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 197.14285714285717,
+                    "y": 283.2857142857143
+                },
+                "dragging": true
+            },
+            {
+                "width": 115,
+                "height": 115,
+                "id": "RAND-434f7314-f239-4e7d-a9c6-629529db1d82",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "RAND-434f7314-f239-4e7d-a9c6-629529db1d82",
+                    "label": "RAND",
+                    "func": "RAND",
+                    "type": "SIMULATION",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 188.99999999999994,
+                    "y": 469.57142857142867
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 188.99999999999994,
+                    "y": 469.57142857142867
+                },
+                "dragging": true
+            },
+            {
+                "width": 99,
+                "height": 115,
+                "id": "ADD-a586b5d7-4343-430d-89ce-3c2a3d156695",
+                "type": "ARITHMETIC",
+                "data": {
+                    "id": "ADD-a586b5d7-4343-430d-89ce-3c2a3d156695",
+                    "label": "ADD",
+                    "func": "ADD",
+                    "type": "ARITHMETIC",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "y",
+                            "id": "add_y",
+                            "type": "target"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 416.8571428571427,
+                    "y": 395.14285714285705
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 416.8571428571427,
+                    "y": 395.14285714285705
+                },
+                "dragging": true
+            },
+            {
+                "width": 250,
+                "height": 159,
+                "id": "SCATTER-da4e4991-d9a4-4c71-95e6-56b13266ede6",
+                "type": "VISOR",
+                "data": {
+                    "id": "SCATTER-da4e4991-d9a4-4c71-95e6-56b13266ede6",
+                    "label": "SCATTER",
+                    "func": "SCATTER",
+                    "type": "VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 615.5714285714288,
+                    "y": 371.4285714285715
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 615.5714285714288,
+                    "y": 371.4285714285715
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
+                "sourceHandle": "main",
+                "target": "RAND-434f7314-f239-4e7d-a9c6-629529db1d82",
+                "targetHandle": "RAND",
+                "id": "reactflow__edge-LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135cemain-RAND-434f7314-f239-4e7d-a9c6-629529db1d82RAND"
+            },
+            {
+                "source": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
+                "sourceHandle": "main",
+                "target": "SINE-2cd08316-0a0c-4c13-9b1d-382ba4d74cbd",
+                "targetHandle": "SINE",
+                "id": "reactflow__edge-LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135cemain-SINE-2cd08316-0a0c-4c13-9b1d-382ba4d74cbdSINE"
+            },
+            {
+                "source": "ADD-a586b5d7-4343-430d-89ce-3c2a3d156695",
+                "sourceHandle": "main",
+                "target": "SCATTER-da4e4991-d9a4-4c71-95e6-56b13266ede6",
+                "targetHandle": "SCATTER",
+                "id": "reactflow__edge-ADD-a586b5d7-4343-430d-89ce-3c2a3d156695main-SCATTER-da4e4991-d9a4-4c71-95e6-56b13266ede6SCATTER"
+            },
+            {
+                "source": "SINE-2cd08316-0a0c-4c13-9b1d-382ba4d74cbd",
+                "sourceHandle": "main",
+                "target": "ADD-a586b5d7-4343-430d-89ce-3c2a3d156695",
+                "targetHandle": "ADD",
+                "id": "reactflow__edge-SINE-2cd08316-0a0c-4c13-9b1d-382ba4d74cbdmain-ADD-a586b5d7-4343-430d-89ce-3c2a3d156695ADD"
+            },
+            {
+                "source": "RAND-434f7314-f239-4e7d-a9c6-629529db1d82",
+                "sourceHandle": "main",
+                "target": "ADD-a586b5d7-4343-430d-89ce-3c2a3d156695",
+                "targetHandle": "add_y",
+                "id": "reactflow__edge-RAND-434f7314-f239-4e7d-a9c6-629529db1d82main-ADD-a586b5d7-4343-430d-89ce-3c2a3d156695add_y"
+            }
+        ],
+        "viewport": {
+            "x": 234.66911838622127,
+            "y": 107.67920450356877,
+            "zoom": 0.7116576751667055
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

@@ -3,16 +3,17 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def SUBTRACT(v, params):
+def SUBTRACT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Subtract 2 input vectors and return the result"""
-    # print(' v in add node: ', v)
-    a = [0]
-    b = [0]
 
-    if len(v) == 2:
-        a = v[0].y
-        b = v[1]["y"]
+    if len(dc_inputs) < 2:
+        raise ValueError(
+            f"To substract the values, SUBSTRACT node requires two inputs, {len(dc_inputs)} was given!"
+        )
+    a = dc_inputs[0].y
+    b = dc_inputs[1].y
 
+    x = dc_inputs[0].x
     y = np.subtract(a, b)
 
-    return DataContainer(x = {'a':a,'b':b}, y = y)
+    return DataContainer(x=x, y=y)

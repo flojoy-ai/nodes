@@ -3,10 +3,10 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def LINSPACE(v, params):
+def LINSPACE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     x = None
-    if v.__len__() > 0:
-        x = v[0].y
-    y = np.linspace(float(params["start"]), float(params["end"]), int(params["step"]))
+    if dc_inputs.__len__() > 0:
+        x = dc_inputs[0].y
+    y = np.linspace(params["start"], params["end"], params["step"])
     result = DataContainer(x=x, y=y)
     return result

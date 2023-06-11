@@ -3,6 +3,6 @@ from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def ABS(v, params):
+def ABS(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Returns abolute value"""
-    return DataContainer(x=v[0].y, y=np.abs(v[0].y))
+    return DataContainer(x=dc_inputs[0].y, y=np.abs(dc_inputs[0].y))
