@@ -1,0 +1,9 @@
+COMMAND:
+  - name: Cond
+    key: COND
+    type: NUMPY_LINALG
+    parameters: 
+      p: 
+        type: None
+        default:  
+        

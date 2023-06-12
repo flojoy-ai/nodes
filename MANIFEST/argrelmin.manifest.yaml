@@ -1,0 +1,15 @@
+COMMAND:
+  - name: Argrelmin
+    key: ARGRELMIN
+    type: SCIPY_SIGNAL
+    parameters: 
+      axis: 
+        type: int
+        default: 0 
+      order: 
+        type: int
+        default: 1 
+      mode: 
+        type: string
+        default: clip 
+        

@@ -1,0 +1,12 @@
+COMMAND:
+  - name: Trim_mean
+    key: TRIM_MEAN
+    type: SCIPY_STATS
+    parameters: 
+      proportiontocut: 
+        type: float
+        default:  
+      axis: 
+        type: int
+        default: 0 
+        

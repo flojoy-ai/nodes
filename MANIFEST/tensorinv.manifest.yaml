@@ -1,0 +1,9 @@
+COMMAND:
+  - name: Tensorinv
+    key: TENSORINV
+    type: NUMPY_LINALG
+    parameters: 
+      ind: 
+        type: int
+        default: 2 
+        

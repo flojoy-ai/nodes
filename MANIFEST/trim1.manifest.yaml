@@ -1,0 +1,15 @@
+COMMAND:
+  - name: Trim1
+    key: TRIM1
+    type: SCIPY_STATS
+    parameters: 
+      proportiontocut: 
+        type: float
+        default:  
+      tail: 
+        type: string
+        default: right 
+      axis: 
+        type: int
+        default: 0 
+        

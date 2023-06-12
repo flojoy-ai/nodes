@@ -1,5 +1,5 @@
 COMMAND:
-  - name: ONE_HOT_ENCODING
+  - name: One Hot Encoding
     key: ONE_HOT_ENCODING
     type: CLASSIFICATION
     parameters:

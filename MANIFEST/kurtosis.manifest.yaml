@@ -1,0 +1,21 @@
+COMMAND:
+  - name: Kurtosis
+    key: KURTOSIS
+    type: SCIPY_STATS
+    parameters: 
+      axis: 
+        type: int
+        default: 0 
+      fisher: 
+        type: boolean
+        default: True 
+      bias: 
+        type: boolean
+        default: True 
+      nan_policy: 
+        type: string
+        default: propagate 
+      keepdims: 
+        type: boolean
+        default: False 
+        
