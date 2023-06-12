@@ -1,0 +1,1 @@
+In this example we use `DIVIDE` to undo the effects of a `MULTIPLY`. We first multiply a positive `SINE` wave by a negative constant everywhere (`LINSPACE`), and then use `DIVIDE` to make the wave positive again.
