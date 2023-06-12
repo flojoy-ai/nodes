@@ -16,8 +16,9 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     real_signal: boolean
         whether the input signal is real or complex
     sample_rate: int
-        the sample rate of the real signal, if the input is complex, it will default to 1
-        regardless of the input
+        the sample rate of the signal, defaults to 1
+    absolute: boolean
+        whether the output would be absolute value or not, false if IFFT would be used
 
     Returns
     -------
@@ -39,6 +40,7 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     window_type: str = params["window_type"]
     real: bool = params["real_signal"]
     sample_rate: int = params["sample_rate"]  # Hz
+    absolute: bool = params["absolute"]
 
     if sample_rate <= 0:
         raise ValueError(f"Sample rate must be greater than 0")
@@ -55,10 +57,8 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         )
 
     fourier = fft.fftshift(fourier)
-    frequency = (
-        fft.rfftfreq(x.shape[-1], 1 / sample_rate) if real else fft.fftfreq(x.shape[-1])
-    )
+    frequency = fft.rfftfreq(x.shape[-1], 1 / sample_rate)
     frequency = fft.fftshift(frequency)
+    result = abs(fourier.real) if absolute else fourier.real
 
-    result = abs(fourier)
     return DataContainer(x=frequency, y=result)
