@@ -3,34 +3,6 @@ COMMAND:
     key: IFFT
     type: SIGNAL_PROCESSING
     parameters:
-      window_type:
-        type: select
-        options:
-          - none
-          - boxcar
-          - triang
-          - blackman
-          - hamming
-          - hann
-          - bartlett
-          - flattop
-          - parzen
-          - bohman
-          - blackmanharris
-          - nuttall
-          - barthann
-          - cosine
-          - exponential
-          - tukey
-          - taylor
-          - lanczos
-        default: none
       real_signal:
         type: boolean
         default: false
-      linspace_start:
-        type: int
-        default: 0
-      linspace_end:
-        type: int
-        default: 10

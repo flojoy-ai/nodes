@@ -13,10 +13,6 @@ def IFFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     ----------
     real_signal: boolean
         whether the input signal is real (true) or complex (false)
-    linspace_start: float
-        the start of the initial linspace
-    linspace_end: float
-        the end of the initial linspace
 
     Returns
     -------
@@ -34,21 +30,15 @@ def IFFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             f"unsupported DataContainer type passed to FFT node: '{dc.type}'"
         )
 
+    x = dc.x
+    fourier = dc.y
+    realValue = fourier["real"]
+    imagValue = fourier["imag"]
     real: bool = params["real_signal"]
-    start: float = params["linspace_start"]
-    end: float = params["linspace_end"]
-    window_type = params["window_type"]
 
-    fourier = fft.ifftshift(dc.y)
-    frequency = dc.x
-
-    N = 2 * (len(frequency) - 1)  # step of linspace
-    x_time = np.linspace(start, end, N)
+    # N = 2 * (len(x) - 1)  # step of linspace
+    fourier = realValue + 1j * imagValue
 
     result = fft.irfft(fourier) if real else fft.ifft(fourier)
-    result = (
-        result.real
-        if window_type == "none"
-        else result.real / signal.get_window(window_type, N)
-    )
-    return DataContainer(x=x_time, y=result)
+    result = result.real
+    return DataContainer(x=x, y=result)

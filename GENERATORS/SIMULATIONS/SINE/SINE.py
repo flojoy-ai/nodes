@@ -20,7 +20,7 @@ def SINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         print("invalid waveform passed as param, using default:", waveform)
 
     if waveform == "sine":
-        y = Y0 + A * np.sin(np.radians(2 * np.pi * F) * x + np.radians(PHASE))
+        y = Y0 + A * np.sin(2 * np.pi * F * x + np.radians(PHASE))
     elif waveform == "square":
         y = Y0 + A * signal.square(2 * np.pi * F * x / 10 + np.radians(PHASE))
     elif waveform == "triangle":
