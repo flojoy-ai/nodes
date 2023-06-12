@@ -1,0 +1,15 @@
+COMMAND:
+  - name: Differentiate
+    key: DIFFERENTIATE
+    type: CALCULUS
+    parameters:
+      equation:
+        type: string
+        default: ""
+      derivative:
+        type: int
+        default: 1
+      respective:
+        type: string
+        default: ""
+      
