@@ -28,8 +28,8 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
         raise ValueError(
             f"To compute least squares, LEAST_SQUARES node requires one or two inputs, {len(dc_inputs)} was given!"
         )
-    
-    if (len(dc_inputs) == 1 and dc_inputs[0].type == "ordered_pair"):
+
+    if len(dc_inputs) == 1 and dc_inputs[0].type == "ordered_pair":
         x = np.array(dc_inputs[0].y)
         y = np.array(dc_inputs[1].y)
 
@@ -39,13 +39,12 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
         except np.linalg.LinAlgError:
             raise ValueError("Least Square Computation failed.")
 
-        slope,intercept = p[0:-1], p[-1]
+        slope, intercept = p[0:-1], p[-1]
         res = slope * x + intercept
         # res = np.ndarray.flatten(res)
 
         # line types only accept 1D array
         return DataContainer(type="ordered_pair", x=x, y=res)
-        
 
     if dc_inputs[0].type == "ordered_pair" and dc_inputs[1].type == "ordered_pair":
         x = np.array(dc_inputs[0].y)
@@ -57,7 +56,7 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
         except np.linalg.LinAlgError:
             raise ValueError("Least Square Computation failed.")
 
-        slope,intercept = p[0:-1], p[-1]
+        slope, intercept = p[0:-1], p[-1]
         res = slope * x + intercept
         # res = np.ndarray.flatten(res)
 
@@ -74,7 +73,7 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
         except np.linalg.LinAlgError:
             raise ValueError("Least Square Computation failed.")
 
-        slope,intercept = p[0:-1], p[-1]
+        slope, intercept = p[0:-1], p[-1]
         res = slope * x + intercept
         # res = np.ndarray.flatten(res)
 
@@ -86,4 +85,3 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
         raise ValueError(
             f"unsupported DataContainer type passed to LEAST_SQUARES node: '{dc_inputs[0].type}'"
         )
-
