@@ -7,7 +7,7 @@ COMMAND:
         type: int
         default: 365
       run_forecast:
-        type: bool
+        type: boolean
         default: true
     pip_dependencies:
       - name: prophet
