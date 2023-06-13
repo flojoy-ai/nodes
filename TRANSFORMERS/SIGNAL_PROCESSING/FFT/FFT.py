@@ -5,7 +5,7 @@ from flojoy import flojoy, DataContainer
 
 @flojoy
 def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The FFT node Performs a Discrete Fourier Transform on the input vector.
+    """The FFT node performs a Discrete Fourier Transform on the input vector.
     Through the FFT algorithm, the input vector will be transformed
     from the time domain into the frequency domain which will be an ordered pair of arrays.
 
