@@ -17,7 +17,7 @@ def COUNT_VECTORIZER(dc_inputs: list[DataContainer], params: dict) -> DataContai
     """
     vectorizer = CountVectorizer()
 
-    X = vectorizer.fit_transform(dc_inputs[0].y)
+    X = vectorizer.fit_transform(dc_inputs[0].m)
 
     return DataContainer(
         type="ordered_pair",

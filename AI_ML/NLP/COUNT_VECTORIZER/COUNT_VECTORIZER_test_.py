@@ -29,7 +29,7 @@ def test_COUNT_VECTORIZER():
     # create the two ordered pair datacontainers
     element_a = DataContainer(
         type="matrix",
-        x=numpy.array(
+        m=numpy.array(
             [
                 "This is the first document.",
                 "This document is the second document.",
@@ -58,7 +58,7 @@ def test_COUNT_VECTORIZER():
 
     assert numpy.array_equal(
         res.y,
-        array(
+        numpy.array(
             [
                 [0, 1, 1, 1, 0, 0, 1, 0, 1],
                 [0, 2, 0, 1, 0, 1, 1, 0, 1],
