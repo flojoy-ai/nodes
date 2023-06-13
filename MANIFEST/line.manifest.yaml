@@ -1,7 +1,4 @@
 COMMAND:
-  - {
-      name: 'Line',
-      key: 'LINE',
-      type: 'VISOR',
-      parameters: { referred_node: { type: node_reference, default: ''}},
-    }
+  - name: Line
+    key: LINE
+    type: PLOTLY_VISOR
