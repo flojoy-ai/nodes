@@ -7,6 +7,23 @@ memory_key = "SECOND_ORDER_SYSTEM"
 
 @flojoy
 def SECOND_ORDER_SYSTEM(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+    """The SECOND_ORDER_SYSTEM has a second order exponential function.
+    This node is designed to be used in a loop.
+    The data is appended as the loop progress and written to memory.
+
+    Parameters
+    ----------
+    d1: float
+        The first time constant.
+    d2: float
+        The second time constant.
+
+    Returns
+    -------
+    dataframe
+        The most recent value of the second order function.
+    """
+
     # Let's first define things that won't change over
     # each iteration: time constants, etc ...
     d1 = params["d1"]  # first time constant in us, 250
@@ -23,7 +40,6 @@ def SECOND_ORDER_SYSTEM(dc_inputs: list[DataContainer], params: dict) -> DataCon
     # Now we require memory. The only thing we need in memory is the last two
     # values the system had in this basic example.
     data = SmallMemory().read_memory(node_id, memory_key)
-    print('debug: ', type(data))
     if data is None:
         initialize = True
     elif type(data) == np.ndarray:

@@ -12,6 +12,18 @@ REDIS_PORT = os.environ.get("REDIS_PORT", 6379)
 
 @flojoy
 def REDIS_LOAD(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+    """The REDIS_LOAD node loads data directly from REDIS.
+
+    Parameters
+    ----------
+    referred_node: list of str
+        The node where REDIS data will be loaded from.
+
+    Returns
+    -------
+    dataframe
+        The dataframe loaded from Redis. Ordered pair.
+    """
     referred_node = params["referred_node"]
     x = dc_inputs[0].y
     if referred_node != "":
