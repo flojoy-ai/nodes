@@ -1,6 +1,6 @@
 COMMAND:
   - name: Composite plot 
-    key: COMPOSITE_PLOT
+    key: COMPOSITE
     type: PLOTLY_VISOR
     inputs:
       - name: primary_trace
@@ -17,6 +17,7 @@ COMMAND:
           - line
           - histogram
           - scatter
+        default: none
       second_figure:
         type: select
         options:
@@ -24,3 +25,4 @@ COMMAND:
           - line
           - histogram
           - scatter
+        default: none
