@@ -23,12 +23,13 @@ def SECOND_ORDER_SYSTEM(dc_inputs: list[DataContainer], params: dict) -> DataCon
     # Now we require memory. The only thing we need in memory is the last two
     # values the system had in this basic example.
     data = SmallMemory().read_memory(node_id, memory_key)
+    print('debug: ', type(data))
     if data is None:
         initialize = True
     elif type(data) == np.ndarray:
         initialize = False
     else:
-        raise TypeError("Error loading object from REDIS.")
+        raise TypeError(f"Error loading object from REDIS. Type: {type(data)}")
 
     # We're going to store and read the data in reverse order to
     # how it is accessed here. We will write the functionality

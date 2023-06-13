@@ -11,10 +11,10 @@ REDIS_PORT = os.environ.get("REDIS_PORT", 6379)
 
 
 @flojoy
-def LINE(v, params):
+def REDIS_LOAD(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     referred_node = params["referred_node"]
-    x = v[0].y
-    if referred_node is not "":
+    x = dc_inputs[0].y
+    if referred_node != "":
         referred_node_key = referred_node.split("-")[0]
         try:
             job = Job.fetch(
@@ -32,7 +32,7 @@ def LINE(v, params):
             )
 
         except (Exception, NoSuchJobError):
-            y = v[0].y if len(v) > 0 else [1, 3, 2]
+            y = x if len(dc_inputs) > 0 else [1, 3, 2]
             print(traceback.format_exc())
             pass
         return (
@@ -41,4 +41,4 @@ def LINE(v, params):
             .build()
         )
     else:
-        return JobResultBuilder().from_inputs(v).build()
+        return JobResultBuilder().from_inputs(dc_inputs).build()

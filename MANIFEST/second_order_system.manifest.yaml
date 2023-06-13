@@ -1,6 +1,6 @@
 COMMAND:
     - {
-        name: SecondOrderSystem,
+        name: Second Order System,
         key: SECOND_ORDER_SYSTEM,
         type: SIMULATION,
         parameters:
