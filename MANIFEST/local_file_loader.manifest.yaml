@@ -4,8 +4,19 @@ COMMAND:
     type: LOCAL_FILE_SYSTEM
     parameters:
       file_type:
-        type: string
+        type: select
+        options:
+          - image
+          - csv
+          - json
+          - xml
+          - excel
         default: image
       path:
         type: string
         default: ''
+    pip_dependencies:
+      - name: xlrd
+        v: "2.0.1"
+      - name: lxml
+        v: "4.9.2"

@@ -1,0 +1,671 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5",
+                    "label": "TIMES",
+                    "func": "LINSPACE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "start": {
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": "0"
+                        },
+                        "end": {
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": "3.99"
+                        },
+                        "step": {
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": "400"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": -381.6597627878457,
+                    "y": 328.0017998240539
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -381.6597627878457,
+                    "y": 328.0017998240539
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "SINE-dc70c4b5-9116-4bdd-988c-9e3726ebf272",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "SINE-dc70c4b5-9116-4bdd-988c-9e3726ebf272",
+                    "label": "INPUT",
+                    "func": "SINE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "frequency": {
+                            "functionName": "SINE",
+                            "param": "frequency",
+                            "value": 28.648
+                        },
+                        "offset": {
+                            "functionName": "SINE",
+                            "param": "offset",
+                            "value": 0
+                        },
+                        "amplitude": {
+                            "functionName": "SINE",
+                            "param": "amplitude",
+                            "value": 1
+                        },
+                        "phase": {
+                            "functionName": "SINE",
+                            "param": "phase",
+                            "value": 90
+                        },
+                        "waveform": {
+                            "functionName": "SINE",
+                            "param": "waveform",
+                            "value": "sine"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 64.27115088504331,
+                    "y": -57.56531344427435
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 64.27115088504331,
+                    "y": -57.56531344427435
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "SINE-dad2f58e-9dfc-4ec2-add4-2988f67cd272",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "SINE-dad2f58e-9dfc-4ec2-add4-2988f67cd272",
+                    "label": "OSC_1",
+                    "func": "SINE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "frequency": {
+                            "functionName": "SINE",
+                            "param": "frequency",
+                            "value": 143.243
+                        },
+                        "offset": {
+                            "functionName": "SINE",
+                            "param": "offset",
+                            "value": 0
+                        },
+                        "amplitude": {
+                            "functionName": "SINE",
+                            "param": "amplitude",
+                            "value": 0.2
+                        },
+                        "phase": {
+                            "functionName": "SINE",
+                            "param": "phase",
+                            "value": 5.729
+                        },
+                        "waveform": {
+                            "functionName": "SINE",
+                            "param": "waveform",
+                            "value": "sine"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 63.24622920222373,
+                    "y": 129.88565546683003
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 63.24622920222373,
+                    "y": 129.88565546683003
+                },
+                "dragging": true
+            },
+            {
+                "width": 99,
+                "height": 130,
+                "id": "ADD-c6f501c7-e17a-4657-bc30-bb79da43b0da",
+                "type": "ARITHMETIC",
+                "data": {
+                    "id": "ADD-c6f501c7-e17a-4657-bc30-bb79da43b0da",
+                    "label": "add1",
+                    "func": "ADD",
+                    "type": "ARITHMETIC",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "y",
+                            "id": "add_y",
+                            "type": "target"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 390.534078604333,
+                    "y": 22.83876337321726
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 390.534078604333,
+                    "y": 22.83876337321726
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "SINE-eb0dce31-56d6-4327-8c8e-3ac251e9ea1e",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "SINE-eb0dce31-56d6-4327-8c8e-3ac251e9ea1e",
+                    "label": "OSC_2",
+                    "func": "SINE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "frequency": {
+                            "functionName": "SINE",
+                            "param": "frequency",
+                            "value": 876.6288
+                        },
+                        "offset": {
+                            "functionName": "SINE",
+                            "param": "offset",
+                            "value": 0
+                        },
+                        "amplitude": {
+                            "functionName": "SINE",
+                            "param": "amplitude",
+                            "value": 0.2
+                        },
+                        "phase": {
+                            "functionName": "SINE",
+                            "param": "phase",
+                            "value": 0
+                        },
+                        "waveform": {
+                            "functionName": "SINE",
+                            "param": "waveform",
+                            "value": "sine"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 70.1763309072428,
+                    "y": 313.64865448430766
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 70.1763309072428,
+                    "y": 313.64865448430766
+                },
+                "dragging": true
+            },
+            {
+                "width": 99,
+                "height": 130,
+                "id": "ADD-897ef5a2-e7b7-44b4-bedb-147c880e83fb",
+                "type": "ARITHMETIC",
+                "data": {
+                    "id": "ADD-897ef5a2-e7b7-44b4-bedb-147c880e83fb",
+                    "label": "add2",
+                    "func": "ADD",
+                    "type": "ARITHMETIC",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "y",
+                            "id": "add_y",
+                            "type": "target"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 576.8582694182483,
+                    "y": 117.30321775737411
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 576.8582694182483,
+                    "y": 117.30321775737411
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "SINE-0ff677e5-4bb0-418d-b521-257f960f4d61",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "SINE-0ff677e5-4bb0-418d-b521-257f960f4d61",
+                    "label": "OSC_3",
+                    "func": "SINE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "frequency": {
+                            "functionName": "SINE",
+                            "param": "frequency",
+                            "value": 956.8432
+                        },
+                        "offset": {
+                            "functionName": "SINE",
+                            "param": "offset",
+                            "value": 0
+                        },
+                        "amplitude": {
+                            "functionName": "SINE",
+                            "param": "amplitude",
+                            "value": 0.1
+                        },
+                        "phase": {
+                            "functionName": "SINE",
+                            "param": "phase",
+                            "value": 5.729
+                        },
+                        "waveform": {
+                            "functionName": "SINE",
+                            "param": "waveform",
+                            "value": "sine"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 84.69156347834837,
+                    "y": 490.80983265848033
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 84.69156347834837,
+                    "y": 490.80983265848033
+                },
+                "dragging": true
+            },
+            {
+                "width": 99,
+                "height": 130,
+                "id": "ADD-13294349-3310-478c-8b98-0a5f586b339a",
+                "type": "ARITHMETIC",
+                "data": {
+                    "id": "ADD-13294349-3310-478c-8b98-0a5f586b339a",
+                    "label": "add3",
+                    "func": "ADD",
+                    "type": "ARITHMETIC",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "y",
+                            "id": "add_y",
+                            "type": "target"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 778.3572136034272,
+                    "y": 260.41340918829394
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 778.3572136034272,
+                    "y": 260.41340918829394
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "SINE-87b52624-11b8-479a-8177-543f4fb2d3ae",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "SINE-87b52624-11b8-479a-8177-543f4fb2d3ae",
+                    "label": "OSC_4",
+                    "func": "SINE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "frequency": {
+                            "functionName": "SINE",
+                            "param": "frequency",
+                            "value": 1343.5912
+                        },
+                        "offset": {
+                            "functionName": "SINE",
+                            "param": "offset",
+                            "value": 0
+                        },
+                        "amplitude": {
+                            "functionName": "SINE",
+                            "param": "amplitude",
+                            "value": 0.1
+                        },
+                        "phase": {
+                            "functionName": "SINE",
+                            "param": "phase",
+                            "value": 45.83
+                        },
+                        "waveform": {
+                            "functionName": "SINE",
+                            "param": "waveform",
+                            "value": "sine"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 72.12544117631614,
+                    "y": 683.9513367080441
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 72.12544117631614,
+                    "y": 683.9513367080441
+                },
+                "dragging": true
+            },
+            {
+                "width": 99,
+                "height": 130,
+                "id": "ADD-9334e8e4-7d3d-4179-829d-44e07a9c249e",
+                "type": "ARITHMETIC",
+                "data": {
+                    "id": "ADD-9334e8e4-7d3d-4179-829d-44e07a9c249e",
+                    "label": "add4",
+                    "func": "ADD",
+                    "type": "ARITHMETIC",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "y",
+                            "id": "add_y",
+                            "type": "target"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 994.6655018180179,
+                    "y": 419.7484445233009
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 994.6655018180179,
+                    "y": 419.7484445233009
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2",
+                "type": "SIGNAL_PROCESSING",
+                "data": {
+                    "id": "FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2",
+                    "label": "FIR",
+                    "func": "FIR",
+                    "type": "SIGNAL_PROCESSING",
+                    "ctrls": {
+                        "sample_rate": {
+                            "functionName": "FIR",
+                            "param": "sample_rate",
+                            "value": 100
+                        },
+                        "transition_width": {
+                            "functionName": "FIR",
+                            "param": "transition_width",
+                            "value": 5
+                        },
+                        "stop_band_attenuation": {
+                            "functionName": "FIR",
+                            "param": "stop_band_attenuation",
+                            "value": 60
+                        },
+                        "cutoff_freq": {
+                            "functionName": "FIR",
+                            "param": "cutoff_freq",
+                            "value": 10
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 1184.153657004567,
+                    "y": 533.8337171975915
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1184.153657004567,
+                    "y": 533.8337171975915
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-a1ca5e46-b598-414a-bbe8-e74512cb32f8",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-a1ca5e46-b598-414a-bbe8-e74512cb32f8",
+                    "label": "Terminate",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1951.970128726804,
+                    "y": 493.73691549580417
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1951.970128726804,
+                    "y": 493.73691549580417
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-3dbd9cc9-cb99-4569-9255-5fd896702506",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "LINE-3dbd9cc9-cb99-4569-9255-5fd896702506",
+                    "label": "LINE 1",
+                    "func": "LINE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1150.2828137929405,
+                    "y": 17.245987812730846
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1150.2828137929405,
+                    "y": 17.245987812730846
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-456cc5d9-9ed7-4af8-b8c4-d0dace558f7a",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "LINE-456cc5d9-9ed7-4af8-b8c4-d0dace558f7a",
+                    "label": "LINE 1",
+                    "func": "LINE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1457.4874893685353,
+                    "y": 435.47080757694937
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1457.4874893685353,
+                    "y": 435.47080757694937
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5",
+                "sourceHandle": "main",
+                "target": "SINE-dc70c4b5-9116-4bdd-988c-9e3726ebf272",
+                "targetHandle": "SINE",
+                "id": "reactflow__edge-LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5main-SINE-dc70c4b5-9116-4bdd-988c-9e3726ebf272SINE"
+            },
+            {
+                "source": "LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5",
+                "sourceHandle": "main",
+                "target": "SINE-dad2f58e-9dfc-4ec2-add4-2988f67cd272",
+                "targetHandle": "SINE",
+                "id": "reactflow__edge-LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5main-SINE-dad2f58e-9dfc-4ec2-add4-2988f67cd272SINE"
+            },
+            {
+                "source": "SINE-dc70c4b5-9116-4bdd-988c-9e3726ebf272",
+                "sourceHandle": "main",
+                "target": "ADD-c6f501c7-e17a-4657-bc30-bb79da43b0da",
+                "targetHandle": "ADD",
+                "id": "reactflow__edge-SINE-dc70c4b5-9116-4bdd-988c-9e3726ebf272main-ADD-c6f501c7-e17a-4657-bc30-bb79da43b0daADD"
+            },
+            {
+                "source": "SINE-dad2f58e-9dfc-4ec2-add4-2988f67cd272",
+                "sourceHandle": "main",
+                "target": "ADD-c6f501c7-e17a-4657-bc30-bb79da43b0da",
+                "targetHandle": "add_y",
+                "id": "reactflow__edge-SINE-dad2f58e-9dfc-4ec2-add4-2988f67cd272main-ADD-c6f501c7-e17a-4657-bc30-bb79da43b0daadd_y"
+            },
+            {
+                "source": "ADD-c6f501c7-e17a-4657-bc30-bb79da43b0da",
+                "sourceHandle": "main",
+                "target": "ADD-897ef5a2-e7b7-44b4-bedb-147c880e83fb",
+                "targetHandle": "ADD",
+                "id": "reactflow__edge-ADD-c6f501c7-e17a-4657-bc30-bb79da43b0damain-ADD-897ef5a2-e7b7-44b4-bedb-147c880e83fbADD"
+            },
+            {
+                "source": "SINE-eb0dce31-56d6-4327-8c8e-3ac251e9ea1e",
+                "sourceHandle": "main",
+                "target": "ADD-897ef5a2-e7b7-44b4-bedb-147c880e83fb",
+                "targetHandle": "add_y",
+                "id": "reactflow__edge-SINE-eb0dce31-56d6-4327-8c8e-3ac251e9ea1emain-ADD-897ef5a2-e7b7-44b4-bedb-147c880e83fbadd_y"
+            },
+            {
+                "source": "LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5",
+                "sourceHandle": "main",
+                "target": "SINE-eb0dce31-56d6-4327-8c8e-3ac251e9ea1e",
+                "targetHandle": "SINE",
+                "id": "reactflow__edge-LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5main-SINE-eb0dce31-56d6-4327-8c8e-3ac251e9ea1eSINE"
+            },
+            {
+                "source": "LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5",
+                "sourceHandle": "main",
+                "target": "SINE-0ff677e5-4bb0-418d-b521-257f960f4d61",
+                "targetHandle": "SINE",
+                "id": "reactflow__edge-LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5main-SINE-0ff677e5-4bb0-418d-b521-257f960f4d61SINE"
+            },
+            {
+                "source": "SINE-0ff677e5-4bb0-418d-b521-257f960f4d61",
+                "sourceHandle": "main",
+                "target": "ADD-13294349-3310-478c-8b98-0a5f586b339a",
+                "targetHandle": "add_y",
+                "id": "reactflow__edge-SINE-0ff677e5-4bb0-418d-b521-257f960f4d61main-ADD-13294349-3310-478c-8b98-0a5f586b339aadd_y"
+            },
+            {
+                "source": "ADD-897ef5a2-e7b7-44b4-bedb-147c880e83fb",
+                "sourceHandle": "main",
+                "target": "ADD-13294349-3310-478c-8b98-0a5f586b339a",
+                "targetHandle": "ADD",
+                "id": "reactflow__edge-ADD-897ef5a2-e7b7-44b4-bedb-147c880e83fbmain-ADD-13294349-3310-478c-8b98-0a5f586b339aADD"
+            },
+            {
+                "source": "LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5",
+                "sourceHandle": "main",
+                "target": "SINE-87b52624-11b8-479a-8177-543f4fb2d3ae",
+                "targetHandle": "SINE",
+                "id": "reactflow__edge-LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5main-SINE-87b52624-11b8-479a-8177-543f4fb2d3aeSINE"
+            },
+            {
+                "source": "SINE-87b52624-11b8-479a-8177-543f4fb2d3ae",
+                "sourceHandle": "main",
+                "target": "ADD-9334e8e4-7d3d-4179-829d-44e07a9c249e",
+                "targetHandle": "add_y",
+                "id": "reactflow__edge-SINE-87b52624-11b8-479a-8177-543f4fb2d3aemain-ADD-9334e8e4-7d3d-4179-829d-44e07a9c249eadd_y"
+            },
+            {
+                "source": "ADD-13294349-3310-478c-8b98-0a5f586b339a",
+                "sourceHandle": "main",
+                "target": "ADD-9334e8e4-7d3d-4179-829d-44e07a9c249e",
+                "targetHandle": "ADD",
+                "id": "reactflow__edge-ADD-13294349-3310-478c-8b98-0a5f586b339amain-ADD-9334e8e4-7d3d-4179-829d-44e07a9c249eADD"
+            },
+            {
+                "source": "ADD-9334e8e4-7d3d-4179-829d-44e07a9c249e",
+                "sourceHandle": "main",
+                "target": "FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2",
+                "targetHandle": "FIR",
+                "id": "reactflow__edge-ADD-9334e8e4-7d3d-4179-829d-44e07a9c249emain-FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2FIR"
+            },
+            {
+                "source": "LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5",
+                "sourceHandle": "main",
+                "target": "FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2",
+                "targetHandle": "FIR",
+                "id": "reactflow__edge-LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5main-FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2FIR"
+            },
+            {
+                "source": "ADD-9334e8e4-7d3d-4179-829d-44e07a9c249e",
+                "sourceHandle": "main",
+                "target": "LINE-3dbd9cc9-cb99-4569-9255-5fd896702506",
+                "targetHandle": "LINE",
+                "id": "reactflow__edge-ADD-9334e8e4-7d3d-4179-829d-44e07a9c249emain-LINE-3dbd9cc9-cb99-4569-9255-5fd896702506LINE"
+            },
+            {
+                "source": "FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2",
+                "sourceHandle": "main",
+                "target": "LINE-456cc5d9-9ed7-4af8-b8c4-d0dace558f7a",
+                "targetHandle": "LINE",
+                "id": "reactflow__edge-FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2main-LINE-456cc5d9-9ed7-4af8-b8c4-d0dace558f7aLINE"
+            },
+            {
+                "source": "LINE-456cc5d9-9ed7-4af8-b8c4-d0dace558f7a",
+                "sourceHandle": "main",
+                "target": "END-a1ca5e46-b598-414a-bbe8-e74512cb32f8",
+                "targetHandle": "END",
+                "id": "reactflow__edge-LINE-456cc5d9-9ed7-4af8-b8c4-d0dace558f7amain-END-a1ca5e46-b598-414a-bbe8-e74512cb32f8END"
+            }
+        ],
+        "viewport": {
+            "x": -8.106587687712704,
+            "y": 67.40349418405756,
+            "zoom": 0.5
+        }
+    },
+    "ctrlsManifest": []
+}

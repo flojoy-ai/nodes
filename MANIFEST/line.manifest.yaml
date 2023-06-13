@@ -2,4 +2,3 @@ COMMAND:
   - name: Line
     key: LINE
     type: PLOTLY_VISOR
-    parameters: {}

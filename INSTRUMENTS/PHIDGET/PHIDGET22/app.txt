@@ -1,0 +1,148 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "PHIDGET22-d0424b3f-03be-4cac-8b67-ffbc3571008d",
+                "type": "PHIDGET",
+                "data": {
+                    "id": "PHIDGET22-d0424b3f-03be-4cac-8b67-ffbc3571008d",
+                    "label": "PHIDGET22",
+                    "func": "PHIDGET22",
+                    "type": "PHIDGET",
+                    "ctrls": {
+                        "n_sensors": {
+                            "functionName": "PHIDGET22",
+                            "param": "n_sensors",
+                            "value": 3
+                        },
+                        "calibration1": {
+                            "functionName": "PHIDGET22",
+                            "param": "calibration1",
+                            "value": 0.015
+                        },
+                        "calibration2": {
+                            "functionName": "PHIDGET22",
+                            "param": "calibration2",
+                            "value": 0.06
+                        }
+                    },
+                    "pip_dependencies": [
+                        {
+                            "name": "Phidget22"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 805.5589512354383,
+                    "y": 209.5153736171739
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 805.5589512354383,
+                    "y": 209.5153736171739
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "SCATTER-e1ca5543-92a9-4adb-8e90-856b4929c2a8",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "SCATTER-e1ca5543-92a9-4adb-8e90-856b4929c2a8",
+                    "label": "SCATTER",
+                    "func": "SCATTER",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1179.8446655211528,
+                    "y": 160.9439450457453
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1179.8446655211528,
+                    "y": 160.9439450457453
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-164f1210-c01b-4eec-8091-e3d59172ea66",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-164f1210-c01b-4eec-8091-e3d59172ea66",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1585.5589512354384,
+                    "y": 220.94394504574535
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1585.5589512354384,
+                    "y": 220.94394504574535
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "PHIDGET22-d0424b3f-03be-4cac-8b67-ffbc3571008d",
+                "sourceHandle": "main",
+                "target": "SCATTER-e1ca5543-92a9-4adb-8e90-856b4929c2a8",
+                "targetHandle": "SCATTER",
+                "id": "reactflow__edge-PHIDGET22-d0424b3f-03be-4cac-8b67-ffbc3571008dmain-SCATTER-e1ca5543-92a9-4adb-8e90-856b4929c2a8SCATTER"
+            },
+            {
+                "source": "SCATTER-e1ca5543-92a9-4adb-8e90-856b4929c2a8",
+                "sourceHandle": "main",
+                "target": "END-164f1210-c01b-4eec-8091-e3d59172ea66",
+                "targetHandle": "END",
+                "id": "reactflow__edge-SCATTER-e1ca5543-92a9-4adb-8e90-856b4929c2a8main-END-164f1210-c01b-4eec-8091-e3d59172ea66END"
+            }
+        ],
+        "viewport": {
+            "x": 101.96428571428567,
+            "y": 103.24999999999997,
+            "zoom": 0.5
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            },
+            "param": {
+                "id": "PHIDGET22_PHIDGET22_n_sensors",
+                "functionName": "PHIDGET22",
+                "param": "n_sensors",
+                "nodeId": "PHIDGET22-40ee0d32-7bac-4f5e-af57-419c81c66fab",
+                "inputId": "INPUT_PLACEHOLDER",
+                "type": "int"
+            },
+            "val": 3
+        }
+    ]
+}

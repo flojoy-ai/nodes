@@ -1,0 +1,15 @@
+COMMAND:
+  - name: Binom_test
+    key: BINOM_TEST
+    type: SCIPY_STATS
+    parameters: 
+      n: 
+        type: int
+        default:  
+      p: 
+        type: float
+        default: 0.5 
+      alternative: 
+        type: string
+        default: two-sided 
+        

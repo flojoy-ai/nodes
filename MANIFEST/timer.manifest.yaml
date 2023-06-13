@@ -4,5 +4,5 @@ COMMAND:
     type: TIMER
     parameters:
       sleep_time:
-        type: int
+        type: float
         default: 0

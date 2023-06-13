@@ -49,6 +49,14 @@ class LoopData:
 
 @flojoy
 def LOOP(dc_inputs: list[DataContainer], params: dict) -> dict:
+    """The LOOP node is a specialized node that iterates through the body nodes for a given number of times.
+    To ensure proper functionality, the LOOP node relies on a companion node called the `GOTO` node.
+
+    Parameters
+    ----------
+    num_loops : int
+        number of times to iterate through body nodes default is `-1` meaning infinity.
+    """
     num_loops: int = params.get("num_loops", 0)
     node_id = params.get("node_id", 0)
 

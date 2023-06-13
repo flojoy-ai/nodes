@@ -1,0 +1,161 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-25d4884c-0c33-43d5-87b0-cfea55a24350",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "LINE-25d4884c-0c33-43d5-87b0-cfea55a24350",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 884.9517434568422,
+                    "y": 180.93055881471747
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 884.9517434568422,
+                    "y": 180.93055881471747
+                },
+                "dragging": true
+            },
+            {
+                "width": 190,
+                "height": 115,
+                "id": "END-b1c86448-6805-4081-bc7a-55ceb3d56005",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-b1c86448-6805-4081-bc7a-55ceb3d56005",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1304.9517434568425,
+                    "y": 259.501987386146
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1304.9517434568425,
+                    "y": 259.501987386146
+                },
+                "dragging": true
+            },
+            {
+                "width": 190,
+                "height": 115,
+                "id": "SKLEARNIMAGE-b382d779-c880-4963-8556-0ff3100b2398",
+                "type": "SAMPLE_IMAGE",
+                "data": {
+                    "id": "SKLEARNIMAGE-b382d779-c880-4963-8556-0ff3100b2398",
+                    "label": "SKLEARNIMAGE",
+                    "func": "SKLEARNIMAGE",
+                    "type": "SAMPLE_IMAGE",
+                    "ctrls": {
+                        "img_key": {
+                            "functionName": "SKLEARNIMAGE",
+                            "param": "img_key",
+                            "value": "astronaut"
+                        }
+                    },
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-image",
+                            "v": "0.20.0"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 213.84543108495217,
+                    "y": 238.81880153474506
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 213.84543108495217,
+                    "y": 238.81880153474506
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 135,
+                "id": "NP_2_DF-30f08836-179e-42a6-a7a5-8565a804be10",
+                "type": "TYPE_CASTING",
+                "data": {
+                    "id": "NP_2_DF-30f08836-179e-42a6-a7a5-8565a804be10",
+                    "label": "NP_2_DF",
+                    "func": "NP_2_DF",
+                    "type": "TYPE_CASTING",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 550.9882882278093,
+                    "y": 201.67594439188792
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 550.9882882278093,
+                    "y": 201.67594439188792
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LINE-25d4884c-0c33-43d5-87b0-cfea55a24350",
+                "sourceHandle": "main",
+                "target": "END-b1c86448-6805-4081-bc7a-55ceb3d56005",
+                "targetHandle": "END",
+                "id": "reactflow__edge-LINE-25d4884c-0c33-43d5-87b0-cfea55a24350main-END-b1c86448-6805-4081-bc7a-55ceb3d56005END"
+            },
+            {
+                "source": "SKLEARNIMAGE-b382d779-c880-4963-8556-0ff3100b2398",
+                "sourceHandle": "main",
+                "target": "NP_2_DF-30f08836-179e-42a6-a7a5-8565a804be10",
+                "targetHandle": "NP_2_DF",
+                "id": "reactflow__edge-SKLEARNIMAGE-b382d779-c880-4963-8556-0ff3100b2398main-NP_2_DF-30f08836-179e-42a6-a7a5-8565a804be10NP_2_DF"
+            },
+            {
+                "source": "NP_2_DF-30f08836-179e-42a6-a7a5-8565a804be10",
+                "sourceHandle": "main",
+                "target": "LINE-25d4884c-0c33-43d5-87b0-cfea55a24350",
+                "targetHandle": "LINE",
+                "id": "reactflow__edge-NP_2_DF-30f08836-179e-42a6-a7a5-8565a804be10main-LINE-25d4884c-0c33-43d5-87b0-cfea55a24350LINE"
+            }
+        ],
+        "viewport": {
+            "x": 254.33229548020677,
+            "y": 144.557378451432,
+            "zoom": 0.775994799329387
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+COMMAND:
+  - name: Shapiro
+    key: SHAPIRO
+    type: SCIPY_STATS
+    

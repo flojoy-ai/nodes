@@ -1,0 +1,15 @@
+COMMAND:
+  - name: Sem
+    key: SEM
+    type: SCIPY_STATS
+    parameters: 
+      axis: 
+        type: int
+        default: 0 
+      ddof: 
+        type: int
+        default: 1 
+      nan_policy: 
+        type: string
+        default: propagate 
+        

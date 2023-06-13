@@ -1,0 +1,15 @@
+COMMAND:
+  - name: Skewtest
+    key: SKEWTEST
+    type: SCIPY_STATS
+    parameters: 
+      axis: 
+        type: int
+        default: 0 
+      nan_policy: 
+        type: string
+        default: propagate 
+      alternative: 
+        type: string
+        default: two-sided 
+        

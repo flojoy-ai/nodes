@@ -9,8 +9,9 @@ import plotly.graph_objects as go
 @flojoy
 def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
     """
-    Node to take a single reading of data from an Ardunio,
+    The SERIAL_SINGLE_MEASUREMENT Node takes a single reading of data from an Ardunio,
     or a similar serial device.
+
     For example you can record temperature following this tutorial:
 
     https://learn.adafruit.com/thermistor/using-a-thermistor
@@ -29,34 +30,33 @@ def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
     print(",")
     println(reading1)
 
-    If there is more than one column, the SELECT_ARRAY node must be
-    used after this node.
+    The SERIAL_SINGLE_MEASUREMENT receive data from the arduino serial console as a string and split
+    it using "," as separators. Then it returns the values measured in a list names reading.
 
-    params:
-    BAUD_RATE: Baud rate for the serial device.
-    com_port: COM port of the serial device
+
+    Parameters :
+    ------------
+    baudrate: Float
+        Baud rate for the serial communication.
+
+    comport: String
+        Define the COM port on which the Serial device is connected
     """
-    print("parameters passed to SERIAL_TIMESERIES: ", params)
     COM_PORT = params["comport"]
     BAUD = int(params["baudrate"])
 
     ser = serial.Serial(COM_PORT, timeout=1, baudrate=BAUD)
-    # The first reading is commonly empty.
-    s = ser.readline().decode()
-
-    # Some readings may be empty. Try a second time if so.
-    if s != "":
-        reading = s[:-2].split(",")
-    else:
+    s = ""
+    while s == "":
         s = ser.readline().decode()
-        reading = s[:-2].split(",")
 
-    reading = np.array(reading)
-    reading = reading.astype("float64")
+    reading = s[:-2].split(",")
 
-    data = go.Line(x=[0], y=[0], mode="markers")
-    fig = go.Figure(data=data)
-    return DataContainer(type="plotly", fig=fig, x=[0], y=reading)
+    reading = np.array(reading)  # Create an array
+    reading = reading.astype("float64")  # Convert the array to float
+    x = np.arange(0, reading.size)  # Create a second array
+
+    return DataContainer(type="ordered_pair", x=x, y=reading)
 
 
 @flojoy

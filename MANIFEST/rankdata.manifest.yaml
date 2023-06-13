@@ -1,0 +1,12 @@
+COMMAND:
+  - name: Rankdata
+    key: RANKDATA
+    type: SCIPY_STATS
+    parameters: 
+      method: 
+        type: string
+        default: average 
+      axis: 
+        type: None
+        default:  
+        

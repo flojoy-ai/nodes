@@ -1,0 +1,130 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 546.9942259972702,
+                    "y": 112.59212378208309
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 546.9942259972702,
+                    "y": 112.59212378208309
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-166c0b70-9c60-4e42-a618-85b66610c473",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-166c0b70-9c60-4e42-a618-85b66610c473",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 945.5656545686987,
+                    "y": 162.59212378208304
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 945.5656545686987,
+                    "y": 162.59212378208304
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "R_DATASET-d7ea4e14-0fd2-432e-a1b1-b234286f995d",
+                "type": "SAMPLE_DATASET",
+                "data": {
+                    "id": "R_DATASET-d7ea4e14-0fd2-432e-a1b1-b234286f995d",
+                    "label": "R DATASET",
+                    "func": "R_DATASET",
+                    "type": "SAMPLE_DATASET",
+                    "ctrls": {
+                        "dataset_key": {
+                            "functionName": "R_DATASET",
+                            "param": "dataset_key",
+                            "value": "iris"
+                        }
+                    },
+                    "pip_dependencies": [
+                        {
+                            "name": "rdatasets",
+                            "v": "0.1.0"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 155.4876003476146,
+                    "y": 177.61454275878134
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 155.4876003476146,
+                    "y": 177.61454275878134
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
+                "sourceHandle": "main",
+                "target": "END-166c0b70-9c60-4e42-a618-85b66610c473",
+                "targetHandle": "END",
+                "id": "reactflow__edge-TABLE-e800470c-1dfa-418e-b3be-08934023ea54main-END-166c0b70-9c60-4e42-a618-85b66610c473END"
+            },
+            {
+                "source": "R_DATASET-d7ea4e14-0fd2-432e-a1b1-b234286f995d",
+                "sourceHandle": "main",
+                "target": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
+                "targetHandle": "TABLE",
+                "id": "reactflow__edge-R_DATASET-d7ea4e14-0fd2-432e-a1b1-b234286f995dmain-TABLE-e800470c-1dfa-418e-b3be-08934023ea54TABLE"
+            }
+        ],
+        "viewport": {
+            "x": 231.72498032641062,
+            "y": 32.9189448113047,
+            "zoom": 0.7070174838334414
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
