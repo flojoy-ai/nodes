@@ -28,10 +28,15 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
         raise ValueError(
             f"To compute least squares, LEAST_SQUARES node requires one or two inputs, {len(dc_inputs)} was given!"
         )
-
+    print("This is the length of dc inputs: ", len(dc_inputs))
     if len(dc_inputs) == 1 and dc_inputs[0].type == "ordered_pair":
-        x = np.array(dc_inputs[0].y)
-        y = np.array(dc_inputs[1].y)
+
+        if (len(np.array(dc_inputs[0].y)) != 0):
+            x = np.array(dc_inputs[0].y)
+            y = np.array(dc_inputs[0].y)
+        else:
+            x = np.array(dc_inputs[0].x)
+            y = np.array(dc_inputs[0].y)
 
         try:
             a = np.vstack([x, np.ones(len(x))]).T
@@ -41,9 +46,7 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
 
         slope, intercept = p[0:-1], p[-1]
         res = slope * x + intercept
-        # res = np.ndarray.flatten(res)
 
-        # line types only accept 1D array
         return DataContainer(type="ordered_pair", x=x, y=res)
 
     if dc_inputs[0].type == "ordered_pair" and dc_inputs[1].type == "ordered_pair":
@@ -58,9 +61,7 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
 
         slope, intercept = p[0:-1], p[-1]
         res = slope * x + intercept
-        # res = np.ndarray.flatten(res)
 
-        # line types only accept 1D array
         return DataContainer(type="ordered_pair", x=x, y=res)
 
     elif dc_inputs[0].type == "matrix" and dc_inputs[1].type == "matrix":
@@ -75,10 +76,7 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
 
         slope, intercept = p[0:-1], p[-1]
         res = slope * x + intercept
-        # res = np.ndarray.flatten(res)
-
-        # line types only accept 1D array
-        # res = np.array(p, dtype=float) * np.array(x, dtype=float)
+        
         return DataContainer(type="matrix", m=res)
 
     else:
