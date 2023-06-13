@@ -14,7 +14,7 @@ def INTEGRATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     Returns
     -------
-    numpy array / constant
+    numpy array / float
         integrated value in sequence of y array.
     """
     dc_input = dc_inputs[0]
@@ -26,6 +26,10 @@ def INTEGRATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     x = dc_input.x
     y = dc_input.y
+
+    if type(x) != np.ndarray or type(y) != np.ndarray or len(x) != len(y):
+        raise ValueError(f"Invalid inputs x:{x} y:{y}")
+
     integrate = np.trapz(x, y)
 
     return DataContainer(type="ordered_pair", x=x, y=integrate)
