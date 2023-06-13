@@ -39,6 +39,6 @@ def IFFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     # N = 2 * (len(x) - 1)  # step of linspace
     fourier = realValue + 1j * imagValue
 
-    result = fft.irfft(fourier) if real else fft.ifft(fourier)
+    result = fft.irfft(fourier) if real else fft.ifft(fourier, len(x))
     result = result.real
     return DataContainer(x=x, y=result)
