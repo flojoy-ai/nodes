@@ -1,0 +1,8 @@
+COMMAND:
+  - name: OPEN_IMAGE
+    key: OPEN_IMAGE
+    type: FILE
+    parameters:
+      file_path:
+        type: string
+        default: ""
