@@ -36,11 +36,11 @@ def OPEN_IMAGE(dc_inputs: list[DataContainer], params: dict[str, str]) -> DataCo
         alpha_channel = data[:, :, 3]
     else:
         alpha_channel = None
-        
+
     return DataContainer(
         type="image",
         r=red_channel,
         g=green_channel,
         b=blue_channel,
         a=alpha_channel,
-        )
+    )
