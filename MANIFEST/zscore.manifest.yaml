@@ -1,0 +1,15 @@
+COMMAND:
+  - name: Zscore
+    key: ZSCORE
+    type: SCIPY_STATS
+    parameters: 
+      axis: 
+        type: int
+        default: 0 
+      ddof: 
+        type: int
+        default: 0 
+      nan_policy: 
+        type: string
+        default: propagate 
+        

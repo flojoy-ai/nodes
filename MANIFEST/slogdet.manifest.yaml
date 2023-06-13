@@ -1,0 +1,5 @@
+COMMAND:
+  - name: Slogdet
+    key: SLOGDET
+    type: NUMPY_LINALG
+    

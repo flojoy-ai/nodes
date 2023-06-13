@@ -1,0 +1,5 @@
+COMMAND:
+  - name: Inv
+    key: INV
+    type: NUMPY_LINALG
+    
