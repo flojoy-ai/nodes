@@ -1,3 +1,4 @@
+from os import path
 import traceback
 from flojoy import flojoy, DataContainer
 from matplotlib import image
@@ -20,28 +21,26 @@ def OPEN_IMAGE(dc_inputs: list[DataContainer], params: dict[str, str]) -> DataCo
     DataContainer:
         type 'image', r, g, b , a
     """
-    try:
-        file_path = params["file_path"]
-        read_image = image.imread(file_path)
-        data = asarray(read_image)
 
-        red_channel = data[:, :, 0]
-        green_channel = data[:, :, 1]
-        blue_channel = data[:, :, 2]
+    file_path = params["file_path"]
+    if not path.exists(file_path):
+        raise ValueError("File path does not exist!")
+    read_image = image.imread(file_path)
+    data = asarray(read_image)
 
-        if data.shape[2] == 4:
-            alpha_channel = data[:, :, 3]
-        else:
-            alpha_channel = None
+    red_channel = data[:, :, 0]
+    green_channel = data[:, :, 1]
+    blue_channel = data[:, :, 2]
+
+    if data.shape[2] == 4:
+        alpha_channel = data[:, :, 3]
+    else:
+        alpha_channel = None
         
-        return DataContainer(
-            type="image",
-            r=red_channel,
-            g=green_channel,
-            b=blue_channel,
-            a=alpha_channel,
-            )
-    
-    except Exception:
-        print(traceback.format_exc())
-        raise
+    return DataContainer(
+        type="image",
+        r=red_channel,
+        g=green_channel,
+        b=blue_channel,
+        a=alpha_channel,
+        )
