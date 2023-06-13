@@ -55,7 +55,7 @@
                         "frequency": {
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": "50"
+                            "value": "30"
                         },
                         "offset": {
                             "functionName": "SINE",
@@ -92,30 +92,6 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                "type": "TERMINATOR",
-                "data": {
-                    "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 1192.1428571428573,
-                    "y": 349.71428571428567
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1192.1428571428573,
-                    "y": 349.71428571428567
-                },
-                "dragging": true
-            },
-            {
                 "width": 130,
                 "height": 130,
                 "id": "SINE-65fa7b89-6012-45c0-97c1-4a9c3a3012c9",
@@ -129,7 +105,7 @@
                         "frequency": {
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": "80"
+                            "value": "100"
                         },
                         "offset": {
                             "functionName": "SINE",
@@ -152,13 +128,13 @@
                             "value": "sine"
                         }
                     },
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
                     "x": 170.760199492967,
                     "y": 574.474038982273
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
                     "x": 170.760199492967,
                     "y": 574.474038982273
@@ -210,7 +186,7 @@
                         "window_type": {
                             "functionName": "FFT",
                             "param": "window_type",
-                            "value": "none"
+                            "value": "hann"
                         },
                         "display": {
                             "functionName": "FFT",
@@ -220,7 +196,7 @@
                         "real_signal": {
                             "functionName": "FFT",
                             "param": "real_signal",
-                            "value": false
+                            "value": true
                         },
                         "sample_rate": {
                             "functionName": "FFT",
@@ -228,16 +204,64 @@
                             "value": "800"
                         }
                     },
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 797.2134073043087,
                     "y": 426.4028033029711
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 797.2134073043087,
                     "y": 426.4028033029711
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-860b3e75-7e05-4676-99b5-9fad632f290c",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "LINE-860b3e75-7e05-4676-99b5-9fad632f290c",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1155.4117893517382,
+                    "y": 395.77116960563524
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1155.4117893517382,
+                    "y": 395.77116960563524
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-f208b851-be78-45ad-823d-d49769228fdc",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-f208b851-be78-45ad-823d-d49769228fdc",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1605.4117893517382,
+                    "y": 400.05688389134946
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1605.4117893517382,
+                    "y": 400.05688389134946
                 },
                 "dragging": true
             }
@@ -282,14 +306,21 @@
             {
                 "source": "FFT-e167c0e4-1c13-4d64-a1b8-f48ec80439ae",
                 "sourceHandle": "main",
-                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "target": "LINE-860b3e75-7e05-4676-99b5-9fad632f290c",
+                "targetHandle": "LINE",
+                "id": "reactflow__edge-FFT-e167c0e4-1c13-4d64-a1b8-f48ec80439aemain-LINE-860b3e75-7e05-4676-99b5-9fad632f290cLINE"
+            },
+            {
+                "source": "LINE-860b3e75-7e05-4676-99b5-9fad632f290c",
+                "sourceHandle": "main",
+                "target": "END-f208b851-be78-45ad-823d-d49769228fdc",
                 "targetHandle": "END",
-                "id": "reactflow__edge-FFT-e167c0e4-1c13-4d64-a1b8-f48ec80439aemain-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
+                "id": "reactflow__edge-LINE-860b3e75-7e05-4676-99b5-9fad632f290cmain-END-f208b851-be78-45ad-823d-d49769228fdcEND"
             }
         ],
         "viewport": {
             "x": 283.34955722861605,
-            "y": 49.320022553149215,
+            "y": 77.82002255314922,
             "zoom": 0.856688003714636
         }
     },

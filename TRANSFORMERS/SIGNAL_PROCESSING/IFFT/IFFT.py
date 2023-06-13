@@ -1,4 +1,3 @@
-import numpy as np
 from scipy import fft, signal
 from flojoy import flojoy, DataContainer
 
@@ -36,7 +35,6 @@ def IFFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     imagValue = fourier["imag"]
     real: bool = params["real_signal"]
 
-    # N = 2 * (len(x) - 1)  # step of linspace
     fourier = realValue + 1j * imagValue
 
     result = fft.irfft(fourier) if real else fft.ifft(fourier, len(x))
