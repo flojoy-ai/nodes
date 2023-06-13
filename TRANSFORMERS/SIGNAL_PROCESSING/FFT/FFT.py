@@ -48,14 +48,13 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     signal_value = dc.y
     x = dc.x
     sample_spacing = 1.0 / sample_rate
-    N = len(signal_value)
 
     if display:
         # x-axis
         frequency = (
             fft.rfftfreq(x.shape[-1], sample_spacing)
             if real
-            else fft.fftfreq(N, sample_spacing)
+            else fft.fftfreq(x.shape[-1], sample_spacing)
         )
         frequency = fft.fftshift(frequency)
 
