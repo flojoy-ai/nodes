@@ -22,7 +22,7 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     Returns
     -------
-    ordered_pair if display is true
+    ordered_pair
         x: frequency
         y: spectrum of the signal
 
