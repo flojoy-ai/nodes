@@ -36,13 +36,12 @@ def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
 
     Parameters :
     ------------
-    BAUD_RATE: Float
-    Baud rate for the serial communication.
+    baudrate: Float
+        Baud rate for the serial communication.
 
-    COM_PORT: String
-    Define the COM port on which the Serial device is connected
+    comport: String
+        Define the COM port on which the Serial device is connected
     """
-    print("parameters passed to SERIAL_TIMESERIES: ", params)
     COM_PORT = params["comport"]
     BAUD = int(params["baudrate"])
 

@@ -32,16 +32,20 @@ def SERIAL_TIMESERIES(dc_inputs, params):
     If there is more than one column, the SELECT_ARRAY node must be
     used after this node.
 
-    params:
-    num_readings: Number of points to record.
-    record_period: Length between two recordings in seconds.
-    BAUD_RATE: Baud rate for the serial device.
-    com_port: COM port of the serial device
+    Parameters :
+    ------------
+    num_readings: int
+        Number of points to record.
+    record_period: float
+        Length between two recordings in seconds.
+    baudrate: int
+        Baud rate for the serial device.
+    comport: string
+        COM port of the serial device
 
     num_readings * record_period is roughly the run length in seconds.
     """
 
-    """COM_PORT = params.get("com_port")"""
     COM_PORT = params["comport"]
     BAUD = params["baudrate"]
     NUM = params["num_readings"]
