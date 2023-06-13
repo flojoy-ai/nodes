@@ -2,3 +2,7 @@ COMMAND:
   - name: Divide
     key: DIVIDE
     type: ARITHMETIC
+    inputs:
+      - name: y
+        id: divide_y
+        type: target
