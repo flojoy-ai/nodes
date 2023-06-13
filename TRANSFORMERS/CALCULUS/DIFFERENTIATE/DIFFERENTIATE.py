@@ -4,6 +4,19 @@ import numpy as np
 
 @flojoy
 def DIFFERENTIATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+    """
+    The DIFFERENTIATE node takes two list, x and y, as input.
+    It computes the derivative of an array, y with respect to x.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    numpy array
+        Derivative of the array
+    """
     dc_input = dc_inputs[0]
 
     if dc_input.typee != "ordered_pair":
