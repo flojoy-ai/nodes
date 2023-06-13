@@ -9,7 +9,7 @@ from prophet.serialize import model_to_json
 def PROPHET_PREDICT(
     dc_inputs: List[DataContainer], params: Dict[str, Any]
 ) -> DataContainer:
-    """Trains a Prophet model on the incoming dataframe, optionally running a forecast
+    """The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe
 
     The DataContainer input type must be `dataframe`, and that dataframe must have its
     first column (or index) be of datetime type.
@@ -22,12 +22,32 @@ def PROPHET_PREDICT(
 
         model = model_from_json(dc_inputs.extra["prophet"])
         ```
-    If the `run_forecast` param is True (default case), the returning DataContainer
-    will have it's dataframe (`m` parameter of the DataContainer) be the forecast
-    dataframe. It will also have an `extra` field with the key "original" which is
-    the original dataframe.
 
-    If `run_forecast` is false, the returning dataframe will be the original data
+    Parameters
+    ----------
+    run_forecast : bool
+        If the True (default case), the returning DataContainer
+        will have its dataframe (`m` parameter of the DataContainer) be the forecasted
+        dataframe. It will also have an `extra` field with the key "original" which is
+        the original dataframe passed in.
+
+        If false, the returning dataframe will be the original data.
+
+        This node will also always have an `extra` field "run_forecast" which matches
+        that of the param passed in. This is for future nodes to know if a forecast
+        has already been run
+
+        Default True
+    periods : int
+        The number of periods to predict out. Only used if run_forecast is True.
+        Default 365
+
+    Returns
+    -------
+    DataContainer of type `dataframe` with param `m` which indicates either the original
+        df passed in, or the forecasted df (depending on if `run_forecast` is True),
+        as well as the `extra` param with keys "run_forecast" which correspond to the
+        input param, and potentially "original" in the event that `run_forecast` is True
     """
     dc_input = dc_inputs[0]
     run_forecast = params["run_forecast"]
