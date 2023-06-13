@@ -18,8 +18,8 @@ def PROPHET_PLOT(
     node_name = __name__.split(".")[-1]
 
     model = model_from_json(extra["prophet"])
-    if extra.get("forecast") is not None:
-        forecast = extra.get("forecast")
+    if extra.get("run_forecast") is not None:
+        forecast = dc_input.m
     else:
         future = model.make_future_dataframe(periods=params["periods"])
         forecast = model.predict(future)
