@@ -52,7 +52,7 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         case "ordered_triple":
             x = dc_input_1.x
             y = dc_input_1.y
-            z= dc_input_1.z  
+            z = dc_input_1.z
             match first_figure:
                 case "bar":
                     fig.add_trace(go.Bar(x=x, y=y, z=z))
@@ -64,8 +64,8 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             first_col = df.iloc[:, 0]
             is_timeseries = False
             if pd.api.types.is_datetime64_any_dtype(first_col):
-                is_timeseries = True 
-                
+                is_timeseries = True
+
             match first_figure:
                 case "bar":
                     if is_timeseries:
@@ -80,7 +80,11 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                             if df[col].dtype == "object":
                                 counts = df[col].value_counts()
                                 fig.add_trace(
-                                    go.Bar(x=counts.index.tolist(), y=counts.tolist(), name=col)
+                                    go.Bar(
+                                        x=counts.index.tolist(),
+                                        y=counts.tolist(),
+                                        name=col,
+                                    )
                                 )
                             else:
                                 fig.add_trace(go.Bar(x=df.index, y=df[col], name=col))
@@ -116,12 +120,16 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                         for col in df.columns:
                             if col != df.columns[0]:
                                 fig.add_trace(
-                                    go.Scatter(x=first_col, y=df[col], mode="markers", name=col)
+                                    go.Scatter(
+                                        x=first_col, y=df[col], mode="markers", name=col
+                                    )
                                 )
                     else:
                         for col in df.columns:
                             fig.add_trace(
-                                go.Scatter(x=df.index, y=df[col], mode="markers", name=col)
+                                go.Scatter(
+                                    x=df.index, y=df[col], mode="markers", name=col
+                                )
                             )
 
         case "matrix":
@@ -136,12 +144,16 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                         fig.update_layout(xaxis_title="Column", yaxis_title="Value")
                 case "line":
                     for i in range(num_rows):
-                        fig.add_trace(go.Scatter(x=x_ticks, y=m[i, :], name=f"Row {i+1}", mode="lines"))
+                        fig.add_trace(
+                            go.Scatter(
+                                x=x_ticks, y=m[i, :], name=f"Row {i+1}", mode="lines"
+                            )
+                        )
                         fig.update_layout(xaxis_title="Column", yaxis_title="Value")
                 case "histogram":
                     histogram_trace = go.Histogram(x=m.flatten())
                     fig.add_trace(go.Histogram(histogram_trace))
-         
+
         case _:
             raise ValueError(
                 f"unsupported DataContainer type passed for {node_name}: {dc_input_1.type}"
@@ -169,20 +181,20 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         case "ordered_triple":
             x = dc_input_2.x
             y = dc_input_2.y
-            z= dc_input_2.z  
+            z = dc_input_2.z
             match second_figure:
                 case "bar":
                     fig.add_trace(go.Bar(x=x, y=y, z=z))
                 case "line":
                     fig.add_trace(go.Scatter(x=x, y=y, z=z, mode="lines"))
-                    
+
         case "dataframe":
             df = pd.DataFrame(dc_input_2.m)
             first_col = df.iloc[:, 0]
             is_timeseries = False
             if pd.api.types.is_datetime64_any_dtype(first_col):
-                is_timeseries = True 
-                
+                is_timeseries = True
+
             match second_figure:
                 case "bar":
                     if is_timeseries:
@@ -197,7 +209,11 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                             if df[col].dtype == "object":
                                 counts = df[col].value_counts()
                                 fig.add_trace(
-                                    go.Bar(x=counts.index.tolist(), y=counts.tolist(), name=col)
+                                    go.Bar(
+                                        x=counts.index.tolist(),
+                                        y=counts.tolist(),
+                                        name=col,
+                                    )
                                 )
                             else:
                                 fig.add_trace(go.Bar(x=df.index, y=df[col], name=col))
@@ -233,12 +249,16 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                         for col in df.columns:
                             if col != df.columns[0]:
                                 fig.add_trace(
-                                    go.Scatter(x=first_col, y=df[col], mode="markers", name=col)
+                                    go.Scatter(
+                                        x=first_col, y=df[col], mode="markers", name=col
+                                    )
                                 )
                     else:
                         for col in df.columns:
                             fig.add_trace(
-                                go.Scatter(x=df.index, y=df[col], mode="markers", name=col)
+                                go.Scatter(
+                                    x=df.index, y=df[col], mode="markers", name=col
+                                )
                             )
 
         case "matrix":
@@ -253,16 +273,20 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                         fig.update_layout(xaxis_title="Column", yaxis_title="Value")
                 case "line":
                     for i in range(num_rows):
-                        fig.add_trace(go.Scatter(x=x_ticks, y=m[i, :], name=f"Row {i+1}", mode="lines"))
+                        fig.add_trace(
+                            go.Scatter(
+                                x=x_ticks, y=m[i, :], name=f"Row {i+1}", mode="lines"
+                            )
+                        )
                         fig.update_layout(xaxis_title="Column", yaxis_title="Value")
                 case "histogram":
                     histogram_trace = go.Histogram(x=m.flatten())
                     fig.add_trace(go.Histogram(histogram_trace))
-         
+
         case _:
             raise ValueError(
                 f"unsupported DataContainer type passed for {node_name}: {dc_input_2.type}"
             )
-         
+
     fig.update_layout(dict(autosize=True, height=None, width=None))
     return DataContainer(type="plotly", fig=fig)
