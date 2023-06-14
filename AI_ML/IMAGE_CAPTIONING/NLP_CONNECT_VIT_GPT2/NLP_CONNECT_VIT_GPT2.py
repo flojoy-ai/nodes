@@ -23,10 +23,11 @@ def NLP_CONNECT_VIT_GPT2(
 
     """
 
-    input_image = dc_inputs[0]
 
-    if dc_inputs[0].type != "image":
-        raise ValueError(f"One of the supplied input objects is not of type 'image'")
+    if len(dc_inputs) != 1 or dc_inputs[0].type != "image":
+        raise ValueError(f"Invalid input, expected exactly one DataContainer of type 'image'")
+
+    input_image = dc_inputs[0]
 
     r, g, b, a = input_image.r, input_image.g, input_image.b, input_image.a
     nparray = (
