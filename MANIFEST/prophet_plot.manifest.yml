@@ -1,0 +1,11 @@
+COMMAND:
+  - name: Prophet Plot
+    key: PROPHET_PLOT
+    type: PLOTLY_VISOR
+    parameters:
+      periods:
+        type: int
+        default: 365
+    pip_dependencies:
+      - name: prophet
+        v: "1.1.4"

@@ -1,0 +1,290 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "start": {
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": "10"
+                        },
+                        "end": {
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": "0"
+                        },
+                        "step": {
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": "1000"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": -200.00000000000003,
+                    "y": 314.8571428571428
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -200.00000000000003,
+                    "y": 314.8571428571428
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "SINE-2cd08316-0a0c-4c13-9b1d-382ba4d74cbd",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "SINE-2cd08316-0a0c-4c13-9b1d-382ba4d74cbd",
+                    "label": "SINE",
+                    "func": "SINE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "frequency": {
+                            "functionName": "SINE",
+                            "param": "frequency",
+                            "value": "1"
+                        },
+                        "offset": {
+                            "functionName": "SINE",
+                            "param": "offset",
+                            "value": "0"
+                        },
+                        "amplitude": {
+                            "functionName": "SINE",
+                            "param": "amplitude",
+                            "value": "1"
+                        },
+                        "phase": {
+                            "functionName": "SINE",
+                            "param": "phase",
+                            "value": "0"
+                        },
+                        "waveform": {
+                            "functionName": "SINE",
+                            "param": "waveform",
+                            "value": "sine"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 188.57142857142856,
+                    "y": -29.571428571428555
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 188.57142857142856,
+                    "y": -29.571428571428555
+                },
+                "dragging": true
+            },
+            {
+                "width": 99,
+                "height": 130,
+                "id": "MULTIPLY-fe70e746-04bc-4c27-990d-821eed943766",
+                "type": "ARITHMETIC",
+                "data": {
+                    "id": "MULTIPLY-fe70e746-04bc-4c27-990d-821eed943766",
+                    "label": "MULTIPLY",
+                    "func": "MULTIPLY",
+                    "type": "ARITHMETIC",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "y",
+                            "id": "multiply_y",
+                            "type": "target"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 585.7142857142857,
+                    "y": 104.5714285714285
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 585.7142857142857,
+                    "y": 104.5714285714285
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": true
+                },
+                "position": {
+                    "x": 1550.7142857142858,
+                    "y": 432.57142857142856
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 1550.7142857142858,
+                    "y": 432.57142857142856
+                },
+                "dragging": true
+            },
+            {
+                "width": 99,
+                "height": 130,
+                "id": "DIVIDE-a2280107-fd9e-407c-881f-1963fc876486",
+                "type": "ARITHMETIC",
+                "data": {
+                    "id": "DIVIDE-a2280107-fd9e-407c-881f-1963fc876486",
+                    "label": "DIVIDE",
+                    "func": "DIVIDE",
+                    "type": "ARITHMETIC",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "y",
+                            "id": "divide_y",
+                            "type": "target"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 994.2036316198634,
+                    "y": 435.902839664132
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 994.2036316198634,
+                    "y": 435.902839664132
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-883f1f6a-e6f2-40f0-a4dc-f5fab6516749",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-883f1f6a-e6f2-40f0-a4dc-f5fab6516749",
+                    "label": "LINSPACE 1",
+                    "func": "LINSPACE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "start": {
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": "-5"
+                        },
+                        "end": {
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": "-5"
+                        },
+                        "step": {
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": 1000
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 190.9617247226522,
+                    "y": 432.05057527518056
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 190.9617247226522,
+                    "y": 432.05057527518056
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
+                "sourceHandle": "main",
+                "target": "SINE-2cd08316-0a0c-4c13-9b1d-382ba4d74cbd",
+                "targetHandle": "SINE",
+                "id": "reactflow__edge-LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135cemain-SINE-2cd08316-0a0c-4c13-9b1d-382ba4d74cbdSINE"
+            },
+            {
+                "source": "SINE-2cd08316-0a0c-4c13-9b1d-382ba4d74cbd",
+                "sourceHandle": "main",
+                "target": "MULTIPLY-fe70e746-04bc-4c27-990d-821eed943766",
+                "targetHandle": "MULTIPLY",
+                "id": "reactflow__edge-SINE-2cd08316-0a0c-4c13-9b1d-382ba4d74cbdmain-MULTIPLY-fe70e746-04bc-4c27-990d-821eed943766MULTIPLY"
+            },
+            {
+                "source": "MULTIPLY-fe70e746-04bc-4c27-990d-821eed943766",
+                "sourceHandle": "main",
+                "target": "DIVIDE-a2280107-fd9e-407c-881f-1963fc876486",
+                "targetHandle": "DIVIDE",
+                "id": "reactflow__edge-MULTIPLY-fe70e746-04bc-4c27-990d-821eed943766main-DIVIDE-a2280107-fd9e-407c-881f-1963fc876486DIVIDE"
+            },
+            {
+                "source": "DIVIDE-a2280107-fd9e-407c-881f-1963fc876486",
+                "sourceHandle": "main",
+                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "targetHandle": "END",
+                "id": "reactflow__edge-DIVIDE-a2280107-fd9e-407c-881f-1963fc876486main-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
+            },
+            {
+                "source": "LINSPACE-883f1f6a-e6f2-40f0-a4dc-f5fab6516749",
+                "sourceHandle": "main",
+                "target": "MULTIPLY-fe70e746-04bc-4c27-990d-821eed943766",
+                "targetHandle": "multiply_y",
+                "id": "reactflow__edge-LINSPACE-883f1f6a-e6f2-40f0-a4dc-f5fab6516749main-MULTIPLY-fe70e746-04bc-4c27-990d-821eed943766multiply_y"
+            },
+            {
+                "source": "LINSPACE-883f1f6a-e6f2-40f0-a4dc-f5fab6516749",
+                "sourceHandle": "main",
+                "target": "DIVIDE-a2280107-fd9e-407c-881f-1963fc876486",
+                "targetHandle": "divide_y",
+                "id": "reactflow__edge-LINSPACE-883f1f6a-e6f2-40f0-a4dc-f5fab6516749main-DIVIDE-a2280107-fd9e-407c-881f-1963fc876486divide_y"
+            }
+        ],
+        "viewport": {
+            "x": 242.5216125216126,
+            "y": 178.30366760448786,
+            "zoom": 0.7898807898807896
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
