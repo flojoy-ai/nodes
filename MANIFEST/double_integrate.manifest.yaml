@@ -1,0 +1,21 @@
+COMMAND:
+  - name: Double_Integrate
+    key: DOUBLE_INTEGRATE
+    type: CALCULUS
+    parameters:
+      func:
+        type: string
+        default: ""
+      upper_bound_x:
+        type: float
+        default: 0.0
+      lower_bound_x:
+        type: float
+        default: 0.0
+      upper_bound_y:
+        type: float
+        default: 0.0
+      lower_bound_y:
+        type: float
+        default: 0.0
+      
