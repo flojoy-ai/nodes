@@ -2,11 +2,21 @@ import plotly.graph_objects as go
 from flojoy import flojoy, DataContainer
 import pandas as pd
 from nodes.VISUALIZERS.template import plot_layout
+import numpy as np
 
 
 @flojoy
 def SCATTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """Node creates a Plotly Scatter visualization for a given input data container."""
+    """The SCATTER Node creates a Plotly Scatter visualization for a given input data container.
+
+    Parameters:
+    ----------
+    None
+
+    Supported DC types:
+    -------------------
+    `ordered_pair`, `dataframe`, `matrix`, `ordered_triple`
+    """
     dc_input: DataContainer = dc_inputs[0]
     node_name = __name__.split(".")[-1]
     layout = plot_layout(title=node_name)
@@ -36,6 +46,25 @@ def SCATTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                     fig.add_trace(
                         go.Scatter(x=df.index, y=df[col], mode="markers", name=col)
                     )
+        case "matrix":
+            m: np.ndarray = dc_input.m
+
+            num_rows, num_cols = m.shape
+
+            x_ticks = np.arange(num_cols)
+
+            for i in range(num_rows):
+                fig.add_trace(
+                    go.Scatter(x=x_ticks, y=m[i, :], name=f"Row {i+1}", mode="markers")
+                )
+
+            fig.update_layout(xaxis_title="Column", yaxis_title="Value")
+
+        case "ordered_triple":
+            x = dc_input.x
+            y = dc_input.y
+            z = dc_input.z
+            fig.add_trace(go.Scatter(x=x, y=y, z=z, mode="markers"))
 
         case _:
             raise ValueError(
