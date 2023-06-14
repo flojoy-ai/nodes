@@ -7,6 +7,23 @@ memory_key = "SECOND_ORDER_SYSTEM"
 
 @flojoy
 def SECOND_ORDER_SYSTEM(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+    """The SECOND_ORDER_SYSTEM has a second order exponential function.
+    This node is designed to be used in a loop.
+    The data is appended as the loop progress and written to memory.
+
+    Parameters
+    ----------
+    d1: float
+        The first time constant.
+    d2: float
+        The second time constant.
+
+    Returns
+    -------
+    dataframe
+        The most recent value of the second order function.
+    """
+
     # Let's first define things that won't change over
     # each iteration: time constants, etc ...
     d1 = params["d1"]  # first time constant in us, 250
@@ -28,7 +45,7 @@ def SECOND_ORDER_SYSTEM(dc_inputs: list[DataContainer], params: dict) -> DataCon
     elif type(data) == np.ndarray:
         initialize = False
     else:
-        raise TypeError("Error loading object from REDIS.")
+        raise TypeError(f"Error loading object from REDIS. Type: {type(data)}")
 
     # We're going to store and read the data in reverse order to
     # how it is accessed here. We will write the functionality

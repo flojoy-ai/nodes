@@ -7,6 +7,25 @@ memory_key = "pid-info"
 
 @flojoy
 def PID(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+    """The PID node acts like a PID function.
+    The returned value with be modified according to the
+    PID parameters Kp, Ki, and Kd.
+
+    Parameters
+    ----------
+    Kp: float
+        The proprotional PID parameter.
+    Ki: float
+        The integral PID parameter.
+    Kd: float
+        The derivative PID parameter.
+
+    Returns
+    -------
+    dataframe
+        The dataframe modified according to the PID. Ordered pair.
+    """
+
     # First let's get the parameters that won't change
     Kp: float = params["Kp"]
     Ki: float = params["Ki"]
