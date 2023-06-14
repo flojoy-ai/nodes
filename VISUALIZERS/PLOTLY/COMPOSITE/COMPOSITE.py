@@ -8,7 +8,7 @@ from nodes.VISUALIZERS.template import plot_layout
 @flojoy
 def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """The COMPOSITE node creates a combination of Plotly visualizations for a given input data container.
-    
+
     Parameters
     ----------
     first_figure: 'bar' | 'line' | 'histogram' | 'scatter'
@@ -18,7 +18,7 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     -------
     plotly
         The figure object that contains the graphed data for two inputs
-    
+
     """
 
     dc_input_1: DataContainer = dc_inputs[0]
