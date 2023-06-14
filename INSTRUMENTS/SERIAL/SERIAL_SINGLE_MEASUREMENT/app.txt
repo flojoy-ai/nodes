@@ -1,0 +1,135 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-8451bed9-cff5-450d-981c-2a1a9ac7ba00",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-8451bed9-cff5-450d-981c-2a1a9ac7ba00",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1080.9508404041057,
+                    "y": 268.1157012600814
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1080.9508404041057,
+                    "y": 268.1157012600814
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "SERIAL_SINGLE_MEASUREMENT-88e218f0-3953-415d-a175-495083a69a50",
+                "type": "SERIAL",
+                "data": {
+                    "id": "SERIAL_SINGLE_MEASUREMENT-88e218f0-3953-415d-a175-495083a69a50",
+                    "label": "SERIAL SINGLE MEASUREMENT",
+                    "func": "SERIAL_SINGLE_MEASUREMENT",
+                    "type": "SERIAL",
+                    "ctrls": {
+                        "comport": {
+                            "functionName": "SERIAL_SINGLE_MEASUREMENT",
+                            "param": "comport",
+                            "value": "/dev/ttyACM0"
+                        },
+                        "baudrate": {
+                            "functionName": "SERIAL_SINGLE_MEASUREMENT",
+                            "param": "baudrate",
+                            "value": 9600
+                        }
+                    },
+                    "pip_dependencies": [
+                        {
+                            "name": "pyserial",
+                            "v": "3.5"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 24.859049862721832,
+                    "y": 267.73291885787035
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 24.859049862721832,
+                    "y": 267.73291885787035
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "BAR-abbdb4f0-243c-4b9f-99a5-705260a27684",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "BAR-abbdb4f0-243c-4b9f-99a5-705260a27684",
+                    "label": "BAR",
+                    "func": "BAR",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": true
+                },
+                "position": {
+                    "x": 534.840301469386,
+                    "y": 232.08974570711524
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 534.840301469386,
+                    "y": 232.08974570711524
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "SERIAL_SINGLE_MEASUREMENT-88e218f0-3953-415d-a175-495083a69a50",
+                "sourceHandle": "main",
+                "target": "BAR-abbdb4f0-243c-4b9f-99a5-705260a27684",
+                "targetHandle": "BAR",
+                "id": "reactflow__edge-SERIAL_SINGLE_MEASUREMENT-88e218f0-3953-415d-a175-495083a69a50main-BAR-abbdb4f0-243c-4b9f-99a5-705260a27684BAR"
+            },
+            {
+                "source": "BAR-abbdb4f0-243c-4b9f-99a5-705260a27684",
+                "sourceHandle": "main",
+                "target": "END-8451bed9-cff5-450d-981c-2a1a9ac7ba00",
+                "targetHandle": "END",
+                "id": "reactflow__edge-BAR-abbdb4f0-243c-4b9f-99a5-705260a27684main-END-8451bed9-cff5-450d-981c-2a1a9ac7ba00END"
+            }
+        ],
+        "viewport": {
+            "x": 274.2885144771319,
+            "y": 91.99054757719483,
+            "zoom": 0.8292925607774201
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

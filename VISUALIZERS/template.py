@@ -16,7 +16,7 @@ def init_template():
 def plot_layout(title: str) -> go.Layout:
     autosize = True
     margin = {"t": 30, "r": 0, "b": 0, "l": 0}
-    xaxis = {"zeroline": False, "type": "linear"}
+    xaxis = {"type": "-"}
 
     layout = go.Layout()
     layout.title = title
