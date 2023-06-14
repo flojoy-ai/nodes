@@ -15,7 +15,7 @@ def SCATTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     Supported DC types:
     -------------------
-    `ordered_pair`, `dataframe`, `matrix`, `ordered_triple`
+    `ordered_pair`, `dataframe`, `matrix`
     """
     dc_input: DataContainer = dc_inputs[0]
     node_name = __name__.split(".")[-1]
@@ -59,12 +59,6 @@ def SCATTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 )
 
             fig.update_layout(xaxis_title="Column", yaxis_title="Value")
-
-        case "ordered_triple":
-            x = dc_input.x
-            y = dc_input.y
-            z = dc_input.z
-            fig.add_trace(go.Scatter(x=x, y=y, z=z, mode="markers"))
 
         case _:
             raise ValueError(
