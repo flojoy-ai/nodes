@@ -1,12 +1,12 @@
 COMMAND:
-    - {
         name: Second Order System,
         key: SECOND_ORDER_SYSTEM,
         type: SIMULATION,
         parameters:
-          {
-            d1: { type: "float", default: "250" },
-            d2: { type: "float", default: "100" },
-          },
-        }
+            d1: 
+              type: float
+              default: "250"
+            d2: 
+              type: float
+              default: "100"
   
