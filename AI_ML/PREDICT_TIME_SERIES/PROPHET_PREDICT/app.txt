@@ -1,0 +1,210 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-5a356bc4-3014-4aeb-998f-0f1e166fca5e",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-5a356bc4-3014-4aeb-998f-0f1e166fca5e",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1812.3599692606329,
+                    "y": 130.1172999221726
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1812.3599692606329,
+                    "y": 130.1172999221726
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12",
+                "type": "PREDICT_TIME_SERIES",
+                "data": {
+                    "id": "PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12",
+                    "label": "PROPHET PREDICT",
+                    "func": "PROPHET_PREDICT",
+                    "type": "PREDICT_TIME_SERIES",
+                    "ctrls": {
+                        "periods": {
+                            "functionName": "PROPHET_PREDICT",
+                            "param": "periods",
+                            "value": 365
+                        },
+                        "run_forecast": {
+                            "functionName": "PROPHET_PREDICT",
+                            "param": "run_forecast",
+                            "value": true
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 780.3599692606329,
+                    "y": 156.1172999221726
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 780.3599692606329,
+                    "y": 156.1172999221726
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "TIMESERIES-d19a3155-bebf-4b1c-8ad2-99c32748b388",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "TIMESERIES-d19a3155-bebf-4b1c-8ad2-99c32748b388",
+                    "label": "TIMESERIES",
+                    "func": "TIMESERIES",
+                    "type": "SIMULATION",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 378.35996926063285,
+                    "y": 176.1172999221726
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 378.35996926063285,
+                    "y": 176.1172999221726
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "PROPHET_COMPONENTS-6c94f910-0c1a-48ee-843a-4675a56fd9bc",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "PROPHET_COMPONENTS-6c94f910-0c1a-48ee-843a-4675a56fd9bc",
+                    "label": "PROPHET COMPONENTS 1",
+                    "func": "PROPHET_COMPONENTS",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {
+                        "periods": {
+                            "functionName": "PROPHET_COMPONENTS",
+                            "param": "periods",
+                            "value": 365
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 1304.3599692606329,
+                    "y": 274.1172999221726
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1304.3599692606329,
+                    "y": 274.1172999221726
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "PROPHET_PLOT-f244212c-4bf6-401a-a354-03173aecd8bc",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "PROPHET_PLOT-f244212c-4bf6-401a-a354-03173aecd8bc",
+                    "label": "PROPHET PLOT 1",
+                    "func": "PROPHET_PLOT",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {
+                        "periods": {
+                            "functionName": "PROPHET_PLOT",
+                            "param": "periods",
+                            "value": 365
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 1302.3599692606329,
+                    "y": -123.08270007782744
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1302.3599692606329,
+                    "y": -123.08270007782744
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "TIMESERIES-d19a3155-bebf-4b1c-8ad2-99c32748b388",
+                "sourceHandle": "main",
+                "target": "PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12",
+                "targetHandle": "PROPHET_PREDICT",
+                "id": "reactflow__edge-TIMESERIES-d19a3155-bebf-4b1c-8ad2-99c32748b388main-PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12PROPHET_PREDICT"
+            },
+            {
+                "source": "PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12",
+                "sourceHandle": "main",
+                "target": "PROPHET_PLOT-f244212c-4bf6-401a-a354-03173aecd8bc",
+                "targetHandle": "PROPHET_PLOT",
+                "id": "reactflow__edge-PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12main-PROPHET_PLOT-f244212c-4bf6-401a-a354-03173aecd8bcPROPHET_PLOT"
+            },
+            {
+                "source": "PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12",
+                "sourceHandle": "main",
+                "target": "PROPHET_COMPONENTS-6c94f910-0c1a-48ee-843a-4675a56fd9bc",
+                "targetHandle": "PROPHET_COMPONENTS",
+                "id": "reactflow__edge-PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12main-PROPHET_COMPONENTS-6c94f910-0c1a-48ee-843a-4675a56fd9bcPROPHET_COMPONENTS"
+            },
+            {
+                "source": "PROPHET_COMPONENTS-6c94f910-0c1a-48ee-843a-4675a56fd9bc",
+                "sourceHandle": "main",
+                "target": "END-5a356bc4-3014-4aeb-998f-0f1e166fca5e",
+                "targetHandle": "END",
+                "id": "reactflow__edge-PROPHET_COMPONENTS-6c94f910-0c1a-48ee-843a-4675a56fd9bcmain-END-5a356bc4-3014-4aeb-998f-0f1e166fca5eEND"
+            },
+            {
+                "source": "PROPHET_PLOT-f244212c-4bf6-401a-a354-03173aecd8bc",
+                "sourceHandle": "main",
+                "target": "END-5a356bc4-3014-4aeb-998f-0f1e166fca5e",
+                "targetHandle": "END",
+                "id": "reactflow__edge-PROPHET_PLOT-f244212c-4bf6-401a-a354-03173aecd8bcmain-END-5a356bc4-3014-4aeb-998f-0f1e166fca5eEND"
+            }
+        ],
+        "viewport": {
+            "x": 277.51363138867714,
+            "y": 122.19256409405995,
+            "zoom": 0.8390434811449037
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
