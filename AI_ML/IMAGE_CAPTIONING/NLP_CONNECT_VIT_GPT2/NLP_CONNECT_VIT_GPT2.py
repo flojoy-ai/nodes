@@ -7,9 +7,7 @@ import pandas as pd
 
 
 @flojoy
-def NLP_CONNECT_VIT_GPT2(
-    dc_inputs: list[DataContainer], params: dict
-) -> DataContainer:
+def NLP_CONNECT_VIT_GPT2(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """The NLP_CONNECT_VIT_GPT2 node captions an input image and produces an output string wrapped
     in a dataframe.
 
@@ -23,9 +21,10 @@ def NLP_CONNECT_VIT_GPT2(
 
     """
 
-
     if len(dc_inputs) != 1 or dc_inputs[0].type != "image":
-        raise ValueError(f"Invalid input, expected exactly one DataContainer of type 'image'")
+        raise ValueError(
+            f"Invalid input, expected exactly one DataContainer of type 'image'"
+        )
 
     input_image = dc_inputs[0]
 
