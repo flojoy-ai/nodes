@@ -38,6 +38,7 @@ jobs:
           token: ${{ steps.generate_token.outputs.token }}
       
       - name: Get last commit message
+        if: github.event.pull_request.merged == false
         run: |
           cd ${{ github.workspace }}
           git fetch origin ${{ github.head_ref }}
