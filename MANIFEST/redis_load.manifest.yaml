@@ -1,8 +1,8 @@
 COMMAND:
-  - name: Redis Loader,
-      key: REDIS_LOAD,
-      type: REDIS_SYSTEM,
-      parameters: 
-        referred_node: 
-          type: node_reference
-          default: ''
+  - name: Redis Loader
+    key: REDIS_LOAD
+    type: REDIS_SYSTEM
+    parameters: 
+      referred_node: 
+        type: node_reference
+        default: ''

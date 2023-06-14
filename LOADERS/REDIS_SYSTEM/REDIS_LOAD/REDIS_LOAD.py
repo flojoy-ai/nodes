@@ -29,10 +29,7 @@ def REDIS_LOAD(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     if referred_node != "":
         referred_node_key = referred_node.split("-")[0]
         try:
-            job = Job.fetch(
-                referred_node, connection=Redis(host=REDIS_HOST, port=REDIS_PORT)
-            )
-            y = SmallMemory().read_memory(job.get_id(), referred_node_key)
+            y = SmallMemory().read_memory(referred_node, referred_node_key)
             print(
                 "-" * 72
                 + "\n" * 5
