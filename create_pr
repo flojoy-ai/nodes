@@ -54,7 +54,8 @@ else
       --title "Update nodes doc from PR: $PR_NUM" \
       --head "$DOC_BRANCH" \
       --base "main" \
-      --assignee $USER_NAME
+      --assignee $USER_NAME \
+      --draft
   fi
 fi
 
