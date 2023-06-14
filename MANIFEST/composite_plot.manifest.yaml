@@ -17,7 +17,7 @@ COMMAND:
           - line
           - histogram
           - scatter
-        default: none
+        default: scatter
       second_figure:
         type: select
         options:
@@ -25,4 +25,4 @@ COMMAND:
           - line
           - histogram
           - scatter
-        default: none
+        default: scatter

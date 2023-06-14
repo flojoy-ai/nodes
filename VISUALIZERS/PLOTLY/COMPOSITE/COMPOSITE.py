@@ -62,7 +62,6 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                             go.Scatter(x=df[col], y=df.index, mode="markers", name=col)
                         )
 
-            fig.update_layout(xaxis_title="X Axis", yaxis_title="Y Axis")
         case "matrix":
             if first_figure != "line":
                 raise TypeError(
@@ -128,7 +127,6 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                             go.Scatter(x=df[col], y=df.index, mode="markers", name=col)
                         )
 
-            fig.update_layout(xaxis_title="X Axis", yaxis_title="Y Axis")
         case "matrix":
             if second_figure != "line":
                 raise TypeError(
@@ -151,4 +149,5 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 f"unsupported DataContainer type passed for {node_name}: {dc_input_2.type}"
             )
 
+    fig.update_layout(dict(autosize=True, height=None, width=None))
     return DataContainer(type="plotly", fig=fig)
