@@ -1,12 +1,15 @@
 on:
-  pull_request:
+  pull_request_target:
+    types:
+      - opened
+      - closed
     branches:
       - main
 
 name: create-studio-docs-pr
 
 jobs:
-  send-pull-request:
+  send-pull-requests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -51,5 +54,6 @@ jobs:
           PR_NUM: ${{github.event.pull_request.number}}
           GITHUB_WORKSPACE: ${{github.workspace}}
           PR_BRANCH: ${{ github.head_ref }}
+          IS_MERGED: ${{ github.event.pull_request.merged == true }}
         run: |
           bash create_pr
