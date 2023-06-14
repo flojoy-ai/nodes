@@ -14,10 +14,9 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     first_figure: 'bar' | 'line' | 'histogram' | 'scatter'
     second_figure: 'bar' | 'line' | 'histogram' | 'scatter'
 
-    Returns
-    -------
-    plotly
-        The figure object that contains the graphed data for two inputs
+    Supported DC types:
+    ----------------
+    `ordered_pair`, `dataframe` (including timeseries), `ordered_triple`, `matrix`
 
     """
 
@@ -42,55 +41,107 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 case "bar":
                     fig.add_trace(go.Bar(x=x, y=y))
                 case "line":
-                    fig.add_trace(go.Line(x=x, y=y, mode="lines"))
+                    fig.add_trace(go.Scatter(x=x, y=y, mode="lines"))
                 case "histogram":
                     fig.add_trace(go.Histogram(x=y))
                 case "scatter":
                     fig.add_trace(
                         go.Scatter(x=x, y=y, mode="markers", marker=dict(size=4))
                     )
+
+        case "ordered_triple":
+            x = dc_input_1.x
+            y = dc_input_1.y
+            z= dc_input_1.z  
+            match first_figure:
+                case "bar":
+                    fig.add_trace(go.Bar(x=x, y=y, z=z))
+                case "line":
+                    fig.add_trace(go.Scatter(x=x, y=y, z=z, mode="lines"))
+
         case "dataframe":
             df = pd.DataFrame(dc_input_1.m)
-            for col in df.columns:
-                match first_figure:
-                    case "bar":
-                        if df[col].dtype == "object":
-                            counts = df[col].value_counts()
+            first_col = df.iloc[:, 0]
+            is_timeseries = False
+            if pd.api.types.is_datetime64_any_dtype(first_col):
+                is_timeseries = True 
+                
+            match first_figure:
+                case "bar":
+                    if is_timeseries:
+                        for col in df.columns:
+                            if col != df.columns[0]:
+                                fig.add_trace(
+                                    go.Bar(y=df[col].values, x=first_col, name=col)
+                                )
+                        fig.update_layout(xaxis_title=df.columns[0])
+                    else:
+                        for col in df.columns:
+                            if df[col].dtype == "object":
+                                counts = df[col].value_counts()
+                                fig.add_trace(
+                                    go.Bar(x=counts.index.tolist(), y=counts.tolist(), name=col)
+                                )
+                            else:
+                                fig.add_trace(go.Bar(x=df.index, y=df[col], name=col))
+                        fig.update_layout(xaxis_title="DF index", yaxis_title="Y Axis")
+                case "line":
+                    if is_timeseries:
+                        for col in df.columns:
+                            if col != df.columns[0]:
+                                fig.add_trace(
+                                    go.Scatter(
+                                        y=df[col].values,
+                                        x=first_col,
+                                        mode="lines",
+                                        name=col,
+                                    )
+                                )
+                    else:
+                        for col in df.columns:
                             fig.add_trace(
-                                go.Bar(
-                                    x=counts.index.tolist(), y=counts.tolist(), name=col
+                                go.Scatter(
+                                    y=df[col].values,
+                                    x=df.index,
+                                    mode="lines",
+                                    name=col,
                                 )
                             )
-                        else:
-                            fig.add_trace(go.Bar(x=df.index, y=df[col], name=col))
-                    case "line":
-                        fig.add_trace(
-                            go.Scatter(x=df.index, y=df[col], mode="lines", name=col)
-                        )
-                    case "histogram":
+                case "histogram":
+                    for col in df.columns:
                         fig.add_trace(go.Histogram(x=df[col], name=col))
-                    case "scatter":
-                        fig.add_trace(
-                            go.Scatter(x=df[col], y=df.index, mode="markers", name=col)
-                        )
+                    fig.update_layout(xaxis_title="Value", yaxis_title="Frequency")
+                case "scatter":
+                    if is_timeseries:
+                        for col in df.columns:
+                            if col != df.columns[0]:
+                                fig.add_trace(
+                                    go.Scatter(x=first_col, y=df[col], mode="markers", name=col)
+                                )
+                    else:
+                        for col in df.columns:
+                            fig.add_trace(
+                                go.Scatter(x=df.index, y=df[col], mode="markers", name=col)
+                            )
 
         case "matrix":
-            if first_figure != "line":
-                raise TypeError(
-                    f"matrix DataContainer type only supports line visualizer"
-                )
+            m: np.ndarray = dc_input_1.m
+            num_rows, num_cols = m.shape
+            x_ticks = np.arange(num_cols)
 
-            y_columns: np.ndarray = dc_input_1.m
-            for i, col in enumerate(y_columns.T):
-                fig.add_trace(
-                    go.Scatter(
-                        x=np.arange(0, col.size),
-                        y=col,
-                        mode="lines",
-                        name=i,
-                    )
-                )
-
+            match first_figure:
+                case "bar":
+                    for i in range(num_rows):
+                        fig.add_trace(go.Bar(x=x_ticks, y=m[i, :], name=f"Row {i+1}"))
+                        fig.update_layout(xaxis_title="Column", yaxis_title="Value")
+                case "line":
+                    for i in range(num_rows):
+                        fig.add_trace(go.Scatter(x=x_ticks, y=m[i, :], name=f"Row {i+1}", mode="lines"))
+                        fig.update_layout(xaxis_title="Column", yaxis_title="Value")
+                case "histogram":
+                    histogram_trace = go.Histogram(x=m.flatten())
+                    fig.add_trace(go.Histogram(histogram_trace))
+         
         case _:
             raise ValueError(
                 f"unsupported DataContainer type passed for {node_name}: {dc_input_1.type}"
@@ -107,59 +158,111 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 case "bar":
                     fig.add_trace(go.Bar(x=x, y=y))
                 case "line":
-                    fig.add_trace(go.Line(x=x, y=y, mode="lines"))
+                    fig.add_trace(go.Scatter(x=x, y=y, mode="lines"))
                 case "histogram":
-                    fig.add_trace(go.Histogram(x=x, y=y))
+                    fig.add_trace(go.Histogram(x=y))
                 case "scatter":
                     fig.add_trace(
                         go.Scatter(x=x, y=y, mode="markers", marker=dict(size=4))
                     )
+
+        case "ordered_triple":
+            x = dc_input_2.x
+            y = dc_input_2.y
+            z= dc_input_2.z  
+            match second_figure:
+                case "bar":
+                    fig.add_trace(go.Bar(x=x, y=y, z=z))
+                case "line":
+                    fig.add_trace(go.Scatter(x=x, y=y, z=z, mode="lines"))
+                    
         case "dataframe":
             df = pd.DataFrame(dc_input_2.m)
-            for col in df.columns:
-                match second_figure:
-                    case "bar":
-                        if df[col].dtype == "object":
-                            counts = df[col].value_counts()
+            first_col = df.iloc[:, 0]
+            is_timeseries = False
+            if pd.api.types.is_datetime64_any_dtype(first_col):
+                is_timeseries = True 
+                
+            match second_figure:
+                case "bar":
+                    if is_timeseries:
+                        for col in df.columns:
+                            if col != df.columns[0]:
+                                fig.add_trace(
+                                    go.Bar(y=df[col].values, x=first_col, name=col)
+                                )
+                        fig.update_layout(xaxis_title=df.columns[0])
+                    else:
+                        for col in df.columns:
+                            if df[col].dtype == "object":
+                                counts = df[col].value_counts()
+                                fig.add_trace(
+                                    go.Bar(x=counts.index.tolist(), y=counts.tolist(), name=col)
+                                )
+                            else:
+                                fig.add_trace(go.Bar(x=df.index, y=df[col], name=col))
+                        fig.update_layout(xaxis_title="DF index", yaxis_title="Y Axis")
+                case "line":
+                    if is_timeseries:
+                        for col in df.columns:
+                            if col != df.columns[0]:
+                                fig.add_trace(
+                                    go.Scatter(
+                                        y=df[col].values,
+                                        x=first_col,
+                                        mode="lines",
+                                        name=col,
+                                    )
+                                )
+                    else:
+                        for col in df.columns:
                             fig.add_trace(
-                                go.Bar(
-                                    x=counts.index.tolist(), y=counts.tolist(), name=col
+                                go.Scatter(
+                                    y=df[col].values,
+                                    x=df.index,
+                                    mode="lines",
+                                    name=col,
                                 )
                             )
-                        else:
-                            fig.add_trace(go.Bar(x=df.index, y=df[col], name=col))
-                    case "line":
-                        fig.add_trace(
-                            go.Scatter(x=df.index, y=df[col], mode="lines", name=col)
-                        )
-                    case "histogram":
+                case "histogram":
+                    for col in df.columns:
                         fig.add_trace(go.Histogram(x=df[col], name=col))
-                    case "scatter":
-                        fig.add_trace(
-                            go.Scatter(x=df[col], y=df.index, mode="markers", name=col)
-                        )
+                    fig.update_layout(xaxis_title="Value", yaxis_title="Frequency")
+                case "scatter":
+                    if is_timeseries:
+                        for col in df.columns:
+                            if col != df.columns[0]:
+                                fig.add_trace(
+                                    go.Scatter(x=first_col, y=df[col], mode="markers", name=col)
+                                )
+                    else:
+                        for col in df.columns:
+                            fig.add_trace(
+                                go.Scatter(x=df.index, y=df[col], mode="markers", name=col)
+                            )
 
         case "matrix":
-            if second_figure != "line":
-                raise TypeError(
-                    f"matrix DataContainer type only supports line visualizer"
-                )
+            m: np.ndarray = dc_input_2.m
+            num_rows, num_cols = m.shape
+            x_ticks = np.arange(num_cols)
 
-            y_columns: np.ndarray = dc_input_2.m
-            for i, col in enumerate(y_columns.T):
-                fig.add_trace(
-                    go.Scatter(
-                        x=np.arange(0, col.size),
-                        y=col,
-                        mode="lines",
-                        name=i,
-                    )
-                )
-
+            match second_figure:
+                case "bar":
+                    for i in range(num_rows):
+                        fig.add_trace(go.Bar(x=x_ticks, y=m[i, :], name=f"Row {i+1}"))
+                        fig.update_layout(xaxis_title="Column", yaxis_title="Value")
+                case "line":
+                    for i in range(num_rows):
+                        fig.add_trace(go.Scatter(x=x_ticks, y=m[i, :], name=f"Row {i+1}", mode="lines"))
+                        fig.update_layout(xaxis_title="Column", yaxis_title="Value")
+                case "histogram":
+                    histogram_trace = go.Histogram(x=m.flatten())
+                    fig.add_trace(go.Histogram(histogram_trace))
+         
         case _:
             raise ValueError(
                 f"unsupported DataContainer type passed for {node_name}: {dc_input_2.type}"
             )
-
+         
     fig.update_layout(dict(autosize=True, height=None, width=None))
     return DataContainer(type="plotly", fig=fig)
