@@ -1,6 +1,7 @@
 from flojoy import flojoy, DataContainer
 import numpy as np
 
+
 def trapz(x, y, n, m):
     if m[n] is not None:
         return m[n]
@@ -8,7 +9,7 @@ def trapz(x, y, n, m):
         trapezium = (1 / 2) * (x[0] + x[1]) * (y[1] - y[0])
     else:
         trapz(x, y, n - 1, m)
-        trapezium = (1 / 2) * (x[n-1] + x[n]) * (y[n] - y[n-1])
+        trapezium = (1 / 2) * (x[n - 1] + x[n]) * (y[n] - y[n - 1])
 
     m[n] = trapezium
 
@@ -46,7 +47,7 @@ def INTEGRATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         raise ValueError(f"Invalid type for y:{type(input_y)}")
     elif len(input_x) != len(input_y):
         raise ValueError(f"Invalid inputs, x:{input_x} y:{input_y}")
-    
+
     if dc_input.type == "ordered_pair":
         integrate = trapz(input_x, input_y, len(input_x) - 1, [None] * len(input_x))
         return DataContainer(type="ordered_pair", x=input_x, y=integrate)
