@@ -27,12 +27,12 @@ def DIFFERENTIATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer
     input_x = dc_input.x
     input_y = dc_input.y
 
-    if (
-        type(input_x) != np.ndarray
-        or type(input_y) != np.ndarray
-        or len(input_x) != len(input_y)
-    ):
-        raise ValueError(f"Invalid inputs x:{input_x} y:{input_y}")
+    if type(input_x) != np.ndarray:
+        raise ValueError(f"Invalid type for x:{type(input_x)}")
+    elif type(input_y) != np.ndarray:
+        raise ValueError(f"Invalid type for y:{type(input_y)}")
+    elif len(input_x) != len(input_y):
+        raise ValueError(f"Invalid inputs, x:{input_x} y:{input_y}")
 
     differentiate = np.diff(input_y) / np.diff(input_x)
 
