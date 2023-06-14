@@ -15,7 +15,7 @@ def BAR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     Supported DC types:
     ----------------
-    `ordered_pair`, `dataframe` (including timeseries), `ordered_triple`, `matrix`
+    `ordered_pair`, `dataframe` (including timeseries), `matrix`
     """
     dc_input: DataContainer = dc_inputs[0]
     node_name = __name__.split(".")[-1]
@@ -56,11 +56,7 @@ def BAR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                     else:
                         fig.add_trace(go.Bar(x=df.index, y=df[col], name=col))
                 fig.update_layout(xaxis_title="DF index", yaxis_title="Y Axis")
-        case "ordered_triple":
-            x = dc_input.x
-            y = dc_input.y
-            z = dc_input.z
-            fig = fig.add_trace(go.Bar(x=x, y=y, z=z))
+
         case "matrix":
             m: np.ndarray = dc_input.m
 

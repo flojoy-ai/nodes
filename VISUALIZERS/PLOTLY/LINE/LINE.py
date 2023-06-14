@@ -16,7 +16,7 @@ def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     Supported DC types:
     -------------------
-    `ordered_pair`, `dataframe` (including timeseries), `matrix`, `ordered_triple`
+    `ordered_pair`, `dataframe` (including timeseries), `matrix`
     """
     dc_input: DataContainer = dc_inputs[0]
     node_name = __name__.split(".")[-1]
@@ -72,11 +72,6 @@ def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
             fig.update_layout(xaxis_title="Column", yaxis_title="Value")
 
-        case "ordered_triple":
-            x = dc_input.x
-            y = dc_input.y
-            z = dc_input.z
-            fig.add_trace(go.Scatter(x=x, y=y, z=z, mode="lines"))
         case _:
             raise ValueError(
                 f"unsupported DataContainer type passed for {node_name}: {dc_input.type}"
