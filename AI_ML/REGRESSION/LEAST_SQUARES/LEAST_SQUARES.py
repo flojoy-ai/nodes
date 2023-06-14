@@ -30,8 +30,7 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
         )
     print("This is the length of dc inputs: ", len(dc_inputs))
     if len(dc_inputs) == 1 and dc_inputs[0].type == "ordered_pair":
-
-        if (len(np.array(dc_inputs[0].y)) != 0):
+        if len(np.array(dc_inputs[0].y)) != 0:
             x = np.array(dc_inputs[0].y)
             y = np.array(dc_inputs[0].y)
         else:
@@ -76,7 +75,7 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
 
         slope, intercept = p[0:-1], p[-1]
         res = slope * x + intercept
-        
+
         return DataContainer(type="matrix", m=res)
 
     else:
