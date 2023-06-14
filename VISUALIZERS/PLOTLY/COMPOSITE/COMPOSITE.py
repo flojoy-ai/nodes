@@ -26,7 +26,6 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     second_figure: str = params.get("second_figure")
 
     node_name: str = __name__.split(".")[-1]
-    print("This is the node name: ", node_name)
     layout = plot_layout(title=node_name)
     fig = go.Figure(layout=layout)
 
