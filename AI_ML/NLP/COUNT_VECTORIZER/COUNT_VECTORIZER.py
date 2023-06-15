@@ -15,7 +15,7 @@ def COUNT_VECTORIZER(dc_inputs: list[DataContainer], params: dict) -> DataContai
         x -> the feature names
         y -> the word counts themselves
     """
-    if dc_inputs[0].type not in ['dataframe', 'matrix']:
+    if dc_inputs[0].type not in ["dataframe", "matrix"]:
         raise ValueError(
             f"unsupported DataContainer type passed to COUNT_VECTORIZER: {dc_inputs[0].type}"
         )
