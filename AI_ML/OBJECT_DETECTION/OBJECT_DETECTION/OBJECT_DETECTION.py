@@ -34,15 +34,16 @@ def OBJECT_DETECTION(dc_inputs: list[DataContainer], params: dict) -> DataContai
     b = dc_input.b
     a = dc_input.a
 
-    path = os.path.join(os.path.abspath(os.getcwd()),
-                        'utils/object_detection/yolov3.weights')
+    path = os.path.join(
+        os.path.abspath(os.getcwd()), "utils/object_detection/yolov3.weights"
+    )
 
     if not path:
-        print('Downloading yolov3 weights for object detection.')
-        print('Download may take up to a minute.')
-        url = 'https://pjreddie.com/media/files/yolov3.weights'
+        print("Downloading yolov3 weights for object detection.")
+        print("Download may take up to a minute.")
+        url = "https://pjreddie.com/media/files/yolov3.weights"
         r = requests.get(url, allow_redirects=True)
-        open(path, 'wb').write(r.content)
+        open(path, "wb").write(r.content)
 
     if a is not None:
         nparr = np.stack((r, g, b, a), axis=2)
