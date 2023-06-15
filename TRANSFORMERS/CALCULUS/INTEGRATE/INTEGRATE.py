@@ -13,6 +13,7 @@ def trapz(x, y):
 
     return m
 
+
 @flojoy
 def INTEGRATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
@@ -25,8 +26,8 @@ def INTEGRATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     Returns
     -------
-    numpy array / float
-        integrated value in sequence of y array.
+    DataContainer:
+        type 'ordered_pair', x, y
     """
     dc_input = dc_inputs[0]
 
@@ -35,8 +36,8 @@ def INTEGRATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     if dc_input.type != "ordered_pair":
         raise ValueError(
-                f"unsupported DataContainer type passed for INTEGRATE : {dc_input.type}"
-            )
+            f"unsupported DataContainer type passed for INTEGRATE : {dc_input.type}"
+        )
 
     if type(input_x) != np.ndarray:
         raise ValueError(f"Invalid type for x:{type(input_x)}")
@@ -48,4 +49,3 @@ def INTEGRATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     integrate = trapz(input_x, input_y)
 
     return DataContainer(type="ordered_pair", x=input_x, y=integrate)
-

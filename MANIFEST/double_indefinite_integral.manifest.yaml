@@ -1,0 +1,4 @@
+COMMAND:
+  - name: Double_Indefinite_Integral
+    key: DOUBLE_INDEFINITE_INTEGRAL
+    type: CALCULUS

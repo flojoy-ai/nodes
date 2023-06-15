@@ -1,9 +1,9 @@
 COMMAND:
-  - name: Double_Integrate
-    key: DOUBLE_INTEGRATE
+  - name: Double_Definite_Integral
+    key: DOUBLE_DEFINITE_INTEGRAL
     type: CALCULUS
     parameters:
-      func:
+      function:
         type: string
         default: ""
       upper_bound_x:
