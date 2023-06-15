@@ -37,8 +37,9 @@ def OBJECT_DETECTION(dc_inputs: list[DataContainer], params: dict) -> DataContai
     path = os.path.join(
         os.path.abspath(os.getcwd()), "utils/object_detection/yolov3.weights"
     )
+    exists = os.path.exists(path)
 
-    if not path:
+    if not exists:
         print("Downloading yolov3 weights for object detection.")
         print("Download may take up to a minute.")
         url = "https://pjreddie.com/media/files/yolov3.weights"
