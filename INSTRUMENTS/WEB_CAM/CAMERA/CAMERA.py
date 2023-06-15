@@ -7,31 +7,55 @@ import numpy as np
 
 @flojoy
 def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """
-    Takes a picture from a connected camera using OpenCV.
+    """Acquires an image using the selected camera.
     If no camera is connected, an error would be thrown.
+
+    Parameters:
+    ----------
+    camera_ind: Camera index (i.e. camera identifier)
+    resolution: Camera resolution. Choose from a few options.
+
+    Returns:
+    ----------
+        DataContainer: A `DataContainer` class of type 'image' representing the output image.
+
+    Raises:
+    ----------
+        Exception: If an error occurs during taking an image.
     """
     camera_ind: int = params["camera_ind"]
+    resolution: str = params["resolution"]
+
     try:
         camera = cv2.VideoCapture(camera_ind)
+        if resolution != 'default':
+            resolution = resolution.split('x')
+            try:
+                camera.set(cv2.CAP_PROP_FRAME_WIDTH, int(resolution[0]))
+                camera.set(cv2.CAP_PROP_FRAME_HEIGHT, int(resolution[1]))
+            except cv2.error as camera_error:
+                print(f'Invalid resolution ({resolution}). Try a lower value.')
+                raise camera_error
 
         if not camera.isOpened():
             raise cv2.error("Failed to open camera")
 
-        result, frame = camera.read()
+        result, BGR_img = camera.read()
 
         if not result:
             raise cv2.error("Failed to capture image")
         camera.release()
         del camera
 
-        # Split the image channels
-        red_channel = frame[:, :, 0]
-        green_channel = frame[:, :, 1]
-        blue_channel = frame[:, :, 2]
+        RGB_img = cv2.cvtColor(BGR_img, cv2.COLOR_BGR2RGB)
 
-        if frame.shape[2] == 4:
-            alpha_channel = frame[:, :, 3]
+        # Split the image channels
+        red_channel = RGB_img[:, :, 0]
+        green_channel = RGB_img[:, :, 1]
+        blue_channel = RGB_img[:, :, 2]
+
+        if RGB_img.shape[2] == 4:
+            alpha_channel = RGB_img[:, :, 3]
         else:
             alpha_channel = None
 
@@ -68,5 +92,5 @@ def CAMERA_MOCK(dc_inputs: list[DataContainer], params: dict):
     else:
         alpha_channel = None
     return DataContainer(
-        type="image", r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel
-    )
+        type="image", r=red_channel, g=green_channel, b=blue_channel,
+        a=alpha_channel)
