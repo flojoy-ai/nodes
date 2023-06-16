@@ -1,4 +1,0 @@
-COMMAND:
-  - name: Heatmap
-    key: HEATMAP
-    type: PLOTLY_VISOR

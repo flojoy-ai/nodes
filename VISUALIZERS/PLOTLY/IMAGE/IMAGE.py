@@ -13,7 +13,6 @@ def IMAGE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         g = dc_input.g
         b = dc_input.b
         a = dc_input.a
-        print(f"The red value is: {r[0][0]}")
     else:
         raise ValueError(
             f"unsupported DataContainer type passed for {node_name}: {dc_input.type}"
