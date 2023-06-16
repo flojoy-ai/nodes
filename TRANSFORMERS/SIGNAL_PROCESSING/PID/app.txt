@@ -19,7 +19,7 @@
                         "num_loops": {
                             "functionName": "LOOP",
                             "param": "num_loops",
-                            "value": "10"
+                            "value": "5"
                         }
                     },
                     "inputs": [
@@ -63,13 +63,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 176.1954312538074,
-                    "y": 295.8583973804091
+                    "x": 174.76685982523597,
+                    "y": 287.2869688089804
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 176.1954312538074,
-                    "y": 295.8583973804091
+                    "x": 174.76685982523597,
+                    "y": 287.2869688089804
                 },
                 "dragging": true
             },
@@ -93,13 +93,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1297.3843753365986,
-                    "y": 341.04162375361295
+                    "x": 1438.81294676517,
+                    "y": 275.3273380393272
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1297.3843753365986,
-                    "y": 341.04162375361295
+                    "x": 1438.81294676517,
+                    "y": 275.3273380393272
                 },
                 "dragging": true
             },
@@ -117,13 +117,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 689.4496865508568,
-                    "y": 14.796337017540452
+                    "x": 1022.3068294079997,
+                    "y": -136.63223441103105
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 689.4496865508568,
-                    "y": 14.796337017540452
+                    "x": 1022.3068294079997,
+                    "y": -136.63223441103105
                 },
                 "dragging": true
             },
@@ -141,7 +141,7 @@
                         "referred_node": {
                             "functionName": "FEEDBACK",
                             "param": "referred_node",
-                            "value": "SECOND_ORDER_SYSTEM-6a9c6298-9d93-4181-8411-e47b3c96a002"
+                            "value": "SECOND_ORDER_SYSTEM-74fd2877-0512-40be-a0bf-02729639b1e7"
                         }
                     },
                     "selected": false
@@ -231,75 +231,75 @@
             {
                 "width": 130,
                 "height": 130,
-                "id": "SECOND_ORDER_SYSTEM-6a9c6298-9d93-4181-8411-e47b3c96a002",
+                "id": "SECOND_ORDER_SYSTEM-74fd2877-0512-40be-a0bf-02729639b1e7",
                 "type": "SIMULATION",
                 "data": {
-                    "id": "SECOND_ORDER_SYSTEM-6a9c6298-9d93-4181-8411-e47b3c96a002",
-                    "label": "SECOND ORDER SYSTEM",
+                    "id": "SECOND_ORDER_SYSTEM-74fd2877-0512-40be-a0bf-02729639b1e7",
+                    "label": "SECOND_ORDER_SYSTEM",
                     "func": "SECOND_ORDER_SYSTEM",
                     "type": "SIMULATION",
                     "ctrls": {
                         "d1": {
                             "functionName": "SECOND_ORDER_SYSTEM",
                             "param": "d1",
-                            "value": 250
+                            "value": "250"
                         },
                         "d2": {
                             "functionName": "SECOND_ORDER_SYSTEM",
                             "param": "d2",
-                            "value": 100
+                            "value": "100"
                         }
                     },
                     "selected": false
                 },
                 "position": {
-                    "x": 1061.1220207817582,
-                    "y": 350.06529515963183
+                    "x": 1058.6236875521652,
+                    "y": 363.94817785071587
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1061.1220207817582,
-                    "y": 350.06529515963183
+                    "x": 1058.6236875521652,
+                    "y": 363.94817785071587
                 },
                 "dragging": true
             },
             {
-                "width": 130,
-                "height": 130,
-                "id": "FEEDBACK-f7a12f60-f7fc-4932-8505-9970a0b4b69a",
-                "type": "SIMULATION",
+                "width": 150,
+                "height": 150,
+                "id": "REDIS_LOAD-22d059ee-df23-4c0f-93a2-0f1a18c7aef3",
+                "type": "REDIS_SYSTEM",
                 "data": {
-                    "id": "FEEDBACK-f7a12f60-f7fc-4932-8505-9970a0b4b69a",
-                    "label": "FEEDBACK 1",
-                    "func": "FEEDBACK",
-                    "type": "SIMULATION",
+                    "id": "REDIS_LOAD-22d059ee-df23-4c0f-93a2-0f1a18c7aef3",
+                    "label": "REDIS LOAD",
+                    "func": "REDIS_LOAD",
+                    "type": "REDIS_SYSTEM",
                     "ctrls": {
                         "referred_node": {
-                            "functionName": "FEEDBACK",
+                            "functionName": "REDIS_LOAD",
                             "param": "referred_node",
-                            "value": "SECOND_ORDER_SYSTEM-6a9c6298-9d93-4181-8411-e47b3c96a002"
+                            "value": "SECOND_ORDER_SYSTEM-74fd2877-0512-40be-a0bf-02729639b1e7"
                         }
                     },
                     "selected": false
                 },
                 "position": {
-                    "x": 109.69344935318688,
-                    "y": 122.9224380167746
+                    "x": 166.86206372080977,
+                    "y": -16.545698643969843
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 109.69344935318688,
-                    "y": 122.9224380167746
+                    "x": 166.86206372080977,
+                    "y": -16.545698643969843
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
-                "id": "LINE-20ec3749-e3fe-446a-bf4b-4cf206f8a2f7",
+                "width": 380,
+                "height": 293,
+                "id": "LINE-cf8c9396-cf1e-4699-a655-04dc1763f385",
                 "type": "PLOTLY_VISOR",
                 "data": {
-                    "id": "LINE-20ec3749-e3fe-446a-bf4b-4cf206f8a2f7",
+                    "id": "LINE-cf8c9396-cf1e-4699-a655-04dc1763f385",
                     "label": "LINE",
                     "func": "LINE",
                     "type": "PLOTLY_VISOR",
@@ -307,13 +307,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 303.9791636389011,
-                    "y": -19.934704840368227
+                    "x": 501.14777800652416,
+                    "y": -162.25998435825556
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 303.9791636389011,
-                    "y": -19.934704840368227
+                    "x": 501.14777800652416,
+                    "y": -162.25998435825556
                 },
                 "dragging": true
             }
@@ -341,6 +341,20 @@
                 "id": "reactflow__edge-SUBTRACT-60fe753c-16b2-4b8b-a9fd-e13a8c95e366main-PID-921107f4-1fd5-4321-aa19-19e290d0367ePID"
             },
             {
+                "source": "PID-921107f4-1fd5-4321-aa19-19e290d0367e",
+                "sourceHandle": "main",
+                "target": "SECOND_ORDER_SYSTEM-74fd2877-0512-40be-a0bf-02729639b1e7",
+                "targetHandle": "SECOND_ORDER_SYSTEM",
+                "id": "reactflow__edge-PID-921107f4-1fd5-4321-aa19-19e290d0367emain-SECOND_ORDER_SYSTEM-74fd2877-0512-40be-a0bf-02729639b1e7SECOND_ORDER_SYSTEM"
+            },
+            {
+                "source": "SECOND_ORDER_SYSTEM-74fd2877-0512-40be-a0bf-02729639b1e7",
+                "sourceHandle": "main",
+                "target": "GOTO-d1e8f8ee-4907-4fd5-9d89-2f65351c2263",
+                "targetHandle": "GOTO",
+                "id": "reactflow__edge-SECOND_ORDER_SYSTEM-74fd2877-0512-40be-a0bf-02729639b1e7main-GOTO-d1e8f8ee-4907-4fd5-9d89-2f65351c2263GOTO"
+            },
+            {
                 "source": "CONSTANT-ee40698d-60e6-4eb4-88b5-4d19e0c41138",
                 "sourceHandle": "main",
                 "target": "SUBTRACT-60fe753c-16b2-4b8b-a9fd-e13a8c95e366",
@@ -357,43 +371,29 @@
             {
                 "source": "LOOP-faed7bdc-f766-4742-b48f-d31a7b8083fb",
                 "sourceHandle": "end",
-                "target": "FEEDBACK-f7a12f60-f7fc-4932-8505-9970a0b4b69a",
-                "targetHandle": "FEEDBACK",
-                "id": "reactflow__edge-LOOP-faed7bdc-f766-4742-b48f-d31a7b8083fbend-FEEDBACK-f7a12f60-f7fc-4932-8505-9970a0b4b69aFEEDBACK"
+                "target": "REDIS_LOAD-22d059ee-df23-4c0f-93a2-0f1a18c7aef3",
+                "targetHandle": "REDIS_LOAD",
+                "id": "reactflow__edge-LOOP-faed7bdc-f766-4742-b48f-d31a7b8083fbend-REDIS_LOAD-22d059ee-df23-4c0f-93a2-0f1a18c7aef3REDIS_LOAD"
             },
             {
-                "source": "FEEDBACK-f7a12f60-f7fc-4932-8505-9970a0b4b69a",
+                "source": "REDIS_LOAD-22d059ee-df23-4c0f-93a2-0f1a18c7aef3",
                 "sourceHandle": "main",
-                "target": "LINE-20ec3749-e3fe-446a-bf4b-4cf206f8a2f7",
+                "target": "LINE-cf8c9396-cf1e-4699-a655-04dc1763f385",
                 "targetHandle": "LINE",
-                "id": "reactflow__edge-FEEDBACK-f7a12f60-f7fc-4932-8505-9970a0b4b69amain-LINE-20ec3749-e3fe-446a-bf4b-4cf206f8a2f7LINE"
+                "id": "reactflow__edge-REDIS_LOAD-22d059ee-df23-4c0f-93a2-0f1a18c7aef3main-LINE-cf8c9396-cf1e-4699-a655-04dc1763f385LINE"
             },
             {
-                "source": "LINE-20ec3749-e3fe-446a-bf4b-4cf206f8a2f7",
+                "source": "LINE-cf8c9396-cf1e-4699-a655-04dc1763f385",
                 "sourceHandle": "main",
                 "target": "END-12d90ef2-4084-4532-94f2-dde2ba198b79",
                 "targetHandle": "END",
-                "id": "reactflow__edge-LINE-20ec3749-e3fe-446a-bf4b-4cf206f8a2f7main-END-12d90ef2-4084-4532-94f2-dde2ba198b79END"
-            },
-            {
-                "source": "PID-921107f4-1fd5-4321-aa19-19e290d0367e",
-                "sourceHandle": "main",
-                "target": "SECOND_ORDER_SYSTEM-6a9c6298-9d93-4181-8411-e47b3c96a002",
-                "targetHandle": "SECOND_ORDER_SYSTEM",
-                "id": "reactflow__edge-PID-921107f4-1fd5-4321-aa19-19e290d0367emain-SECOND_ORDER_SYSTEM-6a9c6298-9d93-4181-8411-e47b3c96a002SECOND_ORDER_SYSTEM"
-            },
-            {
-                "source": "SECOND_ORDER_SYSTEM-6a9c6298-9d93-4181-8411-e47b3c96a002",
-                "sourceHandle": "main",
-                "target": "GOTO-d1e8f8ee-4907-4fd5-9d89-2f65351c2263",
-                "targetHandle": "GOTO",
-                "id": "reactflow__edge-SECOND_ORDER_SYSTEM-6a9c6298-9d93-4181-8411-e47b3c96a002main-GOTO-d1e8f8ee-4907-4fd5-9d89-2f65351c2263GOTO"
+                "id": "reactflow__edge-LINE-cf8c9396-cf1e-4699-a655-04dc1763f385main-END-12d90ef2-4084-4532-94f2-dde2ba198b79END"
             }
         ],
         "viewport": {
-            "x": 197.88510420585555,
-            "y": 38.16888746940003,
-            "zoom": 0.7622193595343526
+            "x": 383.94248946966945,
+            "y": 121.85910915060867,
+            "zoom": 1.1608238532718647
         }
     },
     "ctrlsManifest": [

@@ -36,6 +36,9 @@ if git branch -a | grep -q $DOC_BRANCH; then
     git add .
     git commit -m "$LAST_COMMIT_MSG"
     git push origin $DOC_BRANCH
+    if [ "$IS_MERGED" = true ]; then
+      gh pr ready
+    fi
   fi
 else
   git checkout -b $DOC_BRANCH
@@ -51,7 +54,8 @@ else
       --title "Update nodes doc from PR: $PR_NUM" \
       --head "$DOC_BRANCH" \
       --base "main" \
-      --assignee $USER_NAME
+      --assignee $USER_NAME \
+      --draft
   fi
 fi
 
@@ -65,14 +69,27 @@ if git branch -a | grep -q $STUDIO_BRANCH; then
   git pull
   git submodule update --init --recursive
   cd PYTHON/nodes
-  git checkout $PR_BRANCH
-  git pull
-  cd ../../
-  if git status --porcelain | grep -q .; then
-    echo "There are changes in the branch."
-    git add .
-    git commit -m "$LAST_COMMIT_MSG"
-    git push origin $STUDIO_BRANCH
+  if [ "$IS_MERGED" = true ]; then
+    git checkout main
+    git pull
+    cd ../../
+    if git status --porcelain | grep -q .; then
+      echo "There are changes in the branch."
+      git add .
+      git commit -m "$LAST_COMMIT_MSG"
+      git push origin $STUDIO_BRANCH
+      gh pr ready
+    fi
+  else 
+    git checkout $PR_BRANCH
+    git pull
+    cd ../../
+    if git status --porcelain | grep -q .; then
+      echo "There are changes in the branch."
+      git add .
+      git commit -m "$LAST_COMMIT_MSG"
+      git push origin $STUDIO_BRANCH
+    fi
   fi
 else
   git checkout develop
@@ -93,6 +110,7 @@ else
       --title "Update submodule from PR: $PR_NUM" \
       --head "$STUDIO_BRANCH" \
       --base "develop" \
-      --assignee $USER_NAME
+      --assignee $USER_NAME \
+      --draft
   fi
 fi
