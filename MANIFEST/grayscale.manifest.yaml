@@ -1,4 +1,0 @@
-COMMAND:
-  - name: Grayscale
-    key: GRAYSCALE
-    type: PLOTLY_VISOR

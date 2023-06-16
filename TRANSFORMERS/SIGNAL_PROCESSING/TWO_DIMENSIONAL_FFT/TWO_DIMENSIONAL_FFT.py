@@ -4,7 +4,10 @@ from PIL import Image
 import pandas as pd
 import numpy as np
 
-extrapolate = lambda x: (x - x.min()) / (x.max() - x.min())
+
+def extrapolate(x):
+    return (x - x.min()) / (x.max() - x.min())
+
 
 @flojoy
 def TWO_DIMENSIONAL_FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
@@ -14,21 +17,22 @@ def TWO_DIMENSIONAL_FFT(dc_inputs: list[DataContainer], params: dict) -> DataCon
 
     Parameters
     ----------
-        real_input: boolean
-            true if the input matrix is consists of only real numbers, false otherwise
-        color: select
-            If the input is an RGBA or RGB image, this parameter selects the color channel to perform fft on
+    real_input: boolean
+        true if the input matrix is consists of only real numbers, false otherwise
+    color: select
+        If the input is an RGBA or RGB image, this parameter selects the color channel to perform fft on
 
     Returns
     -------
-        grayscale
+    image
+        The frequency spectrum of the color channel
     """
     if len(dc_inputs) != 1:
         raise ValueError(
             f"TWO_DIMENSIONAL_FFT node requires 1 input, but {len(dc_inputs)} was given! "
         )
     dc = dc_inputs[0]
-    if dc.type not in ["grayscale", "dataframe", "image"]:
+    if dc.type not in ["grayscale", "dataframe", "image", "matrix"]:
         raise ValueError(
             f"unsupported DataContainer type passed to TWO_DIMENSIONAL_FFT node: '{dc.type}'"
         )
@@ -36,9 +40,12 @@ def TWO_DIMENSIONAL_FFT(dc_inputs: list[DataContainer], params: dict) -> DataCon
     color = params["color"]
 
     match dc.type:
-        case "greyscale":
+        case "greyscale" | "matrix":
             input = dc.m
             fourier = fft.rfft2(input) if real else fft.fft2(input)
+            if dc.type == "matrix":
+                fourier = fourier.real
+                return DataContainer(type="matrix", m=fourier)
         case "dataframe":
             input = pd.DataFrame(dc.m)
             fourier = fft.rfft2(input) if real else fft.fft2(input)
@@ -51,19 +58,25 @@ def TWO_DIMENSIONAL_FFT(dc_inputs: list[DataContainer], params: dict) -> DataCon
             green = dc.g
             blue = dc.b
             alpha = dc.a
-            print(red)
             if color == "grayscale":
                 if alpha is None:
                     rgba_image = np.stack((red, green, blue), axis=2)
                 else:
                     rgba_image = np.stack((red, green, blue, alpha), axis=2)
-                image = Image.fromarray(rgba_image)
+                try:
+                    image = Image.fromarray(rgba_image)
+                except TypeError:
+                    image = Image.fromarray((rgba_image * 255).astype(np.uint8))
                 image = image.convert("L")
                 grayscale = np.array(image)
                 fourier = fft.rfft2(grayscale) if real else fft.fft2(grayscale)
             else:
-                fourier = fft.rfft2(locals()[color], axes=[0, 1]) if real else fft.fft2(locals()[color], axes=[0, 1])
+                fourier = (
+                    fft.rfft2(locals()[color], axes=[0, 1])
+                    if real
+                    else fft.fft2(locals()[color], axes=[0, 1])
+                )
 
     fourier = np.log10(np.abs(fourier))
     fourier = extrapolate(fourier)
-    return DataContainer(type="grayscale", m=fourier)
+    return DataContainer(type="image", r=fourier, g=fourier, b=fourier, a=None)
