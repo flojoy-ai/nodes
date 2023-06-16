@@ -1,0 +1,4 @@
+COMMAND:
+  - name: RASPBERRY_PI
+    key: RASPBERRY_PI
+    type: RASPBERRY
