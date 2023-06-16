@@ -7,21 +7,20 @@ import numpy as np
 
 @flojoy
 def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """Acquires an image using the selected camera.
-    If no camera is connected, an error would be thrown.
+    """The CAMERA node acquires an image using the selected camera.
+    If no camera is detected, an error would be thrown.
 
     Parameters:
     ----------
-    camera_ind: Camera index (i.e. camera identifier)
-    resolution: Camera resolution. Choose from a few options.
+    camera_ind : int
+        Camera index (i.e. camera identifier)
+    resolution : select
+        Camera resolution. Choose from a few options.
 
     Returns:
     ----------
-        DataContainer: A `DataContainer` class of type 'image' representing the output image.
-
-    Raises:
-    ----------
-        Exception: If an error occurs during taking an image.
+    DataContainer:
+        type 'image'
     """
     camera_ind: int = params["camera_ind"]
     resolution: str = params["resolution"]

@@ -9,20 +9,21 @@ from utils.object_detection.object_detection import detect_object
 
 @flojoy
 def OBJECT_DETECTION(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """Performs  object detection on the input `DataContainer` class, specifically for the 'image' type,
-    represented by the RGB(A) channels.
-
-    Returns:
-    ----------
-        DataContainer: A `DataContainer` class of type 'image' representing the output image with object detection results.
+    """The OBJECT_DETECTION node detects objects in the input image,
+    and returns an 'image' DataContainer with those objects highlighted.
 
     Parameters:
     ----------
-        None in this node.
+    None
 
-    Raises:
+    Supported DC types:
+    -------------------
+    `image'
+
+    Returns:
     ----------
-        Exception: If an error occurs during object detection.
+    DataContainer:
+        type 'image' (RGB(A)).
     """
     dc_input: DataContainer = dc_inputs[0]
     if dc_input.type != "image":
