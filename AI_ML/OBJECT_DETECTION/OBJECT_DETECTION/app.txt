@@ -2,39 +2,63 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-5e6d94ed-1f79-4c57-8b2f-753a22405f55",
-                "type": "TERMINATOR",
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-bd0ef37f-49ea-40e2-aa84-a9dbd987ec61",
+                "type": "PLOTLY_VISOR",
                 "data": {
-                    "id": "END-5e6d94ed-1f79-4c57-8b2f-753a22405f55",
-                    "label": "Terminate",
-                    "func": "END",
-                    "type": "TERMINATOR",
+                    "id": "IMAGE-bd0ef37f-49ea-40e2-aa84-a9dbd987ec61",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "PLOTLY_VISOR",
                     "ctrls": {},
                     "selected": false
                 },
                 "position": {
-                    "x": 1002.9112708314901,
-                    "y": 193.09986313255396
+                    "x": 501.3569173305635,
+                    "y": -11.816213424158718
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1002.9112708314901,
-                    "y": 193.09986313255396
+                    "x": 501.3569173305635,
+                    "y": -11.816213424158718
                 },
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "OBJECT_DETECTION-95ba5f02-5971-4499-85d5-9d3d0427f115",
-                "type": "AI_OBJECT_DETECTION",
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-dd99e8cb-953d-473f-815a-8a461860e078",
+                "type": "PLOTLY_VISOR",
                 "data": {
-                    "id": "OBJECT_DETECTION-95ba5f02-5971-4499-85d5-9d3d0427f115",
+                    "id": "IMAGE-dd99e8cb-953d-473f-815a-8a461860e078",
+                    "label": "IMAGE 1",
+                    "func": "IMAGE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 998.4997744734208,
+                    "y": 281.04092943298417
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 998.4997744734208,
+                    "y": 281.04092943298417
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "OBJECT_DETECTION-a66b29f2-f0f1-4633-a1df-412d21912558",
+                "type": "OBJECT_DETECTION",
+                "data": {
+                    "id": "OBJECT_DETECTION-a66b29f2-f0f1-4633-a1df-412d21912558",
                     "label": "OBJECT DETECTION",
                     "func": "OBJECT_DETECTION",
-                    "type": "AI_OBJECT_DETECTION",
+                    "type": "OBJECT_DETECTION",
                     "ctrls": {},
                     "pip_dependencies": [
                         {
@@ -45,121 +69,134 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 592.0431664557512,
-                    "y": 194.4231797041855
+                    "x": 605.6426316162779,
+                    "y": 341.0409294329841
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 592.0431664557512,
-                    "y": 194.4231797041855
+                    "x": 605.6426316162779,
+                    "y": 341.0409294329841
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-e5a67ce5-c4d3-4baa-97d9-0e7cc5f5d140",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-e5a67ce5-c4d3-4baa-97d9-0e7cc5f5d140",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1551.3569173305636,
+                    "y": 359.61235800441267
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1551.3569173305636,
+                    "y": 359.61235800441267
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "LOCAL_FILE-94057446-4687-4613-9170-0accb0759dd9",
-                "type": "LOCAL_FILE_SYSTEM",
+                "id": "CAMERA-09d24fab-4568-4d13-bd81-6f06490f5eea",
+                "type": "WEB_CAM",
                 "data": {
-                    "id": "LOCAL_FILE-94057446-4687-4613-9170-0accb0759dd9",
-                    "label": "LOCAL FILE",
-                    "func": "LOCAL_FILE",
-                    "type": "LOCAL_FILE_SYSTEM",
+                    "id": "CAMERA-09d24fab-4568-4d13-bd81-6f06490f5eea",
+                    "label": "CAMERA",
+                    "func": "CAMERA",
+                    "type": "WEB_CAM",
                     "ctrls": {
-                        "file_type": {
-                            "functionName": "LOCAL_FILE",
-                            "param": "file_type",
-                            "value": "image"
+                        "camera_ind": {
+                            "functionName": "CAMERA",
+                            "param": "camera_ind",
+                            "value": -1
                         },
-                        "path": {
-                            "functionName": "LOCAL_FILE",
-                            "param": "path",
-                            "value": ""
+                        "resolution": {
+                            "functionName": "CAMERA",
+                            "param": "resolution",
+                            "value": "default"
                         }
                     },
+                    "pip_dependencies": [
+                        {
+                            "name": "opencv-python-headless",
+                            "v": "4.7.0.72"
+                        }
+                    ],
                     "selected": false
                 },
                 "position": {
-                    "x": 202.04316645575113,
-                    "y": 174.42317970418543
+                    "x": 155.42081256468146,
+                    "y": 348.92490460453996
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 202.04316645575113,
-                    "y": 174.42317970418543
+                    "x": 155.42081256468146,
+                    "y": 348.92490460453996
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LOCAL_FILE-94057446-4687-4613-9170-0accb0759dd9",
+                "source": "OBJECT_DETECTION-a66b29f2-f0f1-4633-a1df-412d21912558",
                 "sourceHandle": "main",
-                "target": "OBJECT_DETECTION-95ba5f02-5971-4499-85d5-9d3d0427f115",
-                "targetHandle": "OBJECT_DETECTION",
-                "id": "reactflow__edge-LOCAL_FILE-94057446-4687-4613-9170-0accb0759dd9main-OBJECT_DETECTION-95ba5f02-5971-4499-85d5-9d3d0427f115OBJECT_DETECTION"
+                "target": "IMAGE-dd99e8cb-953d-473f-815a-8a461860e078",
+                "targetHandle": "IMAGE",
+                "id": "reactflow__edge-OBJECT_DETECTION-a66b29f2-f0f1-4633-a1df-412d21912558main-IMAGE-dd99e8cb-953d-473f-815a-8a461860e078IMAGE"
             },
             {
-                "source": "OBJECT_DETECTION-95ba5f02-5971-4499-85d5-9d3d0427f115",
+                "source": "IMAGE-dd99e8cb-953d-473f-815a-8a461860e078",
                 "sourceHandle": "main",
-                "target": "END-5e6d94ed-1f79-4c57-8b2f-753a22405f55",
+                "target": "END-e5a67ce5-c4d3-4baa-97d9-0e7cc5f5d140",
                 "targetHandle": "END",
-                "id": "reactflow__edge-OBJECT_DETECTION-95ba5f02-5971-4499-85d5-9d3d0427f115main-END-5e6d94ed-1f79-4c57-8b2f-753a22405f55END"
+                "id": "reactflow__edge-IMAGE-dd99e8cb-953d-473f-815a-8a461860e078main-END-e5a67ce5-c4d3-4baa-97d9-0e7cc5f5d140END"
+            },
+            {
+                "source": "CAMERA-09d24fab-4568-4d13-bd81-6f06490f5eea",
+                "sourceHandle": "main",
+                "target": "OBJECT_DETECTION-a66b29f2-f0f1-4633-a1df-412d21912558",
+                "targetHandle": "OBJECT_DETECTION",
+                "id": "reactflow__edge-CAMERA-09d24fab-4568-4d13-bd81-6f06490f5eeamain-OBJECT_DETECTION-a66b29f2-f0f1-4633-a1df-412d21912558OBJECT_DETECTION"
+            },
+            {
+                "source": "CAMERA-09d24fab-4568-4d13-bd81-6f06490f5eea",
+                "sourceHandle": "main",
+                "target": "IMAGE-bd0ef37f-49ea-40e2-aa84-a9dbd987ec61",
+                "targetHandle": "IMAGE",
+                "id": "reactflow__edge-CAMERA-09d24fab-4568-4d13-bd81-6f06490f5eeamain-IMAGE-bd0ef37f-49ea-40e2-aa84-a9dbd987ec61IMAGE"
             }
         ],
         "viewport": {
-            "x": 197.02420568593084,
-            "y": 51.49831064898197,
-            "zoom": 0.9164609015292902
+            "x": 383.94248946966945,
+            "y": 91.35910915060867,
+            "zoom": 1.1608238532718647
         }
     },
     "ctrlsManifest": [
         {
-            "type": "output",
-            "name": "Plot",
-            "minWidth": 2,
-            "minHeight": 3,
-            "id": "ctrl-d81b57c0-dda4-4160-894c-8307b5df7ef7",
-            "hidden": false,
-            "param": "OBJECT_DETECTION-a9866d79-0bc0-45d7-a2a4-6825b7a012bd",
-            "val": 0,
-            "layout": {
-                "w": 4,
-                "h": 4,
-                "x": 2,
-                "y": 0,
-                "i": "ctrl-d81b57c0-dda4-4160-894c-8307b5df7ef7",
-                "minW": 2,
-                "minH": 3,
-                "moved": false,
-                "static": true
-            }
-        },
-        {
             "type": "input",
-            "name": "Text Input",
-            "minWidth": 1,
-            "minHeight": 1,
-            "id": "ctrl-e813ad6f-6717-4242-b705-2ef72861fe45",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
             "hidden": false,
-            "param": {
-                "id": "LOCAL_FILE_LOCALFILE_path",
-                "functionName": "LOCAL_FILE",
-                "param": "path",
-                "nodeId": "LOCAL_FILE-b6953411-4f5e-4f22-aaba-bdc923e56b86",
-                "inputId": "ctrl-e813ad6f-6717-4242-b705-2ef72861fe45"
-            },
-            "val": 0,
+            "minHeight": 1,
+            "minWidth": 2,
             "layout": {
-                "w": 2,
-                "h": 2,
                 "x": 0,
                 "y": 0,
-                "i": "ctrl-e813ad6f-6717-4242-b705-2ef72861fe45",
-                "minW": 1,
+                "h": 2,
+                "w": 2,
                 "minH": 1,
-                "moved": false,
-                "static": true
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
             }
         }
     ]
