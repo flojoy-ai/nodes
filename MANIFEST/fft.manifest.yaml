@@ -25,9 +25,6 @@ COMMAND:
           - taylor
           - lanczos
         default: none
-      display:
-        type: boolean
-        default: true
       real_signal:
         type: boolean
         default: false
