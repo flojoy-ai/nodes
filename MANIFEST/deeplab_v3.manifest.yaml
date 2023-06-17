@@ -1,0 +1,4 @@
+COMMAND:
+  - name: DeepLabV3 Image Segmentation
+    key: DEEPLAB_V3
+    type: SEGMENTATION
