@@ -46,27 +46,33 @@ def DEEPLAB_V3(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     input_image = TF.to_pil_image(nparray).convert("RGB")
 
-    model = torch.hub.load('pytorch/vision:v0.10.0', 'deeplabv3_resnet50', pretrained=True)
+    model = torch.hub.load(
+        "pytorch/vision:v0.10.0", "deeplabv3_resnet50", pretrained=True
+    )
     model.eval()
 
-    preprocess_transform = transforms.Compose([
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    ])
+    preprocess_transform = transforms.Compose(
+        [
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+        ]
+    )
 
     input_tensor = preprocess_transform(input_image)
     input_batch = input_tensor.unsqueeze(0)
 
     with torch.no_grad():
-        output = model(input_batch)['out'][0]
+        output = model(input_batch)["out"][0]
 
     output_predictions = output.argmax(0)
-    palette = torch.tensor([2 ** 25 - 1, 2 ** 15 - 1, 2 ** 21 - 1])
+    palette = torch.tensor([2**25 - 1, 2**15 - 1, 2**21 - 1])
     colors = torch.as_tensor([i for i in range(21)])[:, None] * palette
     colors = (colors % 255).numpy().astype("uint8")
 
     # plot the semantic segmentation predictions of 21 classes in each color
-    r = Image.fromarray(output_predictions.byte().cpu().numpy()).resize(input_image.size)
+    r = Image.fromarray(output_predictions.byte().cpu().numpy()).resize(
+        input_image.size
+    )
     r.putpalette(colors)
     out_img = np.array(r.convert("RGB"))
 
