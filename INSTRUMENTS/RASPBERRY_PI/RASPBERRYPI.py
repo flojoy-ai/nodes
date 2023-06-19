@@ -23,18 +23,25 @@ def RASPBERRY_PI(dc, params):
     cpu_temp = 35
     raspberry_memory = 0
 
-    # subprocess.run("ls", capture_output=True)
-    # cpu = CPUTemperature()
-    # print("Test Temperature")
-    # print(cpu.temperature)
+    temperatures = psutil.sensors_temperatures()
+    print("information")
+    print(psutil.sensors_temperatures())
 
-    return DataContainer(type="ordered_pair", x=cpu_temp, y=raspberry_memory)
+    cpu_key = ''
+    for key, temps in temperatures.keys():
+        for temp in temps:
+            if temp.label == 'CPU temp':
+                cpu_key = key
+                break
+
+    temp1 = psutil.sensors_temperatures()["system76_acpi"][0].current
+    temp2 = temperatures[cpu_key][0].current
+
+    Temp = [temp1, temp2]
+
+    return DataContainer(type="ordered_pair", x=cpu_key, y=Temp)
 
 
-print("information")
-print(psutil.sensors_temperatures())
-
-temperature = psutil.sensors_temperatures()["system76_acpi"][0].current
 print("temp du CPU")
 print(temperature)
 
