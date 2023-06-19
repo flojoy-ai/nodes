@@ -1,0 +1,20 @@
+COMMAND:
+  - name: Camera
+    key: CAMERA
+    type: WEB_CAM
+    parameters:
+      camera_ind:
+        type: int
+        default: -1
+      resolution:
+        type: select
+        options:
+          - default
+          - 640x360
+          - 640x480
+          - 1280x720
+          - 1920x1080
+        default: default
+    pip_dependencies:
+      - name: opencv-python-headless
+        v: "4.7.0.72"
