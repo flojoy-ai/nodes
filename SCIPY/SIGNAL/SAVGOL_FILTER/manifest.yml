@@ -1,0 +1,26 @@
+COMMAND:
+  - name: Savgol_filter
+    key: SAVGOL_FILTER
+    type: SCIPY_SIGNAL
+    parameters: 
+      window_length: 
+        type: int
+        default:  
+      polyorder: 
+        type: int
+        default:  
+      deriv: 
+        type: int
+        default: 0 
+      delta: 
+        type: float
+        default: 1.0 
+      axis: 
+        type: int
+        default: -1 
+      mode: 
+        type: string
+        default: interp 
+      cval: 
+        type: float
+        default: 0.0

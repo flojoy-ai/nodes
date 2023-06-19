@@ -1,0 +1,4 @@
+COMMAND:
+  - name: Df_To_Np
+    key: DF_2_NP
+    type: TYPE_CASTING

@@ -1,0 +1,4 @@
+COMMAND:
+  - name: Eigvals
+    key: EIGVALS
+    type: NUMPY_LINALG

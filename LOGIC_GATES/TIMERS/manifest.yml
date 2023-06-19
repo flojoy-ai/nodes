@@ -1,0 +1,8 @@
+COMMAND:
+  - name: Timer
+    key: TIMER
+    type: TIMER
+    parameters:
+      sleep_time:
+        type: float
+        default: 0

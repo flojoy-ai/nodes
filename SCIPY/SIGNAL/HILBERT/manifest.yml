@@ -1,0 +1,11 @@
+COMMAND:
+  - name: Hilbert
+    key: HILBERT
+    type: SCIPY_SIGNAL
+    parameters: 
+      N: 
+        type: int
+        default:  
+      axis: 
+        type: int
+        default: -1

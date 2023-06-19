@@ -1,9 +1,0 @@
-COMMAND:
-  - name: Bspline
-    key: BSPLINE
-    type: SCIPY_SIGNAL
-    parameters: 
-      n: 
-        type: int
-        default:  
-        

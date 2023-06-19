@@ -1,0 +1,17 @@
+COMMAND:
+  - name: Kstat
+    key: KSTAT
+    type: SCIPY_STATS
+    parameters: 
+      n: 
+        type: int
+        default: 2 
+      axis: 
+        type: int or None
+        default:  
+      nan_policy: 
+        type: string
+        default: propagate 
+      keepdims: 
+        type: boolean
+        default: False

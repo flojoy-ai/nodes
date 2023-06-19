@@ -1,0 +1,11 @@
+COMMAND:
+  - name: Accuracy
+    key: ACCURACY
+    type: CLASSIFICATION
+    inputs:
+      - name: true_data
+        id: true_data
+        type: source
+      - name: predicted
+        id: predicted
+        type: source

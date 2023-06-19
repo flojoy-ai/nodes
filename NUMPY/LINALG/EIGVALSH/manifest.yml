@@ -1,0 +1,8 @@
+COMMAND:
+  - name: Eigvalsh
+    key: EIGVALSH
+    type: NUMPY_LINALG
+    parameters: 
+      UPLO: 
+        type: string
+        default: L

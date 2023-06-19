@@ -1,0 +1,24 @@
+COMMAND:
+  - name: Text Dataset
+    key: TEXT_DATASET
+    type: SAMPLE_DATASET
+    parameters:
+      subset:
+        type: select
+        options:
+          - train 
+          - test 
+          - all
+        default: train
+      categories:
+        type: array
+        default: ""
+      remove_headers:
+        type: boolean
+        default: false
+      remove_footers:
+        type: boolean
+        default: false
+      remove_quotes:
+        type: boolean
+        default: false

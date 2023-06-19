@@ -1,0 +1,4 @@
+COMMAND:
+  - name: Scatter Plot
+    key: SCATTER
+    type: PLOTLY_VISOR

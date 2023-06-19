@@ -1,0 +1,8 @@
+COMMAND:
+  - name: Bayes_mvs
+    key: BAYES_MVS
+    type: SCIPY_STATS
+    parameters: 
+      alpha: 
+        type: float
+        default: 0.9

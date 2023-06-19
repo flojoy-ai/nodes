@@ -1,0 +1,17 @@
+COMMAND:
+  - name: Variation
+    key: VARIATION
+    type: SCIPY_STATS
+    parameters: 
+      axis: 
+        type: int
+        default: 0 
+      nan_policy: 
+        type: string
+        default: propagate 
+      ddof: 
+        type: int
+        default: 0 
+      keepdims: 
+        type: boolean
+        default: False
