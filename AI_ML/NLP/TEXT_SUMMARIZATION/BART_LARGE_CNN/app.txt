@@ -1,0 +1,166 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "BART_LARGE_CNN-4daeb76e-9235-4ac6-84d8-6b906d5363ab",
+                "type": "TEXT_SUMMARIZATION",
+                "data": {
+                    "id": "BART_LARGE_CNN-4daeb76e-9235-4ac6-84d8-6b906d5363ab",
+                    "label": "BART LARGE CNN",
+                    "func": "BART_LARGE_CNN",
+                    "type": "TEXT_SUMMARIZATION",
+                    "ctrls": {
+                        "min_length": {
+                            "functionName": "BART_LARGE_CNN",
+                            "param": "min_length",
+                            "value": 30
+                        },
+                        "max_length": {
+                            "functionName": "BART_LARGE_CNN",
+                            "param": "max_length",
+                            "value": 130
+                        },
+                        "do_sample": {
+                            "functionName": "BART_LARGE_CNN",
+                            "param": "do_sample",
+                            "value": false
+                        }
+                    },
+                    "selected": true
+                },
+                "position": {
+                    "x": 1017.9290461099395,
+                    "y": 348.37325963328806
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 1017.9290461099395,
+                    "y": 348.37325963328806
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "EXTRACT_COLUMNS-9e63c6e0-a0f3-41de-9507-a4b8c9f11c54",
+                "type": "DATAFRAME",
+                "data": {
+                    "id": "EXTRACT_COLUMNS-9e63c6e0-a0f3-41de-9507-a4b8c9f11c54",
+                    "label": "EXTRACT COLUMNS",
+                    "func": "EXTRACT_COLUMNS",
+                    "type": "DATAFRAME",
+                    "ctrls": {
+                        "columns": {
+                            "functionName": "EXTRACT_COLUMNS",
+                            "param": "columns",
+                            "value": "Text"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 626.500474681368,
+                    "y": 339.8018310618595
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 626.500474681368,
+                    "y": 339.8018310618595
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "TEXT_DATASET-454e8509-7baf-4f4d-b450-0a54aa16077d",
+                "type": "SAMPLE_DATASET",
+                "data": {
+                    "id": "TEXT_DATASET-454e8509-7baf-4f4d-b450-0a54aa16077d",
+                    "label": "TEXT DATASET",
+                    "func": "TEXT_DATASET",
+                    "type": "SAMPLE_DATASET",
+                    "ctrls": {
+                        "subset": {
+                            "functionName": "TEXT_DATASET",
+                            "param": "subset",
+                            "value": "test"
+                        },
+                        "categories": {
+                            "functionName": "TEXT_DATASET",
+                            "param": "categories",
+                            "value": "sci.med"
+                        },
+                        "remove_headers": {
+                            "functionName": "TEXT_DATASET",
+                            "param": "remove_headers",
+                            "value": true
+                        },
+                        "remove_footers": {
+                            "functionName": "TEXT_DATASET",
+                            "param": "remove_footers",
+                            "value": true
+                        },
+                        "remove_quotes": {
+                            "functionName": "TEXT_DATASET",
+                            "param": "remove_quotes",
+                            "value": true
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 245.07190325279657,
+                    "y": 346.9446882047166
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 245.07190325279657,
+                    "y": 346.9446882047166
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "TEXT_DATASET-454e8509-7baf-4f4d-b450-0a54aa16077d",
+                "sourceHandle": "main",
+                "target": "EXTRACT_COLUMNS-9e63c6e0-a0f3-41de-9507-a4b8c9f11c54",
+                "targetHandle": "EXTRACT_COLUMNS",
+                "id": "reactflow__edge-TEXT_DATASET-454e8509-7baf-4f4d-b450-0a54aa16077dmain-EXTRACT_COLUMNS-9e63c6e0-a0f3-41de-9507-a4b8c9f11c54EXTRACT_COLUMNS"
+            },
+            {
+                "source": "EXTRACT_COLUMNS-9e63c6e0-a0f3-41de-9507-a4b8c9f11c54",
+                "sourceHandle": "main",
+                "target": "BART_LARGE_CNN-4daeb76e-9235-4ac6-84d8-6b906d5363ab",
+                "targetHandle": "BART_LARGE_CNN",
+                "id": "reactflow__edge-EXTRACT_COLUMNS-9e63c6e0-a0f3-41de-9507-a4b8c9f11c54main-BART_LARGE_CNN-4daeb76e-9235-4ac6-84d8-6b906d5363abBART_LARGE_CNN"
+            }
+        ],
+        "viewport": {
+            "x": 256.1664289741635,
+            "y": 83.83159762528612,
+            "zoom": 0.774501674902988
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
