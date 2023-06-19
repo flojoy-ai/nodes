@@ -43,7 +43,7 @@ if git branch -a | grep -q $DOC_BRANCH; then
 else
   git checkout -b $DOC_BRANCH
   cd $GITHUB_WORKSPACE
-  python3 write_doc_string.py $DOC_FOLDER
+  python3 write_doc.py $DOC_FOLDER
   cd $DOC_FOLDER
   if git status --porcelain | grep -q .; then
     git add .

@@ -140,10 +140,13 @@ def get_content(file_path: str):
         return c
 
 
-def process_python_file(input_file_path: str, output_path: str, manifest_map: dict):
+def process_python_file(input_file_path: str, output_path: str):
     input_dir, input_file_name = path.split(input_file_path)
     node_name = input_file_name.replace(".py", "")
-    if not manifest_map.get(node_name, None):
+    manifest_file_yml = path.join(path.dirname(input_file_path), "manifest.yml")
+    manifest_file_yaml = path.join(path.dirname(input_file_path), "manifest.yaml")
+    manifest_file_path = manifest_file_yml if path.exists(manifest_file_yml) else manifest_file_yaml
+    if not path.exists(manifest_file_path):
         return
 
     content = get_content(input_file_path)
@@ -177,12 +180,8 @@ def process_python_file(input_file_path: str, output_path: str, manifest_map: di
             write_file_recursive(function_code_file_path, function_code)
 
     # write parameters
-    map_item = manifest_map.get(node_name, None)
-    param_content = ""
-    if map_item is not None:
-        params: dict | None = map_item.get("parameters", None)
-        if params is not None and len(params.keys()) > 0:
-            param_content = yaml.dump(params)
+    param_content = get_content(manifest_file_path)
+    param_content = yaml.dump(param_content)
 
     parameters_file_path = path.join(output_path, autogen_dir_name, "parameters.yaml")
     if not path.exists(parameters_file_path):
@@ -218,9 +217,7 @@ def process_python_file(input_file_path: str, output_path: str, manifest_map: di
             )
             c = get_content(md_file_path)
             for line in lines:
-                if line["new"] in c:
-                    pass
-                else:
+                if line["new"] not in c:
                     c = c.replace(line["prev"], line["new"])
             write_file_recursive(md_file_path, c)
 
@@ -250,7 +247,7 @@ def process_python_file(input_file_path: str, output_path: str, manifest_map: di
     if not path.exists(md_file_path):
         write_file_recursive(md_file_path, md_file_content)
     else:
-        if not path.exists(path.join(example_dir_path, f)) and has_example:
+        if path.exists(path.join(example_dir_path, 'app.txt')) and has_example:
             print("writing md file for: ", node_name, " has example: ", has_example)
             write_file_recursive(md_file_path, md_file_content)
 
@@ -284,28 +281,10 @@ def extract_function_code(content: str):
     return content
 
 
-def generate_manifest_map():
-    manifest_map = {}
-    for root, _, files in os.walk(manifest_dir):
-        for file in files:
-            allowed_file_ext = [".manifest.yaml", ".manifest.yml"]
-            if any(ext in file for ext in allowed_file_ext):
-                m_content = None
-                with open(path.join(root, file), "r") as f:
-                    read_file = f.read()
-                    m_content = yaml.load(read_file, Loader=yaml.FullLoader)
-                    f.close()
-                manifest_map[m_content["COMMAND"][0]["key"]] = m_content["COMMAND"][0]
-    return manifest_map
-
-
 nodes_dir = path.abspath(path.curdir)
-manifest_dir = path.join(nodes_dir, "MANIFEST")
 
-
-def write_doc_string(docs_dir: str):
+def write_doc(docs_dir: str):
     file_path = None
-    manifest_map = generate_manifest_map()
     for root, _, files in os.walk(nodes_dir):
         for file in files:
             if (
@@ -317,7 +296,7 @@ def write_doc_string(docs_dir: str):
                 path_from_second_dir = root[path_index:]
                 docs_file_path = path.join(docs_dir, path_from_second_dir)
                 file_path = path.join(root, file)
-                process_python_file(file_path, docs_file_path, manifest_map)
+                process_python_file(file_path, docs_file_path)
 
 
 docs_dir = ""
@@ -325,4 +304,4 @@ if __name__ == "__main__":
     docs_dir_path = sys.argv[1]
     docs_dir = path.abspath(path.join(docs_dir_path, "docs"))
     print(" docs dir: ", docs_dir)
-write_doc_string(docs_dir=docs_dir)
+write_doc(docs_dir=docs_dir)
