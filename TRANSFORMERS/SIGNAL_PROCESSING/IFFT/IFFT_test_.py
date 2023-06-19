@@ -26,6 +26,7 @@ patch("flojoy.flojoy", mock_flojoy_decorator).start()
 # After Patching the flojoy decorator, let's load the node under test.
 import IFFT
 
+
 def test_IFFT():
     N = 600
     T = 1.0 / 800.0
