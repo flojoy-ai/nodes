@@ -1,12 +1,14 @@
 COMMAND:
-  - {
-      name: PID,
-      key: PID,
-      type: "SIGNAL_PROCESSING",
-      parameters:
-        {
-          Kp: { type: "float", default: "5" },
-          Ki: { type: "float", default: "0.0143" },
-          Kd: { type: "float", default: "356.25" },
-        },
-      }
+  - name: PID
+    key: PID
+    type: SIGNAL_PROCESSING
+    parameters:
+      Kp: 
+        type: float
+        default: 5
+      Ki: 
+        type: float
+        default: 0.0143
+      Kd: 
+        type: float
+        default: 356.25
