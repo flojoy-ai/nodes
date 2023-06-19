@@ -1,0 +1,124 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "CPU_TEMP_RAM-2eda3428-7ea0-44e4-852f-77f066ba6e56",
+                "type": "CPU",
+                "data": {
+                    "id": "CPU_TEMP_RAM-2eda3428-7ea0-44e4-852f-77f066ba6e56",
+                    "label": "CPU TEMP RAM",
+                    "func": "CPU_TEMP_RAM",
+                    "type": "CPU",
+                    "ctrls": {},
+                    "pip_dependencies": [
+                        {
+                            "name": "psutil",
+                            "v": "5.9.5"
+                        }
+                    ],
+                    "selected": true
+                },
+                "position": {
+                    "x": 254.16386249890598,
+                    "y": 84.7125448847791
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 254.16386249890598,
+                    "y": 84.7125448847791
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "BAR-290a4448-07ae-4455-8875-ee0d166be87d",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "BAR-290a4448-07ae-4455-8875-ee0d166be87d",
+                    "label": "BAR",
+                    "func": "BAR",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 632.7352910703346,
+                    "y": 16.141116313350494
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 632.7352910703346,
+                    "y": 16.141116313350494
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-1da653af-076b-4c96-b420-ce318da27a22",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-1da653af-076b-4c96-b420-ce318da27a22",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1217.0210053560488,
+                    "y": 76.14111631335061
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1217.0210053560488,
+                    "y": 76.14111631335061
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "CPU_TEMP_RAM-2eda3428-7ea0-44e4-852f-77f066ba6e56",
+                "sourceHandle": "main",
+                "target": "BAR-290a4448-07ae-4455-8875-ee0d166be87d",
+                "targetHandle": "BAR",
+                "id": "reactflow__edge-CPU_TEMP_RAM-2eda3428-7ea0-44e4-852f-77f066ba6e56main-BAR-290a4448-07ae-4455-8875-ee0d166be87dBAR"
+            },
+            {
+                "source": "BAR-290a4448-07ae-4455-8875-ee0d166be87d",
+                "sourceHandle": "main",
+                "target": "END-1da653af-076b-4c96-b420-ce318da27a22",
+                "targetHandle": "END",
+                "id": "reactflow__edge-BAR-290a4448-07ae-4455-8875-ee0d166be87dmain-END-1da653af-076b-4c96-b420-ce318da27a22END"
+            }
+        ],
+        "viewport": {
+            "x": 274.2885144771319,
+            "y": 61.49054757719483,
+            "zoom": 0.8292925607774201
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
