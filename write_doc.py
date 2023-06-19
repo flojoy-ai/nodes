@@ -145,7 +145,9 @@ def process_python_file(input_file_path: str, output_path: str):
     node_name = input_file_name.replace(".py", "")
     manifest_file_yml = path.join(path.dirname(input_file_path), "manifest.yml")
     manifest_file_yaml = path.join(path.dirname(input_file_path), "manifest.yaml")
-    manifest_file_path = manifest_file_yml if path.exists(manifest_file_yml) else manifest_file_yaml
+    manifest_file_path = (
+        manifest_file_yml if path.exists(manifest_file_yml) else manifest_file_yaml
+    )
     if not path.exists(manifest_file_path):
         return
 
@@ -247,7 +249,7 @@ def process_python_file(input_file_path: str, output_path: str):
     if not path.exists(md_file_path):
         write_file_recursive(md_file_path, md_file_content)
     else:
-        if path.exists(path.join(example_dir_path, 'app.txt')) and has_example:
+        if path.exists(path.join(example_dir_path, "app.txt")) and has_example:
             print("writing md file for: ", node_name, " has example: ", has_example)
             write_file_recursive(md_file_path, md_file_content)
 
@@ -282,6 +284,7 @@ def extract_function_code(content: str):
 
 
 nodes_dir = path.abspath(path.curdir)
+
 
 def write_doc(docs_dir: str):
     file_path = None
