@@ -49,8 +49,7 @@ def TWO_DIMENSIONAL_FFT(dc_inputs: list[DataContainer], params: dict) -> DataCon
         case "dataframe":
             input = pd.DataFrame(dc.m)
             fourier = fft.rfft2(input) if real else fft.fft2(input)
-            fourier = np.log10(np.abs(fourier))
-            fourier = extrapolate(fourier)
+            fourier = fourier.real
             result = pd.DataFrame(columns=fourier.columns, index=fourier.index)
             return DataContainer(type="dataframe", m=result)
         case "image":
