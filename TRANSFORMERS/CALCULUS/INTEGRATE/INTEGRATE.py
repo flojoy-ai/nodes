@@ -4,12 +4,12 @@ import numpy as np
 
 def trapz(x, y):
     m = [0] * len(x)
-    trapezium = (1 / 2) * (x[0] + x[1]) * (y[1] - y[0])
+    trapezium = (1 / 2) * (x[1] - x[0]) * (y[1] + y[0])
     m[1] = trapezium
 
     for i in range(2, len(x)):
-        trapezium = (1 / 2) * (x[i - 1] + x[i]) * (y[i] - y[i - 1])
-        m[i] = trapezium
+        trapezium = (1 / 2) * (x[i] - x[i - 1]) * (y[i] + y[i - 1])
+        m[i] = m[i - 1] + trapezium
 
     return m
 
