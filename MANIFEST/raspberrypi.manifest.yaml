@@ -1,11 +1,7 @@
 COMMAND:
-  - name: RASPBERRY_PI
-    key: RASPBERRY_PI
-    type: RASPBERRY
-    parameters:
-      number:
-        type: float
-        default: 0
+  - name: CPU_TEMP_RAM
+    key: CPU_TEMP_RAM
+    type: CPU
     pip_dependencies:
      - name : psutil
        v: "5.9.5"
