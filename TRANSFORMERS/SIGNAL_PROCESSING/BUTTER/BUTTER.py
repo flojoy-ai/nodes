@@ -5,13 +5,42 @@ from flojoy import flojoy, DataContainer
 
 @flojoy
 def BUTTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """Apply a butterworth filter to an input vector"""
+    """The BUTTER node applies a butterworth filter to an input vector
 
-    print("Butterworth inputs:", dc_inputs)
+    Parameters
+    ----------
+    filter_order: int
+        the intensity of the filter
+    critical_frequency: array or int
+        The frequency where the filter takes effect. For lowpass and highpass, takes in a scalar.
+        For bandpass and bandstop, takes in array with the length of two
+    btype: select
+        The type of the filter
+    sample_rate: int
+        the sample rate of the input signal
 
-    sig = dc_inputs[0].y
+    Returns
+    -------
+        x: time domain
+        y: filter signal
+    """
+    if len(dc_inputs) != 1:
+        raise ValueError(
+            f"FFT node requires 1 input signal, but {len(dc_inputs)} was given!"
+        )
+    dc = dc_inputs[0]
+    if dc.type != "ordered_pair":
+        raise ValueError(
+            f"unsupported DataContainer type passed to FFT node: '{dc.type}'"
+        )
+    order: int = params["filter_order"]
+    Wn = params["critical_frequency"]  # hz
+    btype: str = params["btype"]
+    fs: int = params["sample_rate"]  # hz
 
-    sos = signal.butter(10, 15, "hp", fs=1000, output="sos")
+    sig: float = dc.y
+    sos = signal.butter(N=order, Wn=Wn, btype=btype, fs=fs, output="sos")
+#    sos = signal.butter(10, 15, "hp", fs=1000, output="sos")
     filtered = signal.sosfilt(sos, sig)
 
-    return DataContainer(x=sig, y=filtered)
+    return DataContainer(x=dc.x, y=filtered)

@@ -2,3 +2,21 @@ COMMAND:
   - name: Butterworth Filter
     key: BUTTER
     type: SIGNAL_PROCESSING
+    parameters:
+      filter_order:
+        type: int
+        default: 1
+      critical_frequency:
+        type: int
+        default: 1
+      btype:
+        type: select
+        options:
+          - lowpass
+          - highpass
+          - bandpass
+          - bandstop
+        default: lowpass
+      sample_rate:
+        type: int
+        default: 1

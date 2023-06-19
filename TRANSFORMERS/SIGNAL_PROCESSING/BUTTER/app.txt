@@ -4,10 +4,10 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "LINSPACE-c9dc355d-a512-4007-8859-6648f53e2626",
+                "id": "LINSPACE-5c4d7c79-4902-4c3d-b83e-011bd032583e",
                 "type": "default",
                 "data": {
-                    "id": "LINSPACE-c9dc355d-a512-4007-8859-6648f53e2626",
+                    "id": "LINSPACE-5c4d7c79-4902-4c3d-b83e-011bd032583e",
                     "label": "LINSPACE",
                     "func": "LINSPACE",
                     "type": "SIMULATION",
@@ -15,12 +15,12 @@
                         "start": {
                             "functionName": "LINSPACE",
                             "param": "start",
-                            "value": 10
+                            "value": "0"
                         },
                         "end": {
                             "functionName": "LINSPACE",
                             "param": "end",
-                            "value": 0
+                            "value": "1"
                         },
                         "step": {
                             "functionName": "LINSPACE",
@@ -31,23 +31,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -144.22958297787403,
-                    "y": 234.29120307418458
+                    "x": 79.23358159592465,
+                    "y": 119.50315391408321
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -144.22958297787403,
-                    "y": 234.29120307418458
+                    "x": 79.23358159592465,
+                    "y": 119.50315391408321
                 },
                 "dragging": true
             },
             {
                 "width": 130,
                 "height": 130,
-                "id": "SINE-e19605b9-62e1-4df0-8868-031a5d6f11d4",
+                "id": "SINE-5b9caca7-bbc0-43d8-a4c1-0f7edb16eec5",
                 "type": "SIMULATION",
                 "data": {
-                    "id": "SINE-e19605b9-62e1-4df0-8868-031a5d6f11d4",
+                    "id": "SINE-5b9caca7-bbc0-43d8-a4c1-0f7edb16eec5",
                     "label": "SINE",
                     "func": "SINE",
                     "type": "SIMULATION",
@@ -55,7 +55,7 @@
                         "frequency": {
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": "69"
+                            "value": "10"
                         },
                         "offset": {
                             "functionName": "SINE",
@@ -81,23 +81,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 208.62755987926886,
-                    "y": 62.86263164561308
+                    "x": 429.2335815959247,
+                    "y": 18.074582485511826
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 208.62755987926886,
-                    "y": 62.86263164561308
+                    "x": 429.2335815959247,
+                    "y": 18.074582485511826
                 },
                 "dragging": true
             },
             {
                 "width": 130,
                 "height": 130,
-                "id": "SINE-354ea790-a168-4de5-926e-8aced107d349",
+                "id": "SINE-98217c67-99bf-4ec6-a048-36565e13078a",
                 "type": "SIMULATION",
                 "data": {
-                    "id": "SINE-354ea790-a168-4de5-926e-8aced107d349",
+                    "id": "SINE-98217c67-99bf-4ec6-a048-36565e13078a",
                     "label": "SINE 1",
                     "func": "SINE",
                     "type": "SIMULATION",
@@ -105,7 +105,7 @@
                         "frequency": {
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": "59"
+                            "value": "20"
                         },
                         "offset": {
                             "functionName": "SINE",
@@ -131,23 +131,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 202.91327416498314,
-                    "y": 395.71977450275585
+                    "x": 440.662153024496,
+                    "y": 258.0745824855118
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 202.91327416498314,
-                    "y": 395.71977450275585
+                    "x": 440.662153024496,
+                    "y": 258.0745824855118
                 },
                 "dragging": true
             },
             {
                 "width": 99,
                 "height": 130,
-                "id": "ADD-532cc637-34de-44f7-b1e8-d1483795aa16",
+                "id": "ADD-fdf915f2-6f79-46e9-ba5e-2829df498cbf",
                 "type": "ARITHMETIC",
                 "data": {
-                    "id": "ADD-532cc637-34de-44f7-b1e8-d1483795aa16",
+                    "id": "ADD-fdf915f2-6f79-46e9-ba5e-2829df498cbf",
                     "label": "ADD",
                     "func": "ADD",
                     "type": "ARITHMETIC",
@@ -162,144 +162,181 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 428.62755987926886,
-                    "y": 245.71977450275585
+                    "x": 670.6621530244961,
+                    "y": 135.21743962836894
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 428.62755987926886,
-                    "y": 245.71977450275585
+                    "x": 670.6621530244961,
+                    "y": 135.21743962836894
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "BUTTER-21ebcdfd-054c-4121-b85a-8aa0658404e9",
+                "id": "FFT-0cf54954-916b-4800-866c-b7f9e659514f",
                 "type": "SIGNAL_PROCESSING",
                 "data": {
-                    "id": "BUTTER-21ebcdfd-054c-4121-b85a-8aa0658404e9",
-                    "label": "BUTTER",
-                    "func": "BUTTER",
+                    "id": "FFT-0cf54954-916b-4800-866c-b7f9e659514f",
+                    "label": "FFT",
+                    "func": "FFT",
                     "type": "SIGNAL_PROCESSING",
-                    "ctrls": {},
-                    "selected": false
+                    "ctrls": {
+                        "window_type": {
+                            "functionName": "FFT",
+                            "param": "window_type",
+                            "value": "hann"
+                        },
+                        "real_signal": {
+                            "functionName": "FFT",
+                            "param": "real_signal",
+                            "value": true
+                        },
+                        "sample_rate": {
+                            "functionName": "FFT",
+                            "param": "sample_rate",
+                            "value": "1000"
+                        }
+                    },
+                    "selected": true
                 },
                 "position": {
-                    "x": 664.3418455935546,
-                    "y": 230.0054887884702
+                    "x": 1363.519295881639,
+                    "y": 116.64601105694038
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 664.3418455935546,
-                    "y": 230.0054887884702
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "LINE-f3ad568f-959a-4517-81e3-48ce7da460c9",
-                "type": "PLOTLY_VISOR",
-                "data": {
-                    "id": "LINE-f3ad568f-959a-4517-81e3-48ce7da460c9",
-                    "label": "LINE",
-                    "func": "LINE",
-                    "type": "PLOTLY_VISOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 952.9132741649831,
-                    "y": 184.29120307418452
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 952.9132741649831,
-                    "y": 184.29120307418452
+                    "x": 1363.519295881639,
+                    "y": 116.64601105694038
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-bfcecfae-944d-4189-86f1-db1b41aeed2a",
+                "id": "END-5cbd8ea6-1ef5-42cf-a4d7-4f19b0a0f758",
                 "type": "TERMINATOR",
                 "data": {
-                    "id": "END-bfcecfae-944d-4189-86f1-db1b41aeed2a",
+                    "id": "END-5cbd8ea6-1ef5-42cf-a4d7-4f19b0a0f758",
                     "label": "END",
                     "func": "END",
                     "type": "TERMINATOR",
                     "ctrls": {},
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 1375.7704170221261,
-                    "y": 248.57691735989874
+                    "x": 1782.6241310515147,
+                    "y": 137.90800146218055
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 1375.7704170221261,
-                    "y": 248.57691735989874
+                    "x": 1782.6241310515147,
+                    "y": 137.90800146218055
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "BUTTER-5671a46e-3964-455c-9d0e-21694e662e53",
+                "type": "SIGNAL_PROCESSING",
+                "data": {
+                    "id": "BUTTER-5671a46e-3964-455c-9d0e-21694e662e53",
+                    "label": "BUTTER",
+                    "func": "BUTTER",
+                    "type": "SIGNAL_PROCESSING",
+                    "ctrls": {
+                        "filter_order": {
+                            "functionName": "BUTTER",
+                            "param": "filter_order",
+                            "value": "10"
+                        },
+                        "critical_frequency": {
+                            "functionName": "BUTTER",
+                            "param": "critical_frequency",
+                            "value": "15"
+                        },
+                        "btype": {
+                            "functionName": "BUTTER",
+                            "param": "btype",
+                            "value": "highpass"
+                        },
+                        "sample_rate": {
+                            "functionName": "BUTTER",
+                            "param": "sample_rate",
+                            "value": "1000"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 978.7410780217947,
+                    "y": 120.15780861706435
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 978.7410780217947,
+                    "y": 120.15780861706435
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LINSPACE-c9dc355d-a512-4007-8859-6648f53e2626",
+                "source": "LINSPACE-5c4d7c79-4902-4c3d-b83e-011bd032583e",
                 "sourceHandle": "main",
-                "target": "SINE-e19605b9-62e1-4df0-8868-031a5d6f11d4",
+                "target": "SINE-5b9caca7-bbc0-43d8-a4c1-0f7edb16eec5",
                 "targetHandle": "SINE",
-                "id": "reactflow__edge-LINSPACE-c9dc355d-a512-4007-8859-6648f53e2626main-SINE-e19605b9-62e1-4df0-8868-031a5d6f11d4SINE"
+                "id": "reactflow__edge-LINSPACE-5c4d7c79-4902-4c3d-b83e-011bd032583emain-SINE-5b9caca7-bbc0-43d8-a4c1-0f7edb16eec5SINE"
             },
             {
-                "source": "LINSPACE-c9dc355d-a512-4007-8859-6648f53e2626",
+                "source": "LINSPACE-5c4d7c79-4902-4c3d-b83e-011bd032583e",
                 "sourceHandle": "main",
-                "target": "SINE-354ea790-a168-4de5-926e-8aced107d349",
+                "target": "SINE-98217c67-99bf-4ec6-a048-36565e13078a",
                 "targetHandle": "SINE",
-                "id": "reactflow__edge-LINSPACE-c9dc355d-a512-4007-8859-6648f53e2626main-SINE-354ea790-a168-4de5-926e-8aced107d349SINE"
+                "id": "reactflow__edge-LINSPACE-5c4d7c79-4902-4c3d-b83e-011bd032583emain-SINE-98217c67-99bf-4ec6-a048-36565e13078aSINE"
             },
             {
-                "source": "SINE-e19605b9-62e1-4df0-8868-031a5d6f11d4",
+                "source": "SINE-5b9caca7-bbc0-43d8-a4c1-0f7edb16eec5",
                 "sourceHandle": "main",
-                "target": "ADD-532cc637-34de-44f7-b1e8-d1483795aa16",
+                "target": "ADD-fdf915f2-6f79-46e9-ba5e-2829df498cbf",
                 "targetHandle": "ADD",
-                "id": "reactflow__edge-SINE-e19605b9-62e1-4df0-8868-031a5d6f11d4main-ADD-532cc637-34de-44f7-b1e8-d1483795aa16ADD"
+                "id": "reactflow__edge-SINE-5b9caca7-bbc0-43d8-a4c1-0f7edb16eec5main-ADD-fdf915f2-6f79-46e9-ba5e-2829df498cbfADD"
             },
             {
-                "source": "SINE-354ea790-a168-4de5-926e-8aced107d349",
+                "source": "SINE-98217c67-99bf-4ec6-a048-36565e13078a",
                 "sourceHandle": "main",
-                "target": "ADD-532cc637-34de-44f7-b1e8-d1483795aa16",
+                "target": "ADD-fdf915f2-6f79-46e9-ba5e-2829df498cbf",
                 "targetHandle": "add_y",
-                "id": "reactflow__edge-SINE-354ea790-a168-4de5-926e-8aced107d349main-ADD-532cc637-34de-44f7-b1e8-d1483795aa16add_y"
+                "id": "reactflow__edge-SINE-98217c67-99bf-4ec6-a048-36565e13078amain-ADD-fdf915f2-6f79-46e9-ba5e-2829df498cbfadd_y"
             },
             {
-                "source": "ADD-532cc637-34de-44f7-b1e8-d1483795aa16",
+                "source": "FFT-0cf54954-916b-4800-866c-b7f9e659514f",
                 "sourceHandle": "main",
-                "target": "BUTTER-21ebcdfd-054c-4121-b85a-8aa0658404e9",
-                "targetHandle": "BUTTER",
-                "id": "reactflow__edge-ADD-532cc637-34de-44f7-b1e8-d1483795aa16main-BUTTER-21ebcdfd-054c-4121-b85a-8aa0658404e9BUTTER"
-            },
-            {
-                "source": "BUTTER-21ebcdfd-054c-4121-b85a-8aa0658404e9",
-                "sourceHandle": "main",
-                "target": "LINE-f3ad568f-959a-4517-81e3-48ce7da460c9",
-                "targetHandle": "LINE",
-                "id": "reactflow__edge-BUTTER-21ebcdfd-054c-4121-b85a-8aa0658404e9main-LINE-f3ad568f-959a-4517-81e3-48ce7da460c9LINE"
-            },
-            {
-                "source": "LINE-f3ad568f-959a-4517-81e3-48ce7da460c9",
-                "sourceHandle": "main",
-                "target": "END-bfcecfae-944d-4189-86f1-db1b41aeed2a",
+                "target": "END-5cbd8ea6-1ef5-42cf-a4d7-4f19b0a0f758",
                 "targetHandle": "END",
-                "id": "reactflow__edge-LINE-f3ad568f-959a-4517-81e3-48ce7da460c9main-END-bfcecfae-944d-4189-86f1-db1b41aeed2aEND"
+                "id": "reactflow__edge-FFT-0cf54954-916b-4800-866c-b7f9e659514fmain-END-5cbd8ea6-1ef5-42cf-a4d7-4f19b0a0f758END"
+            },
+            {
+                "source": "ADD-fdf915f2-6f79-46e9-ba5e-2829df498cbf",
+                "sourceHandle": "main",
+                "target": "BUTTER-5671a46e-3964-455c-9d0e-21694e662e53",
+                "targetHandle": "BUTTER",
+                "id": "reactflow__edge-ADD-fdf915f2-6f79-46e9-ba5e-2829df498cbfmain-BUTTER-5671a46e-3964-455c-9d0e-21694e662e53BUTTER"
+            },
+            {
+                "source": "BUTTER-5671a46e-3964-455c-9d0e-21694e662e53",
+                "sourceHandle": "main",
+                "target": "FFT-0cf54954-916b-4800-866c-b7f9e659514f",
+                "targetHandle": "FFT",
+                "id": "reactflow__edge-BUTTER-5671a46e-3964-455c-9d0e-21694e662e53main-FFT-0cf54954-916b-4800-866c-b7f9e659514fFFT"
             }
         ],
         "viewport": {
-            "x": 178.95788989770995,
-            "y": 69.74260865081652,
-            "zoom": 0.7756174461376771
+            "x": 283.34955722861605,
+            "y": 49.320022553149215,
+            "zoom": 0.856688003714636
         }
     },
     "ctrlsManifest": [
