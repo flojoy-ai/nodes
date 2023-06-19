@@ -18,4 +18,3 @@ COMMAND:
       lower_bound_y:
         type: float
         default: 0.0
-      
