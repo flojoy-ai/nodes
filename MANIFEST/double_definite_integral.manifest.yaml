@@ -1,0 +1,20 @@
+COMMAND:
+  - name: Double_Definite_Integral
+    key: DOUBLE_DEFINITE_INTEGRAL
+    type: CALCULUS
+    parameters:
+      function:
+        type: string
+        default: ""
+      upper_bound_x:
+        type: float
+        default: 0.0
+      lower_bound_x:
+        type: float
+        default: 0.0
+      upper_bound_y:
+        type: float
+        default: 0.0
+      lower_bound_y:
+        type: float
+        default: 0.0

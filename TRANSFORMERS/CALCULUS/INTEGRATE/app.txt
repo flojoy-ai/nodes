@@ -1,0 +1,165 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "INTEGRATE-7a314fb7-9d27-4ed6-8629-4201e85d7839",
+                "type": "CALCULUS",
+                "data": {
+                    "id": "INTEGRATE-7a314fb7-9d27-4ed6-8629-4201e85d7839",
+                    "label": "INTEGRATE",
+                    "func": "INTEGRATE",
+                    "type": "CALCULUS",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 825.6123403938965,
+                    "y": 153.66359478140322
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 825.6123403938965,
+                    "y": 153.66359478140322
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-93b77b20-3571-4bb3-8c3f-4a43f379d25f",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-93b77b20-3571-4bb3-8c3f-4a43f379d25f",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1253.242507985603,
+                    "y": 173.95451037603243
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1253.242507985603,
+                    "y": 173.95451037603243
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-208945d6-d088-4033-bda8-9d92402eb3fc",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-208945d6-d088-4033-bda8-9d92402eb3fc",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "start": {
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": 10
+                        },
+                        "end": {
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": 0
+                        },
+                        "step": {
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": "3"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 77.93027894790944,
+                    "y": 174.04179697790812
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 77.93027894790944,
+                    "y": 174.04179697790812
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "RAND-4c67b54c-7b9a-4c16-8a97-787cb2e523c7",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "RAND-4c67b54c-7b9a-4c16-8a97-787cb2e523c7",
+                    "label": "RAND",
+                    "func": "RAND",
+                    "type": "SIMULATION",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 476.4083224286069,
+                    "y": 160.5415428742058
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 476.4083224286069,
+                    "y": 160.5415428742058
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "INTEGRATE-7a314fb7-9d27-4ed6-8629-4201e85d7839",
+                "sourceHandle": "main",
+                "target": "END-93b77b20-3571-4bb3-8c3f-4a43f379d25f",
+                "targetHandle": "END",
+                "id": "reactflow__edge-INTEGRATE-7a314fb7-9d27-4ed6-8629-4201e85d7839main-END-93b77b20-3571-4bb3-8c3f-4a43f379d25fEND"
+            },
+            {
+                "source": "LINSPACE-208945d6-d088-4033-bda8-9d92402eb3fc",
+                "sourceHandle": "main",
+                "target": "RAND-4c67b54c-7b9a-4c16-8a97-787cb2e523c7",
+                "targetHandle": "RAND",
+                "id": "reactflow__edge-LINSPACE-208945d6-d088-4033-bda8-9d92402eb3fcmain-RAND-4c67b54c-7b9a-4c16-8a97-787cb2e523c7RAND"
+            },
+            {
+                "source": "RAND-4c67b54c-7b9a-4c16-8a97-787cb2e523c7",
+                "sourceHandle": "main",
+                "target": "INTEGRATE-7a314fb7-9d27-4ed6-8629-4201e85d7839",
+                "targetHandle": "INTEGRATE",
+                "id": "reactflow__edge-RAND-4c67b54c-7b9a-4c16-8a97-787cb2e523c7main-INTEGRATE-7a314fb7-9d27-4ed6-8629-4201e85d7839INTEGRATE"
+            }
+        ],
+        "viewport": {
+            "x": 254.33229548020677,
+            "y": 119.55737845143199,
+            "zoom": 0.775994799329387
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
