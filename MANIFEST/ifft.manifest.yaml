@@ -6,3 +6,4 @@ COMMAND:
       real_signal:
         type: boolean
         default: false
+
