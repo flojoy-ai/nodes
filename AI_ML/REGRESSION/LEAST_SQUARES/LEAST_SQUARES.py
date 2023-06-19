@@ -28,7 +28,6 @@ def LEAST_SQUARES(dc_inputs: list[DataContainer], params: dict) -> DataContainer
         raise ValueError(
             f"To compute least squares, LEAST_SQUARES node requires one or two inputs, {len(dc_inputs)} was given!"
         )
-    print("This is the length of dc inputs: ", len(dc_inputs))
     if len(dc_inputs) == 1 and dc_inputs[0].type == "ordered_pair":
         if len(np.array(dc_inputs[0].y)) != 0:
             x = np.array(dc_inputs[0].y)
