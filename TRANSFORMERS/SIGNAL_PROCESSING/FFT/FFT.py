@@ -1,6 +1,7 @@
 from scipy import signal, fft
 from numpy import abs
 from flojoy import flojoy, DataContainer
+from pandas import DataFrame
 
 
 @flojoy
@@ -48,16 +49,14 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     signal_value = dc.y
     x = dc.x
     sample_spacing = 1.0 / sample_rate
-
+    # x-axis
+    frequency = (
+        fft.rfftfreq(x.shape[-1], sample_spacing)
+        if real
+        else fft.fftfreq(x.shape[-1], sample_spacing)
+    )
+    frequency = fft.fftshift(frequency)
     if display:
-        # x-axis
-        frequency = (
-            fft.rfftfreq(x.shape[-1], sample_spacing)
-            if real
-            else fft.fftfreq(x.shape[-1], sample_spacing)
-        )
-        frequency = fft.fftshift(frequency)
-
         # y-axis
         if window_type == "none":
             fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
@@ -70,12 +69,9 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             )
         fourier = fft.fftshift(fourier)
         fourier = abs(fourier)
-    else:  # used for processing
-        fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
-        frequency = x
+        return DataContainer(x=frequency, y=fourier)
 
-    return (
-        DataContainer(x=frequency, y=fourier)
-        if display
-        else DataContainer(x=frequency, y={"real": fourier.real, "imag": fourier.imag})
-    )
+    # for processing
+    fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
+    d = {"x": x, "frequency": frequency, "real": fourier.real, "imag": fourier.imag}
+    return DataContainer(type="dataframe", m=DataFrame(data=d))
