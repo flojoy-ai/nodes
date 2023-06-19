@@ -25,9 +25,12 @@ patch("flojoy.flojoy", mock_flojoy_decorator).start()
 # After Patching the flojoy decorator, let's load the node under test.
 import TWO_DIMENSIONAL_FFT
 
+
 def test_2DFFT():
     m = np.mgrid[:5, :5][0]
     element = DataContainer(type="matrix", m=m)
-    res = TWO_DIMENSIONAL_FFT.TWO_DIMENSIONAL_FFT([element], {"real_signal": False, "color": "red"})
+    res = TWO_DIMENSIONAL_FFT.TWO_DIMENSIONAL_FFT(
+        [element], {"real_signal": False, "color": "red"}
+    )
     expected = fft.fft2(m).real
     assert (expected == res.m).all()
