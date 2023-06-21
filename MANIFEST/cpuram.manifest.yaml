@@ -1,0 +1,7 @@
+COMMAND:
+  - name: CPU_RAM
+    key: CPU_RAM
+    type: CPUR
+    pip_dependencies:
+     - name : psutil
+       v: "5.9.5"

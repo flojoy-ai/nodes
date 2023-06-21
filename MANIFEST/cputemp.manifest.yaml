@@ -1,6 +1,6 @@
 COMMAND:
-  - name: CPU_TEMP_RAM
-    key: CPU_TEMP_RAM
+  - name: CPU_TEMP
+    key: CPU_TEMP
     type: CPU
     pip_dependencies:
      - name : psutil
