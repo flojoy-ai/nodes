@@ -36,7 +36,7 @@ def OBJECT_DETECTION(dc_inputs: list[DataContainer], params: dict) -> DataContai
     a = dc_input.a
 
     path = os.path.join(
-        os.path.abspath(os.getcwd()), "utils/object_detection/yolov3.weights"
+        os.path.abspath(os.getcwd()), "PYTHON/utils/object_detection/yolov3.weights"
     )
     exists = os.path.exists(path)
 

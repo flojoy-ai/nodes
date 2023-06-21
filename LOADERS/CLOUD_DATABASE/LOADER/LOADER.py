@@ -15,41 +15,39 @@ def LOADER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     if dc_inputs:
         if api_key is not None and measurement_uuid != "":
-            try:
-                requests.post(
-                    MEASUREMENT_API,
-                    json={
-                        "api_key": api_key,
-                        "measurement_id": measurement_uuid,
-                        "measurement": json.dumps(dc_inputs[0], cls=PlotlyJSONEncoder),
-                    },
-                )
-            except Exception as e:
-                raise e
+            resp = requests.post(
+                MEASUREMENT_API,
+                json={
+                    "api_key": api_key,
+                    "measurement_id": measurement_uuid,
+                    "measurement": json.dumps(dc_inputs[0], cls=PlotlyJSONEncoder),
+                },
+            )
+            if not (resp.status_code == 200 or resp.status_code == 201):
+                raise Exception(str(resp.json()["error"]))
             return dc_inputs[0]
         else:
             not_found_key = (
                 "FRONTIER_API_KEY" if api_key is not None else "Measurement UUID"
             )
             raise KeyError(f"{not_found_key} not found!")
+
+    if api_key is not None and measurement_uuid != "":
+        dc_list = requests.get(
+            MEASUREMENT_API,
+            params={
+                "api_key": api_key,
+                "measurement_id": measurement_uuid,
+            },
+        ).json()
+        # TODO: now it only supports x and y, and it only loads the first entry
+        if not (dc_list.status_code == 200 or dc_list.status_code == 201):
+            raise Exception(dc_list.json()["message"])
+        return DataContainer(
+            x=dc_list[0]["dataContainer"]["x"], y=dc_list[0]["dataContainer"]["y"]
+        )
     else:
-        if api_key is not None and measurement_uuid != "":
-            try:
-                dc_list = requests.get(
-                    MEASUREMENT_API,
-                    params={
-                        "api_key": api_key,
-                        "measurement_id": measurement_uuid,
-                    },
-                ).json()
-                # TODO: now it only supports x and y, and it only loads the first entry
-                return DataContainer(
-                    x=dc_list[0]["data"]["x"], y=dc_list[0]["data"]["y"]
-                )
-            except Exception as e:
-                raise e
-        else:
-            not_found_key = (
-                "FRONTIER_API_KEY" if api_key is not None else "Measurement UUID"
-            )
-            raise KeyError(f"{not_found_key} not found!")
+        not_found_key = (
+            "FRONTIER_API_KEY" if api_key is not None else "Measurement UUID"
+        )
+        raise KeyError(f"{not_found_key} not found!")
