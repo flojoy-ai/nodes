@@ -7,8 +7,13 @@ import warnings
 def SAVGOL(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Apply a Savitzky-Golay filter to an input vector.
     The default behaviour is implementing a 3-point moving average of the data."""
-    print("Savgol inputs:", dc_inputs)
-    signal = dc_inputs[0].y
+    if len(dc_inputs) != 1:
+        raise ValueError(
+            f"SAVGOL node requires 1 input signal"
+        )
+    dc = dc_inputs[0]
+    x = dc.x
+    signal = dc.y
     window_length: int = params["wlen"]
     poly_order: int = params["porder"]
     if poly_order >= window_length:
@@ -17,4 +22,4 @@ def SAVGOL(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         )
         poly_order = window_length - 1
     filtered = scipy.signal.savgol_filter(signal, window_length, poly_order)
-    return DataContainer(x=signal, y=filtered)
+    return DataContainer(x=x, y=filtered)

@@ -1,5 +1,4 @@
 from scipy import signal
-import numpy as np
 from flojoy import flojoy, DataContainer
 
 
@@ -26,15 +25,11 @@ def BUTTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
     if len(dc_inputs) != 1:
         raise ValueError(
-            f"FFT node requires 1 input signal, but {len(dc_inputs)} was given!"
+            f"BUTTER node requires 1 input signal, but {len(dc_inputs)} was given!"
         )
     dc = dc_inputs[0]
-    if dc.type != "ordered_pair":
-        raise ValueError(
-            f"unsupported DataContainer type passed to FFT node: '{dc.type}'"
-        )
     order: int = params["filter_order"]
-    Wn = params["critical_frequency"]  # hz
+    Wn: int = params["critical_frequency"]  # hz
     btype: str = params["btype"]
     fs: int = params["sample_rate"]  # hz
 
