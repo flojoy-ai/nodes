@@ -38,11 +38,20 @@ jobs:
           token: ${{ steps.generate_token.outputs.token }}
       
       - name: Get last commit message
+        if: github.event.pull_request.merged != true
         run: |
           cd ${{ github.workspace }}
           git fetch origin ${{ github.head_ref }}
           git checkout ${{ github.head_ref }}
-          echo "LAST_COMMIT_MSG=$(git log -1 --pretty=format:'%s' '${{ github.event.pull_request.head.sha }}' )" >> "$GITHUB_ENV"
+          echo "LAST_COMMIT_MSG=$(git log -1 --pretty=format:'%s')" >> "$GITHUB_ENV"
+
+      - name: Get last commit message
+        if: github.event.pull_request.merged == true
+        run: |
+          cd ${{ github.workspace }}
+          git fetch origin main
+          git checkout main
+          echo "LAST_COMMIT_MSG=$(git log -1 --pretty=format:'%s')" >> "$GITHUB_ENV"
 
       - name: Send pull-request
         env:
