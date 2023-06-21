@@ -6,3 +6,4 @@ COMMAND:
       file_path:
         type: string
         default: ""
+        
