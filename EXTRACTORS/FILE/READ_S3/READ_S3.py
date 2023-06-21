@@ -27,29 +27,27 @@ def READ_S3(dc_inputs: list[DataContainer], params: dict[str, str]):
     DataContainer:
         type 'dataframe', m
     """
-    try:
-        name = params["s3_name"]
 
-        if name == "":
-            raise ValueError("Provide a name that was used to set AWS S3 key")
+    name = params["s3_key_name"]
 
-        home = str(Path.home())
-        file_path = os.path.join(home, ".flojoy/credentials.yaml")
+    if name == "":
+        raise ValueError("Provide a name that was used to set AWS S3 key")
 
-        with open(file_path, "r") as file:
-            data = yaml.safe_load(file)
+    home = str(Path.home())
+    file_path = os.path.join(home, ".flojoy/credentials.yaml")
 
-        s3_access_key = data[name + "accessKey"]
-        s3_secret_key = data[name + "secretKey"]
+    with open(file_path, "r") as file:
+        data = yaml.safe_load(file)
 
-        s3 = boto3.resource(
-            "s3", aws_access_key_id=s3_access_key, aws_secret_access_key=s3_secret_key
-        )
-        object = s3.Object(params["bucket_name"], params["file_name"])
-        buffer = io.BytesIO()
-        object.download_fileobj(buffer)
-        df = pd.read_parquet(buffer)
+    s3_access_key = data[name + "accessKey"]
+    s3_secret_key = data[name + "secretKey"]
 
-        return DataContainer(type="dataframe", m=df)
-    except Exception as e:
-        raise e
+    s3 = boto3.resource(
+        "s3", aws_access_key_id=s3_access_key, aws_secret_access_key=s3_secret_key
+    )
+    object = s3.Object(params["bucket_name"], params["file_name"])
+    buffer = io.BytesIO()
+    object.download_fileobj(buffer)
+    df = pd.read_parquet(buffer)
+
+    return DataContainer(type="dataframe", m=df)

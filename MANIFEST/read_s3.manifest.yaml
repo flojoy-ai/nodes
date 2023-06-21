@@ -3,7 +3,7 @@ COMMAND:
     key: READ_S3
     type: FILE
     parameters:
-      s3_name:
+      s3_key_name:
         type: string
         default: ""
       bucket_name:
