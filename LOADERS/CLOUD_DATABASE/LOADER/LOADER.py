@@ -33,18 +33,20 @@ def LOADER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             raise KeyError(f"{not_found_key} not found!")
 
     if api_key is not None and measurement_uuid != "":
-        dc_list = requests.get(
+        resp = requests.get(
             MEASUREMENT_API,
             params={
                 "api_key": api_key,
                 "measurement_id": measurement_uuid,
             },
-        ).json()
+        )
+        print(resp.json())
         # TODO: now it only supports x and y, and it only loads the first entry
-        if not (dc_list.status_code == 200 or dc_list.status_code == 201):
-            raise Exception(dc_list.json()["message"])
+        if not (resp.status_code == 200 or resp.status_code == 201):
+            raise Exception(resp.json()["error"])
         return DataContainer(
-            x=dc_list[0]["dataContainer"]["x"], y=dc_list[0]["dataContainer"]["y"]
+            x=resp.json()["data"][0]["dataContainer"]["x"],
+            y=resp.json()["data"][0]["dataContainer"]["y"],
         )
     else:
         not_found_key = (
