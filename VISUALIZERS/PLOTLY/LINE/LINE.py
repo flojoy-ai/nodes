@@ -8,7 +8,16 @@ from typing import cast
 
 @flojoy
 def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """Node creates a Plotly Line visualization for a given input data container."""
+    """The LINE node creates a Plotly Line visualization for a given input data container.
+
+    Parameters:
+    -----------
+    None
+
+    Supported DC types:
+    -------------------
+    `ordered_pair`, `dataframe` (including timeseries), `matrix`
+    """
     dc_input: DataContainer = dc_inputs[0]
     node_name = __name__.split(".")[-1]
     layout = plot_layout(title=node_name)
@@ -20,7 +29,7 @@ def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 dict_keys = list(dc_input.x.keys())
                 x = dc_input.x[dict_keys[0]]
             y = dc_input.y
-            fig.add_trace(go.Line(x=x, y=y, mode="lines"))
+            fig.add_trace(go.Scatter(x=x, y=y, mode="lines"))
         case "dataframe":
             df = pd.DataFrame(dc_input.m)
             first_col = df.iloc[:, 0]
@@ -50,16 +59,18 @@ def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                     )
 
         case "matrix":
-            y_columns: np.ndarray = dc_input.m
-            for i, col in enumerate(y_columns.T):
+            m: np.ndarray = dc_input.m
+
+            num_rows, num_cols = m.shape
+
+            x_ticks = np.arange(num_cols)
+
+            for i in range(num_rows):
                 fig.add_trace(
-                    go.Scatter(
-                        x=np.arange(0, col.size),
-                        y=col,
-                        mode="lines",
-                        name=i,
-                    )
+                    go.Scatter(x=x_ticks, y=m[i, :], name=f"Row {i+1}", mode="lines")
                 )
+
+            fig.update_layout(xaxis_title="Column", yaxis_title="Value")
 
         case _:
             raise ValueError(

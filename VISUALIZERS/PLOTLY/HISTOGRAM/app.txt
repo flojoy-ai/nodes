@@ -1,0 +1,336 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-6c7ae713-2d23-45fc-9de2-9ce88637b3dd",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-6c7ae713-2d23-45fc-9de2-9ce88637b3dd",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "start": {
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": 10
+                        },
+                        "end": {
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": 0
+                        },
+                        "step": {
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": 1000
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": -497.20236746592354,
+                    "y": -208.39640557957426
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -497.20236746592354,
+                    "y": -208.39640557957426
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "TIMESERIES-23fef32c-9d2f-44cc-ba31-ef05391a958b",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "TIMESERIES-23fef32c-9d2f-44cc-ba31-ef05391a958b",
+                    "label": "TIMESERIES",
+                    "func": "TIMESERIES",
+                    "type": "SIMULATION",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": -481.20236746592354,
+                    "y": 45.603594420425736
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -481.20236746592354,
+                    "y": 45.603594420425736
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "R_DATASET-514510f6-380c-471f-ba27-bce9cc9affbf",
+                "type": "SAMPLE_DATASET",
+                "data": {
+                    "id": "R_DATASET-514510f6-380c-471f-ba27-bce9cc9affbf",
+                    "label": "R DATASET",
+                    "func": "R_DATASET",
+                    "type": "SAMPLE_DATASET",
+                    "ctrls": {
+                        "dataset_key": {
+                            "functionName": "R_DATASET",
+                            "param": "dataset_key",
+                            "value": "iris"
+                        }
+                    },
+                    "pip_dependencies": [
+                        {
+                            "name": "rdatasets",
+                            "v": "0.1.0"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": -457.20236746592354,
+                    "y": 301.60359442042574
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -457.20236746592354,
+                    "y": 301.60359442042574
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "MATRIX-e319af94-17b7-4755-8818-b68ea1576bd7",
+                "type": "default",
+                "data": {
+                    "id": "MATRIX-e319af94-17b7-4755-8818-b68ea1576bd7",
+                    "label": "MATRIX",
+                    "func": "MATRIX",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "row": {
+                            "functionName": "MATRIX",
+                            "param": "row",
+                            "value": "8"
+                        },
+                        "column": {
+                            "functionName": "MATRIX",
+                            "param": "column",
+                            "value": "7"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": -453.20236746592354,
+                    "y": 609.6035944204257
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -453.20236746592354,
+                    "y": 609.6035944204257
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "HISTOGRAM-810b3f14-1cb9-49cc-92fd-01168994c760",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "HISTOGRAM-810b3f14-1cb9-49cc-92fd-01168994c760",
+                    "label": "HISTOGRAM",
+                    "func": "HISTOGRAM",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 90.79763253407646,
+                    "y": -286.39640557957426
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 90.79763253407646,
+                    "y": -286.39640557957426
+                },
+                "dragging": true
+            },
+            {
+                "id": "END-aafa9ee2-3ea5-4292-8f6c-093f8595d55c",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-aafa9ee2-3ea5-4292-8f6c-093f8595d55c",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {}
+                },
+                "position": {
+                    "x": 770.7976325340765,
+                    "y": 235.60359442042574
+                },
+                "width": 210,
+                "height": 130
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "HISTOGRAM-3037db4e-9ef0-42b1-8936-5f337b45a850",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "HISTOGRAM-3037db4e-9ef0-42b1-8936-5f337b45a850",
+                    "label": "HISTOGRAM 1",
+                    "func": "HISTOGRAM",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 98.79763253407646,
+                    "y": 265.60359442042574
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 98.79763253407646,
+                    "y": 265.60359442042574
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "HISTOGRAM-79312f1d-79fe-4fbe-9b86-bf8bfe98cf45",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "HISTOGRAM-79312f1d-79fe-4fbe-9b86-bf8bfe98cf45",
+                    "label": "HISTOGRAM 2",
+                    "func": "HISTOGRAM",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 102.79763253407646,
+                    "y": -10.396405579574264
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 102.79763253407646,
+                    "y": -10.396405579574264
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "HISTOGRAM-cf7fb841-b1e6-416b-bf3d-56af4da968aa",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "HISTOGRAM-cf7fb841-b1e6-416b-bf3d-56af4da968aa",
+                    "label": "HISTOGRAM 3",
+                    "func": "HISTOGRAM",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 108.79763253407646,
+                    "y": 561.6035944204257
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 108.79763253407646,
+                    "y": 561.6035944204257
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LINSPACE-6c7ae713-2d23-45fc-9de2-9ce88637b3dd",
+                "sourceHandle": "main",
+                "target": "HISTOGRAM-810b3f14-1cb9-49cc-92fd-01168994c760",
+                "targetHandle": "HISTOGRAM",
+                "id": "reactflow__edge-LINSPACE-6c7ae713-2d23-45fc-9de2-9ce88637b3ddmain-HISTOGRAM-810b3f14-1cb9-49cc-92fd-01168994c760HISTOGRAM"
+            },
+            {
+                "source": "TIMESERIES-23fef32c-9d2f-44cc-ba31-ef05391a958b",
+                "sourceHandle": "main",
+                "target": "HISTOGRAM-79312f1d-79fe-4fbe-9b86-bf8bfe98cf45",
+                "targetHandle": "HISTOGRAM",
+                "id": "reactflow__edge-TIMESERIES-23fef32c-9d2f-44cc-ba31-ef05391a958bmain-HISTOGRAM-79312f1d-79fe-4fbe-9b86-bf8bfe98cf45HISTOGRAM"
+            },
+            {
+                "source": "R_DATASET-514510f6-380c-471f-ba27-bce9cc9affbf",
+                "sourceHandle": "main",
+                "target": "HISTOGRAM-3037db4e-9ef0-42b1-8936-5f337b45a850",
+                "targetHandle": "HISTOGRAM",
+                "id": "reactflow__edge-R_DATASET-514510f6-380c-471f-ba27-bce9cc9affbfmain-HISTOGRAM-3037db4e-9ef0-42b1-8936-5f337b45a850HISTOGRAM"
+            },
+            {
+                "source": "MATRIX-e319af94-17b7-4755-8818-b68ea1576bd7",
+                "sourceHandle": "main",
+                "target": "HISTOGRAM-cf7fb841-b1e6-416b-bf3d-56af4da968aa",
+                "targetHandle": "HISTOGRAM",
+                "id": "reactflow__edge-MATRIX-e319af94-17b7-4755-8818-b68ea1576bd7main-HISTOGRAM-cf7fb841-b1e6-416b-bf3d-56af4da968aaHISTOGRAM"
+            },
+            {
+                "source": "HISTOGRAM-810b3f14-1cb9-49cc-92fd-01168994c760",
+                "sourceHandle": "main",
+                "target": "END-aafa9ee2-3ea5-4292-8f6c-093f8595d55c",
+                "targetHandle": "END",
+                "id": "reactflow__edge-HISTOGRAM-810b3f14-1cb9-49cc-92fd-01168994c760main-END-aafa9ee2-3ea5-4292-8f6c-093f8595d55cEND"
+            },
+            {
+                "source": "HISTOGRAM-79312f1d-79fe-4fbe-9b86-bf8bfe98cf45",
+                "sourceHandle": "main",
+                "target": "END-aafa9ee2-3ea5-4292-8f6c-093f8595d55c",
+                "targetHandle": "END",
+                "id": "reactflow__edge-HISTOGRAM-79312f1d-79fe-4fbe-9b86-bf8bfe98cf45main-END-aafa9ee2-3ea5-4292-8f6c-093f8595d55cEND"
+            },
+            {
+                "source": "HISTOGRAM-3037db4e-9ef0-42b1-8936-5f337b45a850",
+                "sourceHandle": "main",
+                "target": "END-aafa9ee2-3ea5-4292-8f6c-093f8595d55c",
+                "targetHandle": "END",
+                "id": "reactflow__edge-HISTOGRAM-3037db4e-9ef0-42b1-8936-5f337b45a850main-END-aafa9ee2-3ea5-4292-8f6c-093f8595d55cEND"
+            },
+            {
+                "source": "HISTOGRAM-cf7fb841-b1e6-416b-bf3d-56af4da968aa",
+                "sourceHandle": "main",
+                "target": "END-aafa9ee2-3ea5-4292-8f6c-093f8595d55c",
+                "targetHandle": "END",
+                "id": "reactflow__edge-HISTOGRAM-cf7fb841-b1e6-416b-bf3d-56af4da968aamain-END-aafa9ee2-3ea5-4292-8f6c-093f8595d55cEND"
+            }
+        ],
+        "viewport": {
+            "x": 386.5510318488166,
+            "y": 106.11354232520893,
+            "zoom": 0.7582897221981599
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
