@@ -2,13 +2,3 @@ COMMAND:
   - name: BART_LARGE_CNN text summarization
     key: BART_LARGE_CNN
     type: TEXT_SUMMARIZATION
-    parameters:
-      min_length:
-        type: int
-        default: 30
-      max_length:
-        type: int
-        default: 130
-      do_sample:
-        type: boolean
-        default: false
