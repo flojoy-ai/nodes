@@ -32,7 +32,6 @@ def test_BART_LARGE_CNN(mock_flojoy_decorator, long_text):
         m=pd.DataFrame({"text": [long_text] * 3}),
     )
 
-    input_dc.m.iloc[:1].to_csv("test_BART_LARGE_CNN_input.csv", index=False)
 
     output_dc = BART_LARGE_CNN.BART_LARGE_CNN(dc_inputs=[input_dc], params={})
     assert output_dc.type == "dataframe"
