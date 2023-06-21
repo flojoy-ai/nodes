@@ -44,7 +44,7 @@ def BART_LARGE_CNN(dc_inputs: list[DataContainer], params: dict) -> DataContaine
 
     def _summarize_text(text):
         chunks = _chunk_text(text)
-        summary_ids = [model.generate(chunk, num_beams=4, max_length=100, early_stopping=True) for chunk in chunks]
+        summary_ids = [model.generate(chunk, num_beams=4, max_length=tokenizer.model_max_length // 2, early_stopping=True) for chunk in chunks]
         summaries = ['\n'.join([tokenizer.decode(g, skip_special_tokens=True, clean_up_tokenization_spaces=False) for g in id]) for id in summary_ids]
         return '\n'.join(summaries)
     
