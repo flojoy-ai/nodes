@@ -1,5 +1,6 @@
 from flojoy import flojoy, DataContainer
 import psutil
+import pandas as pd
 
 
 @flojoy
@@ -18,14 +19,20 @@ def CPU_TEMP_RAM(dc, params):
 
     temperatures = psutil.sensors_temperatures()
 
-    cpu_key = ""
-    for key in temperatures.keys():
-        for temp in temperatures[key]:
-            if temp.label == "CPU temp":
-                cpu_key = key
-                break
+    print(temperatures)
 
-    temp = temperatures[cpu_key][0].current
+    temp = pd.DataFrame.from_dict(temperatures, orient="index")
+
+    print(temp)
+
+    # cpu_key = ""
+    # for key in temperatures.keys():
+    #    for temp in temperatures[key]:
+    #        if temp.label == "CPU temp":
+    #            cpu_key = key
+    #            break
+
+    # temp = temperatures[cpu_key][0].current
 
     cpu_data = [temp, memory_free_go]
     data_description = ["CPU Temp (°C)", "RAM Available (Go)"]
