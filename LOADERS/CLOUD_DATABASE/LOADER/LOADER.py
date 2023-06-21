@@ -11,28 +11,27 @@ MEASUREMENT_API: str = f"{FRONTIER_URI}/api/streaming"
 @flojoy
 def LOADER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     api_key: str | None = get_frontier_api_key()
+    if api_key is None:
+        raise KeyError(f"Frontier API key is not found!")
+
     measurement_uuid: str = params["measurement_uuid"]
+    if measurement_uuid == "":
+        raise KeyError(f"Measurement ID is not found!")
 
     if dc_inputs:
-        if api_key is not None and measurement_uuid != "":
-            resp = requests.post(
-                MEASUREMENT_API,
-                json={
-                    "api_key": api_key,
-                    "measurement_id": measurement_uuid,
-                    "measurement": json.dumps(dc_inputs[0], cls=PlotlyJSONEncoder),
-                },
-            )
-            if not (resp.status_code == 200 or resp.status_code == 201):
-                raise Exception(str(resp.json()["error"]))
-            return dc_inputs[0]
-        else:
-            not_found_key = (
-                "FRONTIER_API_KEY" if api_key is not None else "Measurement UUID"
-            )
-            raise KeyError(f"{not_found_key} not found!")
+        resp = requests.post(
+            MEASUREMENT_API,
+            json={
+                "api_key": api_key,
+                "measurement_id": measurement_uuid,
+                "measurement": json.dumps(dc_inputs[0], cls=PlotlyJSONEncoder),
+            },
+        )
+        if not (resp.status_code == 200 or resp.status_code == 201):
+            raise Exception(str(resp.json()["error"]))
+        return dc_inputs[0]
 
-    if api_key is not None and measurement_uuid != "":
+    else:
         resp = requests.get(
             MEASUREMENT_API,
             params={
@@ -48,8 +47,3 @@ def LOADER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             x=resp.json()["data"][0]["dataContainer"]["x"],
             y=resp.json()["data"][0]["dataContainer"]["y"],
         )
-    else:
-        not_found_key = (
-            "FRONTIER_API_KEY" if api_key is not None else "Measurement UUID"
-        )
-        raise KeyError(f"{not_found_key} not found!")
