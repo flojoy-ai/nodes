@@ -15,23 +15,19 @@ def mock_flojoy_decorator():
 
 @pytest.fixture
 def long_text():
-    _file_path = (
-        f"{os.path.dirname(os.path.realpath(__file__))}/story.txt"
-    )
+    _file_path = f"{os.path.dirname(os.path.realpath(__file__))}/story.txt"
     with open(_file_path, "r") as f:
         text = f.read()
     return text
 
 
 def test_BART_LARGE_CNN(mock_flojoy_decorator, long_text):
-
     import BART_LARGE_CNN
 
     input_dc = DataContainer(
         type="dataframe",
         m=pd.DataFrame({"text": [long_text] * 3}),
     )
-
 
     output_dc = BART_LARGE_CNN.BART_LARGE_CNN(dc_inputs=[input_dc], params={})
     assert output_dc.type == "dataframe"
