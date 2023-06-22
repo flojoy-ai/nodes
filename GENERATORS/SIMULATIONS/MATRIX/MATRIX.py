@@ -21,5 +21,7 @@ def MATRIX(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         randomly generated matrix
     """
 
+    np.random.seed()
     mat = np.random.randint(20, size=(params["row"], params["column"]))
+
     return DataContainer(type="matrix", m=mat)

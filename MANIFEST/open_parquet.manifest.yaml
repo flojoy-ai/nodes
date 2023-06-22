@@ -1,0 +1,9 @@
+COMMAND:
+  - name: OPEN_PARQUET
+    key: OPEN_PARQUET
+    type: FILE
+    parameters:
+      file_path:
+        type: string
+        default: ""
+        
