@@ -5,8 +5,7 @@ import psutil
 @flojoy
 def CPU_RAM(dc, params):
     """
-    The RASPBERRY_PI Node displays informations about the Raspberry pi which is
-    used to run Flojoy such as CPU temperature and memory available on the device
+    The CPU_RAM node displays the available free memory of the system on which Flojoy is running.
 
     Parameters :
     ------------
