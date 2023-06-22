@@ -3,12 +3,12 @@ COMMAND:
     key: COMPOSITE
     type: PLOTLY_VISOR
     inputs:
-      - name: primary_trace
+      - name: ""
         id: primary_trace
-        type: source
-      - name: secondary_trace
+        type: target
+      - name: ""
         id: secondary_trace
-        type: source
+        type: target
     parameters:
       first_figure:
         type: select
