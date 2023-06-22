@@ -10,11 +10,8 @@ COMMAND:
         type: string
         default: ""
       relative_delta:
-        type: select
-        options:
-          - "true"
-          - "false"
-        default: "true"
+        type: boolean
+        default: true
       title:
         type: string
         default: ""

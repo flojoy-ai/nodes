@@ -8,9 +8,26 @@ MEMORY_KEY = "BIG_NUMBER_MEMORY_KEY"
 
 @flojoy
 def BIG_NUMBER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+    """The BIG_NUMBER node generates a plotly figure displaying a big number with optional prefix and suffix.
+
+    Parameters:
+    -----------
+    relative_delta: bool
+        whether to show relative delta from last run along with big number
+    suffix: str
+        any suffix to show with big number
+    prefix: str
+        any prefix to show with big number
+    title: str
+        title of the plot. default `BIG_NUMBER`
+
+    Supported DC types:
+    -------------------
+    `ordered_pair`
+    """
     dc_input = dc_inputs[0]
     job_id = params["job_id"]
-    relative_delta = True if params["relative_delta"] == "true" else False
+    relative_delta = params["relative_delta"]
     suffix = params["suffix"]
     prefix = params["prefix"]
     title = params["title"]
@@ -21,6 +38,7 @@ def BIG_NUMBER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         case "ordered_pair":
             prev_num = SmallMemory().read_memory(job_id, MEMORY_KEY)
             big_num = dc_input.y[-1]
+            val_format = ".1%" if relative_delta is True else ".1f"
             fig.add_trace(
                 go.Indicator(
                     mode="number+delta",
@@ -32,7 +50,7 @@ def BIG_NUMBER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                     else {
                         "reference": int(float(prev_num)),
                         "relative": relative_delta,
-                        "valueformat": ".1%" if relative_delta is True else ".1f",
+                        "valueformat": val_format,
                     },
                 )
             )

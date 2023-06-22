@@ -1,0 +1,17 @@
+COMMAND:
+  - name: Two Dimensional Fast Fourier Transform
+    key: TWO_DIMENSIONAL_FFT
+    type: SIGNAL_PROCESSING
+    parameters:
+      real_signal:
+        type: boolean
+        default: true
+      color:
+        type: select
+        options:
+          - grayscale
+          - red
+          - green
+          - blue
+        default: grayscale
+
