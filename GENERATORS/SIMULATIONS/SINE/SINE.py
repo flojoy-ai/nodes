@@ -20,12 +20,12 @@ def SINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         print("invalid waveform passed as param, using default:", waveform)
 
     if waveform == "sine":
-        y = Y0 + A * np.sin(np.radians(2 * np.pi * F) * x + np.radians(PHASE))
+        y = Y0 + A * np.sin(2 * np.pi * F * x + PHASE)
     elif waveform == "square":
-        y = Y0 + A * signal.square(2 * np.pi * F * x / 10 + np.radians(PHASE))
+        y = Y0 + A * signal.square(2 * np.pi * F * x / 10 + PHASE)
     elif waveform == "triangle":
-        y = Y0 + A * signal.sawtooth(2 * np.pi * F * x / 10 + np.radians(PHASE), 0.5)
+        y = Y0 + A * signal.sawtooth(2 * np.pi * F * x / 10 + PHASE, 0.5)
     elif waveform == "sawtooth":
-        y = Y0 + A * signal.sawtooth(2 * np.pi * F / 10 * x + np.radians(PHASE))
+        y = Y0 + A * signal.sawtooth(2 * np.pi * F / 10 * x + PHASE)
 
     return DataContainer(x=x, y=y)

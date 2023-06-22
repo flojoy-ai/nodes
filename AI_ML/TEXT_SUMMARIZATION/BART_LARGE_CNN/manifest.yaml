@@ -1,0 +1,4 @@
+COMMAND:
+  - name: BART_LARGE_CNN text summarization
+    key: BART_LARGE_CNN
+    type: TEXT_SUMMARIZATION
