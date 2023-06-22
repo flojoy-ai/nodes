@@ -1,0 +1,31 @@
+COMMAND:
+  - name: Basic Oscillator
+    key: BASIC_OSCILLATOR
+    type: SIMULATION
+    parameters:
+      sample_rate:
+        type: int
+        default: 100
+      time:
+        type: int
+        default: 10
+      frequency:
+        type: float
+        default: 1
+      offset:
+        type: float
+        default: 0
+      amplitude:
+        type: float
+        default: 1
+      phase:
+        type: float
+        default: 0.0
+      waveform:
+        type: select
+        options:
+          - sine
+          - square
+          - triangle
+          - sawtooth
+        default: sine

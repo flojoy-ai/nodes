@@ -6,12 +6,41 @@ COMMAND:
       sample_rate:
         type: float
         default: 100
-      transition_width:
-        type: float
-        default: 5.0
-      stop_band_attenuation:
-        type: float
-        default: 60
-      cutoff_freq:
+      taps:
+        type: int
+        default: 200
+      cutoff_low:
         type: float
         default: 10.0
+      cutoff_high:
+        type: float
+        default: 15.0
+      filter_type:
+        type: select
+        options:
+          - lowpass
+          - highpass
+          - bandpass
+          - bandstop
+        default: lowpass
+      window:
+        type: select
+        options:
+          - boxcar
+          - triang
+          - blackman
+          - hamming
+          - hann
+          - bartlett
+          - flattop
+          - parzen
+          - bohman
+          - blackmanharris
+          - nuttall
+          - barthann
+          - cosine
+          - exponential
+          - tukey
+          - taylor
+          - lanczos
+        default: hann

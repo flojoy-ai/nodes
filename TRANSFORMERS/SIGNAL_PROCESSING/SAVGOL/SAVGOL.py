@@ -8,9 +8,7 @@ def SAVGOL(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Apply a Savitzky-Golay filter to an input vector.
     The default behaviour is implementing a 3-point moving average of the data."""
     if len(dc_inputs) != 1:
-        raise ValueError(
-            f"SAVGOL node requires 1 input signal"
-        )
+        raise ValueError(f"SAVGOL node requires 1 input signal")
     dc = dc_inputs[0]
     x = dc.x
     signal = dc.y
