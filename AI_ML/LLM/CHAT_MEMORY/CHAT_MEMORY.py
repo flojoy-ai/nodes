@@ -37,8 +37,6 @@ def CHAT_MEMORY(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     conversation.predict(input=prompt)
 
+    output = pd.DataFrame(memory.load_memory_variables({}))
 
-
-    df_pred = pd.DataFrame.from_records([(pred,)], columns=["output"])
-
-    return DataContainer(type="dataframe", m=df_pred)
+    return DataContainer(type="dataframe", m=output)
