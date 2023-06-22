@@ -27,6 +27,8 @@ def FIR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         The length of the filter
 
     Returns
+        x: time domain
+        y: filtered signal
     ------
     """
 
@@ -59,7 +61,7 @@ def FIR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         n_taps = n_taps + 1
 
     # create the filter with the parameter inputs
-    if window_type == "bandpass" or "bandstop":
+    if filter_type == "bandpass" or filter_type == "bandstop":
         fil = signal.firwin(
             numtaps=n_taps,
             cutoff=[cutoff_low, cutoff_high],
@@ -67,7 +69,7 @@ def FIR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             pass_zero=filter_type,
             window=window_type,
         )
-    elif window_type == "lowpass":
+    elif filter_type == "lowpass":
         fil = signal.firwin(
             numtaps=n_taps,
             cutoff=cutoff_high,

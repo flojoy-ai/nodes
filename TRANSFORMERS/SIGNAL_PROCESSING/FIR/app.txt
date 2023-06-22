@@ -20,7 +20,7 @@
                         "end": {
                             "functionName": "LINSPACE",
                             "param": "end",
-                            "value": "3.99"
+                            "value": "4"
                         },
                         "step": {
                             "functionName": "LINSPACE",
@@ -55,7 +55,7 @@
                         "frequency": {
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": 28.648
+                            "value": "10"
                         },
                         "offset": {
                             "functionName": "SINE",
@@ -105,7 +105,7 @@
                         "frequency": {
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": 143.243
+                            "value": "15"
                         },
                         "offset": {
                             "functionName": "SINE",
@@ -186,7 +186,7 @@
                         "frequency": {
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": 876.6288
+                            "value": "20"
                         },
                         "offset": {
                             "functionName": "SINE",
@@ -267,7 +267,7 @@
                         "frequency": {
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": 956.8432
+                            "value": "25"
                         },
                         "offset": {
                             "functionName": "SINE",
@@ -277,12 +277,12 @@
                         "amplitude": {
                             "functionName": "SINE",
                             "param": "amplitude",
-                            "value": 0.1
+                            "value": "0.5"
                         },
                         "phase": {
                             "functionName": "SINE",
                             "param": "phase",
-                            "value": 5.729
+                            "value": "0"
                         },
                         "waveform": {
                             "functionName": "SINE",
@@ -348,7 +348,7 @@
                         "frequency": {
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": 1343.5912
+                            "value": "35"
                         },
                         "offset": {
                             "functionName": "SINE",
@@ -416,75 +416,6 @@
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
-                "id": "FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2",
-                "type": "SIGNAL_PROCESSING",
-                "data": {
-                    "id": "FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2",
-                    "label": "FIR",
-                    "func": "FIR",
-                    "type": "SIGNAL_PROCESSING",
-                    "ctrls": {
-                        "sample_rate": {
-                            "functionName": "FIR",
-                            "param": "sample_rate",
-                            "value": 100
-                        },
-                        "transition_width": {
-                            "functionName": "FIR",
-                            "param": "transition_width",
-                            "value": 5
-                        },
-                        "stop_band_attenuation": {
-                            "functionName": "FIR",
-                            "param": "stop_band_attenuation",
-                            "value": 60
-                        },
-                        "cutoff_freq": {
-                            "functionName": "FIR",
-                            "param": "cutoff_freq",
-                            "value": 10
-                        }
-                    },
-                    "selected": false
-                },
-                "position": {
-                    "x": 1184.153657004567,
-                    "y": 533.8337171975915
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1184.153657004567,
-                    "y": 533.8337171975915
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-a1ca5e46-b598-414a-bbe8-e74512cb32f8",
-                "type": "TERMINATOR",
-                "data": {
-                    "id": "END-a1ca5e46-b598-414a-bbe8-e74512cb32f8",
-                    "label": "Terminate",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 1951.970128726804,
-                    "y": 493.73691549580417
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1951.970128726804,
-                    "y": 493.73691549580417
-                },
-                "dragging": true
-            },
-            {
                 "width": 380,
                 "height": 293,
                 "id": "LINE-3dbd9cc9-cb99-4569-9255-5fd896702506",
@@ -498,13 +429,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1150.2828137929405,
-                    "y": 17.245987812730846
+                    "x": 1182.2828137929405,
+                    "y": -0.7540121872691543
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1150.2828137929405,
-                    "y": 17.245987812730846
+                    "x": 1182.2828137929405,
+                    "y": -0.7540121872691543
                 },
                 "dragging": true
             },
@@ -519,16 +450,257 @@
                     "func": "LINE",
                     "type": "PLOTLY_VISOR",
                     "ctrls": {},
+                    "selected": true
+                },
+                "position": {
+                    "x": 1185.4874893685353,
+                    "y": 979.4708075769494
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 1185.4874893685353,
+                    "y": 979.4708075769494
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "FIR-df4ee33a-d308-4c74-9c00-35297a8a17d3",
+                "type": "SIGNAL_PROCESSING",
+                "data": {
+                    "id": "FIR-df4ee33a-d308-4c74-9c00-35297a8a17d3",
+                    "label": "FIR",
+                    "func": "FIR",
+                    "type": "SIGNAL_PROCESSING",
+                    "ctrls": {
+                        "sample_rate": {
+                            "functionName": "FIR",
+                            "param": "sample_rate",
+                            "value": 100
+                        },
+                        "taps": {
+                            "functionName": "FIR",
+                            "param": "taps",
+                            "value": "80"
+                        },
+                        "cutoff_low": {
+                            "functionName": "FIR",
+                            "param": "cutoff_low",
+                            "value": "23"
+                        },
+                        "cutoff_high": {
+                            "functionName": "FIR",
+                            "param": "cutoff_high",
+                            "value": "28"
+                        },
+                        "filter_type": {
+                            "functionName": "FIR",
+                            "param": "filter_type",
+                            "value": "bandpass"
+                        },
+                        "window": {
+                            "functionName": "FIR",
+                            "param": "window",
+                            "value": "barthann"
+                        }
+                    },
                     "selected": false
                 },
                 "position": {
-                    "x": 1457.4874893685353,
-                    "y": 435.47080757694937
+                    "x": 932.3175367847293,
+                    "y": 681.1526268294404
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1457.4874893685353,
-                    "y": 435.47080757694937
+                    "x": 932.3175367847293,
+                    "y": 681.1526268294404
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "FFT-3c3aba93-4771-426b-8f0f-37cdc9e9b2d4",
+                "type": "SIGNAL_PROCESSING",
+                "data": {
+                    "id": "FFT-3c3aba93-4771-426b-8f0f-37cdc9e9b2d4",
+                    "label": "FFT",
+                    "func": "FFT",
+                    "type": "SIGNAL_PROCESSING",
+                    "ctrls": {
+                        "window_type": {
+                            "functionName": "FFT",
+                            "param": "window_type",
+                            "value": "hann"
+                        },
+                        "display": {
+                            "functionName": "FFT",
+                            "param": "display",
+                            "value": true
+                        },
+                        "real_signal": {
+                            "functionName": "FFT",
+                            "param": "real_signal",
+                            "value": true
+                        },
+                        "sample_rate": {
+                            "functionName": "FFT",
+                            "param": "sample_rate",
+                            "value": "100"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 1302.8600992170404,
+                    "y": 384.49407144635677
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1302.8600992170404,
+                    "y": 384.49407144635677
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "FFT-403d7b1c-5477-4c5d-9fbd-b4dec54c35e8",
+                "type": "SIGNAL_PROCESSING",
+                "data": {
+                    "id": "FFT-403d7b1c-5477-4c5d-9fbd-b4dec54c35e8",
+                    "label": "FFT 1",
+                    "func": "FFT",
+                    "type": "SIGNAL_PROCESSING",
+                    "ctrls": {
+                        "window_type": {
+                            "functionName": "FFT",
+                            "param": "window_type",
+                            "value": "hann"
+                        },
+                        "display": {
+                            "functionName": "FFT",
+                            "param": "display",
+                            "value": true
+                        },
+                        "real_signal": {
+                            "functionName": "FFT",
+                            "param": "real_signal",
+                            "value": true
+                        },
+                        "sample_rate": {
+                            "functionName": "FFT",
+                            "param": "sample_rate",
+                            "value": "100"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 1286.8600992170404,
+                    "y": 664.4940714463568
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1286.8600992170404,
+                    "y": 664.4940714463568
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-791e2467-f5e8-44d5-9bcc-a84285dbd94c",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "LINE-791e2467-f5e8-44d5-9bcc-a84285dbd94c",
+                    "label": "LINE 2",
+                    "func": "LINE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 490.64016127633613,
+                    "y": 985.3193462550374
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 490.64016127633613,
+                    "y": 985.3193462550374
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-049d0d93-c41a-403a-afab-848356c16097",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "LINE-049d0d93-c41a-403a-afab-848356c16097",
+                    "label": "LINE 3",
+                    "func": "LINE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1607.0778872157061,
+                    "y": 343.4605466591605
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1607.0778872157061,
+                    "y": 343.4605466591605
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-81b6507f-d030-4d6f-927e-2b2fcfd30c88",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "LINE-81b6507f-d030-4d6f-927e-2b2fcfd30c88",
+                    "label": "LINE 4",
+                    "func": "LINE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1587.6062155760742,
+                    "y": 627.3175806641622
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1587.6062155760742,
+                    "y": 627.3175806641622
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-6531c569-4fdf-4b85-ab17-9b5e0fe5dc14",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-6531c569-4fdf-4b85-ab17-9b5e0fe5dc14",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 2413.590446088649,
+                    "y": 522.9304527079171
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 2413.590446088649,
+                    "y": 522.9304527079171
                 },
                 "dragging": true
             }
@@ -628,43 +800,92 @@
             {
                 "source": "ADD-9334e8e4-7d3d-4179-829d-44e07a9c249e",
                 "sourceHandle": "main",
-                "target": "FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2",
-                "targetHandle": "FIR",
-                "id": "reactflow__edge-ADD-9334e8e4-7d3d-4179-829d-44e07a9c249emain-FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2FIR"
-            },
-            {
-                "source": "LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5",
-                "sourceHandle": "main",
-                "target": "FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2",
-                "targetHandle": "FIR",
-                "id": "reactflow__edge-LINSPACE-ff2d20b1-d9bd-481c-a245-a8135fd82df5main-FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2FIR"
-            },
-            {
-                "source": "ADD-9334e8e4-7d3d-4179-829d-44e07a9c249e",
-                "sourceHandle": "main",
                 "target": "LINE-3dbd9cc9-cb99-4569-9255-5fd896702506",
                 "targetHandle": "LINE",
                 "id": "reactflow__edge-ADD-9334e8e4-7d3d-4179-829d-44e07a9c249emain-LINE-3dbd9cc9-cb99-4569-9255-5fd896702506LINE"
             },
             {
-                "source": "FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2",
+                "source": "ADD-9334e8e4-7d3d-4179-829d-44e07a9c249e",
+                "sourceHandle": "main",
+                "target": "FIR-df4ee33a-d308-4c74-9c00-35297a8a17d3",
+                "targetHandle": "FIR",
+                "id": "reactflow__edge-ADD-9334e8e4-7d3d-4179-829d-44e07a9c249emain-FIR-df4ee33a-d308-4c74-9c00-35297a8a17d3FIR"
+            },
+            {
+                "source": "FIR-df4ee33a-d308-4c74-9c00-35297a8a17d3",
                 "sourceHandle": "main",
                 "target": "LINE-456cc5d9-9ed7-4af8-b8c4-d0dace558f7a",
                 "targetHandle": "LINE",
-                "id": "reactflow__edge-FIR-cfd328d3-f109-4745-9936-a5d7271c4ba2main-LINE-456cc5d9-9ed7-4af8-b8c4-d0dace558f7aLINE"
+                "id": "reactflow__edge-FIR-df4ee33a-d308-4c74-9c00-35297a8a17d3main-LINE-456cc5d9-9ed7-4af8-b8c4-d0dace558f7aLINE"
+            },
+            {
+                "source": "ADD-9334e8e4-7d3d-4179-829d-44e07a9c249e",
+                "sourceHandle": "main",
+                "target": "FFT-3c3aba93-4771-426b-8f0f-37cdc9e9b2d4",
+                "targetHandle": "FFT",
+                "id": "reactflow__edge-ADD-9334e8e4-7d3d-4179-829d-44e07a9c249emain-FFT-3c3aba93-4771-426b-8f0f-37cdc9e9b2d4FFT"
+            },
+            {
+                "source": "FIR-df4ee33a-d308-4c74-9c00-35297a8a17d3",
+                "sourceHandle": "main",
+                "target": "FFT-403d7b1c-5477-4c5d-9fbd-b4dec54c35e8",
+                "targetHandle": "FFT",
+                "id": "reactflow__edge-FIR-df4ee33a-d308-4c74-9c00-35297a8a17d3main-FFT-403d7b1c-5477-4c5d-9fbd-b4dec54c35e8FFT"
+            },
+            {
+                "source": "SINE-0ff677e5-4bb0-418d-b521-257f960f4d61",
+                "sourceHandle": "main",
+                "target": "LINE-791e2467-f5e8-44d5-9bcc-a84285dbd94c",
+                "targetHandle": "LINE",
+                "id": "reactflow__edge-SINE-0ff677e5-4bb0-418d-b521-257f960f4d61main-LINE-791e2467-f5e8-44d5-9bcc-a84285dbd94cLINE"
+            },
+            {
+                "source": "FFT-3c3aba93-4771-426b-8f0f-37cdc9e9b2d4",
+                "sourceHandle": "main",
+                "target": "LINE-049d0d93-c41a-403a-afab-848356c16097",
+                "targetHandle": "LINE",
+                "id": "reactflow__edge-FFT-3c3aba93-4771-426b-8f0f-37cdc9e9b2d4main-LINE-049d0d93-c41a-403a-afab-848356c16097LINE"
+            },
+            {
+                "source": "FFT-403d7b1c-5477-4c5d-9fbd-b4dec54c35e8",
+                "sourceHandle": "main",
+                "target": "LINE-81b6507f-d030-4d6f-927e-2b2fcfd30c88",
+                "targetHandle": "LINE",
+                "id": "reactflow__edge-FFT-403d7b1c-5477-4c5d-9fbd-b4dec54c35e8main-LINE-81b6507f-d030-4d6f-927e-2b2fcfd30c88LINE"
+            },
+            {
+                "source": "LINE-3dbd9cc9-cb99-4569-9255-5fd896702506",
+                "sourceHandle": "main",
+                "target": "END-6531c569-4fdf-4b85-ab17-9b5e0fe5dc14",
+                "targetHandle": "END",
+                "id": "reactflow__edge-LINE-3dbd9cc9-cb99-4569-9255-5fd896702506main-END-6531c569-4fdf-4b85-ab17-9b5e0fe5dc14END"
+            },
+            {
+                "source": "LINE-049d0d93-c41a-403a-afab-848356c16097",
+                "sourceHandle": "main",
+                "target": "END-6531c569-4fdf-4b85-ab17-9b5e0fe5dc14",
+                "targetHandle": "END",
+                "id": "reactflow__edge-LINE-049d0d93-c41a-403a-afab-848356c16097main-END-6531c569-4fdf-4b85-ab17-9b5e0fe5dc14END"
+            },
+            {
+                "source": "LINE-81b6507f-d030-4d6f-927e-2b2fcfd30c88",
+                "sourceHandle": "main",
+                "target": "END-6531c569-4fdf-4b85-ab17-9b5e0fe5dc14",
+                "targetHandle": "END",
+                "id": "reactflow__edge-LINE-81b6507f-d030-4d6f-927e-2b2fcfd30c88main-END-6531c569-4fdf-4b85-ab17-9b5e0fe5dc14END"
             },
             {
                 "source": "LINE-456cc5d9-9ed7-4af8-b8c4-d0dace558f7a",
                 "sourceHandle": "main",
-                "target": "END-a1ca5e46-b598-414a-bbe8-e74512cb32f8",
+                "target": "END-6531c569-4fdf-4b85-ab17-9b5e0fe5dc14",
                 "targetHandle": "END",
-                "id": "reactflow__edge-LINE-456cc5d9-9ed7-4af8-b8c4-d0dace558f7amain-END-a1ca5e46-b598-414a-bbe8-e74512cb32f8END"
+                "id": "reactflow__edge-LINE-456cc5d9-9ed7-4af8-b8c4-d0dace558f7amain-END-6531c569-4fdf-4b85-ab17-9b5e0fe5dc14END"
             }
         ],
         "viewport": {
-            "x": -8.106587687712704,
-            "y": 67.40349418405756,
-            "zoom": 0.5
+            "x": 285.65321216543407,
+            "y": 46.60717720805286,
+            "zoom": 0.8636529468342673
         }
     },
     "ctrlsManifest": []

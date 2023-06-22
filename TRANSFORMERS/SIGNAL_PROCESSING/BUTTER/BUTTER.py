@@ -21,7 +21,7 @@ def BUTTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     Returns
     -------
         x: time domain
-        y: filter signal
+        y: filtered signal
     """
     if len(dc_inputs) != 1:
         raise ValueError(
