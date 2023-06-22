@@ -39,7 +39,6 @@ def FIR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     cutoff_high: float = params["cutoff_high"]
     n_taps: int = params["taps"]
 
-
     try:
         times = dc_inputs[0].x
         input_signal = dc_inputs[0].y  # this is the value of the signal
@@ -57,7 +56,9 @@ def FIR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         input_signal = test_x
     if input_signal.size < n_taps * 3:
         raise ValueError("length of the data should be three times longer than taps")
-    elif n_taps % 2 == 0:  # in the case where the passband contains the Nyquist frequency
+    elif (
+        n_taps % 2 == 0
+    ):  # in the case where the passband contains the Nyquist frequency
         n_taps = n_taps + 1
 
     # create the filter with the parameter inputs

@@ -5,7 +5,7 @@ from scipy import signal
 
 @flojoy
 def BASIC_OSCILLATOR(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """ The BASIC_OSCILLATOR node is a combination of LINSPACE and SINE node.
+    """The BASIC_OSCILLATOR node is a combination of LINSPACE and SINE node.
     It is useful for generating signals as it will generate a waveform with
     sample rate and the time in seconds as parameters.
     Parameters
