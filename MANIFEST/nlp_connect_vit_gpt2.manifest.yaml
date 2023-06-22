@@ -1,0 +1,4 @@
+COMMAND:
+  - name: NLP Connect ViT GPT2
+    key: NLP_CONNECT_VIT_GPT2
+    type: IMAGE_CAPTION

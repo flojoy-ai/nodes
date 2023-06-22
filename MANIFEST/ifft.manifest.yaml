@@ -1,0 +1,9 @@
+COMMAND:
+  - name: Inverse Fast Fourier Transform
+    key: IFFT
+    type: SIGNAL_PROCESSING
+    parameters:
+      real_signal:
+        type: boolean
+        default: false
+
