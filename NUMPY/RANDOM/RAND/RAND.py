@@ -41,6 +41,6 @@ def RAND(dc: list, params: dict) -> DataContainer:
 
     """
     # Strictly typed internal variables
-    size: tuple = params.get("size", 'dc[0].y.shape')
+    size: tuple = params.get("size", "dc[0].y.shape")
     out: float = np.random.rand(*eval(size))
     return DataContainer(x=dc[0].y, y=out)

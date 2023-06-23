@@ -79,9 +79,7 @@ def STANDARD_GAMMA(dc: list, params: dict) -> DataContainer:
 
     """
     shape: float = params.get("shape", 1.0)
-    size = params.get("size", 'dc[0].y.shape')
+    size = params.get("size", "dc[0].y.shape")
     out = np.random.standard_cauchy(shape=float(shape), size=eval(size))
 
-    return DataContainer(
-        x=dc[0].y, y=out
-    )
+    return DataContainer(x=dc[0].y, y=out)

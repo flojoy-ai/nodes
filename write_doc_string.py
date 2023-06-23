@@ -291,11 +291,27 @@ def generate_manifest_map():
             allowed_file_ext = [".manifest.yaml", ".manifest.yml"]
             if any(ext in file for ext in allowed_file_ext):
                 m_content = None
-                with open(path.join(root, file), "r") as f:
-                    read_file = f.read()
-                    m_content = yaml.load(read_file, Loader=yaml.FullLoader)
-                    f.close()
-                manifest_map[m_content["COMMAND"][0]["key"]] = m_content["COMMAND"][0]
+                try:
+                    with open(path.join(root, file), "r") as f:
+                        read_file = f.read()
+                        m_content = yaml.load(read_file, Loader=yaml.FullLoader)
+                        f.close()
+                    manifest_map[m_content["COMMAND"][0]["key"]] = m_content["COMMAND"][0]
+                except KeyError:
+                    print("trying a safer load for", file)
+                    with open(path.join(root, file), "r") as f:
+                        read_file = f.read()
+                        m_content = yaml.safe_load(read_file)
+                        f.close()
+                        for key in m_content:
+                            val = m_content[key]
+                            if ':' not in val:
+                                continue
+                            m_content[key] = tmp = {}
+                            for x in val.split():
+                                x = x.split(':', 1)
+                                tmp[x[0]] = x[1]
+                    manifest_map[m_content["COMMAND"]["key"]] = m_content["COMMAND"]
     return manifest_map
 
 
@@ -306,6 +322,7 @@ manifest_dir = path.join(nodes_dir, "MANIFEST")
 def write_doc_string(docs_dir: str):
     file_path = None
     manifest_map = generate_manifest_map()
+    # print(manifest_map)
     for root, _, files in os.walk(nodes_dir):
         for file in files:
             if (

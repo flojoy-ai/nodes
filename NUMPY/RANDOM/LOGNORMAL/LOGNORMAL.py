@@ -113,9 +113,7 @@ def LOGNORMAL(dc: list, params: dict) -> DataContainer:
     """
     mean = params.get("mean", 0.0)
     sigma = params.get("sigma", 1.0)
-    size = params.get("size", 'dc[0].y.shape')
+    size = params.get("size", "dc[0].y.shape")
 
-    out = np.random.laplace(
-        mean=float(mean), sigma=float(sigma), size=eval(size)
-    )
+    out = np.random.laplace(mean=float(mean), sigma=float(sigma), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

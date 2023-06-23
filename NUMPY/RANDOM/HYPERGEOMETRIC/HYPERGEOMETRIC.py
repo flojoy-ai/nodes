@@ -105,7 +105,9 @@ def HYPERGEOMETRIC(dc: list, params: dict) -> DataContainer:
     ngood: int = params.get("ngood", 1)
     nbad: int = params.get("nbad", 1)
     nsample: int = params.get("nsample", 2)
-    size: str = params.get("size", 'dc[0].y.shape')
+    size: str = params.get("size", "dc[0].y.shape")
     # Return the result of the function
-    out = np.random.hypergeometric(ngood=int(ngood), nbad=int(nbad), nsample=int(nsample), size=eval(size))
+    out = np.random.hypergeometric(
+        ngood=int(ngood), nbad=int(nbad), nsample=int(nsample), size=eval(size)
+    )
     return DataContainer(x=dc[0].y, y=out)

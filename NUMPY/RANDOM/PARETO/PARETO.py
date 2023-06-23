@@ -88,9 +88,9 @@ def PARETO(dc: list, params: dict) -> DataContainer:
 
     """
     # Strictly type all internal variables
-    size: str = params.get("size", 'dc[0].y.shape')
+    size: str = params.get("size", "dc[0].y.shape")
     a = params.get("a", 1.0)
 
     # Draw samples from the Pareto II or Lomax distribution
-    out = np.random.pareto(a = float(a), size=eval(size))
+    out = np.random.pareto(a=float(a), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

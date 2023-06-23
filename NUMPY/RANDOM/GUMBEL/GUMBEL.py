@@ -121,7 +121,8 @@ def GUMBEL(dc: list, params: dict) -> DataContainer:
     """
     loc: float = params.get("loc", 0.0)
     scale: float = params.get("scale", 1.0)
-    size: str = params.get("size", 'dc[0].y.shape')
+    size: str = params.get("size", "dc[0].y.shape")
     return DataContainer(
-        x=dc[0].y, y=np.random.gumbel(loc=float(loc), scale=float(scale), size=eval(size))
+        x=dc[0].y,
+        y=np.random.gumbel(loc=float(loc), scale=float(scale), size=eval(size)),
     )

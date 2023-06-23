@@ -96,5 +96,7 @@ def NORMAL(dc: list, params: dict) -> DataContainer:
     """
     mean: float = params.get("mean", 0.0)
     std: float = params.get("std", 1.0)
-    size: str = params.get("size", 'dc[0].y.shape')
-    return DataContainer(x=dc[0].y, y=np.random.normal( float(mean), float(std), size=eval(size)))
+    size: str = params.get("size", "dc[0].y.shape")
+    return DataContainer(
+        x=dc[0].y, y=np.random.normal(float(mean), float(std), size=eval(size))
+    )

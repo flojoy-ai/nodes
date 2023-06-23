@@ -75,6 +75,6 @@ def STANDARD_CAUCHY(dc: List[float], params: Dict[str, Any]) -> DataContainer:
 
 
     """
-    size = params.get("size", 'dc[0].y.shape')
+    size = params.get("size", "dc[0].y.shape")
     out = np.random.standard_cauchy(size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

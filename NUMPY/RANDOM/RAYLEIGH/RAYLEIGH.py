@@ -75,6 +75,6 @@ def RAYLEIGH(dc: list, params: dict) -> DataContainer:
 
     """
     scale = params.get("scale", 1.0)
-    size = params.get("size", 'dc[0].y.shape')
+    size = params.get("size", "dc[0].y.shape")
     out = np.random.rayleigh(scale=float(scale), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

@@ -1,9 +1,9 @@
 import numpy as np
 from flojoy import flojoy, DataContainer
 from typing import Optional, Union, Tuple, List
+
+
 @flojoy
-
-
 def STANDARD_T(dc: list, params: dict) -> DataContainer:
     """
     Draw samples from a standard Student’s t distribution with df degrees of freedom.
@@ -107,7 +107,7 @@ def STANDARD_T(dc: list, params: dict) -> DataContainer:
     
 
     """
-    df = params.get('df', 1.0)
-    size = params.get("size", 'dc[0].y.shape')
+    df = params.get("df", 1.0)
+    size = params.get("size", "dc[0].y.shape")
     out = np.random.standard_t(df=float(df), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)
