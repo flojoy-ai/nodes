@@ -1,15 +1,15 @@
 import numpy as np
 from flojoy import flojoy, DataContainer
 from typing import Optional, Union, Tuple, List
+
+
 @flojoy
-
-
 def GEOMETRIC(dc: list, params: dict) -> DataContainer:
     """
     Draws samples from the geometric distribution.
     The geometric distribution is a discrete probability distribution of the number
     of Bernoulli trials needed to get one success.
-    
+
     -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
     The parameters of the function in this Flojoy wrapper are given below.
     -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
@@ -45,6 +45,6 @@ def GEOMETRIC(dc: list, params: dict) -> DataContainer:
     0.34889999999999999 #random
 
     """
-    p = params.get('p', 0.5)
-    size = params.get('size', 'dc[0].y.shape')
+    p = params.get("p", 0.5)
+    size = params.get("size", "dc[0].y.shape")
     return DataContainer(x=dc[0].y, y=np.random.geometric(float(p), size=eval(size)))

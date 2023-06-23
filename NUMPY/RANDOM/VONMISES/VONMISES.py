@@ -83,7 +83,9 @@ def VONMISES(dc: list, params: dict) -> DataContainer:
     >>> plt.show()
 
     """
-    mu = params.get('mu', 0.0)
-    kappa = params.get('kappa', 1.0)
-    size = params.get("size", 'dc[0].y.shape')
-    return DataContainer(x=dc[0].y, y=np.random.vonmises(float(mu), float(kappa), size=eval(size)))
+    mu = params.get("mu", 0.0)
+    kappa = params.get("kappa", 1.0)
+    size = params.get("size", "dc[0].y.shape")
+    return DataContainer(
+        x=dc[0].y, y=np.random.vonmises(float(mu), float(kappa), size=eval(size))
+    )

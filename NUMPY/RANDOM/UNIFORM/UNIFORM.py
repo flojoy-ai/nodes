@@ -97,7 +97,7 @@ def UNIFORM(dc: list, params: dict) -> DataContainer:
     """
     low = params.get("low", 0)
     high = params.get("high", 1.0)
-    size = params.get("size", 'dc[0].y.shape')
+    size = params.get("size", "dc[0].y.shape")
 
     out = np.random.uniform(float(low), float(high), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

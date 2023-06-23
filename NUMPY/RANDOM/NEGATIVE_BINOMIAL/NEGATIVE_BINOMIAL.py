@@ -85,6 +85,6 @@ def NEGATIVE_BINOMIAL(dc: list, params: dict) -> DataContainer:
     n: int = params.get("n", 1)
     p: float = params.get("p", 0.5)
     size: str = params.get("size", "dc[0].y.shape")
-    
+
     out = np.random.negative_binomial(int(n), float(p), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

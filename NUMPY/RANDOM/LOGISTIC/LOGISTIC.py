@@ -85,9 +85,7 @@ def LOGISTIC(dc: list, params: dict) -> DataContainer:
     """
     loc = params.get("loc", 0.0)
     scale = params.get("scale", 1.0)
-    size = params.get("size", 'dc[0].y.shape')
+    size = params.get("size", "dc[0].y.shape")
 
-    out = np.random.logistic(
-        loc=float(loc), scale=float(scale), size=eval(size)
-    )
+    out = np.random.logistic(loc=float(loc), scale=float(scale), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

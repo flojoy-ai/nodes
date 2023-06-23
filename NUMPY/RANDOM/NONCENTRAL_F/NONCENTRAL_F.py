@@ -85,11 +85,13 @@ def NONCENTRAL_F(dc: list, params: dict) -> DataContainer:
     dfn = params.get("dfn", None)
     dfd = params.get("dfd", None)
     nonc = params.get("nonc", None)
-    size = params.get("size", 'dc[0].y.shape')
+    size = params.get("size", "dc[0].y.shape")
     if dfn is None or dfd is None or nonc is None:
         raise ValueError("dfn, dfd, and nonc must all be specified.")
 
     if float(dfn) <= 0 or float(dfd) <= 0 or float(nonc) < 0:
-        raise ValueError("float(dfn), float(dfd), and float(nonc) must all be greater than zero.")
+        raise ValueError(
+            "float(dfn), float(dfd), and float(nonc) must all be greater than zero."
+        )
     out = np.random.noncentral_f(float(dfn), float(dfd), float(nonc), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

@@ -84,4 +84,6 @@ def GAMMA(dc: list, params: dict) -> DataContainer:
     shape = params.get("shape", 1.0)
     scale = params.get("scale", 1.0)
     size = params.get("size", "dc[0].y.shape")
-    return DataContainer(x=dc[0].y, y=np.random.gamma(size=eval(size), scale=float(scale), shape=shape))
+    return DataContainer(
+        x=dc[0].y, y=np.random.gamma(size=eval(size), scale=float(scale), shape=shape)
+    )

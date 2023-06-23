@@ -79,8 +79,8 @@ def RANDINT(dc: list, params: dict) -> DataContainer:
             [ 1, 16,  9, 12]], dtype=uint8)
 
     """
-    low = params.get('low', 0)
+    low = params.get("low", 0)
     high = params.get("high", 100)
-    size = params.get("size", 'dc[0].y.shape')
+    size = params.get("size", "dc[0].y.shape")
     out = np.random.randint(float(low), float(high), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

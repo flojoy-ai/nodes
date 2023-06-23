@@ -89,10 +89,10 @@ def NONCENTRAL_CHISQUARE(dc: list, params: dict) -> DataContainer:
     """
     df: float = params.get("df", 2)
     nonc: float = params.get("nonc", 0.0)
-    size: tuple = params.get("size", 'dc[0].y.shape')
+    size: tuple = params.get("size", "dc[0].y.shape")
 
     if df < 0.0 or nonc < 0.0:
         raise ValueError("df and nonc must be greater than or equal to 0.")
 
-    out = np.random.noncentral_chisquare(float(df), float(nonc), size=eval(size)) 
+    out = np.random.noncentral_chisquare(float(df), float(nonc), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

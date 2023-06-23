@@ -18,6 +18,6 @@ def RANDOM(dc: list, params: dict) -> DataContainer:
     -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     """
-    size = params.get("shape", 'dc[0].y.shape')
+    size = params.get("shape", "dc[0].y.shape")
     out = np.random.random(size)
     return DataContainer(x=dc[0].y, y=out)

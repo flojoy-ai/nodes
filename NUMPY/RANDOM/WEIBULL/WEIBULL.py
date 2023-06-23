@@ -95,7 +95,7 @@ def WEIBULL(dc: list, params: dict) -> DataContainer:
 
     """
     a = params.get("a", 0.0)
-    size = params.get("size", 'dc[0].y.shape')
+    size = params.get("size", "dc[0].y.shape")
 
-    out = np.random.weibull(float(a), size=eval(size)) 
+    out = np.random.weibull(float(a), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

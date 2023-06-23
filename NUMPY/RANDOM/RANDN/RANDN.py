@@ -53,7 +53,5 @@ def RANDN(dc: list, params: dict) -> DataContainer:
 
 
     """
-    size = params.get("size", 'dc[0].y.shape')
-    return DataContainer(
-        x=dc[0].y, y=np.random.randn(size=eval(size))
-    )
+    size = params.get("size", "dc[0].y.shape")
+    return DataContainer(x=dc[0].y, y=np.random.randn(size=eval(size)))

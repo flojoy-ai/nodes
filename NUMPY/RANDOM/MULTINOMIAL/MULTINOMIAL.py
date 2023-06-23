@@ -86,6 +86,6 @@ def MULTINOMIAL(dc: list, params: dict) -> DataContainer:
     """
     n = params.get("n", 1)
     pvals = params.get("pvals", None)
-    size = params.get("size", 'dc[0].y.shape')
-    out = np.random.multinomial( n=n, pvals = eval(pvals), size=eval(size))
+    size = params.get("size", "dc[0].y.shape")
+    out = np.random.multinomial(n=n, pvals=eval(pvals), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

@@ -45,6 +45,6 @@ def STANDARD_EXPONENTIAL(dc: list, params: dict) -> DataContainer:
 
 
     """
-    size = params.get("size", 'dc[0].y.shape')
+    size = params.get("size", "dc[0].y.shape")
     out = np.random.standard_exponential(size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

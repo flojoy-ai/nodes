@@ -1,19 +1,19 @@
 import numpy as np
 from flojoy import flojoy, DataContainer
 from typing import Optional, Union, Tuple, List
+
+
 @flojoy
-
-
 def STANDARD_NORMAL(dc: list, params: dict) -> DataContainer:
     """
     Draw random samples from a normal (Gaussian) distribution.
-    
+
     The probability density function of the normal distribution, first
     derived by De Moivre and 200 years later by both Gauss and Laplace
     independently [2]_, is often called the bell curve because of
     its characteristic shape (see the example below).
-    
-    
+
+
     -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
     The parameters of the function in this Flojoy wrapper are given below.
     -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
@@ -65,9 +65,9 @@ def STANDARD_NORMAL(dc: list, params: dict) -> DataContainer:
     array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],   # random
             [ 0.39924804,  4.68456316,  4.99394529,  4.84057254]])  # random
 
-    
+
     """
-    size = params.get("size", 'dc[0].y.shape')
+    size = params.get("size", "dc[0].y.shape")
     out = np.random.standard_normal(size=eval(size))
-    
+
     return DataContainer(x=dc[0].y, y=out)

@@ -107,13 +107,12 @@ def POWER(dc: list, params: dict) -> DataContainer:
 
     """
     a = params.get("a", 1.0)
-    size = params.get("size", 'dc[0].y.shape')
+    size = params.get("size", "dc[0].y.shape")
 
     if float(a) <= 0 or float(a) > 2:
         raise ValueError(
             "a must be a float strictly greater than 0 and less than or equal to 2."
         )
-
 
     out = np.random.power(float(a), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)

@@ -1,9 +1,9 @@
 import numpy as np
 from flojoy import flojoy, DataContainer
 from typing import Optional, Union, Tuple, List
+
+
 @flojoy
-
-
 def TRIANGULAR(dc: list, params: dict) -> DataContainer:
     """
     Draw samples from the triangular distribution over the interval [left, right].
@@ -69,10 +69,10 @@ def TRIANGULAR(dc: list, params: dict) -> DataContainer:
     >>> plt.show()
 
     """
-    left: float = params.get('left', 0.0)
-    mode: float = params.get('mode', 0.0)
-    right: float = params.get('right', 1.0)
-    size = params.get("size", 'dc[0].y.shape')
-    
+    left: float = params.get("left", 0.0)
+    mode: float = params.get("mode", 0.0)
+    right: float = params.get("right", 1.0)
+    size = params.get("size", "dc[0].y.shape")
+
     out = np.random.triangular(float(left), float(mode), float(right), size=eval(size))
     return DataContainer(x=dc[0].y, y=out)
