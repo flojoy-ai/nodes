@@ -1,0 +1,17 @@
+COMMAND:
+  key: TRIANGULAR
+  name: triangular
+  parameters:
+    left:
+      default: 0.0
+      type: float
+    mode:
+      default: 0.0
+      type: float
+    right:
+      default: 1.0
+      type: float
+    size:
+      default: dc[0].y.shape
+      type: string
+  type: NUMPY_RANDOM

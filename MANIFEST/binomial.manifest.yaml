@@ -1,0 +1,14 @@
+COMMAND:
+  key: BINOMIAL
+  name: binomial
+  parameters:
+    n:
+      default: 10
+      type: int
+    p:
+      default: 0.5
+      type: float
+    size:
+      default: dc[0].y.shape
+      type: string
+  type: NUMPY_RANDOM

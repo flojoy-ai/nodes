@@ -1,0 +1,8 @@
+COMMAND:
+  key: SHUFFLE
+  name: shuffle
+  parameters:
+    axis:
+      default: -1
+      type: int
+  type: NUMPY_RANDOM

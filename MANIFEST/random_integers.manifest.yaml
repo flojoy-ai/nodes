@@ -1,0 +1,14 @@
+COMMAND:
+  key: RANDOM_INTEGERS
+  name: random_integers
+  parameters:
+    high:
+      default: 
+      type: int
+    low:
+      default: 0
+      type: int
+    size:
+      default: dc[0].y.shape
+      type: string
+  type: NUMPY_RANDOM

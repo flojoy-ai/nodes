@@ -1,7 +1,10 @@
 COMMAND:
-  key: RAND
-  name: rand
+  key: CHOICE
+  name: choice
   parameters:
+    replace:
+      default: true
+      type: boolean
     size:
       default: dc[0].y.shape
       type: string

@@ -1,0 +1,14 @@
+COMMAND:
+  key: MULTINOMIAL
+  name: multinomial
+  parameters:
+    n:
+      default: 1
+      type: int
+    pvals:
+      default: 
+      type: string
+    size:
+      default: dc[0].y.shape
+      type: string
+  type: NUMPY_RANDOM

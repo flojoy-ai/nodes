@@ -1,6 +1,6 @@
 COMMAND:
-  key: RAND
-  name: rand
+  key: RANDN
+  name: randn
   parameters:
     size:
       default: dc[0].y.shape

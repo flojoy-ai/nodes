@@ -80,7 +80,7 @@ def POISSON(dc: list, params: dict) -> DataContainer:
     """
     # Extract optional arguments
     size: str = params.get("size", 'dc[0].y.shape')
-    lam: float = params.get("lam", 0.0)
+    lam: float = params.get("lam", 1.0)
 
     # Draw samples from the Poisson distribution
     out = np.random.poisson(lam=float(lam), size=eval(size))

@@ -1,7 +1,10 @@
 COMMAND:
-  key: RAND
-  name: rand
+  key: STANDARD_GAMMA
+  name: standard_gamma
   parameters:
+    shape:
+      default: 1.0
+      type: float
     size:
       default: dc[0].y.shape
       type: string

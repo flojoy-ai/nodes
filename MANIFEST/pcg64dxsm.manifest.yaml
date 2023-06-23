@@ -1,0 +1,14 @@
+COMMAND:
+  key: PCG64DXSM
+  name: PCG64DXSM
+  parameters:
+    a:
+      default: 0
+      type: int
+    b:
+      default: 0
+      type: int
+    c:
+      default: 0
+      type: int
+  type: NUMPY_RANDOM

@@ -1,0 +1,14 @@
+COMMAND:
+  key: NONCENTRAL_CHISQUARE
+  name: noncentral_chisquare
+  parameters:
+    df:
+      default: 2
+      type: int
+    nonc:
+      default: 0.0
+      type: float
+    size:
+      default: dc[0].y.shape
+      type: string
+  type: NUMPY_RANDOM

@@ -87,7 +87,7 @@ def NONCENTRAL_CHISQUARE(dc: list, params: dict) -> DataContainer:
 
 
     """
-    df: float = params.get("df", 0.0)
+    df: float = params.get("df", 2)
     nonc: float = params.get("nonc", 0.0)
     size: tuple = params.get("size", 'dc[0].y.shape')
 

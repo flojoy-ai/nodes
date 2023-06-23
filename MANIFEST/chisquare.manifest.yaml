@@ -1,7 +1,10 @@
 COMMAND:
-  key: RAND
-  name: rand
+  key: CHISQUARE
+  name: chisquare
   parameters:
+    df:
+      default:
+      type: int
     size:
       default: dc[0].y.shape
       type: string

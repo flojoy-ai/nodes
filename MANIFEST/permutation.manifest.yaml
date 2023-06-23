@@ -1,0 +1,4 @@
+COMMAND:
+  key: PERMUTATION
+  name: permutation    
+  type: NUMPY_RANDOM

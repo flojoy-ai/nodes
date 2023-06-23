@@ -1,0 +1,14 @@
+COMMAND:
+  key: VONMISES
+  name: vonmises
+  parameters:
+    kappa:
+      default: 1.0
+      type: float
+    mu:
+      default: 0.0
+      type: float
+    size:
+      default: dc[0].y.shape
+      type: string
+  type: NUMPY_RANDOM

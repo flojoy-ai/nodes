@@ -1,0 +1,8 @@
+COMMAND:
+  key: EXPONENTIAL
+  name: exponential
+  parameters:
+    beta:
+      default: 1.0
+      type: float
+  type: NUMPY_RANDOM

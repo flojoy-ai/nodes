@@ -1,0 +1,17 @@
+COMMAND:
+  key: HYPERGEOMETRIC
+  name: hypergeometric
+  parameters:
+    ngood:
+      default: 1
+      type: int
+    nbad:
+      default: 1
+      type: int
+    nsample:
+      default: 2
+      type: int
+    size:
+      default: dc[0].y.shape
+      type: string
+  type: NUMPY_RANDOM

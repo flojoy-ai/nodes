@@ -75,7 +75,7 @@ def PCG64(dc: list, params: dict) -> DataContainer:
 
     """
     size = params.get("size", 'dc[0].y.shape')
-    seed = params.get("seed", 0)
+    seed = params.get("seed", None)
     return DataContainer(
         x=dc[0].y, y=np.random.PCG64(seed = float(seed), size=eval(size))
     )

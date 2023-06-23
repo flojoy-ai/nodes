@@ -1,0 +1,8 @@
+COMMAND:
+  key: BYTES
+  name: bytes
+  parameters:
+    seed:
+      default:
+      type: int
+  type: NUMPY_RANDOM

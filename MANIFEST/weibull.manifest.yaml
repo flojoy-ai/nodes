@@ -1,7 +1,10 @@
 COMMAND:
-  key: RAND
-  name: rand
+  key: WEIBULL
+  name: weibull
   parameters:
+    a:
+      default: 0.0
+      type: float
     size:
       default: dc[0].y.shape
       type: string

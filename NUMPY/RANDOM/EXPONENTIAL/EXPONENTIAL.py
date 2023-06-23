@@ -53,7 +53,6 @@ def EXPONENTIAL(dc: list, params: dict) -> DataContainer:
 
     """
     # Strictly type all internal variables
-    x: float = dc[0].y
     beta: float = params.get("beta", 1.0)
 
     # Calculate and return the exponential distribution

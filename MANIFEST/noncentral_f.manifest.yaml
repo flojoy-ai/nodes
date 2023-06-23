@@ -1,0 +1,17 @@
+COMMAND:
+  key: NONCENTRAL_F
+  name: noncentral_f
+  parameters:
+    dfd:
+      default: 1
+      type: int
+    dfn:
+      default: 1
+      type: int
+    nonc:
+      default: 0.0
+      type: float
+    size:
+      default: dc[0].y.shape
+      type: string
+  type: NUMPY_RANDOM

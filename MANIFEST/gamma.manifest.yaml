@@ -1,0 +1,14 @@
+COMMAND:
+  key: GAMMA
+  name: gamma
+  parameters:
+    scale:
+      default: 1.0
+      type: float
+    shape:
+      default: 
+      type: float
+    size:
+      default: dc[0].y.shape
+      type: string
+  type: NUMPY_RANDOM

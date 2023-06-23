@@ -1,7 +1,10 @@
 COMMAND:
-  key: RAND
-  name: rand
+  key: LOGSERIES
+  name: logseries
   parameters:
+    p:
+      default: 0.5
+      type: float
     size:
       default: dc[0].y.shape
       type: string

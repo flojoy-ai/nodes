@@ -1,0 +1,11 @@
+COMMAND:
+  key: PCG64
+  name: PCG64
+  parameters:
+    seed:
+      default: 
+      type: int
+    state:
+      default: None
+      type: numpy.random.RandomState
+  type: NUMPY_RANDOM

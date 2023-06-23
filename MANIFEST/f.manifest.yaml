@@ -1,7 +1,13 @@
 COMMAND:
-  key: RAND
-  name: rand
+  key: F
+  name: f
   parameters:
+    dfn:
+      default: 
+      type: int
+    dfd:
+      default: 
+      type: int
     size:
       default: dc[0].y.shape
       type: string
