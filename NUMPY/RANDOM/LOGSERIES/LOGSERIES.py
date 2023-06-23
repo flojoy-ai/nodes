@@ -85,7 +85,7 @@ def LOGSERIES(dc: list, params: dict) -> DataContainer:
     """
     # Enforce strict typing
     size: str = params.get("size", "dc[0].y.shape")
-    p: float = params.get("loc", 0.5)
+    p: float = params.get("p", 0.5)
 
     # Check that dc[0].y is in the range [0, 1]
     if not 0 <= p <= 1:
