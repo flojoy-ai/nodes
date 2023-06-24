@@ -1,0 +1,357 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 130,
+                "height": 130,
+                "id": "CONSTANT-47e60551-9fad-478d-855d-189f0a7f2916",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "CONSTANT-47e60551-9fad-478d-855d-189f0a7f2916",
+                    "label": "4",
+                    "func": "CONSTANT",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "constant": {
+                            "functionName": "CONSTANT",
+                            "param": "constant",
+                            "value": "4"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 273.49329531036113,
+                    "y": 157.25205273674612
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 273.49329531036113,
+                    "y": 157.25205273674612
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 181,
+                "id": "LOOP-62aa8e3f-7911-4054-a131-be8843bceaa3",
+                "type": "LOOP",
+                "data": {
+                    "id": "LOOP-62aa8e3f-7911-4054-a131-be8843bceaa3",
+                    "label": "LOOP",
+                    "func": "LOOP",
+                    "type": "LOOP",
+                    "ctrls": {
+                        "num_loops": {
+                            "functionName": "LOOP",
+                            "param": "num_loops",
+                            "value": "8"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "end",
+                            "id": "end",
+                            "type": "source"
+                        },
+                        {
+                            "name": "body",
+                            "id": "body",
+                            "type": "source"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": -146.33186009260277,
+                    "y": 195.1922158695014
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -146.33186009260277,
+                    "y": 195.1922158695014
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "GOTO-7a67e2c3-6044-4c64-bcaf-05453739586a",
+                "type": "LOOP",
+                "data": {
+                    "id": "GOTO-7a67e2c3-6044-4c64-bcaf-05453739586a",
+                    "label": "GOTO",
+                    "func": "GOTO",
+                    "type": "LOOP",
+                    "ctrls": {
+                        "goto_node_id": {
+                            "functionName": "GOTO",
+                            "param": "goto_node_id",
+                            "value": "LOOP-62aa8e3f-7911-4054-a131-be8843bceaa3"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 1198.242009790958,
+                    "y": 224.49676252565905
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1198.242009790958,
+                    "y": 224.49676252565905
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "FEEDBACK-df19688e-965e-4d04-a38d-1982dfad2bae",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "FEEDBACK-df19688e-965e-4d04-a38d-1982dfad2bae",
+                    "label": "FEEDBACK",
+                    "func": "FEEDBACK",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "referred_node": {
+                            "functionName": "FEEDBACK",
+                            "param": "referred_node",
+                            "value": "ADD-c31a9a6b-65e4-4e4a-a39d-53b79f95b14a"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 498.5274036757663,
+                    "y": 161.47835433746098
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 498.5274036757663,
+                    "y": 161.47835433746098
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-629e8cee-40c2-42fd-9c6c-414a0555d1b1",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-629e8cee-40c2-42fd-9c6c-414a0555d1b1",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 197.97305523237543,
+                    "y": -10.49130304667139
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 197.97305523237543,
+                    "y": -10.49130304667139
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "BIG_NUMBER-57b524b3-a1a3-4fe9-b90f-42e15d294a7e",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "BIG_NUMBER-57b524b3-a1a3-4fe9-b90f-42e15d294a7e",
+                    "label": "BIG NUMBER",
+                    "func": "BIG_NUMBER",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {
+                        "suffix": {
+                            "functionName": "BIG_NUMBER",
+                            "param": "suffix",
+                            "value": ""
+                        },
+                        "prefix": {
+                            "functionName": "BIG_NUMBER",
+                            "param": "prefix",
+                            "value": ""
+                        },
+                        "relative_delta": {
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": "true"
+                        },
+                        "title": {
+                            "functionName": "BIG_NUMBER",
+                            "param": "title",
+                            "value": ""
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 711.4036437908338,
+                    "y": -65.8762693715451
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 711.4036437908338,
+                    "y": -65.8762693715451
+                },
+                "dragging": true
+            },
+            {
+                "width": 99,
+                "height": 130,
+                "id": "ADD-c31a9a6b-65e4-4e4a-a39d-53b79f95b14a",
+                "type": "ARITHMETIC",
+                "data": {
+                    "id": "ADD-c31a9a6b-65e4-4e4a-a39d-53b79f95b14a",
+                    "label": "ADD",
+                    "func": "ADD",
+                    "type": "ARITHMETIC",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "y",
+                            "id": "add_y",
+                            "type": "target"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 716.0435851184276,
+                    "y": 319.69705810559987
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 716.0435851184276,
+                    "y": 319.69705810559987
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "CONSTANT-22c9a8dd-96bd-478b-8e00-39fd6e31174a",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "CONSTANT-22c9a8dd-96bd-478b-8e00-39fd6e31174a",
+                    "label": "2.0",
+                    "func": "CONSTANT",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "constant": {
+                            "functionName": "CONSTANT",
+                            "param": "constant",
+                            "value": "2.0"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 289.36906110550507,
+                    "y": 378.4607372775686
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 289.36906110550507,
+                    "y": 378.4607372775686
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LOOP-62aa8e3f-7911-4054-a131-be8843bceaa3",
+                "sourceHandle": "body",
+                "target": "CONSTANT-47e60551-9fad-478d-855d-189f0a7f2916",
+                "targetHandle": "CONSTANT",
+                "id": "reactflow__edge-LOOP-62aa8e3f-7911-4054-a131-be8843bceaa3body-CONSTANT-47e60551-9fad-478d-855d-189f0a7f2916CONSTANT"
+            },
+            {
+                "source": "CONSTANT-47e60551-9fad-478d-855d-189f0a7f2916",
+                "sourceHandle": "main",
+                "target": "FEEDBACK-df19688e-965e-4d04-a38d-1982dfad2bae",
+                "targetHandle": "FEEDBACK",
+                "id": "reactflow__edge-CONSTANT-47e60551-9fad-478d-855d-189f0a7f2916main-FEEDBACK-df19688e-965e-4d04-a38d-1982dfad2baeFEEDBACK"
+            },
+            {
+                "source": "LOOP-62aa8e3f-7911-4054-a131-be8843bceaa3",
+                "sourceHandle": "end",
+                "target": "END-629e8cee-40c2-42fd-9c6c-414a0555d1b1",
+                "targetHandle": "END",
+                "id": "reactflow__edge-LOOP-62aa8e3f-7911-4054-a131-be8843bceaa3end-END-629e8cee-40c2-42fd-9c6c-414a0555d1b1END"
+            },
+            {
+                "source": "FEEDBACK-df19688e-965e-4d04-a38d-1982dfad2bae",
+                "sourceHandle": "main",
+                "target": "BIG_NUMBER-57b524b3-a1a3-4fe9-b90f-42e15d294a7e",
+                "targetHandle": "BIG_NUMBER",
+                "id": "reactflow__edge-FEEDBACK-df19688e-965e-4d04-a38d-1982dfad2baemain-BIG_NUMBER-57b524b3-a1a3-4fe9-b90f-42e15d294a7eBIG_NUMBER"
+            },
+            {
+                "source": "FEEDBACK-df19688e-965e-4d04-a38d-1982dfad2bae",
+                "sourceHandle": "main",
+                "target": "ADD-c31a9a6b-65e4-4e4a-a39d-53b79f95b14a",
+                "targetHandle": "ADD",
+                "id": "reactflow__edge-FEEDBACK-df19688e-965e-4d04-a38d-1982dfad2baemain-ADD-c31a9a6b-65e4-4e4a-a39d-53b79f95b14aADD"
+            },
+            {
+                "source": "ADD-c31a9a6b-65e4-4e4a-a39d-53b79f95b14a",
+                "sourceHandle": "main",
+                "target": "GOTO-7a67e2c3-6044-4c64-bcaf-05453739586a",
+                "targetHandle": "GOTO",
+                "id": "reactflow__edge-ADD-c31a9a6b-65e4-4e4a-a39d-53b79f95b14amain-GOTO-7a67e2c3-6044-4c64-bcaf-05453739586aGOTO"
+            },
+            {
+                "source": "BIG_NUMBER-57b524b3-a1a3-4fe9-b90f-42e15d294a7e",
+                "sourceHandle": "main",
+                "target": "GOTO-7a67e2c3-6044-4c64-bcaf-05453739586a",
+                "targetHandle": "GOTO",
+                "id": "reactflow__edge-BIG_NUMBER-57b524b3-a1a3-4fe9-b90f-42e15d294a7emain-GOTO-7a67e2c3-6044-4c64-bcaf-05453739586aGOTO"
+            },
+            {
+                "source": "LOOP-62aa8e3f-7911-4054-a131-be8843bceaa3",
+                "sourceHandle": "body",
+                "target": "CONSTANT-22c9a8dd-96bd-478b-8e00-39fd6e31174a",
+                "targetHandle": "CONSTANT",
+                "id": "reactflow__edge-LOOP-62aa8e3f-7911-4054-a131-be8843bceaa3body-CONSTANT-22c9a8dd-96bd-478b-8e00-39fd6e31174aCONSTANT"
+            },
+            {
+                "source": "CONSTANT-22c9a8dd-96bd-478b-8e00-39fd6e31174a",
+                "sourceHandle": "main",
+                "target": "ADD-c31a9a6b-65e4-4e4a-a39d-53b79f95b14a",
+                "targetHandle": "add_y",
+                "id": "reactflow__edge-CONSTANT-22c9a8dd-96bd-478b-8e00-39fd6e31174amain-ADD-c31a9a6b-65e4-4e4a-a39d-53b79f95b14aadd_y"
+            }
+        ],
+        "viewport": {
+            "x": 386.5510318488166,
+            "y": 106.11354232520893,
+            "zoom": 0.7582897221981599
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

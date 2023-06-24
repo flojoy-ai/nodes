@@ -53,3 +53,4 @@ COMMAND:
     pip_dependencies:
       - name: scikit-image
         v: "0.20.0"
+      - name: pooch
