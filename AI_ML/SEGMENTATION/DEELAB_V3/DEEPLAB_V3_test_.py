@@ -17,9 +17,7 @@ def mock_flojoy_decorator():
 
 @pytest.fixture
 def obama_image_array_rgb():
-    _image_path = (
-        f"{os.path.dirname(os.path.realpath(__file__))}/obama_image.jpg"
-    )
+    _image_path = f"{os.path.dirname(os.path.realpath(__file__))}/obama_image.jpg"
     image = Image.open(_image_path).convert("RGB")
     return np.array(image)
 
