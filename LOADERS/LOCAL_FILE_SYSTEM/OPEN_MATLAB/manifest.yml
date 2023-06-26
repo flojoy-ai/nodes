@@ -1,0 +1,8 @@
+COMMAND:
+  - name: Open Matlab
+    key: OPEN_MATLAB
+    type: LOCAL_FILE_SYSTEM
+    parameters:
+      path:
+        type: string
+        default: ''

@@ -1,5 +1,0 @@
-COMMAND:
-  - name: Det
-    key: DET
-    type: NUMPY_LINALG
-    

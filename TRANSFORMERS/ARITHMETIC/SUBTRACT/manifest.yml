@@ -1,0 +1,11 @@
+COMMAND:
+  - name: Subtract
+    key: SUBTRACT
+    type: ARITHMETIC
+    inputs:
+      - name: x
+        id: sub_x
+        type: target
+      - name: y
+        id: sub_y
+        type: target

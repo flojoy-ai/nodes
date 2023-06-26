@@ -1,0 +1,5 @@
+COMMAND:
+  - name: The END
+    key: END
+    type: TERMINATOR
+    parameters: {}

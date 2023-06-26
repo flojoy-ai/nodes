@@ -1,0 +1,11 @@
+COMMAND:
+  - name: Gstd
+    key: GSTD
+    type: SCIPY_STATS
+    parameters: 
+      axis: 
+        type: int
+        default: 0 
+      ddof: 
+        type: int
+        default: 1

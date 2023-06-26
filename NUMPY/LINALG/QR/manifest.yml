@@ -1,0 +1,8 @@
+COMMAND:
+  - name: Qr
+    key: QR
+    type: NUMPY_LINALG
+    parameters: 
+      mode: 
+        type: string
+        default: reduced

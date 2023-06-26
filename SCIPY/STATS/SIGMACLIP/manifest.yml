@@ -1,0 +1,11 @@
+COMMAND:
+  - name: Sigmaclip
+    key: SIGMACLIP
+    type: SCIPY_STATS
+    parameters: 
+      low: 
+        type: float
+        default: 4.0 
+      high: 
+        type: float
+        default: 4.0

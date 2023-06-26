@@ -1,0 +1,17 @@
+COMMAND:
+  - name: Tmax
+    key: TMAX
+    type: SCIPY_STATS
+    parameters: 
+      upperlimit: 
+        type: float
+        default:  
+      axis: 
+        type: int
+        default: 0 
+      inclusive: 
+        type: boolean
+        default: True 
+      nan_policy: 
+        type: string
+        default: propagate

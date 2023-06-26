@@ -1,0 +1,4 @@
+COMMAND:
+  - name: Mvsdist
+    key: MVSDIST
+    type: SCIPY_STATS

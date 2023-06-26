@@ -1,0 +1,23 @@
+COMMAND:
+  - name: Support Vector Machine
+    key: SUPPORT_VECTOR_MACHINE
+    type: CLASSIFICATION
+    inputs:
+      - name: train
+        id: train
+        type: target
+      - name: input
+        id: input
+        type: target
+    parameters:
+      target:
+        type: string
+        default: ""
+      kernel:
+        type: select
+        options:
+          - linear
+          - poly
+          - rbf
+          - sigmoid
+        default: linear

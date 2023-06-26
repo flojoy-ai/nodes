@@ -1,0 +1,17 @@
+COMMAND:
+  - name: Skew
+    key: SKEW
+    type: SCIPY_STATS
+    parameters: 
+      axis: 
+        type: int
+        default: 0 
+      bias: 
+        type: boolean
+        default: True 
+      nan_policy: 
+        type: string
+        default: propagate 
+      keepdims: 
+        type: boolean
+        default: False

@@ -1,0 +1,28 @@
+COMMAND:
+  - name: Conditional
+    key: CONDITIONAL
+    type: CONDITIONAL
+    parameters:
+      operator_type:
+        type: select
+        options:
+          - "<="
+          - ">"
+          - "<"
+          - ">="
+          - "!="
+          - "=="
+        default: ">="
+    inputs:
+      - name: x
+        id: first
+        type: target
+      - name: y
+        id: second
+        type: target
+      - name: "true"
+        id: "true"
+        type: source
+      - name: "false"
+        id: "false"
+        type: source
