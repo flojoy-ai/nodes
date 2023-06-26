@@ -6,7 +6,7 @@ COMMAND:
     inputs:
       - name: true_data
         id: true_data
-        type: source
+        type: target
       - name: predicted
         id: predicted
-        type: source
+        type: target
