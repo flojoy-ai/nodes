@@ -1,11 +1,15 @@
 COMMAND:
-  - name: Multiply
-    key: MULTIPLY
-    type: ARITHMETIC
-    inputs:
-      - name: x
-        id: multiply_x
-        type: target
-      - name: y
-        id: multiply_y
-        type: target
+- name: MULTIPLY
+  key: MULTIPLY
+  type: ARITHMETIC
+  inputs:
+  - name: a
+    id: a
+    type: OrderedPair
+  - name: b
+    id: b
+    type: OrderedPair
+  outputs:
+  - name: default
+    id: default
+    type: OrderedPair

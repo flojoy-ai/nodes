@@ -1,4 +1,12 @@
 COMMAND:
-  - name: Scatter Plot
-    key: SCATTER
-    type: PLOTLY_VISOR
+- name: SCATTER
+  key: SCATTER
+  type: ARITHMETIC
+  inputs:
+  - name: default
+    id: default
+    type: OrderedPair|DataFrame|Matrix
+  outputs:
+  - name: default
+    id: default
+    type: Plotly

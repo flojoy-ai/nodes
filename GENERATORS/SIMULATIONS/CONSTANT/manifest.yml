@@ -1,8 +1,16 @@
 COMMAND:
-  - name: Constant
-    key: CONSTANT
-    type: SIMULATION
-    parameters:
-      constant:
-        type: float
-        default: 3
+- name: CONSTANT
+  key: CONSTANT
+  type: ARITHMETIC
+  inputs:
+  - name: default
+    id: default
+    type: OrderedPair
+  parameters:
+    constant:
+      type: float
+      default: 3.0
+  outputs:
+  - name: default
+    id: default
+    type: OrderedPair

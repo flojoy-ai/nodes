@@ -1,11 +1,15 @@
 COMMAND:
-  - name: Add
-    key: ADD
-    type: ARITHMETIC
-    inputs: 
-      - name: x
-        id: add_x
-        type: target
-      - name: y
-        id: add_y
-        type: target
+- name: ADD
+  key: ADD
+  type: ARITHMETIC
+  inputs:
+  - name: a
+    id: a
+    type: OrderedPair
+  - name: b
+    id: b
+    type: OrderedPair
+  outputs:
+  - name: default
+    id: default
+    type: OrderedPair

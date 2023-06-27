@@ -1,4 +1,12 @@
 COMMAND:
-  - name: Histogram
-    key: HISTOGRAM
-    type: PLOTLY_VISOR
+- name: HISTOGRAM
+  key: HISTOGRAM
+  type: ARITHMETIC
+  inputs:
+  - name: default
+    id: default
+    type: OrderedPair|DataFrame|Matrix
+  outputs:
+  - name: default
+    id: default
+    type: Plotly
