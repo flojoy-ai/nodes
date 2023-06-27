@@ -29,8 +29,10 @@ def APPEND(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     if y1.shape[0] != 1:
         raise ValueError(
-            ("To append, APPEND node the requires the non-array input to have "
-             f"a single point. The data passed has a shape of: {y1.shape}")
+            (
+                "To append, APPEND node the requires the non-array input to have "
+                f"a single point. The data passed has a shape of: {y1.shape}"
+            )
         )
 
     y = np.append(y0, y1)
