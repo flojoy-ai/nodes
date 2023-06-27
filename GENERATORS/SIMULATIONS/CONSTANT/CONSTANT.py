@@ -1,19 +1,10 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair
 
 
 @flojoy
-def CONSTANT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def CONSTANT(default: OrderedPair, constant: float = 3.0) -> OrderedPair:
     """Generates a single x-y vector of numeric (floating point) constants"""
-
-    if dc_inputs.__len__() > 0:
-        x = dc_inputs[0].y
-        y = np.full(len(x), params["constant"])
-        return DataContainer(x=x, y=y)
-
-    x = list()
-    for i in range(1000):
-        x.append(i)
-    y = np.full(1000, params["constant"])
-
-    return DataContainer(x=x, y=y)
+    x = default.y
+    y = np.full(len(x), constant)
+    return OrderedPair(x=x, y=y)

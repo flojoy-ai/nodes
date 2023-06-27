@@ -1,14 +1,15 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import OrderedPair, flojoy
 
 
 @flojoy
-def MULTIPLY(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def MULTIPLY(a: OrderedPair, b: OrderedPair) -> OrderedPair:
     """Takes 2 input vectors, multiplies them, and returns the result"""
-    a = dc_inputs[0].y
-    b = dc_inputs[1].y
+    x = a.x
 
-    x = dc_inputs[0].x
-    y = np.multiply(a, b)
+    u = a.y
+    v = b.y
 
-    return DataContainer(x=x, y=y)
+    y = np.multiply(u, v)
+
+    return OrderedPair(x=x, y=y)
