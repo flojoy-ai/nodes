@@ -43,7 +43,7 @@ def _generate_code(func: Callable) -> str:
     '''
     return dedent(script_code)
 
-def _run_inputless_command_from_venv(venv_path: str, command: list[str]):
+def _run_inputless_command_from_venv(venv_path: os.PathLike, command: list[str]):
     command = [os.path.join(venv_path, "bin", "python"), "-m"] + command
     process = subprocess.Popen(
         command,
