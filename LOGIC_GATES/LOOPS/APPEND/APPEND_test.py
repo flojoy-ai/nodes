@@ -39,6 +39,5 @@ def test_APPEND():
     res = APPEND.APPEND([element_a, element_b], {})
 
     # check that the correct number of elements
-    print(res.y, type(res.y), len(res.y))
     assert (len(res.y)) == 11
     assert res.y[-1] == 11
