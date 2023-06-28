@@ -5,7 +5,7 @@ from flojoy import DataFrame, Matrix, OrderedPair, Plotly, flojoy
 from nodes.VISUALIZERS.template import plot_layout
 
 
-@flojoy(node_type="VISOR")
+@flojoy(node_type="PLOTLY_VISOR")
 def SCATTER(default: OrderedPair | DataFrame | Matrix) -> Plotly:
     """The SCATTER Node creates a Plotly Scatter visualization for a given input data container.
 

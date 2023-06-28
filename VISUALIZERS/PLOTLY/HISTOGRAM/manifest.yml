@@ -1,7 +1,7 @@
 COMMAND:
 - name: HISTOGRAM
   key: HISTOGRAM
-  type: VISOR
+  type: PLOTLY_VISOR
   inputs:
   - name: default
     id: default

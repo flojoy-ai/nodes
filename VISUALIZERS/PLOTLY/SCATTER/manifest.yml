@@ -1,7 +1,7 @@
 COMMAND:
 - name: SCATTER
   key: SCATTER
-  type: VISOR
+  type: PLOTLY_VISOR
   inputs:
   - name: default
     id: default
