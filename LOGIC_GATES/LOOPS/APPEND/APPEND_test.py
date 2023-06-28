@@ -41,3 +41,23 @@ def test_APPEND():
     # check that the correct number of elements
     assert (len(res.y)) == 11
     assert res.y[-1] == 11
+
+    # create the two matrix datacontainers
+    element_a = DataContainer(type="matrix", m=numpy.ones((10, 10)))
+    element_b = DataContainer(type="matrix", m=numpy.ones((1, 10)))
+
+    # node under test
+    res = APPEND.APPEND([element_a, element_b], {})
+
+    # check that the correct number of elements
+    assert (res.m.shape) == (11, 10)
+
+    # create the two dataframe datacontainers
+    element_a = DataContainer(type="dataframe", m=numpy.ones((10, 10)))
+    element_b = DataContainer(type="dataframe", m=numpy.ones((1, 10)))
+
+    # node under test
+    res = APPEND.APPEND([element_a, element_b], {})
+
+    # check that the correct number of elements
+    assert (res.m.shape) == (11, 10)

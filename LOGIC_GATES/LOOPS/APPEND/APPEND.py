@@ -50,7 +50,7 @@ def APPEND(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             m0 = dc_inputs[0].m
             m1 = dc_inputs[1].m
 
-            m = np.append(m0, m1)
+            m = np.append(m0, m1, axis=0)
 
             return DataContainer(type="matrix", m=m)
 
@@ -58,6 +58,6 @@ def APPEND(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             m0 = dc_inputs[0].m
             m1 = dc_inputs[1].m
 
-            df = np.append(m0, m1)
+            df = np.append(m0, m1, axis=0)
 
             return DataContainer(type="dataframe", m=df)
