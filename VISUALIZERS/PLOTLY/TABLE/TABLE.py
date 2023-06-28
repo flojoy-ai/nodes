@@ -1,11 +1,11 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataFrame, Plotly
 import plotly.graph_objects as go
 import pandas as pd
 from nodes.VISUALIZERS.template import plot_layout
 
 
-@flojoy
-def TABLE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+@flojoy(node_type="PLOTLY_VISOR")
+def TABLE(default: DataFrame) -> Plotly:
     """Node creates a Plotly table visualization for a given input data container.
 
     Args:
@@ -18,22 +18,20 @@ def TABLE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     Raises:
     ValueError: If the input data container is not supported.
     """
-    dc_input: DataContainer = dc_inputs[0]
-    node_name = __name__.split(".")[-1]
-    layout = plot_layout(title=node_name)
-    if dc_input.type in ["dataframe", "plotly"]:
-        df = pd.DataFrame(dc_input.m)
-        fig = go.Figure(
-            data=[
-                go.Table(
-                    header=dict(values=list(df.columns), align="left"),
-                    cells=dict(values=[df[col] for col in df.columns], align="left"),
-                )
-            ],
-            layout=layout,
-        )
-        return DataContainer(type="plotly", fig=fig, m=df)
-    else:
+    layout = plot_layout(title="TABLE")
+    if not isinstance(default, DataFrame):
         raise ValueError(
-            f"unsupported DataContainer type passed for {node_name}: {dc_input.type}"
+            f"unsupported DataContainer type passed for TABLE: {default.type}"
         )
+
+    df = default.m
+    fig = go.Figure(
+        data=[
+            go.Table(
+                header=dict(values=list(df.columns), align="left"),
+                cells=dict(values=[df[col] for col in df.columns], align="left"),
+            )
+        ],
+        layout=layout,
+    )
+    return Plotly(fig=fig)
