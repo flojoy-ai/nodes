@@ -2,7 +2,7 @@ import numpy as np
 from flojoy import OrderedPair, flojoy, DataContainer
 
 
-@flojoy
+@flojoy(node_type="SIMULATION")
 def RAND(default: OrderedPair) -> OrderedPair:
     x = default.y
     y = np.random.normal(size=len(x))

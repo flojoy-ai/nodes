@@ -1,7 +1,7 @@
 COMMAND:
 - name: LINSPACE
   key: LINSPACE
-  type: ARITHMETIC
+  type: default
   parameters:
     start:
       type: float

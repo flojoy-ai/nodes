@@ -1,7 +1,7 @@
 COMMAND:
 - name: RAND
   key: RAND
-  type: ARITHMETIC
+  type: SIMULATION
   inputs:
   - name: default
     id: default

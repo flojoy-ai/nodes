@@ -1,7 +1,7 @@
 COMMAND:
 - name: HISTOGRAM
   key: HISTOGRAM
-  type: ARITHMETIC
+  type: VISOR
   inputs:
   - name: default
     id: default
