@@ -4,17 +4,18 @@ import node_venv
 
 
 @flojoy
-@node_venv.run_in_venv(pip_dependencies=[
-    "torch==1.11.0",
-    "torchvision==0.12.0",
-    "opencv-python-headless",
-    "pycocotools",
-    "matplotlib",
-    "onnxruntime",
-    "onnx",
-    "pillow",
-    "huggingface_hub",
-    "git+https://github.com/facebookresearch/segment-anything.git"
+@node_venv.run_in_venv(
+    pip_dependencies=[
+        "torch==1.11.0",
+        "torchvision==0.12.0",
+        "opencv-python-headless",
+        "pycocotools",
+        "matplotlib",
+        "onnxruntime",
+        "onnx",
+        "pillow",
+        "huggingface_hub",
+        "git+https://github.com/facebookresearch/segment-anything.git"
 ])
 def META_SAM(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """The META_SAM node runs the SegmentAnythingModel (SAM) on an image.
@@ -46,6 +47,7 @@ def META_SAM(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         raise ValueError(
             f"Invalid input, expected exactly one DataContainer of type 'image'"
         )
+    
 
     input_image = dc_inputs[0]
 
@@ -65,9 +67,7 @@ def META_SAM(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     def _get_overlay(anns):
         if len(anns) == 0:
             return None
-
         sorted_anns = sorted(anns, key=(lambda x: x['area']), reverse=True)
-
         img = np.ones((sorted_anns[0]['segmentation'].shape[0], sorted_anns[0]['segmentation'].shape[1], 4))
         img[:,:,3] = 0
         for ann in sorted_anns:
