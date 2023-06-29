@@ -36,12 +36,12 @@ def META_SAM(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     """
 
+    import cv2
     import numpy as np
     from PIL import Image
 
     from segment_anything import SamAutomaticMaskGenerator, sam_model_registry
     from huggingface_hub import hf_hub_download
-    import cv2
 
     if len(dc_inputs) != 1 or dc_inputs[0].type != "image":
         raise ValueError(
