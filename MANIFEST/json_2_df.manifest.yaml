@@ -1,0 +1,4 @@
+COMMAND:
+  - name: json_To_df
+    key: JSON_2_DF
+    type: TYPE_CASTING
