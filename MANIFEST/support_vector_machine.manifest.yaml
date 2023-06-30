@@ -5,10 +5,10 @@ COMMAND:
     inputs:
       - name: train
         id: train
-        type: source
+        type: target
       - name: input
         id: input
-        type: source
+        type: target
     parameters:
       target:
         type: string
