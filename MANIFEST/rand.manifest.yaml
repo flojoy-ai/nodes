@@ -2,3 +2,16 @@ COMMAND:
   - name: Random (Uniform)
     key: RAND
     type: SIMULATION
+    parameters:
+      size:
+        type: int
+        default: 1
+      distribution:
+        type: select
+        options:
+          - normal
+          - uniform
+          - poisson
+          - dirichlet
+        default: uniform
+
