@@ -3,9 +3,6 @@ COMMAND:
     key: RAND
     type: SIMULATION
     parameters:
-      size:
-        type: int
-        default: 1
       distribution:
         type: select
         options:
@@ -14,4 +11,3 @@ COMMAND:
           - poisson
           - dirichlet
         default: uniform
-

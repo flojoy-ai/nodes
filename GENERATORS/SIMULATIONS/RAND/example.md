@@ -1,0 +1,1 @@
+In this example, `RAND` node generates a random normal (or gaussian) distribution. The number of data points is 1000 defined by `LINSPACE`. The distribution is then plotted with `HISTROGRAM` and `SCATTER` VIZ nodes.
