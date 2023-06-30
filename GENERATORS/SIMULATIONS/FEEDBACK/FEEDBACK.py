@@ -5,6 +5,17 @@ import traceback
 
 @flojoy
 def FEEDBACK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+    """
+    The FEEDBACK node takes one reference node as parameters and returns the data from this node most recent output.
+
+    Parameters
+    ----------
+    node_reference
+
+    Return
+    ------
+    Data container from node_reference
+    """
     referred_node = params["referred_node"]
 
     try:
