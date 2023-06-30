@@ -6,11 +6,12 @@ import traceback
 @flojoy
 def RAND(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     x = None
+    my_generator = np.random.default_rng()
     if len(dc_inputs) > 0:
         x = dc_inputs[0].y
-        y = np.random.normal(size=len(x))
+        y = my_generator.normal(size=len(x))
     else:
-        y = np.random.normal(size=1000)
+        y = my_generator.normal(size=1000)
 
     return DataContainer(x=x, y=y)
 
