@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
-
 @flojoy
-def RANKDATA(dc, params):
+def RANKDATA(default: DataContainer, default_parmas: DefaultParams, method: str='average', axis: None=None):
     """
             Assign ranks to data, dealing with ties appropriately.
 
@@ -42,11 +41,4 @@ def RANKDATA(dc, params):
             Axis along which to perform the ranking. If ``None``, the data array
             is first flattened.
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.rankdata(
-            a=dc[0].y,
-            method=(str(params["method"]) if params["method"] != "" else None),
-            axis=(None(params["axis"]) if params["axis"] != "" else None),
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.stats.rankdata(a=dc[0].y, method=str(params['method']) if params['method'] != '' else None, axis=None(params['axis']) if params['axis'] != '' else None))

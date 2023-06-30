@@ -1,9 +1,8 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataContainer, DefaultParams
 import pandas as pd
 
-
 @flojoy
-def READ_CSV(dc_inputs: list[DataContainer], params: dict[str, str]):
+def READ_CSV(default: DataContainer, default_parmas: DefaultParams, file_path: str='https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv'):
     """
     Read a CSV file from disk or a URL, then return a dataframe.
 
@@ -13,6 +12,5 @@ def READ_CSV(dc_inputs: list[DataContainer], params: dict[str, str]):
         File path to the CSV file or an URL of CSV file
 
     """
-    file_path = params["file_path"]
-    df = pd.read_csv(file_path)  # type: ignore
-    return DataContainer(type="dataframe", m=df)
+    df = pd.read_csv(file_path)
+    return DataContainer(type='dataframe', m=df)

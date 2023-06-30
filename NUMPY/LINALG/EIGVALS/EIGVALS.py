@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import numpy.linalg
 
-
 @flojoy
-def EIGVALS(dc, params):
+def EIGVALS(default: DataContainer, default_parmas: DefaultParams):
     """
 
             Compute the eigenvalues of a general matrix.
@@ -20,9 +19,4 @@ def EIGVALS(dc, params):
     a : (..., M, M) array_like
             A complex- or real-valued matrix whose eigenvalues will be computed.
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.eigvals(
-            a=dc[0].y,
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=numpy.linalg.eigvals(a=dc[0].y))

@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import numpy.linalg
 
-
 @flojoy
-def COND(dc, params):
+def COND(default: DataContainer, default_parmas: DefaultParams, p: None=None):
     """
 
             Compute the condition number of a matrix.
@@ -43,10 +42,4 @@ def COND(dc, params):
             inf means the `numpy.inf` object, and the Frobenius norm is
             the root-of-sum-of-squares norm.
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.cond(
-            x=dc[0].y,
-            p=(None(params["p"]) if params["p"] != "" else None),
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=numpy.linalg.cond(x=dc[0].y, p=None(params['p']) if params['p'] != '' else None))

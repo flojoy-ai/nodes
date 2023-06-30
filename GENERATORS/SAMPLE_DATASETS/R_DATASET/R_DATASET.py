@@ -1,9 +1,9 @@
-from flojoy import flojoy, DataContainer
+from typing import Literal
+from flojoy import flojoy, DataContainer, DefaultParams
 from rdatasets import data
 
-
 @flojoy
-def R_DATASET(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def R_DATASET(default: DataContainer, default_parmas: DefaultParams, dataset_key: Literal['ability.cov', 'airmiles', 'AirPassengers', 'airquality', 'anscombe', 'attenu', 'attitude', 'austres', 'BJsales', 'BOD', 'cars', 'ChickWeight', 'chickwts', 'co2', 'crimtab', 'discoveries', 'DNase', 'esoph', 'euro', 'EuStockMarkets', 'faithful', 'Formaldehyde', 'freeny', 'HairEyeColor', 'Harman23', 'Harman74', 'Indometh', 'infert', 'InsectSprays', 'iris', 'iris3', 'islands', 'JohnsonJohnson', 'LakeHuron', 'LakeHuron', 'LifeCycleSavings', 'Loblolly', 'longley', 'lynx', 'morley', 'mtcars', 'nhtemp', 'Nile', 'nottem', 'npk', 'occupationalStatus', 'Orange', 'OrchardSprays', 'PlantGrowth', 'precip', 'presidents', 'pressure', 'Puromycin', 'quakes', 'randu', 'rivers', 'rock', 'Seatbelts', 'sleep', 'stackloss', 'sunspot.month', 'sunspot.year', 'sunspots', 'swiss', 'Theoph', 'Titanic', 'ToothGrowth', 'treering', 'trees', 'UCBAdmissions', 'UKDriverDeaths', 'UKgas', 'USAccDeaths', 'USArrests', 'USJudgeRatings', 'USPersonalExpenditure', 'USPersonalExpenditure', 'VADeaths', 'volcano', 'warpbreaks', 'women', 'WorldPhones', 'WWWusage']='iris') -> DataContainer:
     """
     Retrieves a pandas DataFrame from rdatasets using the provided dataset_key parameter and returns it wrapped in a DataContainer.
 
@@ -15,6 +15,5 @@ def R_DATASET(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     Returns:
         DataContainer: A DataContainer object containing the retrieved pandas DataFrame.
     """
-    dataset_key = params["dataset_key"]
     df = data(dataset_key)
-    return DataContainer(type="dataframe", m=df)
+    return DataContainer(type='dataframe', m=df)

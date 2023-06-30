@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import numpy.linalg
 
-
 @flojoy
-def SLOGDET(dc, params):
+def SLOGDET(default: DataContainer, default_parmas: DefaultParams):
     """
 
             Compute the sign and (natural) logarithm of the determinant of an array.
@@ -22,9 +21,4 @@ def SLOGDET(dc, params):
     a : (..., M, M) array_like
             Input array, has to be a square 2-D array.
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.slogdet(
-            a=dc[0].y,
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=numpy.linalg.slogdet(a=dc[0].y))

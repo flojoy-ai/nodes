@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.signal
 
-
 @flojoy
-def PERIODOGRAM(dc, params):
+def PERIODOGRAM(default: DataContainer, default_parmas: DefaultParams, fs: float=1.0, window: str='boxcar', nfft: int=None, detrend: str='constant', return_onesided: bool=True, scaling: str='density', axis: int=-1):
     """
 
             Estimate power spectral density using a periodogram.
@@ -48,20 +47,4 @@ def PERIODOGRAM(dc, params):
             Axis along which the periodogram is computed; the default is
             over the last axis (i.e. ``axis=-1``).
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.signal.periodogram(
-            x=dc[0].y,
-            fs=(float(params["fs"]) if params["fs"] != "" else None),
-            window=(str(params["window"]) if params["window"] != "" else None),
-            nfft=(int(params["nfft"]) if params["nfft"] != "" else None),
-            detrend=(str(params["detrend"]) if params["detrend"] != "" else None),
-            return_onesided=(
-                bool(params["return_onesided"])
-                if params["return_onesided"] != ""
-                else None
-            ),
-            scaling=(str(params["scaling"]) if params["scaling"] != "" else None),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.signal.periodogram(x=dc[0].y, fs=float(params['fs']) if params['fs'] != '' else None, window=str(params['window']) if params['window'] != '' else None, nfft=int(params['nfft']) if params['nfft'] != '' else None, detrend=str(params['detrend']) if params['detrend'] != '' else None, return_onesided=bool(params['return_onesided']) if params['return_onesided'] != '' else None, scaling=str(params['scaling']) if params['scaling'] != '' else None, axis=int(params['axis']) if params['axis'] != '' else None))

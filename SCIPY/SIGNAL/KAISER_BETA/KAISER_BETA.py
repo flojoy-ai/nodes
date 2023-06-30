@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.signal
 
-
 @flojoy
-def KAISER_BETA(dc, params):
+def KAISER_BETA(default: DataContainer, default_parmas: DefaultParams):
     """
             Compute the Kaiser parameter `beta`, given the attenuation `a`.
 
@@ -17,9 +16,4 @@ def KAISER_BETA(dc, params):
             The desired attenuation in the stopband and maximum ripple in
             the passband, in dB.  This should be a *positive* number.
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.signal.kaiser_beta(
-            a=dc[0].y,
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.signal.kaiser_beta(a=dc[0].y))

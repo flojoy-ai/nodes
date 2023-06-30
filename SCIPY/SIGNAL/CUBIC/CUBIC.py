@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.signal
 
-
 @flojoy
-def CUBIC(dc, params):
+def CUBIC(default: DataContainer, default_parmas: DefaultParams):
     """
             A cubic B-spline.
 
@@ -18,9 +17,4 @@ def CUBIC(dc, params):
     x : array_like
             a knot vector
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.signal.cubic(
-            x=dc[0].y,
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.signal.cubic(x=dc[0].y))

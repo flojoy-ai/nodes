@@ -1,14 +1,11 @@
 import pandas as pd
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataContainer, DefaultParams
 from typing import Any, Dict, List
 from prophet import Prophet
 from prophet.serialize import model_to_json
 
-
 @flojoy
-def PROPHET_PREDICT(
-    dc_inputs: List[DataContainer], params: Dict[str, Any]
-) -> DataContainer:
+def PROPHET_PREDICT(default: DataContainer, default_parmas: DefaultParams, periods: int=365, run_forecast: bool=True) -> DataContainer:
     """The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe
 
     The DataContainer input type must be `dataframe`, and that dataframe must have its
@@ -50,34 +47,22 @@ def PROPHET_PREDICT(
         input param, and potentially "original" in the event that `run_forecast` is True
     """
     dc_input = dc_inputs[0]
-    run_forecast = params["run_forecast"]
     match dc_input.type:
-        case "dataframe":
+        case 'dataframe':
             df: pd.DataFrame = dc_input.m
             first_col = df.iloc[:, 0]
             if not pd.api.types.is_datetime64_any_dtype(first_col):
-                raise ValueError(
-                    "First column must be of datetime type data for PROPHET_PREDICT!"
-                )
-            df.rename(
-                columns={df.columns[0]: "ds", df.columns[1]: "y"}, inplace=True
-            )  # PROPHET model expects first column to be `ds` and second to be `y`
+                raise ValueError('First column must be of datetime type data for PROPHET_PREDICT!')
+            df.rename(columns={df.columns[0]: 'ds', df.columns[1]: 'y'}, inplace=True)
             model = Prophet()
             model.fit(df)
-            extra = {"prophet": model_to_json(model), "run_forecast": run_forecast}
-            # If run_forecast, the return df is the forecast, otherwise the original
+            extra = {'prophet': model_to_json(model), 'run_forecast': run_forecast}
             return_df = df.copy()
             if run_forecast:
-                future = model.make_future_dataframe(periods=params["periods"])
+                future = model.make_future_dataframe(periods=params['periods'])
                 forecast = model.predict(future)
-                extra["original"] = df
+                extra['original'] = df
                 return_df = forecast
-            return DataContainer(
-                type="dataframe",
-                m=return_df,
-                extra=extra,
-            )
+            return DataContainer(type='dataframe', m=return_df, extra=extra)
         case _:
-            raise ValueError(
-                f"unsupported DataContainer type passed to PROPHET_PREDICT: {dc_input.type}"
-            )
+            raise ValueError(f'unsupported DataContainer type passed to PROPHET_PREDICT: {dc_input.type}')

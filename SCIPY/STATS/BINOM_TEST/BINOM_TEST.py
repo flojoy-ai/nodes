@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
-
 @flojoy
-def BINOM_TEST(dc, params):
+def BINOM_TEST(default: DataContainer, default_parmas: DefaultParams, n: int=None, p: float=0.5, alternative: str='two-sided'):
     """
             Perform a test that the probability of success is p.
 
@@ -33,14 +32,4 @@ def BINOM_TEST(dc, params):
             Indicates the alternative hypothesis. The default value is
             'two-sided'.
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.binom_test(
-            x=dc[0].y,
-            n=(int(params["n"]) if params["n"] != "" else None),
-            p=(float(params["p"]) if params["p"] != "" else None),
-            alternative=(
-                str(params["alternative"]) if params["alternative"] != "" else None
-            ),
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.stats.binom_test(x=dc[0].y, n=int(params['n']) if params['n'] != '' else None, p=float(params['p']) if params['p'] != '' else None, alternative=str(params['alternative']) if params['alternative'] != '' else None))

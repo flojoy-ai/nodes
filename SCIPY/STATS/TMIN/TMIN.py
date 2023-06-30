@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
-
 @flojoy
-def TMIN(dc, params):
+def TMIN(default: DataContainer, default_parmas: DefaultParams, lowerlimit: float=None, axis: int=0, inclusive: bool=True, nan_policy: str='propagate'):
     """
             Compute the trimmed minimum.
 
@@ -37,21 +36,4 @@ def TMIN(dc, params):
     * 'raise': throws an error
     * 'omit': performs the calculations ignoring nan values
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.tmin(
-            a=dc[0].y,
-            lowerlimit=(
-                None or float(params["lowerlimit"])
-                if params["lowerlimit"] != ""
-                else None
-            ),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            inclusive=(
-                bool(params["inclusive"]) if params["inclusive"] != "" else None
-            ),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.stats.tmin(a=dc[0].y, lowerlimit=None or float(params['lowerlimit']) if params['lowerlimit'] != '' else None, axis=int(params['axis']) if params['axis'] != '' else None, inclusive=bool(params['inclusive']) if params['inclusive'] != '' else None, nan_policy=str(params['nan_policy']) if params['nan_policy'] != '' else None))

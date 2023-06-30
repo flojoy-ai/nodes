@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.signal
 
-
 @flojoy
-def WELCH(dc, params):
+def WELCH(default: DataContainer, default_parmas: DefaultParams, fs: float=1.0, window: str='hann', nperseg: int=None, noverlap: int=None, nfft: int=None, detrend: str='constant', return_onesided: bool=True, scaling: str='density', axis: int=-1, average: str='mean'):
     """
 
             Estimate power spectral density using Welch's method.
@@ -64,23 +63,4 @@ def WELCH(dc, params):
 
     .. versionadded:: 1.2.0
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.signal.welch(
-            x=dc[0].y,
-            fs=(float(params["fs"]) if params["fs"] != "" else None),
-            window=(str(params["window"]) if params["window"] != "" else None),
-            nperseg=(int(params["nperseg"]) if params["nperseg"] != "" else None),
-            noverlap=(int(params["noverlap"]) if params["noverlap"] != "" else None),
-            nfft=(int(params["nfft"]) if params["nfft"] != "" else None),
-            detrend=(str(params["detrend"]) if params["detrend"] != "" else None),
-            return_onesided=(
-                bool(params["return_onesided"])
-                if params["return_onesided"] != ""
-                else None
-            ),
-            scaling=(str(params["scaling"]) if params["scaling"] != "" else None),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            average=(str(params["average"]) if params["average"] != "" else None),
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.signal.welch(x=dc[0].y, fs=float(params['fs']) if params['fs'] != '' else None, window=str(params['window']) if params['window'] != '' else None, nperseg=int(params['nperseg']) if params['nperseg'] != '' else None, noverlap=int(params['noverlap']) if params['noverlap'] != '' else None, nfft=int(params['nfft']) if params['nfft'] != '' else None, detrend=str(params['detrend']) if params['detrend'] != '' else None, return_onesided=bool(params['return_onesided']) if params['return_onesided'] != '' else None, scaling=str(params['scaling']) if params['scaling'] != '' else None, axis=int(params['axis']) if params['axis'] != '' else None, average=str(params['average']) if params['average'] != '' else None))

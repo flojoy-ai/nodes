@@ -1,9 +1,8 @@
 import pandas as pd
-from flojoy import flojoy, DataContainer
-
+from flojoy import flojoy, DataContainer, DefaultParams
 
 @flojoy
-def DF_2_NP(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def DF_2_NP(default: DataContainer, default_parmas: DefaultParams) -> DataContainer:
     """
     Node to convert dataframe type data into matrix type data.
     It takes one dataframe type data and converts it to matrix type data.
@@ -18,12 +17,9 @@ def DF_2_NP(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         Converted dataframe value from the input
     """
     dc_input = dc_inputs[0]
-    if dc_input.type == "dataframe":
+    if dc_input.type == 'dataframe':
         df = dc_input.m
         df_to_numpy = df.to_numpy(dtype=object)
-
-        return DataContainer(type="matrix", m=df_to_numpy)
+        return DataContainer(type='matrix', m=df_to_numpy)
     else:
-        raise ValueError(
-            f"unsupported DataContainer type passed for DF_2_NP : {dc_input.type}"
-        )
+        raise ValueError(f'unsupported DataContainer type passed for DF_2_NP : {dc_input.type}')

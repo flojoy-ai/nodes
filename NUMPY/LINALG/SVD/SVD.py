@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import numpy.linalg
 
-
 @flojoy
-def SVD(dc, params):
+def SVD(default: DataContainer, default_parmas: DefaultParams, full_matrices: bool=True, compute_uv: bool=True, hermitian: bool=False):
     """
 
             Singular Value Decomposition.
@@ -38,18 +37,4 @@ def SVD(dc, params):
 
     .. versionadded:: 1.17.0
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.svd(
-            a=dc[0].y,
-            full_matrices=(
-                bool(params["full_matrices"]) if params["full_matrices"] != "" else None
-            ),
-            compute_uv=(
-                bool(params["compute_uv"]) if params["compute_uv"] != "" else None
-            ),
-            hermitian=(
-                bool(params["hermitian"]) if params["hermitian"] != "" else None
-            ),
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=numpy.linalg.svd(a=dc[0].y, full_matrices=bool(params['full_matrices']) if params['full_matrices'] != '' else None, compute_uv=bool(params['compute_uv']) if params['compute_uv'] != '' else None, hermitian=bool(params['hermitian']) if params['hermitian'] != '' else None))

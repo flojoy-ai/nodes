@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import numpy.linalg
 
-
 @flojoy
-def DET(dc, params):
+def DET(default: DataContainer, default_parmas: DefaultParams):
     """
 
             Compute the determinant of an array.
@@ -17,9 +16,4 @@ def DET(dc, params):
     a : (..., M, M) array_like
             Input array to compute determinants for.
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.det(
-            a=dc[0].y,
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=numpy.linalg.det(a=dc[0].y))

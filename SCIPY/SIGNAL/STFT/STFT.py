@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.signal
 
-
 @flojoy
-def STFT(dc, params):
+def STFT(default: DataContainer, default_parmas: DefaultParams, fs: float=1.0, window: str='hann', nperseg: int=256, noverlap: int=None, nfft: int=None, detrend: bool=False, return_onesided: bool=True, boundary: str='zeros', padded: bool=True, axis: int=-1, scaling: str='spectrum'):
     """
             Compute the Short Time Fourier Transform (STFT).
 
@@ -73,24 +72,4 @@ def STFT(dc, params):
 
     .. versionadded:: 1.9.0
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.signal.stft(
-            x=dc[0].y,
-            fs=(float(params["fs"]) if params["fs"] != "" else None),
-            window=(str(params["window"]) if params["window"] != "" else None),
-            nperseg=(int(params["nperseg"]) if params["nperseg"] != "" else None),
-            noverlap=(int(params["noverlap"]) if params["noverlap"] != "" else None),
-            nfft=(int(params["nfft"]) if params["nfft"] != "" else None),
-            detrend=(bool(params["detrend"]) if params["detrend"] != "" else None),
-            return_onesided=(
-                bool(params["return_onesided"])
-                if params["return_onesided"] != ""
-                else None
-            ),
-            boundary=(str(params["boundary"]) if params["boundary"] != "" else None),
-            padded=(bool(params["padded"]) if params["padded"] != "" else None),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            scaling=(str(params["scaling"]) if params["scaling"] != "" else None),
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.signal.stft(x=dc[0].y, fs=float(params['fs']) if params['fs'] != '' else None, window=str(params['window']) if params['window'] != '' else None, nperseg=int(params['nperseg']) if params['nperseg'] != '' else None, noverlap=int(params['noverlap']) if params['noverlap'] != '' else None, nfft=int(params['nfft']) if params['nfft'] != '' else None, detrend=bool(params['detrend']) if params['detrend'] != '' else None, return_onesided=bool(params['return_onesided']) if params['return_onesided'] != '' else None, boundary=str(params['boundary']) if params['boundary'] != '' else None, padded=bool(params['padded']) if params['padded'] != '' else None, axis=int(params['axis']) if params['axis'] != '' else None, scaling=str(params['scaling']) if params['scaling'] != '' else None))

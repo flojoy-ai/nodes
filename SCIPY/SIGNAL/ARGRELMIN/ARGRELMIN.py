@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.signal
 
-
 @flojoy
-def ARGRELMIN(dc, params):
+def ARGRELMIN(default: DataContainer, default_parmas: DefaultParams, axis: int=0, order: int=1, mode: str='clip'):
     """
 
             Calculate the relative minima of `data`.
@@ -27,12 +26,4 @@ def ARGRELMIN(dc, params):
             as the same as the last (or first) element).
             Default 'clip'. See numpy.take.
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.signal.argrelmin(
-            data=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            order=(int(params["order"]) if params["order"] != "" else None),
-            mode=(str(params["mode"]) if params["mode"] != "" else None),
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.signal.argrelmin(data=dc[0].y, axis=int(params['axis']) if params['axis'] != '' else None, order=int(params['order']) if params['order'] != '' else None, mode=str(params['mode']) if params['mode'] != '' else None))

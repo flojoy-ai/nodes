@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
-
 @flojoy
-def SIGMACLIP(dc, params):
+def SIGMACLIP(default: DataContainer, default_parmas: DefaultParams, low: float=4.0, high: float=4.0):
     """
             Perform iterative sigma-clipping of array elements.
 
@@ -30,11 +29,4 @@ def SIGMACLIP(dc, params):
     high : float, optional
             Upper bound factor of sigma clipping. Default is 4.
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.sigmaclip(
-            a=dc[0].y,
-            low=(float(params["low"]) if params["low"] != "" else None),
-            high=(float(params["high"]) if params["high"] != "" else None),
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.stats.sigmaclip(a=dc[0].y, low=float(params['low']) if params['low'] != '' else None, high=float(params['high']) if params['high'] != '' else None))

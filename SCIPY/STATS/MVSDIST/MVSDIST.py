@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
-
 @flojoy
-def MVSDIST(dc, params):
+def MVSDIST(default: DataContainer, default_parmas: DefaultParams):
     """
 
             'Frozen' distributions for mean, variance, and standard deviation of data.
@@ -18,9 +17,4 @@ def MVSDIST(dc, params):
             Input array. Converted to 1-D using ravel.
             Requires 2 or more data-points.
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.mvsdist(
-            data=dc[0].y,
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.stats.mvsdist(data=dc[0].y))

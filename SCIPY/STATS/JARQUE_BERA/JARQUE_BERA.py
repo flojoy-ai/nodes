@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
-
 @flojoy
-def JARQUE_BERA(dc, params):
+def JARQUE_BERA(default: DataContainer, default_parmas: DefaultParams):
     """
             Perform the Jarque-Bera goodness of fit test on sample data.
 
@@ -23,9 +22,4 @@ def JARQUE_BERA(dc, params):
     x : array_like
             Observations of a random variable.
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.jarque_bera(
-            x=dc[0].y,
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.stats.jarque_bera(x=dc[0].y))

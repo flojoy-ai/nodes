@@ -1,8 +1,7 @@
 import numpy as np
-from flojoy import flojoy, OrderedPair
+from flojoy import flojoy, OrderedPair, DefaultParams
 
-
-@flojoy(node_type="ARITHMETIC")
+@flojoy(node_type='ARITHMETIC')
 def ADD(a: OrderedPair, b: OrderedPair) -> OrderedPair:
     """Add 2 or more numeric arrays, matrices, dataframes, or constants element-wise.
     When a constant is added to an array or matrix, each element in the array or
@@ -10,13 +9,8 @@ def ADD(a: OrderedPair, b: OrderedPair) -> OrderedPair:
     sizes are added, the output will be the size of the larger array or matrix with
     only the overlapping elements changed.
     """
-    # TODO: Add support for adding more than 2 elements
-    # TODO: Support other data types
     x = a.x
-
     u = a.y
     v = b.y
-
     y = np.add(u, v)
-
     return OrderedPair(x=x, y=y)

@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import numpy.linalg
 
-
 @flojoy
-def CHOLESKY(dc, params):
+def CHOLESKY(default: DataContainer, default_parmas: DefaultParams):
     """
 
             Cholesky decomposition.
@@ -26,9 +25,4 @@ def CHOLESKY(dc, params):
             Hermitian (symmetric if all elements are real), positive-definite
             input matrix.
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.cholesky(
-            a=dc[0].y,
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=numpy.linalg.cholesky(a=dc[0].y))

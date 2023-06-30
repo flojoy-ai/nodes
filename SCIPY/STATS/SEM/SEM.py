@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
-
 @flojoy
-def SEM(dc, params):
+def SEM(default: DataContainer, default_parmas: DefaultParams, axis: int=0, ddof: int=1, nan_policy: str='propagate'):
     """
             Compute standard error of the mean.
 
@@ -34,14 +33,4 @@ def SEM(dc, params):
     * 'raise': throws an error
     * 'omit': performs the calculations ignoring nan values
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.sem(
-            a=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            ddof=(int(params["ddof"]) if params["ddof"] != "" else None),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.stats.sem(a=dc[0].y, axis=int(params['axis']) if params['axis'] != '' else None, ddof=int(params['ddof']) if params['ddof'] != '' else None, nan_policy=str(params['nan_policy']) if params['nan_policy'] != '' else None))

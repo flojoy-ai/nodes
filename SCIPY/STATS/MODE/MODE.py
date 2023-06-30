@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
-
 @flojoy
-def MODE(dc, params):
+def MODE(default: DataContainer, default_parmas: DefaultParams, axis: int=0, nan_policy: str='propagate', keepdims: bool=None):
     """
             Return an array of the modal (most common) value in the passed array.
 
@@ -45,14 +44,4 @@ def MODE(dc, params):
             will no longer be accepted.
     .. versionadded:: 1.9.0
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.mode(
-            a=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
-            keepdims=(bool(params["keepdims"]) if params["keepdims"] != "" else None),
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.stats.mode(a=dc[0].y, axis=int(params['axis']) if params['axis'] != '' else None, nan_policy=str(params['nan_policy']) if params['nan_policy'] != '' else None, keepdims=bool(params['keepdims']) if params['keepdims'] != '' else None))

@@ -1,9 +1,8 @@
-from flojoy import DataContainer, flojoy
+from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.signal
 
-
 @flojoy
-def DETREND(dc, params):
+def DETREND(default: DataContainer, default_parmas: DefaultParams, axis: int=-1, type: str='linear', bp: int=0, overwrite_data: bool=False):
     """
 
             Remove linear trend along axis from data.
@@ -32,17 +31,4 @@ def DETREND(dc, params):
     overwrite_data : bool, optional
             If True, perform in place detrending and avoid a copy. Default is False
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.signal.detrend(
-            data=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            type=(str(params["type"]) if params["type"] != "" else None),
-            bp=(int(params["bp"]) if params["bp"] != "" else None),
-            overwrite_data=(
-                bool(params["overwrite_data"])
-                if params["overwrite_data"] != ""
-                else None
-            ),
-        ),
-    )
+    return DataContainer(x=dc[0].y, y=scipy.signal.detrend(data=dc[0].y, axis=int(params['axis']) if params['axis'] != '' else None, type=str(params['type']) if params['type'] != '' else None, bp=int(params['bp']) if params['bp'] != '' else None, overwrite_data=bool(params['overwrite_data']) if params['overwrite_data'] != '' else None))

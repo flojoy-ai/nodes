@@ -1,8 +1,7 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
-
+from flojoy import flojoy, DataContainer, DefaultParams
 
 @flojoy
-def ABS(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def ABS(default: DataContainer, default_parmas: DefaultParams) -> DataContainer:
     """Returns abolute value"""
     return DataContainer(x=dc_inputs[0].y, y=np.abs(dc_inputs[0].y))

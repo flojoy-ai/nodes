@@ -1,13 +1,12 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataContainer, DefaultParams
 from time import sleep
 import serial
 import numpy as np
 from datetime import datetime
 import plotly.graph_objects as go
 
-
 @flojoy
-def SERIAL_TIMESERIES(dc_inputs, params):
+def SERIAL_TIMESERIES(default: DataContainer, default_parmas: DefaultParams, comport: str='/dev/ttyACM0', baudrate: int=9600, num_readings: int=100, record_period: float=1):
     """
     Node to take simple time dependent 1d data from an Ardunio,
     or a similar serial device.
@@ -45,60 +44,44 @@ def SERIAL_TIMESERIES(dc_inputs, params):
 
     num_readings * record_period is roughly the run length in seconds.
     """
-
-    COM_PORT = params["comport"]
-    BAUD = params["baudrate"]
-    NUM = params["num_readings"]
-    RECORD_PERIOD = params["record_period"]
-
+    COM_PORT = params['comport']
+    BAUD = params['baudrate']
+    NUM = params['num_readings']
+    RECORD_PERIOD = params['record_period']
     ser = serial.Serial(COM_PORT, timeout=1, baudrate=BAUD)
     readings = []
     times = []
-    # The first reading is commonly empty.
     s = ser.readline().decode()
-
     for i in range(NUM):
         ts = datetime.now()
         s = ser.readline().decode()
-        # Some readings may be empty.
-        if s != "":
-            reading = s[:-2].split(",")
+        if s != '':
+            reading = s[:-2].split(',')
             if len(reading) == 1:
                 reading = reading[0]
             readings.append(reading)
-
             ts = datetime.now()
-            seconds = float(
-                ts.hour * 3600 + ts.minute * 60 + ts.second + ts.microsecond / 10**6
-            )
-
+            seconds = float(ts.hour * 3600 + ts.minute * 60 + ts.second + ts.microsecond / 10 ** 6)
             times.append(seconds)
-
             if len(times) > 0:
                 time1 = seconds - times[i]
             else:
-                # Estimate execution time.
                 time1 = 0.1
-
             if time1 < RECORD_PERIOD:
                 sleep(RECORD_PERIOD - time1)
-
     times = np.array(times)
     try:
         times -= times[0]
     except IndexError:
-        raise IndexError("No data detected from the Arduino")
-
+        raise IndexError('No data detected from the Arduino')
     readings = np.array(readings)
-    readings = readings.astype("float64")
-    # If there are two or more columns return a Plotly figure.
+    readings = readings.astype('float64')
     if readings.ndim == 2:
-        data = go.Line(x=times, y=readings[:, 0], mode="markers")
+        data = go.Line(x=times, y=readings[:, 0], mode='markers')
         fig = go.Figure(data=data)
-        return DataContainer(type="plotly", fig=fig, x=times, y=readings)
+        return DataContainer(type='plotly', fig=fig, x=times, y=readings)
     else:
         return DataContainer(x=times, y=readings)
-
 
 @flojoy
 def SERIAL_TIMESERIES_MOCK(dc, params):

@@ -1,13 +1,11 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataContainer, DefaultParams
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.utils import Bunch
 import pandas as pd
 from typing import cast
 
-
-# TODO: Add more datasets to this node.
 @flojoy
-def TEXT_DATASET(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def TEXT_DATASET(default: DataContainer, default_parmas: DefaultParams, subset: Literal['train', 'test', 'all']='train', categories: list[str | float | int]=[], remove_headers: bool=False, remove_footers: bool=False, remove_quotes: bool=False) -> DataContainer:
     """The TEXT_DATASET node loads the 20 newsgroups dataset from scikit-learn.
     The data is returned as a dataframe with one column containing the text
     and the other containing the category.
@@ -46,32 +44,20 @@ def TEXT_DATASET(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     remove_quotes: boolean, default=false
         Remove the quotes from the data.
     """
-
-    subset = params.get("subset", "train")
-    categories = params.get("categories", None)
-    remove_headers = params.get("remove_headers", False)
-    remove_footers = params.get("remove_footers", False)
-    remove_quotes = params.get("remove_quotes", False)
-
     to_remove = []
     if remove_headers:
-        to_remove.append("headers")
+        to_remove.append('headers')
     if remove_footers:
-        to_remove.append("footers")
+        to_remove.append('footers')
     if remove_quotes:
-        to_remove.append("quotes")
+        to_remove.append('quotes')
     to_remove = tuple(to_remove)
-
     if categories:
-        newsgroups = fetch_20newsgroups(
-            subset=subset, categories=categories, remove=to_remove
-        )
+        newsgroups = fetch_20newsgroups(subset=subset, categories=categories, remove=to_remove)
     else:
         newsgroups = fetch_20newsgroups(subset=subset, remove=to_remove)
-
     newsgroups = cast(Bunch, newsgroups)
     data = newsgroups.data
     labels = [newsgroups.target_names[i] for i in newsgroups.target]
-
-    df = pd.DataFrame({"Text": data, "Label": labels})
-    return DataContainer(type="dataframe", m=df)
+    df = pd.DataFrame({'Text': data, 'Label': labels})
+    return DataContainer(type='dataframe', m=df)
