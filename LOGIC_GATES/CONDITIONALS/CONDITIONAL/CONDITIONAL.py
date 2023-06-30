@@ -1,11 +1,19 @@
 from typing import Literal, Any
-from flojoy import flojoy, DataContainer, JobResultBuilder, DefaultParams, OrderedPair  # type:ignore
+from flojoy import (
+    flojoy,
+    DataContainer,
+    JobResultBuilder,
+    DefaultParams,
+    OrderedPair,
+)  # type:ignore
 from dataclasses import dataclass
+
 
 @dataclass(frozen=True)  # Multiple outputs
 class ConditionalOutput:
-    true: DataContainer
-    false: DataContainer
+    true: dict[str, str | list[str] | DataContainer] | DataContainer
+    false: dict[str, str | list[str] | DataContainer] | DataContainer
+
 
 @flojoy
 def CONDITIONAL(
@@ -37,14 +45,20 @@ def CONDITIONAL(
     else:
         data = OrderedPair(x=y.x, y=x.y)
     next_direction = str(bool_).lower()
-    # return (
-    #     JobResultBuilder().from_data(data).flow_to_directions([next_direction]).build()
-    # )
-    return ConditionalOutput(true=data, false=data)
+    return ConditionalOutput(
+        true=JobResultBuilder()
+        .from_data(data)
+        .flow_to_directions([next_direction])
+        .build(),
+        false=JobResultBuilder()
+        .from_data(data)
+        .flow_to_directions([next_direction])
+        .build(),
+    )
 
 
 def compare_values(first_value: Any, second_value: Any, operator: str):
-    bool_:bool = False
+    bool_: bool = False
     if operator == "<=":
         bool_ = first_value <= second_value
     elif operator == ">":
