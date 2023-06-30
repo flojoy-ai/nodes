@@ -22,9 +22,7 @@ import RAND
 def test_RAND():
     x = np.linspace(0, 10, 1000)
 
-    element = DataContainer(
-        type="ordered_pair", x=x, y=x
-        )
+    element = DataContainer(type="ordered_pair", x=x, y=x)
 
     # node under test
     res = RAND.RAND([element], {"distribution": "normal"})
