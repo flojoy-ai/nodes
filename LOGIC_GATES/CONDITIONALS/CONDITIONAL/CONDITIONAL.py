@@ -1,6 +1,5 @@
 from typing import Literal, Any
-from flojoy import flojoy, DataContainer, JobResultBuilder, DefaultParams  # type:ignore
-from typing import Union
+from flojoy import flojoy, DataContainer, JobResultBuilder, DefaultParams, OrderedPair  # type:ignore
 from dataclasses import dataclass
 
 @dataclass(frozen=True)  # Multiple outputs
@@ -10,11 +9,11 @@ class ConditionalOutput:
 
 @flojoy
 def CONDITIONAL(
-    x: DataContainer,
-    y: DataContainer,
+    x: OrderedPair,
+    y: OrderedPair,
     default_parmas: DefaultParams,
     operator_type: Literal["<=", ">", "<", ">=", "!=", "=="] = ">=",
-) -> Union[DataContainer, dict[str, Any]]:
+) -> ConditionalOutput:
     """The CONDITIONAL node is a specialized node that compares two given DataContainer inputs
     and enqueues nodes connected with `true` or `false` output based on the comparison result.
 
@@ -30,21 +29,22 @@ def CONDITIONAL(
     data = None
     if operator_type in ["<=", "<"]:
         if not bool_:
-            data = DataContainer(x=x.x, y=y)
+            data = OrderedPair(x=x.x, y=y.y)
         else:
-            data = DataContainer(x=y.x, y=x)
+            data = OrderedPair(x=y.x, y=x.y)
     elif bool_:
-        data = DataContainer(x=x.x, y=y)
+        data = OrderedPair(x=x.x, y=y.y)
     else:
-        data = DataContainer(x=y.x, y=x)
+        data = OrderedPair(x=y.x, y=x.y)
     next_direction = str(bool_).lower()
-    return (
-        JobResultBuilder().from_data(data).flow_to_directions([next_direction]).build()
-    )
+    # return (
+    #     JobResultBuilder().from_data(data).flow_to_directions([next_direction]).build()
+    # )
+    return ConditionalOutput(true=data, false=data)
 
 
 def compare_values(first_value: Any, second_value: Any, operator: str):
-    bool_ = None
+    bool_:bool = False
     if operator == "<=":
         bool_ = first_value <= second_value
     elif operator == ">":
