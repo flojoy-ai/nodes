@@ -2,7 +2,7 @@ import numpy as np
 from flojoy import flojoy, OrderedPair, DefaultParams  # type:ignore
 
 
-@flojoy(node_type="SIMULATION")
+@flojoy
 def CONSTANT(
     default: OrderedPair, default_params: DefaultParams, constant: float = 3.0
 ) -> OrderedPair:

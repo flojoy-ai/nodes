@@ -5,7 +5,7 @@ from flojoy import flojoy, OrderedPair, DataFrame, Matrix, Plotly, DefaultParams
 from nodes.VISUALIZERS.template import plot_layout
 
 
-@flojoy(node_type="PLOTLY_VISOR")
+@flojoy
 def HISTOGRAM(default: OrderedPair | DataFrame | Matrix) -> Plotly:
     """The HISTOGRAM node creates a Plotly Histogram visualization for a given
     input data container.

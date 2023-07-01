@@ -4,7 +4,7 @@ from scipy import signal
 from typing import Literal
 
 
-@flojoy(node_type="SIMULATION")
+@flojoy
 def SINE(
     default: OrderedPair,
     amplitude: float = 1,

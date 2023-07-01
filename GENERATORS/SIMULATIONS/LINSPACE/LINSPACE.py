@@ -2,7 +2,7 @@ import numpy as np
 from flojoy import flojoy, OrderedPair, DefaultParams
 
 
-@flojoy
+@flojoy(node_type="default")
 def LINSPACE(
     default_params: DefaultParams, start: float = 10, end: float = 0, step: int = 1000
 ) -> OrderedPair:

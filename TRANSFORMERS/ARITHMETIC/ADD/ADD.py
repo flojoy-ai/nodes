@@ -2,7 +2,7 @@ import numpy as np
 from flojoy import flojoy, OrderedPair, DefaultParams
 
 
-@flojoy(node_type="ARITHMETIC")
+@flojoy
 def ADD(a: OrderedPair, b: OrderedPair) -> OrderedPair:
     """Add 2 or more numeric arrays, matrices, dataframes, or constants element-wise.
     When a constant is added to an array or matrix, each element in the array or

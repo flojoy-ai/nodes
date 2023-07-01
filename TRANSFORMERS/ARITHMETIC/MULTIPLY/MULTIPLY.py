@@ -2,7 +2,7 @@ import numpy as np
 from flojoy import OrderedPair, flojoy, DefaultParams  # type:ignore
 
 
-@flojoy(node_type="ARITHMETIC")
+@flojoy
 def MULTIPLY(
     a: OrderedPair, b: OrderedPair, default_params: DefaultParams
 ) -> OrderedPair:
