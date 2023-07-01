@@ -15,13 +15,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1087.857142857143,
-                    "y": 336.85714285714266
+                    "x": 1577.8571428571431,
+                    "y": 332.57142857142844
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1087.857142857143,
-                    "y": 336.85714285714266
+                    "x": 1577.8571428571431,
+                    "y": 332.57142857142844
                 },
                 "dragging": true
             },
@@ -98,21 +98,21 @@
                         "end": {
                             "functionName": "LINSPACE",
                             "param": "end",
-                            "value": "10"
+                            "value": "25000"
                         },
                         "step": {
                             "functionName": "LINSPACE",
                             "param": "step",
-                            "value": 1000
+                            "value": "25000"
                         }
                     },
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
                     "x": 317.7670511913392,
                     "y": 329.35733875036766
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
                     "x": 317.7670511913392,
                     "y": 329.35733875036766
@@ -133,13 +133,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1014.9099083341964,
-                    "y": -27.785518392489507
+                    "x": 1056.3384797627677,
+                    "y": 50.785910178939105
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1014.9099083341964,
-                    "y": -27.785518392489507
+                    "x": 1056.3384797627677,
+                    "y": 50.785910178939105
                 },
                 "dragging": true
             }
@@ -172,12 +172,26 @@
                 "target": "SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155",
                 "targetHandle": "SCATTER",
                 "id": "reactflow__edge-RAND-d851014d-30ce-4993-8cee-5db9a268094bmain-SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155SCATTER"
+            },
+            {
+                "source": "HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0",
+                "sourceHandle": "main",
+                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "targetHandle": "END",
+                "id": "reactflow__edge-HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0main-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
+            },
+            {
+                "source": "SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155",
+                "sourceHandle": "main",
+                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "targetHandle": "END",
+                "id": "reactflow__edge-SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155main-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
             }
         ],
         "viewport": {
-            "x": 383.94248946966945,
-            "y": 121.85910915060867,
-            "zoom": 1.1608238532718647
+            "x": 283.34955722861605,
+            "y": 49.320022553149215,
+            "zoom": 0.856688003714636
         }
     },
     "ctrlsManifest": [

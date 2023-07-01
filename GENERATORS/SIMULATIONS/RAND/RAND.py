@@ -6,8 +6,8 @@ import traceback
 
 @flojoy
 def RAND(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The RAND node generates a random number or a list of numbers with
-    various different distributions
+    """The RAND node generates a random number or a list of random numbers
+    depending on the distribution selected.
 
     Parameters
     ----------
@@ -28,7 +28,7 @@ def RAND(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         return DataContainer(x=x, y=y)
     else:
         y = getattr(my_generator, distribution)(size=1)
-        return DataContainer(x=y, y=y)
+        return DataContainer(type="scalar", c=y)
 
 
 @flojoy
