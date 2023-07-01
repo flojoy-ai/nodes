@@ -9,5 +9,4 @@ COMMAND:
           - normal
           - uniform
           - poisson
-          - dirichlet
         default: uniform
