@@ -1,8 +1,9 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import numpy.linalg
 
+
 @flojoy
-def INV(default: DataContainer, default_parmas: DefaultParams):
+def INV(default: DataContainer, default_params: DefaultParams):
     """
 
             Compute the (multiplicative) inverse of a matrix.

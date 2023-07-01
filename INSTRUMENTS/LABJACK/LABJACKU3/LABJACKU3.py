@@ -2,14 +2,17 @@ from flojoy import flojoy, DataContainer, DefaultParams
 import LabJackPython
 import u3
 
+
 @flojoy
-def LABJACKU3(default: DataContainer, default_parmas: DefaultParams, numbers: int=1) -> DataContainer:
+def LABJACKU3(
+    default: DataContainer, default_params: DefaultParams, numbers: int = 1
+) -> DataContainer:
     """Takes a number of sensors as parameters and return their temperature measurement"""
     voltages: list[float] = []
     temperatures: list[float] = []
     temperatures_celsius: list[float] = []
     sensor_num: list[int] = []
-    sensor_number: int = params['numbers']
+    sensor_number: int = params["numbers"]
     d = u3.U3()
     d.configIO(FIOAnalog=255, EIOAnalog=0)
     for i in range(0, sensor_number):
@@ -20,7 +23,12 @@ def LABJACKU3(default: DataContainer, default_parmas: DefaultParams, numbers: in
         voltages.append(voltage)
         temperatures.append(temperature)
         temperatures_celsius.append(temperature_celsius)
-    return DataContainer(type='ordered_pair', x={'a': sensor_num, 'b': temperatures_celsius}, y=temperatures_celsius)
+    return DataContainer(
+        type="ordered_pair",
+        x={"a": sensor_num, "b": temperatures_celsius},
+        y=temperatures_celsius,
+    )
+
 
 @flojoy
 def LABJACKU3_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
@@ -36,4 +44,6 @@ def LABJACKU3_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContaine
         voltages.append(voltage)
         temperatures.append(temperature)
         temperatures_celsius.append(temperature_celsius)
-    return DataContainer(x={'a': temperatures, 'b': temperatures_celsius}, y=temperatures_celsius)
+    return DataContainer(
+        x={"a": temperatures, "b": temperatures_celsius}, y=temperatures_celsius
+    )

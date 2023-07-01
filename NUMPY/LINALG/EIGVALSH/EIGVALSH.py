@@ -1,8 +1,9 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import numpy.linalg
 
+
 @flojoy
-def EIGVALSH(default: DataContainer, default_parmas: DefaultParams, UPLO: str='L'):
+def EIGVALSH(default: DataContainer, default_params: DefaultParams, UPLO: str = "L"):
     """
 
             Compute the eigenvalues of a complex Hermitian or real symmetric matrix.
@@ -26,4 +27,9 @@ def EIGVALSH(default: DataContainer, default_parmas: DefaultParams, UPLO: str='L
             matrix. It therefore follows that the imaginary part of the diagonal
             will always be treated as zero.
     """
-    return DataContainer(x=dc[0].y, y=numpy.linalg.eigvalsh(a=dc[0].y, UPLO=str(params['UPLO']) if params['UPLO'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=numpy.linalg.eigvalsh(
+            a=dc[0].y, UPLO=str(params["UPLO"]) if params["UPLO"] != "" else None
+        ),
+    )

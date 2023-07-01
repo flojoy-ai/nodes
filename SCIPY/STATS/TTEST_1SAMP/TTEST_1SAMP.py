@@ -1,8 +1,16 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
+
 @flojoy
-def TTEST_1SAMP(default: DataContainer, default_parmas: DefaultParams, popmean: float or array_like=None, axis: int=0, nan_policy: str='propagate', alternative: str='two-sided'):
+def TTEST_1SAMP(
+    default: DataContainer,
+    default_params: DefaultParams,
+    popmean: float or array_like = None,
+    axis: int = 0,
+    nan_policy: str = "propagate",
+    alternative: str = "two-sided",
+):
     """
             Calculate the T-test for the mean of ONE group of scores.
 
@@ -45,4 +53,19 @@ def TTEST_1SAMP(default: DataContainer, default_parmas: DefaultParams, popmean: 
 
     .. versionadded:: 1.6.0
     """
-    return DataContainer(x=dc[0].y, y=scipy.stats.ttest_1samp(a=dc[0].y, popmean=float or array_like(params['popmean']) if params['popmean'] != '' else None, axis=int(params['axis']) if params['axis'] != '' else None, nan_policy=str(params['nan_policy']) if params['nan_policy'] != '' else None, alternative=str(params['alternative']) if params['alternative'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.stats.ttest_1samp(
+            a=dc[0].y,
+            popmean=float or array_like(params["popmean"])
+            if params["popmean"] != ""
+            else None,
+            axis=int(params["axis"]) if params["axis"] != "" else None,
+            nan_policy=str(params["nan_policy"])
+            if params["nan_policy"] != ""
+            else None,
+            alternative=str(params["alternative"])
+            if params["alternative"] != ""
+            else None,
+        ),
+    )

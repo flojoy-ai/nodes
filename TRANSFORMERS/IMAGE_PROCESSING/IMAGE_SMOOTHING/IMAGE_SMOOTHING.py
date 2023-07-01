@@ -3,8 +3,14 @@ from flojoy import flojoy, DataContainer, DefaultParams
 import cv2
 import numpy as np
 
+
 @flojoy
-def IMAGE_SMOOTHING(default: DataContainer, default_parmas: DefaultParams, kernel: int=5, smoothing_type: Literal['average', 'gaussian', 'median', 'bilateral']='average') -> DataContainer:
+def IMAGE_SMOOTHING(
+    default: DataContainer,
+    default_params: DefaultParams,
+    kernel: int = 5,
+    smoothing_type: Literal["average", "gaussian", "median", "bilateral"] = "average",
+) -> DataContainer:
     """
     Apply image smoothing operation on the input `DataContainer` class,
     specifically for the 'image' type,
@@ -28,7 +34,7 @@ def IMAGE_SMOOTHING(default: DataContainer, default_parmas: DefaultParams, kerne
     Exception: If an error occurs during smoothing.
     """
     dc_input = dc_inputs[0]
-    if dc_input.type != 'image':
+    if dc_input.type != "image":
         raise ValueError(f"unsupported data IMAGE_SMOOTHING node: '{dc_input.type}'")
     r = dc_input.r
     g = dc_input.g
@@ -40,13 +46,13 @@ def IMAGE_SMOOTHING(default: DataContainer, default_parmas: DefaultParams, kerne
         rgba_image = np.stack((r, g, b), axis=2)
     try:
         match smoothing_type:
-            case 'average':
+            case "average":
                 image = cv2.blur(rgba_image, (kernel, kernel))
-            case 'gaussian':
+            case "gaussian":
                 image = cv2.GaussianBlur(rgba_image, (kernel, kernel), 0)
-            case 'median':
+            case "median":
                 image = cv2.medianBlur(rgba_image, kernel)
-            case 'bilateral':
+            case "bilateral":
                 image = cv2.bilateralFilter(rgba_image, kernel, kernel * 5, kernel * 5)
         try:
             (r, g, b, a) = cv2.split(image)
@@ -54,6 +60,6 @@ def IMAGE_SMOOTHING(default: DataContainer, default_parmas: DefaultParams, kerne
             (r, g, b) = cv2.split(image)
         if a is None:
             a = None
-        return DataContainer(type='image', r=r, g=g, b=b, a=a)
+        return DataContainer(type="image", r=r, g=g, b=b, a=a)
     except Exception as e:
         raise e

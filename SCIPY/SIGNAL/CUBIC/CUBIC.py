@@ -1,8 +1,9 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.signal
 
+
 @flojoy
-def CUBIC(default: DataContainer, default_parmas: DefaultParams):
+def CUBIC(default: DataContainer, default_params: DefaultParams):
     """
             A cubic B-spline.
 

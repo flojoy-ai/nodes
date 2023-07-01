@@ -1,8 +1,14 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
+
 @flojoy
-def TRIM_MEAN(default: DataContainer, default_parmas: DefaultParams, proportiontocut: float=None, axis: int=0):
+def TRIM_MEAN(
+    default: DataContainer,
+    default_params: DefaultParams,
+    proportiontocut: float = None,
+    axis: int = 0,
+):
     """
             Return mean of array after trimming distribution from both tails.
 
@@ -25,4 +31,13 @@ def TRIM_MEAN(default: DataContainer, default_parmas: DefaultParams, proportiont
             Axis along which the trimmed means are computed. Default is 0.
             If None, compute over the whole array `a`.
     """
-    return DataContainer(x=dc[0].y, y=scipy.stats.trim_mean(a=dc[0].y, proportiontocut=float(params['proportiontocut']) if params['proportiontocut'] != '' else None, axis=int(params['axis']) if params['axis'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.stats.trim_mean(
+            a=dc[0].y,
+            proportiontocut=float(params["proportiontocut"])
+            if params["proportiontocut"] != ""
+            else None,
+            axis=int(params["axis"]) if params["axis"] != "" else None,
+        ),
+    )

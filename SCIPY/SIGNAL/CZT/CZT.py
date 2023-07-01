@@ -1,8 +1,15 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.signal
 
+
 @flojoy
-def CZT(default: DataContainer, default_parmas: DefaultParams, m: int=None, w: complex=None, axis: int=-1):
+def CZT(
+    default: DataContainer,
+    default_params: DefaultParams,
+    m: int = None,
+    w: complex = None,
+    axis: int = -1,
+):
     """
 
             Compute the frequency response around a spiral in the Z plane.
@@ -28,4 +35,12 @@ def CZT(default: DataContainer, default_parmas: DefaultParams, m: int=None, w: c
             Axis over which to compute the FFT. If not given, the last axis is
             used.
     """
-    return DataContainer(x=dc[0].y, y=scipy.signal.czt(x=dc[0].y, m=int(params['m']) if params['m'] != '' else None, w=complex(params['w']) if params['w'] != '' else None, axis=int(params['axis']) if params['axis'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.signal.czt(
+            x=dc[0].y,
+            m=int(params["m"]) if params["m"] != "" else None,
+            w=complex(params["w"]) if params["w"] != "" else None,
+            axis=int(params["axis"]) if params["axis"] != "" else None,
+        ),
+    )

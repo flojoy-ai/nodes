@@ -1,8 +1,11 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
+
 @flojoy
-def YEOJOHNSON(default: DataContainer, default_parmas: DefaultParams, lmbda: float=None):
+def YEOJOHNSON(
+    default: DataContainer, default_params: DefaultParams, lmbda: float = None
+):
     """
             Return a dataset transformed by a Yeo-Johnson power transformation.
 
@@ -19,4 +22,9 @@ def YEOJOHNSON(default: DataContainer, default_parmas: DefaultParams, lmbda: flo
             log-likelihood function and return it as the second output argument.
             Otherwise the transformation is done for the given value.
     """
-    return DataContainer(x=dc[0].y, y=scipy.stats.yeojohnson(x=dc[0].y, lmbda=float(params['lmbda']) if params['lmbda'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.stats.yeojohnson(
+            x=dc[0].y, lmbda=float(params["lmbda"]) if params["lmbda"] != "" else None
+        ),
+    )

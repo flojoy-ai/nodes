@@ -1,8 +1,14 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import numpy.linalg
 
+
 @flojoy
-def PINV(default: DataContainer, default_parmas: DefaultParams, rcond: float='1e-15', hermitian: bool=False):
+def PINV(
+    default: DataContainer,
+    default_params: DefaultParams,
+    rcond: float = "1e-15",
+    hermitian: bool = False,
+):
     """
 
             Compute the (Moore-Penrose) pseudo-inverse of a matrix.
@@ -34,4 +40,11 @@ def PINV(default: DataContainer, default_parmas: DefaultParams, rcond: float='1e
 
     .. versionadded:: 1.17.0
     """
-    return DataContainer(x=dc[0].y, y=numpy.linalg.pinv(a=dc[0].y, rcond=float(params['rcond']) if params['rcond'] != '' else None, hermitian=bool(params['hermitian']) if params['hermitian'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=numpy.linalg.pinv(
+            a=dc[0].y,
+            rcond=float(params["rcond"]) if params["rcond"] != "" else None,
+            hermitian=bool(params["hermitian"]) if params["hermitian"] != "" else None,
+        ),
+    )

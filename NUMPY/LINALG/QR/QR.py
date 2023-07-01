@@ -1,8 +1,9 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import numpy.linalg
 
+
 @flojoy
-def QR(default: DataContainer, default_parmas: DefaultParams, mode: str='reduced'):
+def QR(default: DataContainer, default_params: DefaultParams, mode: str = "reduced"):
     """
 
             Compute the qr factorization of a matrix.
@@ -38,4 +39,9 @@ def QR(default: DataContainer, default_parmas: DefaultParams, mode: str='reduced
             explanation.
 
     """
-    return DataContainer(x=dc[0].y, y=numpy.linalg.qr(a=dc[0].y, mode=str(params['mode']) if params['mode'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=numpy.linalg.qr(
+            a=dc[0].y, mode=str(params["mode"]) if params["mode"] != "" else None
+        ),
+    )

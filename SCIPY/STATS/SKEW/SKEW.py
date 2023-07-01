@@ -1,8 +1,16 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
+
 @flojoy
-def SKEW(default: DataContainer, default_parmas: DefaultParams, axis: int=0, bias: bool=True, nan_policy: str='propagate', keepdims: bool=False):
+def SKEW(
+    default: DataContainer,
+    default_params: DefaultParams,
+    axis: int = 0,
+    bias: bool = True,
+    nan_policy: str = "propagate",
+    keepdims: bool = False,
+):
     """
 
 
@@ -46,4 +54,15 @@ def SKEW(default: DataContainer, default_parmas: DefaultParams, axis: int=0, bia
             in the result as dimensions with size one. With this option,
             the result will broadcast correctly against the input array.
     """
-    return DataContainer(x=dc[0].y, y=scipy.stats.skew(a=dc[0].y, axis=int(params['axis']) if params['axis'] != '' else None, bias=bool(params['bias']) if params['bias'] != '' else None, nan_policy=str(params['nan_policy']) if params['nan_policy'] != '' else None, keepdims=bool(params['keepdims']) if params['keepdims'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.stats.skew(
+            a=dc[0].y,
+            axis=int(params["axis"]) if params["axis"] != "" else None,
+            bias=bool(params["bias"]) if params["bias"] != "" else None,
+            nan_policy=str(params["nan_policy"])
+            if params["nan_policy"] != ""
+            else None,
+            keepdims=bool(params["keepdims"]) if params["keepdims"] != "" else None,
+        ),
+    )

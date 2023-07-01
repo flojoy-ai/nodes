@@ -1,8 +1,11 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
+
 @flojoy
-def BAYES_MVS(default: DataContainer, default_parmas: DefaultParams, alpha: float=0.9):
+def BAYES_MVS(
+    default: DataContainer, default_params: DefaultParams, alpha: float = 0.9
+):
     """
 
             Bayesian confidence intervals for the mean, var, and std.
@@ -20,4 +23,10 @@ def BAYES_MVS(default: DataContainer, default_parmas: DefaultParams, alpha: floa
             Probability that the returned confidence interval contains
             the true parameter.
     """
-    return DataContainer(x=dc[0].y, y=scipy.stats.bayes_mvs(data=dc[0].y, alpha=float(params['alpha']) if params['alpha'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.stats.bayes_mvs(
+            data=dc[0].y,
+            alpha=float(params["alpha"]) if params["alpha"] != "" else None,
+        ),
+    )

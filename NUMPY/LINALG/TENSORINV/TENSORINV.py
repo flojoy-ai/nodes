@@ -1,8 +1,9 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import numpy.linalg
 
+
 @flojoy
-def TENSORINV(default: DataContainer, default_parmas: DefaultParams, ind: int=2):
+def TENSORINV(default: DataContainer, default_params: DefaultParams, ind: int = 2):
     """
 
             Compute the 'inverse' of an N-dimensional array.
@@ -25,4 +26,9 @@ def TENSORINV(default: DataContainer, default_parmas: DefaultParams, ind: int=2)
             Number of first indices that are involved in the inverse sum.
             Must be a positive integer, default is 2.
     """
-    return DataContainer(x=dc[0].y, y=numpy.linalg.tensorinv(a=dc[0].y, ind=int(params['ind']) if params['ind'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=numpy.linalg.tensorinv(
+            a=dc[0].y, ind=int(params["ind"]) if params["ind"] != "" else None
+        ),
+    )

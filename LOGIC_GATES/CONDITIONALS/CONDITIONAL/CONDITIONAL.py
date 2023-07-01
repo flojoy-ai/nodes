@@ -19,7 +19,7 @@ class ConditionalOutput:
 def CONDITIONAL(
     x: OrderedPair,
     y: OrderedPair,
-    default_parmas: DefaultParams,
+    default_params: DefaultParams,
     operator_type: Literal["<=", ">", "<", ">=", "!=", "=="] = ">=",
 ) -> ConditionalOutput:
     """The CONDITIONAL node is a specialized node that compares two given DataContainer inputs

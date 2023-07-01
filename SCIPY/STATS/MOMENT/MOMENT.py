@@ -1,8 +1,16 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
+
 @flojoy
-def MOMENT(default: DataContainer, default_parmas: DefaultParams, moment: int=1, axis: int=0, nan_policy: str='propagate', keepdims: bool=False):
+def MOMENT(
+    default: DataContainer,
+    default_params: DefaultParams,
+    moment: int = 1,
+    axis: int = 0,
+    nan_policy: str = "propagate",
+    keepdims: bool = False,
+):
     """
 
 
@@ -44,4 +52,15 @@ def MOMENT(default: DataContainer, default_parmas: DefaultParams, moment: int=1,
             in the result as dimensions with size one. With this option,
             the result will broadcast correctly against the input array.
     """
-    return DataContainer(x=dc[0].y, y=scipy.stats.moment(a=dc[0].y, moment=int(params['moment']) if params['moment'] != '' else None, axis=int(params['axis']) if params['axis'] != '' else None, nan_policy=str(params['nan_policy']) if params['nan_policy'] != '' else None, keepdims=bool(params['keepdims']) if params['keepdims'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.stats.moment(
+            a=dc[0].y,
+            moment=int(params["moment"]) if params["moment"] != "" else None,
+            axis=int(params["axis"]) if params["axis"] != "" else None,
+            nan_policy=str(params["nan_policy"])
+            if params["nan_policy"] != ""
+            else None,
+            keepdims=bool(params["keepdims"]) if params["keepdims"] != "" else None,
+        ),
+    )

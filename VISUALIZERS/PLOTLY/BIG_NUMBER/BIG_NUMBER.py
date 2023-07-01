@@ -9,7 +9,7 @@ MEMORY_KEY = "BIG_NUMBER_MEMORY_KEY"
 @flojoy
 def BIG_NUMBER(
     default: OrderedPair,
-    default_parmas: DefaultParams,
+    default_params: DefaultParams,
     suffix: str = "",
     prefix: str = "",
     relative_delta: bool = True,
@@ -32,7 +32,7 @@ def BIG_NUMBER(
     -------------------
     `ordered_pair`
     """
-    job_id = default_parmas.job_id
+    job_id = default_params.job_id
     node_name = __name__.split(".")[-1]
     layout = plot_layout(title=title if title != "" else node_name)
     fig = go.Figure(layout=layout)

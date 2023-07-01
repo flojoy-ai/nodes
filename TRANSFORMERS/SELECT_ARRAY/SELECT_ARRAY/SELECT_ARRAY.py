@@ -1,8 +1,11 @@
 from flojoy import flojoy, DataContainer, DefaultParams
 import numpy as np
 
+
 @flojoy
-def SELECT_ARRAY(default: DataContainer, default_parmas: DefaultParams, column: int=0) -> DataContainer:
+def SELECT_ARRAY(
+    default: DataContainer, default_params: DefaultParams, column: int = 0
+) -> DataContainer:
     """
     Node to convert an input array with multiple columns
     to the selected ordered pair.
@@ -13,8 +16,8 @@ def SELECT_ARRAY(default: DataContainer, default_parmas: DefaultParams, column: 
 
     The x axis will be return unchanged.
     """
-    print('parameters passed to SELECT_ARRAY: ', params)
-    COL: int = params.get('column', 0)
+    print("parameters passed to SELECT_ARRAY: ", params)
+    COL: int = params.get("column", 0)
     if isinstance(dc_inputs[0].y, np.ndarray):
         x: np.ndarray = dc_inputs[0].x
         y: np.ndarray = dc_inputs[0].y[:, int(COL)]

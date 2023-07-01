@@ -2,8 +2,11 @@ import numpy
 from sklearn.feature_extraction.text import CountVectorizer
 from flojoy import flojoy, DataContainer, DefaultParams
 
+
 @flojoy
-def COUNT_VECTORIZER(default: DataContainer, default_parmas: DefaultParams) -> DataContainer:
+def COUNT_VECTORIZER(
+    default: DataContainer, default_params: DefaultParams
+) -> DataContainer:
     """The COUNT_VECTORIZER node converts a collection (matrix) of text documents to a matrix of token counts.
 
     Returns
@@ -12,8 +15,14 @@ def COUNT_VECTORIZER(default: DataContainer, default_parmas: DefaultParams) -> D
         x -> the feature names
         y -> the word counts themselves
     """
-    if dc_inputs[0].type not in ['dataframe', 'matrix']:
-        raise ValueError(f'unsupported DataContainer type passed to COUNT_VECTORIZER: {dc_inputs[0].type}')
+    if dc_inputs[0].type not in ["dataframe", "matrix"]:
+        raise ValueError(
+            f"unsupported DataContainer type passed to COUNT_VECTORIZER: {dc_inputs[0].type}"
+        )
     vectorizer = CountVectorizer()
     X = vectorizer.fit_transform(dc_inputs[0].m)
-    return DataContainer(type='ordered_pair', x=numpy.array(vectorizer.get_feature_names_out()), y=X.toarray())
+    return DataContainer(
+        type="ordered_pair",
+        x=numpy.array(vectorizer.get_feature_names_out()),
+        y=X.toarray(),
+    )

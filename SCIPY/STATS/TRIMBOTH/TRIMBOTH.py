@@ -1,8 +1,14 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
+
 @flojoy
-def TRIMBOTH(default: DataContainer, default_parmas: DefaultParams, proportiontocut: float=None, axis: int=0):
+def TRIMBOTH(
+    default: DataContainer,
+    default_params: DefaultParams,
+    proportiontocut: float = None,
+    axis: int = 0,
+):
     """
             Slice off a proportion of items from both ends of an array.
 
@@ -27,4 +33,13 @@ def TRIMBOTH(default: DataContainer, default_parmas: DefaultParams, proportionto
             Axis along which to trim data. Default is 0. If None, compute over
             the whole array `a`.
     """
-    return DataContainer(x=dc[0].y, y=scipy.stats.trimboth(a=dc[0].y, proportiontocut=float(params['proportiontocut']) if params['proportiontocut'] != '' else None, axis=int(params['axis']) if params['axis'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.stats.trimboth(
+            a=dc[0].y,
+            proportiontocut=float(params["proportiontocut"])
+            if params["proportiontocut"] != ""
+            else None,
+            axis=int(params["axis"]) if params["axis"] != "" else None,
+        ),
+    )

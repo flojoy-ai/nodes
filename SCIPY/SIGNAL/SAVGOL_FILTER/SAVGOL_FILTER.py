@@ -1,8 +1,19 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.signal
 
+
 @flojoy
-def SAVGOL_FILTER(default: DataContainer, default_parmas: DefaultParams, window_length: int=None, polyorder: int=None, deriv: int=0, delta: float=1.0, axis: int=-1, mode: str='interp', cval: float=0.0):
+def SAVGOL_FILTER(
+    default: DataContainer,
+    default_params: DefaultParams,
+    window_length: int = None,
+    polyorder: int = None,
+    deriv: int = 0,
+    delta: float = 1.0,
+    axis: int = -1,
+    mode: str = "interp",
+    cval: float = 0.0,
+):
     """
             Apply a Savitzky-Golay filter to an array.
 
@@ -50,4 +61,18 @@ def SAVGOL_FILTER(default: DataContainer, default_parmas: DefaultParams, window_
             Value to fill past the edges of the input if `mode` is 'constant'.
             Default is 0.0.
     """
-    return DataContainer(x=dc[0].y, y=scipy.signal.savgol_filter(x=dc[0].y, window_length=int(params['window_length']) if params['window_length'] != '' else None, polyorder=int(params['polyorder']) if params['polyorder'] != '' else None, deriv=int(params['deriv']) if params['deriv'] != '' else None, delta=float(params['delta']) if params['delta'] != '' else None, axis=int(params['axis']) if params['axis'] != '' else None, mode=str(params['mode']) if params['mode'] != '' else None, cval=float(params['cval']) if params['cval'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.signal.savgol_filter(
+            x=dc[0].y,
+            window_length=int(params["window_length"])
+            if params["window_length"] != ""
+            else None,
+            polyorder=int(params["polyorder"]) if params["polyorder"] != "" else None,
+            deriv=int(params["deriv"]) if params["deriv"] != "" else None,
+            delta=float(params["delta"]) if params["delta"] != "" else None,
+            axis=int(params["axis"]) if params["axis"] != "" else None,
+            mode=str(params["mode"]) if params["mode"] != "" else None,
+            cval=float(params["cval"]) if params["cval"] != "" else None,
+        ),
+    )

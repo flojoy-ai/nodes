@@ -1,8 +1,9 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
+
 @flojoy
-def ANDERSON(default: DataContainer, default_parmas: DefaultParams, dist: str='norm'):
+def ANDERSON(default: DataContainer, default_params: DefaultParams, dist: str = "norm"):
     """
             Anderson-Darling test for data coming from a particular distribution.
 
@@ -26,4 +27,9 @@ def ANDERSON(default: DataContainer, default_parmas: DefaultParams, dist: str='n
             The names 'extreme1', 'gumbel_l' and 'gumbel' are synonyms for the
             same distribution.
     """
-    return DataContainer(x=dc[0].y, y=scipy.stats.anderson(x=dc[0].y, dist=str(params['dist']) if params['dist'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.stats.anderson(
+            x=dc[0].y, dist=str(params["dist"]) if params["dist"] != "" else None
+        ),
+    )

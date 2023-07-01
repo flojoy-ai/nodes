@@ -4,8 +4,11 @@ from flojoy import flojoy, DataContainer, DefaultParams
 from matplotlib import image
 from numpy import asarray
 
+
 @flojoy
-def OPEN_IMAGE(default: DataContainer, default_parmas: DefaultParams, file_path: str='') -> DataContainer:
+def OPEN_IMAGE(
+    default: DataContainer, default_params: DefaultParams, file_path: str = ""
+) -> DataContainer:
     """
     The OPEN_IMAGE node loads an image file from disk and
     returns a image type Datacontainer object.
@@ -21,7 +24,7 @@ def OPEN_IMAGE(default: DataContainer, default_parmas: DefaultParams, file_path:
         type 'image', r, g, b , a
     """
     if not path.exists(file_path):
-        raise ValueError('File path does not exist!')
+        raise ValueError("File path does not exist!")
     read_image = image.imread(file_path)
     data = asarray(read_image)
     red_channel = data[:, :, 0]
@@ -31,4 +34,6 @@ def OPEN_IMAGE(default: DataContainer, default_parmas: DefaultParams, file_path:
         alpha_channel = data[:, :, 3]
     else:
         alpha_channel = None
-    return DataContainer(type='image', r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel)
+    return DataContainer(
+        type="image", r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel
+    )

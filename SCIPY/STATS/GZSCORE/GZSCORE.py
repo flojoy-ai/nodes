@@ -1,8 +1,15 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
+
 @flojoy
-def GZSCORE(default: DataContainer, default_parmas: DefaultParams, axis: int=0, ddof: int=0, nan_policy: str='propagate'):
+def GZSCORE(
+    default: DataContainer,
+    default_params: DefaultParams,
+    axis: int = 0,
+    ddof: int = 0,
+    nan_policy: str = "propagate",
+):
     """
 
             Compute the geometric standard score.
@@ -37,4 +44,14 @@ def GZSCORE(default: DataContainer, default_parmas: DefaultParams, axis: int=0, 
             nans in the input also propagate to the output, but they do not affect
             the geometric z scores computed for the non-nan values.
     """
-    return DataContainer(x=dc[0].y, y=scipy.stats.gzscore(a=dc[0].y, axis=int(params['axis']) if params['axis'] != '' else None, ddof=int(params['ddof']) if params['ddof'] != '' else None, nan_policy=str(params['nan_policy']) if params['nan_policy'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.stats.gzscore(
+            a=dc[0].y,
+            axis=int(params["axis"]) if params["axis"] != "" else None,
+            ddof=int(params["ddof"]) if params["ddof"] != "" else None,
+            nan_policy=str(params["nan_policy"])
+            if params["nan_policy"] != ""
+            else None,
+        ),
+    )

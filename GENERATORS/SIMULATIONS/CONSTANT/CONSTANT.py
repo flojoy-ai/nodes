@@ -1,5 +1,5 @@
 import numpy as np
-from flojoy import flojoy, OrderedPair, DefaultParams #type:ignore
+from flojoy import flojoy, OrderedPair, DefaultParams  # type:ignore
 
 
 @flojoy(node_type="SIMULATION")

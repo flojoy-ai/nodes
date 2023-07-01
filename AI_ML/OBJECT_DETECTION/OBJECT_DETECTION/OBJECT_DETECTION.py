@@ -5,8 +5,11 @@ import os
 import requests
 from utils.object_detection.object_detection import detect_object
 
+
 @flojoy
-def OBJECT_DETECTION(default: DataContainer, default_parmas: DefaultParams) -> DataContainer:
+def OBJECT_DETECTION(
+    default: DataContainer, default_params: DefaultParams
+) -> DataContainer:
     """The OBJECT_DETECTION node detects objects in the input image,
     and returns an 'image' DataContainer with those objects highlighted.
 
@@ -24,20 +27,24 @@ def OBJECT_DETECTION(default: DataContainer, default_parmas: DefaultParams) -> D
         type 'image' (RGB(A)).
     """
     dc_input: DataContainer = dc_inputs[0]
-    if dc_input.type != 'image':
-        raise ValueError(f"unsupported DataContainer type passed to OBJECT_DETECTION node: '{dc_input.type}'")
+    if dc_input.type != "image":
+        raise ValueError(
+            f"unsupported DataContainer type passed to OBJECT_DETECTION node: '{dc_input.type}'"
+        )
     r = dc_input.r
     g = dc_input.g
     b = dc_input.b
     a = dc_input.a
-    path = os.path.join(os.path.abspath(os.getcwd()), 'PYTHON/utils/object_detection/yolov3.weights')
+    path = os.path.join(
+        os.path.abspath(os.getcwd()), "PYTHON/utils/object_detection/yolov3.weights"
+    )
     exists = os.path.exists(path)
     if not exists:
-        print('Downloading yolov3 weights for object detection.')
-        print('Download may take up to a minute.')
-        url = 'https://pjreddie.com/media/files/yolov3.weights'
+        print("Downloading yolov3 weights for object detection.")
+        print("Download may take up to a minute.")
+        url = "https://pjreddie.com/media/files/yolov3.weights"
         r = requests.get(url, allow_redirects=True)
-        open(path, 'wb').write(r.content)
+        open(path, "wb").write(r.content)
     if a is not None:
         nparr = np.stack((r, g, b, a), axis=2)
     else:
@@ -51,7 +58,13 @@ def OBJECT_DETECTION(default: DataContainer, default_parmas: DefaultParams) -> D
             alpha_channel = img_array[:, :, 3]
         else:
             alpha_channel = None
-        return DataContainer(type='image', r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel)
+        return DataContainer(
+            type="image",
+            r=red_channel,
+            g=green_channel,
+            b=blue_channel,
+            a=alpha_channel,
+        )
     except Exception:
         print(traceback.format_exc())
         raise

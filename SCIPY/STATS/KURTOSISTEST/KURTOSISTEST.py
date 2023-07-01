@@ -1,8 +1,15 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
+
 @flojoy
-def KURTOSISTEST(default: DataContainer, default_parmas: DefaultParams, axis: int=0, nan_policy: str='propagate', alternative: str='two-sided'):
+def KURTOSISTEST(
+    default: DataContainer,
+    default_params: DefaultParams,
+    axis: int = 0,
+    nan_policy: str = "propagate",
+    alternative: str = "two-sided",
+):
     """
             Test whether a dataset has normal kurtosis.
 
@@ -42,4 +49,16 @@ def KURTOSISTEST(default: DataContainer, default_parmas: DefaultParams, axis: in
 
     .. versionadded:: 1.7.0
     """
-    return DataContainer(x=dc[0].y, y=scipy.stats.kurtosistest(a=dc[0].y, axis=int(params['axis']) if params['axis'] != '' else None, nan_policy=str(params['nan_policy']) if params['nan_policy'] != '' else None, alternative=str(params['alternative']) if params['alternative'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.stats.kurtosistest(
+            a=dc[0].y,
+            axis=int(params["axis"]) if params["axis"] != "" else None,
+            nan_policy=str(params["nan_policy"])
+            if params["nan_policy"] != ""
+            else None,
+            alternative=str(params["alternative"])
+            if params["alternative"] != ""
+            else None,
+        ),
+    )

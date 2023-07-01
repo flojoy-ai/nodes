@@ -1,8 +1,16 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
+
 @flojoy
-def VARIATION(default: DataContainer, default_parmas: DefaultParams, axis: int=0, nan_policy: str='propagate', ddof: int=0, keepdims: bool=False):
+def VARIATION(
+    default: DataContainer,
+    default_params: DefaultParams,
+    axis: int = 0,
+    nan_policy: str = "propagate",
+    ddof: int = 0,
+    keepdims: bool = False,
+):
     """
 
             Compute the coefficient of variation.
@@ -54,4 +62,15 @@ def VARIATION(default: DataContainer, default_parmas: DefaultParams, axis: int=0
             result as dimensions with size one. With this option, the result
             will broadcast correctly against the input array.
     """
-    return DataContainer(x=dc[0].y, y=scipy.stats.variation(a=dc[0].y, axis=int(params['axis']) if params['axis'] != '' else None, nan_policy=str(params['nan_policy']) if params['nan_policy'] != '' else None, ddof=int(params['ddof']) if params['ddof'] != '' else None, keepdims=bool(params['keepdims']) if params['keepdims'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.stats.variation(
+            a=dc[0].y,
+            axis=int(params["axis"]) if params["axis"] != "" else None,
+            nan_policy=str(params["nan_policy"])
+            if params["nan_policy"] != ""
+            else None,
+            ddof=int(params["ddof"]) if params["ddof"] != "" else None,
+            keepdims=bool(params["keepdims"]) if params["keepdims"] != "" else None,
+        ),
+    )

@@ -1,8 +1,9 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.signal
 
+
 @flojoy
-def BSPLINE(default: DataContainer, default_parmas: DefaultParams, n: int=None):
+def BSPLINE(default: DataContainer, default_params: DefaultParams, n: int = None):
     """
             B-spline basis function of order n.
 
@@ -17,4 +18,9 @@ def BSPLINE(default: DataContainer, default_parmas: DefaultParams, n: int=None):
     n : int
             The order of the spline. Must be non-negative, i.e., n >= 0
     """
-    return DataContainer(x=dc[0].y, y=scipy.signal.bspline(x=dc[0].y, n=int(params['n']) if params['n'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.signal.bspline(
+            x=dc[0].y, n=int(params["n"]) if params["n"] != "" else None
+        ),
+    )

@@ -1,8 +1,9 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.signal
 
+
 @flojoy
-def GAUSS_SPLINE(default: DataContainer, default_parmas: DefaultParams, n: int=None):
+def GAUSS_SPLINE(default: DataContainer, default_params: DefaultParams, n: int = None):
     """
             Gaussian approximation to B-spline basis function of order n.
 
@@ -17,4 +18,9 @@ def GAUSS_SPLINE(default: DataContainer, default_parmas: DefaultParams, n: int=N
     n : int
             The order of the spline. Must be non-negative, i.e., n >= 0
     """
-    return DataContainer(x=dc[0].y, y=scipy.signal.gauss_spline(x=dc[0].y, n=int(params['n']) if params['n'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.signal.gauss_spline(
+            x=dc[0].y, n=int(params["n"]) if params["n"] != "" else None
+        ),
+    )

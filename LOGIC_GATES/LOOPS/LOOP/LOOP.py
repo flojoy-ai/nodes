@@ -59,7 +59,7 @@ class LoopData:
 
 @flojoy
 def LOOP(
-    default: DataContainer, default_parmas: DefaultParams, num_loops: int = -1
+    default: DataContainer, default_params: DefaultParams, num_loops: int = -1
 ) -> LoopOutput:
     """The LOOP node is a specialized node that iterates through the body nodes for a given number of times.
     To ensure proper functionality, the LOOP node relies on a companion node called the `GOTO` node.
@@ -69,7 +69,7 @@ def LOOP(
     num_loops : int
         number of times to iterate through body nodes default is `-1` meaning infinity.
     """
-    node_id = default_parmas.node_id
+    node_id = default_params.node_id
     print("\n\nstart loop:", node_id)
     if num_loops == -1:
         print("infinite loop")

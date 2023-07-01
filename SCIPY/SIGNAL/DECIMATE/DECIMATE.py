@@ -1,8 +1,17 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.signal
 
+
 @flojoy
-def DECIMATE(default: DataContainer, default_parmas: DefaultParams, q: int=None, n: int=None, ftype: str='iir', axis: int=-1, zero_phase: bool=True):
+def DECIMATE(
+    default: DataContainer,
+    default_params: DefaultParams,
+    q: int = None,
+    n: int = None,
+    ftype: str = "iir",
+    axis: int = -1,
+    zero_phase: bool = True,
+):
     """
 
             Downsample the signal after applying an anti-aliasing filter.
@@ -38,4 +47,16 @@ def DECIMATE(default: DataContainer, default_parmas: DefaultParams, q: int=None,
 
     .. versionadded:: 0.18.0
     """
-    return DataContainer(x=dc[0].y, y=scipy.signal.decimate(x=dc[0].y, q=int(params['q']) if params['q'] != '' else None, n=int(params['n']) if params['n'] != '' else None, ftype=str(params['ftype']) if params['ftype'] != '' else None, axis=int(params['axis']) if params['axis'] != '' else None, zero_phase=bool(params['zero_phase']) if params['zero_phase'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.signal.decimate(
+            x=dc[0].y,
+            q=int(params["q"]) if params["q"] != "" else None,
+            n=int(params["n"]) if params["n"] != "" else None,
+            ftype=str(params["ftype"]) if params["ftype"] != "" else None,
+            axis=int(params["axis"]) if params["axis"] != "" else None,
+            zero_phase=bool(params["zero_phase"])
+            if params["zero_phase"] != ""
+            else None,
+        ),
+    )

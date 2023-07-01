@@ -1,8 +1,9 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import numpy.linalg
 
+
 @flojoy
-def DET(default: DataContainer, default_parmas: DefaultParams):
+def DET(default: DataContainer, default_params: DefaultParams):
     """
 
             Compute the determinant of an array.

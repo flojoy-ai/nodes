@@ -1,8 +1,16 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import scipy.stats
 
+
 @flojoy
-def DESCRIBE(default: DataContainer, default_parmas: DefaultParams, axis: int=0, ddof: int=1, bias: bool=True, nan_policy: str='propagate'):
+def DESCRIBE(
+    default: DataContainer,
+    default_params: DefaultParams,
+    axis: int = 0,
+    ddof: int = 1,
+    bias: bool = True,
+    nan_policy: str = "propagate",
+):
     """
             Compute several descriptive statistics of the passed array.
 
@@ -30,4 +38,15 @@ def DESCRIBE(default: DataContainer, default_parmas: DefaultParams, axis: int=0,
     * 'raise': throws an error
     * 'omit': performs the calculations ignoring nan values
     """
-    return DataContainer(x=dc[0].y, y=scipy.stats.describe(a=dc[0].y, axis=int(params['axis']) if params['axis'] != '' else None, ddof=int(params['ddof']) if params['ddof'] != '' else None, bias=bool(params['bias']) if params['bias'] != '' else None, nan_policy=str(params['nan_policy']) if params['nan_policy'] != '' else None))
+    return DataContainer(
+        x=dc[0].y,
+        y=scipy.stats.describe(
+            a=dc[0].y,
+            axis=int(params["axis"]) if params["axis"] != "" else None,
+            ddof=int(params["ddof"]) if params["ddof"] != "" else None,
+            bias=bool(params["bias"]) if params["bias"] != "" else None,
+            nan_policy=str(params["nan_policy"])
+            if params["nan_policy"] != ""
+            else None,
+        ),
+    )

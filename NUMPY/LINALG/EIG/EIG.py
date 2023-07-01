@@ -1,8 +1,9 @@
 from flojoy import DataContainer, flojoy, DefaultParams
 import numpy.linalg
 
+
 @flojoy
-def EIG(default: DataContainer, default_parmas: DefaultParams):
+def EIG(default: DataContainer, default_params: DefaultParams):
     """
 
             Compute the eigenvalues and right eigenvectors of a square array.

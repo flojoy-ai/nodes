@@ -1,6 +1,7 @@
 from flojoy import flojoy, DataContainer, DefaultParams
 import numpy as np
 
+
 def trapz(x, y):
     m = [0] * len(x)
     trapezium = 1 / 2 * (x[1] - x[0]) * (y[1] + y[0])
@@ -10,8 +11,9 @@ def trapz(x, y):
         m[i] = m[i - 1] + trapezium
     return m
 
+
 @flojoy
-def INTEGRATE(default: DataContainer, default_parmas: DefaultParams) -> DataContainer:
+def INTEGRATE(default: DataContainer, default_params: DefaultParams) -> DataContainer:
     """
     The INTEGRATE node takes two lists as input and integrates it using the composite
     trapezoidal rule.
@@ -28,13 +30,15 @@ def INTEGRATE(default: DataContainer, default_parmas: DefaultParams) -> DataCont
     dc_input = dc_inputs[0]
     input_x = dc_input.x
     input_y = dc_input.y
-    if dc_input.type != 'ordered_pair':
-        raise ValueError(f'unsupported DataContainer type passed for INTEGRATE : {dc_input.type}')
+    if dc_input.type != "ordered_pair":
+        raise ValueError(
+            f"unsupported DataContainer type passed for INTEGRATE : {dc_input.type}"
+        )
     if type(input_x) != np.ndarray:
-        raise ValueError(f'Invalid type for x:{type(input_x)}')
+        raise ValueError(f"Invalid type for x:{type(input_x)}")
     elif type(input_y) != np.ndarray:
-        raise ValueError(f'Invalid type for y:{type(input_y)}')
+        raise ValueError(f"Invalid type for y:{type(input_y)}")
     elif len(input_x) != len(input_y):
-        raise ValueError(f'Invalid inputs, x:{input_x} y:{input_y}')
+        raise ValueError(f"Invalid inputs, x:{input_x} y:{input_y}")
     integrate = trapz(input_x, input_y)
-    return DataContainer(type='ordered_pair', x=input_x, y=integrate)
+    return DataContainer(type="ordered_pair", x=input_x, y=integrate)
