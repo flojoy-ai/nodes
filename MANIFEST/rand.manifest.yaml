@@ -1,8 +1,12 @@
 COMMAND:
-  key: RAND
-  name: rand
-  parameters:
-    size:
-      default: dc[0].y.shape
-      type: string
-  type: NUMPY_RANDOM
+  - name: Random (Uniform)
+    key: RAND
+    type: SIMULATION
+    parameters:
+      distribution:
+        type: select
+        options:
+          - normal
+          - uniform
+          - poisson
+        default: uniform
