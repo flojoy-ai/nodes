@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
 def SIGMACLIP(
     default: DataContainer,
-    default_params: DefaultParams,
     low: float = 4.0,
     high: float = 4.0,
 ):

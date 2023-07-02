@@ -1,11 +1,13 @@
 import traceback
 from numpy import asarray
 import pandas as pd
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def MAT_2_DF(default: DataContainer, default_params: DefaultParams) -> DataContainer:
+def MAT_2_DF(
+    default: DataContainer,
+) -> DataContainer:
     """
     Node to convert matrix type data into dataframe type data.
     It takes one matrix type data and converts it to dataframe type data.

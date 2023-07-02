@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import torch
 from torchvision import transforms
 import torchvision.transforms.functional as TF
@@ -7,7 +7,9 @@ import numpy as np
 
 
 @flojoy
-def DEEPLAB_V3(default: DataContainer, default_params: DefaultParams) -> DataContainer:
+def DEEPLAB_V3(
+    default: DataContainer,
+) -> DataContainer:
     """The DEEPLAB_V3 node returns a segmentation mask from an input image
     in a dataframe. The input image is expected to be a DataContainer of type
     "image". The output is a DataContainer of type "image" with the same

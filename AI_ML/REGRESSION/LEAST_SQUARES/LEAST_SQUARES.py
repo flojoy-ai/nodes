@@ -1,11 +1,12 @@
 import numpy as np
 import traceback
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 
 
 @flojoy
 def LEAST_SQUARES(
-    x: DataContainer, y: DataContainer, default_params: DefaultParams
+    x: DataContainer,
+    y: DataContainer,
 ) -> DataContainer:
     """The LEAST_SQUARE node computes the coefficients that minimizes the distance between the
     inputs 'DataContainer' class, specifically the 'matrix' type and the regression.

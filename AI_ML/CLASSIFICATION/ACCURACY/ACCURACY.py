@@ -1,11 +1,19 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer, OrderedPair, NodeParameter
 import pandas as pd
 from typing import cast
 
 
 @flojoy
 def ACCURACY(
-    true_data: DataContainer, predicted: DataContainer, default_params: DefaultParams
+    true_data: DataContainer | OrderedPair,
+    predicted: DataContainer,
+    select_param: NodeParameter.SELECT["name"] = "name",
+    node_reference: NodeParameter.NODE_REFERENCE = "",
+    b_param: NodeParameter.BOOLEAN = False,
+    s_param: NodeParameter.ARRAY = [],
+    m_param: NodeParameter.FLOAT = 3.23,
+    a_param: NodeParameter.INT = 2,
+    d_param: NodeParameter.STRING = "some",
 ) -> DataContainer:
     """The ACCURACY node takes two dataframes with the true and predicted labels from a classification task,
     and indicates whether the prediction was correct or not. These dataframes should both be single columns.

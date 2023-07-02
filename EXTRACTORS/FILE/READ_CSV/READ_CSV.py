@@ -1,11 +1,10 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import pandas as pd
 
 
 @flojoy
 def READ_CSV(
     default: DataContainer,
-    default_params: DefaultParams,
     file_path: str = "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
 ):
     """

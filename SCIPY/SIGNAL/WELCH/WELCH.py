@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.signal
 
 
 @flojoy
 def WELCH(
     default: DataContainer,
-    default_params: DefaultParams,
     fs: float = 1.0,
     window: str = "hann",
     nperseg: int = None,

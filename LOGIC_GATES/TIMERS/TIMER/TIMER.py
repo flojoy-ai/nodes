@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, JobResultBuilder, DefaultParams
+from flojoy import flojoy, DataContainer, JobResultBuilder
 from flojoy.utils import send_to_socket, PlotlyJSONEncoder
 import plotly.graph_objects as go
 import time
@@ -6,9 +6,7 @@ import json
 
 
 @flojoy
-def TIMER(
-    default: DataContainer, default_params: DefaultParams, sleep_time: float = 0
-) -> DataContainer:
+def TIMER(default: DataContainer, sleep_time: float = 0) -> DataContainer:
     """The TIMER node sleeps for a specified number of seconds.
 
     Parameters

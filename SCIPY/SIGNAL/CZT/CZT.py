@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.signal
 
 
 @flojoy
 def CZT(
     default: DataContainer,
-    default_params: DefaultParams,
     m: int = None,
     w: complex = None,
     axis: int = -1,

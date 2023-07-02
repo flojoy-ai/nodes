@@ -1,5 +1,5 @@
 import pandas as pd
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from typing import Any, Dict, List
 from prophet import Prophet
 from prophet.serialize import model_to_json
@@ -8,7 +8,6 @@ from prophet.serialize import model_to_json
 @flojoy
 def PROPHET_PREDICT(
     default: DataContainer,
-    default_params: DefaultParams,
     periods: int = 365,
     run_forecast: bool = True,
 ) -> DataContainer:

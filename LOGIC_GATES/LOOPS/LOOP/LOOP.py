@@ -1,6 +1,12 @@
 import json
 from node_sdk.small_memory import SmallMemory
-from flojoy import JobResultBuilder, DataContainer, flojoy, DefaultParams
+from flojoy import (
+    DataContainer,
+    flojoy,
+    JobResultBuilder,
+    DefaultParams,
+    ParameterTypes,
+)
 from typing import Any
 from dataclasses import dataclass
 
@@ -57,9 +63,11 @@ class LoopData:
         print(f"{prefix}loop Data:", json.dumps(self.get_data(), indent=2))
 
 
-@flojoy
+@flojoy(inject_node_metadata=True)
 def LOOP(
-    default: DataContainer, default_params: DefaultParams, num_loops: int = -1
+    default: DataContainer,
+    default_params: DefaultParams,
+    num_loops: ParameterTypes.INT = -1,
 ) -> LoopOutput:
     """The LOOP node is a specialized node that iterates through the body nodes for a given number of times.
     To ensure proper functionality, the LOOP node relies on a companion node called the `GOTO` node.

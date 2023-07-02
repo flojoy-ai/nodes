@@ -1,9 +1,9 @@
-from flojoy import flojoy, DataContainer, get_job_result, DefaultParams  # type:ignore
+from flojoy import flojoy, DataContainer, get_job_result, ParameterTypes
 
 
 @flojoy
 def FEEDBACK(
-    default: DataContainer, default_params: DefaultParams, referred_node: str = ""
+    default: DataContainer, referred_node: ParameterTypes.NODE_REFERENCE = ""
 ) -> DataContainer:
     result = get_job_result(referred_node)
     if result:

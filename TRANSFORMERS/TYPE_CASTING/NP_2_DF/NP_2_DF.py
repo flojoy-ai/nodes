@@ -1,10 +1,12 @@
 import pandas as pd
 import numpy as np
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def NP_2_DF(default: DataContainer, default_params: DefaultParams) -> DataContainer:
+def NP_2_DF(
+    default: DataContainer,
+) -> DataContainer:
     """
     Node to convert numpy array data into dataframe type data
 

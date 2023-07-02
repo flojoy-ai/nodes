@@ -1,9 +1,11 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
-def MVSDIST(default: DataContainer, default_params: DefaultParams):
+def MVSDIST(
+    default: DataContainer,
+):
     """
 
             'Frozen' distributions for mean, variance, and standard deviation of data.

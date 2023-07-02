@@ -1,12 +1,11 @@
 import scipy
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import warnings
 
 
 @flojoy
 def SAVGOL(
     default: DataContainer,
-    default_params: DefaultParams,
     wlen: int = 3,
     porder: int = 1,
 ) -> DataContainer:

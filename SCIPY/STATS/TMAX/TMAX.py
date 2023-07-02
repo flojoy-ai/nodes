@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
 def TMAX(
     default: DataContainer,
-    default_params: DefaultParams,
     upperlimit: float = None,
     axis: int = 0,
     inclusive: bool = True,

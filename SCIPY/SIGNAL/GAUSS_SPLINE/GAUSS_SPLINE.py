@@ -1,9 +1,9 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.signal
 
 
 @flojoy
-def GAUSS_SPLINE(default: DataContainer, default_params: DefaultParams, n: int = None):
+def GAUSS_SPLINE(default: DataContainer, n: int = None):
     """
             Gaussian approximation to B-spline basis function of order n.
 

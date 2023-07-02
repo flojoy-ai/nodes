@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from time import sleep
 import serial
 import numpy as np
@@ -9,7 +9,6 @@ import plotly.graph_objects as go
 @flojoy
 def SERIAL_TIMESERIES(
     default: DataContainer,
-    default_params: DefaultParams,
     comport: str = "/dev/ttyACM0",
     baudrate: int = 9600,
     num_readings: int = 100,

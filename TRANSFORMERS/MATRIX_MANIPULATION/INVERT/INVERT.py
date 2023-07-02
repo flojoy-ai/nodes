@@ -1,11 +1,9 @@
 import numpy as np
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def INVERT(
-    default: DataContainer, default_params: DefaultParams, rcond: float = 1.0
-) -> DataContainer:
+def INVERT(default: DataContainer, rcond: float = 1.0) -> DataContainer:
     """Takes 2 inputs, one matrix and one rcond if not square matrix.
     Inverts them (or pseudo invert) and returns the result.
     If the entered value is a scalar it returns the multiplciative

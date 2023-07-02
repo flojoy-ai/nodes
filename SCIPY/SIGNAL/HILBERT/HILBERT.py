@@ -1,11 +1,9 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.signal
 
 
 @flojoy
-def HILBERT(
-    default: DataContainer, default_params: DefaultParams, N: int = None, axis: int = -1
-):
+def HILBERT(default: DataContainer, N: int = None, axis: int = -1):
     """
 
             Compute the analytic signal, using the Hilbert transform.

@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.signal
 
 
 @flojoy
 def DETREND(
     default: DataContainer,
-    default_params: DefaultParams,
     axis: int = -1,
     type: str = "linear",
     bp: int = 0,

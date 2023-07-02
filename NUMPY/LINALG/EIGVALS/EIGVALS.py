@@ -1,9 +1,11 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import numpy.linalg
 
 
 @flojoy
-def EIGVALS(default: DataContainer, default_params: DefaultParams):
+def EIGVALS(
+    default: DataContainer,
+):
     """
 
             Compute the eigenvalues of a general matrix.

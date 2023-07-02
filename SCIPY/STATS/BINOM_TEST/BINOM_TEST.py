@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
 def BINOM_TEST(
     default: DataContainer,
-    default_params: DefaultParams,
     n: int = None,
     p: float = 0.5,
     alternative: str = "two-sided",

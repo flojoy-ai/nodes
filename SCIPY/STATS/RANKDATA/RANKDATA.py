@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
 def RANKDATA(
     default: DataContainer,
-    default_params: DefaultParams,
     method: str = "average",
     axis: None = None,
 ):

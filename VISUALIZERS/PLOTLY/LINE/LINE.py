@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import numpy as np
 import plotly.graph_objects as go
 import pandas as pd
@@ -7,7 +7,9 @@ from typing import cast
 
 
 @flojoy
-def LINE(default: DataContainer, default_params: DefaultParams) -> DataContainer:
+def LINE(
+    default: DataContainer,
+) -> DataContainer:
     """The LINE node creates a Plotly Line visualization for a given input data container.
 
     Parameters:

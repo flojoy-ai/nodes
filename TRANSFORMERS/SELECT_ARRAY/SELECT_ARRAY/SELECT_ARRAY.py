@@ -1,11 +1,9 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import numpy as np
 
 
 @flojoy
-def SELECT_ARRAY(
-    default: DataContainer, default_params: DefaultParams, column: int = 0
-) -> DataContainer:
+def SELECT_ARRAY(default: DataContainer, column: int = 0) -> DataContainer:
     """
     Node to convert an input array with multiple columns
     to the selected ordered pair.

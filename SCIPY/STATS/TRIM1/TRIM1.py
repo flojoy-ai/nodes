@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
 def TRIM1(
     default: DataContainer,
-    default_params: DefaultParams,
     proportiontocut: float = None,
     tail: str = "right",
     axis: int = 0,

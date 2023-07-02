@@ -1,11 +1,9 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
-def BAYES_MVS(
-    default: DataContainer, default_params: DefaultParams, alpha: float = 0.9
-):
+def BAYES_MVS(default: DataContainer, alpha: float = 0.9):
     """
 
             Bayesian confidence intervals for the mean, var, and std.

@@ -1,7 +1,7 @@
 from typing import Literal
 import cv2
 import os
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from PIL import Image
 import numpy as np
 
@@ -9,7 +9,6 @@ import numpy as np
 @flojoy
 def CAMERA(
     default: DataContainer,
-    default_params: DefaultParams,
     camera_ind: int = -1,
     resolution: Literal[
         "default", "640x360", "640x480", "1280x720", "1920x1080"

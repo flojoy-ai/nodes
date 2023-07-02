@@ -1,9 +1,9 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.signal
 
 
 @flojoy
-def BSPLINE(default: DataContainer, default_params: DefaultParams, n: int = None):
+def BSPLINE(default: DataContainer, n: int = None):
     """
             B-spline basis function of order n.
 

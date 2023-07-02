@@ -1,9 +1,11 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
-def SHAPIRO(default: DataContainer, default_params: DefaultParams):
+def SHAPIRO(
+    default: DataContainer,
+):
     """
             Perform the Shapiro-Wilk test for normality.
 

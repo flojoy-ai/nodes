@@ -1,5 +1,5 @@
 import numpy as np
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from node_sdk.small_memory import SmallMemory
 
 memory_key = "SECOND_ORDER_SYSTEM"
@@ -8,7 +8,6 @@ memory_key = "SECOND_ORDER_SYSTEM"
 @flojoy
 def SECOND_ORDER_SYSTEM(
     default: DataContainer,
-    default_params: DefaultParams,
     d1: float = 250,
     d2: float = 100,
 ) -> DataContainer:

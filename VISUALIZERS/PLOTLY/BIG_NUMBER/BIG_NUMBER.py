@@ -1,19 +1,20 @@
-from flojoy import flojoy, DefaultParams, OrderedPair, Plotly
+from flojoy import flojoy, OrderedPair, Plotly, DefaultParams, ParameterTypes
 from node_sdk.small_memory import SmallMemory
 import plotly.graph_objects as go
 from nodes.VISUALIZERS.template import plot_layout
+from typing import cast
 
 MEMORY_KEY = "BIG_NUMBER_MEMORY_KEY"
 
 
-@flojoy
+@flojoy(inject_node_metadata=True)
 def BIG_NUMBER(
     default: OrderedPair,
     default_params: DefaultParams,
-    suffix: str = "",
-    prefix: str = "",
-    relative_delta: bool = True,
-    title: str = "",
+    suffix: ParameterTypes.STRING = "",
+    prefix: ParameterTypes.STRING = "",
+    relative_delta: ParameterTypes.BOOLEAN = True,
+    title: ParameterTypes.STRING = "",
 ) -> Plotly:
     """The BIG_NUMBER node generates a plotly figure displaying a big number with optional prefix and suffix.
 
@@ -37,7 +38,9 @@ def BIG_NUMBER(
     layout = plot_layout(title=title if title != "" else node_name)
     fig = go.Figure(layout=layout)
 
-    prev_num = SmallMemory().read_memory(job_id, MEMORY_KEY)
+    prev_num: str | None = cast(
+        str | None, SmallMemory().read_memory(job_id, MEMORY_KEY)
+    )
     big_num = default.y[-1]
     val_format = ".1%" if relative_delta is True else ".1f"
     fig.add_trace(

@@ -1,5 +1,5 @@
 from typing import Literal
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
@@ -10,7 +10,6 @@ from nodes.VISUALIZERS.template import plot_layout
 def COMPOSITE(
     primary_trace: DataContainer,
     secondary_trace: DataContainer,
-    default_params: DefaultParams,
     first_figure: Literal["bar", "line", "histogram", "scatter"] = "scatter",
     second_figure: Literal["bar", "line", "histogram", "scatter"] = "scatter",
 ) -> DataContainer:

@@ -1,11 +1,9 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
-def YEOJOHNSON(
-    default: DataContainer, default_params: DefaultParams, lmbda: float = None
-):
+def YEOJOHNSON(default: DataContainer, lmbda: float = None):
     """
             Return a dataset transformed by a Yeo-Johnson power transformation.
 

@@ -1,9 +1,9 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import numpy.linalg
 
 
 @flojoy
-def EIGH(default: DataContainer, default_params: DefaultParams, UPLO: str = "L"):
+def EIGH(default: DataContainer, UPLO: str = "L"):
     """
 
     Return the eigenvalues and eigenvectors of a complex Hermitian

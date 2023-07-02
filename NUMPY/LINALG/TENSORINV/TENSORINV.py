@@ -1,9 +1,9 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import numpy.linalg
 
 
 @flojoy
-def TENSORINV(default: DataContainer, default_params: DefaultParams, ind: int = 2):
+def TENSORINV(default: DataContainer, ind: int = 2):
     """
 
             Compute the 'inverse' of an N-dimensional array.

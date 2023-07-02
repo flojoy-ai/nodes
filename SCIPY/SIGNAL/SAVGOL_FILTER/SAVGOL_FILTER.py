@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.signal
 
 
 @flojoy
 def SAVGOL_FILTER(
     default: DataContainer,
-    default_params: DefaultParams,
     window_length: int = None,
     polyorder: int = None,
     deriv: int = 0,

@@ -1,4 +1,4 @@
-from flojoy import flojoy, JobResultBuilder, DataContainer, DefaultParams
+from flojoy import flojoy, JobResultBuilder, DataContainer
 import os
 from redis import Redis
 from rq.job import Job, NoSuchJobError
@@ -11,9 +11,7 @@ REDIS_PORT = os.environ.get("REDIS_PORT", 6379)
 
 
 @flojoy
-def REDIS_LOAD(
-    default: DataContainer, default_params: DefaultParams, referred_node: str = ""
-) -> DataContainer:
+def REDIS_LOAD(default: DataContainer, referred_node: str = "") -> DataContainer:
     """The REDIS_LOAD node loads data directly from REDIS.
 
     Parameters

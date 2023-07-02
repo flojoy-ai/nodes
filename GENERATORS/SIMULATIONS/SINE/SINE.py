@@ -1,17 +1,16 @@
 import numpy as np
-from flojoy import flojoy, OrderedPair, DefaultParams
+from flojoy import flojoy, OrderedPair, ParameterTypes
 from scipy import signal
-from typing import Literal
 
 
 @flojoy
 def SINE(
     default: OrderedPair,
-    amplitude: float = 1,
-    frequency: float = 1,
-    offset: float = 0,
-    phase: float = 0,
-    waveform: Literal["sine", "square", "triangle", "sawtooth"] = "sine",
+    amplitude: ParameterTypes.FLOAT = 1,
+    frequency: ParameterTypes.FLOAT = 1,
+    offset: ParameterTypes.FLOAT = 0,
+    phase: ParameterTypes.FLOAT = 0,
+    waveform: ParameterTypes.SELECT["sine", "square", "triangle", "sawtooth"] = "sine",
 ) -> OrderedPair:
     x = default.y
     A = amplitude

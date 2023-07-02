@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
 def TTEST_1SAMP(
     default: DataContainer,
-    default_params: DefaultParams,
     popmean: float or array_like = None,
     axis: int = 0,
     nan_policy: str = "propagate",

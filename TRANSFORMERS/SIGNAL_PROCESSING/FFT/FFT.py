@@ -1,13 +1,12 @@
 from scipy import signal, fft
 from numpy import abs
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from pandas import DataFrame
 
 
 @flojoy
 def FFT(
     default: DataContainer,
-    default_params: DefaultParams,
     window_type: Literal[
         "none",
         "boxcar",

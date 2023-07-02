@@ -1,9 +1,9 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
-def ANDERSON(default: DataContainer, default_params: DefaultParams, dist: str = "norm"):
+def ANDERSON(default: DataContainer, dist: str = "norm"):
     """
             Anderson-Darling test for data coming from a particular distribution.
 

@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
 def KSTATVAR(
     default: DataContainer,
-    default_params: DefaultParams,
     n: int = 2,
     axis: int or None = None,
     nan_policy: str = "propagate",

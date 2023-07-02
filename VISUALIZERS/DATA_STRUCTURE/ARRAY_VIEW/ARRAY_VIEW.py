@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import plotly.graph_objects as go
 import numpy as np
 import pandas as pd
@@ -20,7 +20,9 @@ def numpy_array_as_table(arr: np.ndarray, placeholder: str):
 
 
 @flojoy
-def ARRAY_VIEW(default: DataContainer, default_params: DefaultParams) -> DataContainer:
+def ARRAY_VIEW(
+    default: DataContainer,
+) -> DataContainer:
     """
     The ARRAY_VIEW node takes "ordered_pair", "dataframe", "matrix", and "image" as input type
     and displays its visualization in array format.

@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.utils import Bunch
 import pandas as pd
@@ -8,7 +8,6 @@ from typing import cast
 @flojoy
 def TEXT_DATASET(
     default: DataContainer,
-    default_params: DefaultParams,
     subset: Literal["train", "test", "all"] = "train",
     categories: list[str | float | int] = [],
     remove_headers: bool = False,

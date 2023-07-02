@@ -1,5 +1,5 @@
 from typing import Literal
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import pandas as pd
 import numpy as np
 from sklearn import svm, preprocessing
@@ -10,7 +10,6 @@ from typing import cast
 def SUPPORT_VECTOR_MACHINE(
     train: DataContainer,
     input: DataContainer,
-    default_params: DefaultParams,
     target: str = "",
     kernel: Literal["linear", "poly", "rbf", "sigmoid"] = "linear",
 ) -> DataContainer:

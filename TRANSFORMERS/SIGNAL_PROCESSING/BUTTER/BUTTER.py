@@ -1,10 +1,12 @@
 from scipy import signal
 import numpy as np
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def BUTTER(default: DataContainer, default_params: DefaultParams) -> DataContainer:
+def BUTTER(
+    default: DataContainer,
+) -> DataContainer:
     """Apply a butterworth filter to an input vector"""
     print("Butterworth inputs:", dc_inputs)
     sig = dc_inputs[0].y

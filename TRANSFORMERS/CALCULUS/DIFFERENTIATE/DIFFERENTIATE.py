@@ -1,10 +1,10 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import numpy as np
 
 
 @flojoy
 def DIFFERENTIATE(
-    default: DataContainer, default_params: DefaultParams
+    default: DataContainer,
 ) -> DataContainer:
     """
     The DIFFERENTIATE node takes two list, x and y, as input.

@@ -1,9 +1,11 @@
 import numpy as np
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 
 
 @flojoy
-def MATMUL(y: DataContainer, default_params: DefaultParams) -> DataContainer:
+def MATMUL(
+    y: DataContainer,
+) -> DataContainer:
     """Takes 2 input matrices, multiplies them, and returns the result"""
     a: np.ndarray = np.eye(3)
     b: np.ndarray = np.eye(3)

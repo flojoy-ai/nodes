@@ -1,7 +1,7 @@
 import json
 import os
 import requests
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 from flojoy.utils import PlotlyJSONEncoder, get_frontier_api_key
 
 FRONTIER_URI: str = os.environ.get("FRONTIER_URI") or "https://frontier.flojoy.io"
@@ -9,9 +9,7 @@ MEASUREMENT_API: str = f"{FRONTIER_URI}/api/streaming"
 
 
 @flojoy
-def LOADER(
-    default: DataContainer, default_params: DefaultParams, measurement_uuid: str = ""
-) -> DataContainer:
+def LOADER(default: DataContainer, measurement_uuid: str = "") -> DataContainer:
     api_key: str | None = get_frontier_api_key()
     if api_key is None:
         raise KeyError(f"Frontier API key is not found!")

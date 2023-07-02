@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.signal
 
 
 @flojoy
 def DECIMATE(
     default: DataContainer,
-    default_params: DefaultParams,
     q: int = None,
     n: int = None,
     ftype: str = "iir",

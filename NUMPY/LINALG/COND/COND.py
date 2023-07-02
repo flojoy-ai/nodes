@@ -1,9 +1,9 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import numpy.linalg
 
 
 @flojoy
-def COND(default: DataContainer, default_params: DefaultParams, p: None = None):
+def COND(default: DataContainer, p: None = None):
     """
 
             Compute the condition number of a matrix.

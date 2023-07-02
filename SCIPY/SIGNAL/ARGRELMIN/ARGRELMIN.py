@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.signal
 
 
 @flojoy
 def ARGRELMIN(
     default: DataContainer,
-    default_params: DefaultParams,
     axis: int = 0,
     order: int = 1,
     mode: str = "clip",

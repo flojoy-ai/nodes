@@ -1,7 +1,7 @@
 import pandas as pd
 from typing import cast
 from dataclasses import dataclass
-from flojoy import flojoy, DataFrame, DefaultParams
+from flojoy import flojoy, DataFrame
 from sklearn.model_selection import train_test_split
 
 

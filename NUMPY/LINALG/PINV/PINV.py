@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import numpy.linalg
 
 
 @flojoy
 def PINV(
     default: DataContainer,
-    default_params: DefaultParams,
     rcond: float = "1e-15",
     hermitian: bool = False,
 ):

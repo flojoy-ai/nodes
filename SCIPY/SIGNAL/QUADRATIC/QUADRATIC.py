@@ -1,9 +1,11 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.signal
 
 
 @flojoy
-def QUADRATIC(default: DataContainer, default_params: DefaultParams):
+def QUADRATIC(
+    default: DataContainer,
+):
     """
             A quadratic B-spline.
 

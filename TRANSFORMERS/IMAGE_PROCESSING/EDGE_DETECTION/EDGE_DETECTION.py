@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import cv2
 import numpy as np
 from PIL import ImageFilter, Image
@@ -6,7 +6,7 @@ from PIL import ImageFilter, Image
 
 @flojoy
 def EDGE_DETECTION(
-    default: DataContainer, default_params: DefaultParams
+    default: DataContainer,
 ) -> DataContainer:
     """The EDGE_DETECTION node detects edges in the image passed to it.
     This is done through the the Pillow image filter FIND_EDGES.

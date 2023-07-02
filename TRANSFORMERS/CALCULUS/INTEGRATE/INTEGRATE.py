@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import numpy as np
 
 
@@ -13,7 +13,9 @@ def trapz(x, y):
 
 
 @flojoy
-def INTEGRATE(default: DataContainer, default_params: DefaultParams) -> DataContainer:
+def INTEGRATE(
+    default: DataContainer,
+) -> DataContainer:
     """
     The INTEGRATE node takes two lists as input and integrates it using the composite
     trapezoidal rule.

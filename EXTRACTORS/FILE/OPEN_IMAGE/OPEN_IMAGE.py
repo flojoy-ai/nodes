@@ -1,14 +1,12 @@
 from os import path
 import traceback
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from matplotlib import image
 from numpy import asarray
 
 
 @flojoy
-def OPEN_IMAGE(
-    default: DataContainer, default_params: DefaultParams, file_path: str = ""
-) -> DataContainer:
+def OPEN_IMAGE(default: DataContainer, file_path: str = "") -> DataContainer:
     """
     The OPEN_IMAGE node loads an image file from disk and
     returns a image type Datacontainer object.

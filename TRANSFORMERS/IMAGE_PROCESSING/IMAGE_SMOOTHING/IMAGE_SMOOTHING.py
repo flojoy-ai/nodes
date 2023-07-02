@@ -1,5 +1,5 @@
 from typing import Literal
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import cv2
 import numpy as np
 
@@ -7,7 +7,6 @@ import numpy as np
 @flojoy
 def IMAGE_SMOOTHING(
     default: DataContainer,
-    default_params: DefaultParams,
     kernel: int = 5,
     smoothing_type: Literal["average", "gaussian", "median", "bilateral"] = "average",
 ) -> DataContainer:

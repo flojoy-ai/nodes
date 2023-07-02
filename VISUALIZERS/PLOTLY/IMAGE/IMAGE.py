@@ -1,11 +1,13 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import plotly.express as px
 import numpy as np
 from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
-def IMAGE(default: DataContainer, default_params: DefaultParams) -> DataContainer:
+def IMAGE(
+    default: DataContainer,
+) -> DataContainer:
     dc_input: DataContainer = dc_inputs[0]
     node_name = __name__.split(".")[-1]
     if dc_input.type == "image":

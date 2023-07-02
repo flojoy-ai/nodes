@@ -1,5 +1,5 @@
 import numpy as np
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from node_sdk.small_memory import SmallMemory
 
 memory_key = "pid-info"
@@ -8,7 +8,6 @@ memory_key = "pid-info"
 @flojoy
 def PID(
     default: DataContainer,
-    default_params: DefaultParams,
     Kp: float = 5,
     Ki: float = 0.0143,
     Kd: float = 356.25,

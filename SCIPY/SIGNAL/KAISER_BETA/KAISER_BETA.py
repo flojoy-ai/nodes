@@ -1,9 +1,11 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.signal
 
 
 @flojoy
-def KAISER_BETA(default: DataContainer, default_params: DefaultParams):
+def KAISER_BETA(
+    default: DataContainer,
+):
     """
             Compute the Kaiser parameter `beta`, given the attenuation `a`.
 

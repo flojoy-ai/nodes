@@ -1,11 +1,13 @@
 import numpy as np
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import pandas as pd
 import traceback
 
 
 @flojoy
-def TIMESERIES(default: DataContainer, default_params: DefaultParams) -> DataContainer:
+def TIMESERIES(
+    default: DataContainer,
+) -> DataContainer:
     """
     Generates a random timeseries vector
     """

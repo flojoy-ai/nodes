@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import plotly.graph_objects as go
 import pandas as pd
 from nodes.VISUALIZERS.template import plot_layout
@@ -6,7 +6,9 @@ import numpy as np
 
 
 @flojoy
-def BAR(default: DataContainer, default_params: DefaultParams) -> DataContainer:
+def BAR(
+    default: DataContainer,
+) -> DataContainer:
     """The BAR node creates a Plotly Bar visualization for a given input data container.
 
     Parameters

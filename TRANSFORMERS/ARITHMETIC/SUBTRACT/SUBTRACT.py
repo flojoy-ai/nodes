@@ -1,10 +1,11 @@
 import numpy as np
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 
 
 @flojoy
 def SUBTRACT(
-    x: DataContainer, y: DataContainer, default_params: DefaultParams
+    x: DataContainer,
+    y: DataContainer,
 ) -> DataContainer:
     """Subtract 2 input vectors and return the result"""
     if len(dc_inputs) < 2:

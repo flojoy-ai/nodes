@@ -1,13 +1,11 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from typing import Any, Dict, List
 from prophet.plot import plot_components_plotly
 from prophet.serialize import model_from_json
 
 
 @flojoy
-def PROPHET_COMPONENTS(
-    default: DataContainer, default_params: DefaultParams, periods: int = 365
-) -> DataContainer:
+def PROPHET_COMPONENTS(default: DataContainer, periods: int = 365) -> DataContainer:
     """The PROPHET_COMPONENTS node plots the components of the prophet model trained
 
     in the PROPHET_PREDICT node. This is the output plotly graph from the

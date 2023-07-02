@@ -1,10 +1,11 @@
 import numpy as np
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 
 
 @flojoy
 def DIVIDE(
-    x: DataContainer, y: DataContainer, default_params: DefaultParams
+    x: DataContainer,
+    y: DataContainer,
 ) -> DataContainer:
     """Divide 2 or more numeric arrays, matrices, dataframes, or constants element-wise.
     When a constant is added to an array or matrix, each element in the array or

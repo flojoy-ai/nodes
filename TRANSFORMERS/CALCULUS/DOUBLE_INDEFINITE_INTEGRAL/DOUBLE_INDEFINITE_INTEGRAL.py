@@ -1,10 +1,10 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import numpy as np
 
 
 @flojoy
 def DOUBLE_INDEFINITE_INTEGRAL(
-    default: DataContainer, default_params: DefaultParams
+    default: DataContainer,
 ) -> DataContainer:
     """
     The INDEFINITE_INTEGRAL node takes three matrices and computes double integral.

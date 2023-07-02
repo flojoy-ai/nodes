@@ -1,12 +1,10 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import LabJackPython
 import u3
 
 
 @flojoy
-def LABJACKU3(
-    default: DataContainer, default_params: DefaultParams, numbers: int = 1
-) -> DataContainer:
+def LABJACKU3(default: DataContainer, numbers: int = 1) -> DataContainer:
     """Takes a number of sensors as parameters and return their temperature measurement"""
     voltages: list[float] = []
     temperatures: list[float] = []

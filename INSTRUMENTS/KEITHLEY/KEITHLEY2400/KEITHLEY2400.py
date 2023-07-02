@@ -1,11 +1,10 @@
 import serial
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 
 
 @flojoy
 def KEITHLEY2400(
     default: DataContainer,
-    default_params: DefaultParams,
     comport: str = "/dev/ttyUSB0",
     baudrate: float = 9600,
 ) -> DataContainer:

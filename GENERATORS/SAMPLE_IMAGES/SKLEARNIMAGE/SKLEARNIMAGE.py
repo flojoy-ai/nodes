@@ -1,12 +1,11 @@
 from typing import Literal
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from skimage import data
 
 
 @flojoy
 def SKLEARNIMAGE(
     default: DataContainer,
-    default_params: DefaultParams,
     img_key: Literal[
         "astronaut",
         "binary_blobs",

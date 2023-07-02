@@ -1,26 +1,17 @@
-from typing import Literal, Any
-from flojoy import (
-    flojoy,
-    DataContainer,
-    JobResultBuilder,
-    DefaultParams,
-    OrderedPair,
-)  # type:ignore
-from dataclasses import dataclass
+from typing import Literal, Any, TypedDict
+from flojoy import flojoy, DataContainer, JobResultBuilder, OrderedPair, ParameterTypes
 
 
-@dataclass(frozen=True)  # Multiple outputs
-class ConditionalOutput:
+class ConditionalOutput(TypedDict):
     true: dict[str, str | list[str] | DataContainer] | DataContainer
     false: dict[str, str | list[str] | DataContainer] | DataContainer
 
 
-@flojoy
+@flojoy(inject_node_metadata=True)
 def CONDITIONAL(
     x: OrderedPair,
     y: OrderedPair,
-    default_params: DefaultParams,
-    operator_type: Literal["<=", ">", "<", ">=", "!=", "=="] = ">=",
+    operator_type: ParameterTypes.SELECT["<=", ">", "<", ">=", "!=", "=="] = ">=",
 ) -> ConditionalOutput:
     """The CONDITIONAL node is a specialized node that compares two given DataContainer inputs
     and enqueues nodes connected with `true` or `false` output based on the comparison result.

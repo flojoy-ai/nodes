@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import torch
 from transformers import BartTokenizer, BartForConditionalGeneration
 import pandas as pd
@@ -6,7 +6,7 @@ import pandas as pd
 
 @flojoy
 def BART_LARGE_CNN(
-    default: DataContainer, default_params: DefaultParams
+    default: DataContainer,
 ) -> DataContainer:
     """The BART_LARGE_CNN node takes an input dataframe with multiple rows and a single "text" column,
     and produces a dataframe with a single "summary_text" column.  The "summary_text" column contains a summary

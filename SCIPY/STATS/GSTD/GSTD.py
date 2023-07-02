@@ -1,11 +1,9 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
-def GSTD(
-    default: DataContainer, default_params: DefaultParams, axis: int = 0, ddof: int = 1
-):
+def GSTD(default: DataContainer, axis: int = 0, ddof: int = 1):
     """
 
             Calculate the geometric standard deviation of an array.

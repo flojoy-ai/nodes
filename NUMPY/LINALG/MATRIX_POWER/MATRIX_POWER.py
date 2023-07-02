@@ -1,9 +1,9 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import numpy.linalg
 
 
 @flojoy
-def MATRIX_POWER(default: DataContainer, default_params: DefaultParams, n: int = None):
+def MATRIX_POWER(default: DataContainer, n: int = None):
     """
 
             Raise a square matrix to the (integer) power `n`.

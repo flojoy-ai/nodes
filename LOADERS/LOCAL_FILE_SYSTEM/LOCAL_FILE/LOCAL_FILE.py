@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, JobResultBuilder, DefaultParams
+from flojoy import flojoy, DataContainer, JobResultBuilder
 from typing import Union
 import numpy as np
 from PIL import Image
@@ -17,7 +17,6 @@ def get_file_path(file_path: str, default_path: str = None) -> str:
 @flojoy
 def LOCAL_FILE(
     default: DataContainer,
-    default_params: DefaultParams,
     file_type: Literal["image", "csv", "json", "xml", "excel"] = "image",
     path: str = "",
 ) -> Union[DataContainer, dict]:

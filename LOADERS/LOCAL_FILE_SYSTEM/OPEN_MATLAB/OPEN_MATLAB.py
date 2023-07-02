@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, JobResultBuilder, DefaultParams
+from flojoy import flojoy, DataContainer, JobResultBuilder
 from typing import Union
 import numpy as np
 from scipy.io import loadmat
@@ -7,9 +7,7 @@ import pandas as pd
 
 
 @flojoy
-def OPEN_MATLAB(
-    default: DataContainer, default_params: DefaultParams, path: str = ""
-) -> Union[DataContainer, dict]:
+def OPEN_MATLAB(default: DataContainer, path: str = "") -> Union[DataContainer, dict]:
     """The OPEN_MATLAB node loads a local file of the .mat file format.
     Note that if multiple 'tabs' of data are used, the number of rows
     must match in order to stack the arrays.

@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
 def TRIMBOTH(
     default: DataContainer,
-    default_params: DefaultParams,
     proportiontocut: float = None,
     axis: int = 0,
 ):

@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import pandas as pd
 from typing import List, cast
 
@@ -6,7 +6,6 @@ from typing import List, cast
 @flojoy
 def EXTRACT_COLUMNS(
     default: DataContainer,
-    default_params: DefaultParams,
     columns: list[str | float | int] = [],
 ) -> DataContainer:
     """The EXTRACT_COLUMNS node takes an input dataframe and returns a dataframe with only the specified columns.

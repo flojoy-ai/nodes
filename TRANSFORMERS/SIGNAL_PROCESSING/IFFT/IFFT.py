@@ -1,12 +1,10 @@
 from scipy import fft
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import pandas as pd
 
 
 @flojoy
-def IFFT(
-    default: DataContainer, default_params: DefaultParams, real_signal: bool = False
-) -> DataContainer:
+def IFFT(default: DataContainer, real_signal: bool = False) -> DataContainer:
     """The IFFT performs the Inverse Discrete Fourier Transform on the input signal.
     With the IFFT algorith, the input signal will be transformed from the
     frequency domain back into the time domain.

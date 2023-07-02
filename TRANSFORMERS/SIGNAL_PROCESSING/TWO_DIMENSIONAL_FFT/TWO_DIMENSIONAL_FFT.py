@@ -1,6 +1,6 @@
 from typing import Literal
 from scipy import fft
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from PIL import Image
 import pandas as pd
 import numpy as np
@@ -13,7 +13,6 @@ def extrapolate(x):
 @flojoy
 def TWO_DIMENSIONAL_FFT(
     default: DataContainer,
-    default_params: DefaultParams,
     real_signal: bool = True,
     color: Literal["grayscale", "red", "green", "blue"] = "grayscale",
 ) -> DataContainer:

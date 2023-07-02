@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import Phidget22
 from Phidget22.Phidget import *
 from Phidget22.Devices.VoltageRatioInput import *
@@ -12,7 +12,6 @@ def onVoltageRatioChange(self, voltageRatio):
 @flojoy
 def PHIDGET22(
     default: DataContainer,
-    default_params: DefaultParams,
     n_sensors: int = 3,
     calibration1: float = 0.015,
     calibration2: float = 0.06,

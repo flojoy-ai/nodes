@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import scipy.stats
 
 
 @flojoy
 def ZSCORE(
     default: DataContainer,
-    default_params: DefaultParams,
     axis: int = 0,
     ddof: int = 0,
     nan_policy: str = "propagate",

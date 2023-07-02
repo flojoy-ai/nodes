@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from ticlib import TicUSB
 from time import sleep
 
@@ -6,7 +6,6 @@ from time import sleep
 @flojoy
 def STEPPER_DRIVER_TIC_KNOB(
     default: DataContainer,
-    default_params: DefaultParams,
     knob_value: int = 0,
     current_limit: int = 30,
     speed: int = 200000,

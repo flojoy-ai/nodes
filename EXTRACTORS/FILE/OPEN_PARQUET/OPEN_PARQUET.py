@@ -1,12 +1,10 @@
 from os import path
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import pandas as pd
 
 
 @flojoy
-def OPEN_PARQUET(
-    default: DataContainer, default_params: DefaultParams, file_path: str = ""
-) -> DataContainer:
+def OPEN_PARQUET(default: DataContainer, file_path: str = "") -> DataContainer:
     """
     The OPEN_PARQUET node loads a local file of the .parquet file format.
     It returns the file in pandas.Dataframe type.

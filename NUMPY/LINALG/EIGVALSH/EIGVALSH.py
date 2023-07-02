@@ -1,9 +1,9 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import numpy.linalg
 
 
 @flojoy
-def EIGVALSH(default: DataContainer, default_params: DefaultParams, UPLO: str = "L"):
+def EIGVALSH(default: DataContainer, UPLO: str = "L"):
     """
 
             Compute the eigenvalues of a complex Hermitian or real symmetric matrix.

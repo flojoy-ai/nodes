@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import pandas as pd
 from typing import cast
 
@@ -6,7 +6,6 @@ from typing import cast
 @flojoy
 def ONE_HOT_ENCODING(
     default: DataContainer,
-    default_params: DefaultParams,
     categories: list[str | float | int] = [],
     columns: list[str | float | int] = [],
 ) -> DataContainer:

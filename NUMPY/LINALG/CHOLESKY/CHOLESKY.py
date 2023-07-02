@@ -1,9 +1,11 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import numpy.linalg
 
 
 @flojoy
-def CHOLESKY(default: DataContainer, default_params: DefaultParams):
+def CHOLESKY(
+    default: DataContainer,
+):
     """
 
             Cholesky decomposition.

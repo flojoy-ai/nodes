@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataFrame, Plotly, DefaultParams
+from flojoy import flojoy, DataFrame, Plotly
 import plotly.graph_objects as go
 import pandas as pd
 from nodes.VISUALIZERS.template import plot_layout

@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from flojoy.hflib.hub_models import HubModelFactory, ImageCaptionModels
 import torchvision.transforms.functional as TF
 import numpy as np
@@ -7,7 +7,7 @@ import pandas as pd
 
 @flojoy
 def NLP_CONNECT_VIT_GPT2(
-    default: DataContainer, default_params: DefaultParams
+    default: DataContainer,
 ) -> DataContainer:
     """The NLP_CONNECT_VIT_GPT2 node captions an input image and produces an output string wrapped
     in a dataframe.

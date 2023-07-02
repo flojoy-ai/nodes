@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from scipy import integrate
 from sympy import parse_expr, lambdify
 
@@ -6,7 +6,6 @@ from sympy import parse_expr, lambdify
 @flojoy
 def DOUBLE_DEFINITE_INTEGRAL(
     default: DataContainer,
-    default_params: DefaultParams,
     function: str = "",
     upper_bound_x: float = 0.0,
     lower_bound_x: float = 0.0,

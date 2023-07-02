@@ -1,11 +1,10 @@
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 import numpy.linalg
 
 
 @flojoy
 def SVD(
     default: DataContainer,
-    default_params: DefaultParams,
     full_matrices: bool = True,
     compute_uv: bool = True,
     hermitian: bool = False,

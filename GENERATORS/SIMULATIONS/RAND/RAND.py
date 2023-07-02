@@ -1,5 +1,5 @@
 import numpy as np
-from flojoy import OrderedPair, flojoy, DataContainer, DefaultParams
+from flojoy import OrderedPair, flojoy
 
 
 @flojoy

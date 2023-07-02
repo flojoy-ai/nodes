@@ -1,12 +1,11 @@
 from scipy import signal
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 import numpy as np
 
 
 @flojoy
 def FIR(
     default: DataContainer,
-    default_params: DefaultParams,
     sample_rate: float = 100,
     transition_width: float = 5.0,
     stop_band_attenuation: float = 60,

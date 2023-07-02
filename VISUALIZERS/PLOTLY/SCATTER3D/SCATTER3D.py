@@ -1,11 +1,13 @@
 import plotly.graph_objects as go
 import plotly.express as px
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
-def SCATTER3D(default: DataContainer, default_params: DefaultParams) -> DataContainer:
+def SCATTER3D(
+    default: DataContainer,
+) -> DataContainer:
     """The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input data container.
 
     Parameters:

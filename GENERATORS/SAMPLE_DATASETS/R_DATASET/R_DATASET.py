@@ -1,12 +1,11 @@
 from typing import Literal
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 from rdatasets import data
 
 
 @flojoy
 def R_DATASET(
     default: DataContainer,
-    default_params: DefaultParams,
     dataset_key: Literal[
         "ability.cov",
         "airmiles",

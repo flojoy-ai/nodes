@@ -1,11 +1,13 @@
 import plotly.graph_objects as go
-from flojoy import DataContainer, flojoy, DefaultParams
+from flojoy import DataContainer, flojoy
 from nodes.VISUALIZERS.template import plot_layout
 import pandas as pd
 
 
 @flojoy
-def SURFACE3D(default: DataContainer, default_params: DefaultParams) -> DataContainer:
+def SURFACE3D(
+    default: DataContainer,
+) -> DataContainer:
     """The SURFACE3D node creates a Plotly 3D Surface visualization for a given input data container.
 
     Parameters:

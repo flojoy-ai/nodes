@@ -1,11 +1,11 @@
 import numpy
 from sklearn.feature_extraction.text import CountVectorizer
-from flojoy import flojoy, DataContainer, DefaultParams
+from flojoy import flojoy, DataContainer
 
 
 @flojoy
 def COUNT_VECTORIZER(
-    default: DataContainer, default_params: DefaultParams
+    default: DataContainer,
 ) -> DataContainer:
     """The COUNT_VECTORIZER node converts a collection (matrix) of text documents to a matrix of token counts.
 
