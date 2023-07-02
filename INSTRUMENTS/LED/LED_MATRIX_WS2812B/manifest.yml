@@ -1,0 +1,17 @@
+COMMAND:
+  - name: Led Matrix
+    key: LED_MATRIX_WS2812B
+    type: LED
+    parameters:
+      port:
+        type: string
+        default: "/dev/ttyACM0"
+      width: 
+        type: int
+        default: 16
+      height: 
+        type: int
+        default: 16
+    pip_dependencies:
+      - name: pyserial
+        v: "3.5"

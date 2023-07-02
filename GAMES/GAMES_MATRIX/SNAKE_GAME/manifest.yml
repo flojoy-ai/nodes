@@ -1,0 +1,6 @@
+COMMAND:
+    - {
+        name: "Snake Game",
+        key: "SNAKE_GAME",
+        type: "GAME_MATRIX",
+      }
