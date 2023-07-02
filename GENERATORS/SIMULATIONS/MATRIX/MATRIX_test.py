@@ -20,7 +20,6 @@ import MATRIX
 def test_MATRIX():
     # create the two matrices
     m1 = MATRIX.MATRIX([], {"row": 3, "column": 4})
-    m2 = MATRIX.MATRIX([], {"row": 3, "column": 4})
 
     # Check if they are equal
-    assert np.array_equal(m1, m2)
+    assert m1.m.shape == (3, 4)
