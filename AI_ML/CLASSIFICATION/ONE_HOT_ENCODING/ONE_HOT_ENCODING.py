@@ -1,14 +1,13 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, Dataframe
 import pandas as pd
-from typing import cast
 
 
 @flojoy
 def ONE_HOT_ENCODING(
-    default: DataContainer,
+    default: Dataframe,
     categories: list[str | float | int] = [],
     columns: list[str | float | int] = [],
-) -> DataContainer:
+) -> Dataframe:
     """The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe containing categorical features.
 
     Parameters
@@ -23,22 +22,15 @@ def ONE_HOT_ENCODING(
     matrix
         The one hot encoding of the input features.
     """
-    dc = dc_inputs[0] if len(dc_inputs) > 0 else None
-    if dc is not None and dc.type != "dataframe":
-        raise ValueError(
-            f"unsupported DataContainer type passed to ONE_HOT_ENCODING node: '{dc.type}'"
-        )
     if categories:
         data = pd.DataFrame({"category": categories})
         data["category"] = data["category"].astype("category")
         encoded = pd.get_dummies(data, dtype=int)
-        return DataContainer(type="dataframe", m=encoded)
-    if not dc:
-        raise ValueError(f"ONE_HOT_ENCODING node did not receive input DataContainer")
+        return Dataframe(df=encoded)
     if columns:
-        encoded = pd.get_dummies(dc.m[columns])
+        encoded = pd.get_dummies(default.m[columns])
     else:
-        df = cast(pd.DataFrame, dc.m)
+        df = default.m
         cat_df = df.select_dtypes(include=["object", "category"])
         encoded = pd.get_dummies(cat_df, dtype=int)
-    return DataContainer(type="dataframe", m=encoded)
+    return Dataframe(df=encoded)
