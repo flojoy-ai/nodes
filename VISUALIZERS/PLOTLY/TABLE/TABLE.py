@@ -1,11 +1,11 @@
-from flojoy import flojoy, DataFrame, Plotly
+from flojoy import flojoy, Dataframe, Plotly
 import plotly.graph_objects as go
 import pandas as pd
 from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
-def TABLE(default: DataFrame) -> Plotly:
+def TABLE(default: Dataframe) -> Plotly:
     """Node creates a Plotly table visualization for a given input data container.
 
     Args:
@@ -19,10 +19,6 @@ def TABLE(default: DataFrame) -> Plotly:
     ValueError: If the input data container is not supported.
     """
     layout = plot_layout(title="TABLE")
-    if not isinstance(default, DataFrame):
-        raise ValueError(
-            f"unsupported DataContainer type passed for TABLE: {default.type}"
-        )
     df = default.m
     fig = go.Figure(
         data=[

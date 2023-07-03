@@ -7,16 +7,14 @@ from flojoy import (
     DefaultParams,
     ParameterTypes,
 )
-from typing import Any
-from dataclasses import dataclass
+from typing import Any, TypedDict
 
 memory_key = "loop-info"
 
 
-@dataclass(frozen=True)  # Multiple outputs
-class LoopOutput:
-    body: dict[str, str | list[str] | DataContainer] | DataContainer
-    end: dict[str, str | list[str] | DataContainer] | DataContainer
+class LoopOutput(TypedDict):
+    body: Any
+    end: Any
 
 
 class LoopData:

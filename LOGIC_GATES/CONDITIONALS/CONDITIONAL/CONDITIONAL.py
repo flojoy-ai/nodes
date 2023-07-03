@@ -1,13 +1,13 @@
-from typing import Literal, Any, TypedDict
-from flojoy import flojoy, DataContainer, JobResultBuilder, OrderedPair, ParameterTypes
+from typing import Any, TypedDict
+from flojoy import flojoy, JobResultBuilder, OrderedPair, ParameterTypes
 
 
 class ConditionalOutput(TypedDict):
-    true: dict[str, str | list[str] | DataContainer] | DataContainer
-    false: dict[str, str | list[str] | DataContainer] | DataContainer
+    true: Any
+    false: Any
 
 
-@flojoy(inject_node_metadata=True)
+@flojoy
 def CONDITIONAL(
     x: OrderedPair,
     y: OrderedPair,
