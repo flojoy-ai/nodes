@@ -1,12 +1,12 @@
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
-from flojoy import DataFrame, Matrix, OrderedPair, Plotly, flojoy
+from flojoy import Dataframe, Matrix, OrderedPair, Plotly, flojoy
 from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
-def SCATTER(default: OrderedPair | DataFrame | Matrix) -> Plotly:
+def SCATTER(default: OrderedPair | Dataframe | Matrix) -> Plotly:
     """The SCATTER Node creates a Plotly Scatter visualization for a given input data container.
 
     Parameters:
@@ -26,7 +26,7 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix) -> Plotly:
             x = default.x[dict_keys[0]]
         y = default.y
         fig.add_trace(go.Scatter(x=x, y=y, mode="markers", marker=dict(size=4)))
-    elif isinstance(default, DataFrame):
+    elif isinstance(default, Dataframe):
         df = pd.DataFrame(default.m)
         first_col = df.iloc[:, 0]
         is_timeseries = False
@@ -43,7 +43,7 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix) -> Plotly:
                 fig.add_trace(
                     go.Scatter(x=df.index, y=df[col], mode="markers", name=col)
                 )
-    elif isinstance(default, Matrix):
+    else:
         m: np.ndarray = default.m
         (num_rows, num_cols) = m.shape
         x_ticks = np.arange(num_cols)
@@ -52,8 +52,5 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix) -> Plotly:
                 go.Scatter(x=x_ticks, y=m[i, :], name=f"Row {i + 1}", mode="markers")
             )
         fig.update_layout(xaxis_title="Column", yaxis_title="Value")
-    else:
-        raise ValueError(
-            f"unsupported DataContainer type passed for SCATTER: {type(default)}"
-        )
+
     return Plotly(fig=fig)
