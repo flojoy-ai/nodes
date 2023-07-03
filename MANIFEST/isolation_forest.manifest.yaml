@@ -1,0 +1,8 @@
+COMMAND:
+  - name: ISOLATION_FOREST
+    key: ISOLATION_FOREST
+    type: ANOMALY_DETECTION
+    parameters:
+      contamination:
+        type: float
+        default: 0.01
