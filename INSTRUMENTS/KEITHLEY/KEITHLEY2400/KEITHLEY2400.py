@@ -5,7 +5,8 @@ from flojoy import flojoy, DataContainer
 @flojoy
 def KEITHLEY2400(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
-    IV curve measurement with a Keithley 2400 source meter, send voltages and measure currents
+    The node KEITHLEY 2400 makes IV curve measurements with a Keithley 2400 source meter, 
+    it sends voltages to a device and measures the currents coming back from the device (Solar cells for example).
     """
 
     # Start serial communication with the instrument
@@ -43,7 +44,8 @@ def KEITHLEY2400(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         current_str: str = (
             ser.readline().decode("ascii").strip()
         )  # Save answers in a string
-        voltage_current_values: str = current_str.split(",")  # Split the string
+        voltage_current_values: str = current_str.split(
+            ",")  # Split the string
         currents_neg.append(-float(voltage_current_values[1]))
 
         ser.write(b":OUTP OFF\n")  # Close output from Instrument
