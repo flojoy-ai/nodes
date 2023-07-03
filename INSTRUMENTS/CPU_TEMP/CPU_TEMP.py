@@ -7,22 +7,16 @@ import json
 @flojoy
 def CPU_TEMP(dc, params):
     """
-    The RASPBERRY_PI Node displays informations about the Raspberry pi which is
-    used to run Flojoy such as CPU temperature and memory available on the device
+    The CPU_TEMP Node returns the temperatures 
+    measured on the computer running Flojoy with the function : psutil.sensor_temperatures().
 
     Parameters :
     ------------
     None
     """
     temperatures = psutil.sensors_temperatures()
+    temp_df = pd.DataFrame.from_dict(temperatures, orient='index')
+    temp_df['keys'] = temp_df.index
+    temp_df = temp_df[["keys"] + list(temp_df.columns[:-1])]
 
-    print("Temp Dictionnary")
-    print(temperatures)
-
-    temp_json = json.dumps(temperatures, indent=8)
-
-    print("After Conversion to Json")
-    print(type(temp_json))
-    print(temp_json)
-
-    return DataContainer(type="ordered_pair", x=None, y=[temperatures])
+    return DataContainer(type="dataframe", m=temp_df)

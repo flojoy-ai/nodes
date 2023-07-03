@@ -5,7 +5,7 @@ import psutil
 @flojoy
 def CPU_RAM(dc, params):
     """
-    The CPU_RAM node displays the available free memory of the system on which Flojoy is running.
+    The CPU_RAM node displays the available free memory of the computer running Flojoy.
 
     Parameters :
     ------------

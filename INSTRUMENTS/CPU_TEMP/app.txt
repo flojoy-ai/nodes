@@ -4,12 +4,12 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "CPU_TEMP_RAM-2eda3428-7ea0-44e4-852f-77f066ba6e56",
+                "id": "CPU_TEMP-5d9dbeaf-94a2-47f8-89bb-910bf7c661bc",
                 "type": "CPU",
                 "data": {
-                    "id": "CPU_TEMP_RAM-2eda3428-7ea0-44e4-852f-77f066ba6e56",
-                    "label": "CPU TEMP RAM",
-                    "func": "CPU_TEMP_RAM",
+                    "id": "CPU_TEMP-5d9dbeaf-94a2-47f8-89bb-910bf7c661bc",
+                    "label": "CPU TEMP",
+                    "func": "CPU_TEMP",
                     "type": "CPU",
                     "ctrls": {},
                     "pip_dependencies": [
@@ -18,50 +18,25 @@
                             "v": "5.9.5"
                         }
                     ],
-                    "selected": true
-                },
-                "position": {
-                    "x": 254.16386249890598,
-                    "y": 84.7125448847791
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 254.16386249890598,
-                    "y": 84.7125448847791
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "BAR-290a4448-07ae-4455-8875-ee0d166be87d",
-                "type": "PLOTLY_VISOR",
-                "data": {
-                    "id": "BAR-290a4448-07ae-4455-8875-ee0d166be87d",
-                    "label": "BAR",
-                    "func": "BAR",
-                    "type": "PLOTLY_VISOR",
-                    "ctrls": {},
                     "selected": false
                 },
                 "position": {
-                    "x": 632.7352910703346,
-                    "y": 16.141116313350494
+                    "x": 217.18372417943618,
+                    "y": 55.13810827117149
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 632.7352910703346,
-                    "y": 16.141116313350494
-                },
-                "dragging": true
+                    "x": 217.18372417943618,
+                    "y": 55.13810827117149
+                }
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-1da653af-076b-4c96-b420-ce318da27a22",
+                "id": "END-869167b0-0ad4-4415-98f6-b7e1e7bee79f",
                 "type": "TERMINATOR",
                 "data": {
-                    "id": "END-1da653af-076b-4c96-b420-ce318da27a22",
+                    "id": "END-869167b0-0ad4-4415-98f6-b7e1e7bee79f",
                     "label": "END",
                     "func": "END",
                     "type": "TERMINATOR",
@@ -69,36 +44,60 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1217.0210053560488,
-                    "y": 76.14111631335061
+                    "x": 1210.2994279814784,
+                    "y": 67.23254075686657
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1217.0210053560488,
-                    "y": 76.14111631335061
+                    "x": 1210.2994279814784,
+                    "y": 67.23254075686657
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "TABLE-bc99dcff-e5fa-4aa9-ad34-7c747d109ad8",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "TABLE-bc99dcff-e5fa-4aa9-ad34-7c747d109ad8",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": true
+                },
+                "position": {
+                    "x": 685.3019645933863,
+                    "y": 17.251774868222753
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 685.3019645933863,
+                    "y": 17.251774868222753
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "CPU_TEMP_RAM-2eda3428-7ea0-44e4-852f-77f066ba6e56",
+                "source": "CPU_TEMP-5d9dbeaf-94a2-47f8-89bb-910bf7c661bc",
                 "sourceHandle": "main",
-                "target": "BAR-290a4448-07ae-4455-8875-ee0d166be87d",
-                "targetHandle": "BAR",
-                "id": "reactflow__edge-CPU_TEMP_RAM-2eda3428-7ea0-44e4-852f-77f066ba6e56main-BAR-290a4448-07ae-4455-8875-ee0d166be87dBAR"
+                "target": "TABLE-bc99dcff-e5fa-4aa9-ad34-7c747d109ad8",
+                "targetHandle": "TABLE",
+                "id": "reactflow__edge-CPU_TEMP-5d9dbeaf-94a2-47f8-89bb-910bf7c661bcmain-TABLE-bc99dcff-e5fa-4aa9-ad34-7c747d109ad8TABLE"
             },
             {
-                "source": "BAR-290a4448-07ae-4455-8875-ee0d166be87d",
+                "source": "TABLE-bc99dcff-e5fa-4aa9-ad34-7c747d109ad8",
                 "sourceHandle": "main",
-                "target": "END-1da653af-076b-4c96-b420-ce318da27a22",
+                "target": "END-869167b0-0ad4-4415-98f6-b7e1e7bee79f",
                 "targetHandle": "END",
-                "id": "reactflow__edge-BAR-290a4448-07ae-4455-8875-ee0d166be87dmain-END-1da653af-076b-4c96-b420-ce318da27a22END"
+                "id": "reactflow__edge-TABLE-bc99dcff-e5fa-4aa9-ad34-7c747d109ad8main-END-869167b0-0ad4-4415-98f6-b7e1e7bee79fEND"
             }
         ],
         "viewport": {
             "x": 274.2885144771319,
-            "y": 61.49054757719483,
+            "y": 91.99054757719483,
             "zoom": 0.8292925607774201
         }
     },
