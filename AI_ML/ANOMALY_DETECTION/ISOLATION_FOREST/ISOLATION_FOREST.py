@@ -12,10 +12,11 @@ def ISOLATION_FOREST(
 ) -> DataContainer:
     """
     The ISOLATION_FOREST node uses the Isolation Forest algorithm to detect anomalous points in a tabular dataset.
+    Reference: https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html
 
     Parameters
     ----------
-    contamination: float, default=0.01
+    contamination: float, default=0 (auto)
         The estimated proportion of outliers in the data set.
 
     Returns
@@ -31,7 +32,9 @@ def ISOLATION_FOREST(
         )
     df = cast(pd.DataFrame, data.m)
 
-    contamination: float = params.get("contamination", 0.01)
+    contamination: float = params.get("contamination", 0)
+    if contamination == 0:
+        contamination = "auto"
     model = IsolationForest(contamination=contamination)
     model.fit(df)
     df['anomaly_scores'] = model.decision_function(df)

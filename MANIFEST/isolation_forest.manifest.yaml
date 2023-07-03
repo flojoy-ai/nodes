@@ -5,4 +5,4 @@ COMMAND:
     parameters:
       contamination:
         type: float
-        default: 0.01
+        default: 0.0
