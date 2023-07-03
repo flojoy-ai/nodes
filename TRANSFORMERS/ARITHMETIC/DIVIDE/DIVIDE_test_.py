@@ -31,9 +31,7 @@ def test_DIVIDE():
         type="ordered_pair", x=numpy.linspace(-10, 10, 100), y=[10] * 100
     )
 
-    element_b = DataContainer(
-        type="ordered_pair", x=numpy.linspace(-10, 10, 100), y=[7] * 100
-    )
+    element_b = DataContainer(type="scalar", c=10.0)
 
     # node under test
     res = DIVIDE.DIVIDE([element_a, element_b], {})
@@ -41,4 +39,4 @@ def test_DIVIDE():
     # check that the correct number of elements
     assert (len(res.y)) == 100
     for y in res.y:
-        assert y == 10.0 / 7.0
+        assert y == 10.0 / 10.0
