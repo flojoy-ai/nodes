@@ -27,9 +27,7 @@ def MULTIPLY(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         )
     match [dc_inputs[0].type, dc_inputs[1].type]:
         case ["scalar", "ordered_pair"]:
-            raise ValueError(
-                "The 'scalar' type should be connect to the 'y' input."
-            )
+            raise ValueError("The 'scalar' type should be connect to the 'y' input.")
 
         case ["ordered_pair", "ordered_pair"]:
             a = dc_inputs[0].y
@@ -56,4 +54,3 @@ def MULTIPLY(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             c = np.multiply(a, b)
 
             return DataContainer(type="scalar", c=c)
-

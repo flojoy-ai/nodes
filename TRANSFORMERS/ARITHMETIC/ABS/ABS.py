@@ -23,7 +23,7 @@ def ABS(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     match dc_inputs[0].type:
         case "scalar":
-            return DataContainer(type='scalar', c=np.abs(dc_inputs[0].c))
+            return DataContainer(type="scalar", c=np.abs(dc_inputs[0].c))
 
         case "ordered_pair":
             return DataContainer(x=dc_inputs[0].x, y=np.abs(dc_inputs[0].y))
