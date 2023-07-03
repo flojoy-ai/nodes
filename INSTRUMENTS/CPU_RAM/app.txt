@@ -1,0 +1,138 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "id": "CPU_RAM-1beb4031-4b64-481a-a14b-3dc2edf5dda9",
+                "type": "CPUR",
+                "data": {
+                    "id": "CPU_RAM-1beb4031-4b64-481a-a14b-3dc2edf5dda9",
+                    "label": "CPU RAM",
+                    "func": "CPU_RAM",
+                    "type": "CPUR",
+                    "ctrls": {},
+                    "pip_dependencies": [
+                        {
+                            "name": "psutil",
+                            "v": "5.9.5"
+                        }
+                    ]
+                },
+                "position": {
+                    "x": 229.55631776360383,
+                    "y": 53.76454446524957
+                },
+                "width": 150,
+                "height": 150
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-8eef6bd8-71c7-411a-a49c-e132147df401",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-8eef6bd8-71c7-411a-a49c-e132147df401",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1055.2706034778896,
+                    "y": 66.6216873223924
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1055.2706034778896,
+                    "y": 66.6216873223924
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "BIG_NUMBER-ad485e7b-5ae9-4a52-b0e4-fb9298fdda47",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "BIG_NUMBER-ad485e7b-5ae9-4a52-b0e4-fb9298fdda47",
+                    "label": "BIG NUMBER",
+                    "func": "BIG_NUMBER",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {
+                        "suffix": {
+                            "functionName": "BIG_NUMBER",
+                            "param": "suffix",
+                            "value": ""
+                        },
+                        "prefix": {
+                            "functionName": "BIG_NUMBER",
+                            "param": "prefix",
+                            "value": ""
+                        },
+                        "relative_delta": {
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": true
+                        },
+                        "title": {
+                            "functionName": "BIG_NUMBER",
+                            "param": "title",
+                            "value": "CPU RAM AVAILABLE (Go)"
+                        }
+                    },
+                    "selected": true
+                },
+                "position": {
+                    "x": 613.0488895078595,
+                    "y": 11.026686619411862
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 613.0488895078595,
+                    "y": 11.026686619411862
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "CPU_RAM-1beb4031-4b64-481a-a14b-3dc2edf5dda9",
+                "sourceHandle": "main",
+                "target": "BIG_NUMBER-ad485e7b-5ae9-4a52-b0e4-fb9298fdda47",
+                "targetHandle": "BIG_NUMBER",
+                "id": "reactflow__edge-CPU_RAM-1beb4031-4b64-481a-a14b-3dc2edf5dda9main-BIG_NUMBER-ad485e7b-5ae9-4a52-b0e4-fb9298fdda47BIG_NUMBER"
+            },
+            {
+                "source": "BIG_NUMBER-ad485e7b-5ae9-4a52-b0e4-fb9298fdda47",
+                "sourceHandle": "main",
+                "target": "END-8eef6bd8-71c7-411a-a49c-e132147df401",
+                "targetHandle": "END",
+                "id": "reactflow__edge-BIG_NUMBER-ad485e7b-5ae9-4a52-b0e4-fb9298fdda47main-END-8eef6bd8-71c7-411a-a49c-e132147df401END"
+            }
+        ],
+        "viewport": {
+            "x": 274.2885144771319,
+            "y": 91.99054757719483,
+            "zoom": 0.8292925607774201
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
