@@ -1,3 +1,4 @@
+import random
 import numpy as np
 from flojoy import flojoy, DataContainer
 import traceback
@@ -5,14 +6,29 @@ import traceback
 
 @flojoy
 def RAND(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    x = None
+    """The RAND node generates a random number or a list of random numbers
+    depending on the distribution selected.
+
+    Parameters
+    ----------
+    distribution : str
+        the distribution over the random samples
+
+    Returns:
+    -------
+    DataContainer:
+        type 'ordered pair'
+    """
+    distribution: str = params["distribution"]
+    seed: int = random.randint(1, 10000)
+    my_generator = np.random.default_rng(seed)
     if len(dc_inputs) > 0:
         x = dc_inputs[0].y
-        y = np.random.normal(size=len(x))
+        y = getattr(my_generator, distribution)(size=len(x))
+        return DataContainer(x=x, y=y)
     else:
-        y = np.random.normal(size=1000)
-
-    return DataContainer(x=x, y=y)
+        y = getattr(my_generator, distribution)(size=1)
+        return DataContainer(type="scalar", c=y)
 
 
 @flojoy

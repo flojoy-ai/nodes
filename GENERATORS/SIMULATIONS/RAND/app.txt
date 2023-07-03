@@ -1,0 +1,216 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1577.8571428571431,
+                    "y": 332.57142857142844
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1577.8571428571431,
+                    "y": 332.57142857142844
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "RAND-d851014d-30ce-4993-8cee-5db9a268094b",
+                "type": "SIMULATION",
+                "data": {
+                    "id": "RAND-d851014d-30ce-4993-8cee-5db9a268094b",
+                    "label": "RAND",
+                    "func": "RAND",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "distribution": {
+                            "functionName": "RAND",
+                            "param": "distribution",
+                            "value": "normal"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 696.338479762768,
+                    "y": 339.3573387503679
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 696.338479762768,
+                    "y": 339.3573387503679
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155",
+                    "label": "SCATTER",
+                    "func": "SCATTER",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1033.4813369056253,
+                    "y": 543.6430530360819
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1033.4813369056253,
+                    "y": 543.6430530360819
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-6cee1154-2a90-45e2-bd1d-f23d7f9dd405",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-6cee1154-2a90-45e2-bd1d-f23d7f9dd405",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "start": {
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": "0"
+                        },
+                        "end": {
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": "25000"
+                        },
+                        "step": {
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": "25000"
+                        }
+                    },
+                    "selected": true
+                },
+                "position": {
+                    "x": 317.7670511913392,
+                    "y": 329.35733875036766
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 317.7670511913392,
+                    "y": 329.35733875036766
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0",
+                    "label": "HISTOGRAM",
+                    "func": "HISTOGRAM",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1056.3384797627677,
+                    "y": 50.785910178939105
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1056.3384797627677,
+                    "y": 50.785910178939105
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LINSPACE-6cee1154-2a90-45e2-bd1d-f23d7f9dd405",
+                "sourceHandle": "main",
+                "target": "RAND-d851014d-30ce-4993-8cee-5db9a268094b",
+                "targetHandle": "RAND",
+                "id": "reactflow__edge-LINSPACE-6cee1154-2a90-45e2-bd1d-f23d7f9dd405main-RAND-d851014d-30ce-4993-8cee-5db9a268094bRAND"
+            },
+            {
+                "source": "RAND-d851014d-30ce-4993-8cee-5db9a268094b",
+                "sourceHandle": "main",
+                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "targetHandle": "END",
+                "id": "reactflow__edge-RAND-d851014d-30ce-4993-8cee-5db9a268094bmain-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
+            },
+            {
+                "source": "RAND-d851014d-30ce-4993-8cee-5db9a268094b",
+                "sourceHandle": "main",
+                "target": "HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0",
+                "targetHandle": "HISTOGRAM",
+                "id": "reactflow__edge-RAND-d851014d-30ce-4993-8cee-5db9a268094bmain-HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0HISTOGRAM"
+            },
+            {
+                "source": "RAND-d851014d-30ce-4993-8cee-5db9a268094b",
+                "sourceHandle": "main",
+                "target": "SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155",
+                "targetHandle": "SCATTER",
+                "id": "reactflow__edge-RAND-d851014d-30ce-4993-8cee-5db9a268094bmain-SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155SCATTER"
+            },
+            {
+                "source": "HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0",
+                "sourceHandle": "main",
+                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "targetHandle": "END",
+                "id": "reactflow__edge-HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0main-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
+            },
+            {
+                "source": "SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155",
+                "sourceHandle": "main",
+                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
+                "targetHandle": "END",
+                "id": "reactflow__edge-SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155main-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
+            }
+        ],
+        "viewport": {
+            "x": 283.34955722861605,
+            "y": 49.320022553149215,
+            "zoom": 0.856688003714636
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

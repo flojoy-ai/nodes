@@ -1,6 +1,6 @@
 COMMAND:
   - name: CountVectorizer
-    key: COUNTVECTORIZER
+    key: COUNT_VECTORIZER
     type: NLP
     pip_dependencies:
       - name: scikit-learn

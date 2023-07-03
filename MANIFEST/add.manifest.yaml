@@ -3,6 +3,9 @@ COMMAND:
     key: ADD
     type: ARITHMETIC
     inputs: 
+      - name: x
+        id: add_x
+        type: target
       - name: y
         id: add_y
         type: target
