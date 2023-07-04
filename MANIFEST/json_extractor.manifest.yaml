@@ -1,0 +1,11 @@
+COMMAND:
+  - name: JSON_EXTRACTOR
+    key: JSON_EXTRACTOR
+    type: OPENAI
+    parameters:
+      schema_file_path:
+        type: string
+        default: ''
+      prompt:
+        type: string
+        default: ''
