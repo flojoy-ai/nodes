@@ -10,7 +10,6 @@ def ADD(a: OrderedPair, b: list[OrderedPair]) -> OrderedPair:
     sizes are added, the output will be the size of the larger array or matrix with
     only the overlapping elements changed.
     """
-    # TODO: Add support for adding more than 2 elements
     # TODO: Support other data types
     x = a.x
 
