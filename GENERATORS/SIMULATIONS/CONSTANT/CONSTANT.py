@@ -24,4 +24,4 @@ def CONSTANT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         return DataContainer(x=x, y=y)
 
     else:
-        return DataContainer(type='scalar', c=params["constant"])
+        return DataContainer(type="scalar", c=params["constant"])
