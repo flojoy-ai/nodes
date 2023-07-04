@@ -5,5 +5,5 @@ COMMAND:
   inputs:
   - name: default
     id: default
-    type: any
-  outputs: []
+    type: Any
+    multiple: false

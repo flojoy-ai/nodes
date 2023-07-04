@@ -6,9 +6,11 @@ COMMAND:
   - name: a
     id: a
     type: OrderedPair
+    multiple: false
   - name: b
     id: b
     type: OrderedPair
+    multiple: false
   outputs:
   - name: default
     id: default

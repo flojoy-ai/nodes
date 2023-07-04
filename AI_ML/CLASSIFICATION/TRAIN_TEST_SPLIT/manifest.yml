@@ -6,6 +6,7 @@ COMMAND:
   - name: default
     id: default
     type: DataFrame
+    multiple: false
   parameters:
     test_size:
       type: float

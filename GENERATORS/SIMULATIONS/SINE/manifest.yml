@@ -6,6 +6,7 @@ COMMAND:
   - name: default
     id: default
     type: OrderedPair
+    multiple: false
   parameters:
     amplitude:
       type: float
