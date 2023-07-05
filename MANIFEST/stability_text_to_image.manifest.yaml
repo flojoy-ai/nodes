@@ -1,0 +1,14 @@
+COMMAND:
+  - name: STABILITY_TEXT_TO_IMAGE
+    key: STABILITY_TEXT_TO_IMAGE
+    type: STABILITYAI
+    parameters:
+      prompt:
+        type: string
+        default: 'A lighthouse on a cliff.'
+      width:
+        type: int
+        default: 512
+      height:
+        type: int
+        default: 512
