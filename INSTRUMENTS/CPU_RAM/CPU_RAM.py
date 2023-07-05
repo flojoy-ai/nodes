@@ -15,4 +15,4 @@ def CPU_RAM(dc, params):
     memory_free = memory_info.available
     memory_free_go = memory_free / (1024**3)
 
-    return DataContainer(type='scalar', c=memory_free_go)
+    return DataContainer(type="scalar", c=memory_free_go)
