@@ -12,7 +12,8 @@ ACCEPTED_AUDIO_FORMATS = ["mp3"]
 @flojoy
 def WHISPER_SPEECH_TO_TEXT(dc: List[DataContainer], params):
     """
-    This node uses OpenAI whisper transcription model to convert audio to text.
+    The WHISPER_SPEECH_TO_TEXT node uses OpenAI whisper transcription model to 
+    convert audio to text.
 
     Parameters:
     - file_path: string

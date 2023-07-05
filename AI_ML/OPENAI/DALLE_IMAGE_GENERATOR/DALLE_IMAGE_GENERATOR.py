@@ -11,7 +11,8 @@ import os
 @flojoy
 def DALLE_IMAGE_GENERATOR(dc: List[DataContainer], params):
     """
-    The DALLE_IMAGE_GENERATOR node takes a prompt and generates an image using OpenAI's DALL-E model.
+    The DALLE_IMAGE_GENERATOR node takes a prompt and generates an image 
+    using OpenAI's DALL-E model.
     The prompt should be a sentence describing the image you want to generate.
     The image will be returned as a DataContainer with the type 'image'.
 
