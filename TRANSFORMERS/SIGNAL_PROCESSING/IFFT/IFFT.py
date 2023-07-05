@@ -1,10 +1,10 @@
 from scipy import fft
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, DataFrame
 import pandas as pd
 
 
 @flojoy
-def IFFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def IFFT(input: DataFrame, real_signal: bool) -> OrderedPair:
     """The IFFT performs the Inverse Discrete Fourier Transform on the input signal.
     With the IFFT algorith, the input signal will be transformed from the
     frequency domain back into the time domain.
@@ -20,16 +20,8 @@ def IFFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         x = time
         y = reconstructed signal
     """
-    if len(dc_inputs) != 1:
-        raise ValueError(
-            f"FFT node requires 1 input signal, but {len(dc_inputs)} was given!"
-        )
-    if dc_inputs[0].type != "dataframe":
-        raise ValueError(
-            f"unsupported DataContainer type passed to FFT node: '{dc.type}'"
-        )
-    dc: pd.DataFrame = dc_inputs[0].m
-    real: bool = params["real_signal"]
+    dc: pd.DataFrame = input.m
+    real: bool = real_signal
 
     x = dc["x"].to_numpy()
     realValue = dc["real"].to_numpy()
@@ -39,4 +31,4 @@ def IFFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     result = fft.irfft(fourier) if real else fft.ifft(fourier, len(x))
     result = result.real
-    return DataContainer(x=x, y=result)
+    return OrderedPair(x=x, y=result)
