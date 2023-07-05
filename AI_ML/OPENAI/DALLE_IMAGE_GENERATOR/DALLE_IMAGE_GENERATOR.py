@@ -16,8 +16,9 @@ def DALLE_IMAGE_GENERATOR(dc: List[DataContainer], params):
     The prompt should be a sentence describing the image you want to generate.
     The image will be returned as a DataContainer with the type 'image'.
 
-    Parameters:
-    - prompt: string
+    Parameters
+    ----------
+    prompt: string
         A sentence describing the image you want to generate.
     """
     openai.api_key = os.environ.get("OPENAI_API_KEY")

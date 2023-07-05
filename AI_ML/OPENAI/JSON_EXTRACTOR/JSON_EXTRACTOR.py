@@ -24,11 +24,13 @@ BASE_SCHEMA = {
 def JSON_EXTRACTOR(dc: List[DataContainer], params):
     """
     The JSON_EXTRACTOR node extract specific properties information from a text using JSON schema.
-    Parameters:
-    - properties: string
+    
+    Parameters
+    ----------
+    properties: string
         Comma separated list of properties to extract. Example: "name,age,location"
-    - prompt: string
-        Text to extract information from.
+    prompt: string
+        Text to extract information from. Example: "I'm John, I am 30 years old and I live in New York."
     """
 
     properties = params.get("properties")

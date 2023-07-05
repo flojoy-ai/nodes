@@ -15,8 +15,9 @@ def WHISPER_SPEECH_TO_TEXT(dc: List[DataContainer], params):
     The WHISPER_SPEECH_TO_TEXT node uses OpenAI whisper transcription model to 
     convert audio to text.
 
-    Parameters:
-    - file_path: string
+    Parameters
+    ----------
+    file_path: string
         Path to the audio file to be transcribed. Only mp3 format is supported.
     """
 
