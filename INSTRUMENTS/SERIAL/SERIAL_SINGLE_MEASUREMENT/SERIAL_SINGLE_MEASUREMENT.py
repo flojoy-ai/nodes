@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair
 from time import sleep
 import serial
 import numpy as np
@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 
 
 @flojoy
-def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
+def SERIAL_SINGLE_MEASUREMENT(comport: str = "/dev/ttyUSB0", baudrate: float = 9600.0) -> OrderedPair:
     """
     The SERIAL_SINGLE_MEASUREMENT Node takes a single reading of data from an Ardunio,
     or a similar serial device.
@@ -42,8 +42,8 @@ def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
     comport: String
         Define the COM port on which the Serial device is connected
     """
-    COM_PORT = params["comport"]
-    BAUD = int(params["baudrate"])
+    COM_PORT = comport
+    BAUD = int(baudrate)
 
     ser = serial.Serial(COM_PORT, timeout=1, baudrate=BAUD)
     s = ""
@@ -56,14 +56,14 @@ def SERIAL_SINGLE_MEASUREMENT(dc_inputs, params):
     reading = reading.astype("float64")  # Convert the array to float
     x = np.arange(0, reading.size)  # Create a second array
 
-    return DataContainer(type="ordered_pair", x=x, y=reading)
+    return OrderedPair(x=x, y=reading)
 
 
 @flojoy
-def SERIAL_SINGLE_MEASUREMENT_MOCK(dc, params):
+def SERIAL_SINGLE_MEASUREMENT_MOCK() -> OrderedPair:
     print("Running mock version of Serial")
 
     x = np.linspace(0, 100, 100)
     y = np.linspace(0, 100, 100)
 
-    return DataContainer(x=x, y=y)
+    return OrderedPair(x=x, y=y)

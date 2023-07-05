@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair
 import Phidget22
 from Phidget22.Phidget import *
 from Phidget22.Devices.VoltageRatioInput import *
@@ -10,11 +10,12 @@ def onVoltageRatioChange(self, voltageRatio):
 
 
 @flojoy
-def PHIDGET22(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def PHIDGET22(n_sensors:int = 3, calibration1: float = 0.015, calibration2: float = 0.06) -> OrderedPair                                                                   아 조영선 너가 지금 하고 있는거 왜 param 안쓰고, 다른것들 쓰는거임???? 아 아닌가, voltage 저런건 뭐임air:
+                        
     """Pressure Measurement with Phidget 22 sensors"""
     voltage: list[float] = []
     pressions: list[float] = []
-    N = params["n_sensors"]
+    N = n_sensors
 
     for i in range(0, N):
         # Creation of an instance of the VoltageRationInput class
@@ -32,15 +33,15 @@ def PHIDGET22(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         voltage.append(volt_i)  # Add Voltage to the list of measurements
 
         # Example of a Calibration to convert Voltage into pressions :
-        pression_i: float = (volt_i - params["calibration1"]) / params["calibration2"]
+        pression_i: float = (volt_i - calibration1) / calibration2
 
         pressions.append(pression_i)
 
-    return DataContainer(x={"a": voltage, "b": pressions}, y=pressions)
+    return OrderedPair(x={"a": voltage, "b": pressions}, y=pressions)
 
 
 @flojoy
-def PHIDGET22_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def PHIDGET22_MOCK() -> OrderedPair:
     """Mock Function for the node Phidget 22"""
     voltage: list[float] = []
     pressions: list[float] = []
@@ -52,4 +53,4 @@ def PHIDGET22_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContaine
         pression_i: float = (volt_i - 0.015) / 0.06
         pressions.append(pression_i)
 
-    return DataContainer(x={"a": voltage, "b": pressions}, y=pressions)
+    return OrderedPair(x={"a": voltage, "b": pressions}, y=pressions)

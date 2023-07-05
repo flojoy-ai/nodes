@@ -1,19 +1,15 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair
 
 
 @flojoy
-def SUBTRACT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def SUBTRACT(a: OrderedPair, b: OrderedPair) -> OrderedPair:
     """Subtract 2 input vectors and return the result"""
 
-    if len(dc_inputs) < 2:
-        raise ValueError(
-            f"To substract the values, SUBSTRACT node requires two inputs, {len(dc_inputs)} was given!"
-        )
-    a = dc_inputs[0].y
-    b = dc_inputs[1].y
+    x = a.x
+    u = a.y
+    v = b.y
 
-    x = dc_inputs[0].x
-    y = np.subtract(a, b)
+    y = np.subtract(u, v)
 
-    return DataContainer(x=x, y=y)
+    return OrderedPair(x=x, y=y)

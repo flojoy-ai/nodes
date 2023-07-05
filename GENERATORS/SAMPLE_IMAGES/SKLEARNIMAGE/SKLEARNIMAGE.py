@@ -1,16 +1,16 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, Image, DefaultParams
 from skimage import data
 
 
 @flojoy
-def SKLEARNIMAGE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def SKLEARNIMAGE(default_params: DefaultParams) -> Image:
     """Node designed to load example images from scikit-image.
 
     Examples can be found here:
     https://scikit-image.org/docs/stable/auto_examples/index.html
 
     """
-    img_key = params["img_key"]
+    img_key = default_params["img_key"]
 
     img_array = getattr(data, img_key)()
 
@@ -34,7 +34,7 @@ def SKLEARNIMAGE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 img_array[:, :, 3],
             )
 
-    return DataContainer(
+    return Image(
         type="image",
         r=red,
         g=green,

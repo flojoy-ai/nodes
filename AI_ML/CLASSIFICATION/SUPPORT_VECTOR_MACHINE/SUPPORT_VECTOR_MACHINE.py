@@ -1,14 +1,16 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataFrame, Matrix
 import pandas as pd
 import numpy as np
 from sklearn import svm, preprocessing
-from typing import cast
+from typing import cast, Optional, Union, Literal
 
 
 @flojoy
 def SUPPORT_VECTOR_MACHINE(
-    dc_inputs: list[DataContainer], params: dict
-) -> DataContainer:
+    training_data: Union[DataFrame, Matrix], input_data: Union[DataFrame, Matrix], 
+    target: Optional[str],
+    kernel: Literal["linear", "poly", "rvm", "sigmoid"] = "linear"
+) -> DataFrame:
     """The SUPPORT_VECTOR_MACHINE node is used to train a support vector machine model for classification tasks.
     It takes a dataframe of labelled training data, and a dataframe of unlabelled input data.
 
@@ -24,27 +26,7 @@ def SUPPORT_VECTOR_MACHINE(
     dataframe
         The predictions for the input data.
     """
-
-    if len(dc_inputs) != 2:
-        raise ValueError(
-            "SUPPORT_VECTOR_MACHINE requires both training data and input data"
-        )
-
-    training_data = dc_inputs[0]
-    input_data = dc_inputs[1]
-
-    if training_data.type != "dataframe" and training_data.type != "matrix":
-        raise ValueError(
-            f"unsupported DataContainer type passed to SUPPORT_VECTOR_MACHINE node for train: {training_data.type}"
-        )
-
-    if input_data.type != "dataframe" and input_data.type != "matrix":
-        raise ValueError(
-            f"unsupported DataContainer type passed to SUPPORT_VECTOR_MACHINE node for input: {input_data.type}"
-        )
-
-    target: str = params["target"]
-    kernel: str = params.get("kernel", "linear")
+    kernel: str = kernel.get("kernel", "linear")
 
     le = preprocessing.LabelEncoder()
 
@@ -79,4 +61,4 @@ def SUPPORT_VECTOR_MACHINE(
     prediction = le.inverse_transform(prediction)
     prediction = pd.DataFrame({target: prediction})
 
-    return DataContainer(type="dataframe", m=prediction)
+    return DataFrame(type="dataframe", m=prediction)

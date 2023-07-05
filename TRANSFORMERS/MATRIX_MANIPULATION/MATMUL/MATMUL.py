@@ -1,13 +1,11 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataContainer, OrderedPair, Matrix
 
 
 @flojoy
-def MATMUL(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def MATMUL(matrix_1: OrderedPair, matrix_2: OrderedPair) -> DataContainer:
     """Takes 2 input matrices, multiplies them, and returns the result"""
-    a: np.ndarray = np.eye(3)
-    b: np.ndarray = np.eye(3)
-    if len(dc_inputs) == 2:
-        a = dc_inputs[0].y
-        b = dc_inputs[1]["y"]
-    return DataContainer(type="matrix", m=np.matmul(a, b))
+    a = matrix_1.y
+    b = matrix_2.y
+        
+    return Matrix(m=np.matmul(a, b))

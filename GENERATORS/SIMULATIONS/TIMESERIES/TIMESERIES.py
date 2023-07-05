@@ -1,11 +1,11 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataFrame
 import pandas as pd
 import traceback
 
 
 @flojoy
-def TIMESERIES(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def TIMESERIES() -> DataFrame:
     """
     Generates a random timeseries vector
     """
@@ -22,7 +22,7 @@ def TIMESERIES(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
         df = pd.DataFrame({"Timestamp": timestamps, "Data": data})
 
-        return DataContainer(type="dataframe", m=df)
+        return DataFrame(m=df)
     except Exception as e:
         print(traceback.format_exc())
         raise e

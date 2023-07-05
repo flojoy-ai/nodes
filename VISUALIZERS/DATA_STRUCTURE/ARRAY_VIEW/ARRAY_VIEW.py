@@ -1,4 +1,5 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, DataFrame, Matrix, Image, Plotly, DCNpArrayType
+from typing import Union
 import plotly.graph_objects as go
 import numpy as np
 import pandas as pd
@@ -9,7 +10,7 @@ MAX_ALLOWED_SHAPE = 10
 l_dot = "$\\ldots$"
 
 
-def numpy_array_as_table(arr: np.ndarray, placeholder: str):
+def numpy_array_as_table(arr: DCNpArrayType):
     if arr.size > MAX_ALLOWED_SHAPE:
         converted_type = arr.astype(object)
         new_arr = converted_type[:MAX_ALLOWED_SHAPE]
@@ -20,7 +21,7 @@ def numpy_array_as_table(arr: np.ndarray, placeholder: str):
 
 
 @flojoy
-def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def ARRAY_VIEW(dc_input: Union[OrderedPair, DataFrame, Matrix, Image]) -> Plotly:
     """
     The ARRAY_VIEW node takes "ordered_pair", "dataframe", "matrix", and "image" as input type
     and displays its visualization in array format.
@@ -35,7 +36,6 @@ def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         Visualization of the input data in array format
     """
 
-    dc_input = dc_inputs[0]
     match dc_input.type:
         case "ordered_pair":
             data = dc_input.y
@@ -55,7 +55,7 @@ def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             if dc_input.a == None:
                 merge = np.stack((red, green, blue), axis=2)
             else:
-                alpha = dc_inputs[0].a
+                alpha = dc_input.a
                 merge = np.stack((red, green, blue, alpha), axis=2)
 
             merge = merge.reshape(-1, merge.shape[-1])
@@ -97,4 +97,4 @@ def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         font=dict(size=FONT_SIZE),
     )
 
-    return DataContainer(type="plotly", fig=fig)
+    return Plotly(fig=fig)

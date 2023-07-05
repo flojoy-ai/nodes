@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataFrame, Image
 from flojoy.hflib.hub_models import HubModelFactory, ImageCaptionModels
 
 import torchvision.transforms.functional as TF
@@ -7,7 +7,7 @@ import pandas as pd
 
 
 @flojoy
-def NLP_CONNECT_VIT_GPT2(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def NLP_CONNECT_VIT_GPT2(input_image: Image) -> DataFrame:
     """The NLP_CONNECT_VIT_GPT2 node captions an input image and produces an output string wrapped
     in a dataframe.
 
@@ -20,14 +20,6 @@ def NLP_CONNECT_VIT_GPT2(dc_inputs: list[DataContainer], params: dict) -> DataCo
         type 'dataframe' containing the caption column, and a single row.
 
     """
-
-    if len(dc_inputs) != 1 or dc_inputs[0].type != "image":
-        raise ValueError(
-            f"Invalid input, expected exactly one DataContainer of type 'image'"
-        )
-
-    input_image = dc_inputs[0]
-
     r, g, b, a = input_image.r, input_image.g, input_image.b, input_image.a
     nparray = (
         np.stack((r, g, b, a), axis=2) if a is not None else np.stack((r, g, b), axis=2)
@@ -44,4 +36,4 @@ def NLP_CONNECT_VIT_GPT2(dc_inputs: list[DataContainer], params: dict) -> DataCo
 
     df_pred = pd.DataFrame.from_records([(pred,)], columns=["caption"])
 
-    return DataContainer(type="dataframe", m=df_pred)
+    return DataFrame(m=df_pred)

@@ -1,12 +1,14 @@
 import cv2
 import os
-from flojoy import flojoy, DataContainer
-from PIL import Image
+from flojoy import flojoy, Image
+from PIL import Image as PILImage
+from typing import Literal
 import numpy as np
 
 
 @flojoy
-def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def CAMERA(camera_ind: int = -1, 
+           resolution: Literal["default", "640x360", "640x480", "280x720", "1920x1080"] = "default") -> Image:
     """The CAMERA node acquires an image using the selected camera.
     If no camera is detected, an error would be thrown.
 
@@ -19,12 +21,8 @@ def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     Returns:
     ----------
-    DataContainer:
-        type 'image'
+    Image:
     """
-    camera_ind: int = params["camera_ind"]
-    resolution: str = params["resolution"]
-
     try:
         camera = cv2.VideoCapture(camera_ind)
         if resolution != "default":
@@ -58,8 +56,7 @@ def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         else:
             alpha_channel = None
 
-        return DataContainer(
-            type="image",
+        return Image(
             r=red_channel,
             g=green_channel,
             b=blue_channel,
@@ -71,7 +68,7 @@ def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
 
 @flojoy
-def CAMERA_MOCK(dc_inputs: list[DataContainer], params: dict):
+def CAMERA_MOCK():
     print("Running mock version of CAMERA node...")
 
     # Get the absolute path of the current directory
@@ -81,7 +78,7 @@ def CAMERA_MOCK(dc_inputs: list[DataContainer], params: dict):
         current_dir, "assets", "astronaut.png"
     )  # Load example image.
     print("File to be loaded: ", file_path)
-    f = Image.open(file_path)
+    f = PILImage.open(file_path)
     img_array = np.array(f.convert("RGBA"))
     red_channel = img_array[:, :, 0]
     green_channel = img_array[:, :, 1]
@@ -90,6 +87,4 @@ def CAMERA_MOCK(dc_inputs: list[DataContainer], params: dict):
         alpha_channel = img_array[:, :, 3]
     else:
         alpha_channel = None
-    return DataContainer(
-        type="image", r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel
-    )
+    return Image(r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel)

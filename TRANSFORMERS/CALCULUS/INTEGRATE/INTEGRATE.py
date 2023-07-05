@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair
 import numpy as np
 
 
@@ -15,7 +15,7 @@ def trapz(x, y):
 
 
 @flojoy
-def INTEGRATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def INTEGRATE(default: OrderedPair, params: dict) -> OrderedPair:
     """
     The INTEGRATE node takes two lists as input and integrates it using the composite
     trapezoidal rule.
@@ -29,14 +29,13 @@ def INTEGRATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     DataContainer:
         type 'ordered_pair', x, y
     """
-    dc_input = dc_inputs[0]
 
-    input_x = dc_input.x
-    input_y = dc_input.y
+    input_x = default.x
+    input_y = default.y
 
-    if dc_input.type != "ordered_pair":
+    if default.type != "ordered_pair":
         raise ValueError(
-            f"unsupported DataContainer type passed for INTEGRATE : {dc_input.type}"
+            f"unsupported DataContainer type passed for INTEGRATE"
         )
 
     if type(input_x) != np.ndarray:
@@ -48,4 +47,4 @@ def INTEGRATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     integrate = trapz(input_x, input_y)
 
-    return DataContainer(type="ordered_pair", x=input_x, y=integrate)
+    return OrderedPair(x=input_x, y=integrate)

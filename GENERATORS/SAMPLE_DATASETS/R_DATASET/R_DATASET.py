@@ -1,9 +1,9 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DefaultParams, DataFrame
 from rdatasets import data
 
 
 @flojoy
-def R_DATASET(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def R_DATASET(default_params: DefaultParams) -> DataFrame:
     """
     Retrieves a pandas DataFrame from rdatasets using the provided dataset_key parameter and returns it wrapped in a DataContainer.
 
@@ -15,6 +15,6 @@ def R_DATASET(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     Returns:
         DataContainer: A DataContainer object containing the retrieved pandas DataFrame.
     """
-    dataset_key = params["dataset_key"]
+    dataset_key = default_params["dataset_key"]
     df = data(dataset_key)
-    return DataContainer(type="dataframe", m=df)
+    return DataFrame(m=df)

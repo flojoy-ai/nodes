@@ -1,10 +1,10 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, Image
 import cv2
 import numpy as np
 
 
 @flojoy
-def IMAGE_SMOOTHING(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def IMAGE_SMOOTHING(default: Image, params: dict) -> Image:
     """
     Apply image smoothing operation on the input `DataContainer` class,
     specifically for the 'image' type,
@@ -27,13 +27,10 @@ def IMAGE_SMOOTHING(dc_inputs: list[DataContainer], params: dict) -> DataContain
     Raises:
     Exception: If an error occurs during smoothing.
     """
-    dc_input = dc_inputs[0]
-    if dc_input.type != "image":
-        raise ValueError(f"unsupported data IMAGE_SMOOTHING node: '{dc_input.type}'")
-    r = dc_input.r
-    g = dc_input.g
-    b = dc_input.b
-    a = dc_input.a
+    r = default.r
+    g = default.g
+    b = default.b
+    a = default.a
     kernel = params.get("kernel", 5)
     smoothing_type = params.get("smoothing_type", "average")
 
@@ -58,8 +55,7 @@ def IMAGE_SMOOTHING(dc_inputs: list[DataContainer], params: dict) -> DataContain
             r, g, b = cv2.split(image)
         if a is None:
             a = None
-        return DataContainer(
-            type="image",
+        return Image(
             r=r,
             g=g,
             b=b,

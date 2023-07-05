@@ -1,5 +1,5 @@
 import pandas as pd
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DefaultParams, DataFrame
 from typing import Any, Dict, List
 from prophet import Prophet
 from prophet.serialize import model_to_json

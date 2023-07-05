@@ -1,9 +1,9 @@
 import serial
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair
 
 
 @flojoy
-def KEITHLEY2400(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def KEITHLEY2400(default: OrderedPair, comport: str = '/dev/ttyUSB0', baudrate: float = 9600.0) -> OrderedPair:
     """
     IV curve measurement with a Keithley 2400 source meter, send voltages and measure currents
     """
@@ -12,8 +12,8 @@ def KEITHLEY2400(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     ser: serial = serial.Serial()
 
     # Specific parameters
-    ser.port = params["comport"]  # Specify serial port for com
-    ser.baudrate = params["baudrate"]  # Specify Baudrate
+    ser.port = comport  # Specify serial port for com
+    ser.baudrate = baudrate  # Specify Baudrate
 
     # General parameters
     ser.bytesize = serial.EIGHTBITS  # Specify Bites number
@@ -31,7 +31,7 @@ def KEITHLEY2400(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         b":SENS:CURR:PROT 1.05\n"
     )  # Current protection set at 1.05A (Keithley 2400)
 
-    voltages = dc_inputs[0].y
+    voltages = default.y
     currents_neg: list[float] = []  # measured currents
 
     for voltage in voltages:
@@ -51,18 +51,18 @@ def KEITHLEY2400(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     # Close Serial Communication
     ser.close()
 
-    return DataContainer(x={"a": voltages, "b": currents_neg}, y=currents_neg)
+    return OrderedPair(x={"a": voltages, "b": currents_neg}, y=currents_neg)
 
 
 @flojoy
-def KEITHLEY2400_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def KEITHLEY2400_MOCK(default: OrderedPair, params: dict) -> OrderedPair:
     """Mock Function for Keithley2400 node"""
 
-    voltages = dc_inputs[0].y
+    voltages = default.y
     currents_neg = []  # measured currents
 
     for voltage in voltages:
         voltage_current_values = voltages * 0.15
         currents_neg.append(-float(voltage_current_values[1]))
 
-    return DataContainer(x={"a": voltages, "b": currents_neg}, y=currents_neg)
+    return OrderedPair(x={"a": voltages, "b": currents_neg}, y=currents_neg)

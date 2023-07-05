@@ -1,7 +1,7 @@
-from flojoy import flojoy, DataContainer, JobResultBuilder
-from typing import Union
+from flojoy import flojoy, Image, DataFrame, JobResultBuilder
+from typing import Union, Literal
 import numpy as np
-from PIL import Image
+from PIL import Image as PILImage
 from os import path
 import pandas as pd
 
@@ -16,9 +16,10 @@ def get_file_path(file_path: str, default_path: str = None) -> str:
 
 @flojoy
 def LOCAL_FILE(
-    dc_inputs: list[DataContainer], params: dict
-) -> Union[DataContainer, dict]:
-    """The LOCAL_FILE node loads a local file of different type and converts it to a DataContainer class.
+    file_type: Literal["image", "csv", "json", "xml", "excel"] = "image",
+    file_path: str = ''
+) -> Union[DataFrame, Image]:
+    """The LOCAL_FILE node loads a local file of different type and converts it to a Image class.
 
     Parameters
     ----------
@@ -29,14 +30,12 @@ def LOCAL_FILE(
 
     Returns:
     --------
-    DataContainer:
+    Image:
         type 'image' for file_type 'image'
 
         type 'dataframe' for file_type 'json', 'csv', 'excel', 'xml'
 
     """
-    file_type: str = params["file_type"]
-    file_path: str = params["path"]
     match file_type:
         case "image":
             default_image_path = path.join(
@@ -54,8 +53,7 @@ def LOCAL_FILE(
                 alpha_channel = img_array[:, :, 3]
             else:
                 alpha_channel = None
-            return DataContainer(
-                type="image",
+            return Image(
                 r=red_channel,
                 g=green_channel,
                 b=blue_channel,
@@ -64,19 +62,19 @@ def LOCAL_FILE(
         case "csv":
             file_path = get_file_path(file_path)
             df = pd.read_csv(file_path)
-            return DataContainer(type="dataframe", m=df)
+            return DataFrame(m=df)
         case "json":
             file_path = get_file_path(file_path)
             df = pd.read_json(file_path)
-            return DataContainer(type="dataframe", m=df)
+            return DataFrame(m=df)
         case "xml":
             file_path = get_file_path(file_path)
             df = pd.read_xml(file_path)
-            return DataContainer(type="dataframe", m=df)
+            return DataFrame(m=df)
         case "excel":
             file_path = get_file_path(file_path)
             df = pd.read_excel(file_path)
-            return DataContainer(type="dataframe", m=df)
+            return DataFrame(m=df)
         case _:
             raise ValueError(
                 f"LOCAL_FILE currently doesn't support file type : {file_type}"

@@ -1,11 +1,11 @@
 from scipy import signal, fft
 from numpy import abs
-from flojoy import flojoy, DataContainer
-from pandas import DataFrame
+from flojoy import flojoy, OrderedPair, DataFrame
+from pandas import DataFrame as df
 
 
 @flojoy
-def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def FFT(default: OrderedPair, window_type: str = "none", real: bool = False, sample_rate: int = 1, display: bool = True) -> OrderedPair | DataFrame:
     """The FFT node performs a Discrete Fourier Transform on the input vector.
     Through the FFT algorithm, the input vector will be transformed
     from the time domain into the frequency domain which will be an ordered pair of arrays.
@@ -28,26 +28,12 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         y: spectrum of the signal
 
     """
-    if len(dc_inputs) != 1:
-        raise ValueError(
-            f"FFT node requires 1 input signal, but {len(dc_inputs)} was given!"
-        )
-    dc = dc_inputs[0]
-    if dc.type != "ordered_pair":
-        raise ValueError(
-            f"unsupported DataContainer type passed to FFT node: '{dc.type}'"
-        )
-
-    window_type: str = params["window_type"]
-    real: bool = params["real_signal"]
-    sample_rate: int = params["sample_rate"]  # Hz
-    display: bool = params["display"]
 
     if sample_rate <= 0:
         raise ValueError(f"Sample rate must be greater than 0")
 
-    signal_value = dc.y
-    x = dc.x
+    signal_value = default.y
+    x = default.x
     sample_spacing = 1.0 / sample_rate
     # x-axis
     frequency = (
@@ -69,9 +55,9 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             )
         fourier = fft.fftshift(fourier)
         fourier = abs(fourier)
-        return DataContainer(x=frequency, y=fourier)
+        return OrderedPair(x=frequency, y=fourier)
 
     # for processing
     fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
     d = {"x": x, "frequency": frequency, "real": fourier.real, "imag": fourier.imag}
-    return DataContainer(type="dataframe", m=DataFrame(data=d))
+    return DataFrame(m=df(data=d))

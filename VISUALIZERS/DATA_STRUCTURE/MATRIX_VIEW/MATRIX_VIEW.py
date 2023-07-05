@@ -1,4 +1,5 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, DataFrame, Matrix, Image, Plotly, DCNpArrayType
+from typing import Union
 import plotly.graph_objects as go
 import numpy as np
 
@@ -12,7 +13,7 @@ l_dot = "$\\ldots$"
 
 
 def numpy_2d_array_as_table(
-    arr: np.ndarray,
+    arr: DCNpArrayType,
     arr_row_shape: int,
     arr_col_shape: int,
     placeholder: str,
@@ -43,7 +44,7 @@ def numpy_2d_array_as_table(
     return new_arr.T
 
 
-def numpy_1d_array_as_table(arr: np.ndarray, placeholder: str):
+def numpy_1d_array_as_table(arr: DCNpArrayType):
     if arr.size > MAX_ALLOWED_SHAPE:
         converted_type = arr.astype(object)
         new_arr = converted_type[:MAX_ALLOWED_SHAPE]
@@ -53,7 +54,7 @@ def numpy_1d_array_as_table(arr: np.ndarray, placeholder: str):
     return new_arr.reshape(-1, 1)
 
 
-def numpy_array_as_table(arr: np.ndarray):
+def numpy_array_as_table(arr: DCNpArrayType):
     ndim = arr.ndim
     if ndim == 1:
         cell_values = numpy_1d_array_as_table(arr, l_dot)
@@ -66,7 +67,7 @@ def numpy_array_as_table(arr: np.ndarray):
 
 
 @flojoy
-def MATRIX_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def MATRIX_VIEW(dc_input: Union[Matrix, OrderedPair]) -> Plotly:
     """
     The MATRIX_VIEW node "matrix" or "ordered_pair" type as input type and displays its visualization
     using plotly table in matrix format.
@@ -81,7 +82,6 @@ def MATRIX_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         Visualization of the input data in matrix format
     """
 
-    dc_input = dc_inputs[0]
     match dc_input.type:
         case "matrix":
             np_arr = dc_input.m
@@ -121,4 +121,4 @@ def MATRIX_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         font=dict(size=FONT_SIZE),
     )
 
-    return DataContainer(type="plotly", fig=fig)
+    return Plotly(fig=fig)

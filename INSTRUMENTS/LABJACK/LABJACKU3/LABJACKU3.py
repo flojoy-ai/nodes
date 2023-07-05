@@ -1,17 +1,17 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair
 import LabJackPython
 import u3  # Import the library from LabJackPython in order to use our U3-LV device
 
 
 @flojoy
-def LABJACKU3(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def LABJACKU3(numbers: int = 1) -> OrderedPair:
     """Takes a number of sensors as parameters and return their temperature measurement"""
 
     voltages: list[float] = []
     temperatures: list[float] = []
     temperatures_celsius: list[float] = []
     sensor_num: list[int] = []
-    sensor_number: int = params["numbers"]
+    sensor_number: int = numbers
 
     # Create an instance of U3 class
     d = u3.U3()
@@ -30,15 +30,14 @@ def LABJACKU3(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         temperatures.append(temperature)
         temperatures_celsius.append(temperature_celsius)
 
-    return DataContainer(
-        type="ordered_pair",
+    return OrderedPair(
         x={"a": sensor_num, "b": temperatures_celsius},
         y=temperatures_celsius,
     )
 
 
 @flojoy
-def LABJACKU3_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def LABJACKU3_MOCK() -> OrderedPair:
     """Mock function for Labjack node"""
     voltages: list[float] = []  # Declaration of variable
     temperatures: list[float] = []
@@ -55,6 +54,6 @@ def LABJACKU3_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContaine
         temperatures.append(temperature)
         temperatures_celsius.append(temperature_celsius)
 
-    return DataContainer(
+    return OrderedPair(
         x={"a": temperatures, "b": temperatures_celsius}, y=temperatures_celsius
     )
