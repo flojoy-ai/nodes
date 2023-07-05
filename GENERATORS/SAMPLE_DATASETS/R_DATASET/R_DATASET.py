@@ -1,20 +1,105 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataFrame
 from rdatasets import data
+from typing import Literal
 
 
-@flojoy
-def R_DATASET(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+@flojoy(deps={"rdatasets": "0.1.0"})
+def R_DATASET(
+    dataset_key: Literal[
+        "ability.cov",
+        "airmiles",
+        "AirPassengers",
+        "airquality",
+        "anscombe",
+        "attenu",
+        "attitude",
+        "austres",
+        "BJsales",
+        "BOD",
+        "cars",
+        "ChickWeight",
+        "chickwts",
+        "co2",
+        "crimtab",
+        "discoveries",
+        "DNase",
+        "esoph",
+        "euro",
+        "EuStockMarkets",
+        "faithful",
+        "Formaldehyde",
+        "freeny",
+        "HairEyeColor",
+        "Harman23",
+        "Harman74",
+        "Indometh",
+        "infert",
+        "InsectSprays",
+        "iris",
+        "iris3",
+        "islands",
+        "JohnsonJohnson",
+        "LakeHuron",
+        "LakeHuron",
+        "LifeCycleSavings",
+        "Loblolly",
+        "longley",
+        "lynx",
+        "morley",
+        "mtcars",
+        "nhtemp",
+        "Nile",
+        "nottem",
+        "npk",
+        "occupationalStatus",
+        "Orange",
+        "OrchardSprays",
+        "PlantGrowth",
+        "precip",
+        "presidents",
+        "pressure",
+        "Puromycin",
+        "quakes",
+        "randu",
+        "rivers",
+        "rock",
+        "Seatbelts",
+        "sleep",
+        "stackloss",
+        "sunspot.month",
+        "sunspot.year",
+        "sunspots",
+        "swiss",
+        "Theoph",
+        "Titanic",
+        "ToothGrowth",
+        "treering",
+        "trees",
+        "UCBAdmissions",
+        "UKDriverDeaths",
+        "UKgas",
+        "USAccDeaths",
+        "USArrests",
+        "USJudgeRatings",
+        "USPersonalExpenditure",
+        "USPersonalExpenditure",
+        "VADeaths",
+        "volcano",
+        "warpbreaks",
+        "women",
+        "WorldPhones",
+        "WWWusage",
+    ] = "iris"
+) -> DataFrame:
     """
     Retrieves a pandas DataFrame from rdatasets using the provided dataset_key parameter and returns it wrapped in a DataContainer.
-
-    Args:
-        dc_inputs (list[DataContainer]): A list of DataContainer objects, but not used in this function.
-        params (dict): A dictionary of parameters for this function.
-            dataset_key (str): The key used to retrieve the DataFrame.
 
     Returns:
         DataContainer: A DataContainer object containing the retrieved pandas DataFrame.
     """
-    dataset_key = params["dataset_key"]
+
     df = data(dataset_key)
-    return DataContainer(type="dataframe", m=df)
+
+    if df is None:
+        raise ValueError(f"Failed to retrieve '{dataset_key}' from rdatasets package!")
+    return DataFrame(df=df)

@@ -4,10 +4,64 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "R_DATASET-52b424e0-d868-40e9-90c2-992ff9c78e0e",
+                "id": "LINSPACE-96f418c8-14ed-4457-abea-9520da6d5078",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-96f418c8-14ed-4457-abea-9520da6d5078",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "default",
+                    "ctrls": {
+                        "start": {
+                            "type": "float",
+                            "default": 10,
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": 10
+                        },
+                        "end": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": 0
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": 1000
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\LINSPACE\\LINSPACE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 68.51593747608788,
+                    "y": 49.87310163004685
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 68.51593747608788,
+                    "y": 49.87310163004685
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "R_DATASET-44eaa566-97ed-4dca-a9c5-0bcb7f680ad8",
                 "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "R_DATASET-52b424e0-d868-40e9-90c2-992ff9c78e0e",
+                    "id": "R_DATASET-44eaa566-97ed-4dca-a9c5-0bcb7f680ad8",
                     "label": "R DATASET",
                     "func": "R_DATASET",
                     "type": "SAMPLE_DATASETS",
@@ -120,23 +174,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 128.51593747608803,
-                    "y": 199.87310163004685
+                    "x": 48.515937476087885,
+                    "y": 399.8731016300469
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 128.51593747608803,
-                    "y": 199.87310163004685
+                    "x": 48.515937476087885,
+                    "y": 399.8731016300469
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcd",
+                "id": "TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49b",
                 "type": "PLOTLY",
                 "data": {
-                    "id": "TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcd",
+                    "id": "TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49b",
                     "label": "TABLE",
                     "func": "TABLE",
                     "type": "PLOTLY",
@@ -157,26 +211,66 @@
                         }
                     ],
                     "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\TABLE\\TABLE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 539.9445089046594,
-                    "y": 128.4445302014754
+                    "x": 507.0873660475165,
+                    "y": 11.301673058618121
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 539.9445089046594,
-                    "y": 128.4445302014754
+                    "x": 507.0873660475165,
+                    "y": 11.301673058618121
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9",
+                    "label": "TABLE 1",
+                    "func": "TABLE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\TABLE\\TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 597.0873660475164,
+                    "y": 379.87310163004656
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 597.0873660475164,
+                    "y": 379.87310163004656
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-a5316cd2-8a7b-48ec-a10f-d116974b4ab5",
+                "id": "END-d43f4851-88ee-4a28-9c4f-e9db6f5e16fd",
                 "type": "TERMINATORS",
                 "data": {
-                    "id": "END-a5316cd2-8a7b-48ec-a10f-d116974b4ab5",
+                    "id": "END-d43f4851-88ee-4a28-9c4f-e9db6f5e16fd",
                     "label": "END",
                     "func": "END",
                     "type": "TERMINATORS",
@@ -190,34 +284,48 @@
                         }
                     ],
                     "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1187.0873660475165,
-                    "y": 187.01595877290396
+                    "x": 1068.5159374760876,
+                    "y": 275.58738734433257
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1187.0873660475165,
-                    "y": 187.01595877290396
+                    "x": 1068.5159374760876,
+                    "y": 275.58738734433257
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "R_DATASET-52b424e0-d868-40e9-90c2-992ff9c78e0e",
+                "source": "R_DATASET-44eaa566-97ed-4dca-a9c5-0bcb7f680ad8",
                 "sourceHandle": "default",
-                "target": "TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcd",
+                "target": "TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9",
                 "targetHandle": "default",
-                "id": "reactflow__edge-R_DATASET-52b424e0-d868-40e9-90c2-992ff9c78e0edefault-TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcddefault"
+                "id": "reactflow__edge-R_DATASET-44eaa566-97ed-4dca-a9c5-0bcb7f680ad8default-TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9default"
             },
             {
-                "source": "TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcd",
+                "source": "LINSPACE-96f418c8-14ed-4457-abea-9520da6d5078",
                 "sourceHandle": "default",
-                "target": "END-a5316cd2-8a7b-48ec-a10f-d116974b4ab5",
+                "target": "TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49b",
                 "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcddefault-END-a5316cd2-8a7b-48ec-a10f-d116974b4ab5default"
+                "id": "reactflow__edge-LINSPACE-96f418c8-14ed-4457-abea-9520da6d5078default-TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49bdefault"
+            },
+            {
+                "source": "TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49b",
+                "sourceHandle": "default",
+                "target": "END-d43f4851-88ee-4a28-9c4f-e9db6f5e16fd",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49bdefault-END-d43f4851-88ee-4a28-9c4f-e9db6f5e16fddefault"
+            },
+            {
+                "source": "TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9",
+                "sourceHandle": "default",
+                "target": "END-d43f4851-88ee-4a28-9c4f-e9db6f5e16fd",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9default-END-d43f4851-88ee-4a28-9c4f-e9db6f5e16fddefault"
             }
         ],
         "viewport": {
