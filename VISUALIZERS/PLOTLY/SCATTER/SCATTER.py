@@ -5,7 +5,7 @@ from flojoy import DataFrame, Matrix, OrderedPair, Plotly, flojoy
 from nodes.VISUALIZERS.template import plot_layout
 
 
-@flojoy(node_type="PLOTLY_VISOR")
+@flojoy
 def SCATTER(default: OrderedPair | DataFrame | Matrix) -> Plotly:
     """The SCATTER Node creates a Plotly Scatter visualization for a given input data container.
 
@@ -44,7 +44,7 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix) -> Plotly:
                 fig.add_trace(
                     go.Scatter(x=df.index, y=df[col], mode="markers", name=col)
                 )
-    elif isinstance(default, Matrix):
+    else:
         m: np.ndarray = default.m
         num_rows, num_cols = m.shape
 
@@ -56,9 +56,5 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix) -> Plotly:
             )
 
         fig.update_layout(xaxis_title="Column", yaxis_title="Value")
-    else:
-        raise ValueError(
-            f"unsupported DataContainer type passed for SCATTER: {type(default)}"
-        )
 
     return Plotly(fig=fig)

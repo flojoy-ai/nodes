@@ -4,7 +4,7 @@ import pandas as pd
 from nodes.VISUALIZERS.template import plot_layout
 
 
-@flojoy(node_type="PLOTLY_VISOR")
+@flojoy
 def TABLE(default: DataFrame) -> Plotly:
     """Node creates a Plotly table visualization for a given input data container.
 

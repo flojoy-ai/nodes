@@ -2,7 +2,7 @@ import numpy as np
 from flojoy import OrderedPair, flojoy
 
 
-@flojoy(node_type="ARITHMETIC")
+@flojoy
 def MULTIPLY(a: OrderedPair, b: OrderedPair) -> OrderedPair:
     """Takes 2 input vectors, multiplies them, and returns the result"""
     x = a.x
