@@ -4,102 +4,149 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "PLOTLY_DATASET-ca6c81e8-13cd-4e86-b77d-12149be0512c",
-                "type": "SAMPLE_DATASET",
+                "id": "PLOTLY_DATASET-f0abd994-1933-4ad2-83f5-c2408c16d6fb",
+                "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "PLOTLY_DATASET-ca6c81e8-13cd-4e86-b77d-12149be0512c",
+                    "id": "PLOTLY_DATASET-f0abd994-1933-4ad2-83f5-c2408c16d6fb",
                     "label": "PLOTLY DATASET",
                     "func": "PLOTLY_DATASET",
-                    "type": "SAMPLE_DATASET",
+                    "type": "SAMPLE_DATASETS",
                     "ctrls": {
                         "dataset_key": {
+                            "type": "select",
+                            "default": "wind",
+                            "options": [
+                                "wind",
+                                "iris",
+                                "carshare",
+                                "tips",
+                                "election",
+                                "experiment",
+                                "gapminder",
+                                "medals_long",
+                                "medals_wide",
+                                "stocks"
+                            ],
                             "functionName": "PLOTLY_DATASET",
                             "param": "dataset_key",
                             "value": "wind"
                         }
                     },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_DATASETS\\PLOTLY_DATASET\\PLOTLY_DATASET.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 146.99422599727012,
-                    "y": 155.44926663922587
+                    "x": 77.0873660475165,
+                    "y": 227.015958772904
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 146.99422599727012,
-                    "y": 155.44926663922587
+                    "x": 77.0873660475165,
+                    "y": 227.015958772904
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
-                "id": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
-                "type": "PLOTLY_VISOR",
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-0596fd0c-8f68-49cc-bd93-7a87cefe3e7e",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
+                    "id": "TABLE-0596fd0c-8f68-49cc-bd93-7a87cefe3e7e",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\TABLE\\TABLE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 546.9942259972702,
-                    "y": 112.59212378208309
+                    "x": 562.8016517618023,
+                    "y": 158.44453020147546
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 546.9942259972702,
-                    "y": 112.59212378208309
+                    "x": 562.8016517618023,
+                    "y": 158.44453020147546
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-166c0b70-9c60-4e42-a618-85b66610c473",
-                "type": "TERMINATOR",
+                "id": "END-dd369b39-70aa-44f1-8923-de61f9568e71",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "END-166c0b70-9c60-4e42-a618-85b66610c473",
+                    "id": "END-dd369b39-70aa-44f1-8923-de61f9568e71",
                     "label": "END",
                     "func": "END",
-                    "type": "TERMINATOR",
+                    "type": "TERMINATORS",
                     "ctrls": {},
-                    "selected": false
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
+                    "selected": true
                 },
                 "position": {
-                    "x": 945.5656545686987,
-                    "y": 162.59212378208304
+                    "x": 1148.515937476088,
+                    "y": 241.30167305861812
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 945.5656545686987,
-                    "y": 162.59212378208304
+                    "x": 1148.515937476088,
+                    "y": 241.30167305861812
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "PLOTLY_DATASET-ca6c81e8-13cd-4e86-b77d-12149be0512c",
-                "sourceHandle": "main",
-                "target": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
-                "targetHandle": "TABLE",
-                "id": "reactflow__edge-PLOTLY_DATASET-ca6c81e8-13cd-4e86-b77d-12149be0512cmain-TABLE-e800470c-1dfa-418e-b3be-08934023ea54TABLE"
+                "source": "PLOTLY_DATASET-f0abd994-1933-4ad2-83f5-c2408c16d6fb",
+                "sourceHandle": "default",
+                "target": "TABLE-0596fd0c-8f68-49cc-bd93-7a87cefe3e7e",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PLOTLY_DATASET-f0abd994-1933-4ad2-83f5-c2408c16d6fbdefault-TABLE-0596fd0c-8f68-49cc-bd93-7a87cefe3e7edefault"
             },
             {
-                "source": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
-                "sourceHandle": "main",
-                "target": "END-166c0b70-9c60-4e42-a618-85b66610c473",
-                "targetHandle": "END",
-                "id": "reactflow__edge-TABLE-e800470c-1dfa-418e-b3be-08934023ea54main-END-166c0b70-9c60-4e42-a618-85b66610c473END"
+                "source": "TABLE-0596fd0c-8f68-49cc-bd93-7a87cefe3e7e",
+                "sourceHandle": "default",
+                "target": "END-dd369b39-70aa-44f1-8923-de61f9568e71",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-0596fd0c-8f68-49cc-bd93-7a87cefe3e7edefault-END-dd369b39-70aa-44f1-8923-de61f9568e71default"
             }
         ],
         "viewport": {
-            "x": 231.72498032641062,
-            "y": 32.9189448113047,
-            "zoom": 0.7070174838334414
+            "x": -296.35399545928726,
+            "y": 66.8470830817738,
+            "zoom": 0.8744723800359967
         }
     },
     "ctrlsManifest": [
