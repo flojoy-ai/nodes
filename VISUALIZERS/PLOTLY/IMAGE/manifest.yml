@@ -1,4 +1,0 @@
-COMMAND:
-  - name: Image Viewer
-    key: IMAGE
-    type: PLOTLY_VISOR
