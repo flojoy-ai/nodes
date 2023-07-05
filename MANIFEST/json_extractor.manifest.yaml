@@ -3,9 +3,9 @@ COMMAND:
     key: JSON_EXTRACTOR
     type: OPENAI
     parameters:
-      schema_file_path:
+      properties:
         type: string
-        default: ''
+        default: 'comma,separated,properties,to,extract'
       prompt:
         type: string
         default: ''

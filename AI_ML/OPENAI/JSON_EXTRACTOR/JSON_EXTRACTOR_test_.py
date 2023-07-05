@@ -22,21 +22,18 @@ import JSON_EXTRACTOR
 
 
 def test_JSON_EXTRACTOR():
+    properties = "price,name,model"
     prompt = """Headset Gamer Bluetooth MJ23 - $100 
 Extract the price, name and model from the above text.
 """
-    schema_file_path = Path(__file__).parent / "schema_test.json"
+    mock_properties_list = ["price", "name", "model"]
     params = dict(
-        schema_file_path=str(schema_file_path),
+        properties=properties,
         prompt=prompt
     )
     res = JSON_EXTRACTOR.JSON_EXTRACTOR(
         [DataContainer()], params
     )
 
-    with open(schema_file_path, 'r') as f:
-        schema = json.load(f)
-
-    assert res.type == 'dataframe'
-    for key in schema.get("parameters").get('required'):
-        assert key in res.m.columns
+    for property in mock_properties_list:
+        assert property in res.m.columns
