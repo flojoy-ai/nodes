@@ -11,7 +11,7 @@ import os
 @flojoy
 def DALLE_IMAGE_GENERATOR(dc: List[DataContainer], params):
     """
-    The DALLE_IMAGE_GENERATOR node takes a prompt and generates an image 
+    The DALLE_IMAGE_GENERATOR node takes a prompt and generates an image
     using OpenAI's DALL-E model.
     The prompt should be a sentence describing the image you want to generate.
     The image will be returned as a DataContainer with the type 'image'.
@@ -22,16 +22,12 @@ def DALLE_IMAGE_GENERATOR(dc: List[DataContainer], params):
         A sentence describing the image you want to generate.
     """
     openai.api_key = os.environ.get("OPENAI_API_KEY")
-    prompt = params.get('prompt')
-    result = openai.Image.create(
-        prompt=prompt,
-        n=1,
-        size="1024x1024"
-    )
+    prompt = params.get("prompt")
+    result = openai.Image.create(prompt=prompt, n=1, size="1024x1024")
     if not result.data:
-        raise Exception('No image data in result')
+        raise Exception("No image data in result")
 
-    url = result.data[0].get('url')
+    url = result.data[0].get("url")
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
 

@@ -13,18 +13,15 @@ ACCEPTED_SCHEMA_FORMATS = [".json"]
 BASE_SCHEMA = {
     "name": "information_extraction",
     "description": "Extracts the information as JSON.",
-    "parameters": {
-        "type": "object",
-        "properties": {},
-        "required": []
-    }
+    "parameters": {"type": "object", "properties": {}, "required": []},
 }
+
 
 @flojoy
 def JSON_EXTRACTOR(dc: List[DataContainer], params):
     """
     The JSON_EXTRACTOR node extract specific properties information from a text using JSON schema.
-    
+
     Parameters
     ----------
     properties: string
@@ -37,16 +34,16 @@ def JSON_EXTRACTOR(dc: List[DataContainer], params):
     prompt = params.get("prompt")
 
     if not properties:
-        raise Exception('No properties found to extract.')
-    
-    properties = properties.split(',')
+        raise Exception("No properties found to extract.")
+
+    properties = properties.split(",")
     schema = deepcopy(BASE_SCHEMA)
     for property in properties:
-        schema['parameters']['properties'][property] = {
-            'title': property,
-            'type': 'string',
+        schema["parameters"]["properties"][property] = {
+            "title": property,
+            "type": "string",
         }
-        schema['parameters']['required'].append(property)
+        schema["parameters"]["required"].append(property)
 
     openai.api_key = os.environ.get("OPENAI_API_KEY")
     response = openai.ChatCompletion.create(
@@ -56,15 +53,12 @@ def JSON_EXTRACTOR(dc: List[DataContainer], params):
         ],
         temperature=0,
         functions=[schema],
-        function_call={"name": schema.get('name', 'json_extractor')},
+        function_call={"name": schema.get("name", "json_extractor")},
     )
 
     if not response.choices:
-        raise Exception('No extraction choices found in response.')
+        raise Exception("No extraction choices found in response.")
 
     data = json.loads(response.choices[0].message.function_call.arguments)
     df = pd.DataFrame(data=[data])
-    return DataContainer(
-        type='dataframe',
-        m=df
-    )
+    return DataContainer(type="dataframe", m=df)

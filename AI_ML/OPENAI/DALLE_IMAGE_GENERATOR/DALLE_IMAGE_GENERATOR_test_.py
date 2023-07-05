@@ -32,7 +32,7 @@ def test_DALLE_IMAGE_GENERATOR():
     )
 
     # Should get back a dataframe
-    assert res.type == 'image'
+    assert res.type == "image"
     assert isinstance(res.r, numpy.ndarray)
     assert isinstance(res.g, numpy.ndarray)
     assert isinstance(res.b, numpy.ndarray)

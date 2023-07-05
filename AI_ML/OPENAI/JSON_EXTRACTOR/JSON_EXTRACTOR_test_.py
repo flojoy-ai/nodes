@@ -27,13 +27,8 @@ def test_JSON_EXTRACTOR():
 Extract the price, name and model from the above text.
 """
     mock_properties_list = ["price", "name", "model"]
-    params = dict(
-        properties=properties,
-        prompt=prompt
-    )
-    res = JSON_EXTRACTOR.JSON_EXTRACTOR(
-        [DataContainer()], params
-    )
+    params = dict(properties=properties, prompt=prompt)
+    res = JSON_EXTRACTOR.JSON_EXTRACTOR([DataContainer()], params)
 
     for property in mock_properties_list:
         assert property in res.m.columns
