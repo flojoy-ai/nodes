@@ -1,11 +1,11 @@
-from flojoy import flojoy, Image
+from flojoy import flojoy, Image, DefaultParams
 import cv2
 import numpy as np
 from PIL import ImageFilter, Image as PILImage
 
 
 @flojoy
-def EDGE_DETECTION(default: Image, params: dict) -> Image:
+def EDGE_DETECTION(default: Image, params: DefaultParams) -> Image:
     """The EDGE_DETECTION node detects edges in the image passed to it.
     This is done through the the Pillow image filter FIND_EDGES.
     Note that the image is converted to greyscale during this processing.

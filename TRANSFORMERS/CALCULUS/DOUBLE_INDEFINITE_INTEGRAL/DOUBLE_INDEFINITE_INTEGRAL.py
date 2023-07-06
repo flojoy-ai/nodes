@@ -4,7 +4,7 @@ import numpy as np
 
 @flojoy
 def DOUBLE_INDEFINITE_INTEGRAL(
-    default : OrderedTriple, params: DefaultParams
+    default : OrderedTriple
 ) -> Matrix:
     """
     The INDEFINITE_INTEGRAL node takes three matrices and computes double integral.

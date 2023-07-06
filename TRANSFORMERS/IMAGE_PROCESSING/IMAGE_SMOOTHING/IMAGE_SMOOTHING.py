@@ -1,10 +1,10 @@
-from flojoy import flojoy, Image
+from flojoy import flojoy, Image, DefaultParams
 import cv2
 import numpy as np
 
 
 @flojoy
-def IMAGE_SMOOTHING(default: Image, params: dict) -> Image:
+def IMAGE_SMOOTHING(default: Image, params: DefaultParams) -> Image:
     """
     Apply image smoothing operation on the input `DataContainer` class,
     specifically for the 'image' type,

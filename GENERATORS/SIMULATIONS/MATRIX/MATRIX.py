@@ -1,9 +1,9 @@
 import numpy as np
-from flojoy import flojoy, Matrix
+from flojoy import flojoy, Matrix, DefaultParams
 
 
 @flojoy
-def MATRIX(dc_inputs: list[DataContainer], params: dict) -> Matrix:
+def MATRIX(params: DefaultParams) -> Matrix:
     """
     The MATRIX node takes two arguments, row and col, as input.
     Based on these inputs, it generates a random matrix where the

@@ -11,7 +11,7 @@ def INVERT(default: Union[OrderedPair, Matrix], rcond: float = 1.0) -> Union[Ord
     inverse 1/x"""
     print(f"INVERT params: {params}")
     a = np.eye(3)
-    b: float = params["rcond"]
+    b: float = rcond
 
     if (
             default.type == "ordered_pair"

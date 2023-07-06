@@ -1,11 +1,11 @@
 from flojoy import flojoy, DataFrame
-from typing import Union, List
+from typing import Union
 import pandas as pd
 from typing import cast
 
 
 @flojoy
-def ONE_HOT_ENCODING(default: DataFrame, categories: List[Union[str, int]], columns: List[str]) -> DataFrame:
+def ONE_HOT_ENCODING(default: DataFrame, categories: list[Union[str, int]], columns: list[str]) -> DataFrame:
     """The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe containing categorical features.
 
     Parameters

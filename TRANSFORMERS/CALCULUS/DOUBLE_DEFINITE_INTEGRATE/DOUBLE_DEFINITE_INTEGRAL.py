@@ -1,4 +1,4 @@
-from flojoy import flojoy, Scalar, DefaultParams
+from flojoy import flojoy, Scalar
 from scipy import integrate
 from sympy import parse_expr, lambdify
 
