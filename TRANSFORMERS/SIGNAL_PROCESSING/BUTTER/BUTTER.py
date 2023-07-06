@@ -11,7 +11,8 @@ def BUTTER(
     btype: Literal["lowpass", "highpass", "bandpass", "bandstop"] = "lowpass",
     sample_rate: int = 10,
 ) -> DataContainer:
-    """The BUTTER node applies a butterworth filter to an input vector
+    """The BUTTER node applies a butterworth filter to an input signal.
+    It is designed to have a frequency response that is as flat as possible in the pass band
 
     Parameters
     ----------
