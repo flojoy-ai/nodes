@@ -1,5 +1,0 @@
-COMMAND:
-  - name: MATRIX_VIEW
-    key: MATRIX_VIEW
-    type: DATA_STRUCTURE
-    ui_component_id: PLOTLY_VISOR
