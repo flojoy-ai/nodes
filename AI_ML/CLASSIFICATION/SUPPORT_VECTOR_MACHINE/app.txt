@@ -4,80 +4,30 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "READ_CSV-38331dac-1614-41e6-aa28-c7ab6ba620a4",
-                "type": "FILE",
-                "data": {
-                    "id": "READ_CSV-38331dac-1614-41e6-aa28-c7ab6ba620a4",
-                    "label": "READ CSV",
-                    "func": "READ_CSV",
-                    "type": "FILE",
-                    "ctrls": {
-                        "file_path": {
-                            "functionName": "READ_CSV",
-                            "param": "file_path",
-                            "value": "~/Downloads/iris_train.csv"
-                        }
-                    },
-                    "selected": false
-                },
-                "position": {
-                    "x": 30.299117370698312,
-                    "y": 176.16569145577284
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 30.299117370698312,
-                    "y": 176.16569145577284
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "READ_CSV-46e0dbba-c159-4856-b711-a391ff19d5ea",
-                "type": "FILE",
-                "data": {
-                    "id": "READ_CSV-46e0dbba-c159-4856-b711-a391ff19d5ea",
-                    "label": "READ CSV 1",
-                    "func": "READ_CSV",
-                    "type": "FILE",
-                    "ctrls": {
-                        "file_path": {
-                            "functionName": "READ_CSV",
-                            "param": "file_path",
-                            "value": "~/Downloads/iris_test_no_label.csv"
-                        }
-                    },
-                    "selected": false
-                },
-                "position": {
-                    "x": 37.441974513555465,
-                    "y": 386.16569145577273
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 37.441974513555465,
-                    "y": 386.16569145577273
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 212,
-                "id": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
+                "id": "SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808",
                 "type": "CLASSIFICATION",
                 "data": {
-                    "id": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
+                    "id": "SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808",
                     "label": "SUPPORT VECTOR MACHINE",
                     "func": "SUPPORT_VECTOR_MACHINE",
                     "type": "CLASSIFICATION",
                     "ctrls": {
                         "target": {
+                            "type": "str",
+                            "default": null,
                             "functionName": "SUPPORT_VECTOR_MACHINE",
                             "param": "target",
                             "value": ""
                         },
                         "kernel": {
+                            "type": "select",
+                            "default": "linear",
+                            "options": [
+                                "linear",
+                                "poly",
+                                "rvm",
+                                "sigmoid"
+                            ],
                             "functionName": "SUPPORT_VECTOR_MACHINE",
                             "param": "kernel",
                             "value": "linear"
@@ -85,112 +35,227 @@
                     },
                     "inputs": [
                         {
-                            "name": "train",
-                            "id": "train",
-                            "type": "source"
+                            "name": "training_data",
+                            "id": "training_data",
+                            "type": "DataFrame|Matrix",
+                            "multiple": false
                         },
                         {
-                            "name": "input",
-                            "id": "input",
-                            "type": "source"
+                            "name": "input_data",
+                            "id": "input_data",
+                            "type": "DataFrame|Matrix",
+                            "multiple": false
                         }
                     ],
-                    "selected": false
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/CLASSIFICATION/SUPPORT_VECTOR_MACHINE/SUPPORT_VECTOR_MACHINE.py",
+                    "selected": true
                 },
                 "position": {
-                    "x": 351.72768879926974,
-                    "y": 230.45140574148695
+                    "x": 928.4663087537485,
+                    "y": 682.0331845444681
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 351.72768879926974,
-                    "y": 230.45140574148695
+                    "x": 928.4663087537485,
+                    "y": 682.0331845444681
                 },
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-697d4147-82db-45c9-85aa-dca67fdf672a",
-                "type": "TERMINATOR",
+                "width": 150,
+                "height": 150,
+                "id": "READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845",
+                "type": "FILE",
                 "data": {
-                    "id": "END-697d4147-82db-45c9-85aa-dca67fdf672a",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
+                    "id": "READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845",
+                    "label": "READ CSV",
+                    "func": "READ_CSV",
+                    "type": "FILE",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
+                            "functionName": "READ_CSV",
+                            "param": "file_path",
+                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/assets/iris_train.csv"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/READ_CSV.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1138.870545942127,
-                    "y": 269.0228343129156
+                    "x": 455.9215625547879,
+                    "y": 465.0512676738364
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1138.870545942127,
-                    "y": 269.0228343129156
+                    "x": 455.9215625547879,
+                    "y": 465.0512676738364
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "READ_CSV-90526963-cd8b-4b79-bf22-12138be6d2c7",
+                "type": "FILE",
+                "data": {
+                    "id": "READ_CSV-90526963-cd8b-4b79-bf22-12138be6d2c7",
+                    "label": "READ CSV 1",
+                    "func": "READ_CSV",
+                    "type": "FILE",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
+                            "functionName": "READ_CSV",
+                            "param": "file_path",
+                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/assets/iris_test_no_label.csv"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/READ_CSV.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 453.1972077677601,
+                    "y": 941.8488423358433
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 453.1972077677601,
+                    "y": 941.8488423358433
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "TABLE-b029c659-e458-42b1-88b8-7a6f6711e76f",
-                "type": "PLOTLY_VISOR",
+                "id": "TABLE-500d4621-276f-4b84-a114-1e4498781381",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "TABLE-b029c659-e458-42b1-88b8-7a6f6711e76f",
+                    "id": "TABLE-500d4621-276f-4b84-a114-1e4498781381",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 651.7276887992699,
-                    "y": 189.02283431291568
+                    "x": 1397.9275590031577,
+                    "y": 653.1483933276585
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 651.7276887992699,
-                    "y": 189.02283431291568
+                    "x": 1397.9275590031577,
+                    "y": 653.1483933276585
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-287eeb1e-c006-47bd-baab-6e4d5620511f",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-287eeb1e-c006-47bd-baab-6e4d5620511f",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1919.9766566351086,
+                    "y": 718.6811434834397
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1919.9766566351086,
+                    "y": 718.6811434834397
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "READ_CSV-38331dac-1614-41e6-aa28-c7ab6ba620a4",
-                "sourceHandle": "main",
-                "target": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
-                "targetHandle": "train",
-                "id": "reactflow__edge-READ_CSV-38331dac-1614-41e6-aa28-c7ab6ba620a4main-SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31train"
+                "source": "READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845",
+                "sourceHandle": "default",
+                "target": "SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808",
+                "targetHandle": "training_data",
+                "id": "reactflow__edge-READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845default-SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808training_data"
             },
             {
-                "source": "READ_CSV-46e0dbba-c159-4856-b711-a391ff19d5ea",
-                "sourceHandle": "main",
-                "target": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
-                "targetHandle": "input",
-                "id": "reactflow__edge-READ_CSV-46e0dbba-c159-4856-b711-a391ff19d5eamain-SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31input"
+                "source": "READ_CSV-90526963-cd8b-4b79-bf22-12138be6d2c7",
+                "sourceHandle": "default",
+                "target": "SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808",
+                "targetHandle": "input_data",
+                "id": "reactflow__edge-READ_CSV-90526963-cd8b-4b79-bf22-12138be6d2c7default-SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808input_data"
             },
             {
-                "source": "SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31",
-                "sourceHandle": "main",
-                "target": "TABLE-b029c659-e458-42b1-88b8-7a6f6711e76f",
-                "targetHandle": "TABLE",
-                "id": "reactflow__edge-SUPPORT_VECTOR_MACHINE-4baed303-480c-4c22-a61b-3e98c4018d31main-TABLE-b029c659-e458-42b1-88b8-7a6f6711e76fTABLE"
+                "source": "SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808",
+                "sourceHandle": "default",
+                "target": "TABLE-500d4621-276f-4b84-a114-1e4498781381",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808default-TABLE-500d4621-276f-4b84-a114-1e4498781381default"
             },
             {
-                "source": "TABLE-b029c659-e458-42b1-88b8-7a6f6711e76f",
-                "sourceHandle": "main",
-                "target": "END-697d4147-82db-45c9-85aa-dca67fdf672a",
-                "targetHandle": "END",
-                "id": "reactflow__edge-TABLE-b029c659-e458-42b1-88b8-7a6f6711e76fmain-END-697d4147-82db-45c9-85aa-dca67fdf672aEND"
+                "source": "TABLE-500d4621-276f-4b84-a114-1e4498781381",
+                "sourceHandle": "default",
+                "target": "END-287eeb1e-c006-47bd-baab-6e4d5620511f",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-500d4621-276f-4b84-a114-1e4498781381default-END-287eeb1e-c006-47bd-baab-6e4d5620511fdefault"
             }
         ],
         "viewport": {
-            "x": 40.964285714285666,
-            "y": 190.74999999999997,
-            "zoom": 0.5
+            "x": -501.95459935516146,
+            "y": 197.98083177807212,
+            "zoom": 1.4811524052100216
         }
     },
     "ctrlsManifest": [

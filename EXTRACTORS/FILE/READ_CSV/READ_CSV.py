@@ -3,7 +3,9 @@ import pandas as pd
 
 
 @flojoy
-def READ_CSV(file_path: str = "") -> DataFrame:
+def READ_CSV(
+    file_path: str = "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
+) -> DataFrame:
     """
     Read a CSV file from disk or a URL, then return a dataframe.
 

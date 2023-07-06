@@ -4,49 +4,43 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "NLP_CONNECT_VIT_GPT2-223c75c1-60d9-40ba-8d59-70585afb0aa6",
-                "type": "IMAGE_CAPTION",
-                "data": {
-                    "id": "NLP_CONNECT_VIT_GPT2-223c75c1-60d9-40ba-8d59-70585afb0aa6",
-                    "label": "NLP CONNECT VIT GPT2",
-                    "func": "NLP_CONNECT_VIT_GPT2",
-                    "type": "IMAGE_CAPTION",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 759.6279246626107,
-                    "y": 281.68121031230993
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 759.6279246626107,
-                    "y": 281.68121031230993
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "LOCAL_FILE-c59f3e5d-01ac-40d6-990a-d682f3cd3b15",
+                "id": "LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5",
                 "type": "LOCAL_FILE_SYSTEM",
                 "data": {
-                    "id": "LOCAL_FILE-c59f3e5d-01ac-40d6-990a-d682f3cd3b15",
+                    "id": "LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5",
                     "label": "LOCAL FILE",
                     "func": "LOCAL_FILE",
                     "type": "LOCAL_FILE_SYSTEM",
                     "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": null,
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_path",
+                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/AI_ML/IMAGE_CAPTIONING/NLP_CONNECT_VIT_GPT2/assets/President_Barack_Obama.jpg"
+                        },
                         "file_type": {
+                            "type": "select",
+                            "default": "Image",
+                            "options": [
+                                "Image",
+                                "JSON",
+                                "CSV",
+                                "Excel",
+                                "XML"
+                            ],
                             "functionName": "LOCAL_FILE",
                             "param": "file_type",
-                            "value": "image"
-                        },
-                        "path": {
-                            "functionName": "LOCAL_FILE",
-                            "param": "path",
-                            "value": ""
+                            "value": "Image"
                         }
                     },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|DataFrame"
+                        }
+                    ],
                     "pip_dependencies": [
                         {
                             "name": "xlrd",
@@ -57,64 +51,208 @@
                             "v": "4.9.2"
                         }
                     ],
+                    "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 321.056496091182,
-                    "y": 200.25263888373848
+                    "x": 220.94911354917434,
+                    "y": 9.365678844106299
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 321.056496091182,
-                    "y": 200.25263888373848
+                    "x": 220.94911354917434,
+                    "y": 9.365678844106299
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "NLP_CONNECT_VIT_GPT2-a5697ca2-c764-4f9c-a780-f45312e5e7b6",
+                "type": "IMAGE_CAPTIONING",
+                "data": {
+                    "id": "NLP_CONNECT_VIT_GPT2-a5697ca2-c764-4f9c-a780-f45312e5e7b6",
+                    "label": "NLP CONNECT VIT GPT2",
+                    "func": "NLP_CONNECT_VIT_GPT2",
+                    "type": "IMAGE_CAPTIONING",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/IMAGE_CAPTIONING/NLP_CONNECT_VIT_GPT2/NLP_CONNECT_VIT_GPT2.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 749.9610340516041,
+                    "y": 18.122489449386364
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 749.9610340516041,
+                    "y": 18.122489449386364
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-f1d35a1f-d821-4fd1-8052-d0301cdcf5ec",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "TABLE-f1d35a1f-d821-4fd1-8052-d0301cdcf5ec",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1147.070695293708,
+                    "y": -85.68118996226434
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1147.070695293708,
+                    "y": -85.68118996226434
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-0c3d9525-acc7-42f1-bffb-76d4f74dca2a",
-                "type": "TERMINATOR",
+                "id": "END-15f81c58-9f96-462f-88d6-7a70a1ee70a2",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "END-0c3d9525-acc7-42f1-bffb-76d4f74dca2a",
+                    "id": "END-15f81c58-9f96-462f-88d6-7a70a1ee70a2",
                     "label": "END",
                     "func": "END",
-                    "type": "TERMINATOR",
+                    "type": "TERMINATORS",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1308.1993532340393,
-                    "y": 294.53835316945276
+                    "x": 1654.0966550404992,
+                    "y": 27.867148306732645
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1308.1993532340393,
-                    "y": 294.53835316945276
+                    "x": 1654.0966550404992,
+                    "y": 27.867148306732645
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-c88d11ab-191b-4f5c-bbaf-fdeea40e79a8",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "IMAGE-c88d11ab-191b-4f5c-bbaf-fdeea40e79a8",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 695.8368023499127,
+                    "y": 349.26496390963064
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 695.8368023499127,
+                    "y": 349.26496390963064
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LOCAL_FILE-c59f3e5d-01ac-40d6-990a-d682f3cd3b15",
-                "sourceHandle": "main",
-                "target": "NLP_CONNECT_VIT_GPT2-223c75c1-60d9-40ba-8d59-70585afb0aa6",
-                "targetHandle": "NLP_CONNECT_VIT_GPT2",
-                "id": "reactflow__edge-LOCAL_FILE-c59f3e5d-01ac-40d6-990a-d682f3cd3b15main-NLP_CONNECT_VIT_GPT2-223c75c1-60d9-40ba-8d59-70585afb0aa6NLP_CONNECT_VIT_GPT2"
+                "source": "LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5",
+                "sourceHandle": "default",
+                "target": "NLP_CONNECT_VIT_GPT2-a5697ca2-c764-4f9c-a780-f45312e5e7b6",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5default-NLP_CONNECT_VIT_GPT2-a5697ca2-c764-4f9c-a780-f45312e5e7b6default"
             },
             {
-                "source": "NLP_CONNECT_VIT_GPT2-223c75c1-60d9-40ba-8d59-70585afb0aa6",
-                "sourceHandle": "main",
-                "target": "END-0c3d9525-acc7-42f1-bffb-76d4f74dca2a",
-                "targetHandle": "END",
-                "id": "reactflow__edge-NLP_CONNECT_VIT_GPT2-223c75c1-60d9-40ba-8d59-70585afb0aa6main-END-0c3d9525-acc7-42f1-bffb-76d4f74dca2aEND"
+                "source": "NLP_CONNECT_VIT_GPT2-a5697ca2-c764-4f9c-a780-f45312e5e7b6",
+                "sourceHandle": "default",
+                "target": "TABLE-f1d35a1f-d821-4fd1-8052-d0301cdcf5ec",
+                "targetHandle": "default",
+                "id": "reactflow__edge-NLP_CONNECT_VIT_GPT2-a5697ca2-c764-4f9c-a780-f45312e5e7b6default-TABLE-f1d35a1f-d821-4fd1-8052-d0301cdcf5ecdefault"
+            },
+            {
+                "source": "TABLE-f1d35a1f-d821-4fd1-8052-d0301cdcf5ec",
+                "sourceHandle": "default",
+                "target": "END-15f81c58-9f96-462f-88d6-7a70a1ee70a2",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-f1d35a1f-d821-4fd1-8052-d0301cdcf5ecdefault-END-15f81c58-9f96-462f-88d6-7a70a1ee70a2default"
+            },
+            {
+                "source": "LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5",
+                "sourceHandle": "default",
+                "target": "IMAGE-c88d11ab-191b-4f5c-bbaf-fdeea40e79a8",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5default-IMAGE-c88d11ab-191b-4f5c-bbaf-fdeea40e79a8default"
             }
         ],
         "viewport": {
-            "x": 211.62910019568181,
-            "y": 433.27994096381553,
-            "zoom": 0.6398461079234518
+            "x": -501.95459935516146,
+            "y": 148.3622262035364,
+            "zoom": 1.4811524052100216
         }
     },
     "ctrlsManifest": [

@@ -1,4 +1,5 @@
-from flojoy import flojoy, DataFrame, Matrix
+from flojoy import flojoy, Matrix, DataFrame, Array
+from typing import Optional
 import pandas as pd
 from typing import cast
 
@@ -6,9 +7,9 @@ from typing import cast
 @flojoy
 def ONE_HOT_ENCODING(
     default: DataFrame,
-    categories: list[str] | list[int] | None = "",
-    columns: list[str] | None = "",
-) -> DataFrame:
+    categories: Optional[Array] = None,
+    columns: Optional[Array] = None,
+) -> Matrix:
     """The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe containing categorical features.
 
     Parameters
@@ -25,14 +26,14 @@ def ONE_HOT_ENCODING(
     """
 
     if categories:
-        data = pd.DataFrame({"category": categories})
+        data = pd.DataFrame({"category": categories.unwrap()})
         # Force pandas to treat the column as categorical
         data["category"] = data["category"].astype("category")
         encoded = pd.get_dummies(data, dtype=int)
-        return DataFrame(m=encoded)
+        return Matrix(m=encoded)
 
     if columns:
-        encoded = pd.get_dummies(default.m[columns])
+        encoded = pd.get_dummies(default.m[columns.unwrap()])
     else:
         df = cast(pd.DataFrame, default.m)
         cat_df = df.select_dtypes(include=["object", "category"])

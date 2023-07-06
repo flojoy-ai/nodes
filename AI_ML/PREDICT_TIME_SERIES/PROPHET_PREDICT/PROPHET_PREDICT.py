@@ -49,10 +49,9 @@ def PROPHET_PREDICT(
         as well as the `extra` param with keys "run_forecast" which correspond to the
         input param, and potentially "original" in the event that `run_forecast` is True
     """
-    dc_input = default
-    match dc_input.type:
+    match default.type:
         case "dataframe":
-            df: pd.DataFrame = dc_input.m
+            df: pd.DataFrame = default.m
             first_col = df.iloc[:, 0]
             if not pd.api.types.is_datetime64_any_dtype(first_col):
                 raise ValueError(
@@ -78,5 +77,5 @@ def PROPHET_PREDICT(
             )
         case _:
             raise ValueError(
-                f"unsupported DataContainer type passed to PROPHET_PREDICT: {dc_input.type}"
+                f"unsupported DataContainer type passed to PROPHET_PREDICT: {default.type}"
             )

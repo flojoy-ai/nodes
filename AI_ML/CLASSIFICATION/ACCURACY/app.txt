@@ -3,58 +3,187 @@
         "nodes": [
             {
                 "width": 150,
-                "height": 212,
-                "id": "SUPPORT_VECTOR_MACHINE-078b74d1-0a4f-43f1-bd25-d0a82b5ac37e",
-                "type": "CLASSIFICATION",
+                "height": 150,
+                "id": "READ_CSV-51da7a19-3f8a-48ac-b099-f9824350178d",
+                "type": "FILE",
                 "data": {
-                    "id": "SUPPORT_VECTOR_MACHINE-078b74d1-0a4f-43f1-bd25-d0a82b5ac37e",
-                    "label": "SUPPORT VECTOR MACHINE",
-                    "func": "SUPPORT_VECTOR_MACHINE",
-                    "type": "CLASSIFICATION",
+                    "id": "READ_CSV-51da7a19-3f8a-48ac-b099-f9824350178d",
+                    "label": "READ CSV",
+                    "func": "READ_CSV",
+                    "type": "FILE",
                     "ctrls": {
-                        "target": {
-                            "functionName": "SUPPORT_VECTOR_MACHINE",
-                            "param": "target",
-                            "value": "variety"
-                        },
-                        "kernel": {
-                            "functionName": "SUPPORT_VECTOR_MACHINE",
-                            "param": "kernel",
-                            "value": "linear"
+                        "file_path": {
+                            "type": "str",
+                            "default": "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
+                            "functionName": "READ_CSV",
+                            "param": "file_path",
+                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/assets/iris_train.csv"
                         }
                     },
-                    "inputs": [
+                    "outputs": [
                         {
-                            "name": "train",
-                            "id": "train",
-                            "type": "source"
-                        },
-                        {
-                            "name": "input",
-                            "id": "input",
-                            "type": "source"
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
                         }
                     ],
+                    "path": "PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/READ_CSV.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 156.1840485344301,
-                    "y": 61.34025362391492
+                    "x": 1301.1604188429856,
+                    "y": 252.94144932057247
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 156.1840485344301,
-                    "y": 61.34025362391492
+                    "x": 1301.1604188429856,
+                    "y": 252.94144932057247
                 },
                 "dragging": true
             },
             {
                 "width": 150,
-                "height": 181,
-                "id": "ACCURACY-68a20c65-5996-4c10-b825-352ec1c35e39",
+                "height": 150,
+                "id": "READ_CSV-7be4d744-40c5-4137-9fbc-0a9f2306836f",
+                "type": "FILE",
+                "data": {
+                    "id": "READ_CSV-7be4d744-40c5-4137-9fbc-0a9f2306836f",
+                    "label": "READ CSV 1",
+                    "func": "READ_CSV",
+                    "type": "FILE",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
+                            "functionName": "READ_CSV",
+                            "param": "file_path",
+                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/assets/iris_test.csv"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/READ_CSV.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 1295.2021784247715,
+                    "y": 729.026036465648
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 1295.2021784247715,
+                    "y": 729.026036465648
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "EXTRACT_COLUMNS-02c0b2b9-186f-48e4-8bcb-7f8620985a9a",
+                "type": "DATAFRAME",
+                "data": {
+                    "id": "EXTRACT_COLUMNS-02c0b2b9-186f-48e4-8bcb-7f8620985a9a",
+                    "label": "EXTRACT COLUMNS",
+                    "func": "EXTRACT_COLUMNS",
+                    "type": "DATAFRAME",
+                    "ctrls": {
+                        "columns": {
+                            "type": "Array",
+                            "default": null,
+                            "functionName": "EXTRACT_COLUMNS",
+                            "param": "columns",
+                            "value": "sepal_length,sepal_width,petal_length,petal_width"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/EXTRACTORS/DATAFRAME/EXTRACT_COLUMNS/EXTRACT_COLUMNS.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1790.6201945140697,
+                    "y": 503.1602890648445
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1790.6201945140697,
+                    "y": 503.1602890648445
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "EXTRACT_COLUMNS-79c76191-c46f-4d6b-9641-b6f4b1d3f060",
+                "type": "DATAFRAME",
+                "data": {
+                    "id": "EXTRACT_COLUMNS-79c76191-c46f-4d6b-9641-b6f4b1d3f060",
+                    "label": "EXTRACT COLUMNS 1",
+                    "func": "EXTRACT_COLUMNS",
+                    "type": "DATAFRAME",
+                    "ctrls": {
+                        "columns": {
+                            "type": "Array",
+                            "default": null,
+                            "functionName": "EXTRACT_COLUMNS",
+                            "param": "columns",
+                            "value": "variety"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/EXTRACTORS/DATAFRAME/EXTRACT_COLUMNS/EXTRACT_COLUMNS.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1769.1935000115116,
+                    "y": 838.6521372038756
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1769.1935000115116,
+                    "y": 838.6521372038756
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "ACCURACY-bf41c632-f852-458a-b5e3-2ca4d4542254",
                 "type": "CLASSIFICATION",
                 "data": {
-                    "id": "ACCURACY-68a20c65-5996-4c10-b825-352ec1c35e39",
+                    "id": "ACCURACY-bf41c632-f852-458a-b5e3-2ca4d4542254",
                     "label": "ACCURACY",
                     "func": "ACCURACY",
                     "type": "CLASSIFICATION",
@@ -63,227 +192,193 @@
                         {
                             "name": "true_data",
                             "id": "true_data",
-                            "type": "source"
+                            "type": "DataFrame",
+                            "multiple": false
                         },
                         {
-                            "name": "predicted",
-                            "id": "predicted",
-                            "type": "source"
+                            "name": "predicted_data",
+                            "id": "predicted_data",
+                            "type": "DataFrame",
+                            "multiple": false
                         }
                     ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/CLASSIFICATION/ACCURACY/ACCURACY.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 657.6126199630015,
-                    "y": 109.91168219534353
+                    "x": 2686.77649458426,
+                    "y": 469.40428229964243
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 657.6126199630015,
-                    "y": 109.91168219534353
+                    "x": 2686.77649458426,
+                    "y": 469.40428229964243
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "SUPPORT_VECTOR_MACHINE-a51778d5-15f1-48ca-9d64-fbc26054cd20",
+                "type": "CLASSIFICATION",
+                "data": {
+                    "id": "SUPPORT_VECTOR_MACHINE-a51778d5-15f1-48ca-9d64-fbc26054cd20",
+                    "label": "SUPPORT VECTOR MACHINE",
+                    "func": "SUPPORT_VECTOR_MACHINE",
+                    "type": "CLASSIFICATION",
+                    "ctrls": {
+                        "target": {
+                            "type": "str",
+                            "default": null,
+                            "functionName": "SUPPORT_VECTOR_MACHINE",
+                            "param": "target",
+                            "value": "variety"
+                        },
+                        "kernel": {
+                            "type": "select",
+                            "default": "linear",
+                            "options": [
+                                "linear",
+                                "poly",
+                                "rvm",
+                                "sigmoid"
+                            ],
+                            "functionName": "SUPPORT_VECTOR_MACHINE",
+                            "param": "kernel",
+                            "value": "linear"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "training_data",
+                            "id": "training_data",
+                            "type": "DataFrame|Matrix",
+                            "multiple": false
+                        },
+                        {
+                            "name": "input_data",
+                            "id": "input_data",
+                            "type": "DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/CLASSIFICATION/SUPPORT_VECTOR_MACHINE/SUPPORT_VECTOR_MACHINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 2246.8318360623616,
+                    "y": 382.05184049025036
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 2246.8318360623616,
+                    "y": 382.05184049025036
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-acd07a55-8cae-4614-bbb3-24fcdeb82464",
-                "type": "TERMINATOR",
+                "id": "END-d01fb4f4-4eb4-49db-8d46-40ca771b7a80",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "END-acd07a55-8cae-4614-bbb3-24fcdeb82464",
+                    "id": "END-d01fb4f4-4eb4-49db-8d46-40ca771b7a80",
                     "label": "END",
                     "func": "END",
-                    "type": "TERMINATOR",
+                    "type": "TERMINATORS",
                     "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 947.6126199630015,
-                    "y": 129.91168219534347
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 947.6126199630015,
-                    "y": 129.91168219534347
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "READ_CSV-8473a6f9-f6a2-483e-a302-365d490b2fb9",
-                "type": "FILE",
-                "data": {
-                    "id": "READ_CSV-8473a6f9-f6a2-483e-a302-365d490b2fb9",
-                    "label": "READ CSV",
-                    "func": "READ_CSV",
-                    "type": "FILE",
-                    "ctrls": {
-                        "file_path": {
-                            "functionName": "READ_CSV",
-                            "param": "file_path",
-                            "value": "~/Downloads/iris_train.csv"
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
                         }
-                    },
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -483.81595146556987,
-                    "y": 7.054539338200698
+                    "x": 3069.49030764091,
+                    "y": 469.85918215523577
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -483.81595146556987,
-                    "y": 7.054539338200698
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "READ_CSV-7274eb09-c233-42b2-8c28-76310f245337",
-                "type": "FILE",
-                "data": {
-                    "id": "READ_CSV-7274eb09-c233-42b2-8c28-76310f245337",
-                    "label": "READ CSV 1",
-                    "func": "READ_CSV",
-                    "type": "FILE",
-                    "ctrls": {
-                        "file_path": {
-                            "functionName": "READ_CSV",
-                            "param": "file_path",
-                            "value": "~/Downloads/iris_test.csv"
-                        }
-                    },
-                    "selected": false
-                },
-                "position": {
-                    "x": -469.5302371798555,
-                    "y": 244.1973964810578
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -469.5302371798555,
-                    "y": 244.1973964810578
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "EXTRACT_COLUMNS-06baafec-6e55-463f-9881-3814e8030007",
-                "type": "DATAFRAME",
-                "data": {
-                    "id": "EXTRACT_COLUMNS-06baafec-6e55-463f-9881-3814e8030007",
-                    "label": "EXTRACT COLUMNS",
-                    "func": "EXTRACT_COLUMNS",
-                    "type": "DATAFRAME",
-                    "ctrls": {
-                        "columns": {
-                            "functionName": "EXTRACT_COLUMNS",
-                            "param": "columns",
-                            "value": "sepal_length,sepal_width,petal_length,petal_width"
-                        }
-                    },
-                    "selected": false
-                },
-                "position": {
-                    "x": -157.2445228941413,
-                    "y": 165.62596790962925
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -157.2445228941413,
-                    "y": 165.62596790962925
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "EXTRACT_COLUMNS-9a24f037-f0d2-407d-bc28-11217b52a5ad",
-                "type": "DATAFRAME",
-                "data": {
-                    "id": "EXTRACT_COLUMNS-9a24f037-f0d2-407d-bc28-11217b52a5ad",
-                    "label": "EXTRACT COLUMNS 1",
-                    "func": "EXTRACT_COLUMNS",
-                    "type": "DATAFRAME",
-                    "ctrls": {
-                        "columns": {
-                            "functionName": "EXTRACT_COLUMNS",
-                            "param": "columns",
-                            "value": "variety"
-                        }
-                    },
-                    "selected": false
-                },
-                "position": {
-                    "x": -140.95880860842706,
-                    "y": 342.7688250524864
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -140.95880860842706,
-                    "y": 342.7688250524864
+                    "x": 3069.49030764091,
+                    "y": 469.85918215523577
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "ACCURACY-68a20c65-5996-4c10-b825-352ec1c35e39",
-                "sourceHandle": "main",
-                "target": "END-acd07a55-8cae-4614-bbb3-24fcdeb82464",
-                "targetHandle": "END",
-                "id": "reactflow__edge-ACCURACY-68a20c65-5996-4c10-b825-352ec1c35e39main-END-acd07a55-8cae-4614-bbb3-24fcdeb82464END"
+                "source": "READ_CSV-51da7a19-3f8a-48ac-b099-f9824350178d",
+                "sourceHandle": "default",
+                "target": "SUPPORT_VECTOR_MACHINE-a51778d5-15f1-48ca-9d64-fbc26054cd20",
+                "targetHandle": "training_data",
+                "id": "reactflow__edge-READ_CSV-51da7a19-3f8a-48ac-b099-f9824350178ddefault-SUPPORT_VECTOR_MACHINE-a51778d5-15f1-48ca-9d64-fbc26054cd20training_data"
             },
             {
-                "source": "READ_CSV-7274eb09-c233-42b2-8c28-76310f245337",
-                "sourceHandle": "main",
-                "target": "EXTRACT_COLUMNS-06baafec-6e55-463f-9881-3814e8030007",
-                "targetHandle": "EXTRACT_COLUMNS",
-                "id": "reactflow__edge-READ_CSV-7274eb09-c233-42b2-8c28-76310f245337main-EXTRACT_COLUMNS-06baafec-6e55-463f-9881-3814e8030007EXTRACT_COLUMNS"
+                "source": "READ_CSV-7be4d744-40c5-4137-9fbc-0a9f2306836f",
+                "sourceHandle": "default",
+                "target": "EXTRACT_COLUMNS-02c0b2b9-186f-48e4-8bcb-7f8620985a9a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-READ_CSV-7be4d744-40c5-4137-9fbc-0a9f2306836fdefault-EXTRACT_COLUMNS-02c0b2b9-186f-48e4-8bcb-7f8620985a9adefault"
             },
             {
-                "source": "READ_CSV-7274eb09-c233-42b2-8c28-76310f245337",
-                "sourceHandle": "main",
-                "target": "EXTRACT_COLUMNS-9a24f037-f0d2-407d-bc28-11217b52a5ad",
-                "targetHandle": "EXTRACT_COLUMNS",
-                "id": "reactflow__edge-READ_CSV-7274eb09-c233-42b2-8c28-76310f245337main-EXTRACT_COLUMNS-9a24f037-f0d2-407d-bc28-11217b52a5adEXTRACT_COLUMNS"
+                "source": "READ_CSV-7be4d744-40c5-4137-9fbc-0a9f2306836f",
+                "sourceHandle": "default",
+                "target": "EXTRACT_COLUMNS-79c76191-c46f-4d6b-9641-b6f4b1d3f060",
+                "targetHandle": "default",
+                "id": "reactflow__edge-READ_CSV-7be4d744-40c5-4137-9fbc-0a9f2306836fdefault-EXTRACT_COLUMNS-79c76191-c46f-4d6b-9641-b6f4b1d3f060default"
             },
             {
-                "source": "EXTRACT_COLUMNS-06baafec-6e55-463f-9881-3814e8030007",
-                "sourceHandle": "main",
-                "target": "SUPPORT_VECTOR_MACHINE-078b74d1-0a4f-43f1-bd25-d0a82b5ac37e",
-                "targetHandle": "input",
-                "id": "reactflow__edge-EXTRACT_COLUMNS-06baafec-6e55-463f-9881-3814e8030007main-SUPPORT_VECTOR_MACHINE-078b74d1-0a4f-43f1-bd25-d0a82b5ac37einput"
+                "source": "EXTRACT_COLUMNS-02c0b2b9-186f-48e4-8bcb-7f8620985a9a",
+                "sourceHandle": "default",
+                "target": "SUPPORT_VECTOR_MACHINE-a51778d5-15f1-48ca-9d64-fbc26054cd20",
+                "targetHandle": "input_data",
+                "id": "reactflow__edge-EXTRACT_COLUMNS-02c0b2b9-186f-48e4-8bcb-7f8620985a9adefault-SUPPORT_VECTOR_MACHINE-a51778d5-15f1-48ca-9d64-fbc26054cd20input_data"
             },
             {
-                "source": "EXTRACT_COLUMNS-9a24f037-f0d2-407d-bc28-11217b52a5ad",
-                "sourceHandle": "main",
-                "target": "ACCURACY-68a20c65-5996-4c10-b825-352ec1c35e39",
+                "source": "EXTRACT_COLUMNS-79c76191-c46f-4d6b-9641-b6f4b1d3f060",
+                "sourceHandle": "default",
+                "target": "ACCURACY-bf41c632-f852-458a-b5e3-2ca4d4542254",
                 "targetHandle": "true_data",
-                "id": "reactflow__edge-EXTRACT_COLUMNS-9a24f037-f0d2-407d-bc28-11217b52a5admain-ACCURACY-68a20c65-5996-4c10-b825-352ec1c35e39true_data"
+                "id": "reactflow__edge-EXTRACT_COLUMNS-79c76191-c46f-4d6b-9641-b6f4b1d3f060default-ACCURACY-bf41c632-f852-458a-b5e3-2ca4d4542254true_data"
             },
             {
-                "source": "SUPPORT_VECTOR_MACHINE-078b74d1-0a4f-43f1-bd25-d0a82b5ac37e",
-                "sourceHandle": "main",
-                "target": "ACCURACY-68a20c65-5996-4c10-b825-352ec1c35e39",
-                "targetHandle": "predicted",
-                "id": "reactflow__edge-SUPPORT_VECTOR_MACHINE-078b74d1-0a4f-43f1-bd25-d0a82b5ac37emain-ACCURACY-68a20c65-5996-4c10-b825-352ec1c35e39predicted"
+                "source": "SUPPORT_VECTOR_MACHINE-a51778d5-15f1-48ca-9d64-fbc26054cd20",
+                "sourceHandle": "default",
+                "target": "ACCURACY-bf41c632-f852-458a-b5e3-2ca4d4542254",
+                "targetHandle": "predicted_data",
+                "id": "reactflow__edge-SUPPORT_VECTOR_MACHINE-a51778d5-15f1-48ca-9d64-fbc26054cd20default-ACCURACY-bf41c632-f852-458a-b5e3-2ca4d4542254predicted_data"
             },
             {
-                "source": "READ_CSV-8473a6f9-f6a2-483e-a302-365d490b2fb9",
-                "sourceHandle": "main",
-                "target": "SUPPORT_VECTOR_MACHINE-078b74d1-0a4f-43f1-bd25-d0a82b5ac37e",
-                "targetHandle": "train",
-                "id": "reactflow__edge-READ_CSV-8473a6f9-f6a2-483e-a302-365d490b2fb9main-SUPPORT_VECTOR_MACHINE-078b74d1-0a4f-43f1-bd25-d0a82b5ac37etrain"
+                "source": "ACCURACY-bf41c632-f852-458a-b5e3-2ca4d4542254",
+                "sourceHandle": "default",
+                "target": "END-d01fb4f4-4eb4-49db-8d46-40ca771b7a80",
+                "targetHandle": "default",
+                "id": "reactflow__edge-ACCURACY-bf41c632-f852-458a-b5e3-2ca4d4542254default-END-d01fb4f4-4eb4-49db-8d46-40ca771b7a80default"
             }
         ],
         "viewport": {
-            "x": 51.964285714285666,
-            "y": 190.74999999999997,
-            "zoom": 0.5
+            "x": -501.95459935516146,
+            "y": 169.48083177807212,
+            "zoom": 1.4811524052100216
         }
     },
     "ctrlsManifest": [

@@ -2,14 +2,14 @@ from flojoy import flojoy, DataFrame, Matrix
 import pandas as pd
 import numpy as np
 from sklearn import svm, preprocessing
-from typing import cast, Literal
+from typing import cast, Literal, Optional
 
 
 @flojoy
 def SUPPORT_VECTOR_MACHINE(
     training_data: DataFrame | Matrix,
     input_data: DataFrame | Matrix,
-    target: str | None,
+    target: Optional[str] = None,
     kernel: Literal["linear", "poly", "rvm", "sigmoid"] = "linear",
 ) -> DataFrame:
     """The SUPPORT_VECTOR_MACHINE node is used to train a support vector machine model for classification tasks.

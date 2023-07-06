@@ -1,10 +1,11 @@
-from flojoy import flojoy, DataFrame
+from flojoy import flojoy, DataFrame, Array
 import pandas as pd
+import numpy as np
 from typing import cast
 
 
 @flojoy
-def EXTRACT_COLUMNS(default: DataFrame, columns: list[str] = "") -> DataFrame:
+def EXTRACT_COLUMNS(default: DataFrame, columns: Array) -> DataFrame:
     """The EXTRACT_COLUMNS node takes an input dataframe and returns a dataframe with only the specified columns.
 
     Parameters
@@ -17,8 +18,7 @@ def EXTRACT_COLUMNS(default: DataFrame, columns: list[str] = "") -> DataFrame:
     dataframe
         The dataframe with only the specified columns.
     """
-    df = cast(pd.DataFrame, default.df)
-    new_df = df[columns] if columns else df
+    df = cast(pd.DataFrame, default.m)
+    new_df = df[columns.unwrap()] if columns else df
     new_df = cast(pd.DataFrame, new_df)
-
     return DataFrame(df=new_df)

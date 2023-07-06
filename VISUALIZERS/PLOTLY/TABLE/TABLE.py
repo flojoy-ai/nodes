@@ -1,11 +1,11 @@
-from flojoy import flojoy, OrderedPair, OrderedTriple, DataFrame, Plotly
+from flojoy import flojoy, OrderedPair, OrderedTriple, DataFrame, Matrix, Plotly
 import plotly.graph_objects as go
 import pandas as pd
 from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
-def TABLE(default: OrderedTriple | OrderedPair | DataFrame) -> Plotly:
+def TABLE(default: OrderedTriple | OrderedPair | DataFrame | Matrix) -> Plotly:
     """The TABLE node creates a Plotly table visualization for a given input data container.
 
     Parameters:

@@ -1,4 +1,5 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, Plotly, DataFrame, OrderedPair, OrderedTriple, Matrix
+from typing import Literal
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
@@ -6,7 +7,12 @@ from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
-def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def COMPOSITE(
+    figure1: DataFrame | OrderedPair  | OrderedTriple | Matrix,
+    figure2: DataFrame | OrderedPair  | OrderedTriple | Matrix,
+    first_figure: Literal["bar", "line", "histogram", "scatter"] = "line",
+    second_figure: Literal["bar", "line", "histogram", "scatter"] = "line",
+    ) -> Plotly:
     """The COMPOSITE node creates a combination of Plotly visualizations for a given input data container.
 
     Parameters
@@ -16,26 +22,20 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     Supported DC types:
     ----------------
-    `ordered_pair`, `dataframe` (including timeseries), `ordered_triple`, `matrix`
+    `OrderedPair`, `DataFrame` (including timeseries), `OrderedTriple`, `Matrix`
 
     """
-
-    dc_input_1: DataContainer = dc_inputs[0]
-    dc_input_2: DataContainer = dc_inputs[1]
-    first_figure: str = params.get("first_figure")
-    second_figure: str = params.get("second_figure")
-
     node_name: str = __name__.split(".")[-1]
     layout = plot_layout(title=node_name)
     fig = go.Figure(layout=layout)
 
-    match dc_input_1.type:
+    match figure1.type:
         case "ordered_pair":
-            x = dc_input_1.x
-            if isinstance(dc_input_1.x, dict):
-                dict_keys = list(dc_input_1.x.keys())
-                x = dc_input_1.x[dict_keys[0]]
-            y = dc_input_1.y
+            x = figure1.x
+            if isinstance(figure1.x, dict):
+                dict_keys = list(figure1.x.keys())
+                x = figure1.x[dict_keys[0]]
+            y = figure1.y
             match first_figure:
                 case "bar":
                     fig.add_trace(go.Bar(x=x, y=y))
@@ -49,9 +49,9 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                     )
 
         case "ordered_triple":
-            x = dc_input_1.x
-            y = dc_input_1.y
-            z = dc_input_1.z
+            x = figure1.x
+            y = figure1.y
+            z = figure1.z
             match first_figure:
                 case "bar":
                     fig.add_trace(go.Bar(x=x, y=y, z=z))
@@ -59,7 +59,7 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                     fig.add_trace(go.Scatter(x=x, y=y, z=z, mode="lines"))
 
         case "dataframe":
-            df = pd.DataFrame(dc_input_1.m)
+            df = pd.DataFrame(figure1.m)
             first_col = df.iloc[:, 0]
             is_timeseries = False
             if pd.api.types.is_datetime64_any_dtype(first_col):
@@ -132,7 +132,7 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                             )
 
         case "matrix":
-            m: np.ndarray = dc_input_1.m
+            m: np.ndarray = figure1.m
             num_rows, num_cols = m.shape
             x_ticks = np.arange(num_cols)
 
@@ -155,16 +155,16 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
         case _:
             raise ValueError(
-                f"unsupported DataContainer type passed for {node_name}: {dc_input_1.type}"
+                f"unsupported DataContainer type passed for {node_name}: {figure1.type}"
             )
 
-    match dc_input_2.type:
+    match figure2.type:
         case "ordered_pair":
-            x = dc_input_2.x
-            if isinstance(dc_input_2.x, dict):
-                dict_keys = list(dc_input_2.x.keys())
-                x = dc_input_2.x[dict_keys[0]]
-            y = dc_input_2.y
+            x = figure2.x
+            if isinstance(figure2.x, dict):
+                dict_keys = list(figure2.x.keys())
+                x = figure2.x[dict_keys[0]]
+            y = figure2.y
             match second_figure:
                 case "bar":
                     fig.add_trace(go.Bar(x=x, y=y))
@@ -178,9 +178,9 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                     )
 
         case "ordered_triple":
-            x = dc_input_2.x
-            y = dc_input_2.y
-            z = dc_input_2.z
+            x = figure2.x
+            y = figure2.y
+            z = figure2.z
             match second_figure:
                 case "bar":
                     fig.add_trace(go.Bar(x=x, y=y, z=z))
@@ -188,7 +188,7 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                     fig.add_trace(go.Scatter(x=x, y=y, z=z, mode="lines"))
 
         case "dataframe":
-            df = pd.DataFrame(dc_input_2.m)
+            df = pd.DataFrame(figure2.m)
             first_col = df.iloc[:, 0]
             is_timeseries = False
             if pd.api.types.is_datetime64_any_dtype(first_col):
@@ -261,7 +261,7 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                             )
 
         case "matrix":
-            m: np.ndarray = dc_input_2.m
+            m: np.ndarray = figure2.m
             num_rows, num_cols = m.shape
             x_ticks = np.arange(num_cols)
 
@@ -284,8 +284,8 @@ def COMPOSITE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
         case _:
             raise ValueError(
-                f"unsupported DataContainer type passed for {node_name}: {dc_input_2.type}"
+                f"unsupported DataContainer type passed for {node_name}: {figure2.type}"
             )
 
     fig.update_layout(dict(autosize=True, height=None, width=None))
-    return DataContainer(type="plotly", fig=fig)
+    return Plotly(fig=fig)

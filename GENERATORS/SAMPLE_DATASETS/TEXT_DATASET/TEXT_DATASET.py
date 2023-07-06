@@ -1,13 +1,19 @@
-from flojoy import flojoy, DataFrame, Defaultparams
+from flojoy import flojoy, DataFrame
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.utils import Bunch
 import pandas as pd
-from typing import cast
+from typing import cast, Literal, Optional
 
 
 # TODO: Add more datasets to this node.
 @flojoy
-def TEXT_DATASET(default_params: Defaultparams) -> DataFrame:
+def TEXT_DATASET(
+    subset: Literal["train", "test", "all"] = "train",
+    categories: Optional[list[str]] = None,
+    remove_headers: bool = False,
+    remove_footers: bool = False,
+    remove_quotes: bool = False,
+) -> DataFrame:
     """The TEXT_DATASET node loads the 20 newsgroups dataset from scikit-learn.
     The data is returned as a dataframe with one column containing the text
     and the other containing the category.
@@ -46,12 +52,6 @@ def TEXT_DATASET(default_params: Defaultparams) -> DataFrame:
     remove_quotes: boolean, default=false
         Remove the quotes from the data.
     """
-
-    subset = default_params.get("subset", "train")
-    categories = default_params.get("categories", None)
-    remove_headers = default_params.get("remove_headers", False)
-    remove_footers = default_params.get("remove_footers", False)
-    remove_quotes = default_params.get("remove_quotes", False)
 
     to_remove = []
     if remove_headers:
