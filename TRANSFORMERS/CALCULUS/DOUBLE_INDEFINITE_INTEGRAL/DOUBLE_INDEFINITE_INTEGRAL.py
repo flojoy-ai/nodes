@@ -3,9 +3,7 @@ import numpy as np
 
 
 @flojoy
-def DOUBLE_INDEFINITE_INTEGRAL(
-    default : OrderedTriple
-) -> Matrix:
+def DOUBLE_INDEFINITE_INTEGRAL(default: OrderedTriple) -> Matrix:
     """
     The INDEFINITE_INTEGRAL node takes three matrices and computes double integral.
     It returns a matrix where each cell represents volumn up to the given point.

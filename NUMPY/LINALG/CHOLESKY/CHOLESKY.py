@@ -4,7 +4,7 @@ import numpy.linalg
 
 
 @flojoy
-def CHOLESKY(a : Union[OrderedPair, Matrix]) -> OrderedPair:
+def CHOLESKY(a: Union[OrderedPair, Matrix]) -> OrderedPair:
     """
 
             Cholesky decomposition.

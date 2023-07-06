@@ -3,7 +3,9 @@ from flojoy import flojoy, OrderedPair
 
 
 @flojoy
-def KEITHLEY2400(default: OrderedPair, comport: str = '/dev/ttyUSB0', baudrate: float = 9600.0) -> OrderedPair:
+def KEITHLEY2400(
+    default: OrderedPair, comport: str = "/dev/ttyUSB0", baudrate: float = 9600.0
+) -> OrderedPair:
     """
     IV curve measurement with a Keithley 2400 source meter, send voltages and measure currents
     """

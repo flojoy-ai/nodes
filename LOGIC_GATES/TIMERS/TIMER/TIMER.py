@@ -6,7 +6,9 @@ import json
 
 
 @flojoy
-def TIMER(default: DataContainer, default_params: DefaultParams, sleep_time: float = 0.0) -> DataContainer:
+def TIMER(
+    default: DataContainer, default_params: DefaultParams, sleep_time: float = 0.0
+) -> DataContainer:
     """The TIMER node sleeps for a specified number of seconds.
 
     Parameters

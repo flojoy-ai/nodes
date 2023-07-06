@@ -4,7 +4,7 @@ from typing import cast
 
 
 @flojoy
-def ACCURACY(true_data : DataFrame, predicted_data : DataFrame) -> DataFrame:
+def ACCURACY(true_data: DataFrame, predicted_data: DataFrame) -> DataFrame:
     """The ACCURACY node takes two dataframes with the true and predicted labels from a classification task,
     and indicates whether the prediction was correct or not. These dataframes should both be single columns.
 
@@ -18,7 +18,7 @@ def ACCURACY(true_data : DataFrame, predicted_data : DataFrame) -> DataFrame:
         The input predictions dataframe, with an extra boolean column "prediction_correct".
 
     """
-    
+
     true_df = cast(pd.DataFrame, true_data.m)
     predicted_df = cast(pd.DataFrame, predicted_data.m)
 

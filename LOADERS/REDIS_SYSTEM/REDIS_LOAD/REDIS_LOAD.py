@@ -24,7 +24,7 @@ def REDIS_LOAD(default: DataContainer, referred_node: NodeReference) -> OrderedP
     dataframe
         The dataframe loaded from Redis. Ordered pair.
     """
-    
+
     x = default.y
     if referred_node != "":
         referred_node_key = referred_node.split("-")[0]

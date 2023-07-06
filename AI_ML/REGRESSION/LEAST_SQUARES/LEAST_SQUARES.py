@@ -5,7 +5,9 @@ from flojoy import flojoy, OrderedPair, Matrix, DCNpArrayType
 
 
 @flojoy
-def LEAST_SQUARES(a: Union[OrderedPair, Matrix], b: Union[OrderedPair, Matrix]) -> Union[OrderedPair, Matrix]:
+def LEAST_SQUARES(
+    a: Union[OrderedPair, Matrix], b: Union[OrderedPair, Matrix]
+) -> Union[OrderedPair, Matrix]:
     """The LEAST_SQUARE node computes the coefficients that minimizes the distance between the
     inputs 'Matrix or OrderedPair' class and the regression.
 
@@ -21,7 +23,7 @@ def LEAST_SQUARES(a: Union[OrderedPair, Matrix], b: Union[OrderedPair, Matrix]) 
         y: fitted line computed with returned regression weights
     """
 
-    if b is None and a.type == "ordered_pair": 
+    if b is None and a.type == "ordered_pair":
         if (len(a.y)) != 0:
             x = a.y
             y = a.y
@@ -38,8 +40,8 @@ def LEAST_SQUARES(a: Union[OrderedPair, Matrix], b: Union[OrderedPair, Matrix]) 
         res = slope * x + intercept
 
         return OrderedPair(x=x, y=res)
-    
-    if (a.type == "ordered_pair" and b.type == "ordered_pair"):
+
+    if a.type == "ordered_pair" and b.type == "ordered_pair":
         x = a.y
         y = b.y
 
@@ -54,7 +56,7 @@ def LEAST_SQUARES(a: Union[OrderedPair, Matrix], b: Union[OrderedPair, Matrix]) 
 
         return OrderedPair(x=x, y=res)
 
-    elif (a.type == "matrix" and b.type == "matrix"):
+    elif a.type == "matrix" and b.type == "matrix":
         x = a.m
         y = b.m
 

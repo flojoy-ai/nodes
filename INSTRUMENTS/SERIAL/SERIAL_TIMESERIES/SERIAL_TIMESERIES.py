@@ -11,7 +11,7 @@ def SERIAL_TIMESERIES(
     comport: str = "/dev/ttyACM0",
     baudrate: int = 9600,
     num_readings: int = 100,
-    record_period: float = 1.0
+    record_period: float = 1.0,
 ) -> OrderedPair:
     """
     Node to take simple time dependent 1d data from an Ardunio,

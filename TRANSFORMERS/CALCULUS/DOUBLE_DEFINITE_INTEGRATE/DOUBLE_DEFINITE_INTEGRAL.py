@@ -4,11 +4,13 @@ from sympy import parse_expr, lambdify
 
 
 @flojoy
-def DOUBLE_DEFINITE_INTEGRAL(function: str, 
-                             upper_bound_x: float, 
-                             lower_bound_x: float, 
-                             lower_bound_y: float, 
-                             upper_bound_y: float) -> Scalar:
+def DOUBLE_DEFINITE_INTEGRAL(
+    function: str,
+    upper_bound_x: float,
+    lower_bound_x: float,
+    lower_bound_y: float,
+    upper_bound_y: float,
+) -> Scalar:
     """
     The DEFINITE_INTEGRAL node takes a function, upper, and lower bounds as input.
     It computes double integral of the given function.

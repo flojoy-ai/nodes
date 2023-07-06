@@ -7,8 +7,12 @@ import numpy as np
 
 
 @flojoy
-def CAMERA(camera_ind: int = -1, 
-           resolution: Literal["default", "640x360", "640x480", "280x720", "1920x1080"] = "default") -> Image:
+def CAMERA(
+    camera_ind: int = -1,
+    resolution: Literal[
+        "default", "640x360", "640x480", "280x720", "1920x1080"
+    ] = "default",
+) -> Image:
     """The CAMERA node acquires an image using the selected camera.
     If no camera is detected, an error would be thrown.
 

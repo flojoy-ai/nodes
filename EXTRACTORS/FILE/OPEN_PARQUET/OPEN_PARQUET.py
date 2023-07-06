@@ -4,8 +4,7 @@ import pandas as pd
 
 
 @flojoy
-def OPEN_PARQUET(default_params: DefaultParams
-) -> DataFrame:
+def OPEN_PARQUET(default_params: DefaultParams) -> DataFrame:
     """
     The OPEN_PARQUET node loads a local file of the .parquet file format.
     It returns the file in pandas.Dataframe type.

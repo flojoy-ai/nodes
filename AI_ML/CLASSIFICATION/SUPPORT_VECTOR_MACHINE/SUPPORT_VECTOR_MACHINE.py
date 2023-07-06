@@ -7,9 +7,10 @@ from typing import cast, Optional, Union, Literal
 
 @flojoy
 def SUPPORT_VECTOR_MACHINE(
-    training_data: Union[DataFrame, Matrix], input_data: Union[DataFrame, Matrix], 
+    training_data: Union[DataFrame, Matrix],
+    input_data: Union[DataFrame, Matrix],
     target: Optional[str],
-    kernel: Literal["linear", "poly", "rvm", "sigmoid"] = "linear"
+    kernel: Literal["linear", "poly", "rvm", "sigmoid"] = "linear",
 ) -> DataFrame:
     """The SUPPORT_VECTOR_MACHINE node is used to train a support vector machine model for classification tasks.
     It takes a dataframe of labelled training data, and a dataframe of unlabelled input data.

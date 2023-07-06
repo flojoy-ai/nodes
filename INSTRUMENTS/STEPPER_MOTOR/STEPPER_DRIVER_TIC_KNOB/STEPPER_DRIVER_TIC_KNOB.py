@@ -7,13 +7,15 @@ from time import sleep
 
 @flojoy
 def STEPPER_DRIVER_TIC_KNOB(
-    knob_value: int = 0, current_limit: int = 30, speed: int = 200000, sleep_time: int = 2
+    knob_value: int = 0,
+    current_limit: int = 30,
+    speed: int = 200000,
+    sleep_time: int = 2,
 ) -> OrderedPair:
     """
     Takes knob position as parameters to control the rotation of the motor and allow to control position
     and speed of a motor with a TIC driver
     """
-    
 
     # Converting the knob value into a position
     knob_position: int = 2 * knob_value
