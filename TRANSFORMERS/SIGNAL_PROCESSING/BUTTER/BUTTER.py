@@ -5,7 +5,7 @@ from typing import Literal, Union
 
 @flojoy
 def BUTTER(
-    input: OrderedPair,
+    default: OrderedPair,
     filter_order: int = 1,
     critical_frequency: int = 1,
     btype: Literal["lowpass", "highpass", "bandpass", "bandstop"] = "lowpass",
@@ -17,7 +17,7 @@ def BUTTER(
     ----------
     filter_order: int
         The intensity of the filter
-    critical_frequency: array or int
+    critical_frequency: int
         The frequency where the filter takes effect. For lowpass and highpass, takes in a scalar.
         For bandpass and bandstop, takes in array with the length of two
     btype: select
@@ -30,7 +30,7 @@ def BUTTER(
         x: time domain
         y: filtered signal
     """
-    sig = input.y
+    sig = default.y
     order: int = filter_order
     wn: int = critical_frequency  # hz
     btype: str = btype
@@ -40,4 +40,4 @@ def BUTTER(
     #    sos = signal.butter(10, 15, "hp", fs=1000, output="sos")
     filtered = signal.sosfilt(sos, sig)
 
-    return DataContainer(x=input.x, y=filtered)
+    return DataContainer(x=default.x, y=filtered)

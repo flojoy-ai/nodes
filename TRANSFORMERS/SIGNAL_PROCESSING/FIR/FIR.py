@@ -5,7 +5,7 @@ from typing import Literal, Union
 
 @flojoy
 def FIR(
-    input: OrderedPair,
+    default: OrderedPair,
     sample_rate: int = 100,
     filter_type: Literal["lowpass", "highpass", "bandpass", "bandstop"] = "lowpass",
     window: Literal[
@@ -64,8 +64,8 @@ def FIR(
     cutoff_low: float = cutoff_low
     cutoff_high: float = cutoff_high
     n_taps: int = taps
-    times = input.x
-    input_signal = input.y
+    times = default.x
+    input_signal = default.y
 
     if input_signal.size < n_taps * 3:
         raise ValueError("length of the data should be three times longer than taps")

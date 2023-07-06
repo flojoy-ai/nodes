@@ -1,8 +1,8 @@
 from scipy import signal, fft
 from numpy import abs
 from flojoy import flojoy, OrderedPair, DataFrame
-import pandas as pd
-from typing import Literal, Union
+from typing import Literal
+from pandas import DataFrame as df
 
 
 @flojoy
@@ -30,7 +30,7 @@ def FFT(
     real_signal: bool = True,
     sample_rate: int = 1,
     display: bool = True,
-) -> Union[OrderedPair, DataFrame]:
+) -> OrderedPair | DataFrame:
     """The FFT node performs a Discrete Fourier Transform on the input vector.
     Through the FFT algorithm, the input vector will be transformed
     from the time domain into the frequency domain which will be an ordered pair of arrays.
@@ -59,11 +59,6 @@ def FFT(
 
     """
 
-    window_type: str = window
-    real: bool = real_signal
-    sample_rate: int = sample_rate
-    display: bool = display
-
     if sample_rate <= 0:
         raise ValueError(f"Sample rate must be greater than 0")
 
@@ -73,19 +68,19 @@ def FFT(
     # x-axis
     frequency = (
         fft.rfftfreq(x.shape[-1], sample_spacing)
-        if real
+        if real_signal and display
         else fft.fftfreq(x.shape[-1], sample_spacing)
     )
     frequency = fft.fftshift(frequency)
     if display:
         # y-axis
-        if window_type == "none":
-            fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
+        if window == "none":
+            fourier = fft.rfft(signal_value) if real_signal else fft.fft(signal_value)
         else:
-            window = signal.get_window(window_type, len(signal_value))
+            window = signal.get_window(window, len(signal_value))
             fourier = (
                 fft.rfft(signal_value * window)
-                if real
+                if real_signal
                 else fft.fft(signal_value * window)
             )
         fourier = fft.fftshift(fourier)
@@ -93,6 +88,6 @@ def FFT(
         return OrderedPair(x=frequency, y=fourier)
 
     # for processing
-    fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
-    d = {"time": x, "frequency": frequency, "real": fourier.real, "imag": fourier.imag}
-    return DataFrame(m=pd.DataFrame(data=d))
+    fourier = fft.fft(signal_value)
+    d = {"x": x, "frequency": frequency, "real": fourier.real, "imag": fourier.imag}
+    return DataFrame(df=df(data=d))

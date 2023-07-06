@@ -1,1 +1,4 @@
-THIS EXAMPLE BUTTERS THE NOISY SIGNALS & SMOOTHENS IT.
+In this example, `BASIC_OSCILLATOR` node generates a signal that's 10 seconds long with a sample rate of 50.
+The generated signal is a saw wave with a starting frequency of 1.
+
+It is then sent to a `BUTTER` node that filters out frequencies above 5 with a `filter_order` of 4.

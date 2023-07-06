@@ -4,7 +4,7 @@ import pandas as pd
 
 
 @flojoy
-def IFFT(input: DataFrame, real_signal: bool) -> OrderedPair:
+def IFFT(default: DataFrame, real_signal: bool = True) -> OrderedPair:
     """The IFFT performs the Inverse Discrete Fourier Transform on the input signal.
     With the IFFT algorith, the input signal will be transformed from the
     frequency domain back into the time domain.
@@ -20,8 +20,7 @@ def IFFT(input: DataFrame, real_signal: bool) -> OrderedPair:
         x = time
         y = reconstructed signal
     """
-    dc: pd.DataFrame = input.m
-    real: bool = real_signal
+    dc: pd.DataFrame = default.m
 
     x = dc["x"].to_numpy()
     realValue = dc["real"].to_numpy()
@@ -29,6 +28,6 @@ def IFFT(input: DataFrame, real_signal: bool) -> OrderedPair:
 
     fourier = realValue + 1j * imagValue
 
-    result = fft.irfft(fourier) if real else fft.ifft(fourier, len(x))
+    result = fft.irfft(fourier) if real_signal else fft.ifft(fourier, len(x))
     result = result.real
     return OrderedPair(x=x, y=result)
