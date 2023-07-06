@@ -1,14 +1,33 @@
 from scipy import signal, fft
 from numpy import abs
 from flojoy import flojoy, OrderedPair, DataFrame
+from typing import Literal
 from pandas import DataFrame as df
 
 
 @flojoy
 def FFT(
     default: OrderedPair,
-    window_type: str = "none",
-    real: bool = False,
+    window: Literal[
+        "boxcar",
+        "triang",
+        "blackman",
+        "hamming",
+        "hann",
+        "bartlett",
+        "flattop",
+        "parzen",
+        "bohman",
+        "blackmanharris",
+        "nuttall",
+        "barthann",
+        "cosine",
+        "exponential",
+        "tukey",
+        "taylor",
+        "lanczos",
+    ] = "hann",
+    real_signal: bool = True,
     sample_rate: int = 1,
     display: bool = True,
 ) -> OrderedPair | DataFrame:
@@ -29,9 +48,14 @@ def FFT(
 
     Returns
     -------
-    ordered_pair
+    Ordered_pair if display is true
         x: frequency
         y: spectrum of the signal
+    DataFrame if display is false
+        time: time domain
+        frequency: frequency domain
+        real: real section of the signal
+        imag: imaginary section of the signal
 
     """
 
@@ -44,19 +68,19 @@ def FFT(
     # x-axis
     frequency = (
         fft.rfftfreq(x.shape[-1], sample_spacing)
-        if real
+        if real_signal and display
         else fft.fftfreq(x.shape[-1], sample_spacing)
     )
     frequency = fft.fftshift(frequency)
     if display:
         # y-axis
-        if window_type == "none":
-            fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
+        if window == "none":
+            fourier = fft.rfft(signal_value) if real_signal else fft.fft(signal_value)
         else:
-            window = signal.get_window(window_type, len(signal_value))
+            window = signal.get_window(window, len(signal_value))
             fourier = (
                 fft.rfft(signal_value * window)
-                if real
+                if real_signal
                 else fft.fft(signal_value * window)
             )
         fourier = fft.fftshift(fourier)
@@ -64,6 +88,6 @@ def FFT(
         return OrderedPair(x=frequency, y=fourier)
 
     # for processing
-    fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
+    fourier = fft.fft(signal_value)
     d = {"x": x, "frequency": frequency, "real": fourier.real, "imag": fourier.imag}
-    return DataFrame(m=df(data=d))
+    return DataFrame(df=df(data=d))

@@ -2,152 +2,205 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 380,
-                "height": 293,
-                "id": "IMAGE-42079553-6ee9-4eda-8b41-81bc5c7cb6af",
-                "type": "PLOTLY_VISOR",
+                "width": 150,
+                "height": 150,
+                "id": "SKLEARNIMAGE-fdaea1e9-0768-4451-bcc2-11d149ddefbe",
+                "type": "default",
                 "data": {
-                    "id": "IMAGE-42079553-6ee9-4eda-8b41-81bc5c7cb6af",
-                    "label": "IMAGE",
-                    "func": "IMAGE",
-                    "type": "PLOTLY_VISOR",
-                    "ctrls": {},
-                    "selected": true
+                    "id": "SKLEARNIMAGE-fdaea1e9-0768-4451-bcc2-11d149ddefbe",
+                    "label": "SKLEARNIMAGE",
+                    "func": "SKLEARNIMAGE",
+                    "type": "default",
+                    "ctrls": {
+                        "img_key": {
+                            "type": "select",
+                            "default": null,
+                            "options": [
+                                "astronaut",
+                                "binary_blobs",
+                                "brain",
+                                "brick",
+                                "camera",
+                                "cat",
+                                "cell",
+                                "cells3d",
+                                "checkerboard",
+                                "chelsea",
+                                "clock",
+                                "coffee",
+                                "coins",
+                                "colorwheel",
+                                "create_image_fetcher",
+                                "data_dir",
+                                "download_all",
+                                "eagle",
+                                "file_hash",
+                                "grass",
+                                "gravel",
+                                "horse",
+                                "hubble_deep_field",
+                                "human_mitosis",
+                                "image_fetcher",
+                                "immunohistochemistry",
+                                "kidney",
+                                "lbp_frontal_face_cascade_filename",
+                                "lfw_subset",
+                                "lily",
+                                "logo",
+                                "microaneurysms",
+                                "moon",
+                                "nickel_solidification",
+                                "page",
+                                "protein_transport",
+                                "retina",
+                                "rocket",
+                                "shepp_logan_phantom",
+                                "skin",
+                                "stereo_motorcycle",
+                                "text",
+                                "vortex"
+                            ],
+                            "functionName": "SKLEARNIMAGE",
+                            "param": "img_key",
+                            "value": "astronaut"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SAMPLE_IMAGES/SKLEARNIMAGE/SKLEARNIMAGE.py",
+                    "selected": false
                 },
                 "position": {
-                    "x": 1076.5333470751461,
-                    "y": 174.14074693455433
+                    "x": 4786.3329820015715,
+                    "y": 1530.3981620573402
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 1076.5333470751461,
-                    "y": 174.14074693455433
+                    "x": 4786.3329820015715,
+                    "y": 1530.3981620573402
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "SKLEARNIMAGE-c448a24e-58f0-463b-a7b9-c933a584f123",
-                "type": "SAMPLE_IMAGE",
+                "id": "END-e6e016db-3775-4909-8fce-dd22de77465c",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "SKLEARNIMAGE-c448a24e-58f0-463b-a7b9-c933a584f123",
-                    "label": "SKLEARNIMAGE",
-                    "func": "SKLEARNIMAGE",
-                    "type": "SAMPLE_IMAGE",
-                    "ctrls": {
-                        "img_key": {
-                            "functionName": "SKLEARNIMAGE",
-                            "param": "img_key",
-                            "value": "astronaut"
-                        }
-                    },
-                    "pip_dependencies": [
+                    "id": "END-e6e016db-3775-4909-8fce-dd22de77465c",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
                         {
-                            "name": "scikit-image",
-                            "v": "0.20.0"
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
                         }
                     ],
-                    "selected": false
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": true
                 },
                 "position": {
-                    "x": 237.96191850371753,
-                    "y": 264.1407469345545
+                    "x": 5589.190124858714,
+                    "y": 1544.6838763430544
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 237.96191850371753,
-                    "y": 264.1407469345545
+                    "x": 5589.190124858714,
+                    "y": 1544.6838763430544
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "TWO_DIMENSIONAL_FFT-cd2fd49a-5146-4c68-b063-04e1bff08428",
+                "id": "TWO_DIMENSIONAL_FFT-5a748399-d01f-4fc8-8a84-87fc170ed03c",
                 "type": "SIGNAL_PROCESSING",
                 "data": {
-                    "id": "TWO_DIMENSIONAL_FFT-cd2fd49a-5146-4c68-b063-04e1bff08428",
+                    "id": "TWO_DIMENSIONAL_FFT-5a748399-d01f-4fc8-8a84-87fc170ed03c",
                     "label": "TWO DIMENSIONAL FFT",
                     "func": "TWO_DIMENSIONAL_FFT",
                     "type": "SIGNAL_PROCESSING",
                     "ctrls": {
                         "real_signal": {
+                            "type": "bool",
+                            "default": true,
                             "functionName": "TWO_DIMENSIONAL_FFT",
                             "param": "real_signal",
                             "value": false
                         },
                         "color": {
+                            "type": "select",
+                            "default": "red",
+                            "options": [
+                                "red",
+                                "green",
+                                "blue",
+                                "grayscale"
+                            ],
                             "functionName": "TWO_DIMENSIONAL_FFT",
                             "param": "color",
                             "value": "red"
                         }
                     },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Grayscale|DataFrame|Image|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Matrix|DataFrame|Image"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/SIGNAL_PROCESSING/TWO_DIMENSIONAL_FFT/TWO_DIMENSIONAL_FFT.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 635.104775646575,
-                    "y": 254.14074693455433
+                    "x": 5196.3329820015715,
+                    "y": 1533.255304914483
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 635.104775646575,
-                    "y": 254.14074693455433
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-f1f27c48-c954-4328-8d1d-80a1ab94cdfc",
-                "type": "TERMINATOR",
-                "data": {
-                    "id": "END-f1f27c48-c954-4328-8d1d-80a1ab94cdfc",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 1650.8190613608604,
-                    "y": 265.5693183631257
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1650.8190613608604,
-                    "y": 265.5693183631257
+                    "x": 5196.3329820015715,
+                    "y": 1533.255304914483
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "SKLEARNIMAGE-c448a24e-58f0-463b-a7b9-c933a584f123",
-                "sourceHandle": "main",
-                "target": "TWO_DIMENSIONAL_FFT-cd2fd49a-5146-4c68-b063-04e1bff08428",
-                "targetHandle": "TWO_DIMENSIONAL_FFT",
-                "id": "reactflow__edge-SKLEARNIMAGE-c448a24e-58f0-463b-a7b9-c933a584f123main-TWO_DIMENSIONAL_FFT-cd2fd49a-5146-4c68-b063-04e1bff08428TWO_DIMENSIONAL_FFT"
+                "source": "SKLEARNIMAGE-fdaea1e9-0768-4451-bcc2-11d149ddefbe",
+                "sourceHandle": "default",
+                "target": "TWO_DIMENSIONAL_FFT-5a748399-d01f-4fc8-8a84-87fc170ed03c",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SKLEARNIMAGE-fdaea1e9-0768-4451-bcc2-11d149ddefbedefault-TWO_DIMENSIONAL_FFT-5a748399-d01f-4fc8-8a84-87fc170ed03cdefault"
             },
             {
-                "source": "TWO_DIMENSIONAL_FFT-cd2fd49a-5146-4c68-b063-04e1bff08428",
-                "sourceHandle": "main",
-                "target": "IMAGE-42079553-6ee9-4eda-8b41-81bc5c7cb6af",
-                "targetHandle": "IMAGE",
-                "id": "reactflow__edge-TWO_DIMENSIONAL_FFT-cd2fd49a-5146-4c68-b063-04e1bff08428main-IMAGE-42079553-6ee9-4eda-8b41-81bc5c7cb6afIMAGE"
-            },
-            {
-                "source": "IMAGE-42079553-6ee9-4eda-8b41-81bc5c7cb6af",
-                "sourceHandle": "main",
-                "target": "END-f1f27c48-c954-4328-8d1d-80a1ab94cdfc",
-                "targetHandle": "END",
-                "id": "reactflow__edge-IMAGE-42079553-6ee9-4eda-8b41-81bc5c7cb6afmain-END-f1f27c48-c954-4328-8d1d-80a1ab94cdfcEND"
+                "source": "TWO_DIMENSIONAL_FFT-5a748399-d01f-4fc8-8a84-87fc170ed03c",
+                "sourceHandle": "default",
+                "target": "END-e6e016db-3775-4909-8fce-dd22de77465c",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TWO_DIMENSIONAL_FFT-5a748399-d01f-4fc8-8a84-87fc170ed03cdefault-END-e6e016db-3775-4909-8fce-dd22de77465cdefault"
             }
         ],
         "viewport": {
-            "x": -163.3950207201026,
-            "y": 8.943780002569099,
-            "zoom": 1.041933418693982
+            "x": -370.442494324109,
+            "y": 94.05885385221723,
+            "zoom": 1.093090475044996
         }
     },
     "ctrlsManifest": [
