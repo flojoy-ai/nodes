@@ -10,7 +10,7 @@ def onVoltageRatioChange(self, voltageRatio):
 
 
 @flojoy
-def PHIDGET22(n_sensors:int = 3, calibration1: float = 0.015, calibration2: float = 0.06) -> OrderedPair                                                                   아 조영선 너가 지금 하고 있는거 왜 param 안쓰고, 다른것들 쓰는거임???? 아 아닌가, voltage 저런건 뭐임air:
+def PHIDGET22(n_sensors:int = 3, calibration1: float = 0.015, calibration2: float = 0.06) -> OrderedPair:                                                        
                         
     """Pressure Measurement with Phidget 22 sensors"""
     voltage: list[float] = []
