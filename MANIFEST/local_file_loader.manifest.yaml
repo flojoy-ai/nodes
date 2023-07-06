@@ -11,6 +11,7 @@ COMMAND:
           - json
           - xml
           - excel
+          - mp3
         default: image
       path:
         type: string

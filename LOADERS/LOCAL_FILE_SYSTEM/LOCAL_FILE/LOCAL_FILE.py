@@ -77,6 +77,11 @@ def LOCAL_FILE(
             file_path = get_file_path(file_path)
             df = pd.read_excel(file_path)
             return DataContainer(type="dataframe", m=df)
+        case "mp3":
+            file_path = get_file_path(file_path)
+            with open(file_path, 'rb') as inp:
+                audio_bytes_stream = inp.read()
+            return DataContainer(type="bytes", bytes=audio_bytes_stream)
         case _:
             raise ValueError(
                 f"LOCAL_FILE currently doesn't support file type : {file_type}"
