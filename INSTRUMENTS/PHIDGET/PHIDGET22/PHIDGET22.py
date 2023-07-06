@@ -10,8 +10,9 @@ def onVoltageRatioChange(self, voltageRatio):
 
 
 @flojoy
-def PHIDGET22(n_sensors:int = 3, calibration1: float = 0.015, calibration2: float = 0.06) -> OrderedPair:                                                        
-                        
+def PHIDGET22(
+    n_sensors: int = 3, calibration1: float = 0.015, calibration2: float = 0.06
+) -> OrderedPair:
     """Pressure Measurement with Phidget 22 sensors"""
     voltage: list[float] = []
     pressions: list[float] = []

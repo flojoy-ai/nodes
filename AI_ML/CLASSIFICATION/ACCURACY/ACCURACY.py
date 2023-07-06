@@ -23,4 +23,4 @@ def ACCURACY(true_data: DataFrame, predicted_data: DataFrame) -> DataFrame:
     predicted_df = cast(pd.DataFrame, predicted_data.m)
 
     predicted_df["prediction_correct"] = true_df.iloc[:, 0] == predicted_df.iloc[:, 0]
-    return DataFrame(m=predicted_df)
+    return DataFrame(df=predicted_df)

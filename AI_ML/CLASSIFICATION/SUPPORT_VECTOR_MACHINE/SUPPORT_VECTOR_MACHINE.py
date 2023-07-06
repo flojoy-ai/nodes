@@ -2,14 +2,14 @@ from flojoy import flojoy, DataFrame, Matrix
 import pandas as pd
 import numpy as np
 from sklearn import svm, preprocessing
-from typing import cast, Optional, Union, Literal
+from typing import cast, Literal
 
 
 @flojoy
 def SUPPORT_VECTOR_MACHINE(
-    training_data: Union[DataFrame, Matrix],
-    input_data: Union[DataFrame, Matrix],
-    target: Optional[str],
+    training_data: DataFrame | Matrix,
+    input_data: DataFrame | Matrix,
+    target: str | None,
     kernel: Literal["linear", "poly", "rvm", "sigmoid"] = "linear",
 ) -> DataFrame:
     """The SUPPORT_VECTOR_MACHINE node is used to train a support vector machine model for classification tasks.
@@ -27,7 +27,6 @@ def SUPPORT_VECTOR_MACHINE(
     dataframe
         The predictions for the input data.
     """
-    kernel: str = kernel.get("kernel", "linear")
 
     le = preprocessing.LabelEncoder()
 
@@ -62,4 +61,4 @@ def SUPPORT_VECTOR_MACHINE(
     prediction = le.inverse_transform(prediction)
     prediction = pd.DataFrame({target: prediction})
 
-    return DataFrame(type="dataframe", m=prediction)
+    return DataFrame(df=prediction)

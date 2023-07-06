@@ -1,15 +1,15 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, Image
 
 import torch
 from torchvision import transforms
 import torchvision.transforms.functional as TF
 
-from PIL import Image
+from PIL import Image as PIL_Image
 import numpy as np
 
 
 @flojoy
-def DEEPLAB_V3(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def DEEPLAB_V3(default: Image) -> Image:
     """The DEEPLAB_V3 node returns a segmentation mask from an input image
     in a dataframe. The input image is expected to be a DataContainer of type
     "image". The output is a DataContainer of type "image" with the same
@@ -31,13 +31,7 @@ def DEEPLAB_V3(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             a: The alpha channel of the image
 
     """
-
-    if len(dc_inputs) != 1 or dc_inputs[0].type != "image":
-        raise ValueError(
-            f"Invalid input, expected exactly one DataContainer of type 'image'"
-        )
-
-    input_image = dc_inputs[0]
+    input_image = default
 
     r, g, b, a = input_image.r, input_image.g, input_image.b, input_image.a
     nparray = (
@@ -70,14 +64,13 @@ def DEEPLAB_V3(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     colors = (colors % 255).numpy().astype("uint8")
 
     # plot the semantic segmentation predictions of 21 classes in each color
-    r = Image.fromarray(output_predictions.byte().cpu().numpy()).resize(
+    r = PIL_Image.fromarray(output_predictions.byte().cpu().numpy()).resize(
         input_image.size
     )
     r.putpalette(colors)
     out_img = np.array(r.convert("RGB"))
 
-    return DataContainer(
-        type="image",
+    return Image(
         r=out_img[:, :, 0],
         g=out_img[:, :, 1],
         b=out_img[:, :, 2],

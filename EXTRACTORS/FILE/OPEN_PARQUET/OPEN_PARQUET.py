@@ -1,10 +1,10 @@
 from os import path
-from flojoy import flojoy, DataFrame, DefaultParams
+from flojoy import flojoy, DataFrame
 import pandas as pd
 
 
 @flojoy
-def OPEN_PARQUET(default_params: DefaultParams) -> DataFrame:
+def OPEN_PARQUET(file_path: str = "") -> DataFrame:
     """
     The OPEN_PARQUET node loads a local file of the .parquet file format.
     It returns the file in pandas.Dataframe type.
@@ -20,8 +20,6 @@ def OPEN_PARQUET(default_params: DefaultParams) -> DataFrame:
         type 'dataframe', m
     """
 
-    file_path = default_params["file_path"]
-
     if file_path[-8:] != ".parquet":
         raise ValueError(f"File type {file_path[-8:]} unsupported.")
 
@@ -30,4 +28,4 @@ def OPEN_PARQUET(default_params: DefaultParams) -> DataFrame:
 
     read_parquet = pd.read_parquet(file_path)
 
-    return DataFrame(m=read_parquet)
+    return DataFrame(df=read_parquet)

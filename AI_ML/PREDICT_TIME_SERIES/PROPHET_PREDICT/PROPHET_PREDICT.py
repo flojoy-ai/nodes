@@ -1,5 +1,5 @@
 import pandas as pd
-from flojoy import flojoy, DefaultParams, DataFrame
+from flojoy import flojoy, DataFrame
 from typing import Any, Dict, List
 from prophet import Prophet
 from prophet.serialize import model_to_json
@@ -7,8 +7,8 @@ from prophet.serialize import model_to_json
 
 @flojoy
 def PROPHET_PREDICT(
-    dc_inputs: List[DataContainer], params: Dict[str, Any]
-) -> DataContainer:
+    default: DataFrame, run_forecast: bool = True, periods: int = 365
+) -> DataFrame:
     """The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe
 
     The DataContainer input type must be `dataframe`, and that dataframe must have its
@@ -49,8 +49,7 @@ def PROPHET_PREDICT(
         as well as the `extra` param with keys "run_forecast" which correspond to the
         input param, and potentially "original" in the event that `run_forecast` is True
     """
-    dc_input = dc_inputs[0]
-    run_forecast = params["run_forecast"]
+    dc_input = default
     match dc_input.type:
         case "dataframe":
             df: pd.DataFrame = dc_input.m
@@ -68,13 +67,13 @@ def PROPHET_PREDICT(
             # If run_forecast, the return df is the forecast, otherwise the original
             return_df = df.copy()
             if run_forecast:
-                future = model.make_future_dataframe(periods=params["periods"])
+                future = model.make_future_dataframe(periods)
                 forecast = model.predict(future)
                 extra["original"] = df
                 return_df = forecast
-            return DataContainer(
+            return DataFrame(
                 type="dataframe",
-                m=return_df,
+                df=return_df,
                 extra=extra,
             )
         case _:

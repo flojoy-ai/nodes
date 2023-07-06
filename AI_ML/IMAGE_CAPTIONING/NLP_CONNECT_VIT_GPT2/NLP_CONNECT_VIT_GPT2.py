@@ -7,7 +7,7 @@ import pandas as pd
 
 
 @flojoy
-def NLP_CONNECT_VIT_GPT2(input_image: Image) -> DataFrame:
+def NLP_CONNECT_VIT_GPT2(default: Image) -> DataFrame:
     """The NLP_CONNECT_VIT_GPT2 node captions an input image and produces an output string wrapped
     in a dataframe.
 
@@ -20,7 +20,7 @@ def NLP_CONNECT_VIT_GPT2(input_image: Image) -> DataFrame:
         type 'dataframe' containing the caption column, and a single row.
 
     """
-    r, g, b, a = input_image.r, input_image.g, input_image.b, input_image.a
+    r, g, b, a = default.r, default.g, default.b, default.a
     nparray = (
         np.stack((r, g, b, a), axis=2) if a is not None else np.stack((r, g, b), axis=2)
     )
@@ -36,4 +36,4 @@ def NLP_CONNECT_VIT_GPT2(input_image: Image) -> DataFrame:
 
     df_pred = pd.DataFrame.from_records([(pred,)], columns=["caption"])
 
-    return DataFrame(m=df_pred)
+    return DataFrame(df=df_pred)

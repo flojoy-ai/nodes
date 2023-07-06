@@ -1,12 +1,13 @@
-from flojoy import flojoy, DataFrame
-from typing import Union
+from flojoy import flojoy, DataFrame, Matrix
 import pandas as pd
 from typing import cast
 
 
 @flojoy
 def ONE_HOT_ENCODING(
-    default: DataFrame, categories: list[Union[str, int]], columns: list[str]
+    default: DataFrame,
+    categories: list[str] | list[int] | None = "",
+    columns: list[str] | None = "",
 ) -> DataFrame:
     """The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe containing categorical features.
 
@@ -36,4 +37,4 @@ def ONE_HOT_ENCODING(
         df = cast(pd.DataFrame, default.m)
         cat_df = df.select_dtypes(include=["object", "category"])
         encoded = pd.get_dummies(cat_df, dtype=int)
-    return DataFrame(m=encoded)
+    return Matrix(m=encoded)

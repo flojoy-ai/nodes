@@ -6,7 +6,7 @@ from flojoy import flojoy, OrderedPair, DataFrame, Matrix
 
 
 @flojoy
-def COUNT_VECTORIZER(default: Union[DataFrame, Matrix]) -> OrderedPair:
+def COUNT_VECTORIZER(default: DataFrame | Matrix) -> OrderedPair:
     """The COUNT_VECTORIZER node converts a collection (matrix) of text documents to a matrix of token counts.
 
     Returns

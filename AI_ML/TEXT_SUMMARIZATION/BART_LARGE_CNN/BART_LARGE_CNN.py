@@ -1,11 +1,11 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataFrame
 import torch
 from transformers import BartTokenizer, BartForConditionalGeneration
 import pandas as pd
 
 
 @flojoy
-def BART_LARGE_CNN(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def BART_LARGE_CNN(default: DataFrame) -> DataFrame:
     """The BART_LARGE_CNN node takes an input dataframe with multiple rows and a single "text" column,
     and produces a dataframe with a single "summary_text" column.  The "summary_text" column contains a summary
     of the text in the corresponding row of the input dataframe.
@@ -20,11 +20,7 @@ def BART_LARGE_CNN(dc_inputs: list[DataContainer], params: dict) -> DataContaine
         type 'dataframe' containing the summary text in the "summary_text" column.
 
     """
-    if len(dc_inputs) != 1 or dc_inputs[0].type != "dataframe":
-        raise ValueError(
-            f"Invalid input, expected exactly one DataContainer of type 'dataframe'"
-        )
-    input_df = dc_inputs[0].m
+    input_df = default.m
 
     assert (
         len(input_df.columns.tolist()) == 1
@@ -79,4 +75,4 @@ def BART_LARGE_CNN(dc_inputs: list[DataContainer], params: dict) -> DataContaine
     output_df = pd.DataFrame(
         input_df[column].apply(_summarize_text).rename("summary_text")
     )
-    return DataContainer(type="dataframe", m=output_df)
+    return DataFrame(df=output_df)

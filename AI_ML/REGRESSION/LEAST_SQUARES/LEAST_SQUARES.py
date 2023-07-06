@@ -1,13 +1,12 @@
 import numpy as np
 import traceback
-from typing import Union
-from flojoy import flojoy, OrderedPair, Matrix, DCNpArrayType
+from flojoy import flojoy, OrderedPair, Matrix
 
 
 @flojoy
 def LEAST_SQUARES(
-    a: Union[OrderedPair, Matrix], b: Union[OrderedPair, Matrix]
-) -> Union[OrderedPair, Matrix]:
+    a: OrderedPair | Matrix, b: OrderedPair | Matrix
+) -> OrderedPair | Matrix:
     """The LEAST_SQUARE node computes the coefficients that minimizes the distance between the
     inputs 'Matrix or OrderedPair' class and the regression.
 

@@ -1,12 +1,12 @@
 from os import path
 import traceback
-from flojoy import flojoy, Image, DefaultParams
+from flojoy import flojoy, Image
 from matplotlib import image
 from numpy import asarray
 
 
 @flojoy
-def OPEN_IMAGE(default_params: DefaultParams) -> Image:
+def OPEN_IMAGE(file_path: str = "") -> Image:
     """
     The OPEN_IMAGE node loads an image file from disk and
     returns a image type Datacontainer object.
@@ -22,7 +22,6 @@ def OPEN_IMAGE(default_params: DefaultParams) -> Image:
         type 'image', r, g, b , a
     """
 
-    file_path = default_params["file_path"]
     if not path.exists(file_path):
         raise ValueError("File path does not exist!")
     read_image = image.imread(file_path)
@@ -38,7 +37,6 @@ def OPEN_IMAGE(default_params: DefaultParams) -> Image:
         alpha_channel = None
 
     return Image(
-        type="image",
         r=red_channel,
         g=green_channel,
         b=blue_channel,
