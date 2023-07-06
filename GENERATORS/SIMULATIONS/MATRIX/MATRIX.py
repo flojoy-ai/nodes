@@ -1,9 +1,9 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, Matrix
 
 
 @flojoy
-def MATRIX(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def MATRIX(row: int = 2, column: int = 2) -> Matrix:
     """
     The MATRIX node takes two arguments, row and col, as input.
     Based on these inputs, it generates a random matrix where the
@@ -22,6 +22,6 @@ def MATRIX(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
 
     np.random.seed()
-    mat = np.random.randint(20, size=(params["row"], params["column"]))
+    mat = np.random.randint(20, size=(row, column))
 
-    return DataContainer(type="matrix", m=mat)
+    return Matrix(m=mat)

@@ -1,17 +1,61 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, Image, Literal
 from skimage import data
 
 
 @flojoy
-def SKLEARNIMAGE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def SKLEARNIMAGE(
+    img_key: Literal[
+        "astronaut",
+        "binary_blobs",
+        "brain",
+        "brick",
+        "camera",
+        "cat",
+        "cell",
+        "cells3d",
+        "checkerboard",
+        "chelsea",
+        "clock",
+        "coffee",
+        "coins",
+        "colorwheel",
+        "create_image_fetcher",
+        "data_dir",
+        "download_all",
+        "eagle",
+        "file_hash",
+        "grass",
+        "gravel",
+        "horse",
+        "hubble_deep_field",
+        "human_mitosis",
+        "image_fetcher",
+        "immunohistochemistry",
+        "kidney",
+        "lbp_frontal_face_cascade_filename",
+        "lfw_subset",
+        "lily",
+        "logo",
+        "microaneurysms",
+        "moon",
+        "nickel_solidification",
+        "page",
+        "protein_transport",
+        "retina",
+        "rocket",
+        "shepp_logan_phantom",
+        "skin",
+        "stereo_motorcycle",
+        "text",
+        "vortex",
+    ] = "astronaut"
+) -> Image:
     """Node designed to load example images from scikit-image.
 
     Examples can be found here:
     https://scikit-image.org/docs/stable/auto_examples/index.html
 
     """
-    img_key = params["img_key"]
-
     img_array = getattr(data, img_key)()
 
     if len(img_array.shape) == 2:
@@ -34,8 +78,7 @@ def SKLEARNIMAGE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 img_array[:, :, 3],
             )
 
-    return DataContainer(
-        type="image",
+    return Image(
         r=red,
         g=green,
         b=blue,

@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, Matrix, DataFrame, Plotly
 import numpy as np
 import plotly.graph_objects as go
 import pandas as pd
@@ -7,7 +7,7 @@ from typing import cast
 
 
 @flojoy
-def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def LINE(default: OrderedPair | Matrix | DataFrame) -> Plotly:
     """The LINE node creates a Plotly Line visualization for a given input data container.
 
     Parameters:
@@ -18,20 +18,19 @@ def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     -------------------
     `ordered_pair`, `dataframe` (including timeseries), `matrix`
     """
-    dc_input: DataContainer = dc_inputs[0]
     node_name = __name__.split(".")[-1]
     layout = plot_layout(title=node_name)
     fig = go.Figure(layout=layout)
-    match dc_input.type:
-        case "ordered_pair":
-            x = dc_input.x
-            if isinstance(dc_input.x, dict):
-                dict_keys = list(dc_input.x.keys())
-                x = dc_input.x[dict_keys[0]]
-            y = dc_input.y
+    match default:
+        case OrderedPair():
+            x = default.x
+            if isinstance(default.x, dict):
+                dict_keys = list(default.x.keys())
+                x = default.x[dict_keys[0]]
+            y = default.y
             fig.add_trace(go.Scatter(x=x, y=y, mode="lines"))
-        case "dataframe":
-            df = pd.DataFrame(dc_input.m)
+        case DataFrame():
+            df = pd.DataFrame(default.m)
             first_col = df.iloc[:, 0]
             is_timeseries = False
             if pd.api.types.is_datetime64_any_dtype(first_col):
@@ -58,8 +57,8 @@ def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                         )
                     )
 
-        case "matrix":
-            m: np.ndarray = dc_input.m
+        case Matrix():
+            m: np.ndarray = default.m
 
             num_rows, num_cols = m.shape
 
@@ -74,6 +73,6 @@ def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
         case _:
             raise ValueError(
-                f"unsupported DataContainer type passed for {node_name}: {dc_input.type}"
+                f"unsupported DataContainer type passed for {node_name} : {type(default)}"
             )
-    return DataContainer(type="plotly", fig=fig)
+    return Plotly(fig=fig)
