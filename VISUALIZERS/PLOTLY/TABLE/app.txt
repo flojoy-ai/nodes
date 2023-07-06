@@ -1,0 +1,201 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-1e9119fb-dfb4-42b9-9f8d-d09a86e967e2",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "TABLE-1e9119fb-dfb4-42b9-9f8d-d09a86e967e2",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 513.8001344327088,
+                    "y": 97.9060264222095
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 513.8001344327088,
+                    "y": 97.9060264222095
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-0b8c2798-d6a0-4b13-b200-4a6b38d6c179",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "TABLE-0b8c2798-d6a0-4b13-b200-4a6b38d6c179",
+                    "label": "TABLE 1",
+                    "func": "TABLE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 511.8001344327088,
+                    "y": 397.9060264222095
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 511.8001344327088,
+                    "y": 397.9060264222095
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "R_DATASET-6a80cbb5-60f4-479e-848d-64de94efe00c",
+                "type": "SAMPLE_DATASET",
+                "data": {
+                    "id": "R_DATASET-6a80cbb5-60f4-479e-848d-64de94efe00c",
+                    "label": "R DATASET",
+                    "func": "R_DATASET",
+                    "type": "SAMPLE_DATASET",
+                    "ctrls": {
+                        "dataset_key": {
+                            "functionName": "R_DATASET",
+                            "param": "dataset_key",
+                            "value": "iris"
+                        }
+                    },
+                    "pip_dependencies": [
+                        {
+                            "name": "rdatasets",
+                            "v": "0.1.0"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 99.80013443270877,
+                    "y": 423.9060264222095
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 99.80013443270877,
+                    "y": 423.9060264222095
+                },
+                "dragging": true
+            },
+            {
+                "id": "END-42bdbdc0-3d7c-4a87-a358-5facaad36bf9",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-42bdbdc0-3d7c-4a87-a358-5facaad36bf9",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {}
+                },
+                "position": {
+                    "x": 1001.8001344327088,
+                    "y": 293.9060264222095
+                },
+                "width": 210,
+                "height": 130
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-933fdb73-058d-463e-9c34-572d8331a35b",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-933fdb73-058d-463e-9c34-572d8331a35b",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "SIMULATION",
+                    "ctrls": {
+                        "start": {
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": 10
+                        },
+                        "end": {
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": 0
+                        },
+                        "step": {
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": 1000
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 85.80013443270889,
+                    "y": 141.9060264222095
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 85.80013443270889,
+                    "y": 141.9060264222095
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LINSPACE-933fdb73-058d-463e-9c34-572d8331a35b",
+                "sourceHandle": "main",
+                "target": "TABLE-1e9119fb-dfb4-42b9-9f8d-d09a86e967e2",
+                "targetHandle": "TABLE",
+                "id": "reactflow__edge-LINSPACE-933fdb73-058d-463e-9c34-572d8331a35bmain-TABLE-1e9119fb-dfb4-42b9-9f8d-d09a86e967e2TABLE"
+            },
+            {
+                "source": "R_DATASET-6a80cbb5-60f4-479e-848d-64de94efe00c",
+                "sourceHandle": "main",
+                "target": "TABLE-0b8c2798-d6a0-4b13-b200-4a6b38d6c179",
+                "targetHandle": "TABLE",
+                "id": "reactflow__edge-R_DATASET-6a80cbb5-60f4-479e-848d-64de94efe00cmain-TABLE-0b8c2798-d6a0-4b13-b200-4a6b38d6c179TABLE"
+            },
+            {
+                "source": "TABLE-0b8c2798-d6a0-4b13-b200-4a6b38d6c179",
+                "sourceHandle": "main",
+                "target": "END-42bdbdc0-3d7c-4a87-a358-5facaad36bf9",
+                "targetHandle": "END",
+                "id": "reactflow__edge-TABLE-0b8c2798-d6a0-4b13-b200-4a6b38d6c179main-END-42bdbdc0-3d7c-4a87-a358-5facaad36bf9END"
+            },
+            {
+                "source": "TABLE-1e9119fb-dfb4-42b9-9f8d-d09a86e967e2",
+                "sourceHandle": "main",
+                "target": "END-42bdbdc0-3d7c-4a87-a358-5facaad36bf9",
+                "targetHandle": "END",
+                "id": "reactflow__edge-TABLE-1e9119fb-dfb4-42b9-9f8d-d09a86e967e2main-END-42bdbdc0-3d7c-4a87-a358-5facaad36bf9END"
+            }
+        ],
+        "viewport": {
+            "x": 226.6796457828928,
+            "y": 31.056018042519327,
+            "zoom": 0.6853504029717089
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
