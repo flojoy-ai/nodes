@@ -1,5 +1,5 @@
 import numpy as np
-from flojoy import flojoy, DataContainer, OrderedPair, DefaultParams
+from flojoy import flojoy, OrderedPair, DefaultParams
 from node_sdk.small_memory import SmallMemory
 
 memory_key = "pid-info"
@@ -7,7 +7,11 @@ memory_key = "pid-info"
 
 @flojoy(inject_node_metadata=True)
 def PID(
-    default: OrderedPair, default_params: DefaultParams, Kp: float, Ki: float, Kd: float
+    default: OrderedPair,
+    default_params: DefaultParams,
+    Kp: float = 5,
+    Ki: float = 0.0143,
+    Kd: float = 356.25,
 ) -> OrderedPair:
     """The PID node acts like a PID function.
     The returned value with be modified according to the
