@@ -6,4 +6,4 @@ The workflow of this app is described below:
 
 [TABLE](https://github.com/flojoy-io/nodes/blob/main/VISUALIZERS/PLOTLY/TABLE/TABLE.py): This node creates a Plotly table visualization for a given input `DataContainer` 'dataframe' type.
 
-[TERMINATE](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END.py): This node terminating the current script run. The output of this node is same as its parent node.
+[TERMINATE](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END/END.py): This node terminating the current script run. The output of this node is same as its parent node.

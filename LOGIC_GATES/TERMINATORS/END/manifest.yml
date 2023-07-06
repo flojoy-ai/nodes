@@ -1,9 +1,0 @@
-COMMAND:
-- name: END
-  key: END
-  type: TERMINATOR
-  inputs:
-  - name: default
-    id: default
-    type: any
-  outputs: []

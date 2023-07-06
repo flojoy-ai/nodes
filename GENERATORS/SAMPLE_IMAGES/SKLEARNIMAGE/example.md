@@ -6,4 +6,4 @@ The workflow of this app is described below:
 
 [OBJECT_DETECTION](https://github.com/flojoy-io/nodes/blob/main/AI_ML/OBJECT_DETECTION/OBJECT_DETECTION.py): This is Object detection node which detects objects from a given `DataContainer` class of `image` type using `opencv` python library.
 
-[TERMINATE](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END.py): This node terminating the current script run. The output of this node is same as its parent node.
+[TERMINATE](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END/END.py): This node terminating the current script run. The output of this node is same as its parent node.

@@ -1,37 +1,49 @@
-from flojoy import flojoy, DataFrame, Plotly
+from flojoy import flojoy, OrderedPair, OrderedTriple, DataFrame, Plotly
 import plotly.graph_objects as go
 import pandas as pd
 from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
-def TABLE(default: DataFrame) -> Plotly:
-    """Node creates a Plotly table visualization for a given input data container.
+def TABLE(default: OrderedTriple | OrderedPair | DataFrame) -> Plotly:
+    """The TABLE node creates a Plotly table visualization for a given input data container.
 
-    Args:
-    dc_inputs (list): A list of DataContainer object(s) containing the input data.
-    params (dict): A dictionary containing the parameters needed for the visualization.
+    Parameters:
+    -----------
+    None
 
-    Returns:
-    DataContainer: A DataContainer object containing the generated visualization and the processed data.
-
-    Raises:
-    ValueError: If the input data container is not supported.
+    Supported DC types:
+    -------------------
+    `ordered_pair`, `dataframe`, `ordered_triple`
     """
     layout = plot_layout(title="TABLE")
-    if not isinstance(default, DataFrame):
-        raise ValueError(
-            f"unsupported DataContainer type passed for TABLE: {default.type}"
-        )
+    fig = go.Figure(layout=layout)
 
-    df = default.m
-    fig = go.Figure(
-        data=[
+    if isinstance(default, OrderedPair):
+        x = default.x
+        y = default.y
+        fig.add_trace(
             go.Table(
-                header=dict(values=list(df.columns), align="left"),
-                cells=dict(values=[df[col] for col in df.columns], align="left"),
+                header=dict(values=["x", "y"], align="center"),
+                cells=dict(values=[x, y], align="center"),
             )
-        ],
-        layout=layout,
-    )
+        )
+    elif isinstance(default, OrderedTriple):
+        x = default.x
+        y = default.y
+        z = default.z
+        fig.add_trace(
+            go.Table(
+                header=dict(values=["x", "y", "z"], align="center"),
+                cells=dict(values=[x, y, z], align="center"),
+            )
+        )
+    else:
+        df = pd.DataFrame(default.m)
+        fig.add_trace(
+            go.Table(
+                header=dict(values=list(df.columns), align="center"),
+                cells=dict(values=[df[col] for col in df.columns], align="center"),
+            )
+        )
     return Plotly(fig=fig)
