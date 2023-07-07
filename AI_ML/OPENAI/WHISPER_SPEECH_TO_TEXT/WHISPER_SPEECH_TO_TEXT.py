@@ -18,6 +18,7 @@ def WHISPER_SPEECH_TO_TEXT(dc: List[DataContainer], params: dict):
     The previous node value has priority over the file path.
 
     Parameters:
+    -----------
     - file_path: string
         Path to the audio file to be transcribed. Only mp3 format is supported.
     """

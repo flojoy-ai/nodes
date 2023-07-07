@@ -9,7 +9,7 @@ import os
 
 
 @flojoy
-def DALLE_IMAGE_GENERATOR(dc: List[DataContainer], params):
+def DALLE_IMAGE_GENERATOR(dc: List[DataContainer], params: dict):
     """
     The DALLE_IMAGE_GENERATOR node takes a prompt and generates an image
     using OpenAI's DALL-E model.

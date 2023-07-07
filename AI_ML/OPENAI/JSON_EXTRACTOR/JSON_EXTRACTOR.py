@@ -18,7 +18,7 @@ BASE_SCHEMA = {
 
 
 @flojoy
-def JSON_EXTRACTOR(dc: List[DataContainer], params):
+def JSON_EXTRACTOR(dc: List[DataContainer], params: dict):
     """
     The JSON_EXTRACTOR node extract specific properties information from a text using JSON schema.
 

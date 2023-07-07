@@ -1,0 +1,124 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "WHISPER_SPEECH_TO_TEXT-8afbd70b-cd31-49c0-ae4c-c949f8aa02e8",
+                "type": "OPENAI",
+                "data": {
+                    "id": "WHISPER_SPEECH_TO_TEXT-8afbd70b-cd31-49c0-ae4c-c949f8aa02e8",
+                    "label": "WHISPER SPEECH TO TEXT",
+                    "func": "WHISPER_SPEECH_TO_TEXT",
+                    "type": "OPENAI",
+                    "ctrls": {
+                        "file_path": {
+                            "functionName": "WHISPER_SPEECH_TO_TEXT",
+                            "param": "file_path",
+                            "value": "audio.mp3"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": -209.70286344766978,
+                    "y": 66.9440420589699
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -209.70286344766978,
+                    "y": 66.9440420589699
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-6d54170f-e51d-4004-a8be-6d3f661d2993",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-6d54170f-e51d-4004-a8be-6d3f661d2993",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 799.560830472538,
+                    "y": 38.34744509440077
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 799.560830472538,
+                    "y": 38.34744509440077
+                },
+                "dragging": false
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-8a526ddd-6394-484a-8bac-53238a0d3dc9",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "TABLE-8a526ddd-6394-484a-8bac-53238a0d3dc9",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 295.7471145688126,
+                    "y": 186.25179253812183
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 295.7471145688126,
+                    "y": 186.25179253812183
+                },
+                "dragging": false
+            }
+        ],
+        "edges": [
+            {
+                "source": "WHISPER_SPEECH_TO_TEXT-8afbd70b-cd31-49c0-ae4c-c949f8aa02e8",
+                "sourceHandle": "main",
+                "target": "TABLE-8a526ddd-6394-484a-8bac-53238a0d3dc9",
+                "targetHandle": "TABLE",
+                "id": "reactflow__edge-WHISPER_SPEECH_TO_TEXT-8afbd70b-cd31-49c0-ae4c-c949f8aa02e8main-TABLE-8a526ddd-6394-484a-8bac-53238a0d3dc9TABLE"
+            },
+            {
+                "source": "TABLE-8a526ddd-6394-484a-8bac-53238a0d3dc9",
+                "sourceHandle": "main",
+                "target": "END-6d54170f-e51d-4004-a8be-6d3f661d2993",
+                "targetHandle": "END",
+                "id": "reactflow__edge-TABLE-8a526ddd-6394-484a-8bac-53238a0d3dc9main-END-6d54170f-e51d-4004-a8be-6d3f661d2993END"
+            }
+        ],
+        "viewport": {
+            "x": 122.96428571428567,
+            "y": 220.24999999999997,
+            "zoom": 0.5
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
