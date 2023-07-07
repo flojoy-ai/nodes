@@ -49,7 +49,7 @@ def SKLEARNIMAGE(
         "stereo_motorcycle",
         "text",
         "vortex",
-    ]
+    ] = "astronaut"
 ) -> Image:
     """Node designed to load example images from scikit-image.
     Examples can be found here:

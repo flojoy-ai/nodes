@@ -28,8 +28,8 @@ def PID(
 
     Returns
     -------
-    dataframe
-        The dataframe modified according to the PID. Ordered pair.
+    OrderedPair
+        The dataframe modified according to the PID.
     """
 
     # First let's get the parameters that won't change

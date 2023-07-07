@@ -16,7 +16,7 @@ def IFFT(default: DataFrame, real_signal: bool = True) -> OrderedPair:
 
     Returns
     -------
-    ordered_pair
+    OrderedPair
         x = time
         y = reconstructed signal
     """

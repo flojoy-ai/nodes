@@ -53,6 +53,8 @@ def FIR(
         The length of the filter
 
     Returns
+    -------
+    OrderedPair
         x: time domain
         y: filtered signal
     ------

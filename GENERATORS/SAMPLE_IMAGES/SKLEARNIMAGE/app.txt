@@ -2,111 +2,202 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "OBJECT_DETECTION-5aa2a713-048e-4f3c-ba00-94eca81e099d",
-                "type": "AI_OBJECT_DETECTION",
+                "width": 150,
+                "height": 150,
+                "id": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
+                "type": "default",
                 "data": {
-                    "id": "OBJECT_DETECTION-5aa2a713-048e-4f3c-ba00-94eca81e099d",
-                    "label": "OBJECT_DETECTION",
-                    "func": "OBJECT_DETECTION",
-                    "type": "AI_OBJECT_DETECTION",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 789.4991899510262,
-                    "y": 238.42581072187443
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 789.4991899510262,
-                    "y": 238.42581072187443
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-96628568-bd55-42e1-af93-59402261ba3e",
-                "type": "TERMINATOR",
-                "data": {
-                    "id": "END-96628568-bd55-42e1-af93-59402261ba3e",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 1197.4316774983556,
-                    "y": 230.30485876868525
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1197.4316774983556,
-                    "y": 230.30485876868525
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "SKLEARNIMAGE-225596a1-2971-4367-91ed-74671aba172a",
-                "type": "SAMPLE_IMAGE",
-                "data": {
-                    "id": "SKLEARNIMAGE-225596a1-2971-4367-91ed-74671aba172a",
+                    "id": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
                     "label": "SKLEARNIMAGE",
                     "func": "SKLEARNIMAGE",
-                    "type": "SAMPLE_IMAGE",
+                    "type": "default",
                     "ctrls": {
                         "img_key": {
+                            "type": "select",
+                            "default": null,
+                            "options": [
+                                "astronaut",
+                                "binary_blobs",
+                                "brain",
+                                "brick",
+                                "camera",
+                                "cat",
+                                "cell",
+                                "cells3d",
+                                "checkerboard",
+                                "chelsea",
+                                "clock",
+                                "coffee",
+                                "coins",
+                                "colorwheel",
+                                "create_image_fetcher",
+                                "data_dir",
+                                "download_all",
+                                "eagle",
+                                "file_hash",
+                                "grass",
+                                "gravel",
+                                "horse",
+                                "hubble_deep_field",
+                                "human_mitosis",
+                                "image_fetcher",
+                                "immunohistochemistry",
+                                "kidney",
+                                "lbp_frontal_face_cascade_filename",
+                                "lfw_subset",
+                                "lily",
+                                "logo",
+                                "microaneurysms",
+                                "moon",
+                                "nickel_solidification",
+                                "page",
+                                "protein_transport",
+                                "retina",
+                                "rocket",
+                                "shepp_logan_phantom",
+                                "skin",
+                                "stereo_motorcycle",
+                                "text",
+                                "vortex"
+                            ],
                             "functionName": "SKLEARNIMAGE",
                             "param": "img_key",
                             "value": "astronaut"
                         }
                     },
-                    "pip_dependencies": [
+                    "outputs": [
                         {
-                            "name": "scikit-image",
-                            "v": "0.20.0"
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image"
                         }
                     ],
+                    "path": "PYTHON/nodes/GENERATORS/SAMPLE_IMAGES/SKLEARNIMAGE/SKLEARNIMAGE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 443.97916363890124,
-                    "y": 237.20815230248894
+                    "x": 210.34307729224753,
+                    "y": 18.719023756686905
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 443.97916363890124,
-                    "y": 237.20815230248894
+                    "x": 210.34307729224753,
+                    "y": 18.719023756686905
+                }
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "OBJECT_DETECTION-4ba045ca-f490-4f8b-853c-9c38e1297062",
+                "type": "OBJECT_DETECTION",
+                "data": {
+                    "id": "OBJECT_DETECTION-4ba045ca-f490-4f8b-853c-9c38e1297062",
+                    "label": "OBJECT DETECTION",
+                    "func": "OBJECT_DETECTION",
+                    "type": "OBJECT_DETECTION",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/OBJECT_DETECTION/OBJECT_DETECTION/OBJECT_DETECTION.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 617.8092531972738,
+                    "y": 12.960408585984283
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 617.8092531972738,
+                    "y": 12.960408585984283
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1030.2237721432648,
+                    "y": 31.15908913222546
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1030.2237721432648,
+                    "y": 31.15908913222546
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "OBJECT_DETECTION-5aa2a713-048e-4f3c-ba00-94eca81e099d",
-                "sourceHandle": "main",
-                "target": "END-96628568-bd55-42e1-af93-59402261ba3e",
-                "targetHandle": "END",
-                "id": "reactflow__edge-OBJECT_DETECTION-5aa2a713-048e-4f3c-ba00-94eca81e099dmain-END-96628568-bd55-42e1-af93-59402261ba3eEND"
+                "source": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
+                "sourceHandle": "default",
+                "target": "OBJECT_DETECTION-4ba045ca-f490-4f8b-853c-9c38e1297062",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-OBJECT_DETECTION-4ba045ca-f490-4f8b-853c-9c38e1297062default"
             },
             {
-                "source": "SKLEARNIMAGE-225596a1-2971-4367-91ed-74671aba172a",
-                "sourceHandle": "main",
-                "target": "OBJECT_DETECTION-5aa2a713-048e-4f3c-ba00-94eca81e099d",
-                "targetHandle": "OBJECT_DETECTION",
-                "id": "reactflow__edge-SKLEARNIMAGE-225596a1-2971-4367-91ed-74671aba172amain-OBJECT_DETECTION-5aa2a713-048e-4f3c-ba00-94eca81e099dOBJECT_DETECTION"
+                "source": "OBJECT_DETECTION-4ba045ca-f490-4f8b-853c-9c38e1297062",
+                "sourceHandle": "default",
+                "target": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
+                "targetHandle": "default",
+                "id": "reactflow__edge-OBJECT_DETECTION-4ba045ca-f490-4f8b-853c-9c38e1297062default-END-8d20d677-c761-43cf-8b24-cde84bd667b9default"
             }
         ],
         "viewport": {
-            "x": 197.88510420585555,
-            "y": 38.16888746940003,
-            "zoom": 0.7622193595343526
+            "x": -370.442494324109,
+            "y": 122.55885385221723,
+            "zoom": 1.093090475044996
         }
     },
-    "ctrlsManifest": []
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
 }
