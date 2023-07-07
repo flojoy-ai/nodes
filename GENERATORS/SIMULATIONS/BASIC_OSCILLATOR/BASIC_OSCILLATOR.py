@@ -45,10 +45,8 @@ def BASIC_OSCILLATOR(
     elif waveform == "square":
         y = offset + amplitude * signal.square(2 * np.pi * frequency * x + phase)
     elif waveform == "triangle":
-        y = offset + amplitude * signal.sawtooth(
-            2 * np.pi * frequency * x + phase, 0.5
-        )
-    elif waveform == "sawtooth":
+        y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency * x + phase, 0.5)
+    else:  # Sawtooth
         y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency * x + phase)
 
     return OrderedPair(x=x, y=y)

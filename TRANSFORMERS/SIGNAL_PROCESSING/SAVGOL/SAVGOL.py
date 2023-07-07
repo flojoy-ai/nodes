@@ -24,11 +24,11 @@ def SAVGOL(
         y: filtered signal
     """
     signal = default.y
-    if window_length >= len(default.x):
+    if window_length >= len(default.y):
         warnings.warn(
             "Polynomial order is greater than the window size. Using p=w-1..."
         )
-        poly_order = len(default.x) - 1
+        poly_order = len(default.y) - 1
 
     if poly_order >= window_length:
         warnings.warn(

@@ -50,7 +50,9 @@ def RAND(
         case "uniform":
             y = my_generator.uniform(low=lower_bound, high=upper_bound, size=size)
         case "normal":
-            y = my_generator.normal(loc=normal_mean, scale=normal_standard_deviation, size=size)
+            y = my_generator.normal(
+                loc=normal_mean, scale=normal_standard_deviation, size=size
+            )
         case "poisson":
             y = my_generator.poisson(lam=poisson_events, size=size)
         case _:
