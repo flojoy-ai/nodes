@@ -4,314 +4,536 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "R_DATASET-5f6a5fe2-1a2f-4d8a-b89b-fed62d8f594c",
-                "type": "SAMPLE_DATASET",
+                "id": "LINSPACE-4a588ebe-8693-43ac-91f9-3ce85eac444e",
+                "type": "default",
                 "data": {
-                    "id": "R_DATASET-5f6a5fe2-1a2f-4d8a-b89b-fed62d8f594c",
-                    "label": "R DATASET",
-                    "func": "R_DATASET",
-                    "type": "SAMPLE_DATASET",
+                    "id": "LINSPACE-4a588ebe-8693-43ac-91f9-3ce85eac444e",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "default",
                     "ctrls": {
-                        "dataset_key": {
-                            "functionName": "R_DATASET",
-                            "param": "dataset_key",
-                            "value": "iris"
+                        "start": {
+                            "type": "float",
+                            "default": 10,
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": 10
+                        },
+                        "end": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": 0
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": 1000
                         }
                     },
-                    "pip_dependencies": [
+                    "outputs": [
                         {
-                            "name": "rdatasets",
-                            "v": "0.1.0"
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
                         }
                     ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\LINSPACE\\LINSPACE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -83.22416935957928,
-                    "y": -57.25333206813448
+                    "x": 73.3067219450088,
+                    "y": -291.80119674931484
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -83.22416935957928,
-                    "y": -57.25333206813448
+                    "x": 73.3067219450088,
+                    "y": -291.80119674931484
                 },
                 "dragging": true
             },
             {
                 "width": 130,
                 "height": 130,
-                "id": "TIMESERIES-f0e97856-796e-4d03-ab0d-e3948de263c0",
-                "type": "SIMULATION",
+                "id": "MATRIX-adb7407c-2ba3-4478-8c1a-2c0d2dc1f095",
+                "type": "SIMULATIONS",
                 "data": {
-                    "id": "TIMESERIES-f0e97856-796e-4d03-ab0d-e3948de263c0",
-                    "label": "TIMESERIES",
-                    "func": "TIMESERIES",
-                    "type": "SIMULATION",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": -108.938455073865,
-                    "y": 154.17523936043693
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -108.938455073865,
-                    "y": 154.17523936043693
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "LINSPACE-ac8825df-26d4-4bfc-8a6d-4fbc2c2834a4",
-                "type": "default",
-                "data": {
-                    "id": "LINSPACE-ac8825df-26d4-4bfc-8a6d-4fbc2c2834a4",
-                    "label": "LINSPACE",
-                    "func": "LINSPACE",
-                    "type": "SIMULATION",
-                    "ctrls": {
-                        "start": {
-                            "functionName": "LINSPACE",
-                            "param": "start",
-                            "value": 10
-                        },
-                        "end": {
-                            "functionName": "LINSPACE",
-                            "param": "end",
-                            "value": 0
-                        },
-                        "step": {
-                            "functionName": "LINSPACE",
-                            "param": "step",
-                            "value": 1000
-                        }
-                    },
-                    "selected": false
-                },
-                "position": {
-                    "x": -107.50988364529361,
-                    "y": 329.88952507472266
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -107.50988364529361,
-                    "y": 329.88952507472266
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "MATRIX-260ea33c-6a48-4a44-ada2-1d95664a0545",
-                "type": "default",
-                "data": {
-                    "id": "MATRIX-260ea33c-6a48-4a44-ada2-1d95664a0545",
+                    "id": "MATRIX-adb7407c-2ba3-4478-8c1a-2c0d2dc1f095",
                     "label": "MATRIX",
                     "func": "MATRIX",
-                    "type": "SIMULATION",
+                    "type": "SIMULATIONS",
                     "ctrls": {
                         "row": {
+                            "type": "int",
+                            "default": 2,
                             "functionName": "MATRIX",
                             "param": "row",
-                            "value": "12"
+                            "value": "8"
                         },
                         "column": {
+                            "type": "int",
+                            "default": 2,
                             "functionName": "MATRIX",
                             "param": "column",
-                            "value": "12"
+                            "value": "8"
                         }
                     },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Matrix"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\MATRIX\\MATRIX.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -88.93845507386506,
-                    "y": 552.7466679318655
+                    "x": 100.15409750155447,
+                    "y": 479.8429342272712
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -88.93845507386506,
-                    "y": 552.7466679318655
+                    "x": 100.15409750155447,
+                    "y": 479.8429342272712
                 },
                 "dragging": true
             },
             {
-                "id": "END-62ff2127-8068-4f17-8164-037f11410794",
-                "type": "TERMINATOR",
+                "width": 150,
+                "height": 150,
+                "id": "R_DATASET-6c382bcf-a72e-488d-a784-eb21cb00839a",
+                "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "END-62ff2127-8068-4f17-8164-037f11410794",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {}
+                    "id": "R_DATASET-6c382bcf-a72e-488d-a784-eb21cb00839a",
+                    "label": "R DATASET",
+                    "func": "R_DATASET",
+                    "type": "SAMPLE_DATASETS",
+                    "ctrls": {
+                        "dataset_key": {
+                            "type": "select",
+                            "default": "iris",
+                            "options": [
+                                "ability.cov",
+                                "airmiles",
+                                "AirPassengers",
+                                "airquality",
+                                "anscombe",
+                                "attenu",
+                                "attitude",
+                                "austres",
+                                "BJsales",
+                                "BOD",
+                                "cars",
+                                "ChickWeight",
+                                "chickwts",
+                                "co2",
+                                "crimtab",
+                                "discoveries",
+                                "DNase",
+                                "esoph",
+                                "euro",
+                                "EuStockMarkets",
+                                "faithful",
+                                "Formaldehyde",
+                                "freeny",
+                                "HairEyeColor",
+                                "Harman23",
+                                "Harman74",
+                                "Indometh",
+                                "infert",
+                                "InsectSprays",
+                                "iris",
+                                "iris3",
+                                "islands",
+                                "JohnsonJohnson",
+                                "LakeHuron",
+                                "LifeCycleSavings",
+                                "Loblolly",
+                                "longley",
+                                "lynx",
+                                "morley",
+                                "mtcars",
+                                "nhtemp",
+                                "Nile",
+                                "nottem",
+                                "npk",
+                                "occupationalStatus",
+                                "Orange",
+                                "OrchardSprays",
+                                "PlantGrowth",
+                                "precip",
+                                "presidents",
+                                "pressure",
+                                "Puromycin",
+                                "quakes",
+                                "randu",
+                                "rivers",
+                                "rock",
+                                "Seatbelts",
+                                "sleep",
+                                "stackloss",
+                                "sunspot.month",
+                                "sunspot.year",
+                                "sunspots",
+                                "swiss",
+                                "Theoph",
+                                "Titanic",
+                                "ToothGrowth",
+                                "treering",
+                                "trees",
+                                "UCBAdmissions",
+                                "UKDriverDeaths",
+                                "UKgas",
+                                "USAccDeaths",
+                                "USArrests",
+                                "USJudgeRatings",
+                                "USPersonalExpenditure",
+                                "VADeaths",
+                                "volcano",
+                                "warpbreaks",
+                                "women",
+                                "WorldPhones",
+                                "WWWusage"
+                            ],
+                            "functionName": "R_DATASET",
+                            "param": "dataset_key",
+                            "value": "iris"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "rdatasets",
+                            "v": "0.1.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_DATASETS\\R_DATASET\\R_DATASET.py",
+                    "selected": false
                 },
                 "position": {
-                    "x": 1118.2044020689923,
-                    "y": 302.74666793186555
+                    "x": 96.13358497687051,
+                    "y": 215.36594613774037
                 },
-                "width": 210,
-                "height": 130
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 96.13358497687051,
+                    "y": 215.36594613774037
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "TIMESERIES-511ecdda-9fd1-443e-95bb-2399e69b6484",
+                "type": "SIMULATIONS",
+                "data": {
+                    "id": "TIMESERIES-511ecdda-9fd1-443e-95bb-2399e69b6484",
+                    "label": "TIMESERIES",
+                    "func": "TIMESERIES",
+                    "type": "SIMULATIONS",
+                    "ctrls": {
+                        "start_date": {
+                            "type": "str",
+                            "default": "2023-01-01",
+                            "functionName": "TIMESERIES",
+                            "param": "start_date",
+                            "value": "2023-01-01"
+                        },
+                        "end_date": {
+                            "type": "str",
+                            "default": "2023-07-20",
+                            "functionName": "TIMESERIES",
+                            "param": "end_date",
+                            "value": "2023-07-20"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\TIMESERIES\\TIMESERIES.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 69.47384345035496,
+                    "y": -24.4832604248532
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 69.47384345035496,
+                    "y": -24.4832604248532
+                },
+                "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "LINE-ed341544-4a6b-4823-9461-2adb074831dc",
-                "type": "PLOTLY_VISOR",
+                "id": "LINE-5c3fb9d2-57ce-4364-8030-96505b8ad344",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "LINE-ed341544-4a6b-4823-9461-2adb074831dc",
+                    "id": "LINE-5c3fb9d2-57ce-4364-8030-96505b8ad344",
                     "label": "LINE",
                     "func": "LINE",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\LINE\\LINE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 406.2044020689923,
-                    "y": -193.2533320681345
+                    "x": 739.1689027250129,
+                    "y": -239.71711666292288
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 406.2044020689923,
-                    "y": -193.2533320681345
+                    "x": 739.1689027250129,
+                    "y": -239.71711666292288
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "LINE-fe515a9b-91aa-4386-8025-e8a5305742e3",
-                "type": "PLOTLY_VISOR",
+                "id": "LINE-b77bfca4-130d-46b6-9962-f53f605d7107",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "LINE-fe515a9b-91aa-4386-8025-e8a5305742e3",
+                    "id": "LINE-b77bfca4-130d-46b6-9962-f53f605d7107",
                     "label": "LINE 1",
                     "func": "LINE",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\LINE\\LINE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 420.2044020689923,
-                    "y": 74.74666793186549
+                    "x": 608.09609803873,
+                    "y": 402.54847413335165
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 420.2044020689923,
-                    "y": 74.74666793186549
+                    "x": 608.09609803873,
+                    "y": 402.54847413335165
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "LINE-8fc0cdb0-f5c5-4d8b-af44-0eaf5683c5cf",
-                "type": "PLOTLY_VISOR",
+                "id": "LINE-fba98010-ffc1-4864-8a5a-356f46f70a26",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "LINE-8fc0cdb0-f5c5-4d8b-af44-0eaf5683c5cf",
+                    "id": "LINE-fba98010-ffc1-4864-8a5a-356f46f70a26",
                     "label": "LINE 2",
                     "func": "LINE",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\LINE\\LINE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 398.2044020689923,
-                    "y": 318.74666793186555
+                    "x": 762.7310457743708,
+                    "y": 116.02468713396252
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 398.2044020689923,
-                    "y": 318.74666793186555
+                    "x": 762.7310457743708,
+                    "y": 116.02468713396252
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
-                "id": "LINE-90f9552f-78ef-492f-8496-a4a4fd6277ce",
-                "type": "PLOTLY_VISOR",
+                "width": 225,
+                "height": 226,
+                "id": "LINE-be1cb8d9-dc67-4567-8952-8b7eaeb9134d",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "LINE-90f9552f-78ef-492f-8496-a4a4fd6277ce",
+                    "id": "LINE-be1cb8d9-dc67-4567-8952-8b7eaeb9134d",
                     "label": "LINE 3",
                     "func": "LINE",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\LINE\\LINE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 392.2044020689923,
-                    "y": 578.7466679318655
+                    "x": 367.4351082265475,
+                    "y": -104.27979408941752
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 392.2044020689923,
-                    "y": 578.7466679318655
+                    "x": 367.4351082265475,
+                    "y": -104.27979408941752
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-808f32a4-ad05-43db-a4f7-15318f28ea45",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-808f32a4-ad05-43db-a4f7-15318f28ea45",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1213.984802077975,
+                    "y": 15.502280681030811
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1213.984802077975,
+                    "y": 15.502280681030811
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "R_DATASET-5f6a5fe2-1a2f-4d8a-b89b-fed62d8f594c",
-                "sourceHandle": "main",
-                "target": "LINE-ed341544-4a6b-4823-9461-2adb074831dc",
-                "targetHandle": "LINE",
-                "id": "reactflow__edge-R_DATASET-5f6a5fe2-1a2f-4d8a-b89b-fed62d8f594cmain-LINE-ed341544-4a6b-4823-9461-2adb074831dcLINE"
+                "source": "LINSPACE-4a588ebe-8693-43ac-91f9-3ce85eac444e",
+                "sourceHandle": "default",
+                "target": "LINE-5c3fb9d2-57ce-4364-8030-96505b8ad344",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-4a588ebe-8693-43ac-91f9-3ce85eac444edefault-LINE-5c3fb9d2-57ce-4364-8030-96505b8ad344default"
             },
             {
-                "source": "TIMESERIES-f0e97856-796e-4d03-ab0d-e3948de263c0",
-                "sourceHandle": "main",
-                "target": "LINE-fe515a9b-91aa-4386-8025-e8a5305742e3",
-                "targetHandle": "LINE",
-                "id": "reactflow__edge-TIMESERIES-f0e97856-796e-4d03-ab0d-e3948de263c0main-LINE-fe515a9b-91aa-4386-8025-e8a5305742e3LINE"
+                "source": "TIMESERIES-511ecdda-9fd1-443e-95bb-2399e69b6484",
+                "sourceHandle": "default",
+                "target": "LINE-be1cb8d9-dc67-4567-8952-8b7eaeb9134d",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TIMESERIES-511ecdda-9fd1-443e-95bb-2399e69b6484default-LINE-be1cb8d9-dc67-4567-8952-8b7eaeb9134ddefault"
             },
             {
-                "source": "LINSPACE-ac8825df-26d4-4bfc-8a6d-4fbc2c2834a4",
-                "sourceHandle": "main",
-                "target": "LINE-8fc0cdb0-f5c5-4d8b-af44-0eaf5683c5cf",
-                "targetHandle": "LINE",
-                "id": "reactflow__edge-LINSPACE-ac8825df-26d4-4bfc-8a6d-4fbc2c2834a4main-LINE-8fc0cdb0-f5c5-4d8b-af44-0eaf5683c5cfLINE"
+                "source": "R_DATASET-6c382bcf-a72e-488d-a784-eb21cb00839a",
+                "sourceHandle": "default",
+                "target": "LINE-fba98010-ffc1-4864-8a5a-356f46f70a26",
+                "targetHandle": "default",
+                "id": "reactflow__edge-R_DATASET-6c382bcf-a72e-488d-a784-eb21cb00839adefault-LINE-fba98010-ffc1-4864-8a5a-356f46f70a26default"
             },
             {
-                "source": "MATRIX-260ea33c-6a48-4a44-ada2-1d95664a0545",
-                "sourceHandle": "main",
-                "target": "LINE-90f9552f-78ef-492f-8496-a4a4fd6277ce",
-                "targetHandle": "LINE",
-                "id": "reactflow__edge-MATRIX-260ea33c-6a48-4a44-ada2-1d95664a0545main-LINE-90f9552f-78ef-492f-8496-a4a4fd6277ceLINE"
+                "source": "MATRIX-adb7407c-2ba3-4478-8c1a-2c0d2dc1f095",
+                "sourceHandle": "default",
+                "target": "LINE-b77bfca4-130d-46b6-9962-f53f605d7107",
+                "targetHandle": "default",
+                "id": "reactflow__edge-MATRIX-adb7407c-2ba3-4478-8c1a-2c0d2dc1f095default-LINE-b77bfca4-130d-46b6-9962-f53f605d7107default"
             },
             {
-                "source": "LINE-90f9552f-78ef-492f-8496-a4a4fd6277ce",
-                "sourceHandle": "main",
-                "target": "END-62ff2127-8068-4f17-8164-037f11410794",
-                "targetHandle": "END",
-                "id": "reactflow__edge-LINE-90f9552f-78ef-492f-8496-a4a4fd6277cemain-END-62ff2127-8068-4f17-8164-037f11410794END"
+                "source": "LINE-be1cb8d9-dc67-4567-8952-8b7eaeb9134d",
+                "sourceHandle": "default",
+                "target": "END-808f32a4-ad05-43db-a4f7-15318f28ea45",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-be1cb8d9-dc67-4567-8952-8b7eaeb9134ddefault-END-808f32a4-ad05-43db-a4f7-15318f28ea45default"
             },
             {
-                "source": "LINE-8fc0cdb0-f5c5-4d8b-af44-0eaf5683c5cf",
-                "sourceHandle": "main",
-                "target": "END-62ff2127-8068-4f17-8164-037f11410794",
-                "targetHandle": "END",
-                "id": "reactflow__edge-LINE-8fc0cdb0-f5c5-4d8b-af44-0eaf5683c5cfmain-END-62ff2127-8068-4f17-8164-037f11410794END"
+                "source": "LINE-5c3fb9d2-57ce-4364-8030-96505b8ad344",
+                "sourceHandle": "default",
+                "target": "END-808f32a4-ad05-43db-a4f7-15318f28ea45",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-5c3fb9d2-57ce-4364-8030-96505b8ad344default-END-808f32a4-ad05-43db-a4f7-15318f28ea45default"
             },
             {
-                "source": "LINE-fe515a9b-91aa-4386-8025-e8a5305742e3",
-                "sourceHandle": "main",
-                "target": "END-62ff2127-8068-4f17-8164-037f11410794",
-                "targetHandle": "END",
-                "id": "reactflow__edge-LINE-fe515a9b-91aa-4386-8025-e8a5305742e3main-END-62ff2127-8068-4f17-8164-037f11410794END"
+                "source": "LINE-fba98010-ffc1-4864-8a5a-356f46f70a26",
+                "sourceHandle": "default",
+                "target": "END-808f32a4-ad05-43db-a4f7-15318f28ea45",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-fba98010-ffc1-4864-8a5a-356f46f70a26default-END-808f32a4-ad05-43db-a4f7-15318f28ea45default"
             },
             {
-                "source": "LINE-ed341544-4a6b-4823-9461-2adb074831dc",
-                "sourceHandle": "main",
-                "target": "END-62ff2127-8068-4f17-8164-037f11410794",
-                "targetHandle": "END",
-                "id": "reactflow__edge-LINE-ed341544-4a6b-4823-9461-2adb074831dcmain-END-62ff2127-8068-4f17-8164-037f11410794END"
+                "source": "LINE-b77bfca4-130d-46b6-9962-f53f605d7107",
+                "sourceHandle": "default",
+                "target": "END-808f32a4-ad05-43db-a4f7-15318f28ea45",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-b77bfca4-130d-46b6-9962-f53f605d7107default-END-808f32a4-ad05-43db-a4f7-15318f28ea45default"
             }
         ],
         "viewport": {
-            "x": 226.6796457828928,
-            "y": 31.056018042519327,
-            "zoom": 0.6853504029717089
+            "x": -296.35399545928726,
+            "y": 66.8470830817738,
+            "zoom": 0.8744723800359967
         }
     },
     "ctrlsManifest": [
