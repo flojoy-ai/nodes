@@ -1,5 +1,4 @@
-from flojoy import flojoy, OrderedPair, DataFrame, Matrix, Image, Plotly, DCNpArrayType
-from typing import Union
+from flojoy import flojoy, OrderedPair, Matrix, Plotly
 import plotly.graph_objects as go
 import numpy as np
 
@@ -66,8 +65,8 @@ def numpy_array_as_table(arr: DCNpArrayType):
     return cell_values
 
 
-@flojoy
-def MATRIX_VIEW(dc_input: Union[Matrix, OrderedPair]) -> Plotly:
+@flojoy(node_type="PLOTLY")
+def MATRIX_VIEW(default: OrderedPair | Matrix) -> Plotly:
     """
     The MATRIX_VIEW node "matrix" or "ordered_pair" type as input type and displays its visualization
     using plotly table in matrix format.
@@ -82,17 +81,13 @@ def MATRIX_VIEW(dc_input: Union[Matrix, OrderedPair]) -> Plotly:
         Visualization of the input data in matrix format
     """
 
-    match dc_input.type:
-        case "matrix":
-            np_arr = dc_input.m
-            cell_values = numpy_array_as_table(np_arr)
-        case "ordered_pair":
-            np_arr = dc_input.y
-            cell_values = numpy_array_as_table(np_arr)
-        case _:
-            raise ValueError(
-                f"unsupported DataContainer type passed for MATRIX_VIEW: {dc_input.type}"
-            )
+    if isinstance(default, Matrix):
+        np_arr = default.m
+        cell_values = numpy_array_as_table(np_arr)
+    else:
+        np_arr = default.y
+        cell_values = numpy_array_as_table(np_arr)
+
     fig = go.Figure(
         data=[
             go.Table(
