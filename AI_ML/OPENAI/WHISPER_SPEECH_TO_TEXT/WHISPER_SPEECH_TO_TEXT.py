@@ -14,7 +14,7 @@ ACCEPTED_AUDIO_FORMATS = ["mp3", "wav"]
 def WHISPER_SPEECH_TO_TEXT(dc: List[DataContainer], params: dict):
     """
     This node uses OpenAI whisper transcription model to convert audio to text.
-    The audio can be provided as a file path or as a bytes object from a previous node.
+    The audio can be provided as a file path or as bytes from a previous node.
     The previous node value has priority over the file path.
 
     Parameters:
