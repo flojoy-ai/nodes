@@ -1,0 +1,1 @@
+In this example we're simulating data from `LINSPACE` and `R_DATASET` and visualizing them with `TABLE` node which creates a Plotly Table visualization for each of the input node.
