@@ -34,6 +34,8 @@ def LOCAL_FILE(
 
         type 'dataframe' for file_type 'json', 'csv', 'excel', 'xml'
 
+        type: 'bytes' for file_type 'mp3', 'wav'
+
     """
     file_type: str = params["file_type"]
     file_path: str = params["path"]
@@ -78,6 +80,11 @@ def LOCAL_FILE(
             df = pd.read_excel(file_path)
             return DataContainer(type="dataframe", m=df)
         case "mp3":
+            file_path = get_file_path(file_path)
+            with open(file_path, 'rb') as inp:
+                audio_bytes_stream = inp.read()
+            return DataContainer(type="bytes", bytes=audio_bytes_stream)
+        case "wav":
             file_path = get_file_path(file_path)
             with open(file_path, 'rb') as inp:
                 audio_bytes_stream = inp.read()

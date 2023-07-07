@@ -7,7 +7,7 @@ from pathlib import Path
 from tempfile import NamedTemporaryFile
 
 
-ACCEPTED_AUDIO_FORMATS = ["mp3"]
+ACCEPTED_AUDIO_FORMATS = ["mp3", "wav"]
 
 
 @flojoy
@@ -34,6 +34,7 @@ def WHISPER_SPEECH_TO_TEXT(dc: List[DataContainer], params: dict):
             transcription_df = pd.DataFrame(data={
                 'text': [transcript_text]
             })
+
             return DataContainer(
                 type='dataframe',
                 m=transcription_df
