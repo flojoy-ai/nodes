@@ -4,7 +4,7 @@ from functools import reduce
 
 
 @flojoy
-def SUBTRACT(a: OrderedPair, b: OrderedPair) -> OrderedPair:
+def SUBTRACT(a: OrderedPair, b: list[OrderedPair]) -> OrderedPair:
     """Subtract 2 input vectors and return the result"""
     x = a.x
 

@@ -4,7 +4,7 @@ from functools import reduce
 
 
 @flojoy
-def MULTIPLY(a: OrderedPair, b: OrderedPair) -> OrderedPair:
+def MULTIPLY(a: OrderedPair, b: list[OrderedPair]) -> OrderedPair:
     """Takes 2 input vectors, multiplies them, and returns the result"""
     x = a.x
 
