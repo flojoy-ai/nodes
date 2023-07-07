@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataFrame
+from flojoy import flojoy, DataFrame, Array
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.utils import Bunch
 import pandas as pd
@@ -9,7 +9,7 @@ from typing import cast, Literal, Optional
 @flojoy
 def TEXT_DATASET(
     subset: Literal["train", "test", "all"] = "train",
-    categories: Optional[list[str]] = None,
+    categories: Optional[Array] = None,
     remove_headers: bool = False,
     remove_footers: bool = False,
     remove_quotes: bool = False,

@@ -2,183 +2,257 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 380,
-                "height": 293,
-                "id": "IMAGE-bd0ef37f-49ea-40e2-aa84-a9dbd987ec61",
-                "type": "PLOTLY_VISOR",
-                "data": {
-                    "id": "IMAGE-bd0ef37f-49ea-40e2-aa84-a9dbd987ec61",
-                    "label": "IMAGE",
-                    "func": "IMAGE",
-                    "type": "PLOTLY_VISOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 501.3569173305635,
-                    "y": -11.816213424158718
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 501.3569173305635,
-                    "y": -11.816213424158718
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "IMAGE-dd99e8cb-953d-473f-815a-8a461860e078",
-                "type": "PLOTLY_VISOR",
-                "data": {
-                    "id": "IMAGE-dd99e8cb-953d-473f-815a-8a461860e078",
-                    "label": "IMAGE 1",
-                    "func": "IMAGE",
-                    "type": "PLOTLY_VISOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 998.4997744734208,
-                    "y": 281.04092943298417
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 998.4997744734208,
-                    "y": 281.04092943298417
-                },
-                "dragging": true
-            },
-            {
                 "width": 150,
                 "height": 150,
-                "id": "OBJECT_DETECTION-a66b29f2-f0f1-4633-a1df-412d21912558",
-                "type": "OBJECT_DETECTION",
+                "id": "LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5",
+                "type": "LOCAL_FILE_SYSTEM",
                 "data": {
-                    "id": "OBJECT_DETECTION-a66b29f2-f0f1-4633-a1df-412d21912558",
-                    "label": "OBJECT DETECTION",
-                    "func": "OBJECT_DETECTION",
-                    "type": "OBJECT_DETECTION",
-                    "ctrls": {},
-                    "pip_dependencies": [
+                    "id": "LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5",
+                    "label": "LOCAL FILE",
+                    "func": "LOCAL_FILE",
+                    "type": "LOCAL_FILE_SYSTEM",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": null,
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_path",
+                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/AI_ML/IMAGE_CAPTIONING/NLP_CONNECT_VIT_GPT2/assets/President_Barack_Obama.jpg"
+                        },
+                        "file_type": {
+                            "type": "select",
+                            "default": "Image",
+                            "options": [
+                                "Image",
+                                "JSON",
+                                "CSV",
+                                "Excel",
+                                "XML"
+                            ],
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_type",
+                            "value": "Image"
+                        }
+                    },
+                    "outputs": [
                         {
-                            "name": "opencv-python-headless",
-                            "v": "4.7.0.72"
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|DataFrame"
                         }
                     ],
+                    "pip_dependencies": [
+                        {
+                            "name": "xlrd",
+                            "v": "2.0.1"
+                        },
+                        {
+                            "name": "lxml",
+                            "v": "4.9.2"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 605.6426316162779,
-                    "y": 341.0409294329841
+                    "x": 213.46240247694215,
+                    "y": 100.45399688959793
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 605.6426316162779,
-                    "y": 341.0409294329841
+                    "x": 213.46240247694215,
+                    "y": 100.45399688959793
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-e5a67ce5-c4d3-4baa-97d9-0e7cc5f5d140",
-                "type": "TERMINATOR",
+                "id": "END-15f81c58-9f96-462f-88d6-7a70a1ee70a2",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "END-e5a67ce5-c4d3-4baa-97d9-0e7cc5f5d140",
+                    "id": "END-15f81c58-9f96-462f-88d6-7a70a1ee70a2",
                     "label": "END",
                     "func": "END",
-                    "type": "TERMINATOR",
+                    "type": "TERMINATORS",
                     "ctrls": {},
-                    "selected": false
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": true
                 },
                 "position": {
-                    "x": 1551.3569173305636,
-                    "y": 359.61235800441267
+                    "x": 1657.8400105766152,
+                    "y": 156.98523041948528
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1551.3569173305636,
-                    "y": 359.61235800441267
+                    "x": 1657.8400105766152,
+                    "y": 156.98523041948528
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "CAMERA-09d24fab-4568-4d13-bd81-6f06490f5eea",
-                "type": "WEB_CAM",
+                "id": "OBJECT_DETECTION-209e41db-c53b-4fad-905f-e30f4b27afea",
+                "type": "OBJECT_DETECTION",
                 "data": {
-                    "id": "CAMERA-09d24fab-4568-4d13-bd81-6f06490f5eea",
-                    "label": "CAMERA",
-                    "func": "CAMERA",
-                    "type": "WEB_CAM",
-                    "ctrls": {
-                        "camera_ind": {
-                            "functionName": "CAMERA",
-                            "param": "camera_ind",
-                            "value": -1
-                        },
-                        "resolution": {
-                            "functionName": "CAMERA",
-                            "param": "resolution",
-                            "value": "default"
-                        }
-                    },
-                    "pip_dependencies": [
+                    "id": "OBJECT_DETECTION-209e41db-c53b-4fad-905f-e30f4b27afea",
+                    "label": "OBJECT DETECTION",
+                    "func": "OBJECT_DETECTION",
+                    "type": "OBJECT_DETECTION",
+                    "ctrls": {},
+                    "inputs": [
                         {
-                            "name": "opencv-python-headless",
-                            "v": "4.7.0.72"
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
                         }
                     ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/OBJECT_DETECTION/OBJECT_DETECTION/OBJECT_DETECTION.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 155.42081256468146,
-                    "y": 348.92490460453996
+                    "x": 726.5837721151518,
+                    "y": 91.89316538153173
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 155.42081256468146,
-                    "y": 348.92490460453996
+                    "x": 726.5837721151518,
+                    "y": 91.89316538153173
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-82daa27b-1179-46d8-b02d-c7b0ed5047e9",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "IMAGE-82daa27b-1179-46d8-b02d-c7b0ed5047e9",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1142.7402117767501,
+                    "y": 37.78739719802621
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1142.7402117767501,
+                    "y": 37.78739719802621
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-212d43b0-9dfd-4b16-9ed2-573d4ae7c660",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "IMAGE-212d43b0-9dfd-4b16-9ed2-573d4ae7c660",
+                    "label": "IMAGE 1",
+                    "func": "IMAGE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 741.1457631495206,
+                    "y": -301.3921127763143
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 741.1457631495206,
+                    "y": -301.3921127763143
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "OBJECT_DETECTION-a66b29f2-f0f1-4633-a1df-412d21912558",
-                "sourceHandle": "main",
-                "target": "IMAGE-dd99e8cb-953d-473f-815a-8a461860e078",
-                "targetHandle": "IMAGE",
-                "id": "reactflow__edge-OBJECT_DETECTION-a66b29f2-f0f1-4633-a1df-412d21912558main-IMAGE-dd99e8cb-953d-473f-815a-8a461860e078IMAGE"
+                "source": "LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5",
+                "sourceHandle": "default",
+                "target": "OBJECT_DETECTION-209e41db-c53b-4fad-905f-e30f4b27afea",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5default-OBJECT_DETECTION-209e41db-c53b-4fad-905f-e30f4b27afeadefault"
             },
             {
-                "source": "IMAGE-dd99e8cb-953d-473f-815a-8a461860e078",
-                "sourceHandle": "main",
-                "target": "END-e5a67ce5-c4d3-4baa-97d9-0e7cc5f5d140",
-                "targetHandle": "END",
-                "id": "reactflow__edge-IMAGE-dd99e8cb-953d-473f-815a-8a461860e078main-END-e5a67ce5-c4d3-4baa-97d9-0e7cc5f5d140END"
+                "source": "LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5",
+                "sourceHandle": "default",
+                "target": "IMAGE-212d43b0-9dfd-4b16-9ed2-573d4ae7c660",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5default-IMAGE-212d43b0-9dfd-4b16-9ed2-573d4ae7c660default"
             },
             {
-                "source": "CAMERA-09d24fab-4568-4d13-bd81-6f06490f5eea",
-                "sourceHandle": "main",
-                "target": "OBJECT_DETECTION-a66b29f2-f0f1-4633-a1df-412d21912558",
-                "targetHandle": "OBJECT_DETECTION",
-                "id": "reactflow__edge-CAMERA-09d24fab-4568-4d13-bd81-6f06490f5eeamain-OBJECT_DETECTION-a66b29f2-f0f1-4633-a1df-412d21912558OBJECT_DETECTION"
+                "source": "OBJECT_DETECTION-209e41db-c53b-4fad-905f-e30f4b27afea",
+                "sourceHandle": "default",
+                "target": "IMAGE-82daa27b-1179-46d8-b02d-c7b0ed5047e9",
+                "targetHandle": "default",
+                "id": "reactflow__edge-OBJECT_DETECTION-209e41db-c53b-4fad-905f-e30f4b27afeadefault-IMAGE-82daa27b-1179-46d8-b02d-c7b0ed5047e9default"
             },
             {
-                "source": "CAMERA-09d24fab-4568-4d13-bd81-6f06490f5eea",
-                "sourceHandle": "main",
-                "target": "IMAGE-bd0ef37f-49ea-40e2-aa84-a9dbd987ec61",
-                "targetHandle": "IMAGE",
-                "id": "reactflow__edge-CAMERA-09d24fab-4568-4d13-bd81-6f06490f5eeamain-IMAGE-bd0ef37f-49ea-40e2-aa84-a9dbd987ec61IMAGE"
+                "source": "IMAGE-82daa27b-1179-46d8-b02d-c7b0ed5047e9",
+                "sourceHandle": "default",
+                "target": "END-15f81c58-9f96-462f-88d6-7a70a1ee70a2",
+                "targetHandle": "default",
+                "id": "reactflow__edge-IMAGE-82daa27b-1179-46d8-b02d-c7b0ed5047e9default-END-15f81c58-9f96-462f-88d6-7a70a1ee70a2default"
             }
         ],
         "viewport": {
-            "x": 383.94248946966945,
-            "y": 91.35910915060867,
-            "zoom": 1.1608238532718647
+            "x": -501.95459935516146,
+            "y": 148.3622262035364,
+            "zoom": 1.4811524052100216
         }
     },
     "ctrlsManifest": [

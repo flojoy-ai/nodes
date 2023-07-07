@@ -19,7 +19,7 @@ def OPEN_IMAGE(file_path: str = "") -> Image:
     Returns:
     --------
     DataContainer:
-        type 'image', r, g, b , a
+        type 'image', r, g, b, a
     """
 
     if not path.exists(file_path):

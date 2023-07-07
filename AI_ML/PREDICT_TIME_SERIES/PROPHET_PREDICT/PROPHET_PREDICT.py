@@ -71,7 +71,6 @@ def PROPHET_PREDICT(
                 extra["original"] = df
                 return_df = forecast
             return DataFrame(
-                type="dataframe",
                 df=return_df,
                 extra=extra,
             )

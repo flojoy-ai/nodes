@@ -4,10 +4,10 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "READ_CSV-2e4606ff-823c-4f51-bb75-93a07d3314ed",
+                "id": "READ_CSV-387daa06-4a0d-4a9c-b2f3-604318bdf972",
                 "type": "FILE",
                 "data": {
-                    "id": "READ_CSV-2e4606ff-823c-4f51-bb75-93a07d3314ed",
+                    "id": "READ_CSV-387daa06-4a0d-4a9c-b2f3-604318bdf972",
                     "label": "READ CSV",
                     "func": "READ_CSV",
                     "type": "FILE",
@@ -17,7 +17,7 @@
                             "default": "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
                             "functionName": "READ_CSV",
                             "param": "file_path",
-                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/AI_ML/TEXT_SUMMARIZATION/BART_LARGE_CNN/assets/story.csv"
+                            "value": "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv"
                         }
                     },
                     "outputs": [
@@ -31,27 +31,35 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 216.0452382824732,
-                    "y": 11.568917649250807
+                    "x": 148.87583179205308,
+                    "y": 554.3531906424673
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 216.0452382824732,
-                    "y": 11.568917649250807
+                    "x": 148.87583179205308,
+                    "y": 554.3531906424673
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "BART_LARGE_CNN-51bf1262-1d06-44f2-8065-d0d24d96ff62",
-                "type": "TEXT_SUMMARIZATION",
+                "id": "TRAIN_TEST_SPLIT-dd597d43-f67f-4cd8-9444-3782f083231b",
+                "type": "CLASSIFICATION",
                 "data": {
-                    "id": "BART_LARGE_CNN-51bf1262-1d06-44f2-8065-d0d24d96ff62",
-                    "label": "BART LARGE CNN",
-                    "func": "BART_LARGE_CNN",
-                    "type": "TEXT_SUMMARIZATION",
-                    "ctrls": {},
+                    "id": "TRAIN_TEST_SPLIT-dd597d43-f67f-4cd8-9444-3782f083231b",
+                    "label": "TRAIN TEST SPLIT",
+                    "func": "TRAIN_TEST_SPLIT",
+                    "type": "CLASSIFICATION",
+                    "ctrls": {
+                        "test_size": {
+                            "type": "float",
+                            "default": 0.2,
+                            "functionName": "TRAIN_TEST_SPLIT",
+                            "param": "test_size",
+                            "value": 0.2
+                        }
+                    },
                     "inputs": [
                         {
                             "name": "default",
@@ -62,32 +70,43 @@
                     ],
                     "outputs": [
                         {
-                            "name": "default",
-                            "id": "default",
+                            "name": "train",
+                            "id": "train",
+                            "type": "DataFrame"
+                        },
+                        {
+                            "name": "test",
+                            "id": "test",
                             "type": "DataFrame"
                         }
                     ],
-                    "path": "PYTHON/nodes/AI_ML/TEXT_SUMMARIZATION/BART_LARGE_CNN/BART_LARGE_CNN.py",
-                    "selected": true
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-learn",
+                            "v": "1.2.2"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/CLASSIFICATION/TRAIN_TEST_SPLIT/TRAIN_TEST_SPLIT.py",
+                    "selected": false
                 },
                 "position": {
-                    "x": 825.9468817239251,
-                    "y": 9.543506764770513
+                    "x": 655.4480996925423,
+                    "y": 562.351364667375
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 825.9468817239251,
-                    "y": 9.543506764770513
+                    "x": 655.4480996925423,
+                    "y": 562.351364667375
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "TABLE-acba52e5-1696-4fa0-b3c9-a81760c8c515",
+                "id": "TABLE-7c7e2534-d55a-48d0-9e5c-9fececfaf78a",
                 "type": "PLOTLY",
                 "data": {
-                    "id": "TABLE-acba52e5-1696-4fa0-b3c9-a81760c8c515",
+                    "id": "TABLE-7c7e2534-d55a-48d0-9e5c-9fececfaf78a",
                     "label": "TABLE",
                     "func": "TABLE",
                     "type": "PLOTLY",
@@ -111,23 +130,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 497.754340199451,
-                    "y": 233.8230607607992
+                    "x": 1031.7007141637725,
+                    "y": 238.86876919040867
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 497.754340199451,
-                    "y": 233.8230607607992
+                    "x": 1031.7007141637725,
+                    "y": 238.86876919040867
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
-                "id": "TABLE-ea07c999-ae9e-4628-a043-5cc6f2013d24",
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-9a6fa967-be36-4f5d-93c8-dd6a5b5b349a",
                 "type": "PLOTLY",
                 "data": {
-                    "id": "TABLE-ea07c999-ae9e-4628-a043-5cc6f2013d24",
+                    "id": "TABLE-9a6fa967-be36-4f5d-93c8-dd6a5b5b349a",
                     "label": "TABLE 1",
                     "func": "TABLE",
                     "type": "PLOTLY",
@@ -151,83 +170,43 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1210.8425912636,
-                    "y": -13.947811879795495
+                    "x": 1035.5884816852192,
+                    "y": 696.2385175239534
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1210.8425912636,
-                    "y": -13.947811879795495
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-96d39b76-c4f3-4065-b9f3-510aa4d27644",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-96d39b76-c4f3-4065-b9f3-510aa4d27644",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1642.1491115335464,
-                    "y": 27.413555465710232
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1642.1491115335464,
-                    "y": 27.413555465710232
+                    "x": 1035.5884816852192,
+                    "y": 696.2385175239534
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "READ_CSV-2e4606ff-823c-4f51-bb75-93a07d3314ed",
+                "source": "READ_CSV-387daa06-4a0d-4a9c-b2f3-604318bdf972",
                 "sourceHandle": "default",
-                "target": "BART_LARGE_CNN-51bf1262-1d06-44f2-8065-d0d24d96ff62",
+                "target": "TRAIN_TEST_SPLIT-dd597d43-f67f-4cd8-9444-3782f083231b",
                 "targetHandle": "default",
-                "id": "reactflow__edge-READ_CSV-2e4606ff-823c-4f51-bb75-93a07d3314eddefault-BART_LARGE_CNN-51bf1262-1d06-44f2-8065-d0d24d96ff62default"
+                "id": "reactflow__edge-READ_CSV-387daa06-4a0d-4a9c-b2f3-604318bdf972default-TRAIN_TEST_SPLIT-dd597d43-f67f-4cd8-9444-3782f083231bdefault"
             },
             {
-                "source": "READ_CSV-2e4606ff-823c-4f51-bb75-93a07d3314ed",
-                "sourceHandle": "default",
-                "target": "TABLE-acba52e5-1696-4fa0-b3c9-a81760c8c515",
+                "source": "TRAIN_TEST_SPLIT-dd597d43-f67f-4cd8-9444-3782f083231b",
+                "sourceHandle": "train",
+                "target": "TABLE-7c7e2534-d55a-48d0-9e5c-9fececfaf78a",
                 "targetHandle": "default",
-                "id": "reactflow__edge-READ_CSV-2e4606ff-823c-4f51-bb75-93a07d3314eddefault-TABLE-acba52e5-1696-4fa0-b3c9-a81760c8c515default"
+                "id": "reactflow__edge-TRAIN_TEST_SPLIT-dd597d43-f67f-4cd8-9444-3782f083231btrain-TABLE-7c7e2534-d55a-48d0-9e5c-9fececfaf78adefault"
             },
             {
-                "source": "BART_LARGE_CNN-51bf1262-1d06-44f2-8065-d0d24d96ff62",
-                "sourceHandle": "default",
-                "target": "TABLE-ea07c999-ae9e-4628-a043-5cc6f2013d24",
+                "source": "TRAIN_TEST_SPLIT-dd597d43-f67f-4cd8-9444-3782f083231b",
+                "sourceHandle": "test",
+                "target": "TABLE-9a6fa967-be36-4f5d-93c8-dd6a5b5b349a",
                 "targetHandle": "default",
-                "id": "reactflow__edge-BART_LARGE_CNN-51bf1262-1d06-44f2-8065-d0d24d96ff62default-TABLE-ea07c999-ae9e-4628-a043-5cc6f2013d24default"
-            },
-            {
-                "source": "TABLE-ea07c999-ae9e-4628-a043-5cc6f2013d24",
-                "sourceHandle": "default",
-                "target": "END-96d39b76-c4f3-4065-b9f3-510aa4d27644",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-ea07c999-ae9e-4628-a043-5cc6f2013d24default-END-96d39b76-c4f3-4065-b9f3-510aa4d27644default"
+                "id": "reactflow__edge-TRAIN_TEST_SPLIT-dd597d43-f67f-4cd8-9444-3782f083231btest-TABLE-9a6fa967-be36-4f5d-93c8-dd6a5b5b349adefault"
             }
         ],
         "viewport": {
             "x": -501.95459935516146,
-            "y": 148.3622262035364,
+            "y": 197.98083177807212,
             "zoom": 1.4811524052100216
         }
     },

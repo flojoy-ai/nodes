@@ -4,144 +4,212 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "ONE_HOT_ENCODING-b15db30d-818c-4c14-b6a9-2ecc0d76fffa",
-                "type": "CLASSIFICATION",
+                "id": "PLOTLY_DATASET-27c54fb6-899f-4e3c-b5e2-d60dd27de071",
+                "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "ONE_HOT_ENCODING-b15db30d-818c-4c14-b6a9-2ecc0d76fffa",
-                    "label": "ONE HOT ENCODING",
-                    "func": "ONE_HOT_ENCODING",
-                    "type": "CLASSIFICATION",
+                    "id": "PLOTLY_DATASET-27c54fb6-899f-4e3c-b5e2-d60dd27de071",
+                    "label": "PLOTLY DATASET",
+                    "func": "PLOTLY_DATASET",
+                    "type": "SAMPLE_DATASETS",
                     "ctrls": {
-                        "categories": {
-                            "functionName": "ONE_HOT_ENCODING",
-                            "param": "categories",
-                            "value": ""
-                        },
-                        "columns": {
-                            "functionName": "ONE_HOT_ENCODING",
-                            "param": "columns",
-                            "value": "smoker,day"
+                        "dataset_key": {
+                            "type": "select",
+                            "default": "wind",
+                            "options": [
+                                "wind",
+                                "iris",
+                                "carshare",
+                                "tips",
+                                "election",
+                                "experiment",
+                                "gapminder",
+                                "medals_long",
+                                "medals_wide",
+                                "stocks"
+                            ],
+                            "functionName": "PLOTLY_DATASET",
+                            "param": "dataset_key",
+                            "value": "wind"
                         }
                     },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SAMPLE_DATASETS/PLOTLY_DATASET/PLOTLY_DATASET.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 492.2217042786417,
-                    "y": 150.33145519440131
+                    "x": 247.44522174888542,
+                    "y": 312.10585126742234
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 492.2217042786417,
-                    "y": 150.33145519440131
+                    "x": 247.44522174888542,
+                    "y": 312.10585126742234
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "TABLE-e72a8cef-b0c6-4f36-a865-4491ca7484d0",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "TABLE-e72a8cef-b0c6-4f36-a865-4491ca7484d0",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1117.599565803088,
+                    "y": 297.3527014948889
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1117.599565803088,
+                    "y": 297.3527014948889
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "PLOTLY_DATASET-3ec5e34e-b56a-4779-a8cd-e5e1c01d1689",
-                "type": "SAMPLE_DATASET",
+                "id": "ONE_HOT_ENCODING-c5fa53e1-c141-4c59-9e04-b0005950a3e1",
+                "type": "CLASSIFICATION",
                 "data": {
-                    "id": "PLOTLY_DATASET-3ec5e34e-b56a-4779-a8cd-e5e1c01d1689",
-                    "label": "PLOTLY DATASET",
-                    "func": "PLOTLY_DATASET",
-                    "type": "SAMPLE_DATASET",
+                    "id": "ONE_HOT_ENCODING-c5fa53e1-c141-4c59-9e04-b0005950a3e1",
+                    "label": "ONE HOT ENCODING",
+                    "func": "ONE_HOT_ENCODING",
+                    "type": "CLASSIFICATION",
                     "ctrls": {
-                        "dataset_key": {
-                            "functionName": "PLOTLY_DATASET",
-                            "param": "dataset_key",
-                            "value": "tips"
+                        "categories": {
+                            "type": "Array",
+                            "default": null,
+                            "functionName": "ONE_HOT_ENCODING",
+                            "param": "categories",
+                            "value": ""
+                        },
+                        "columns": {
+                            "type": "Array",
+                            "default": null,
+                            "functionName": "ONE_HOT_ENCODING",
+                            "param": "columns",
+                            "value": "direction"
                         }
                     },
-                    "selected": true
-                },
-                "position": {
-                    "x": 165.0788471357846,
-                    "y": 147.47431233725848
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 165.0788471357846,
-                    "y": 147.47431233725848
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "TABLE-a7e5677c-e1cd-466d-a3ec-36742974d261",
-                "type": "PLOTLY_VISOR",
-                "data": {
-                    "id": "TABLE-a7e5677c-e1cd-466d-a3ec-36742974d261",
-                    "label": "TABLE",
-                    "func": "TABLE",
-                    "type": "PLOTLY_VISOR",
-                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Matrix"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/CLASSIFICATION/ONE_HOT_ENCODING/ONE_HOT_ENCODING.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 727.9359899929276,
-                    "y": 101.7600266229727
+                    "x": 712.7670280875083,
+                    "y": 329.49350014656653
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 727.9359899929276,
-                    "y": 101.7600266229727
+                    "x": 712.7670280875083,
+                    "y": 329.49350014656653
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-de791708-214d-46a3-a334-af3b779d7b49",
-                "type": "TERMINATOR",
+                "id": "END-b9655863-9480-4722-9931-b78e5141e9bd",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "END-de791708-214d-46a3-a334-af3b779d7b49",
+                    "id": "END-b9655863-9480-4722-9931-b78e5141e9bd",
                     "label": "END",
                     "func": "END",
-                    "type": "TERMINATOR",
+                    "type": "TERMINATORS",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1133.650275707213,
-                    "y": 167.47431233725848
+                    "x": 1584.1039231337256,
+                    "y": 341.31565845475285
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1133.650275707213,
-                    "y": 167.47431233725848
+                    "x": 1584.1039231337256,
+                    "y": 341.31565845475285
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "PLOTLY_DATASET-3ec5e34e-b56a-4779-a8cd-e5e1c01d1689",
-                "sourceHandle": "main",
-                "target": "ONE_HOT_ENCODING-b15db30d-818c-4c14-b6a9-2ecc0d76fffa",
-                "targetHandle": "ONE_HOT_ENCODING",
-                "id": "reactflow__edge-PLOTLY_DATASET-3ec5e34e-b56a-4779-a8cd-e5e1c01d1689main-ONE_HOT_ENCODING-b15db30d-818c-4c14-b6a9-2ecc0d76fffaONE_HOT_ENCODING"
+                "source": "PLOTLY_DATASET-27c54fb6-899f-4e3c-b5e2-d60dd27de071",
+                "sourceHandle": "default",
+                "target": "ONE_HOT_ENCODING-c5fa53e1-c141-4c59-9e04-b0005950a3e1",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PLOTLY_DATASET-27c54fb6-899f-4e3c-b5e2-d60dd27de071default-ONE_HOT_ENCODING-c5fa53e1-c141-4c59-9e04-b0005950a3e1default",
+                "selected": false
             },
             {
-                "source": "ONE_HOT_ENCODING-b15db30d-818c-4c14-b6a9-2ecc0d76fffa",
-                "sourceHandle": "main",
-                "target": "TABLE-a7e5677c-e1cd-466d-a3ec-36742974d261",
-                "targetHandle": "TABLE",
-                "id": "reactflow__edge-ONE_HOT_ENCODING-b15db30d-818c-4c14-b6a9-2ecc0d76fffamain-TABLE-a7e5677c-e1cd-466d-a3ec-36742974d261TABLE"
+                "source": "ONE_HOT_ENCODING-c5fa53e1-c141-4c59-9e04-b0005950a3e1",
+                "sourceHandle": "default",
+                "target": "TABLE-e72a8cef-b0c6-4f36-a865-4491ca7484d0",
+                "targetHandle": "default",
+                "id": "reactflow__edge-ONE_HOT_ENCODING-c5fa53e1-c141-4c59-9e04-b0005950a3e1default-TABLE-e72a8cef-b0c6-4f36-a865-4491ca7484d0default"
             },
             {
-                "source": "TABLE-a7e5677c-e1cd-466d-a3ec-36742974d261",
-                "sourceHandle": "main",
-                "target": "END-de791708-214d-46a3-a334-af3b779d7b49",
-                "targetHandle": "END",
-                "id": "reactflow__edge-TABLE-a7e5677c-e1cd-466d-a3ec-36742974d261main-END-de791708-214d-46a3-a334-af3b779d7b49END"
+                "source": "TABLE-e72a8cef-b0c6-4f36-a865-4491ca7484d0",
+                "sourceHandle": "default",
+                "target": "END-b9655863-9480-4722-9931-b78e5141e9bd",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-e72a8cef-b0c6-4f36-a865-4491ca7484d0default-END-b9655863-9480-4722-9931-b78e5141e9bddefault"
             }
         ],
         "viewport": {
-            "x": 34.964285714285666,
-            "y": 190.74999999999997,
-            "zoom": 0.5
+            "x": -501.95459935516146,
+            "y": 197.98083177807212,
+            "zoom": 1.4811524052100216
         }
     },
     "ctrlsManifest": [

@@ -1,4 +1,5 @@
 from flojoy import flojoy, Matrix, DataFrame, Array
+
 from typing import Optional
 import pandas as pd
 from typing import cast
@@ -26,16 +27,16 @@ def ONE_HOT_ENCODING(
     """
 
     if categories:
-        data = pd.DataFrame({"category": categories.unwrap()})
+        data = pd.DataFrame.from_dict({"category": [categories]})
         # Force pandas to treat the column as categorical
         data["category"] = data["category"].astype("category")
         encoded = pd.get_dummies(data, dtype=int)
         return Matrix(m=encoded)
 
     if columns:
-        encoded = pd.get_dummies(default.m[columns.unwrap()])
+        encoded = pd.get_dummies(default.m[columns], dype=int)
     else:
         df = cast(pd.DataFrame, default.m)
-        cat_df = df.select_dtypes(include=["object", "category"])
+        cat_df = df.select_dtypes(include=["object", "category"]).columns.to_list()
         encoded = pd.get_dummies(cat_df, dtype=int)
     return Matrix(m=encoded)

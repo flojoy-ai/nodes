@@ -4,214 +4,314 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "PLOTLY_DATASET-a8170c74-1a99-48d6-b1b7-d039547f071e",
-                "type": "SAMPLE_DATASET",
+                "id": "PLOTLY_DATASET-dd461106-b428-4db6-b4e6-75bb075db829",
+                "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "PLOTLY_DATASET-a8170c74-1a99-48d6-b1b7-d039547f071e",
+                    "id": "PLOTLY_DATASET-dd461106-b428-4db6-b4e6-75bb075db829",
                     "label": "PLOTLY DATASET",
                     "func": "PLOTLY_DATASET",
-                    "type": "SAMPLE_DATASET",
+                    "type": "SAMPLE_DATASETS",
                     "ctrls": {
                         "dataset_key": {
+                            "type": "select",
+                            "default": "wind",
+                            "options": [
+                                "wind",
+                                "iris",
+                                "carshare",
+                                "tips",
+                                "election",
+                                "experiment",
+                                "gapminder",
+                                "medals_long",
+                                "medals_wide",
+                                "stocks"
+                            ],
                             "functionName": "PLOTLY_DATASET",
                             "param": "dataset_key",
-                            "value": "wind"
+                            "value": "tips"
                         }
                     },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SAMPLE_DATASETS/PLOTLY_DATASET/PLOTLY_DATASET.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -42.60569445513045,
-                    "y": 132.93939682927208
+                    "x": 168.7157734894996,
+                    "y": 148.60467075650655
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -42.60569445513045,
-                    "y": 132.93939682927208
+                    "x": 168.7157734894996,
+                    "y": 148.60467075650655
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "EXTRACT_COLUMNS-2315e550-f83b-40ed-a758-eb0d8d774c9a",
+                "type": "DATAFRAME",
+                "data": {
+                    "id": "EXTRACT_COLUMNS-2315e550-f83b-40ed-a758-eb0d8d774c9a",
+                    "label": "EXTRACT COLUMNS",
+                    "func": "EXTRACT_COLUMNS",
+                    "type": "DATAFRAME",
+                    "ctrls": {
+                        "columns": {
+                            "type": "Array",
+                            "default": null,
+                            "functionName": "EXTRACT_COLUMNS",
+                            "param": "columns",
+                            "value": "tip,sex"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/EXTRACTORS/DATAFRAME/EXTRACT_COLUMNS/EXTRACT_COLUMNS.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 559.796883765539,
+                    "y": -85.23831427798018
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 559.796883765539,
+                    "y": -85.23831427798018
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "EXTRACT_COLUMNS-2a55bb2b-c6bc-47ae-abeb-5ebf7aef1a74",
+                "type": "DATAFRAME",
+                "data": {
+                    "id": "EXTRACT_COLUMNS-2a55bb2b-c6bc-47ae-abeb-5ebf7aef1a74",
+                    "label": "EXTRACT COLUMNS 1",
+                    "func": "EXTRACT_COLUMNS",
+                    "type": "DATAFRAME",
+                    "ctrls": {
+                        "columns": {
+                            "type": "Array",
+                            "default": null,
+                            "functionName": "EXTRACT_COLUMNS",
+                            "param": "columns",
+                            "value": "time"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/EXTRACTORS/DATAFRAME/EXTRACT_COLUMNS/EXTRACT_COLUMNS.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 557.7241575691066,
+                    "y": 339.7408079154038
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 557.7241575691066,
+                    "y": 339.7408079154038
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "TABLE-18ca6d2b-822a-4137-a1d0-86dba4ad914b",
-                "type": "PLOTLY_VISOR",
+                "id": "TABLE-eb4a32a1-f22d-4e3d-9262-009167d5a4d6",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "TABLE-18ca6d2b-822a-4137-a1d0-86dba4ad914b",
+                    "id": "TABLE-eb4a32a1-f22d-4e3d-9262-009167d5a4d6",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 474.3278895854819,
-                    "y": -59.31032358907078
+                    "x": 986.0621186827173,
+                    "y": 311.2837482700717
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 474.3278895854819,
-                    "y": -59.31032358907078
+                    "x": 986.0621186827173,
+                    "y": 311.2837482700717
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "TABLE-c6641404-70bf-43ab-b08d-65b3b44b9486",
-                "type": "PLOTLY_VISOR",
+                "id": "TABLE-d24e76a5-51fc-4234-9b3e-397f1f85b57f",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "TABLE-c6641404-70bf-43ab-b08d-65b3b44b9486",
+                    "id": "TABLE-d24e76a5-51fc-4234-9b3e-397f1f85b57f",
                     "label": "TABLE 1",
                     "func": "TABLE",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 624.2910050283648,
-                    "y": 361.7802697052225
+                    "x": 997.5750434763193,
+                    "y": -127.4727954884265
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 624.2910050283648,
-                    "y": 361.7802697052225
+                    "x": 997.5750434763193,
+                    "y": -127.4727954884265
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-febf4491-290d-4b99-97b9-537238e6d42b",
-                "type": "TERMINATOR",
+                "id": "END-729dee4a-0cfe-401e-89fb-212b748c8066",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "END-febf4491-290d-4b99-97b9-537238e6d42b",
+                    "id": "END-729dee4a-0cfe-401e-89fb-212b748c8066",
                     "label": "END",
                     "func": "END",
-                    "type": "TERMINATOR",
+                    "type": "TERMINATORS",
                     "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 1010.2867692876277,
-                    "y": 152.3018887893336
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1010.2867692876277,
-                    "y": 152.3018887893336
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "EXTRACT_COLUMNS-7ee4404a-6499-417a-b3d2-7d89454f513b",
-                "type": "DATAFRAME",
-                "data": {
-                    "id": "EXTRACT_COLUMNS-7ee4404a-6499-417a-b3d2-7d89454f513b",
-                    "label": "EXTRACT COLUMNS",
-                    "func": "EXTRACT_COLUMNS",
-                    "type": "DATAFRAME",
-                    "ctrls": {
-                        "columns": {
-                            "functionName": "EXTRACT_COLUMNS",
-                            "param": "columns",
-                            "value": "direction"
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
                         }
-                    },
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 212.67355736548348,
-                    "y": 16.906748012892365
+                    "x": 1511.785880805635,
+                    "y": 110.72659368615524
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 212.67355736548348,
-                    "y": 16.906748012892365
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "EXTRACT_COLUMNS-c93a5d71-c5bc-483e-9ecc-83a147eb46e9",
-                "type": "DATAFRAME",
-                "data": {
-                    "id": "EXTRACT_COLUMNS-c93a5d71-c5bc-483e-9ecc-83a147eb46e9",
-                    "label": "EXTRACT COLUMNS 1",
-                    "func": "EXTRACT_COLUMNS",
-                    "type": "DATAFRAME",
-                    "ctrls": {
-                        "columns": {
-                            "functionName": "EXTRACT_COLUMNS",
-                            "param": "columns",
-                            "value": "strength,frequency"
-                        }
-                    },
-                    "selected": false
-                },
-                "position": {
-                    "x": 271.3247721713733,
-                    "y": 357.02263696871967
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 271.3247721713733,
-                    "y": 357.02263696871967
+                    "x": 1511.785880805635,
+                    "y": 110.72659368615524
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "PLOTLY_DATASET-a8170c74-1a99-48d6-b1b7-d039547f071e",
-                "sourceHandle": "main",
-                "target": "EXTRACT_COLUMNS-7ee4404a-6499-417a-b3d2-7d89454f513b",
-                "targetHandle": "EXTRACT_COLUMNS",
-                "id": "reactflow__edge-PLOTLY_DATASET-a8170c74-1a99-48d6-b1b7-d039547f071emain-EXTRACT_COLUMNS-7ee4404a-6499-417a-b3d2-7d89454f513bEXTRACT_COLUMNS"
+                "source": "PLOTLY_DATASET-dd461106-b428-4db6-b4e6-75bb075db829",
+                "sourceHandle": "default",
+                "target": "EXTRACT_COLUMNS-2315e550-f83b-40ed-a758-eb0d8d774c9a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PLOTLY_DATASET-dd461106-b428-4db6-b4e6-75bb075db829default-EXTRACT_COLUMNS-2315e550-f83b-40ed-a758-eb0d8d774c9adefault"
             },
             {
-                "source": "PLOTLY_DATASET-a8170c74-1a99-48d6-b1b7-d039547f071e",
-                "sourceHandle": "main",
-                "target": "EXTRACT_COLUMNS-c93a5d71-c5bc-483e-9ecc-83a147eb46e9",
-                "targetHandle": "EXTRACT_COLUMNS",
-                "id": "reactflow__edge-PLOTLY_DATASET-a8170c74-1a99-48d6-b1b7-d039547f071emain-EXTRACT_COLUMNS-c93a5d71-c5bc-483e-9ecc-83a147eb46e9EXTRACT_COLUMNS"
+                "source": "PLOTLY_DATASET-dd461106-b428-4db6-b4e6-75bb075db829",
+                "sourceHandle": "default",
+                "target": "EXTRACT_COLUMNS-2a55bb2b-c6bc-47ae-abeb-5ebf7aef1a74",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PLOTLY_DATASET-dd461106-b428-4db6-b4e6-75bb075db829default-EXTRACT_COLUMNS-2a55bb2b-c6bc-47ae-abeb-5ebf7aef1a74default"
             },
             {
-                "source": "EXTRACT_COLUMNS-c93a5d71-c5bc-483e-9ecc-83a147eb46e9",
-                "sourceHandle": "main",
-                "target": "TABLE-c6641404-70bf-43ab-b08d-65b3b44b9486",
-                "targetHandle": "TABLE",
-                "id": "reactflow__edge-EXTRACT_COLUMNS-c93a5d71-c5bc-483e-9ecc-83a147eb46e9main-TABLE-c6641404-70bf-43ab-b08d-65b3b44b9486TABLE"
+                "source": "EXTRACT_COLUMNS-2315e550-f83b-40ed-a758-eb0d8d774c9a",
+                "sourceHandle": "default",
+                "target": "TABLE-d24e76a5-51fc-4234-9b3e-397f1f85b57f",
+                "targetHandle": "default",
+                "id": "reactflow__edge-EXTRACT_COLUMNS-2315e550-f83b-40ed-a758-eb0d8d774c9adefault-TABLE-d24e76a5-51fc-4234-9b3e-397f1f85b57fdefault",
+                "selected": false
             },
             {
-                "source": "EXTRACT_COLUMNS-7ee4404a-6499-417a-b3d2-7d89454f513b",
-                "sourceHandle": "main",
-                "target": "TABLE-18ca6d2b-822a-4137-a1d0-86dba4ad914b",
-                "targetHandle": "TABLE",
-                "id": "reactflow__edge-EXTRACT_COLUMNS-7ee4404a-6499-417a-b3d2-7d89454f513bmain-TABLE-18ca6d2b-822a-4137-a1d0-86dba4ad914bTABLE"
+                "source": "EXTRACT_COLUMNS-2a55bb2b-c6bc-47ae-abeb-5ebf7aef1a74",
+                "sourceHandle": "default",
+                "target": "TABLE-eb4a32a1-f22d-4e3d-9262-009167d5a4d6",
+                "targetHandle": "default",
+                "id": "reactflow__edge-EXTRACT_COLUMNS-2a55bb2b-c6bc-47ae-abeb-5ebf7aef1a74default-TABLE-eb4a32a1-f22d-4e3d-9262-009167d5a4d6default"
             },
             {
-                "source": "TABLE-18ca6d2b-822a-4137-a1d0-86dba4ad914b",
-                "sourceHandle": "main",
-                "target": "END-febf4491-290d-4b99-97b9-537238e6d42b",
-                "targetHandle": "END",
-                "id": "reactflow__edge-TABLE-18ca6d2b-822a-4137-a1d0-86dba4ad914bmain-END-febf4491-290d-4b99-97b9-537238e6d42bEND"
+                "source": "TABLE-d24e76a5-51fc-4234-9b3e-397f1f85b57f",
+                "sourceHandle": "default",
+                "target": "END-729dee4a-0cfe-401e-89fb-212b748c8066",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-d24e76a5-51fc-4234-9b3e-397f1f85b57fdefault-END-729dee4a-0cfe-401e-89fb-212b748c8066default"
             },
             {
-                "source": "TABLE-c6641404-70bf-43ab-b08d-65b3b44b9486",
-                "sourceHandle": "main",
-                "target": "END-febf4491-290d-4b99-97b9-537238e6d42b",
-                "targetHandle": "END",
-                "id": "reactflow__edge-TABLE-c6641404-70bf-43ab-b08d-65b3b44b9486main-END-febf4491-290d-4b99-97b9-537238e6d42bEND"
+                "source": "TABLE-eb4a32a1-f22d-4e3d-9262-009167d5a4d6",
+                "sourceHandle": "default",
+                "target": "END-729dee4a-0cfe-401e-89fb-212b748c8066",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-eb4a32a1-f22d-4e3d-9262-009167d5a4d6default-END-729dee4a-0cfe-401e-89fb-212b748c8066default"
             }
         ],
         "viewport": {
-            "x": 20.880060242720845,
-            "y": 176.7749074990793,
-            "zoom": 0.5860336846252339
+            "x": -501.95459935516146,
+            "y": 197.98083177807212,
+            "zoom": 1.4811524052100216
         }
     },
     "ctrlsManifest": [

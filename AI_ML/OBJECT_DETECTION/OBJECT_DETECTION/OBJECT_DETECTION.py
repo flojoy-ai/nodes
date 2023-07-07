@@ -6,8 +6,6 @@ import requests
 
 from utils.object_detection.object_detection import detect_object
 
-
-@flojoy
 def OBJECT_DETECTION(default: Image) -> Image:
     """The OBJECT_DETECTION node detects objects in the input image,
     and returns an 'image' DataContainer with those objects highlighted.
@@ -18,12 +16,11 @@ def OBJECT_DETECTION(default: Image) -> Image:
 
     Supported DC types:
     -------------------
-    `image'
+    Image
 
     Returns:
     ----------
-    DataContainer:
-        type 'image' (RGB(A)).
+    Image (RGB(A)).
     """
     r = default.r
     g = default.g

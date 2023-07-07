@@ -1,0 +1,1 @@
+In this example, the `LOCAL_FILE` node loads a local file and passes it to `DF_2_NP`which converts a text file into numpy array. Then `COUNT_VECTORIZER`transforms the matrix of text into a matrix of token counts.

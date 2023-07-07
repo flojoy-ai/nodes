@@ -4,102 +4,137 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "OPEN_IMAGE-f5d91461-5a12-4ea6-8bc6-66c654504b29",
+                "id": "OPEN_IMAGE-2bfde548-fc1a-46ae-bab1-1352eea39ae9",
                 "type": "FILE",
                 "data": {
-                    "id": "OPEN_IMAGE-f5d91461-5a12-4ea6-8bc6-66c654504b29",
+                    "id": "OPEN_IMAGE-2bfde548-fc1a-46ae-bab1-1352eea39ae9",
                     "label": "OPEN IMAGE",
                     "func": "OPEN_IMAGE",
                     "type": "FILE",
                     "ctrls": {
                         "file_path": {
+                            "type": "str",
+                            "default": "",
                             "functionName": "OPEN_IMAGE",
                             "param": "file_path",
-                            "value": "/Users/jinwonlee/Desktop/tiger.jpeg"
+                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/assets/astronaut.png"
                         }
                     },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/EXTRACTORS/FILE/OPEN_IMAGE/OPEN_IMAGE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 162.81317310638525,
-                    "y": 306.0789160970646
+                    "x": 858.9345817189944,
+                    "y": 387.14456168656636
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 162.81317310638525,
-                    "y": 306.0789160970646
+                    "x": 858.9345817189944,
+                    "y": 387.14456168656636
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "IMAGE-863d3933-3619-4671-bfcc-3a6598055485",
-                "type": "PLOTLY_VISOR",
+                "id": "IMAGE-1f5192a8-cc27-4d99-beeb-a6632586b6d3",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "IMAGE-863d3933-3619-4671-bfcc-3a6598055485",
+                    "id": "IMAGE-1f5192a8-cc27-4d99-beeb-a6632586b6d3",
                     "label": "IMAGE",
                     "func": "IMAGE",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 577.6355936509722,
-                    "y": 244.6977026134914
+                    "x": 1410.405681319957,
+                    "y": 349.2352236827468
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 577.6355936509722,
-                    "y": 244.6977026134914
+                    "x": 1410.405681319957,
+                    "y": 349.2352236827468
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-f5e4e4d8-c677-489e-9276-a4e2e48f24f3",
-                "type": "TERMINATOR",
+                "id": "END-307d0bac-9555-478d-b6df-ec3b4a9b23e2",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "END-f5e4e4d8-c677-489e-9276-a4e2e48f24f3",
+                    "id": "END-307d0bac-9555-478d-b6df-ec3b4a9b23e2",
                     "label": "END",
                     "func": "END",
-                    "type": "TERMINATOR",
+                    "type": "TERMINATORS",
                     "ctrls": {},
-                    "selected": true
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": false
                 },
                 "position": {
-                    "x": 1128.9799788832493,
-                    "y": 299.838453817608
+                    "x": 1906.3521517811973,
+                    "y": 409.61252948653294
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 1128.9799788832493,
-                    "y": 299.838453817608
+                    "x": 1906.3521517811973,
+                    "y": 409.61252948653294
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "OPEN_IMAGE-f5d91461-5a12-4ea6-8bc6-66c654504b29",
-                "sourceHandle": "main",
-                "target": "IMAGE-863d3933-3619-4671-bfcc-3a6598055485",
-                "targetHandle": "IMAGE",
-                "id": "reactflow__edge-OPEN_IMAGE-f5d91461-5a12-4ea6-8bc6-66c654504b29main-IMAGE-863d3933-3619-4671-bfcc-3a6598055485IMAGE"
+                "source": "OPEN_IMAGE-2bfde548-fc1a-46ae-bab1-1352eea39ae9",
+                "sourceHandle": "default",
+                "target": "IMAGE-1f5192a8-cc27-4d99-beeb-a6632586b6d3",
+                "targetHandle": "default",
+                "id": "reactflow__edge-OPEN_IMAGE-2bfde548-fc1a-46ae-bab1-1352eea39ae9default-IMAGE-1f5192a8-cc27-4d99-beeb-a6632586b6d3default"
             },
             {
-                "source": "IMAGE-863d3933-3619-4671-bfcc-3a6598055485",
-                "sourceHandle": "main",
-                "target": "END-f5e4e4d8-c677-489e-9276-a4e2e48f24f3",
-                "targetHandle": "END",
-                "id": "reactflow__edge-IMAGE-863d3933-3619-4671-bfcc-3a6598055485main-END-f5e4e4d8-c677-489e-9276-a4e2e48f24f3END"
+                "source": "IMAGE-1f5192a8-cc27-4d99-beeb-a6632586b6d3",
+                "sourceHandle": "default",
+                "target": "END-307d0bac-9555-478d-b6df-ec3b4a9b23e2",
+                "targetHandle": "default",
+                "id": "reactflow__edge-IMAGE-1f5192a8-cc27-4d99-beeb-a6632586b6d3default-END-307d0bac-9555-478d-b6df-ec3b4a9b23e2default"
             }
         ],
         "viewport": {
-            "x": 254.33229548020677,
-            "y": 119.55737845143199,
-            "zoom": 0.775994799329387
+            "x": -501.95459935516146,
+            "y": 197.98083177807212,
+            "zoom": 1.4811524052100216
         }
     },
     "ctrlsManifest": [
