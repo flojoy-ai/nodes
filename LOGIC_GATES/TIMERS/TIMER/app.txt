@@ -4,118 +4,153 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "TIMER-13162284-b2f3-471d-9551-b7c13505ba07",
-                "type": "TIMER",
+                "id": "TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31",
+                "type": "TIMERS",
                 "data": {
-                    "id": "TIMER-13162284-b2f3-471d-9551-b7c13505ba07",
+                    "id": "TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31",
                     "label": "TIMER",
                     "func": "TIMER",
-                    "type": "TIMER",
+                    "type": "TIMERS",
                     "ctrls": {
                         "sleep_time": {
+                            "type": "float",
+                            "default": 0,
                             "functionName": "TIMER",
                             "param": "sleep_time",
-                            "value": "5"
+                            "value": "0.5"
                         }
                     },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\TIMERS\\TIMER\\TIMER.py",
                     "selected": true
                 },
                 "position": {
-                    "x": 163.6632129790961,
-                    "y": 120.50914675813743
+                    "x": 102.89594923414663,
+                    "y": 110.49136885391965
                 },
                 "selected": true,
                 "positionAbsolute": {
-                    "x": 163.6632129790961,
-                    "y": 120.50914675813743
+                    "x": 102.89594923414663,
+                    "y": 110.49136885391965
                 },
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
-                "id": "LINSPACE-70f6921a-8a9b-48cb-9718-ac47aff4cef4",
-                "type": "default",
+                "width": 130,
+                "height": 130,
+                "id": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
+                "type": "SIMULATIONS",
                 "data": {
-                    "id": "LINSPACE-70f6921a-8a9b-48cb-9718-ac47aff4cef4",
-                    "label": "LINSPACE",
-                    "func": "LINSPACE",
-                    "type": "SIMULATION",
+                    "id": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
+                    "label": "2.0",
+                    "func": "CONSTANT",
+                    "type": "SIMULATIONS",
                     "ctrls": {
-                        "start": {
-                            "functionName": "LINSPACE",
-                            "param": "start",
-                            "value": 10
-                        },
-                        "end": {
-                            "functionName": "LINSPACE",
-                            "param": "end",
-                            "value": 0
-                        },
-                        "step": {
-                            "functionName": "LINSPACE",
-                            "param": "step",
-                            "value": 1000
+                        "constant": {
+                            "type": "float",
+                            "default": 3,
+                            "functionName": "CONSTANT",
+                            "param": "constant",
+                            "value": "2.0"
                         }
                     },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\CONSTANT\\CONSTANT.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 535.0917844076675,
-                    "y": 109.08057532956599
+                    "x": 434.9361307844173,
+                    "y": 123.1192529249758
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 535.0917844076675,
-                    "y": 109.08057532956599
+                    "x": 434.9361307844173,
+                    "y": 123.1192529249758
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-d22f9fb2-411d-4b6b-a215-d156954ec938",
-                "type": "TERMINATOR",
+                "id": "END-ab10e538-ad40-4af1-a447-979a455ba0d3",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "END-d22f9fb2-411d-4b6b-a215-d156954ec938",
+                    "id": "END-ab10e538-ad40-4af1-a447-979a455ba0d3",
                     "label": "END",
                     "func": "END",
-                    "type": "TERMINATOR",
+                    "type": "TERMINATORS",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 876.5203558362389,
-                    "y": 117.6520039009946
+                    "x": 880.8948891200718,
+                    "y": 120.18610526153276
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 876.5203558362389,
-                    "y": 117.6520039009946
+                    "x": 880.8948891200718,
+                    "y": 120.18610526153276
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "TIMER-13162284-b2f3-471d-9551-b7c13505ba07",
-                "sourceHandle": "main",
-                "target": "LINSPACE-70f6921a-8a9b-48cb-9718-ac47aff4cef4",
-                "targetHandle": "LINSPACE",
-                "id": "reactflow__edge-TIMER-13162284-b2f3-471d-9551-b7c13505ba07main-LINSPACE-70f6921a-8a9b-48cb-9718-ac47aff4cef4LINSPACE"
+                "source": "TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31",
+                "sourceHandle": "default",
+                "target": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31default-CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0default"
             },
             {
-                "source": "LINSPACE-70f6921a-8a9b-48cb-9718-ac47aff4cef4",
-                "sourceHandle": "main",
-                "target": "END-d22f9fb2-411d-4b6b-a215-d156954ec938",
-                "targetHandle": "END",
-                "id": "reactflow__edge-LINSPACE-70f6921a-8a9b-48cb-9718-ac47aff4cef4main-END-d22f9fb2-411d-4b6b-a215-d156954ec938END"
+                "source": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
+                "sourceHandle": "default",
+                "target": "END-ab10e538-ad40-4af1-a447-979a455ba0d3",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0default-END-ab10e538-ad40-4af1-a447-979a455ba0d3default"
             }
         ],
         "viewport": {
-            "x": 226.6796457828928,
-            "y": 8.096779542967113,
-            "zoom": 0.6853504029717089
+            "x": -296.35399545928726,
+            "y": 66.8470830817738,
+            "zoom": 0.8744723800359967
         }
     },
     "ctrlsManifest": [
