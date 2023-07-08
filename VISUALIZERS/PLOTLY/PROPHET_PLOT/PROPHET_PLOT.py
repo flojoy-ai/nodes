@@ -1,12 +1,10 @@
 from flojoy import flojoy, DataFrame, Plotly
-from typing import Any, Dict, List
 from prophet.plot import plot_plotly
 from prophet.serialize import model_from_json
 
 
 @flojoy
 def PROPHET_PLOT(default: DataFrame, periods: int = 365) -> Plotly:
-
     """The PROPHET_PLOT node plots forecasted trend of the time series data passed in
 
     This is the output plotly graph from the `plot_plotly` function

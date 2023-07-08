@@ -74,8 +74,8 @@
                 }
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "TABLE-6a242d62-814f-406e-94de-d5c6908dce5e",
                 "type": "PLOTLY",
                 "data": {
@@ -100,15 +100,15 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1212.4172251338762,
+                    "x": 1170.5289863217536,
                     "y": 441.8699692511366
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1212.4172251338762,
+                    "x": 1170.5289863217536,
                     "y": 441.8699692511366
                 },
                 "dragging": true
@@ -164,9 +164,9 @@
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 197.98083177807212,
-            "zoom": 1.4811524052100216
+            "x": -277.07893884404893,
+            "y": 103.38141914149585,
+            "zoom": 0.8175961276759318
         }
     },
     "ctrlsManifest": [

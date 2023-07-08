@@ -3,7 +3,7 @@ import numpy
 from functools import wraps
 from unittest.mock import patch
 
-from flojoy import DataContainer
+from flojoy import Matrix, OrderedPair
 
 
 # Python functions are decorated at module-loading time, So we'll need to patch our decorator
@@ -27,8 +27,7 @@ import COUNT_VECTORIZER
 
 def test_COUNT_VECTORIZER():
     # create the two ordered pair datacontainers
-    element_a = DataContainer(
-        type="matrix",
+    element_a = Matrix(
         m=numpy.array(
             [
                 "This is the first document.",
@@ -43,7 +42,7 @@ def test_COUNT_VECTORIZER():
     res = COUNT_VECTORIZER.COUNT_VECTORIZER([element_a], {})
 
     # check that the outputs look correct
-    assert (res.type) == "ordered_pair"
+    assert isinstance(res, OrderedPair)
     assert (set(res.x)) == {
         "this",
         "document",

@@ -74,4 +74,4 @@ def TEXT_DATASET(
     labels = [newsgroups.target_names[i] for i in newsgroups.target]
 
     df = pd.DataFrame({"Text": data, "Label": labels})
-    return DataFrame(m=df)
+    return DataFrame(df=df)
