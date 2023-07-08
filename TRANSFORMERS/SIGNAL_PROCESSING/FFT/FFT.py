@@ -1,11 +1,36 @@
 from scipy import signal, fft
 from numpy import abs
-from flojoy import flojoy, DataContainer
-from pandas import DataFrame
+from flojoy import flojoy, OrderedPair, DataFrame
+from typing import Literal
+from pandas import DataFrame as df
 
 
 @flojoy
-def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def FFT(
+    default: OrderedPair,
+    window: Literal[
+        "boxcar",
+        "triang",
+        "blackman",
+        "hamming",
+        "hann",
+        "bartlett",
+        "flattop",
+        "parzen",
+        "bohman",
+        "blackmanharris",
+        "nuttall",
+        "barthann",
+        "cosine",
+        "exponential",
+        "tukey",
+        "taylor",
+        "lanczos",
+    ] = "hann",
+    real_signal: bool = True,
+    sample_rate: int = 1,
+    display: bool = True,
+) -> OrderedPair | DataFrame:
     """The FFT node performs a Discrete Fourier Transform on the input vector.
     Through the FFT algorithm, the input vector will be transformed
     from the time domain into the frequency domain which will be an ordered pair of arrays.
@@ -23,55 +48,46 @@ def FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     Returns
     -------
-    ordered_pair
+    Ordered_pair if display is true
         x: frequency
         y: spectrum of the signal
+    DataFrame if display is false
+        time: time domain
+        frequency: frequency domain
+        real: real section of the signal
+        imag: imaginary section of the signal
 
     """
-    if len(dc_inputs) != 1:
-        raise ValueError(
-            f"FFT node requires 1 input signal, but {len(dc_inputs)} was given!"
-        )
-    dc = dc_inputs[0]
-    if dc.type != "ordered_pair":
-        raise ValueError(
-            f"unsupported DataContainer type passed to FFT node: '{dc.type}'"
-        )
-
-    window_type: str = params["window_type"]
-    real: bool = params["real_signal"]
-    sample_rate: int = params["sample_rate"]  # Hz
-    display: bool = params["display"]
 
     if sample_rate <= 0:
         raise ValueError(f"Sample rate must be greater than 0")
 
-    signal_value = dc.y
-    x = dc.x
+    signal_value = default.y
+    x = default.x
     sample_spacing = 1.0 / sample_rate
     # x-axis
     frequency = (
         fft.rfftfreq(x.shape[-1], sample_spacing)
-        if real
+        if real_signal and display
         else fft.fftfreq(x.shape[-1], sample_spacing)
     )
     frequency = fft.fftshift(frequency)
     if display:
         # y-axis
-        if window_type == "none":
-            fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
+        if window == "none":
+            fourier = fft.rfft(signal_value) if real_signal else fft.fft(signal_value)
         else:
-            window = signal.get_window(window_type, len(signal_value))
+            window = signal.get_window(window, len(signal_value))
             fourier = (
                 fft.rfft(signal_value * window)
-                if real
+                if real_signal
                 else fft.fft(signal_value * window)
             )
         fourier = fft.fftshift(fourier)
         fourier = abs(fourier)
-        return DataContainer(x=frequency, y=fourier)
+        return OrderedPair(x=frequency, y=fourier)
 
     # for processing
-    fourier = fft.rfft(signal_value) if real else fft.fft(signal_value)
+    fourier = fft.fft(signal_value)
     d = {"x": x, "frequency": frequency, "real": fourier.real, "imag": fourier.imag}
-    return DataContainer(type="dataframe", m=DataFrame(data=d))
+    return DataFrame(df=df(data=d))

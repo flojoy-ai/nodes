@@ -1,5 +1,5 @@
 import traceback
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, Image
 import numpy as np
 import os
 import requests
@@ -8,7 +8,7 @@ from utils.object_detection.object_detection import detect_object
 
 
 @flojoy
-def OBJECT_DETECTION(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def OBJECT_DETECTION(default: Image) -> Image:
     """The OBJECT_DETECTION node detects objects in the input image,
     and returns an 'image' DataContainer with those objects highlighted.
 
@@ -25,15 +25,10 @@ def OBJECT_DETECTION(dc_inputs: list[DataContainer], params: dict) -> DataContai
     DataContainer:
         type 'image' (RGB(A)).
     """
-    dc_input: DataContainer = dc_inputs[0]
-    if dc_input.type != "image":
-        raise ValueError(
-            f"unsupported DataContainer type passed to OBJECT_DETECTION node: '{dc_input.type}'"
-        )
-    r = dc_input.r
-    g = dc_input.g
-    b = dc_input.b
-    a = dc_input.a
+    r = default.r
+    g = default.g
+    b = default.b
+    a = default.a
 
     path = os.path.join(
         os.path.abspath(os.getcwd()), "PYTHON/utils/object_detection/yolov3.weights"
@@ -60,13 +55,7 @@ def OBJECT_DETECTION(dc_inputs: list[DataContainer], params: dict) -> DataContai
             alpha_channel = img_array[:, :, 3]
         else:
             alpha_channel = None
-        return DataContainer(
-            type="image",
-            r=red_channel,
-            g=green_channel,
-            b=blue_channel,
-            a=alpha_channel,
-        )
+        return Image(r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel)
 
     except Exception:
         print(traceback.format_exc())
