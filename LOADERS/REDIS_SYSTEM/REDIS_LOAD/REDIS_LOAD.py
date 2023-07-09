@@ -3,7 +3,7 @@ import os
 from redis import Redis
 from rq.job import Job, NoSuchJobError
 import traceback
-from node_sdk.small_memory import SmallMemory
+from flojoy.small_memory import SmallMemory
 import numpy as np
 
 REDIS_HOST = os.environ.get("REDIS_HOST", "localhost")

@@ -3,7 +3,7 @@ import random
 from flojoy import flojoy, DataContainer
 import numpy as np
 
-from PYTHON.node_sdk.small_memory import SmallMemory
+from flojoy.small_memory import SmallMemory
 
 
 memory_key = "snake_game_info"

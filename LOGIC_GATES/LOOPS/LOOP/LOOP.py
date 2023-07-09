@@ -1,6 +1,6 @@
 import json
 
-from node_sdk.small_memory import SmallMemory
+from flojoy.small_memory import SmallMemory
 
 from flojoy import JobResultBuilder, DataContainer, flojoy
 

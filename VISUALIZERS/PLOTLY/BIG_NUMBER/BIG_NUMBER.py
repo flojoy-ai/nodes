@@ -1,5 +1,5 @@
 from flojoy import flojoy, DataContainer
-from node_sdk.small_memory import SmallMemory
+from flojoy.small_memory import SmallMemory
 import plotly.graph_objects as go
 from nodes.VISUALIZERS.template import plot_layout
 
