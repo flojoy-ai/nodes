@@ -2,45 +2,73 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-c6aafeb2-8a19-461d-bb71-83b8f8b7fc80",
-                "type": "TERMINATORS",
+                "width": 150,
+                "height": 150,
+                "id": "IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736",
+                "type": "IMAGE_PROCESSING",
                 "data": {
-                    "id": "END-c6aafeb2-8a19-461d-bb71-83b8f8b7fc80",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
+                    "id": "IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736",
+                    "label": "IMAGE SMOOTHING",
+                    "func": "IMAGE_SMOOTHING",
+                    "type": "IMAGE_PROCESSING",
+                    "ctrls": {
+                        "kernel": {
+                            "type": "int",
+                            "default": 5,
+                            "functionName": "IMAGE_SMOOTHING",
+                            "param": "kernel",
+                            "value": 5
+                        },
+                        "smoothing_type": {
+                            "type": "select",
+                            "default": "average",
+                            "options": [
+                                "average",
+                                "gaussian",
+                                "median",
+                                "bilateral"
+                            ],
+                            "functionName": "IMAGE_SMOOTHING",
+                            "param": "smoothing_type",
+                            "value": "average"
+                        }
+                    },
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Any",
+                            "type": "Image",
                             "multiple": false
                         }
                     ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/IMAGE_SMOOTHING/IMAGE_SMOOTHING.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1670.5353989758316,
-                    "y": 475.68666510855564
+                    "x": 724.2823786749,
+                    "y": 259.60854916656274
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1670.5353989758316,
-                    "y": 475.68666510855564
+                    "x": 724.2823786749,
+                    "y": 259.60854916656274
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "LOCAL_FILE-745d91c9-0bcf-4ab4-a265-210f2506f20c",
+                "id": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
                 "type": "LOCAL_FILE_SYSTEM",
                 "data": {
-                    "id": "LOCAL_FILE-745d91c9-0bcf-4ab4-a265-210f2506f20c",
+                    "id": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
                     "label": "LOCAL FILE",
                     "func": "LOCAL_FILE",
                     "type": "LOCAL_FILE_SYSTEM",
@@ -88,63 +116,56 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 236.1860483486896,
-                    "y": 471.6046318092519
+                    "x": 393.7135717819896,
+                    "y": 278.0915860062198
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 236.1860483486896,
-                    "y": 471.6046318092519
+                    "x": 393.7135717819896,
+                    "y": 278.0915860062198
                 },
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
-                "id": "EDGE_DETECTION-1f01cece-bbff-47d7-b217-5b311f88d9ba",
-                "type": "IMAGE_PROCESSING",
+                "width": 210,
+                "height": 130,
+                "id": "END-3ed99c64-452e-4a7b-a439-3aab3140483a",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "EDGE_DETECTION-1f01cece-bbff-47d7-b217-5b311f88d9ba",
-                    "label": "EDGE DETECTION",
-                    "func": "EDGE_DETECTION",
-                    "type": "IMAGE_PROCESSING",
+                    "id": "END-3ed99c64-452e-4a7b-a439-3aab3140483a",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
                     "ctrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Image",
+                            "type": "Any",
                             "multiple": false
                         }
                     ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EDGE_DETECTION/EDGE_DETECTION.py",
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 742.6450999737312,
-                    "y": 462.668139650493
+                    "x": 1414.4011402485594,
+                    "y": 266.0448423431875
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 742.6450999737312,
-                    "y": 462.668139650493
+                    "x": 1414.4011402485594,
+                    "y": 266.0448423431875
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
-                "id": "IMAGE-285335dd-85c9-48b9-88f6-2a3dd5680804",
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181",
                 "type": "PLOTLY",
                 "data": {
-                    "id": "IMAGE-285335dd-85c9-48b9-88f6-2a3dd5680804",
+                    "id": "IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181",
                     "label": "IMAGE",
                     "func": "IMAGE",
                     "type": "PLOTLY",
@@ -165,41 +186,41 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1168.474674946048,
-                    "y": 405.7822580683911
+                    "x": 1045.9840067988252,
+                    "y": 224.11694980457935
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1168.474674946048,
-                    "y": 405.7822580683911
+                    "x": 1045.9840067988252,
+                    "y": 224.11694980457935
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LOCAL_FILE-745d91c9-0bcf-4ab4-a265-210f2506f20c",
+                "source": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
                 "sourceHandle": "default",
-                "target": "EDGE_DETECTION-1f01cece-bbff-47d7-b217-5b311f88d9ba",
+                "target": "IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-745d91c9-0bcf-4ab4-a265-210f2506f20cdefault-EDGE_DETECTION-1f01cece-bbff-47d7-b217-5b311f88d9badefault"
+                "id": "reactflow__edge-LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497default-IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736default"
             },
             {
-                "source": "EDGE_DETECTION-1f01cece-bbff-47d7-b217-5b311f88d9ba",
+                "source": "IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736",
                 "sourceHandle": "default",
-                "target": "IMAGE-285335dd-85c9-48b9-88f6-2a3dd5680804",
+                "target": "IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181",
                 "targetHandle": "default",
-                "id": "reactflow__edge-EDGE_DETECTION-1f01cece-bbff-47d7-b217-5b311f88d9badefault-IMAGE-285335dd-85c9-48b9-88f6-2a3dd5680804default"
+                "id": "reactflow__edge-IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736default-IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181default"
             },
             {
-                "source": "IMAGE-285335dd-85c9-48b9-88f6-2a3dd5680804",
+                "source": "IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181",
                 "sourceHandle": "default",
-                "target": "END-c6aafeb2-8a19-461d-bb71-83b8f8b7fc80",
+                "target": "END-3ed99c64-452e-4a7b-a439-3aab3140483a",
                 "targetHandle": "default",
-                "id": "reactflow__edge-IMAGE-285335dd-85c9-48b9-88f6-2a3dd5680804default-END-c6aafeb2-8a19-461d-bb71-83b8f8b7fc80default"
+                "id": "reactflow__edge-IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181default-END-3ed99c64-452e-4a7b-a439-3aab3140483adefault"
             }
         ],
         "viewport": {
