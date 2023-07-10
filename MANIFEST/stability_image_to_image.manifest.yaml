@@ -1,0 +1,17 @@
+COMMAND:
+  - name: STABILITY_IMAGE_TO_IMAGE
+    key: STABILITY_IMAGE_TO_IMAGE
+    type: STABILITYAI
+    parameters:
+      prompt:
+        type: string
+        default: 'A cute baby sea otter'
+      image_path:
+        type: string
+        default: ''
+      width:
+        type: int
+        default: 512
+      height:
+        type: int
+        default: 512

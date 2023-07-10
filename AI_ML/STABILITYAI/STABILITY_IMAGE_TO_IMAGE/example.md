@@ -1,0 +1,1 @@
+An app that uses StabilitAI to generate images based on an input image and text.
