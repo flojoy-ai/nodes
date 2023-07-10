@@ -1,8 +1,8 @@
-from flojoy import flojoy, DataContainer, OrderedPair
+from flojoy import flojoy, OrderedPair
 import serial
 
 
-@flojoy(node_type="INSTRUMENTS")
+@flojoy(deps={'pyserial': '3.5'})
 def KEITHLEY2400(default: OrderedPair,
                  comport: str = '/dev/ttyUSB0',
                  baudrate: float = 9600) -> OrderedPair:
@@ -59,20 +59,11 @@ def KEITHLEY2400(default: OrderedPair,
 
         ser.write(b":OUTP OFF\n")  # Close output from Instrument
 
+    Mock_current_iv = [6.2, 6.1, 6, 6, 5.9, 5.8, 3.5, 0.5]
+
+    iv_curve = OrderedPair(x=voltages, y=Mock_current_iv)
+
     # Close Serial Communication
     ser.close()
 
-    return DataContainer(x={"a": voltages, "b": currents_neg}, y=currents_neg)
-
-
-@flojoy
-def KEITHLEY2400_MOCK(default: OrderedPair) -> OrderedPair:
-    """Mock Function for Keithley2400 node"""
-    voltages = default.y
-    currents_neg = []  # measured currents
-
-    for voltage in voltages:
-        voltage_current_values = voltages * 0.15
-        currents_neg.append(-float(voltage_current_values[1]))
-
-    return DataContainer(x={"a": voltages, "b": currents_neg}, y=currents_neg)
+    return iv_curve
