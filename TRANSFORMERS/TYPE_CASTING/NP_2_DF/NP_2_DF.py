@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from flojoy import (
     flojoy,
+    DataContainer,
     DataFrame,
     OrderedPair,
     OrderedTriple,
@@ -18,20 +19,7 @@ from flojoy import (
 
 
 @flojoy
-def NP_2_DF(
-    default: DataFrame
-    | OrderedPair
-    | OrderedTriple
-    | Matrix
-    | Grayscale
-    | Image
-    | ParametricDataFrame
-    | ParametricOrderedPair
-    | ParametricOrderedTriple
-    | ParametricImage
-    | ParametricGrayscale
-    | ParametricMatrix,
-) -> DataFrame:
+def NP_2_DF(default: DataContainer) -> DataFrame:
     """
     Node to convert numpy array data into dataframe type data
 
@@ -82,3 +70,5 @@ def NP_2_DF(
                 merge = merge.reshape(-1, merge.shape[-1])
                 df = pd.DataFrame(merge)
                 return DataFrame(df=df)
+        case _:
+            raise ValueError(f"unsupported DataContainer type passed for NP_2_DF")

@@ -32,9 +32,7 @@ def EDGE_DETECTION(default: Image) -> Image:
 
     try:
         image = PILImage.fromarray(rgba_image)
-        image = image.convert("L")
-        image = image.filter(ImageFilter.FIND_EDGES)
-        image = image.convert("RGB")
+        image = image.convert("L").filter(ImageFilter.FIND_EDGES).convert("RGB")
         image = np.array(image)
 
         try:

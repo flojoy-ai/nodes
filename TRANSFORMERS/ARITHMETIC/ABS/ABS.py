@@ -5,4 +5,4 @@ from flojoy import flojoy, OrderedPair
 @flojoy
 def ABS(default: OrderedPair) -> OrderedPair:
     """Returns abolute value"""
-    return OrderedPair(x=default.y, y=np.abs(default.y))
+    return OrderedPair(x=default.x, y=np.abs(default.y))
