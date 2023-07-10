@@ -1,12 +1,18 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, DefaultParams
 from node_sdk.small_memory import SmallMemory
 
 memory_key = "pid-info"
 
 
-@flojoy
-def PID(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+@flojoy(inject_node_metadata=True)
+def PID(
+    default: OrderedPair,
+    default_params: DefaultParams,
+    Kp: float = 5,
+    Ki: float = 0.0143,
+    Kd: float = 356.25,
+) -> OrderedPair:
     """The PID node acts like a PID function.
     The returned value with be modified according to the
     PID parameters Kp, Ki, and Kd.
@@ -22,15 +28,12 @@ def PID(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     Returns
     -------
-    dataframe
-        The dataframe modified according to the PID. Ordered pair.
+    OrderedPair
+        The dataframe modified according to the PID.
     """
 
     # First let's get the parameters that won't change
-    Kp: float = params["Kp"]
-    Ki: float = params["Ki"]
-    Kd: float = params["Kd"]
-    node_id = params.get("node_id", 0)
+    node_id = default_params.node_id
     # Now we need some memory! We need to keep track of the running
     # integral value of the inputs (regulation errors), as well as
     # the previous 3 values of the regulation error
@@ -45,7 +48,7 @@ def PID(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     regulation_error_primes = np.zeros((3, 1)) if initialize else data[1:]
     print(f"Recovered data: {data}")
 
-    regulation_error = dc_inputs[0].y[
+    regulation_error = default.y[
         -1
     ]  # constant node makes long list of items; just need the value so take last element
     integral: float = integral + 0.5 * Ki * (
@@ -72,6 +75,4 @@ def PID(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     )
     print(regulation_error, output_signal)
     # ... and return the result
-    return DataContainer(
-        x=dc_inputs[0].y, y=np.ones_like(dc_inputs[0].y) * output_signal
-    )
+    return OrderedPair(x=default.y, y=np.ones_like(default.y) * output_signal)

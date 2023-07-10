@@ -11,9 +11,9 @@ def MATRIX(row: int = 2, column: int = 2) -> Matrix:
 
     Parameters
     ----------
-    row
+    row: int
         number of rows
-    column
+    column: int
         number of columns
     Return
     ------

@@ -1,1 +1,1 @@
-In this example the `TIMER` node sleeps for number of seconds passed to its parameter `sleep_time` which is 5 in this case before executing other nodes `LINSPACE` and `END`.
+In this example the `TIMER` node sleeps for number of seconds passed to its parameter `sleep_time` which is 5 in this case before executing other nodes `CONSTANT` and `END`.
