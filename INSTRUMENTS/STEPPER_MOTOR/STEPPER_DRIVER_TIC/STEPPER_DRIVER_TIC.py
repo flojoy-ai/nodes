@@ -1,4 +1,4 @@
-from flojoy import flojoy, OrderedPair
+from flojoy import flojoy, DataContainer
 from ticlib import (
     TicUSB,
 )  # Import the TicUSB library to send command to Tic drivers with USB connection
@@ -6,7 +6,7 @@ from time import sleep
 
 
 @flojoy
-def STEPPER_DRIVER_TIC(current_limit: int = 30, sleep_time: int = 2) -> OrderedPair:
+def STEPPER_DRIVER_TIC(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """
     Takes current limit and sleep time as parameters and allow to control position
     and speed of a motor with a TIC driver
@@ -14,8 +14,8 @@ def STEPPER_DRIVER_TIC(current_limit: int = 30, sleep_time: int = 2) -> OrderedP
 
     positions: list[int] = [50, 100, 150, 200]  # Setting default positions
     speeds: list[int] = [50000, 1000000, 150000, 200000]  # Setting default speeds
-    current_limit: int = current_limit
-    sleep_time: int = sleep_time
+    current_limit: int = params["current_limit"]
+    sleep_time: int = params["sleep_time"]
 
     # Declaration of the stepper driver
     tic: TicUSB = TicUSB()
@@ -32,14 +32,16 @@ def STEPPER_DRIVER_TIC(current_limit: int = 30, sleep_time: int = 2) -> OrderedP
     tic.deenergize()
     tic.enter_safe_start()
 
-    return OrderedPair(x={"a": positions, "b": speeds}, y=positions)
+    return DataContainer(x={"a": positions, "b": speeds}, y=positions)
 
 
 @flojoy
-def STEPPER_DRIVER_TIC_MOCK() -> OrderedPair:
+def STEPPER_DRIVER_TIC_MOCK(
+    dc_inputs: list[DataContainer], params: dict
+) -> DataContainer:
     """Mock function for the stepper driver
     returns positions and speeds"""
     positions: list[int] = [50, 100, 150, 200]  # Setting default positions
     speeds: list[int] = [50000, 1000000, 150000, 200000]  # Setting default speeds
 
-    return OrderedPair(x={"a": positions, "b": speeds}, y=speeds)
+    return DataContainer(x={"a": positions, "b": speeds}, y=speeds)

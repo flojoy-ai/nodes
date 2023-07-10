@@ -1,4 +1,4 @@
-from flojoy import flojoy, OrderedPair
+from flojoy import flojoy, DataContainer
 import Phidget22
 from Phidget22.Phidget import *
 from Phidget22.Devices.VoltageRatioInput import *
@@ -10,13 +10,11 @@ def onVoltageRatioChange(self, voltageRatio):
 
 
 @flojoy
-def PHIDGET22(
-    n_sensors: int = 3, calibration1: float = 0.015, calibration2: float = 0.06
-) -> OrderedPair:
+def PHIDGET22(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Pressure Measurement with Phidget 22 sensors"""
     voltage: list[float] = []
     pressions: list[float] = []
-    N = n_sensors
+    N = params["n_sensors"]
 
     for i in range(0, N):
         # Creation of an instance of the VoltageRationInput class
@@ -34,15 +32,15 @@ def PHIDGET22(
         voltage.append(volt_i)  # Add Voltage to the list of measurements
 
         # Example of a Calibration to convert Voltage into pressions :
-        pression_i: float = (volt_i - calibration1) / calibration2
+        pression_i: float = (volt_i - params["calibration1"]) / params["calibration2"]
 
         pressions.append(pression_i)
 
-    return OrderedPair(x={"a": voltage, "b": pressions}, y=pressions)
+    return DataContainer(x={"a": voltage, "b": pressions}, y=pressions)
 
 
 @flojoy
-def PHIDGET22_MOCK() -> OrderedPair:
+def PHIDGET22_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """Mock Function for the node Phidget 22"""
     voltage: list[float] = []
     pressions: list[float] = []
@@ -54,4 +52,4 @@ def PHIDGET22_MOCK() -> OrderedPair:
         pression_i: float = (volt_i - 0.015) / 0.06
         pressions.append(pression_i)
 
-    return OrderedPair(x={"a": voltage, "b": pressions}, y=pressions)
+    return DataContainer(x={"a": voltage, "b": pressions}, y=pressions)

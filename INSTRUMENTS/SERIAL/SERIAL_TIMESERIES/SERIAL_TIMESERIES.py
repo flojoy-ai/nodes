@@ -1,4 +1,4 @@
-from flojoy import flojoy, OrderedPair, Plotly
+from flojoy import flojoy, DataContainer
 from time import sleep
 import serial
 import numpy as np
@@ -7,12 +7,7 @@ import plotly.graph_objects as go
 
 
 @flojoy
-def SERIAL_TIMESERIES(
-    comport: str = "/dev/ttyACM0",
-    baudrate: int = 9600,
-    num_readings: int = 100,
-    record_period: float = 1.0,
-) -> OrderedPair:
+def SERIAL_TIMESERIES(dc_inputs, params):
     """
     Node to take simple time dependent 1d data from an Ardunio,
     or a similar serial device.
@@ -51,10 +46,10 @@ def SERIAL_TIMESERIES(
     num_readings * record_period is roughly the run length in seconds.
     """
 
-    COM_PORT = comport
-    BAUD = baudrate
-    NUM = num_readings
-    RECORD_PERIOD = record_period
+    COM_PORT = params["comport"]
+    BAUD = params["baudrate"]
+    NUM = params["num_readings"]
+    RECORD_PERIOD = params["record_period"]
 
     ser = serial.Serial(COM_PORT, timeout=1, baudrate=BAUD)
     readings = []
@@ -100,13 +95,13 @@ def SERIAL_TIMESERIES(
     if readings.ndim == 2:
         data = go.Line(x=times, y=readings[:, 0], mode="markers")
         fig = go.Figure(data=data)
-        return Plotly(fig=fig, x=times, y=readings)
+        return DataContainer(type="plotly", fig=fig, x=times, y=readings)
     else:
-        return OrderedPair(x=times, y=readings)
+        return DataContainer(x=times, y=readings)
 
 
 @flojoy
-def SERIAL_TIMESERIES_MOCK() -> OrderedPair:
+def SERIAL_TIMESERIES_MOCK(dc, params):
     x = np.linspace(0, 100, 100)
     y = np.linspace(0, 100, 100)
-    return OrderedPair(x=x, y=y)
+    return DataContainer(x=x, y=y)

@@ -1,5 +1,5 @@
 import numpy as np
-from flojoy import flojoy, DataContainer, OrderedPair
+from flojoy import flojoy, DataContainer
 from node_sdk.small_memory import SmallMemory
 
 memory_key = "SECOND_ORDER_SYSTEM"
@@ -64,6 +64,6 @@ def SECOND_ORDER_SYSTEM(dc_inputs: list[DataContainer], params: dict) -> DataCon
     # We now write to memory, reversing the order ...
     SmallMemory().write_to_memory(node_id, memory_key, y_primes[::-1])
     # ... and return the result!
-    return OrderedPair(
+    return DataContainer(
         x=dc_inputs[0].y, y=np.ones_like(dc_inputs[0].y) * float(y_primes[0])
     )  # returns input output pair

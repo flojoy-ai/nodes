@@ -1,18 +1,12 @@
 import cv2
 import os
-from flojoy import flojoy, Image
-from PIL import Image as PILImage
-from typing import Literal
+from flojoy import flojoy, DataContainer
+from PIL import Image
 import numpy as np
 
 
 @flojoy
-def CAMERA(
-    camera_ind: int = -1,
-    resolution: Literal[
-        "default", "640x360", "640x480", "280x720", "1920x1080"
-    ] = "default",
-) -> Image:
+def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     """The CAMERA node acquires an image using the selected camera.
     If no camera is detected, an error would be thrown.
 
@@ -25,8 +19,12 @@ def CAMERA(
 
     Returns:
     ----------
-    Image:
+    DataContainer:
+        type 'image'
     """
+    camera_ind: int = params["camera_ind"]
+    resolution: str = params["resolution"]
+
     try:
         camera = cv2.VideoCapture(camera_ind)
         if resolution != "default":
@@ -60,7 +58,8 @@ def CAMERA(
         else:
             alpha_channel = None
 
-        return Image(
+        return DataContainer(
+            type="image",
             r=red_channel,
             g=green_channel,
             b=blue_channel,
@@ -72,7 +71,7 @@ def CAMERA(
 
 
 @flojoy
-def CAMERA_MOCK():
+def CAMERA_MOCK(dc_inputs: list[DataContainer], params: dict):
     print("Running mock version of CAMERA node...")
 
     # Get the absolute path of the current directory
@@ -82,7 +81,7 @@ def CAMERA_MOCK():
         current_dir, "assets", "astronaut.png"
     )  # Load example image.
     print("File to be loaded: ", file_path)
-    f = PILImage.open(file_path)
+    f = Image.open(file_path)
     img_array = np.array(f.convert("RGBA"))
     red_channel = img_array[:, :, 0]
     green_channel = img_array[:, :, 1]
@@ -91,4 +90,6 @@ def CAMERA_MOCK():
         alpha_channel = img_array[:, :, 3]
     else:
         alpha_channel = None
-    return Image(r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel)
+    return DataContainer(
+        type="image", r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel
+    )

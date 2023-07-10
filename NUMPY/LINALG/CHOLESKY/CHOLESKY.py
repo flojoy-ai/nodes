@@ -1,10 +1,9 @@
-from flojoy import OrderedPair, Matrix, flojoy
-from typing import Union
+from flojoy import DataContainer, flojoy
 import numpy.linalg
 
 
 @flojoy
-def CHOLESKY(a: Union[OrderedPair, Matrix]) -> OrderedPair:
+def CHOLESKY(dc, params):
     """
 
             Cholesky decomposition.
@@ -27,9 +26,9 @@ def CHOLESKY(a: Union[OrderedPair, Matrix]) -> OrderedPair:
             Hermitian (symmetric if all elements are real), positive-definite
             input matrix.
     """
-    return OrderedPair(
-        x=a.y,
+    return DataContainer(
+        x=dc[0].y,
         y=numpy.linalg.cholesky(
-            a=a.y,
+            a=dc[0].y,
         ),
     )
