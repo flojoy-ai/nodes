@@ -1,14 +1,15 @@
-import os
+import os, shutil
 import yaml
 import sys
 import textwrap
+
 
 path = os.path
 
 N_PATH = "nodes/"
 
 
-def get_md_file_content(file_path: str, node_label: str, has_example: bool):
+def get_md_file_content(file_path: str, node_label: str, has_example: bool, example_section:str):
     file_dir, _ = path.split(file_path)
     nodes_index = file_dir.replace("\\", "/").rfind(N_PATH)
     node_path = file_dir[nodes_index:].replace("\\", "/").replace(N_PATH, "")
@@ -65,30 +66,6 @@ import ParametersSource from '!!raw-loader!./a1-[autogen]/parameters.yaml';
         node_label=node_label, node_path=node_path
     )
 
-    example_section = """
-
-[//]: # (Examples)
-
-## Examples
-
-import Example1 from './examples/EX1/example.md';
-import App1 from '!!raw-loader!./examples/EX1/app.txt';
-import Data1 from '!!raw-loader!./examples/EX1/output.txt';
-
-<AppDisplay 
-    data={{Data1}}
-    nodeLabel='{node_label}'>
-    {{App1}}
-</AppDisplay>
-
-<Example1 />
-
-<SectionBreak />
-  
-    """.format(
-        node_label=node_label
-    )
-
     appendix_section = """
 
 [//]: # (Appendix)
@@ -113,6 +90,46 @@ import Media from '!!raw-loader!./appendix/media.md';
         if has_example
         else common_section + example_section_default + appendix_section
     )
+
+
+def get_example_section(node_label: str, has_app_image: bool, has_output_image: bool):
+    app_image = "import appImg from './examples/EX1/app.jpeg'" if has_app_image else ""
+    output_image = (
+        "import outputImg from './examples/EX1/output.jpeg'" if has_output_image else ""
+    )
+    app_image_val = "{appImg}" if has_app_image else "{''}"
+    output_image_val = "{outputImg}" if has_output_image else "{''}"
+    example_section = """
+
+[//]: # (Examples)
+
+## Examples
+
+import Example1 from './examples/EX1/example.md';
+import App1 from '!!raw-loader!./examples/EX1/app.txt';
+{app_image}
+{output_image}
+
+<AppDisplay 
+    nodeLabel='{node_label}'
+    appImg={app_image_val}
+    outputImg={output_image_val}
+    >
+    {{App1}}
+</AppDisplay>
+
+<Example1 />
+
+<SectionBreak />
+  
+    """.format(
+        node_label=node_label,
+        app_image=app_image,
+        output_image=output_image,
+        app_image_val=app_image_val,
+        output_image_val=output_image_val,
+    )
+    return example_section
 
 
 def write_file_recursive(file_path: str, content: str):
@@ -226,7 +243,7 @@ def process_python_file(input_file_path: str, output_path: str):
     # examples
     has_example = False
     example_dir_path = path.join(output_path, "examples", "EX1")
-    for f in ["app.txt", "example.md", "output.txt"]:
+    for f in ["app.txt", "example.md"]:
         if path.exists(path.join(input_dir, f)):
             has_example = True
             c = get_content(path.join(input_dir, f))
@@ -239,20 +256,35 @@ def process_python_file(input_file_path: str, output_path: str):
                     write_file_recursive(path.join(example_dir_path, f), c)
         else:
             has_example = False
+    
     # write md file with file name
     md_file_path = path.join(
         output_path, path.basename(input_file_path).replace(".py", ".md")
     )
+    img_map = {
+        'app.jpeg': False,
+        'output.jpeg': False
+    }
+    for f in ['app.jpeg', 'output.jpeg']:
+        img_path = path.join(input_dir, f)
+        if path.exists(img_path):
+            shutil.copy2(img_path, path.join(example_dir_path, f))
+            img_map[f] = True
+            
+
+    example_section = get_example_section(
+        input_file_name.replace(".py", ""),
+        has_app_image=img_map["app.jpeg"],
+        has_output_image=img_map["output.jpeg"],
+    )
     md_file_content = get_md_file_content(
-        md_file_path, input_file_name.replace(".py", ""), has_example=has_example
+        md_file_path, input_file_name.replace(".py", ""), has_example=has_example, example_section=example_section
     )
     if not path.exists(md_file_path):
         write_file_recursive(md_file_path, md_file_content)
     else:
         if path.exists(path.join(example_dir_path, "app.txt")) and has_example:
-            print("writing md file for: ", node_name, " has example: ", has_example)
             write_file_recursive(md_file_path, md_file_content)
-
 
 def extract_docstring(content: str):
     # Find the start and end of the docstring
@@ -304,7 +336,7 @@ def write_doc(docs_dir: str):
 
 docs_dir = ""
 if __name__ == "__main__":
-    docs_dir_path = sys.argv[1]
-    docs_dir = path.abspath(path.join(docs_dir_path, "docs"))
-    print(" docs dir: ", docs_dir)
+        docs_dir_path = sys.argv[1]
+        docs_dir = path.abspath(path.join(docs_dir_path, "docs"))
+        print(" docs dir: ", docs_dir)
 write_doc(docs_dir=docs_dir)
