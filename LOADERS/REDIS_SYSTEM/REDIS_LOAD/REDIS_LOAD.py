@@ -11,7 +11,9 @@ REDIS_PORT = os.environ.get("REDIS_PORT", 6379)
 
 
 @flojoy
-def REDIS_LOAD(default: OrderedPair, referred_node: NodeReference = '') -> DataContainer:
+def REDIS_LOAD(
+    default: OrderedPair, referred_node: NodeReference = ""
+) -> DataContainer:
     """The REDIS_LOAD node loads data directly from REDIS.
 
     Parameters
