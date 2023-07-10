@@ -17,21 +17,21 @@
                             "default": 10,
                             "functionName": "LINSPACE",
                             "param": "start",
-                            "value": "0"
+                            "value": 10
                         },
                         "end": {
                             "type": "float",
                             "default": 0,
                             "functionName": "LINSPACE",
                             "param": "end",
-                            "value": "0.75"
+                            "value": 0
                         },
                         "step": {
                             "type": "int",
                             "default": 1000,
                             "functionName": "LINSPACE",
                             "param": "step",
-                            "value": "600"
+                            "value": 1000
                         }
                     },
                     "outputs": [
@@ -78,7 +78,7 @@
                             "default": 1,
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": "30"
+                            "value": 1
                         },
                         "offset": {
                             "type": "float",
@@ -160,7 +160,7 @@
                             "default": 1,
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": "100"
+                            "value": 1
                         },
                         "offset": {
                             "type": "float",
@@ -307,7 +307,7 @@
                             "default": true,
                             "functionName": "FFT",
                             "param": "real_signal",
-                            "value": true
+                            "value": false
                         },
                         "sample_rate": {
                             "type": "int",
@@ -379,7 +379,7 @@
                     "x": 1512.6675060177693,
                     "y": 343.502648631045
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
                     "x": 1512.6675060177693,
                     "y": 343.502648631045

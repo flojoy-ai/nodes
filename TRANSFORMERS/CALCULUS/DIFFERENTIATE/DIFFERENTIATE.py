@@ -1,9 +1,9 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair
 import numpy as np
 
 
 @flojoy
-def DIFFERENTIATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def DIFFERENTIATE(default: OrderedPair) -> OrderedPair:
     """
     The DIFFERENTIATE node takes two list, x and y, as input.
     It computes the derivative of the array, y with respect to x.
@@ -17,15 +17,8 @@ def DIFFERENTIATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer
     numpy array
         Derivative of the array
     """
-    dc_input = dc_inputs[0]
-
-    if dc_input.type != "ordered_pair":
-        raise ValueError(
-            f"unsupported DataContainer type passed for DIFFERENTIATE : {dc_input.type}"
-        )
-
-    input_x = dc_input.x
-    input_y = dc_input.y
+    input_x = default.x
+    input_y = default.y
 
     if type(input_x) != np.ndarray:
         raise ValueError(f"Invalid type for x:{type(input_x)}")
@@ -36,4 +29,4 @@ def DIFFERENTIATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer
 
     differentiate = np.diff(input_y) / np.diff(input_x)
 
-    return DataContainer(type="ordered_pair", x=input_x, y=differentiate)
+    return OrderedPair(x=input_x, y=differentiate)
