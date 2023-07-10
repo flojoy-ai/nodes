@@ -1,5 +1,5 @@
 from scipy import signal
-from flojoy import flojoy, DataContainer, OrderedPair
+from flojoy import flojoy, OrderedPair
 from typing import Literal, Union
 
 
@@ -10,8 +10,9 @@ def BUTTER(
     critical_frequency: int = 1,
     btype: Literal["lowpass", "highpass", "bandpass", "bandstop"] = "lowpass",
     sample_rate: int = 10,
-) -> DataContainer:
-    """The BUTTER node applies a butterworth filter to an input vector
+) -> OrderedPair:
+    """The BUTTER node applies a butterworth filter to an input signal.
+    It is designed to have a frequency response that is as flat as possible in the pass band
 
     Parameters
     ----------
@@ -27,6 +28,7 @@ def BUTTER(
 
     Returns
     -------
+    OrderedPair
         x: time domain
         y: filtered signal
     """
@@ -40,4 +42,4 @@ def BUTTER(
     #    sos = signal.butter(10, 15, "hp", fs=1000, output="sos")
     filtered = signal.sosfilt(sos, sig)
 
-    return DataContainer(x=default.x, y=filtered)
+    return OrderedPair(x=default.x, y=filtered)

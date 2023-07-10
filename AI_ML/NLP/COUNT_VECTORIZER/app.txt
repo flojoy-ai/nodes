@@ -1,0 +1,212 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "READ_CSV-9e29e1a7-1de5-4f20-b984-da233df01e7f",
+                "type": "FILE",
+                "data": {
+                    "id": "READ_CSV-9e29e1a7-1de5-4f20-b984-da233df01e7f",
+                    "label": "READ CSV",
+                    "func": "READ_CSV",
+                    "type": "FILE",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
+                            "functionName": "READ_CSV", 
+                            "param": "file_path",
+                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/AI_ML/NLP/COUNT_VECTORIZER/assets/text.csv"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/READ_CSV.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 693.0500304767432,
+                    "y": 324.1115271340136
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 693.0500304767432,
+                    "y": 324.1115271340136
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "COUNT_VECTORIZER-cda52cec-5dd8-45ff-a718-f3a715fabeea",
+                "type": "NLP",
+                "data": {
+                    "id": "COUNT_VECTORIZER-cda52cec-5dd8-45ff-a718-f3a715fabeea",
+                    "label": "COUNT VECTORIZER",
+                    "func": "COUNT_VECTORIZER",
+                    "type": "NLP",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-learn",
+                            "v": "1.2.2"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/NLP/COUNT_VECTORIZER/COUNT_VECTORIZER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1140.9140207379864,
+                    "y": 340.842084845731
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1140.9140207379864,
+                    "y": 340.842084845731
+                },
+                "dragging": true
+            },
+            {
+                "width": 240,
+                "height": 260,
+                "id": "MATRIX_VIEW-2ce1fb37-171d-4e3c-9253-29721a9d80b1",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "MATRIX_VIEW-2ce1fb37-171d-4e3c-9253-29721a9d80b1",
+                    "label": "MATRIX VIEW",
+                    "func": "MATRIX_VIEW",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/DATA_STRUCTURE/MATRIX_VIEW/MATRIX_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1545.2740604218616,
+                    "y": 303.4388323546339
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1545.2740604218616,
+                    "y": 303.4388323546339
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-171d0f0b-012f-43e4-9f7f-e3afc42567e5",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-171d0f0b-012f-43e4-9f7f-e3afc42567e5",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1959.6902546825124,
+                    "y": 338.76872400249744
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1959.6902546825124,
+                    "y": 338.76872400249744
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "READ_CSV-9e29e1a7-1de5-4f20-b984-da233df01e7f",
+                "sourceHandle": "default",
+                "target": "COUNT_VECTORIZER-cda52cec-5dd8-45ff-a718-f3a715fabeea",
+                "targetHandle": "default",
+                "id": "reactflow__edge-READ_CSV-9e29e1a7-1de5-4f20-b984-da233df01e7fdefault-COUNT_VECTORIZER-cda52cec-5dd8-45ff-a718-f3a715fabeeadefault"
+            },
+            {
+                "source": "COUNT_VECTORIZER-cda52cec-5dd8-45ff-a718-f3a715fabeea",
+                "sourceHandle": "default",
+                "target": "MATRIX_VIEW-2ce1fb37-171d-4e3c-9253-29721a9d80b1",
+                "targetHandle": "default",
+                "id": "reactflow__edge-COUNT_VECTORIZER-cda52cec-5dd8-45ff-a718-f3a715fabeeadefault-MATRIX_VIEW-2ce1fb37-171d-4e3c-9253-29721a9d80b1default"
+            },
+            {
+                "source": "MATRIX_VIEW-2ce1fb37-171d-4e3c-9253-29721a9d80b1",
+                "sourceHandle": "default",
+                "target": "END-171d0f0b-012f-43e4-9f7f-e3afc42567e5",
+                "targetHandle": "default",
+                "id": "reactflow__edge-MATRIX_VIEW-2ce1fb37-171d-4e3c-9253-29721a9d80b1default-END-171d0f0b-012f-43e4-9f7f-e3afc42567e5default"
+            }
+        ],
+        "viewport": {
+            "x": -277.07893884404893,
+            "y": 103.38141914149585,
+            "zoom": 0.8175961276759318
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

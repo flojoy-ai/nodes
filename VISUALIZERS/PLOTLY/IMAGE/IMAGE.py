@@ -6,7 +6,18 @@ from nodes.VISUALIZERS.template import plot_layout
 
 @flojoy
 def IMAGE(default: Image) -> Plotly:
-    node_name = __name__.split(".")[-1]
+    """The IMAGE node creates a Plotly image visualization for a given
+    input data container type of image.
+
+    Parameters:
+    -----------
+    None
+
+    Supported DC types:
+    ------------------
+    `image`
+    """
+
     r = default.r
     g = default.g
     b = default.b
@@ -16,7 +27,7 @@ def IMAGE(default: Image) -> Plotly:
         img_combined = np.stack((r, g, b), axis=2)
     else:
         img_combined = np.stack((r, g, b, a), axis=2)
-    layout = plot_layout(title=node_name)
+    layout = plot_layout(title="IMAGE")
     fig = px.imshow(img=img_combined)
     fig.layout = layout
 

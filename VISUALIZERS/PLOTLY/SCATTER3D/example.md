@@ -1,1 +1,1 @@
-In this example we're simulating data from `R_DATASET` and visualizing them with `SCATTER3D` node which creates a Plotly Scatter 3D visualization for the input node.
+In this example we're simulating data from `PLOTLY_DATASET` and visualizing them with `SCATTER3D` node which creates a Plotly Scatter 3D visualization for the input node.

@@ -15,13 +15,15 @@ def BASIC_OSCILLATOR(
     phase: float = 0,
 ) -> OrderedPair:
     """The BASIC_OSCILLATOR node is a combination of LINSPACE and SINE node.
-    It is useful for generating signals as it will generate a waveform with
-    sample rate and the time in seconds as parameters.
+    It offers a more straight forward way of generating signals, with
+    sample rate and the time in seconds as parameters, along with all the parameters
+    in the SINE node.
+    This node is particularly useful with signal processing applications as the sample rate is commonly used.
     Parameters
     ----------
-    sample_rate: int
+    sample_rate: float
         How many samples taken during a second
-    time: int
+    time: float
         The total amount of time of the signal
     waveform: select
     amplitude: float
@@ -41,12 +43,10 @@ def BASIC_OSCILLATOR(
     if waveform == "sine":
         y = offset + amplitude * np.sin(2 * np.pi * frequency * x + phase)
     elif waveform == "square":
-        y = offset + amplitude * signal.square(2 * np.pi * frequency * x / 10 + phase)
+        y = offset + amplitude * signal.square(2 * np.pi * frequency * x + phase)
     elif waveform == "triangle":
-        y = offset + amplitude * signal.sawtooth(
-            2 * np.pi * frequency * x / 10 + phase, 0.5
-        )
-    elif waveform == "sawtooth":
-        y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency / 10 * x + phase)
+        y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency * x + phase, 0.5)
+    else:  # Sawtooth
+        y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency * x + phase)
 
     return OrderedPair(x=x, y=y)

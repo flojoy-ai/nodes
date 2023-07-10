@@ -1,10 +1,15 @@
-from flojoy import flojoy, Image, DefaultParams
+from flojoy import flojoy, Image
 import cv2
 import numpy as np
+from typing import Literal
 
 
 @flojoy
-def IMAGE_SMOOTHING(default: Image, params: DefaultParams) -> Image:
+def IMAGE_SMOOTHING(
+    default: Image,
+    kernel: int = 5,
+    smoothing_type: Literal["average", "gaussian", "median", "bilateral"] = "average",
+) -> Image:
     """
     Apply image smoothing operation on the input `DataContainer` class,
     specifically for the 'image' type,
@@ -31,8 +36,6 @@ def IMAGE_SMOOTHING(default: Image, params: DefaultParams) -> Image:
     g = default.g
     b = default.b
     a = default.a
-    kernel = params.get("kernel", 5)
-    smoothing_type = params.get("smoothing_type", "average")
 
     if a is not None:
         rgba_image = np.stack((r, g, b, a), axis=2)

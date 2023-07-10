@@ -30,7 +30,11 @@ def TWO_DIMENSIONAL_FFT(
 
     Returns
     -------
-    image
+    Matrix if input is Matrix
+        m: The matrix after 2DFFT
+    DataFrame if input is Dataframe
+        df: the dataframe after 2DFFT
+    Image
         The frequency spectrum of the color channel
     """
     match default.type:

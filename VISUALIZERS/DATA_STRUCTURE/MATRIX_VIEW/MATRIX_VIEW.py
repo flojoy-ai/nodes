@@ -1,4 +1,4 @@
-from flojoy import flojoy, OrderedPair, Matrix, Plotly
+from flojoy import flojoy, OrderedPair, Matrix, Plotly, DCNpArrayType
 import plotly.graph_objects as go
 import numpy as np
 
@@ -56,7 +56,7 @@ def numpy_1d_array_as_table(arr: DCNpArrayType):
 def numpy_array_as_table(arr: DCNpArrayType):
     ndim = arr.ndim
     if ndim == 1:
-        cell_values = numpy_1d_array_as_table(arr, l_dot)
+        cell_values = numpy_1d_array_as_table(arr)
     elif ndim > 2:
         raise ValueError("MATRIX_VIEW can process only 2D arrays!")
     else:

@@ -1,4 +1,4 @@
-from flojoy import flojoy, OrderedPair, DefaultParams
+from flojoy import flojoy, OrderedPair
 import numpy as np
 
 
@@ -26,10 +26,8 @@ def INTEGRATE(default: OrderedPair) -> OrderedPair:
 
     Returns
     -------
-    DataContainer:
-        type 'ordered_pair', x, y
+    OrderedPair, x, y
     """
-
     input_x = default.x
     input_y = default.y
 

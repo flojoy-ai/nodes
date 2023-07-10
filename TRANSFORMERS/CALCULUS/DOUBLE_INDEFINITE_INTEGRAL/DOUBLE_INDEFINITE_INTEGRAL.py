@@ -1,4 +1,4 @@
-from flojoy import flojoy, Matrix, OrderedTriple, DefaultParams
+from flojoy import flojoy, OrderedTriple, Matrix
 import numpy as np
 
 
@@ -17,7 +17,6 @@ def DOUBLE_INDEFINITE_INTEGRAL(default: OrderedTriple) -> Matrix:
     DataContainer:
         type 'matrix', m
     """
-
     input_x = default.x
     input_y = default.y
     input_z = default.z
