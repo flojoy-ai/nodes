@@ -15,7 +15,7 @@ def DOUBLE_DEFINITE_INTEGRAL(
     The DEFINITE_INTEGRAL node takes a function, upper, and lower bounds as input.
     It computes double integral of the given function.
 
-    Proper Syntax for function input example: 
+    Proper Syntax for function input example:
     2*x*y
     Improper Syntax for function input example:
     2xy

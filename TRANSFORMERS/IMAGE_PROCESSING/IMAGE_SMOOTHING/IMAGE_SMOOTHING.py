@@ -1,6 +1,7 @@
-from flojoy import flojoy, Image, Literal
+from flojoy import flojoy, Image
 import cv2
 import numpy as np
+from typing import Literal
 
 
 @flojoy

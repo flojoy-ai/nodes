@@ -12,20 +12,35 @@ def ADD(a: OrderedPair | Scalar, b: list[OrderedPair | Scalar]) -> OrderedPair |
     only the overlapping elements changed.
     """
     # TODO: Support other data types
-    if isinstance(a, Scalar) and isinstance(b, list) and all(isinstance(item, OrderedPair) for item in b):
+    if (
+        isinstance(a, Scalar)
+        and isinstance(b, list)
+        and all(isinstance(item, OrderedPair) for item in b)
+    ):
         raise ValueError("The 'scalar' type should be connect to the 'y' input.")
-    
-    elif isinstance(a, OrderedPair) and isinstance(b, list) and all(isinstance(item, OrderedPair) for item in b):
+
+    elif (
+        isinstance(a, OrderedPair)
+        and isinstance(b, list)
+        and all(isinstance(item, OrderedPair) for item in b)
+    ):
         x = a.x
         y = reduce(lambda u, v: np.add(u, v.y), b, a.y)
         return OrderedPair(x=x, y=y)
 
-    elif isinstance(a, OrderedPair) and isinstance(b, list) and all(isinstance(item, Scalar) for item in b):
+    elif (
+        isinstance(a, OrderedPair)
+        and isinstance(b, list)
+        and all(isinstance(item, Scalar) for item in b)
+    ):
         x = a.x
         y = reduce(lambda u, v: np.add(u, v.c), b, a.y)
-        return OrderedPair(x=x, y=y) 
-    
-    elif isinstance(a, Scalar) and isinstance(b, list) and all(isinstance(item, Scalar) for item in b):
+        return OrderedPair(x=x, y=y)
+
+    elif (
+        isinstance(a, Scalar)
+        and isinstance(b, list)
+        and all(isinstance(item, Scalar) for item in b)
+    ):
         c = reduce(lambda u, v: np.add(u, v.c), b, a.c)
         return Scalar(c=c)
-        

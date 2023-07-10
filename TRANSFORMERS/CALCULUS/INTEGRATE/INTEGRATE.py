@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, OrderedPair
+from flojoy import flojoy, OrderedPair
 import numpy as np
 
 
