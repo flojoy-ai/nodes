@@ -1,28 +1,24 @@
 from flojoy import flojoy, JobResultBuilder, DataContainer
 import os
-from redis import Redis
-from rq.job import Job, NoSuchJobError
 import traceback
 from flojoy.small_memory import SmallMemory
 import numpy as np
 
-REDIS_HOST = os.environ.get("REDIS_HOST", "localhost")
-REDIS_PORT = os.environ.get("REDIS_PORT", 6379)
 
 
 @flojoy
-def REDIS_LOAD(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The REDIS_LOAD node loads data directly from REDIS.
+def DS_LOAD(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+    """The DATASTORE_LOAD node loads data directly from the Dao.
 
     Parameters
     ----------
     referred_node: list of str
-        The node where REDIS data will be loaded from.
+        The node where data will be loaded from.
 
     Returns
     -------
     dataframe
-        The dataframe loaded from Redis. Ordered pair.
+        The dataframe loaded from Dao. Ordered pair.
     """
     referred_node = params["referred_node"]
     x = dc_inputs[0].y
@@ -40,7 +36,7 @@ def REDIS_LOAD(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 + "-" * 72
             )
 
-        except (Exception, NoSuchJobError):
+        except Exception:
             y = x if len(dc_inputs) > 0 else [1, 3, 2]
             print(traceback.format_exc())
             pass

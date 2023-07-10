@@ -1,7 +1,7 @@
 COMMAND:
-  - name: Redis Loader
-    key: REDIS_LOAD
-    type: REDIS_SYSTEM
+  - name: Datastore Loader
+    key: DS_LOAD
+    type: DS_SYSTEM
     parameters: 
       referred_node: 
         type: node_reference

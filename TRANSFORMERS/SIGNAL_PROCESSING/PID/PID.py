@@ -40,7 +40,7 @@ def PID(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     elif type(data) == np.ndarray:
         initialize = False
     else:
-        raise TypeError("Issue reading memory from REDIS.")
+        raise TypeError("Issue reading memory from db.")
     integral: int = 0 if initialize else data[0]
     regulation_error_primes = np.zeros((3, 1)) if initialize else data[1:]
     print(f"Recovered data: {data}")

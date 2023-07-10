@@ -45,7 +45,7 @@ def SECOND_ORDER_SYSTEM(dc_inputs: list[DataContainer], params: dict) -> DataCon
     elif type(data) == np.ndarray:
         initialize = False
     else:
-        raise TypeError(f"Error loading object from REDIS. Type: {type(data)}")
+        raise TypeError(f"Error loading object from db. Type: {type(data)}")
 
     # We're going to store and read the data in reverse order to
     # how it is accessed here. We will write the functionality
