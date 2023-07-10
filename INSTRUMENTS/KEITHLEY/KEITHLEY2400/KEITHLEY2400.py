@@ -59,9 +59,7 @@ def KEITHLEY2400(default: OrderedPair,
 
         ser.write(b":OUTP OFF\n")  # Close output from Instrument
 
-    Mock_current_iv = [6.2, 6.1, 6, 6, 5.9, 5.8, 3.5, 0.5]
-
-    iv_curve = OrderedPair(x=voltages, y=Mock_current_iv)
+    iv_curve = OrderedPair(x=voltages, y=currents_neg)
 
     # Close Serial Communication
     ser.close()
