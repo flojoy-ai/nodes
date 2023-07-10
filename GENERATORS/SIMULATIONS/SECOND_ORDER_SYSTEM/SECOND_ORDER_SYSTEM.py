@@ -7,7 +7,10 @@ memory_key = "SECOND_ORDER_SYSTEM"
 
 @flojoy(inject_node_metadata=True)
 def SECOND_ORDER_SYSTEM(
-    default: OrderedPair, default_params: DefaultParams, d1: float = 250, d2: float = 100
+    default: OrderedPair,
+    default_params: DefaultParams,
+    d1: float = 250,
+    d2: float = 100,
 ) -> OrderedPair:
     """The SECOND_ORDER_SYSTEM has a second order exponential function.
     This node is designed to be used in a loop.
