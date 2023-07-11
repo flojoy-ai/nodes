@@ -4,17 +4,15 @@ import u3  # Import the library from LabJackPython in order to use our U3-LV dev
 
 
 @flojoy(deps={"labjackpython": "2.1.0"})
-def LABJACKU3(
-        default: OrderedPair = None,
-        numbers: int = 1) -> OrderedPair:
-    '''
+def LABJACKU3(default: OrderedPair = None, numbers: int = 1) -> OrderedPair:
+    """
     The node LABJACKU3 allows you to record and return temperature measurements with a LABJACK U3 device.
 
     Parameters
     -----------
     number: int
          Defines the number of temperature sensors connected to the LabJack U3 device.
-    '''
+    """
 
     voltages: list[float] = []
     temperatures: list[float] = []
