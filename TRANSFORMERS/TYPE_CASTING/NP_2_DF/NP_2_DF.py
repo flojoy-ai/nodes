@@ -18,7 +18,7 @@ def NP_2_DF(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         Converted numpy array value from the input
     """
     dc_input = dc_inputs[0]
-    match (dc_input.type):
+    match dc_input.type:
         case "dataframe" | "parametric_dataframe":
             return dc_input
 
