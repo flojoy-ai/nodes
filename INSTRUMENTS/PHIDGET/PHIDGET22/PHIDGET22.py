@@ -34,7 +34,7 @@ def PHIDGET22(
 
     for i in range(0, N):
         sensor_num.append(i + 1)
-        """# Creation of an instance of the VoltageRationInput class
+        # Creation of an instance of the VoltageRationInput class
         voltageRatioInput = VoltageRatioInput()
         # Set Channel for Communication with the Phidget Interface Kit :
         voltageRatioInput.setChannel(i)
@@ -49,13 +49,9 @@ def PHIDGET22(
         voltage.append(volt_i)  # Add Voltage to the list of measurements
 
         # Example of a Calibration to convert Voltage into pressions :
-        pression_i: float = (
-            volt_i - params["calibration1"]) / params["calibration2"]
+        pression_i: float = (volt_i - calibration1) / calibration2
+        pressions.append(pression_i)
 
-        pressions.append(pression_i)"""
-
-    Mock_pressions = [2.1, 3.4, 1.4, 5.3, 8.6, 2.1]
-
-    results = OrderedPair(x=sensor_num, y=Mock_pressions)
+    results = OrderedPair(x=sensor_num, y=pressions)
 
     return results
