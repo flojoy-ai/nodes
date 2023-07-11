@@ -15,26 +15,7 @@ def SERIAL_SINGLE_MEASUREMENT(
     or a similar serial device.
 
     For example you can record temperature following this tutorial:
-
     https://learn.adafruit.com/thermistor/using-a-thermistor
-
-    with Serial.println(steinhart) as the only line printing.
-
-    It is important that the last line Arduino is returning is the
-    data with a new line at the end (i.e. println()).
-
-    The other lines must be returned with print()
-    with print(",") between each line.
-
-    For example:
-
-    print(reading0)
-    print(",")
-    println(reading1)
-
-    The SERIAL_SINGLE_MEASUREMENT receive data from the arduino serial console as a string and split
-    it using "," as separators. Then it returns the values measured in a list names reading.
-
 
     Parameters :
     ------------

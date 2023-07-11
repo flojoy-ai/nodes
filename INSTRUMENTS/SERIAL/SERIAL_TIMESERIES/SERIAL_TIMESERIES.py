@@ -8,11 +8,12 @@ import plotly.graph_objects as go
 
 @flojoy(deps={"pyserial": "3.5"})
 def SERIAL_TIMESERIES(
-        default: OrderedPair = None,
-        comport: str = "/dev/ttyUSB0",
-        baudrate: float = 9600,
-        num_readings: int = 100,
-        record_period: float = 1) -> OrderedPair:
+    default: OrderedPair = None,
+    comport: str = "/dev/ttyUSB0",
+    baudrate: float = 9600,
+    num_readings: int = 100,
+    record_period: float = 1,
+) -> OrderedPair:
     """
     The SERIAL_TIMESERIES Node extract simple time dependent 1d data from an Ardunio,
     or a similar serial device.
