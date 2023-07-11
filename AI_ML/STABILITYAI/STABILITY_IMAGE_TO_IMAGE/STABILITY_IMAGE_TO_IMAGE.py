@@ -48,6 +48,9 @@ def STABILITY_IMAGE_TO_IMAGE(dc: List[DataContainer], params: dict):
         Width of the generated image.
     - height: int
         Height of the generated image.
+    - cfg_scale: float
+        Influences how strongly your generation is guided to match your prompt, 
+        higher values means more influence. Defaults to 7.0 if not specified.
     """
 
 
