@@ -1,4 +1,5 @@
 from flojoy import flojoy, OrderedPair
+
 # Import the TicUSB library to send command to Tic drivers with USB connection
 from ticlib import TicUSB
 from time import sleep
@@ -6,11 +7,12 @@ from time import sleep
 
 @flojoy(deps={"ticlib": "0.2.2"})
 def STEPPER_DRIVER_TIC_KNOB(
-        default: OrderedPair = None,
-        knob_value: int = 0,
-        current_limit: int = 30,
-        speed: int = 200000,
-        sleep_time: int = 2) -> OrderedPair:
+    default: OrderedPair = None,
+    knob_value: int = 0,
+    current_limit: int = 30,
+    speed: int = 200000,
+    sleep_time: int = 2,
+) -> OrderedPair:
     """
     Takes knob position as parameters to control the rotation of the motor and allow to control position
     and speed of a motor with a TIC driver
