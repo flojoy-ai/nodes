@@ -25,6 +25,9 @@ def STABILITY_TEXT_TO_IMAGE(dc: List[DataContainer], params: dict):
         The width of the image to be generated. Default is 512.
     height : int
         The height of the image to be generated. Default is 512.
+    cfg_scale: float
+        Influences how strongly your generation is guided to match your prompt, 
+        higher values means more influence. Defaults to 7.0 if not specified.
     """
     engine_id = "stable-diffusion-v1-5"
     api_host = "https://api.stability.ai"
@@ -47,6 +50,7 @@ def STABILITY_TEXT_TO_IMAGE(dc: List[DataContainer], params: dict):
 
     img_width = params.get("width", 512)
     img_height = params.get("height", 512)
+    cfg_scale = params.get("cfg_scale", 1)
 
     response = requests.post(
         f"{api_host}/v1/generation/{engine_id}/text-to-image",
@@ -55,7 +59,8 @@ def STABILITY_TEXT_TO_IMAGE(dc: List[DataContainer], params: dict):
             "text_prompts": prompts,
             "height": img_width,
             "width": img_height,
-            "samples": 1
+            "samples": 1,
+            "cfg_scale": cfg_scale
         }
     )
     data = response.json()

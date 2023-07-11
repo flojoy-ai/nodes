@@ -61,7 +61,7 @@ def STABILITY_IMAGE_TO_IMAGE(dc: List[DataContainer], params: dict):
     prompt = params.get("prompt")
     width = params.get("width", 512)
     height = params.get("height", 512)
-
+    cfg_scale = params.get("cfg_scale", 7.0)
 
     if dc and getattr(dc[0], 'type') == 'image':
         img_array_from_dc = np.stack([dc[0].r, dc[0].g, dc[0].b], axis=2)
@@ -86,6 +86,7 @@ def STABILITY_IMAGE_TO_IMAGE(dc: List[DataContainer], params: dict):
         init_image=img,
         width=width, 
         height=height,
+        cfg_scale=cfg_scale
     )
 
     output_image = get_image_from_answers(answers)

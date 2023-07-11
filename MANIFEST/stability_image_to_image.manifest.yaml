@@ -15,3 +15,6 @@ COMMAND:
       height:
         type: int
         default: 512
+      cfg_scale:
+        type: float
+        default: 7.0
