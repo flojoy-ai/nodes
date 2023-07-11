@@ -92,7 +92,7 @@ def STABILITY_IMAGE_TO_IMAGE(dc: List[DataContainer], params: dict):
     if not output_image:
         raise Exception("Something went wrong when generating image.")
     
-    img_array = np.asarray(img)
+    img_array = np.asarray(output_image)
     red_channel = img_array[:, :, 0]
     green_channel = img_array[:, :, 1]
     blue_channel = img_array[:, :, 2]
