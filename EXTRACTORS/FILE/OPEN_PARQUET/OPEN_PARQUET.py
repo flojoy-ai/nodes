@@ -3,7 +3,7 @@ from flojoy import flojoy, DataFrame
 import pandas as pd
 
 
-@flojoy
+@flojoy(deps={"pyarrow": "12.0.1", "fastparquet": "2023.7.0"})
 def OPEN_PARQUET(file_path: str = "") -> DataFrame:
     """
     The OPEN_PARQUET node loads a local file of the .parquet file format.
@@ -16,8 +16,7 @@ def OPEN_PARQUET(file_path: str = "") -> DataFrame:
 
     Returns:
     --------
-    DataContainer:
-        type 'dataframe', m
+    Dataframe
     """
 
     if file_path[-8:] != ".parquet":

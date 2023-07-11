@@ -31,19 +31,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 366.63606745694557,
-                    "y": 242.20377376589084
+                    "x": 432.8381403735173,
+                    "y": 231.4266921283094
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 366.63606745694557,
-                    "y": 242.20377376589084
+                    "x": 432.8381403735173,
+                    "y": 231.4266921283094
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "TABLE-de9611d6-a05a-4679-afe3-a7fa7f49f8a4",
                 "type": "PLOTLY",
                 "data": {
@@ -68,16 +68,49 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 960.2573915409084,
                     "y": 186.96473062581748
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 960.2573915409084,
                     "y": 186.96473062581748
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-40be4561-0366-4752-95aa-e08c433ebd9c",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-40be4561-0366-4752-95aa-e08c433ebd9c",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1394.596043670549,
+                    "y": 239.45590432071873
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1394.596043670549,
+                    "y": 239.45590432071873
                 },
                 "dragging": true
             }
@@ -89,12 +122,19 @@
                 "target": "TABLE-de9611d6-a05a-4679-afe3-a7fa7f49f8a4",
                 "targetHandle": "default",
                 "id": "reactflow__edge-READ_CSV-8b04aea4-84df-4d71-ae8c-356334a25be2default-TABLE-de9611d6-a05a-4679-afe3-a7fa7f49f8a4default"
+            },
+            {
+                "source": "TABLE-de9611d6-a05a-4679-afe3-a7fa7f49f8a4",
+                "sourceHandle": "default",
+                "target": "END-40be4561-0366-4752-95aa-e08c433ebd9c",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-de9611d6-a05a-4679-afe3-a7fa7f49f8a4default-END-40be4561-0366-4752-95aa-e08c433ebd9cdefault"
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 197.98083177807212,
-            "zoom": 1.4811524052100216
+            "x": -277.07893884404893,
+            "y": 75.99194886435214,
+            "zoom": 0.8175961276759318
         }
     },
     "ctrlsManifest": [

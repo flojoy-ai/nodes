@@ -3,7 +3,7 @@ from prophet.plot import plot_plotly
 from prophet.serialize import model_from_json
 
 
-@flojoy
+@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26"})
 def PROPHET_PLOT(default: DataFrame, periods: int = 365) -> Plotly:
     """The PROPHET_PLOT node plots forecasted trend of the time series data passed in
 

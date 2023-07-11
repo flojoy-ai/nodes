@@ -1,13 +1,11 @@
-from flojoy import flojoy, DataFrame, JobResultBuilder
-from typing import Union
+from flojoy import flojoy, DataFrame
 import numpy as np
 from scipy.io import loadmat
 from os import path
 import pandas as pd
 
 
-@flojoy
-def OPEN_MATLAB(file_path: str = "") -> Union[DataFrame, dict]:
+def OPEN_MATLAB(file_path: str = "") -> DataFrame:
     """The OPEN_MATLAB node loads a local file of the .mat file format.
     Note that if multiple 'tabs' of data are used, the number of rows
     must match in order to stack the arrays.
@@ -19,9 +17,9 @@ def OPEN_MATLAB(file_path: str = "") -> Union[DataFrame, dict]:
 
     Returns:
     --------
-    DataFrame:
-        type 'dataframe', m
+    Dataframe
     """
+
     if file_path == "":
         file_path = path.join(
             path.dirname(path.abspath(__file__)),
@@ -42,4 +40,4 @@ def OPEN_MATLAB(file_path: str = "") -> Union[DataFrame, dict]:
 
     df = pd.DataFrame(np.hstack((X, Y)))
 
-    return DataFrame(m=df)
+    return DataFrame(df=df)

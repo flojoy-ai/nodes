@@ -5,7 +5,7 @@ from prophet import Prophet
 from prophet.serialize import model_to_json
 
 
-@flojoy
+@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26"})
 def PROPHET_PREDICT(
     default: DataFrame, run_forecast: bool = True, periods: int = 365
 ) -> DataFrame:

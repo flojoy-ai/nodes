@@ -4,10 +4,10 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "READ_CSV-2e4606ff-823c-4f51-bb75-93a07d3314ed",
+                "id": "READ_CSV-b4473a00-4fc9-4f40-9731-de5f5af47bc7",
                 "type": "FILE",
                 "data": {
-                    "id": "READ_CSV-2e4606ff-823c-4f51-bb75-93a07d3314ed",
+                    "id": "READ_CSV-b4473a00-4fc9-4f40-9731-de5f5af47bc7",
                     "label": "READ CSV",
                     "func": "READ_CSV",
                     "type": "FILE",
@@ -31,23 +31,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 216.0452382824732,
-                    "y": 11.568917649250807
+                    "x": -6.103068647837716,
+                    "y": 162.91739516664495
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 216.0452382824732,
-                    "y": 11.568917649250807
+                    "x": -6.103068647837716,
+                    "y": 162.91739516664495
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "BART_LARGE_CNN-51bf1262-1d06-44f2-8065-d0d24d96ff62",
+                "id": "BART_LARGE_CNN-addf7f4a-edb8-47ad-bccf-1964d0bde0cd",
                 "type": "TEXT_SUMMARIZATION",
                 "data": {
-                    "id": "BART_LARGE_CNN-51bf1262-1d06-44f2-8065-d0d24d96ff62",
+                    "id": "BART_LARGE_CNN-addf7f4a-edb8-47ad-bccf-1964d0bde0cd",
                     "label": "BART LARGE CNN",
                     "func": "BART_LARGE_CNN",
                     "type": "TEXT_SUMMARIZATION",
@@ -68,26 +68,26 @@
                         }
                     ],
                     "path": "PYTHON/nodes/AI_ML/TEXT_SUMMARIZATION/BART_LARGE_CNN/BART_LARGE_CNN.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 825.9468817239251,
-                    "y": 9.543506764770513
+                    "x": 497.24130789253866,
+                    "y": 167.16183425794515
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 825.9468817239251,
-                    "y": 9.543506764770513
+                    "x": 497.24130789253866,
+                    "y": 167.16183425794515
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "TABLE-acba52e5-1696-4fa0-b3c9-a81760c8c515",
+                "id": "TABLE-23d682f8-beb3-4883-abb6-28dfe3094192",
                 "type": "PLOTLY",
                 "data": {
-                    "id": "TABLE-acba52e5-1696-4fa0-b3c9-a81760c8c515",
+                    "id": "TABLE-23d682f8-beb3-4883-abb6-28dfe3094192",
                     "label": "TABLE",
                     "func": "TABLE",
                     "type": "PLOTLY",
@@ -111,23 +111,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 497.754340199451,
-                    "y": 233.8230607607992
+                    "x": 74.58913442574638,
+                    "y": 383.92678992481825
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 497.754340199451,
-                    "y": 233.8230607607992
+                    "x": 74.58913442574638,
+                    "y": 383.92678992481825
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
-                "id": "TABLE-ea07c999-ae9e-4628-a043-5cc6f2013d24",
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-5eea8810-1753-4bdd-ab72-79ab6c443de4",
                 "type": "PLOTLY",
                 "data": {
-                    "id": "TABLE-ea07c999-ae9e-4628-a043-5cc6f2013d24",
+                    "id": "TABLE-5eea8810-1753-4bdd-ab72-79ab6c443de4",
                     "label": "TABLE 1",
                     "func": "TABLE",
                     "type": "PLOTLY",
@@ -148,26 +148,26 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1210.8425912636,
-                    "y": -13.947811879795495
+                    "x": 804.8879844699666,
+                    "y": 127.74090636089193
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1210.8425912636,
-                    "y": -13.947811879795495
+                    "x": 804.8879844699666,
+                    "y": 127.74090636089193
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-96d39b76-c4f3-4065-b9f3-510aa4d27644",
+                "id": "END-c83d1011-132b-4824-acb3-00dc62a1ac8a",
                 "type": "TERMINATORS",
                 "data": {
-                    "id": "END-96d39b76-c4f3-4065-b9f3-510aa4d27644",
+                    "id": "END-c83d1011-132b-4824-acb3-00dc62a1ac8a",
                     "label": "END",
                     "func": "END",
                     "type": "TERMINATORS",
@@ -184,51 +184,51 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1642.1491115335464,
-                    "y": 27.413555465710232
+                    "x": 1269.2354848774098,
+                    "y": 180.75811472985612
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1642.1491115335464,
-                    "y": 27.413555465710232
+                    "x": 1269.2354848774098,
+                    "y": 180.75811472985612
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "READ_CSV-2e4606ff-823c-4f51-bb75-93a07d3314ed",
+                "source": "READ_CSV-b4473a00-4fc9-4f40-9731-de5f5af47bc7",
                 "sourceHandle": "default",
-                "target": "BART_LARGE_CNN-51bf1262-1d06-44f2-8065-d0d24d96ff62",
+                "target": "BART_LARGE_CNN-addf7f4a-edb8-47ad-bccf-1964d0bde0cd",
                 "targetHandle": "default",
-                "id": "reactflow__edge-READ_CSV-2e4606ff-823c-4f51-bb75-93a07d3314eddefault-BART_LARGE_CNN-51bf1262-1d06-44f2-8065-d0d24d96ff62default"
+                "id": "reactflow__edge-READ_CSV-b4473a00-4fc9-4f40-9731-de5f5af47bc7default-BART_LARGE_CNN-addf7f4a-edb8-47ad-bccf-1964d0bde0cddefault"
             },
             {
-                "source": "READ_CSV-2e4606ff-823c-4f51-bb75-93a07d3314ed",
+                "source": "READ_CSV-b4473a00-4fc9-4f40-9731-de5f5af47bc7",
                 "sourceHandle": "default",
-                "target": "TABLE-acba52e5-1696-4fa0-b3c9-a81760c8c515",
+                "target": "TABLE-23d682f8-beb3-4883-abb6-28dfe3094192",
                 "targetHandle": "default",
-                "id": "reactflow__edge-READ_CSV-2e4606ff-823c-4f51-bb75-93a07d3314eddefault-TABLE-acba52e5-1696-4fa0-b3c9-a81760c8c515default"
+                "id": "reactflow__edge-READ_CSV-b4473a00-4fc9-4f40-9731-de5f5af47bc7default-TABLE-23d682f8-beb3-4883-abb6-28dfe3094192default"
             },
             {
-                "source": "BART_LARGE_CNN-51bf1262-1d06-44f2-8065-d0d24d96ff62",
+                "source": "BART_LARGE_CNN-addf7f4a-edb8-47ad-bccf-1964d0bde0cd",
                 "sourceHandle": "default",
-                "target": "TABLE-ea07c999-ae9e-4628-a043-5cc6f2013d24",
+                "target": "TABLE-5eea8810-1753-4bdd-ab72-79ab6c443de4",
                 "targetHandle": "default",
-                "id": "reactflow__edge-BART_LARGE_CNN-51bf1262-1d06-44f2-8065-d0d24d96ff62default-TABLE-ea07c999-ae9e-4628-a043-5cc6f2013d24default"
+                "id": "reactflow__edge-BART_LARGE_CNN-addf7f4a-edb8-47ad-bccf-1964d0bde0cddefault-TABLE-5eea8810-1753-4bdd-ab72-79ab6c443de4default"
             },
             {
-                "source": "TABLE-ea07c999-ae9e-4628-a043-5cc6f2013d24",
+                "source": "TABLE-5eea8810-1753-4bdd-ab72-79ab6c443de4",
                 "sourceHandle": "default",
-                "target": "END-96d39b76-c4f3-4065-b9f3-510aa4d27644",
+                "target": "END-c83d1011-132b-4824-acb3-00dc62a1ac8a",
                 "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-ea07c999-ae9e-4628-a043-5cc6f2013d24default-END-96d39b76-c4f3-4065-b9f3-510aa4d27644default"
+                "id": "reactflow__edge-TABLE-5eea8810-1753-4bdd-ab72-79ab6c443de4default-END-c83d1011-132b-4824-acb3-00dc62a1ac8adefault"
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 148.3622262035364,
-            "zoom": 1.4811524052100216
+            "x": -277.07893884404893,
+            "y": 75.99194886435214,
+            "zoom": 0.8175961276759318
         }
     },
     "ctrlsManifest": [

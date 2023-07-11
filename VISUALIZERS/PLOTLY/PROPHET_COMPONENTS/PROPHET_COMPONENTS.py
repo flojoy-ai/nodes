@@ -3,7 +3,7 @@ from prophet.plot import plot_components_plotly
 from prophet.serialize import model_from_json
 
 
-@flojoy
+@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26"})
 def PROPHET_COMPONENTS(default: DataFrame, periods: int = 365) -> Plotly:
     """The PROPHET_COMPONENTS node plots the components of the prophet model trained
 

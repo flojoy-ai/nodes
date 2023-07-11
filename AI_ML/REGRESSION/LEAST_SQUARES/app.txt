@@ -182,89 +182,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/AI_ML/REGRESSION/LEAST_SQUARES/LEAST_SQUARES.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 1136.3526594417729,
-                    "y": 177.20563956004094
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 1136.3526594417729,
-                    "y": 177.20563956004094
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "COMPOSITE-a038b4cf-41f6-4e79-9416-4e3090e86a3d",
-                "type": "PLOTLY",
-                "data": {
-                    "id": "COMPOSITE-a038b4cf-41f6-4e79-9416-4e3090e86a3d",
-                    "label": "COMPOSITE",
-                    "func": "COMPOSITE",
-                    "type": "PLOTLY",
-                    "ctrls": {
-                        "first_figure": {
-                            "type": "select",
-                            "default": "line",
-                            "options": [
-                                "bar",
-                                "line",
-                                "histogram",
-                                "scatter"
-                            ],
-                            "functionName": "COMPOSITE",
-                            "param": "first_figure",
-                            "value": "line"
-                        },
-                        "second_figure": {
-                            "type": "select",
-                            "default": "line",
-                            "options": [
-                                "bar",
-                                "line",
-                                "histogram",
-                                "scatter"
-                            ],
-                            "functionName": "COMPOSITE",
-                            "param": "second_figure",
-                            "value": "scatter"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "figure1",
-                            "id": "figure1",
-                            "type": "DataFrame|OrderedPair|OrderedTriple|Matrix",
-                            "multiple": false
-                        },
-                        {
-                            "name": "figure2",
-                            "id": "figure2",
-                            "type": "DataFrame|OrderedPair|OrderedTriple|Matrix",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/COMPOSITE/COMPOSITE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1590.7085180300767,
-                    "y": 383.8297721475928
+                    "x": 1136.3526594417729,
+                    "y": 177.20563956004094
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1590.7085180300767,
-                    "y": 383.8297721475928
+                    "x": 1136.3526594417729,
+                    "y": 177.20563956004094
                 },
                 "dragging": true
             },
@@ -291,13 +218,86 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 2180.017154839631,
-                    "y": 384.3630516231823
+                    "x": 2176.017154839631,
+                    "y": 334.3630516231823
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 2180.017154839631,
-                    "y": 384.3630516231823
+                    "x": 2176.017154839631,
+                    "y": 334.3630516231823
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "COMPOSITE-ef797eda-f873-487c-8d2b-5359bcbfed12",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "COMPOSITE-ef797eda-f873-487c-8d2b-5359bcbfed12",
+                    "label": "COMPOSITE",
+                    "func": "COMPOSITE",
+                    "type": "PLOTLY",
+                    "ctrls": {
+                        "first_figure": {
+                            "type": "select",
+                            "default": "scatter",
+                            "options": [
+                                "bar",
+                                "line",
+                                "histogram",
+                                "scatter"
+                            ],
+                            "functionName": "COMPOSITE",
+                            "param": "first_figure",
+                            "value": "scatter"
+                        },
+                        "second_figure": {
+                            "type": "select",
+                            "default": "scatter",
+                            "options": [
+                                "bar",
+                                "line",
+                                "histogram",
+                                "scatter"
+                            ],
+                            "functionName": "COMPOSITE",
+                            "param": "second_figure",
+                            "value": "scatter"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "primary_trace",
+                            "id": "primary_trace",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        },
+                        {
+                            "name": "secondary_trace",
+                            "id": "secondary_trace",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/COMPOSITE/COMPOSITE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1639.371208402828,
+                    "y": 289.3957697687041
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1639.371208402828,
+                    "y": 289.3957697687041
                 },
                 "dragging": true
             }
@@ -327,29 +327,29 @@
             {
                 "source": "LEAST_SQUARES-4ad4ee80-016b-4970-af41-98d1e8406eee",
                 "sourceHandle": "default",
-                "target": "COMPOSITE-a038b4cf-41f6-4e79-9416-4e3090e86a3d",
-                "targetHandle": "figure1",
-                "id": "reactflow__edge-LEAST_SQUARES-4ad4ee80-016b-4970-af41-98d1e8406eeedefault-COMPOSITE-a038b4cf-41f6-4e79-9416-4e3090e86a3dfigure1"
+                "target": "COMPOSITE-ef797eda-f873-487c-8d2b-5359bcbfed12",
+                "targetHandle": "primary_trace",
+                "id": "reactflow__edge-LEAST_SQUARES-4ad4ee80-016b-4970-af41-98d1e8406eeedefault-COMPOSITE-ef797eda-f873-487c-8d2b-5359bcbfed12primary_trace"
             },
             {
                 "source": "RAND-93fe6155-7b3e-48f8-b33f-753045187fc0",
                 "sourceHandle": "default",
-                "target": "COMPOSITE-a038b4cf-41f6-4e79-9416-4e3090e86a3d",
-                "targetHandle": "figure2",
-                "id": "reactflow__edge-RAND-93fe6155-7b3e-48f8-b33f-753045187fc0default-COMPOSITE-a038b4cf-41f6-4e79-9416-4e3090e86a3dfigure2"
+                "target": "COMPOSITE-ef797eda-f873-487c-8d2b-5359bcbfed12",
+                "targetHandle": "secondary_trace",
+                "id": "reactflow__edge-RAND-93fe6155-7b3e-48f8-b33f-753045187fc0default-COMPOSITE-ef797eda-f873-487c-8d2b-5359bcbfed12secondary_trace"
             },
             {
-                "source": "COMPOSITE-a038b4cf-41f6-4e79-9416-4e3090e86a3d",
+                "source": "COMPOSITE-ef797eda-f873-487c-8d2b-5359bcbfed12",
                 "sourceHandle": "default",
                 "target": "END-a5d8301f-43a3-42bb-8a14-fe4333ab9502",
                 "targetHandle": "default",
-                "id": "reactflow__edge-COMPOSITE-a038b4cf-41f6-4e79-9416-4e3090e86a3ddefault-END-a5d8301f-43a3-42bb-8a14-fe4333ab9502default"
+                "id": "reactflow__edge-COMPOSITE-ef797eda-f873-487c-8d2b-5359bcbfed12default-END-a5d8301f-43a3-42bb-8a14-fe4333ab9502default"
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 148.3622262035364,
-            "zoom": 1.4811524052100216
+            "x": -277.07893884404893,
+            "y": 75.99194886435214,
+            "zoom": 0.8175961276759318
         }
     },
     "ctrlsManifest": [
