@@ -9,9 +9,8 @@ path = os.path
 N_PATH = "nodes/"
 
 
-def get_md_file_content(
-    file_path: str, node_label: str, has_example: bool, example_section: str
-):
+
+def get_md_file_content(file_path: str, node_label: str, has_example: bool, example_section:str):
     file_dir, _ = path.split(file_path)
     nodes_index = file_dir.replace("\\", "/").rfind(N_PATH)
     node_path = file_dir[nodes_index:].replace("\\", "/").replace(N_PATH, "")
@@ -263,8 +262,12 @@ def process_python_file(input_file_path: str, output_path: str):
     md_file_path = path.join(
         output_path, path.basename(input_file_path).replace(".py", ".md")
     )
-    img_map = {"app.jpeg": False, "output.jpeg": False}
-    for f in ["app.jpeg", "output.jpeg"]:
+
+    img_map = {
+        'app.jpeg': False,
+        'output.jpeg': False
+    }
+    for f in ['app.jpeg', 'output.jpeg']:
         img_path = path.join(input_dir, f)
         if path.exists(img_path):
             shutil.copy2(img_path, path.join(example_dir_path, f))
@@ -286,7 +289,6 @@ def process_python_file(input_file_path: str, output_path: str):
     else:
         if path.exists(path.join(example_dir_path, "app.txt")) and has_example:
             write_file_recursive(md_file_path, md_file_content)
-
 
 def extract_docstring(content: str):
     # Find the start and end of the docstring
@@ -338,7 +340,7 @@ def write_doc(docs_dir: str):
 
 docs_dir = ""
 if __name__ == "__main__":
-    docs_dir_path = sys.argv[1]
-    docs_dir = path.abspath(path.join(docs_dir_path, "docs"))
-    print(" docs dir: ", docs_dir)
+        docs_dir_path = sys.argv[1]
+        docs_dir = path.abspath(path.join(docs_dir_path, "docs"))
+        print(" docs dir: ", docs_dir)
 write_doc(docs_dir=docs_dir)
