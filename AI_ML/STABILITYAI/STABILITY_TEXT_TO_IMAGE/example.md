@@ -1,0 +1,1 @@
+An app that uses StabilitAI to generate a image based on a prompt.

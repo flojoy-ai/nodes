@@ -12,7 +12,7 @@ import io
 
 
 @flojoy
-def STABILITY_TEXT_TO_IMAGE(dc: List[DataContainer], params):
+def STABILITY_TEXT_TO_IMAGE(dc: List[DataContainer], params: dict):
     """
     The STABILITY_TEXT_TO_IMAGE node uses the STABILITY AI Rest API to convert text to an image.
     The node returns an image.
