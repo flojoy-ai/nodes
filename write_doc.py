@@ -9,6 +9,7 @@ path = os.path
 N_PATH = "nodes/"
 
 
+
 def get_md_file_content(file_path: str, node_label: str, has_example: bool, example_section:str):
     file_dir, _ = path.split(file_path)
     nodes_index = file_dir.replace("\\", "/").rfind(N_PATH)
@@ -256,11 +257,12 @@ def process_python_file(input_file_path: str, output_path: str):
                     write_file_recursive(path.join(example_dir_path, f), c)
         else:
             has_example = False
-    
+
     # write md file with file name
     md_file_path = path.join(
         output_path, path.basename(input_file_path).replace(".py", ".md")
     )
+
     img_map = {
         'app.jpeg': False,
         'output.jpeg': False
@@ -270,7 +272,6 @@ def process_python_file(input_file_path: str, output_path: str):
         if path.exists(img_path):
             shutil.copy2(img_path, path.join(example_dir_path, f))
             img_map[f] = True
-            
 
     example_section = get_example_section(
         input_file_name.replace(".py", ""),
@@ -278,7 +279,10 @@ def process_python_file(input_file_path: str, output_path: str):
         has_output_image=img_map["output.jpeg"],
     )
     md_file_content = get_md_file_content(
-        md_file_path, input_file_name.replace(".py", ""), has_example=has_example, example_section=example_section
+        md_file_path,
+        input_file_name.replace(".py", ""),
+        has_example=has_example,
+        example_section=example_section,
     )
     if not path.exists(md_file_path):
         write_file_recursive(md_file_path, md_file_content)
