@@ -6,9 +6,9 @@ received from an Arduino microcontroller and how to visualize them with Flojoy:
 
 - The ['BAR'](https://github.com/flojoy-io/nodes/blob/main/VISUALIZERS/PLOTLY/BAR/BAR.py) node displays all values stored in the single measurement.
 
-- The ['END'](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END.py) node terminates the process.
+- The ['END'](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END/END.py) node terminates the process.
 
-(This example works with this Arduino code example: arduino_example.ino):
+(This example works with this Arduino code: arduino_example.ino):
 The last line Arduino must return is the
 data with a new line at the end (i.e. println()).
 
@@ -18,7 +18,7 @@ print(reading0)
 print(",")
 println(reading1)
 
-The ['SERIAL_SINGLE_MEASUREMENT'](https://github.com/flojoy-io/nodes/blob/main/INSTRUMENTS/SERIAL/SERIAL_SINGLE_MEASUREMENT/SERIAL_SINGLE_MEASUREMENT.py.py) node receives data from the Arduino serial console as a string and split it using "," as separators. Then it returns the values measured in a list called reading.
+The ['SERIAL_SINGLE_MEASUREMENT'](https://github.com/flojoy-io/nodes/blob/main/INSTRUMENTS/SERIAL/SERIAL_SINGLE_MEASUREMENT/SERIAL_SINGLE_MEASUREMENT.py) node receives data from the Arduino serial console as a string and split it using "," as separators. Then it returns the values measured in a list called reading.
 
 ### Update Single Measurement with Loop:
 To update the values received from the Arduino, use the [`LOOP`](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/LOOPS/LOOP/LOOP.py) and the [`GOTO`](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/LOOPS/GOTO/GOTO.py) node to create a loop around the ['SERIAL_SINGLE_MEASUREMENT'](https://github.com/flojoy-io/nodes/blob/main/INSTRUMENTS/SERIAL/SERIAL_SINGLE_MEASUREMENT/SERIAL_SINGLE_MEASUREMENT.py) and the ['BAR'](https://github.com/flojoy-io/nodes/blob/main/VISUALIZERS/PLOTLY/BAR/BAR.py). See app2.jpeg for an example.

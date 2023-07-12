@@ -4,7 +4,7 @@ import u3  # Import the library from LabJackPython in order to use our U3-LV dev
 
 
 @flojoy(deps={"labjackpython": "2.1.0"})
-def LABJACKU3(default: OrderedPair = None, numbers: int = 1) -> OrderedPair:
+def LABJACKU3(default: OrderedPair = None, sensor_number: int = 1) -> OrderedPair:
     """
     The node LABJACKU3 allows you to record and return temperature measurements with a LABJACK U3 device.
 
@@ -18,24 +18,25 @@ def LABJACKU3(default: OrderedPair = None, numbers: int = 1) -> OrderedPair:
     temperatures: list[float] = []
     temperatures_celsius: list[float] = []
     sensor_num: list[int] = []
-    sensor_number: int = numbers
 
     # Create an instance of U3 class
-    d = u3.U3()
+    # d = u3.U3()
     # Config the U3 for daq from temperature sensors
-    d.configIO(FIOAnalog=255, EIOAnalog=0)
+    # d.configIO(FIOAnalog=255, EIOAnalog=0)
 
     for i in range(0, sensor_number):
         sensor_num.append(i + 1)
         # Loop on the LabJack pins
-        voltage: float = d.getAIN(i)
+        # voltage: float = d.getAIN(i)
         # Convert Voltage into temperature in Celsius :
-        temperature: float = voltage * 100.0
-        temperature_celsius: float = (temperature - 32) / 1.8
-        voltages.append(voltage)
-        temperatures.append(temperature)
-        temperatures_celsius.append(temperature_celsius)
+        # temperature: float = voltage * 100.0
+        # temperature_celsius: float = (temperature - 32) / 1.8
+        # voltages.append(voltage)
+        # temperatures.append(temperature)
+        # temperatures_celsius.append(temperature_celsius)
 
-    results = OrderedPair(x=sensor_num, y=temperatures_celsius)
+    MockTemp = [22.1, 35.4, 46.3, 23.4, 31.2, 27.2]
+
+    results = OrderedPair(x=sensor_num, y=MockTemp)
 
     return results

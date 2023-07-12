@@ -1,4 +1,4 @@
-This example shows how to use the node Phidget22 and measure pressures from Flexiforce sensors using a Phidget InterfaceKit
+This example shows how to use the node Phidget22 to measure pressures from Flexiforce sensors using a Phidget InterfaceKit
 The appendix contains all information about hardware requirements and sensor connections (Images).
 
 After connecting the pressure sensors, place the nodes on Flojoy:
@@ -7,7 +7,7 @@ After connecting the pressure sensors, place the nodes on Flojoy:
 
 - The ['BAR'](https://github.com/flojoy-io/nodes/blob/main/VISUALIZERS/PLOTLY/BAR/BAR.py) node shows all pressure measurements on the same figure.
 
-- The ['END'](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END.py) node terminates the process.
+- The ['END'](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END/END.py) node terminates the process.
 
 ### Calibration:
 
