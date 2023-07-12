@@ -8,7 +8,7 @@ received from an Arduino microcontroller and how to visualize them with Flojoy:
 - The ['TABLE'](https://github.com/flojoy-io/nodes/blob/main/VISUALIZERS/PLOTLY/TABLE/TABLE.py) node displays all values stored in the time-series measurement.
 
 
-- The ['END'](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END.py) node terminates the process.
+- The ['END'](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END/END.py) node terminates the process.
 
 
 ### Remarks for Arduino code:
