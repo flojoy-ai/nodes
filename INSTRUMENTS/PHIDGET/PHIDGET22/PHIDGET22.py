@@ -7,7 +7,8 @@ from Phidget22.Devices.VoltageRatioInput import *
 
 def onVoltageRatioChange(self, voltageRatio):
     """Declaration of the Event handler, print Voltage variation for a channel"""
-    print("VoltageRatio [" + str(self.getChannel()) + "]: " + str(voltageRatio))
+    print("VoltageRatio [" + str(self.getChannel()) +
+          "]: " + str(voltageRatio))
 
 
 @flojoy(deps={"Phidget22": "1.14.20230331"})
@@ -31,9 +32,8 @@ def PHIDGET22(
     voltage: list[float] = []
     pressions: list[float] = []
     sensor_num: list[int] = []
-    N = n_sensors
 
-    for i in range(0, N):
+    for i in range(0, n_sensors):
         sensor_num.append(i + 1)
         # Creation of an instance of the VoltageRationInput class
         voltageRatioInput = VoltageRatioInput()

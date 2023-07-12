@@ -44,7 +44,7 @@ def STEPPER_DRIVER_TIC(
     tic.exit_safe_start()  # The driver is now ready to receive commands
 
     for i in range(0, len(positions)):
-        tic.set_max_speed(speeds)  # Set motor speed
+        tic.set_max_speed(speed)  # Set motor speed
         tic.set_target_position(positions[i])  # Set target positions
         sleep(sleep_time)
 
