@@ -262,7 +262,7 @@
                             "default": -1,
                             "functionName": "LOOP",
                             "param": "num_loops",
-                            "value": "5"
+                            "value": "10"
                         }
                     },
                     "inputs": [

@@ -64,5 +64,6 @@ jobs:
           GITHUB_WORKSPACE: ${{github.workspace}}
           PR_BRANCH: ${{ github.head_ref }}
           IS_MERGED: ${{ github.event.pull_request.merged == true }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
           bash create_pr

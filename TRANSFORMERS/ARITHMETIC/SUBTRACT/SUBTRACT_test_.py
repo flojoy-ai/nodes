@@ -1,9 +1,9 @@
-import numpy as np
+import numpy
 
 from functools import wraps
 from unittest.mock import patch
 
-from flojoy import OrderedPair
+from flojoy import DataContainer
 
 
 # Python functions are decorated at module-loading time, So we'll need to patch our decorator
@@ -22,19 +22,21 @@ def mock_flojoy_decorator(f):
 patch("flojoy.flojoy", mock_flojoy_decorator).start()
 
 # After Patching the flojoy decorator, let's load the node under test.
-import ADD
+import SUBTRACT
 
 
-def test_ADD():
+def test_SUBTRACT():
     # create the two ordered pair datacontainers
-    element_a = OrderedPair(x=np.linspace(-10, 10, 100), y=np.array([10] * 100))
+    element_a = DataContainer(
+        type="ordered_pair", x=numpy.linspace(-10, 10, 100), y=[11] * 100
+    )
 
-    element_b = OrderedPair(x=np.linspace(-10, 10, 100), y=np.array([7] * 100))
+    element_b = DataContainer(type="scalar", c=10)
 
     # node under test
-    res = ADD.ADD(element_a, element_b)
+    res = SUBTRACT.SUBTRACT([element_a, element_b], {})
 
     # check that the correct number of elements
     assert (len(res.y)) == 100
     for y in res.y:
-        assert y == 20
+        assert y == 1
