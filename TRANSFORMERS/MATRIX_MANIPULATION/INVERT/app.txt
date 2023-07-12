@@ -38,13 +38,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 194.50988875437906,
-                    "y": 390.31535533022577
+                    "x": 168.20078783554004,
+                    "y": 385.053535146458
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 194.50988875437906,
-                    "y": 390.31535533022577
+                    "x": 168.20078783554004,
+                    "y": 385.053535146458
                 },
                 "dragging": true
             },
@@ -79,12 +79,12 @@
                 },
                 "position": {
                     "x": 496.1637679538503,
-                    "y": 310.2286211988113
+                    "y": -44.06727117488742
                 },
                 "selected": false,
                 "positionAbsolute": {
                     "x": 496.1637679538503,
-                    "y": 310.2286211988113
+                    "y": -44.06727117488742
                 },
                 "dragging": true
             },
@@ -123,16 +123,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/MATRIX_MANIPULATION/INVERT/INVERT.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 559.4589052993276,
-                    "y": 662.4456128915356
+                    "x": 429.6673407663884,
+                    "y": 595.7958905638102
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 559.4589052993276,
-                    "y": 662.4456128915356
+                    "x": 429.6673407663884,
+                    "y": 595.7958905638102
                 },
                 "dragging": true
             },
@@ -166,13 +166,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 967.0245461142168,
-                    "y": 618.2663470743522
+                    "x": 654.8232152106604,
+                    "y": 819.9694541187847
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 967.0245461142168,
-                    "y": 618.2663470743522
+                    "x": 654.8232152106604,
+                    "y": 819.9694541187847
                 },
                 "dragging": true
             },
@@ -199,13 +199,99 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1364.6962523739344,
-                    "y": 394.086253689013
+                    "x": 2053.9946964475166,
+                    "y": 278.32620964612136
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1364.6962523739344,
-                    "y": 394.086253689013
+                    "x": 2053.9946964475166,
+                    "y": 278.32620964612136
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "MATMUL-f2b3e25b-f613-4454-b941-cc8e93496770",
+                "type": "MATRIX_MANIPULATION",
+                "data": {
+                    "id": "MATMUL-f2b3e25b-f613-4454-b941-cc8e93496770",
+                    "label": "MATMUL",
+                    "func": "MATMUL",
+                    "type": "MATRIX_MANIPULATION",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "a",
+                            "id": "a",
+                            "type": "Matrix",
+                            "multiple": false
+                        },
+                        {
+                            "name": "b",
+                            "id": "b",
+                            "type": "Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Matrix"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/MATRIX_MANIPULATION/MATMUL/MATMUL.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 741.7784219630664,
+                    "y": 354.72912539530046
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 741.7784219630664,
+                    "y": 354.72912539530046
+                },
+                "dragging": true
+            },
+            {
+                "width": 240,
+                "height": 260,
+                "id": "MATRIX_VIEW-3fa65156-275b-46b1-a831-386267350ee7",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "MATRIX_VIEW-3fa65156-275b-46b1-a831-386267350ee7",
+                    "label": "MATRIX VIEW 2",
+                    "func": "MATRIX_VIEW",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/DATA_STRUCTURE/MATRIX_VIEW/MATRIX_VIEW.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 1182.0767416677047,
+                    "y": 298.08904721962176
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 1182.0767416677047,
+                    "y": 298.08904721962176
                 },
                 "dragging": true
             }
@@ -245,12 +331,40 @@
                 "target": "END-e1e5850d-0cee-49eb-b3b4-f06010058a3b",
                 "targetHandle": "default",
                 "id": "reactflow__edge-MATRIX_VIEW-2dd75395-9aa9-49c3-94a7-8e1376a6922cdefault-END-e1e5850d-0cee-49eb-b3b4-f06010058a3bdefault"
+            },
+            {
+                "source": "MATRIX-6406eff9-325a-4857-856c-3815dc85b99f",
+                "sourceHandle": "default",
+                "target": "MATMUL-f2b3e25b-f613-4454-b941-cc8e93496770",
+                "targetHandle": "a",
+                "id": "reactflow__edge-MATRIX-6406eff9-325a-4857-856c-3815dc85b99fdefault-MATMUL-f2b3e25b-f613-4454-b941-cc8e93496770a"
+            },
+            {
+                "source": "INVERT-bc37a258-fb80-4bc9-a205-2cd02345375c",
+                "sourceHandle": "default",
+                "target": "MATMUL-f2b3e25b-f613-4454-b941-cc8e93496770",
+                "targetHandle": "b",
+                "id": "reactflow__edge-INVERT-bc37a258-fb80-4bc9-a205-2cd02345375cdefault-MATMUL-f2b3e25b-f613-4454-b941-cc8e93496770b"
+            },
+            {
+                "source": "MATMUL-f2b3e25b-f613-4454-b941-cc8e93496770",
+                "sourceHandle": "default",
+                "target": "MATRIX_VIEW-3fa65156-275b-46b1-a831-386267350ee7",
+                "targetHandle": "default",
+                "id": "reactflow__edge-MATMUL-f2b3e25b-f613-4454-b941-cc8e93496770default-MATRIX_VIEW-3fa65156-275b-46b1-a831-386267350ee7default"
+            },
+            {
+                "source": "MATRIX_VIEW-3fa65156-275b-46b1-a831-386267350ee7",
+                "sourceHandle": "default",
+                "target": "END-e1e5850d-0cee-49eb-b3b4-f06010058a3b",
+                "targetHandle": "default",
+                "id": "reactflow__edge-MATRIX_VIEW-3fa65156-275b-46b1-a831-386267350ee7default-END-e1e5850d-0cee-49eb-b3b4-f06010058a3bdefault"
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 158.98083177807212,
-            "zoom": 1.4811524052100216
+            "x": -454.16852149654983,
+            "y": 260.7534565927997,
+            "zoom": 1.3401466962340274
         }
     },
     "ctrlsManifest": [
