@@ -64,13 +64,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1060.6600925689308,
-                    "y": 429.78816742555836
+                    "x": 1532.47549468307,
+                    "y": 414.9727079388825
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1060.6600925689308,
-                    "y": 429.78816742555836
+                    "x": 1532.47549468307,
+                    "y": 414.9727079388825
                 },
                 "dragging": true
             },
@@ -167,6 +167,46 @@
                     "y": 438.8161704289119
                 },
                 "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-de6740a9-87dd-4943-9e28-83ffae8a53d5",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "LINE-de6740a9-87dd-4943-9e28-83ffae8a53d5",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 1029.4763097602984,
+                    "y": 344.1798933399391
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 1029.4763097602984,
+                    "y": 344.1798933399391
+                },
+                "dragging": true
             }
         ],
         "edges": [
@@ -187,15 +227,22 @@
             {
                 "source": "DIFFERENTIATE-bcbbd6f4-fc2d-4ad5-9ff7-73755ed8e156",
                 "sourceHandle": "default",
+                "target": "LINE-de6740a9-87dd-4943-9e28-83ffae8a53d5",
+                "targetHandle": "default",
+                "id": "reactflow__edge-DIFFERENTIATE-bcbbd6f4-fc2d-4ad5-9ff7-73755ed8e156default-LINE-de6740a9-87dd-4943-9e28-83ffae8a53d5default"
+            },
+            {
+                "source": "LINE-de6740a9-87dd-4943-9e28-83ffae8a53d5",
+                "sourceHandle": "default",
                 "target": "END-c993827b-3645-4530-871f-7468cedbda18",
                 "targetHandle": "default",
-                "id": "reactflow__edge-DIFFERENTIATE-bcbbd6f4-fc2d-4ad5-9ff7-73755ed8e156default-END-c993827b-3645-4530-871f-7468cedbda18default"
+                "id": "reactflow__edge-LINE-de6740a9-87dd-4943-9e28-83ffae8a53d5default-END-c993827b-3645-4530-871f-7468cedbda18default"
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 213.98083177807212,
-            "zoom": 1.4811524052100216
+            "x": -454.16852149654983,
+            "y": 260.7534565927997,
+            "zoom": 1.3401466962340274
         }
     },
     "ctrlsManifest": [
