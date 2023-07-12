@@ -1,1 +1,1 @@
-ITS AN ACTIVE PID CONTROLLER FOR A MOCK NONLINEAR SYSTEM TO BE DRIVEN TO A GIVEN SETPOINT.
+This example demonstrates an active PID controller for a mock non-linear system to be driven to a given setpoint.

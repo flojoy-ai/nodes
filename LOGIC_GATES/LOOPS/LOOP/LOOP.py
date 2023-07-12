@@ -1,8 +1,6 @@
 import json
-from typing import TypedDict, Any
-from node_sdk.small_memory import SmallMemory
-
-from flojoy import JobResultBuilder, DataContainer, flojoy, DefaultParams
+from typing import TypedDict, Any, Optional
+from flojoy import JobResultBuilder, DataContainer, flojoy, DefaultParams, SmallMemory
 
 memory_key = "loop-info"
 
@@ -58,7 +56,9 @@ class LoopData:
 
 @flojoy(inject_node_metadata=True)
 def LOOP(
-    default: DataContainer, default_params: DefaultParams, num_loops: int = -1
+    default_params: DefaultParams,
+    default: Optional[DataContainer] = None,
+    num_loops: int = -1,
 ) -> LoopOutput:
     """The LOOP node is a specialized node that iterates through the body nodes for a given number of times.
     To ensure proper functionality, the LOOP node relies on a companion node called the `GOTO` node.
@@ -75,7 +75,7 @@ def LOOP(
     # infinite loop
     if num_loops == -1:
         print("infinite loop")
-        return build_result(inputs=[default], is_loop_finished=False)
+        return build_result(inputs=[default] if default else [], is_loop_finished=False)
 
     loop_data: LoopData = load_loop_data(node_id, num_loops)
     loop_data.print("at start ")
@@ -94,7 +94,7 @@ def LOOP(
 
     print("end loop\n\n")
 
-    return build_result([default], loop_data.is_finished)
+    return build_result([default] if default else [], loop_data.is_finished)
 
 
 def load_loop_data(node_id: str, default_num_loops: int) -> LoopData:
