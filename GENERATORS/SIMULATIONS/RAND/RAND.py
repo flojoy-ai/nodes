@@ -8,11 +8,11 @@ from typing import Literal, Optional
 def RAND(
     default: Optional[OrderedPair] = None,
     distribution: Literal["normal", "uniform", "poisson"] = "normal",
-    lower_bound: Optional[float] = 0,
-    upper_bound: Optional[float] = 1,
-    normal_mean: Optional[float] = 0,
-    normal_standard_deviation: Optional[float] = 1,
-    poisson_events: Optional[float] = 1,
+    lower_bound: float = 0,
+    upper_bound: float = 1,
+    normal_mean: float = 0,
+    normal_standard_deviation: float = 1,
+    poisson_events: float = 1,
 ) -> OrderedPair | Scalar:
     """The RAND node generates a random number or a list of random numbers
     depending on the distribution selected.
@@ -43,7 +43,7 @@ def RAND(
     if upper_bound < lower_bound:
         upper_bound, lower_bound = lower_bound, upper_bound
 
-    seed: int = random.randint(1, 10000)
+    seed = random.randint(1, 10000)
     my_generator = np.random.default_rng(seed)
     size = len(default.x) if default is not None else 1
     match distribution:
@@ -55,23 +55,8 @@ def RAND(
             )
         case "poisson":
             y = my_generator.poisson(lam=poisson_events, size=size)
-        case _:
-            y = my_generator.random(size=size)
     if default is not None:
         x = default.x
         return OrderedPair(x=x, y=y)
     else:
         return Scalar(c=y)
-
-
-@flojoy
-def RAND_MOCK(default: Optional[OrderedPair] = None) -> OrderedPair:
-    x = None
-    if default is not None:
-        x = default.y
-        y = x
-    else:
-        y = np.full(
-            1000, 1000
-        )  # for reproducibility returning an array with constant values
-    return OrderedPair(x=x, y=y)

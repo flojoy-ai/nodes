@@ -1,5 +1,5 @@
 import os, shutil
-import yaml
+import traceback
 import sys
 import textwrap
 
@@ -9,7 +9,9 @@ path = os.path
 N_PATH = "nodes/"
 
 
-def get_md_file_content(file_path: str, node_label: str, has_example: bool, example_section:str):
+def get_md_file_content(
+    file_path: str, node_label: str, has_example: bool, example_section: str
+):
     file_dir, _ = path.split(file_path)
     nodes_index = file_dir.replace("\\", "/").rfind(N_PATH)
     node_path = file_dir[nodes_index:].replace("\\", "/").replace(N_PATH, "")
@@ -37,11 +39,9 @@ import AppendixSection from '@site/src/components/AppendixSection';
 
 import DocstringSource from '!!raw-loader!./a1-[autogen]/docstring.txt';
 import PythonSource from '!!raw-loader!./a1-[autogen]/python_code.txt';
-import ParametersSource from '!!raw-loader!./a1-[autogen]/parameters.yaml';
 
 <DocString>{{DocstringSource}}</DocString>
 <PythonCode GLink='{node_file_path}'>{{PythonSource}}</PythonCode>
-<Parameters>{{ParametersSource}}</Parameters>
 
 <SectionBreak />
 
@@ -151,140 +151,128 @@ def compare_two_str(first_str: str, second_str: str) -> bool:
 
 
 def get_content(file_path: str):
-    with open(file_path, "r") as opened_file:
+    c = ""
+    with open(file_path, "r", encoding="utf-8") as opened_file:
         c = opened_file.read()
-        opened_file.close()
-        return c
+    return c
 
 
 def process_python_file(input_file_path: str, output_path: str):
     input_dir, input_file_name = path.split(input_file_path)
     node_name = input_file_name.replace(".py", "")
-    manifest_file_yml = path.join(path.dirname(input_file_path), "manifest.yml")
-    manifest_file_yaml = path.join(path.dirname(input_file_path), "manifest.yaml")
-    manifest_file_path = (
-        manifest_file_yml if path.exists(manifest_file_yml) else manifest_file_yaml
-    )
-    if not path.exists(manifest_file_path):
+    if not node_name.isupper():  # all node file names should be in upper case
         return
+    try:
+        content = get_content(input_file_path)
 
-    content = get_content(input_file_path)
+        # Extract docstring
+        docstring = extract_docstring(content)
 
-    # Extract docstring
-    docstring = extract_docstring(content)
-
-    # Extract function code
-    function_code = extract_function_code(content)
-    autogen_dir_name = "a1-[autogen]"
-    # Write docstring to a file
-    docstring_file_path = path.join(output_path, autogen_dir_name, "docstring.txt")
-    if not path.exists(docstring_file_path):
-        write_file_recursive(docstring_file_path, textwrap.dedent(docstring))
-    else:
-        doc_str = get_content(docstring_file_path)
-        diff = compare_two_str(docstring, doc_str)
-        if diff:
+        # Extract function code
+        function_code = extract_function_code(content)
+        autogen_dir_name = "a1-[autogen]"
+        # Write docstring to a file
+        docstring_file_path = path.join(output_path, autogen_dir_name, "docstring.txt")
+        if not path.exists(docstring_file_path):
             write_file_recursive(docstring_file_path, textwrap.dedent(docstring))
+        else:
+            doc_str = get_content(docstring_file_path)
+            diff = compare_two_str(docstring, doc_str)
+            if diff:
+                write_file_recursive(docstring_file_path, textwrap.dedent(docstring))
 
-    # Write function code to a file
-    function_code_file_path = path.join(
-        output_path, autogen_dir_name, "python_code.txt"
-    )
-    if not path.exists(function_code_file_path):
-        write_file_recursive(function_code_file_path, function_code)
-    else:
-        func_str = get_content(function_code_file_path)
-        diff = compare_two_str(func_str, function_code)
-        if diff:
+        # Write function code to a file
+        function_code_file_path = path.join(
+            output_path, autogen_dir_name, "python_code.txt"
+        )
+        if not path.exists(function_code_file_path):
             write_file_recursive(function_code_file_path, function_code)
-
-    # write parameters
-    param_content = get_content(manifest_file_path)
-    param_content = yaml.dump(param_content)
-
-    parameters_file_path = path.join(output_path, autogen_dir_name, "parameters.yaml")
-    if not path.exists(parameters_file_path):
-        write_file_recursive(parameters_file_path, param_content)
-    else:
-        existing_params = get_content(parameters_file_path)
-        diff = compare_two_str(existing_params, param_content)
-        if diff:
-            write_file_recursive(parameters_file_path, param_content)
-
-    # appendix
-    appendix_dir_path = path.join(output_path, "appendix")
-    for f in ["hardware.md", "media.md", "notes.md"]:
-        if not path.exists(path.join(appendix_dir_path, f)):
-            write_file_recursive(path.join(appendix_dir_path, f), "")
         else:
-            lines = [
-                {
-                    "prev": "./appendix/notes.md",
-                    "new": "!!raw-loader!./appendix/notes.md",
-                },
-                {
-                    "prev": "./appendix/hardware.md",
-                    "new": "!!raw-loader!./appendix/hardware.md",
-                },
-                {
-                    "prev": "./appendix/media.md",
-                    "new": "!!raw-loader!./appendix/media.md",
-                },
-            ]
-            md_file_path = path.join(
-                output_path, path.basename(input_file_path).replace(".py", ".md")
-            )
-            c = get_content(md_file_path)
-            for line in lines:
-                if line["new"] not in c:
-                    c = c.replace(line["prev"], line["new"])
-            write_file_recursive(md_file_path, c)
+            func_str = get_content(function_code_file_path)
+            diff = compare_two_str(func_str, function_code)
+            if diff:
+                write_file_recursive(function_code_file_path, function_code)
 
-    # examples
-    has_example = False
-    example_dir_path = path.join(output_path, "examples", "EX1")
-    for f in ["app.txt", "example.md"]:
-        if path.exists(path.join(input_dir, f)):
-            has_example = True
-            c = get_content(path.join(input_dir, f))
-            if not path.exists(path.join(example_dir_path, f)):
-                write_file_recursive(path.join(example_dir_path, f), c)
+        # appendix
+        appendix_dir_path = path.join(output_path, "appendix")
+        for f in ["hardware.md", "media.md", "notes.md"]:
+            if not path.exists(path.join(appendix_dir_path, f)):
+                write_file_recursive(path.join(appendix_dir_path, f), "")
             else:
-                existing_c = get_content(path.join(example_dir_path, f))
-                diff = compare_two_str(c, existing_c)
-                if diff:
-                    write_file_recursive(path.join(example_dir_path, f), c)
-        else:
-            has_example = False
-    
-    # write md file with file name
-    md_file_path = path.join(
-        output_path, path.basename(input_file_path).replace(".py", ".md")
-    )
-    img_map = {
-        'app.jpeg': False,
-        'output.jpeg': False
-    }
-    for f in ['app.jpeg', 'output.jpeg']:
-        img_path = path.join(input_dir, f)
-        if path.exists(img_path):
-            shutil.copy2(img_path, path.join(example_dir_path, f))
-            img_map[f] = True
-            
+                lines = [
+                    {
+                        "prev": "./appendix/notes.md",
+                        "new": "!!raw-loader!./appendix/notes.md",
+                    },
+                    {
+                        "prev": "./appendix/hardware.md",
+                        "new": "!!raw-loader!./appendix/hardware.md",
+                    },
+                    {
+                        "prev": "./appendix/media.md",
+                        "new": "!!raw-loader!./appendix/media.md",
+                    },
+                ]
+                md_file_path = path.join(
+                    output_path, path.basename(input_file_path).replace(".py", ".md")
+                )
+                c = get_content(md_file_path)
+                for line in lines:
+                    if line["new"] not in c:
+                        c = c.replace(line["prev"], line["new"])
+                write_file_recursive(md_file_path, c)
 
-    example_section = get_example_section(
-        input_file_name.replace(".py", ""),
-        has_app_image=img_map["app.jpeg"],
-        has_output_image=img_map["output.jpeg"],
-    )
-    md_file_content = get_md_file_content(
-        md_file_path, input_file_name.replace(".py", ""), has_example=has_example, example_section=example_section
-    )
-    if not path.exists(md_file_path):
-        write_file_recursive(md_file_path, md_file_content)
-    else:
-        if path.exists(path.join(example_dir_path, "app.txt")) and has_example:
+        # examples
+        has_example = False
+        example_dir_path = path.join(output_path, "examples", "EX1")
+        for f in ["app.txt", "example.md"]:
+            if path.exists(path.join(input_dir, f)):
+                has_example = True
+                c = get_content(path.join(input_dir, f))
+                if not path.exists(path.join(example_dir_path, f)):
+                    write_file_recursive(path.join(example_dir_path, f), c)
+                else:
+                    existing_c = get_content(path.join(example_dir_path, f))
+                    diff = compare_two_str(c, existing_c)
+                    if diff:
+                        write_file_recursive(path.join(example_dir_path, f), c)
+            else:
+                has_example = False
+
+        # write md file with file name
+        md_file_path = path.join(output_path, f"{node_name}.md")
+        app_jpg = "app.jpeg"
+        output_jpg = "output.jpeg"
+        img_map = {app_jpg: False, output_jpg: False}
+        for f in [app_jpg, output_jpg]:
+            img_path = path.join(input_dir, f)
+            if path.exists(img_path):
+                shutil.copy2(img_path, path.join(example_dir_path, f))
+                img_map[f] = True
+
+        example_section = get_example_section(
+            node_name,
+            has_app_image=img_map[app_jpg],
+            has_output_image=img_map[output_jpg],
+        )
+        md_file_content = get_md_file_content(
+            md_file_path,
+            node_name,
+            has_example=has_example,
+            example_section=example_section,
+        )
+        if not path.exists(md_file_path):
             write_file_recursive(md_file_path, md_file_content)
+        else:
+            if path.exists(path.join(example_dir_path, "app.txt")) and has_example:
+                write_file_recursive(md_file_path, md_file_content)
+    except Exception as e:
+        print(
+            f"failed to write doc for {node_name}, input path: {input_file_path} ",
+            e,
+            traceback.format_exc(),
+        )
+
 
 def extract_docstring(content: str):
     # Find the start and end of the docstring
@@ -336,7 +324,7 @@ def write_doc(docs_dir: str):
 
 docs_dir = ""
 if __name__ == "__main__":
-        docs_dir_path = sys.argv[1]
-        docs_dir = path.abspath(path.join(docs_dir_path, "docs"))
-        print(" docs dir: ", docs_dir)
+    docs_dir_path = sys.argv[1]
+    docs_dir = path.abspath(path.join(docs_dir_path, "docs"))
+    print(" docs dir: ", docs_dir)
 write_doc(docs_dir=docs_dir)

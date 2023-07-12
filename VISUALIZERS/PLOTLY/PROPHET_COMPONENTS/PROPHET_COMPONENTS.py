@@ -31,7 +31,7 @@ def PROPHET_COMPONENTS(default: DataFrame, periods: int = 365) -> Plotly:
     DataContainer of type "plotly" with the figure containing the plotted components
     """
 
-    extra = default.get("extra", None)
+    extra = default.extra
     if not extra or "prophet" not in extra:
         raise ValueError(
             "Prophet model must be available in DataContainer 'extra' key to plot"
