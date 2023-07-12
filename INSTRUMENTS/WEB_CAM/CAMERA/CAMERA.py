@@ -1,6 +1,7 @@
 import cv2
 import os
 from flojoy import flojoy, DataContainer
+from typing import Optional
 from PIL import Image
 import numpy as np
 
@@ -68,28 +69,3 @@ def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     except cv2.error as camera_error:
         raise camera_error
-
-
-@flojoy
-def CAMERA_MOCK(dc_inputs: list[DataContainer], params: dict):
-    print("Running mock version of CAMERA node...")
-
-    # Get the absolute path of the current directory
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    # Construct the path to the asset file
-    file_path = os.path.join(
-        current_dir, "assets", "astronaut.png"
-    )  # Load example image.
-    print("File to be loaded: ", file_path)
-    f = Image.open(file_path)
-    img_array = np.array(f.convert("RGBA"))
-    red_channel = img_array[:, :, 0]
-    green_channel = img_array[:, :, 1]
-    blue_channel = img_array[:, :, 2]
-    if img_array.shape[2] == 4:
-        alpha_channel = img_array[:, :, 3]
-    else:
-        alpha_channel = None
-    return DataContainer(
-        type="image", r=red_channel, g=green_channel, b=blue_channel, a=alpha_channel
-    )

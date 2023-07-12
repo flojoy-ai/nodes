@@ -1,10 +1,12 @@
 from flojoy import flojoy, OrderedPair, DataContainer
+from typing import Optional
 import LabJackPython
 import u3  # Import the library from LabJackPython in order to use our U3-LV device
 
 
 @flojoy(deps={"labjackpython": "2.1.0"})
-def LABJACKU3(default: OrderedPair = None, sensor_number: int = 1) -> OrderedPair:
+def LABJACKU3(default: Optional[OrderedPair] = None,
+              sensor_number: int = 1) -> OrderedPair:
     """
     The node LABJACKU3 allows you to record and return temperature measurements with a LABJACK U3 device.
 
