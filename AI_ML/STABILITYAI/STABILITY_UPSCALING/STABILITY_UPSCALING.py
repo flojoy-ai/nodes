@@ -49,7 +49,7 @@ def STABILITY_UPSCALING(dc: List[DataContainer], params: dict):
 
     stability_api = client.StabilityInference(
         key=api_key,
-        upscale_engine="esrgan-v1-x2plus",
+        upscale_engine=engine_id,
         verbose=True,
     )
 
