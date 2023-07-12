@@ -1,5 +1,6 @@
 from flojoy import flojoy, OrderedPair
 from time import sleep
+from typing import Optional
 import serial
 import numpy as np
 from datetime import datetime
@@ -8,7 +9,7 @@ import plotly.graph_objects as go
 
 @flojoy(deps={"pyserial": "3.5"})
 def SERIAL_TIMESERIES(
-    default: OrderedPair = None,
+    default: Optional[OrderedPair] = None,
     comport: str = "/dev/ttyUSB0",
     baudrate: float = 9600,
     num_readings: int = 100,

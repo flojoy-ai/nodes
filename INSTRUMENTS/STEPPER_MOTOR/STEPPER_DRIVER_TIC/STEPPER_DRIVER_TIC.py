@@ -8,28 +8,32 @@ from time import sleep
 
 @flojoy(deps={"ticlib": "0.2.2"})
 def STEPPER_DRIVER_TIC(
-    default: Optional[OrderedPair] = None, current_limit: int = 30, sleep_time: int = 2, speed: int = 100000,
+    default: Optional[OrderedPair] = None,
+    current_limit: int = 30,
+    sleep_time: int = 2,
+    speed: int = 100000,
 ) -> OrderedPair:
-   """
-   This node controls a stepper motor movement with a TIC driver.
-  
-   The user defines the speed and the sleep time between movements. 
-   (To choose the position, use the STEPPER_DRIVER_TIC_KNOB)
-
-
-   Parameters :
-   ------------
-   current_limit: int
-       Defines the current limitation that the stepper motor will receive. 
-
-   sleep_time: int
-       Defines the sleep time after moving to each position.
-
-   speed: int
-       Defines the speed of the motor movement. (Between 0 and 200000)
     """
+    This node controls a stepper motor movement with a TIC driver.
+    The user defines the speed and the sleep time between movements.
+    (To choose the position, use the STEPPER_DRIVER_TIC_KNOB)
 
-    positions: list[int] = [50, 100, 150, 200]  # Setting default positions
+
+    Parameters :
+    ------------
+        current_limit: int
+            Defines the current limitation that the stepper motor will receive.
+
+
+        sleep_time: int
+             Defines the sleep time after moving to each position.
+
+
+        speed: int
+             Defines the speed of the motor movement. (Between 0 and 200000)
+    """
+    # Setting default positions
+    positions: list[int] = [50, 100, 150, 200]
 
     # Declaration of the stepper driver
     tic: TicUSB = TicUSB()
