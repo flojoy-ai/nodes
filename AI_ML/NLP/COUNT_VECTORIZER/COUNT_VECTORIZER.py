@@ -1,10 +1,17 @@
 import numpy as np
+from typing import TypedDict
 from sklearn.feature_extraction.text import CountVectorizer
-from flojoy import flojoy, OrderedPair, DataFrame, Matrix
+from flojoy import flojoy, DataFrame, Matrix
+import pandas as pd
+
+
+class CountVectorizerOutput(TypedDict):
+    tokens: DataFrame
+    word_count_vector: Matrix
 
 
 @flojoy(deps={"scikit-learn": "1.2.2"})
-def COUNT_VECTORIZER(default: DataFrame | Matrix) -> OrderedPair:
+def COUNT_VECTORIZER(default: DataFrame | Matrix) -> CountVectorizerOutput:
     """The COUNT_VECTORIZER node converts a collection (matrix) of text documents to a matrix of token counts.
 
     Returns
@@ -13,15 +20,16 @@ def COUNT_VECTORIZER(default: DataFrame | Matrix) -> OrderedPair:
         x -> the feature names
         y -> the word counts themselves
     """
-    arr = []
+
     if isinstance(default, DataFrame):
-        default.m = default.m.values
+        data = default.m.values
+    else:
+        data = default.m
 
     vectorizer = CountVectorizer()
-    X = vectorizer.fit_transform(default.m.flatten())
-    x = np.array(vectorizer.get_feature_names_out())
+    X = vectorizer.fit_transform(data.flatten())
 
-    y = X.toarray().flatten()
-    x = np.arange(0, len(y))
+    x = pd.DataFrame({"tokens": vectorizer.get_feature_names_out()})
+    y = X.toarray()
 
-    return OrderedPair(x=x, y=y)
+    return CountVectorizerOutput(tokens=DataFrame(df=x), word_count_vector=Matrix(m=y))

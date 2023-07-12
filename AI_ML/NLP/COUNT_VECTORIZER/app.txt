@@ -2,12 +2,10 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
-                "id": "READ_CSV-9e29e1a7-1de5-4f20-b984-da233df01e7f",
+                "id": "READ_CSV-f1fcde08-f265-49e1-8fef-ca10fdd91cb5",
                 "type": "FILE",
                 "data": {
-                    "id": "READ_CSV-9e29e1a7-1de5-4f20-b984-da233df01e7f",
+                    "id": "READ_CSV-f1fcde08-f265-49e1-8fef-ca10fdd91cb5",
                     "label": "READ CSV",
                     "func": "READ_CSV",
                     "type": "FILE",
@@ -15,7 +13,7 @@
                         "file_path": {
                             "type": "str",
                             "default": "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
-                            "functionName": "READ_CSV", 
+                            "functionName": "READ_CSV",
                             "param": "file_path",
                             "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/AI_ML/NLP/COUNT_VECTORIZER/assets/text.csv"
                         }
@@ -27,27 +25,22 @@
                             "type": "DataFrame"
                         }
                     ],
-                    "path": "PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/READ_CSV.py",
-                    "selected": false
+                    "path": "PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/READ_CSV.py"
                 },
                 "position": {
-                    "x": 693.0500304767432,
-                    "y": 324.1115271340136
+                    "x": 222.84589392599779,
+                    "y": 7.6645263739565905
                 },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 693.0500304767432,
-                    "y": 324.1115271340136
-                },
-                "dragging": true
+                "width": 150,
+                "height": 150
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "COUNT_VECTORIZER-cda52cec-5dd8-45ff-a718-f3a715fabeea",
+                "id": "COUNT_VECTORIZER-cfaade39-db24-4a20-ab02-72e080616662",
                 "type": "NLP",
                 "data": {
-                    "id": "COUNT_VECTORIZER-cda52cec-5dd8-45ff-a718-f3a715fabeea",
+                    "id": "COUNT_VECTORIZER-cfaade39-db24-4a20-ab02-72e080616662",
                     "label": "COUNT VECTORIZER",
                     "func": "COUNT_VECTORIZER",
                     "type": "NLP",
@@ -62,9 +55,14 @@
                     ],
                     "outputs": [
                         {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
+                            "name": "tokens",
+                            "id": "tokens",
+                            "type": "DataFrame"
+                        },
+                        {
+                            "name": "word_count_vector",
+                            "id": "word_count_vector",
+                            "type": "Matrix"
                         }
                     ],
                     "pip_dependencies": [
@@ -77,32 +75,32 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1140.9140207379864,
-                    "y": 340.842084845731
+                    "x": 635.389473723505,
+                    "y": 7.855926210703956
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1140.9140207379864,
-                    "y": 340.842084845731
+                    "x": 635.389473723505,
+                    "y": 7.855926210703956
                 },
                 "dragging": true
             },
             {
-                "width": 240,
-                "height": 260,
-                "id": "MATRIX_VIEW-2ce1fb37-171d-4e3c-9253-29721a9d80b1",
+                "width": 225,
+                "height": 226,
+                "id": "TABLE-872d4963-d2da-4147-9b54-0487a4b6d5c2",
                 "type": "PLOTLY",
                 "data": {
-                    "id": "MATRIX_VIEW-2ce1fb37-171d-4e3c-9253-29721a9d80b1",
-                    "label": "MATRIX VIEW",
-                    "func": "MATRIX_VIEW",
+                    "id": "TABLE-872d4963-d2da-4147-9b54-0487a4b6d5c2",
+                    "label": "TABLE",
+                    "func": "TABLE",
                     "type": "PLOTLY",
                     "ctrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair|Matrix",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix",
                             "multiple": false
                         }
                     ],
@@ -113,27 +111,67 @@
                             "type": "Plotly"
                         }
                     ],
-                    "path": "PYTHON/nodes/VISUALIZERS/DATA_STRUCTURE/MATRIX_VIEW/MATRIX_VIEW.py",
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1545.2740604218616,
-                    "y": 303.4388323546339
+                    "x": 977.4500939326523,
+                    "y": 145.97012982652666
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1545.2740604218616,
-                    "y": 303.4388323546339
+                    "x": 977.4500939326523,
+                    "y": 145.97012982652666
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "TABLE-5af7fb76-685e-4970-8de1-67192cdbe6b8",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "TABLE-5af7fb76-685e-4970-8de1-67192cdbe6b8",
+                    "label": "TABLE 1",
+                    "func": "TABLE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 967.4035764399761,
+                    "y": -239.07237117806883
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 967.4035764399761,
+                    "y": -239.07237117806883
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-171d0f0b-012f-43e4-9f7f-e3afc42567e5",
+                "id": "END-d704234b-c148-4243-a75e-0cf8e6f0d770",
                 "type": "TERMINATORS",
                 "data": {
-                    "id": "END-171d0f0b-012f-43e4-9f7f-e3afc42567e5",
+                    "id": "END-d704234b-c148-4243-a75e-0cf8e6f0d770",
                     "label": "END",
                     "func": "END",
                     "type": "TERMINATORS",
@@ -150,44 +188,58 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1959.6902546825124,
-                    "y": 338.76872400249744
+                    "x": 1424.8846979849764,
+                    "y": -36.2985347256772
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1959.6902546825124,
-                    "y": 338.76872400249744
+                    "x": 1424.8846979849764,
+                    "y": -36.2985347256772
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "READ_CSV-9e29e1a7-1de5-4f20-b984-da233df01e7f",
+                "source": "READ_CSV-f1fcde08-f265-49e1-8fef-ca10fdd91cb5",
                 "sourceHandle": "default",
-                "target": "COUNT_VECTORIZER-cda52cec-5dd8-45ff-a718-f3a715fabeea",
+                "target": "COUNT_VECTORIZER-cfaade39-db24-4a20-ab02-72e080616662",
                 "targetHandle": "default",
-                "id": "reactflow__edge-READ_CSV-9e29e1a7-1de5-4f20-b984-da233df01e7fdefault-COUNT_VECTORIZER-cda52cec-5dd8-45ff-a718-f3a715fabeeadefault"
+                "id": "reactflow__edge-READ_CSV-f1fcde08-f265-49e1-8fef-ca10fdd91cb5default-COUNT_VECTORIZER-cfaade39-db24-4a20-ab02-72e080616662default"
             },
             {
-                "source": "COUNT_VECTORIZER-cda52cec-5dd8-45ff-a718-f3a715fabeea",
-                "sourceHandle": "default",
-                "target": "MATRIX_VIEW-2ce1fb37-171d-4e3c-9253-29721a9d80b1",
+                "source": "COUNT_VECTORIZER-cfaade39-db24-4a20-ab02-72e080616662",
+                "sourceHandle": "tokens",
+                "target": "TABLE-5af7fb76-685e-4970-8de1-67192cdbe6b8",
                 "targetHandle": "default",
-                "id": "reactflow__edge-COUNT_VECTORIZER-cda52cec-5dd8-45ff-a718-f3a715fabeeadefault-MATRIX_VIEW-2ce1fb37-171d-4e3c-9253-29721a9d80b1default"
+                "id": "reactflow__edge-COUNT_VECTORIZER-cfaade39-db24-4a20-ab02-72e080616662tokens-TABLE-5af7fb76-685e-4970-8de1-67192cdbe6b8default"
             },
             {
-                "source": "MATRIX_VIEW-2ce1fb37-171d-4e3c-9253-29721a9d80b1",
-                "sourceHandle": "default",
-                "target": "END-171d0f0b-012f-43e4-9f7f-e3afc42567e5",
+                "source": "COUNT_VECTORIZER-cfaade39-db24-4a20-ab02-72e080616662",
+                "sourceHandle": "word_count_vector",
+                "target": "TABLE-872d4963-d2da-4147-9b54-0487a4b6d5c2",
                 "targetHandle": "default",
-                "id": "reactflow__edge-MATRIX_VIEW-2ce1fb37-171d-4e3c-9253-29721a9d80b1default-END-171d0f0b-012f-43e4-9f7f-e3afc42567e5default"
+                "id": "reactflow__edge-COUNT_VECTORIZER-cfaade39-db24-4a20-ab02-72e080616662word_count_vector-TABLE-872d4963-d2da-4147-9b54-0487a4b6d5c2default"
+            },
+            {
+                "source": "TABLE-5af7fb76-685e-4970-8de1-67192cdbe6b8",
+                "sourceHandle": "default",
+                "target": "END-d704234b-c148-4243-a75e-0cf8e6f0d770",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-5af7fb76-685e-4970-8de1-67192cdbe6b8default-END-d704234b-c148-4243-a75e-0cf8e6f0d770default"
+            },
+            {
+                "source": "TABLE-872d4963-d2da-4147-9b54-0487a4b6d5c2",
+                "sourceHandle": "default",
+                "target": "END-d704234b-c148-4243-a75e-0cf8e6f0d770",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-872d4963-d2da-4147-9b54-0487a4b6d5c2default-END-d704234b-c148-4243-a75e-0cf8e6f0d770default"
             }
         ],
         "viewport": {
-            "x": -277.07893884404893,
-            "y": 103.38141914149585,
-            "zoom": 0.8175961276759318
+            "x": -231.50146122260037,
+            "y": 164.43135961604688,
+            "zoom": 0.6831074892828619
         }
     },
     "ctrlsManifest": [

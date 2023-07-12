@@ -31,16 +31,16 @@ def SUPPORT_VECTOR_MACHINE(
     le = preprocessing.LabelEncoder()
 
     if isinstance(training_data, DataFrame):
-        df = cast(pd.DataFrame, training_data.m)
+        df = training_data.m
         if not target:
             target = str(df.columns[-1])
 
         col = df[target]
-        train = cast(pd.DataFrame, df.drop(target, axis=1)).to_numpy()
+        train = df.drop(target, axis=1).to_numpy()
     # Other case is matrix
     else:
         # assume the last column is the labelxw
-        data = cast(np.ndarray, training_data.m)
+        data = training_data.m
         col = data[:, -1]
 
         # remove the last column
@@ -53,9 +53,9 @@ def SUPPORT_VECTOR_MACHINE(
     clf.fit(X, Y)
 
     if isinstance(input_data, DataFrame):
-        input_arr = cast(pd.DataFrame, input_data.m).to_numpy()
+        input_arr = input_data.m.to_numpy()
     else:
-        input_arr = cast(np.ndarray, input_data.m)
+        input_arr = input_data.m
 
     prediction = clf.predict(input_arr)
     prediction = le.inverse_transform(prediction)

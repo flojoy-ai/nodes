@@ -1,1 +1,1 @@
-In this example, the `LOCAL_FILE` node loads a local file .Then `COUNT_VECTORIZER`transforms the matrix of text, which is essentially a numpy array, into a matrix of token counts.
+In this example, the `READ_CSV` node loads a local file. Then `COUNT_VECTORIZER` node transforms the matrix of text into a matrix of token/word counts, and it returns a `DataFrame` that contains unique words and a `Matrix` that contains token counts for each sentence.

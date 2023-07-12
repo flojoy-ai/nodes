@@ -18,7 +18,7 @@ def EXTRACT_COLUMNS(default: DataFrame, columns: Array) -> DataFrame:
     dataframe
         The dataframe with only the specified columns.
     """
-    df = cast(pd.DataFrame, default.m)
+    df = default.m
     new_df = df[columns.unwrap()] if columns else df
     new_df = cast(pd.DataFrame, new_df)
     return DataFrame(df=new_df)

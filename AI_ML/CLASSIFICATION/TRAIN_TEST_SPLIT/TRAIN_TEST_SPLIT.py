@@ -1,7 +1,8 @@
 import pandas as pd
-from typing import cast, TypedDict
+from typing import TypedDict
 from flojoy import flojoy, DataFrame
 from sklearn.model_selection import train_test_split
+
 
 class TrainTestSplitOutput(TypedDict):
     train: DataFrame
@@ -9,7 +10,9 @@ class TrainTestSplitOutput(TypedDict):
 
 
 @flojoy(deps={"scikit-learn": "1.2.2"})
-def TRAIN_TEST_SPLIT(default: DataFrame, test_size: float = 0.2) -> TrainTestSplitOutput:
+def TRAIN_TEST_SPLIT(
+    default: DataFrame, test_size: float = 0.2
+) -> TrainTestSplitOutput:
     """The TRAIN_TEST_SPLIT node is used to split the data into test and training according to size specified
       before any ML tasks.
 
@@ -22,7 +25,7 @@ def TRAIN_TEST_SPLIT(default: DataFrame, test_size: float = 0.2) -> TrainTestSpl
     dataframe
         a dataframe of training data, and a dataframe of test data.
     """
-    
+
     df = default.m
-    train, test = cast(list[pd.DataFrame], train_test_split(df, test_size=test_size))
+    train, test = train_test_split(df, test_size=test_size)
     return TrainTestSplitOutput(train=DataFrame(df=train), test=DataFrame(df=test))

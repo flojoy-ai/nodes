@@ -1,11 +1,12 @@
 import numpy as np
+from typing import Optional
 import traceback
 from flojoy import flojoy, OrderedPair, Matrix
 
 
 @flojoy
 def LEAST_SQUARES(
-    a: OrderedPair | Matrix, b: OrderedPair | Matrix
+    a: OrderedPair | Matrix, b: Optional[OrderedPair | Matrix] = None
 ) -> OrderedPair | Matrix:
     """The LEAST_SQUARE node computes the coefficients that minimizes the distance between the
     inputs 'Matrix or OrderedPair' class and the regression.
@@ -22,7 +23,7 @@ def LEAST_SQUARES(
         y: fitted line computed with returned regression weights
     """
 
-    if b is None and a.type == "ordered_pair":
+    if b is None and isinstance(a, OrderedPair):
         if (len(a.y)) != 0:
             x = a.y
             y = a.y
@@ -40,7 +41,7 @@ def LEAST_SQUARES(
 
         return OrderedPair(x=x, y=res)
 
-    if a.type == "ordered_pair" and b.type == "ordered_pair":
+    if isinstance(a, OrderedPair) and isinstance(b, OrderedPair):
         x = a.y
         y = b.y
 
@@ -55,7 +56,7 @@ def LEAST_SQUARES(
 
         return OrderedPair(x=x, y=res)
 
-    elif a.type == "matrix" and b.type == "matrix":
+    elif isinstance(a, Matrix) and isinstance(b, Matrix):
         x = a.m
         y = b.m
 
