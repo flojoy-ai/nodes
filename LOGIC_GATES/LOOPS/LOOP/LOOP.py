@@ -1,8 +1,6 @@
 import json
 from typing import TypedDict, Any, Optional
-from node_sdk.small_memory import SmallMemory
-
-from flojoy import JobResultBuilder, DataContainer, flojoy, DefaultParams
+from flojoy import JobResultBuilder, DataContainer, flojoy, DefaultParams, SmallMemory
 
 memory_key = "loop-info"
 

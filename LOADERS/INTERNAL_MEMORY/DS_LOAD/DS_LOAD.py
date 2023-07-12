@@ -1,16 +1,15 @@
-from flojoy import flojoy, NodeReference, OrderedPair
-from node_sdk.small_memory import SmallMemory
+from flojoy import flojoy, NodeReference, OrderedPair, SmallMemory
 import numpy as np
 
 
 @flojoy
-def REDIS_LOAD(default: OrderedPair, referred_node: NodeReference) -> OrderedPair:
-    """The REDIS_LOAD node loads data directly from REDIS.
+def DS_LOAD(default: OrderedPair, referred_node: NodeReference) -> OrderedPair:
+    """The DS_LOAD node loads data directly from in-memory data storage.
 
     Parameters
     ----------
     referred_node: str
-        The node where REDIS data will be loaded from.
+        The ID of the node to retrieve the result from.
 
     Returns
     -------

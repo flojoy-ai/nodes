@@ -17,7 +17,7 @@
                             "default": -1,
                             "functionName": "LOOP",
                             "param": "num_loops",
-                            "value": "5"
+                            "value": "15"
                         }
                     },
                     "inputs": [
@@ -309,54 +309,6 @@
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
-                "id": "REDIS_LOAD-e1344294-9307-42b2-9419-eeb502cd643c",
-                "type": "REDIS_SYSTEM",
-                "data": {
-                    "id": "REDIS_LOAD-e1344294-9307-42b2-9419-eeb502cd643c",
-                    "label": "REDIS LOAD",
-                    "func": "REDIS_LOAD",
-                    "type": "REDIS_SYSTEM",
-                    "ctrls": {
-                        "referred_node": {
-                            "type": "NodeReference",
-                            "default": null,
-                            "functionName": "REDIS_LOAD",
-                            "param": "referred_node",
-                            "value": "SECOND_ORDER_SYSTEM-f97650dd-54de-4204-be2d-a04451e4b622"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOADERS\\REDIS_SYSTEM\\REDIS_LOAD\\REDIS_LOAD.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 220.9984495500704,
-                    "y": 453.4985031448204
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 220.9984495500704,
-                    "y": 453.4985031448204
-                },
-                "dragging": true
-            },
-            {
                 "width": 99,
                 "height": 130,
                 "id": "SUBTRACT-3a3c4ed2-1ec0-433a-b6d6-d9819a2a02c1",
@@ -403,8 +355,8 @@
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "LINE-ed3aba7c-7235-43dd-baeb-6ad9dbc763b9",
                 "type": "PLOTLY",
                 "data": {
@@ -432,13 +384,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 635.3158082571114,
-                    "y": 403.2173638313919
+                    "x": 646.7443796856828,
+                    "y": 431.78879240282043
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 635.3158082571114,
-                    "y": 403.2173638313919
+                    "x": 646.7443796856828,
+                    "y": 431.78879240282043
                 },
                 "dragging": true
             },
@@ -472,6 +424,54 @@
                 "positionAbsolute": {
                     "x": 1058.3707129617164,
                     "y": 465.2386207280347
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "DS_LOAD-1cfd0ec3-cbf0-4316-b2f0-2654e5a54e49",
+                "type": "INTERNAL_MEMORY",
+                "data": {
+                    "id": "DS_LOAD-1cfd0ec3-cbf0-4316-b2f0-2654e5a54e49",
+                    "label": "DS LOAD",
+                    "func": "DS_LOAD",
+                    "type": "INTERNAL_MEMORY",
+                    "ctrls": {
+                        "referred_node": {
+                            "type": "NodeReference",
+                            "default": null,
+                            "functionName": "DS_LOAD",
+                            "param": "referred_node",
+                            "value": "SECOND_ORDER_SYSTEM-f97650dd-54de-4204-be2d-a04451e4b622"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "path": "",
+                    "selected": false
+                },
+                "position": {
+                    "x": 226.90231299211854,
+                    "y": 460.341992432171
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 226.90231299211854,
+                    "y": 460.341992432171
                 },
                 "dragging": true
             }
@@ -527,25 +527,25 @@
                 "id": "reactflow__edge-CONSTANT-763b863d-7a28-4264-8f33-3e02c65f85d5default-SUBTRACT-3a3c4ed2-1ec0-433a-b6d6-d9819a2a02c1b"
             },
             {
-                "source": "LOOP-67e6ac26-cc23-4159-8659-ef0577421ee3",
-                "sourceHandle": "end",
-                "target": "REDIS_LOAD-e1344294-9307-42b2-9419-eeb502cd643c",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LOOP-67e6ac26-cc23-4159-8659-ef0577421ee3end-REDIS_LOAD-e1344294-9307-42b2-9419-eeb502cd643cdefault"
-            },
-            {
-                "source": "REDIS_LOAD-e1344294-9307-42b2-9419-eeb502cd643c",
-                "sourceHandle": "default",
-                "target": "LINE-ed3aba7c-7235-43dd-baeb-6ad9dbc763b9",
-                "targetHandle": "default",
-                "id": "reactflow__edge-REDIS_LOAD-e1344294-9307-42b2-9419-eeb502cd643cdefault-LINE-ed3aba7c-7235-43dd-baeb-6ad9dbc763b9default"
-            },
-            {
                 "source": "LINE-ed3aba7c-7235-43dd-baeb-6ad9dbc763b9",
                 "sourceHandle": "default",
                 "target": "END-c14d955a-8357-4341-8221-caf9f2832174",
                 "targetHandle": "default",
                 "id": "reactflow__edge-LINE-ed3aba7c-7235-43dd-baeb-6ad9dbc763b9default-END-c14d955a-8357-4341-8221-caf9f2832174default"
+            },
+            {
+                "source": "LOOP-67e6ac26-cc23-4159-8659-ef0577421ee3",
+                "sourceHandle": "end",
+                "target": "DS_LOAD-1cfd0ec3-cbf0-4316-b2f0-2654e5a54e49",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOOP-67e6ac26-cc23-4159-8659-ef0577421ee3end-DS_LOAD-1cfd0ec3-cbf0-4316-b2f0-2654e5a54e49default"
+            },
+            {
+                "source": "DS_LOAD-1cfd0ec3-cbf0-4316-b2f0-2654e5a54e49",
+                "sourceHandle": "default",
+                "target": "LINE-ed3aba7c-7235-43dd-baeb-6ad9dbc763b9",
+                "targetHandle": "default",
+                "id": "reactflow__edge-DS_LOAD-1cfd0ec3-cbf0-4316-b2f0-2654e5a54e49default-LINE-ed3aba7c-7235-43dd-baeb-6ad9dbc763b9default"
             }
         ],
         "viewport": {

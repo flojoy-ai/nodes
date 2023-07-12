@@ -1,6 +1,6 @@
 import numpy as np
-from flojoy import flojoy, OrderedPair, DefaultParams
-from node_sdk.small_memory import SmallMemory
+from flojoy import flojoy, OrderedPair, DefaultParams, SmallMemory
+
 
 memory_key = "SECOND_ORDER_SYSTEM"
 

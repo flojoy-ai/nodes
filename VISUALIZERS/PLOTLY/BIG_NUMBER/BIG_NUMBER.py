@@ -1,5 +1,4 @@
-from flojoy import flojoy, Plotly, OrderedPair, DefaultParams
-from node_sdk.small_memory import SmallMemory
+from flojoy import flojoy, Plotly, OrderedPair, DefaultParams, SmallMemory
 import plotly.graph_objects as go
 from nodes.VISUALIZERS.template import plot_layout
 
