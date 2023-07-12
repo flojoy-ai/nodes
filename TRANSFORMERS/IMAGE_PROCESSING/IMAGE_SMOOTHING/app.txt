@@ -149,13 +149,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1414.4011402485594,
-                    "y": 266.0448423431875
+                    "x": 1563.4567659759107,
+                    "y": 279.6839192071281
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1414.4011402485594,
-                    "y": 266.0448423431875
+                    "x": 1563.4567659759107,
+                    "y": 279.6839192071281
                 },
                 "dragging": true
             },
@@ -186,16 +186,56 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 1045.9840067988252,
                     "y": 224.11694980457935
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 1045.9840067988252,
                     "y": 224.11694980457935
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94c",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94c",
+                    "label": "IMAGE 1",
+                    "func": "IMAGE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 751.8230470356477,
+                    "y": 547.3074392693687
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 751.8230470356477,
+                    "y": 547.3074392693687
                 },
                 "dragging": true
             }
@@ -221,12 +261,26 @@
                 "target": "END-3ed99c64-452e-4a7b-a439-3aab3140483a",
                 "targetHandle": "default",
                 "id": "reactflow__edge-IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181default-END-3ed99c64-452e-4a7b-a439-3aab3140483adefault"
+            },
+            {
+                "source": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
+                "sourceHandle": "default",
+                "target": "IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94c",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497default-IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94cdefault"
+            },
+            {
+                "source": "IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94c",
+                "sourceHandle": "default",
+                "target": "END-3ed99c64-452e-4a7b-a439-3aab3140483a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94cdefault-END-3ed99c64-452e-4a7b-a439-3aab3140483adefault"
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 158.98083177807212,
-            "zoom": 1.4811524052100216
+            "x": -454.16852149654983,
+            "y": 260.7534565927997,
+            "zoom": 1.3401466962340274
         }
     },
     "ctrlsManifest": [
