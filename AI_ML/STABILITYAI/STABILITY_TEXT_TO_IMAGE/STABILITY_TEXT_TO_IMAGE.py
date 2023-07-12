@@ -1,10 +1,8 @@
 import numpy as np
 from flojoy import flojoy, DataContainer
 from typing import List
-import openai
 from PIL import Image
 import requests
-from io import BytesIO
 import os
 import base64
 import io
