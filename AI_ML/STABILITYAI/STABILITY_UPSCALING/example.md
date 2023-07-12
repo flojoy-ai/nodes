@@ -1,0 +1,1 @@
+An app that uses StabilitAI to upscale an image.

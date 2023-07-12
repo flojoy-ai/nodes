@@ -48,7 +48,7 @@ def STABILITY_TEXT_TO_IMAGE(dc: List[DataContainer], params: dict):
 
     img_width = params.get("width", 512)
     img_height = params.get("height", 512)
-    cfg_scale = params.get("cfg_scale", 1)
+    cfg_scale = params.get("cfg_scale", 7.0)
 
     response = requests.post(
         f"{api_host}/v1/generation/{engine_id}/text-to-image",
