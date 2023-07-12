@@ -29,8 +29,6 @@ def CAMERA(
     DataContainer:
         type 'image'
     """
-    camera_ind: int = camera_ind
-    resolution: str = resolution
 
     try:
         camera = cv2.VideoCapture(camera_ind)

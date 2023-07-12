@@ -23,22 +23,20 @@ def LABJACKU3(
     sensor_num: list[int] = []
 
     # Create an instance of U3 class
-    # d = u3.U3()
+    d = u3.U3()
     # Config the U3 for daq from temperature sensors
-    # d.configIO(FIOAnalog=255, EIOAnalog=0)
+    d.configIO(FIOAnalog=255, EIOAnalog=0)
 
     for i in range(0, sensor_number):
         sensor_num.append(i + 1)
         # Loop on the LabJack pins
-        # voltage: float = d.getAIN(i)
+        voltage: float = d.getAIN(i)
         # Convert Voltage into temperature in Celsius :
-        # temperature: float = voltage * 100.0
-        # temperature_celsius: float = (temperature - 32) / 1.8
-        # voltages.append(voltage)
-        # temperatures.append(temperature)
-        # temperatures_celsius.append(temperature_celsius)
-
-    MockTemp = [22.1, 35.4, 46.3, 23.4, 31.2, 27.2]
+        temperature: float = voltage * 100.0
+        temperature_celsius: float = (temperature - 32) / 1.8
+        voltages.append(voltage)
+        temperatures.append(temperature)
+        temperatures_celsius.append(temperature_celsius)
 
     results = OrderedPair(x=sensor_num, y=MockTemp)
 
