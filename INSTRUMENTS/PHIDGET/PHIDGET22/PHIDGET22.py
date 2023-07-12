@@ -1,4 +1,5 @@
 from flojoy import flojoy, OrderedPair
+from typing import Optional
 import Phidget22
 from Phidget22.Phidget import *
 from Phidget22.Devices.VoltageRatioInput import *
@@ -6,12 +7,13 @@ from Phidget22.Devices.VoltageRatioInput import *
 
 def onVoltageRatioChange(self, voltageRatio):
     """Declaration of the Event handler, print Voltage variation for a channel"""
-    print("VoltageRatio [" + str(self.getChannel()) + "]: " + str(voltageRatio))
+    print("VoltageRatio [" + str(self.getChannel()) +
+          "]: " + str(voltageRatio))
 
 
 @flojoy(deps={"Phidget22": "1.14.20230331"})
 def PHIDGET22(
-    default: OrderedPair = None,
+    default: Optional[OrderedPair] = None,
     n_sensors: int = 1,
     calibration1: float = 0.015,
     calibration2: float = 0.06,
