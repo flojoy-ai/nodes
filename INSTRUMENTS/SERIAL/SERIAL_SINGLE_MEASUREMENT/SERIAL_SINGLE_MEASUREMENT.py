@@ -11,7 +11,7 @@ import plotly.graph_objects as go
 def SERIAL_SINGLE_MEASUREMENT(
     default: Optional[OrderedPair] = None,
     comport: str = "/dev/ttyUSB0",
-    baudrate: float = 9600
+    baudrate: float = 9600,
 ) -> OrderedPair:
     """
     The SERIAL_SINGLE_MEASUREMENT Node takes a single reading of data from an Ardunio,
