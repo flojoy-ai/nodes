@@ -1,13 +1,19 @@
 import cv2
 import os
 from flojoy import flojoy, DataContainer
-from typing import Optional
+from typing import Optional, Literal
 from PIL import Image
 import numpy as np
 
 
-@flojoy
-def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+@flojoy(deps={"opencv-python-headless": "4.7.0.72"})
+def CAMERA(
+    default: Optional[DataContainer] = None,
+    camera_ind: int = -1,
+    resolution: Literal[
+        "default", "640x360", "640x480", "1280x720", "1920x1080"
+    ] = "default",
+) -> DataContainer:
     """The CAMERA node acquires an image using the selected camera.
     If no camera is detected, an error would be thrown.
 
@@ -23,8 +29,8 @@ def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     DataContainer:
         type 'image'
     """
-    camera_ind: int = params["camera_ind"]
-    resolution: str = params["resolution"]
+    camera_ind: int = camera_ind
+    resolution: str = resolution
 
     try:
         camera = cv2.VideoCapture(camera_ind)
@@ -59,13 +65,15 @@ def CAMERA(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         else:
             alpha_channel = None
 
-        return DataContainer(
+        Camera_image = DataContainer(
             type="image",
             r=red_channel,
             g=green_channel,
             b=blue_channel,
             a=alpha_channel,
         )
+
+        return Camera_image
 
     except cv2.error as camera_error:
         raise camera_error
