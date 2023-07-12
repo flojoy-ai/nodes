@@ -46,3 +46,4 @@ tomli==2.0.1
 tqdm==4.65.0
 tzdata==2023.3
 xlrd==2.0.1
+pytest==7.1.3
