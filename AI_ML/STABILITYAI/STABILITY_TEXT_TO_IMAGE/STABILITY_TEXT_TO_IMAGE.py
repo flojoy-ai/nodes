@@ -1,6 +1,6 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
-from typing import List
+from flojoy import flojoy, Image as FlojoyImage
+from typing import Optional
 from PIL import Image
 import requests
 import os
@@ -10,7 +10,12 @@ import io
 
 
 @flojoy
-def STABILITY_TEXT_TO_IMAGE(dc: List[DataContainer], params: dict):
+def STABILITY_TEXT_TO_IMAGE(
+    prompt: str,
+    width: Optional[int] = 512,
+    height: Optional[int] = 512,
+    cfg_scale: Optional[float] = 7.0
+) -> FlojoyImage:
     """
     The STABILITY_TEXT_TO_IMAGE node uses the STABILITY AI Rest API to convert text to an image.
     The node returns an image.
@@ -39,24 +44,19 @@ def STABILITY_TEXT_TO_IMAGE(dc: List[DataContainer], params: dict):
         "Accept": "application/json",
         "Authorization": f"Bearer {api_key}"
     }
-    prompt = params.get("prompt")
     if prompt is None:
         raise ValueError("Prompt is required")
     prompts = [{
         "text": prompt
     }]
 
-    img_width = params.get("width", 512)
-    img_height = params.get("height", 512)
-    cfg_scale = params.get("cfg_scale", 7.0)
-
     response = requests.post(
         f"{api_host}/v1/generation/{engine_id}/text-to-image",
         headers=headers,
         json={
             "text_prompts": prompts,
-            "height": img_width,
-            "width": img_height,
+            "height": height,
+            "width": width,
             "samples": 1,
             "cfg_scale": cfg_scale
         }
@@ -79,8 +79,7 @@ def STABILITY_TEXT_TO_IMAGE(dc: List[DataContainer], params: dict):
     if image_array.shape[2] == 4:
         alpha_channel = image_array[:, :, 3]
 
-    return DataContainer(
-        type="image",
+    return FlojoyImage(
         r=red_channel,
         g=green_channel,
         b=blue_channel,

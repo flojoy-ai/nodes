@@ -1,6 +1,6 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
-from typing import List
+from flojoy import flojoy, Image as FlojoyImage
+from typing import Optional
 from PIL import Image
 import os
 import io
@@ -29,7 +29,11 @@ def get_image_from_answers(answers):
 
 
 @flojoy
-def STABILITY_UPSCALING(dc: List[DataContainer], params: dict):
+def STABILITY_UPSCALING(
+    default: Optional[FlojoyImage] = None,
+    image_path: Optional[str] = None,
+    output_width: int = 1024,
+) -> FlojoyImage:
     """
     The STABILITY_UPSCALING node uses the STABILITY AI gRCP API to upscale an image.
     The image can be passed as input to the node using form data or by a previous node in the flow.
@@ -53,12 +57,10 @@ def STABILITY_UPSCALING(dc: List[DataContainer], params: dict):
         verbose=True,
     )
 
-    output_width = params.get("output_width", 1024)
-    if dc and getattr(dc[0], "type") == "image":
-        img_array_from_dc = np.stack([dc[0].r, dc[0].g, dc[0].b], axis=2)
+    if default and getattr(default, "type") == "image":
+        img_array_from_dc = np.stack([default.r, default.g, default.b], axis=2)
         img = Image.fromarray(img_array_from_dc, "RGB")
     else:
-        image_path = params.get("image_path")
         if image_path is None:
             raise ValueError("image_path parameter is missing!")
 
@@ -92,8 +94,7 @@ def STABILITY_UPSCALING(dc: List[DataContainer], params: dict):
     if img_array.shape[2] == 4:
         alpha_channel = img_array[:, :, 3]
 
-    return DataContainer(
-        type="image", 
+    return FlojoyImage(
         r=red_channel, 
         g=green_channel, 
         b=blue_channel,

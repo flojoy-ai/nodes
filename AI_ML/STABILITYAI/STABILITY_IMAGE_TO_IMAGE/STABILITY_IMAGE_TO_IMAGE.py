@@ -1,5 +1,5 @@
-from flojoy import flojoy, DataContainer
-from typing import List
+from flojoy import flojoy, Image as FlojoyImage
+from typing import Optional
 import os
 from pathlib import Path
 import io
@@ -28,7 +28,14 @@ def get_image_from_answers(answers):
     return None
 
 @flojoy
-def STABILITY_IMAGE_TO_IMAGE(dc: List[DataContainer], params: dict):
+def STABILITY_IMAGE_TO_IMAGE(
+    prompt: str,
+    default: Optional[FlojoyImage] = None, 
+    image_path: Optional[str] = None,
+    width: Optional[int] = 512,
+    height: Optional[int] = 512,
+    cfg_scale: Optional[float] = 7.0
+) -> FlojoyImage:
     """
     This node uses StabilityAI Image-to-Image API to generate an image based on an input image and a text prompt.
     The image can be provided as a image file path or as a DataContainer Image object from a previous node.
@@ -56,16 +63,10 @@ def STABILITY_IMAGE_TO_IMAGE(dc: List[DataContainer], params: dict):
         engine=model
     )
 
-    prompt = params.get("prompt")
-    width = params.get("width", 512)
-    height = params.get("height", 512)
-    cfg_scale = params.get("cfg_scale", 7.0)
-
-    if dc and getattr(dc[0], 'type') == 'image':
-        img_array_from_dc = np.stack([dc[0].r, dc[0].g, dc[0].b], axis=2)
+    if default and getattr(default, 'type') == 'image':
+        img_array_from_dc = np.stack([default.r, default.g, default.b], axis=2)
         img = Image.fromarray(img_array_from_dc, 'RGB')
     else:
-        image_path = params.get("image_path")
         if image_path is None:
             raise ValueError("image_path parameter is missing!")
         
@@ -100,8 +101,7 @@ def STABILITY_IMAGE_TO_IMAGE(dc: List[DataContainer], params: dict):
     if img_array.shape[2] == 4:
         alpha_channel = img_array[:, :, 3]
 
-    return DataContainer(
-        type="image",
+    return FlojoyImage(
         r=red_channel,
         g=green_channel,
         b=blue_channel,
