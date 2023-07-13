@@ -63,7 +63,7 @@ def CAMERA(
         else:
             alpha_channel = None
 
-        Camera_image = DataContainer(
+        camera_image = DataContainer(
             type="image",
             r=red_channel,
             g=green_channel,
@@ -71,7 +71,7 @@ def CAMERA(
             a=alpha_channel,
         )
 
-        return Camera_image
+        return camera_image
 
     except cv2.error as camera_error:
         raise camera_error
