@@ -2,7 +2,6 @@ import numpy
 from pathlib import Path
 from functools import wraps
 from unittest.mock import patch
-import json
 from flojoy import DataContainer
 
 
@@ -27,8 +26,10 @@ def test_JSON_EXTRACTOR():
 Extract the price, name and model from the above text.
 """
     mock_properties_list = ["price", "name", "model"]
-    params = dict(properties=properties, prompt=prompt)
-    res = JSON_EXTRACTOR.JSON_EXTRACTOR([DataContainer()], params)
+    res = JSON_EXTRACTOR.JSON_EXTRACTOR(
+        properties=properties,
+        prompt=prompt,
+    )
 
     for property in mock_properties_list:
         assert property in res.m.columns

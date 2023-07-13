@@ -1,5 +1,5 @@
-from flojoy import flojoy, DataContainer
-from typing import List
+from flojoy import flojoy, DataContainer, DataFrame as FlojoyDataFrame, Bytes
+from typing import List, Optional
 import openai
 import pandas as pd
 import os
@@ -11,7 +11,10 @@ ACCEPTED_AUDIO_FORMATS = ["mp3", "wav"]
 
 
 @flojoy
-def WHISPER_SPEECH_TO_TEXT(dc: List[DataContainer], params: dict):
+def WHISPER_SPEECH_TO_TEXT(
+    default: Optional[Bytes] = None, 
+    file_path: Optional[str] = None
+) -> FlojoyDataFrame:
     """
     This node uses OpenAI whisper transcription model to convert audio to text.
     The audio can be provided as a file path or as bytes from a previous node.
@@ -23,10 +26,10 @@ def WHISPER_SPEECH_TO_TEXT(dc: List[DataContainer], params: dict):
         Path to the audio file to be transcribed. Only mp3 format is supported.
     """
     openai.api_key = os.environ.get("OPENAI_API_KEY")
-    if dc and isinstance(getattr(dc[0], 'bytes'), bytes):
+    if default and isinstance(getattr(default, 'bytes'), bytes):
         # if bytes exists create temp file and use it
         with NamedTemporaryFile(suffix='.mp3') as f:
-            f.write(dc[0].bytes)
+            f.write(default.bytes)
             f.seek(0)
             openai.api_key = os.environ.get("OPENAI_API_KEY")
             model = 'whisper-1'
@@ -41,7 +44,6 @@ def WHISPER_SPEECH_TO_TEXT(dc: List[DataContainer], params: dict):
                 m=transcription_df
             )
 
-    file_path = params.get("file_path")
     if file_path is None:
         raise ValueError("file_path parameter is missing!")
     
@@ -63,7 +65,4 @@ def WHISPER_SPEECH_TO_TEXT(dc: List[DataContainer], params: dict):
         'text': [transcript_text]
     })
 
-    return DataContainer(
-        type='dataframe',
-        m=transcription_df
-    )
+    return FlojoyDataFrame(df=transcription_df)

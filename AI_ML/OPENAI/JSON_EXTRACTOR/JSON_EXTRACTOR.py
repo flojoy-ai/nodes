@@ -1,9 +1,7 @@
-from flojoy import flojoy, DataContainer
-from typing import List
+from flojoy import flojoy, DataFrame as FlojoyDataFrame
 import openai
 import pandas as pd
 import os
-from pathlib import Path
 import json
 from copy import deepcopy
 
@@ -17,8 +15,11 @@ BASE_SCHEMA = {
 }
 
 
-@flojoy
-def JSON_EXTRACTOR(dc: List[DataContainer], params: dict):
+@flojoy(node_type="OPENAI")
+def JSON_EXTRACTOR(
+    properties: str,
+    prompt: str,
+) -> FlojoyDataFrame:
     """
     The JSON_EXTRACTOR node extract specific properties information from a text using JSON schema.
 
@@ -29,9 +30,6 @@ def JSON_EXTRACTOR(dc: List[DataContainer], params: dict):
     prompt: string
         Text to extract information from. Example: "I'm John, I am 30 years old and I live in New York."
     """
-
-    properties = params.get("properties")
-    prompt = params.get("prompt")
 
     if not properties:
         raise Exception("No properties found to extract.")
@@ -61,4 +59,4 @@ def JSON_EXTRACTOR(dc: List[DataContainer], params: dict):
 
     data = json.loads(response.choices[0].message.function_call.arguments)
     df = pd.DataFrame(data=[data])
-    return DataContainer(type="dataframe", m=df)
+    return FlojoyDataFrame(df=df)

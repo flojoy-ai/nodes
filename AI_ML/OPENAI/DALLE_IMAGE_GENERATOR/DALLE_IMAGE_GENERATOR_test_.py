@@ -28,7 +28,7 @@ def test_DALLE_IMAGE_GENERATOR():
     prompt = "A painting of a cat"
 
     res = DALLE_IMAGE_GENERATOR.DALLE_IMAGE_GENERATOR(
-        [DataContainer()], {"prompt": prompt}
+        prompt=prompt,
     )
 
     # Should get back a dataframe
