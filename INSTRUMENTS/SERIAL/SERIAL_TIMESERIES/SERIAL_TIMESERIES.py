@@ -72,6 +72,4 @@ def SERIAL_TIMESERIES(
     readings = np.array(readings)
     readings = readings.astype("float64")
 
-    results = OrderedPair(x=times, y=readings)
-
-    return results
+    return OrderedPair(x=times, y=readings)

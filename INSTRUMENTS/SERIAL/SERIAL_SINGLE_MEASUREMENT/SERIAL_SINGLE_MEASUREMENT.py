@@ -36,6 +36,4 @@ def SERIAL_SINGLE_MEASUREMENT(
     reading = reading.astype("float64")  # Convert the array to float
     x = np.arange(0, reading.size)  # Create a second array
 
-    results = OrderedPair(x=x, y=reading)
-
-    return results
+    return OrderedPair(x=x, y=reading)
