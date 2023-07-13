@@ -1,6 +1,5 @@
 import numpy as np
-from flojoy import flojoy, DataContainer, Image
-from typing import List
+from flojoy import flojoy, Image
 import openai
 from PIL import Image as PilImage
 import requests
@@ -10,7 +9,9 @@ import os
 
 @flojoy
 def DALLE_IMAGE_GENERATOR(
-    prompt: str
+    prompt: str,
+    width: int = 1024,
+    height: int = 1024,
 ) -> Image:
     """
     The DALLE_IMAGE_GENERATOR node takes a prompt and generates an image
@@ -22,9 +23,13 @@ def DALLE_IMAGE_GENERATOR(
     ----------
     prompt: string
         A sentence describing the image you want to generate.
+    width: int
+        The width of the generated image.
+    height: int
+        The height of the generated image.
     """
     openai.api_key = os.environ.get("OPENAI_API_KEY")
-    result = openai.Image.create(prompt=prompt, n=1, size="1024x1024")
+    result = openai.Image.create(prompt=prompt, n=1, size=f"{width}x{height}")
     if not result.data:
         raise Exception("No image data in result")
 
