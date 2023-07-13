@@ -1,6 +1,5 @@
 from flojoy import flojoy, OrderedPair
 from typing import Optional
-import LabJackPython
 import u3  # Import the library from LabJackPython in order to use our U3-LV device
 
 
