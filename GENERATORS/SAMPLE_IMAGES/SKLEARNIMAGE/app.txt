@@ -112,16 +112,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/AI_ML/OBJECT_DETECTION/OBJECT_DETECTION/OBJECT_DETECTION.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 617.8092531972738,
-                    "y": 12.960408585984283
+                    "x": 672.8186360339052,
+                    "y": 5.372907505069605
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 617.8092531972738,
-                    "y": 12.960408585984283
+                    "x": 672.8186360339052,
+                    "y": 5.372907505069605
                 },
                 "dragging": true
             },
@@ -145,16 +145,96 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 1323.2910013935943,
+                    "y": 20.726275145967804
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 1323.2910013935943,
+                    "y": 20.726275145967804
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1030.2237721432648,
-                    "y": 31.15908913222546
+                    "x": 940.0318111970437,
+                    "y": 255.64889946924262
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1030.2237721432648,
-                    "y": 31.15908913222546
+                    "x": 940.0318111970437,
+                    "y": 255.64889946924262
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
+                    "label": "IMAGE 1",
+                    "func": "IMAGE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 463.2797046471253,
+                    "y": 253.34979215719778
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 463.2797046471253,
+                    "y": 253.34979215719778
                 },
                 "dragging": true
             }
@@ -173,12 +253,33 @@
                 "target": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
                 "targetHandle": "default",
                 "id": "reactflow__edge-OBJECT_DETECTION-4ba045ca-f490-4f8b-853c-9c38e1297062default-END-8d20d677-c761-43cf-8b24-cde84bd667b9default"
+            },
+            {
+                "source": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
+                "sourceHandle": "default",
+                "target": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406default"
+            },
+            {
+                "source": "OBJECT_DETECTION-4ba045ca-f490-4f8b-853c-9c38e1297062",
+                "sourceHandle": "default",
+                "target": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
+                "targetHandle": "default",
+                "id": "reactflow__edge-OBJECT_DETECTION-4ba045ca-f490-4f8b-853c-9c38e1297062default-IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427cdefault"
+            },
+            {
+                "source": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
+                "sourceHandle": "default",
+                "target": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
+                "targetHandle": "default",
+                "id": "reactflow__edge-IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427cdefault-END-8d20d677-c761-43cf-8b24-cde84bd667b9default"
             }
         ],
         "viewport": {
-            "x": -370.442494324109,
-            "y": 122.55885385221723,
-            "zoom": 1.093090475044996
+            "x": -373.4542219202399,
+            "y": 120.20973884288571,
+            "zoom": 1.101977389476256
         }
     },
     "ctrlsManifest": [
