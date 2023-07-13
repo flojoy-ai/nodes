@@ -1,26 +1,29 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy
 import scipy.signal
 
 
-@flojoy
-def CUBIC(dc, params):
-    """
-            A cubic B-spline.
+@flojoy(node_type='default')
+def CUBIC(
+	default: OrderedPair,
+	) -> OrderedPair:
+	'''
+		A cubic B-spline.
+		
+		This is a special case of `bspline`, and equivalent to ``bspline(x, 3)``.
+		
+	-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+	The parameters of the function in this Flojoy wrapper are given below.
+	-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
-            This is a special case of `bspline`, and equivalent to ``bspline(x, 3)``.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-
-    Parameters
-    ----------
-    x : array_like
-            a knot vector
-    """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.signal.cubic(
-            x=dc[0].y,
-        ),
-    )
+	Parameters
+	----------
+	x : array_like
+		a knot vector
+			'''
+	result = OrderedPair(
+		x=default.x,
+		y=scipy.signal.cubic(
+			x=default.y,
+			)
+	)
+	return result
