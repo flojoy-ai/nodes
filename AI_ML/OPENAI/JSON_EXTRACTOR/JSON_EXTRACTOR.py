@@ -15,7 +15,7 @@ BASE_SCHEMA = {
 }
 
 
-@flojoy(node_type="OPENAI")
+@flojoy
 def JSON_EXTRACTOR(
     properties: str,
     prompt: str,

@@ -8,12 +8,7 @@ from io import BytesIO
 import os
 
 
-@flojoy(
-    node_type="OPENAI",
-    deps={
-        "openai": "0.27.8"
-    }
-)
+@flojoy
 def DALLE_IMAGE_GENERATOR(
     prompt: str
 ) -> Image:
