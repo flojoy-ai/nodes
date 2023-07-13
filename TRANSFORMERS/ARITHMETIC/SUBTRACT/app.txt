@@ -128,12 +128,12 @@
                 },
                 "position": {
                     "x": 207.3780552696801,
-                    "y": 180.93747110313308
+                    "y": 215.30806779437336
                 },
                 "selected": false,
                 "positionAbsolute": {
                     "x": 207.3780552696801,
-                    "y": 180.93747110313308
+                    "y": 215.30806779437336
                 },
                 "dragging": true
             },
@@ -209,19 +209,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 198.71380793093027,
-                    "y": 482.1137146993465
+                    "x": 210.17067349467703,
+                    "y": 428.6483420685281
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 198.71380793093027,
-                    "y": 482.1137146993465
+                    "x": 210.17067349467703,
+                    "y": 428.6483420685281
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "SCATTER-60ebf12f-24b1-4b81-81a2-320252811811",
                 "type": "PLOTLY",
                 "data": {
@@ -249,13 +249,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 859.384664339284,
-                    "y": 244.4561491450475
+                    "x": 762.6377995787557,
+                    "y": 211.35853751644567
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 859.384664339284,
-                    "y": 244.4561491450475
+                    "x": 762.6377995787557,
+                    "y": 211.35853751644567
                 },
                 "dragging": true
             },
@@ -279,20 +279,22 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1393.2337422266592,
-                    "y": 370.3654880306385
+                    "x": 1179.3722517033862,
+                    "y": 263.4347427690019
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1393.2337422266592,
-                    "y": 370.3654880306385
+                    "x": 1179.3722517033862,
+                    "y": 263.4347427690019
                 },
                 "dragging": true
             },
             {
+                "width": 130,
+                "height": 130,
                 "id": "SINE-70c5c7c4-e2dc-4a9f-abd1-2ce8208eb2ff",
                 "type": "SIMULATIONS",
                 "data": {
@@ -358,14 +360,19 @@
                             "type": "OrderedPair"
                         }
                     ],
-                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/SINE/SINE.py"
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/SINE/SINE.py",
+                    "selected": false
                 },
                 "position": {
-                    "x": 193.71963417605252,
-                    "y": -76.72531491059813
+                    "x": 207.72246986507633,
+                    "y": 12.383639474099027
                 },
-                "width": 130,
-                "height": 130
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 207.72246986507633,
+                    "y": 12.383639474099027
+                },
+                "dragging": true
             },
             {
                 "width": 99,
@@ -473,9 +480,9 @@
             }
         ],
         "viewport": {
-            "x": -373.4542219202399,
-            "y": 114.20973884288571,
-            "zoom": 1.101977389476256
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": []

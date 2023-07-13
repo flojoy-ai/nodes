@@ -82,16 +82,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/RAND/RAND.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 406.74292863792533,
-                    "y": 200.25995211758448
+                    "x": 370.9688233656887,
+                    "y": 47.35120501111004
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 406.74292863792533,
-                    "y": 200.25995211758448
+                    "x": 370.9688233656887,
+                    "y": 47.35120501111004
                 },
                 "dragging": true
             },
@@ -125,13 +125,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 740.8259368986942,
-                    "y": 174.99070090114583
+                    "x": 606.9285714511798,
+                    "y": 192.36669489051792
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 740.8259368986942,
-                    "y": 174.99070090114583
+                    "x": 606.9285714511798,
+                    "y": 192.36669489051792
                 },
                 "dragging": true
             },
@@ -158,13 +158,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1335.8745848855544,
-                    "y": 192.4042644602879
+                    "x": 1241.8397938842468,
+                    "y": 211.82449303664492
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1335.8745848855544,
-                    "y": 192.4042644602879
+                    "x": 1241.8397938842468,
+                    "y": 211.82449303664492
                 },
                 "dragging": true
             },
@@ -195,16 +195,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 989.6078654921798,
-                    "y": 129.59287772527307
+                    "x": 880.2413150884847,
+                    "y": 152.07945818210754
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 989.6078654921798,
-                    "y": 129.59287772527307
+                    "x": 880.2413150884847,
+                    "y": 152.07945818210754
                 },
                 "dragging": true
             }
@@ -240,9 +240,9 @@
             }
         ],
         "viewport": {
-            "x": -454.16852149654983,
-            "y": 260.7534565927997,
-            "zoom": 1.3401466962340274
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": [

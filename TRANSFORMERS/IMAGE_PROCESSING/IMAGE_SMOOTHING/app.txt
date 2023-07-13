@@ -17,7 +17,7 @@
                             "default": 5,
                             "functionName": "IMAGE_SMOOTHING",
                             "param": "kernel",
-                            "value": 5
+                            "value": "8"
                         },
                         "smoothing_type": {
                             "type": "select",
@@ -49,16 +49,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/IMAGE_SMOOTHING/IMAGE_SMOOTHING.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 724.2823786749,
-                    "y": 259.60854916656274
+                    "x": 727.3487305553774,
+                    "y": 155.3525852303302
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 724.2823786749,
-                    "y": 259.60854916656274
+                    "x": 727.3487305553774,
+                    "y": 155.3525852303302
                 },
                 "dragging": true
             },
@@ -149,13 +149,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1563.4567659759107,
-                    "y": 279.6839192071281
+                    "x": 1285.440862145957,
+                    "y": 550.5450019826343
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1563.4567659759107,
-                    "y": 279.6839192071281
+                    "x": 1285.440862145957,
+                    "y": 550.5450019826343
                 },
                 "dragging": true
             },
@@ -190,12 +190,12 @@
                 },
                 "position": {
                     "x": 1045.9840067988252,
-                    "y": 224.11694980457935
+                    "y": 152.56873926010599
                 },
                 "selected": false,
                 "positionAbsolute": {
                     "x": 1045.9840067988252,
-                    "y": 224.11694980457935
+                    "y": 152.56873926010599
                 },
                 "dragging": true
             },
@@ -226,16 +226,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 751.8230470356477,
-                    "y": 547.3074392693687
+                    "x": 662.8988425018024,
+                    "y": 513.5775685841171
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 751.8230470356477,
-                    "y": 547.3074392693687
+                    "x": 662.8988425018024,
+                    "y": 513.5775685841171
                 },
                 "dragging": true
             }
@@ -278,9 +278,9 @@
             }
         ],
         "viewport": {
-            "x": -454.16852149654983,
-            "y": 260.7534565927997,
-            "zoom": 1.3401466962340274
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": [

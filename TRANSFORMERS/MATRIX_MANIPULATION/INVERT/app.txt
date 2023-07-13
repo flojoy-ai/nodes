@@ -38,19 +38,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 168.20078783554004,
-                    "y": 385.053535146458
+                    "x": 310.5159995449301,
+                    "y": 302.5754010876069
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 168.20078783554004,
-                    "y": 385.053535146458
+                    "x": 310.5159995449301,
+                    "y": 302.5754010876069
                 },
                 "dragging": true
             },
             {
-                "width": 240,
-                "height": 260,
+                "width": 225,
+                "height": 226,
                 "id": "MATRIX_VIEW-2dd75395-9aa9-49c3-94a7-8e1376a6922c",
                 "type": "PLOTLY",
                 "data": {
@@ -78,13 +78,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 496.1637679538503,
-                    "y": -44.06727117488742
+                    "x": 722.5743320369709,
+                    "y": 85.31019401546718
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 496.1637679538503,
-                    "y": -44.06727117488742
+                    "x": 722.5743320369709,
+                    "y": 85.31019401546718
                 },
                 "dragging": true
             },
@@ -126,19 +126,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 429.6673407663884,
-                    "y": 595.7958905638102
+                    "x": 437.7534323407856,
+                    "y": 511.7005381900798
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 429.6673407663884,
-                    "y": 595.7958905638102
+                    "x": 437.7534323407856,
+                    "y": 511.7005381900798
                 },
                 "dragging": true
             },
             {
-                "width": 240,
-                "height": 260,
+                "width": 225,
+                "height": 226,
                 "id": "MATRIX_VIEW-e0662088-8688-4898-9967-b09f5194a447",
                 "type": "PLOTLY",
                 "data": {
@@ -166,13 +166,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 654.8232152106604,
-                    "y": 819.9694541187847
+                    "x": 729.2152576951142,
+                    "y": 590.3244534059053
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 654.8232152106604,
-                    "y": 819.9694541187847
+                    "x": 729.2152576951142,
+                    "y": 590.3244534059053
                 },
                 "dragging": true
             },
@@ -196,16 +196,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 2053.9946964475166,
-                    "y": 278.32620964612136
+                    "x": 1588.2358217622398,
+                    "y": 402.8520198918377
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 2053.9946964475166,
-                    "y": 278.32620964612136
+                    "x": 1588.2358217622398,
+                    "y": 402.8520198918377
                 },
                 "dragging": true
             },
@@ -245,19 +245,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 741.7784219630664,
-                    "y": 354.72912539530046
+                    "x": 757.9506051118608,
+                    "y": 377.3701818036126
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 741.7784219630664,
-                    "y": 354.72912539530046
+                    "x": 757.9506051118608,
+                    "y": 377.3701818036126
                 },
                 "dragging": true
             },
             {
-                "width": 240,
-                "height": 260,
+                "width": 225,
+                "height": 226,
                 "id": "MATRIX_VIEW-3fa65156-275b-46b1-a831-386267350ee7",
                 "type": "PLOTLY",
                 "data": {
@@ -282,16 +282,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/DATA_STRUCTURE/MATRIX_VIEW/MATRIX_VIEW.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 1182.0767416677047,
-                    "y": 298.08904721962176
+                    "x": 1115.7707907576478,
+                    "y": 336.90228677672815
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 1182.0767416677047,
-                    "y": 298.08904721962176
+                    "x": 1115.7707907576478,
+                    "y": 336.90228677672815
                 },
                 "dragging": true
             }
@@ -362,9 +362,9 @@
             }
         ],
         "viewport": {
-            "x": -454.16852149654983,
-            "y": 260.7534565927997,
-            "zoom": 1.3401466962340274
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": [
