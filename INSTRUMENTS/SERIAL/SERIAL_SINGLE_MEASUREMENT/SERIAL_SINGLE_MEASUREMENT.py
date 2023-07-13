@@ -1,10 +1,7 @@
 from flojoy import flojoy, OrderedPair
-from time import sleep
 from typing import Optional
 import serial
 import numpy as np
-from datetime import datetime
-import plotly.graph_objects as go
 
 
 @flojoy(deps={"pyserial": "3.5"})
@@ -28,7 +25,6 @@ def SERIAL_SINGLE_MEASUREMENT(
     comport: String
         Defines the comunication port on which the Serial device is connected
     """
-    BAUD = int(baudrate)
 
     ser = serial.Serial(comport, timeout=1, baudrate=baudrate)
     s = ""
@@ -36,7 +32,6 @@ def SERIAL_SINGLE_MEASUREMENT(
         s = ser.readline().decode()
 
     reading = s[:-2].split(",")
-
     reading = np.array(reading)  # Create an array
     reading = reading.astype("float64")  # Convert the array to float
     x = np.arange(0, reading.size)  # Create a second array
