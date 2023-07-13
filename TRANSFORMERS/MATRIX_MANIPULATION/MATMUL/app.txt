@@ -38,12 +38,12 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 177.48576992435252,
+                    "x": 237.01195912384392,
                     "y": 362.48176698138155
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 177.48576992435252,
+                    "x": 237.01195912384392,
                     "y": 362.48176698138155
                 },
                 "dragging": true
@@ -82,16 +82,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/MATRIX/MATRIX.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 172.16740355590466,
-                    "y": 588.355642299437
+                    "x": 236.02277015172265,
+                    "y": 579.6972875067837
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 172.16740355590466,
-                    "y": 588.355642299437
+                    "x": 236.02277015172265,
+                    "y": 579.6972875067837
                 },
                 "dragging": true
             },
@@ -142,8 +142,8 @@
                 "dragging": true
             },
             {
-                "width": 240,
-                "height": 260,
+                "width": 225,
+                "height": 226,
                 "id": "MATRIX_VIEW-4839a447-fd78-4c23-87c9-de5259c26472",
                 "type": "PLOTLY",
                 "data": {
@@ -241,16 +241,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/DATA_STRUCTURE/MATRIX_VIEW/MATRIX_VIEW.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 590.7040820091098,
-                    "y": 787.1897647282763
+                    "x": 580.9634328673749,
+                    "y": 709.2645715943966
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 590.7040820091098,
-                    "y": 787.1897647282763
+                    "x": 580.9634328673749,
+                    "y": 709.2645715943966
                 },
                 "dragging": true
             },
@@ -284,13 +284,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 621.3452158391865,
-                    "y": 116.6904993838263
+                    "x": 576.9711475268383,
+                    "y": 188.12192642321594
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 621.3452158391865,
-                    "y": 116.6904993838263
+                    "x": 576.9711475268383,
+                    "y": 188.12192642321594
                 },
                 "dragging": true
             }
@@ -354,9 +354,9 @@
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 213.98083177807212,
-            "zoom": 1.4811524052100216
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": [

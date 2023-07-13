@@ -31,13 +31,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 770.091733949973,
-                    "y": 425.1139737692318
+                    "x": 585.9239574805457,
+                    "y": 426.66160214292444
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 770.091733949973,
-                    "y": 425.1139737692318
+                    "x": 585.9239574805457,
+                    "y": 426.66160214292444
                 },
                 "dragging": true
             },
@@ -64,13 +64,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1532.47549468307,
-                    "y": 414.9727079388825
+                    "x": 1291.0454683870144,
+                    "y": 430.44899167580917
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1532.47549468307,
-                    "y": 414.9727079388825
+                    "x": 1291.0454683870144,
+                    "y": 430.44899167580917
                 },
                 "dragging": true
             },
@@ -115,16 +115,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 64.26263681424192,
-                    "y": 418.63041705353396
+                    "x": 87.47706241963189,
+                    "y": 441.844842658924
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 64.26263681424192,
-                    "y": 418.63041705353396
+                    "x": 87.47706241963189,
+                    "y": 441.844842658924
                 },
                 "dragging": true
             },
@@ -158,19 +158,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 394.7093567370482,
-                    "y": 438.8161704289119
+                    "x": 340.5423636578049,
+                    "y": 253.10076558579198
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 394.7093567370482,
-                    "y": 438.8161704289119
+                    "x": 340.5423636578049,
+                    "y": 253.10076558579198
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "LINE-de6740a9-87dd-4943-9e28-83ffae8a53d5",
                 "type": "PLOTLY",
                 "data": {
@@ -195,16 +195,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 1029.4763097602984,
-                    "y": 344.1798933399391
+                    "x": 901.023154743807,
+                    "y": 392.1563729244117
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 1029.4763097602984,
-                    "y": 344.1798933399391
+                    "x": 901.023154743807,
+                    "y": 392.1563729244117
                 },
                 "dragging": true
             }
@@ -240,9 +240,9 @@
             }
         ],
         "viewport": {
-            "x": -454.16852149654983,
-            "y": 260.7534565927997,
-            "zoom": 1.3401466962340274
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": [

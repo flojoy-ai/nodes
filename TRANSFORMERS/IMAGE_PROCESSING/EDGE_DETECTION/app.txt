@@ -21,16 +21,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1670.5353989758316,
-                    "y": 475.68666510855564
+                    "x": 1280.0865928617056,
+                    "y": 638.2033147738593
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1670.5353989758316,
-                    "y": 475.68666510855564
+                    "x": 1280.0865928617056,
+                    "y": 638.2033147738593
                 },
                 "dragging": true
             },
@@ -128,13 +128,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 742.6450999737312,
-                    "y": 462.668139650493
+                    "x": 665.9863029617956,
+                    "y": 369.65546594267767
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 742.6450999737312,
-                    "y": 462.668139650493
+                    "x": 665.9863029617956,
+                    "y": 369.65546594267767
                 },
                 "dragging": true
             },
@@ -168,13 +168,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1168.474674946048,
-                    "y": 405.7822580683911
+                    "x": 982.4493275304173,
+                    "y": 311.74746706708333
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1168.474674946048,
-                    "y": 405.7822580683911
+                    "x": 982.4493275304173,
+                    "y": 311.74746706708333
                 },
                 "dragging": true
             },
@@ -205,16 +205,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 684.7031623455429,
-                    "y": 717.8278872292199
+                    "x": 618.2655382685319,
+                    "y": 643.2133248042691
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 684.7031623455429,
-                    "y": 717.8278872292199
+                    "x": 618.2655382685319,
+                    "y": 643.2133248042691
                 },
                 "dragging": true
             }
@@ -257,9 +257,9 @@
             }
         ],
         "viewport": {
-            "x": -454.16852149654983,
-            "y": 260.7534565927997,
-            "zoom": 1.3401466962340274
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": [

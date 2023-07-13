@@ -49,8 +49,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "LINE-a0ba433b-38d5-4456-820c-b1e3913bb89c",
                 "type": "PLOTLY",
                 "data": {
@@ -78,13 +78,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 775.9915140087675,
-                    "y": 208.40151827194887
+                    "x": 713.7881635025728,
+                    "y": 299.452799447683
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 775.9915140087675,
-                    "y": 208.40151827194887
+                    "x": 713.7881635025728,
+                    "y": 299.452799447683
                 },
                 "dragging": true
             },
@@ -108,20 +108,22 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1277.2449211272924,
-                    "y": 268.3958197267179
+                    "x": 1160.9517006157112,
+                    "y": 359.447100902452
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1277.2449211272924,
-                    "y": 268.3958197267179
+                    "x": 1160.9517006157112,
+                    "y": 359.447100902452
                 },
                 "dragging": true
             },
             {
+                "width": 150,
+                "height": 150,
                 "id": "MAT_2_DF-b47f36ab-ee94-4b8a-9f26-6cd00c8a299d",
                 "type": "TYPE_CASTING",
                 "data": {
@@ -145,14 +147,19 @@
                             "type": "DataFrame"
                         }
                     ],
-                    "path": "PYTHON/nodes/TRANSFORMERS/TYPE_CASTING/MAT_2_DF/MAT_2_DF.py"
+                    "path": "PYTHON/nodes/TRANSFORMERS/TYPE_CASTING/MAT_2_DF/MAT_2_DF.py",
+                    "selected": false
                 },
                 "position": {
-                    "x": 522.6986013342834,
-                    "y": 241.66186953019263
+                    "x": 411.8143678232408,
+                    "y": 339.92513337331167
                 },
-                "width": 150,
-                "height": 150
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 411.8143678232408,
+                    "y": 339.92513337331167
+                },
+                "dragging": true
             }
         ],
         "edges": [
@@ -179,9 +186,9 @@
             }
         ],
         "viewport": {
-            "x": -243.1468079276401,
-            "y": 415.84811491329816,
-            "zoom": 0.7174702250837344
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": [

@@ -2,60 +2,6 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
-                "id": "LINSPACE-b4847d83-7571-4dff-9a6c-0286966815ff",
-                "type": "default",
-                "data": {
-                    "id": "LINSPACE-b4847d83-7571-4dff-9a6c-0286966815ff",
-                    "label": "LINSPACE 1",
-                    "func": "LINSPACE",
-                    "type": "default",
-                    "ctrls": {
-                        "start": {
-                            "type": "float",
-                            "default": 10,
-                            "functionName": "LINSPACE",
-                            "param": "start",
-                            "value": 10
-                        },
-                        "end": {
-                            "type": "float",
-                            "default": 0,
-                            "functionName": "LINSPACE",
-                            "param": "end",
-                            "value": 0
-                        },
-                        "step": {
-                            "type": "int",
-                            "default": 1000,
-                            "functionName": "LINSPACE",
-                            "param": "step",
-                            "value": 1000
-                        }
-                    },
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\LINSPACE\\LINSPACE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 883.2384876257074,
-                    "y": 319.913217566521
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 883.2384876257074,
-                    "y": 319.913217566521
-                },
-                "dragging": true
-            },
-            {
                 "width": 210,
                 "height": 130,
                 "id": "END-1910d95d-6f10-4677-83b2-c5b78d23b2c4",
@@ -78,13 +24,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 2503.688746481986,
-                    "y": 361.36099579140625
+                    "x": 2252.804064088793,
+                    "y": 461.05027356353594
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 2503.688746481986,
-                    "y": 361.36099579140625
+                    "x": 2252.804064088793,
+                    "y": 461.05027356353594
                 },
                 "dragging": true
             },
@@ -171,8 +117,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "SCATTER-9927419b-29bb-4d10-bf5a-79ea28add9a9",
                 "type": "PLOTLY",
                 "data": {
@@ -200,13 +146,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1885.8708972895502,
-                    "y": 381.16566318985315
+                    "x": 1837.687746366354,
+                    "y": 421.041374298705
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1885.8708972895502,
-                    "y": 381.16566318985315
+                    "x": 1837.687746366354,
+                    "y": 421.041374298705
                 },
                 "dragging": true
             },
@@ -294,13 +240,67 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1281.1480719281878,
-                    "y": 656.4318056409686
+                    "x": 1248.4862978844392,
+                    "y": 624.8962996676939
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1281.1480719281878,
-                    "y": 656.4318056409686
+                    "x": 1248.4862978844392,
+                    "y": 624.8962996676939
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-772fbaa3-2429-47d3-8c07-a44b0c1eb1d8",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-772fbaa3-2429-47d3-8c07-a44b0c1eb1d8",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "default",
+                    "ctrls": {
+                        "start": {
+                            "type": "float",
+                            "default": 10,
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": 10
+                        },
+                        "end": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": 0
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": 1000
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 970.118927622176,
+                    "y": 474.2206729930675
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 970.118927622176,
+                    "y": 474.2206729930675
                 },
                 "dragging": true
             }
@@ -312,13 +312,6 @@
                 "target": "END-1910d95d-6f10-4677-83b2-c5b78d23b2c4",
                 "targetHandle": "default",
                 "id": "reactflow__edge-SCATTER-9927419b-29bb-4d10-bf5a-79ea28add9a9default-END-1910d95d-6f10-4677-83b2-c5b78d23b2c4default"
-            },
-            {
-                "source": "LINSPACE-b4847d83-7571-4dff-9a6c-0286966815ff",
-                "sourceHandle": "default",
-                "target": "SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15d",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINSPACE-b4847d83-7571-4dff-9a6c-0286966815ffdefault-SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15ddefault"
             },
             {
                 "source": "SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15d",
@@ -342,17 +335,24 @@
                 "id": "reactflow__edge-CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9cdefault-MULTIPLY-cf3c6079-3f31-4c33-b280-5ab1187e33fbb"
             },
             {
-                "source": "LINSPACE-b4847d83-7571-4dff-9a6c-0286966815ff",
+                "source": "LINSPACE-772fbaa3-2429-47d3-8c07-a44b0c1eb1d8",
+                "sourceHandle": "default",
+                "target": "SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15d",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-772fbaa3-2429-47d3-8c07-a44b0c1eb1d8default-SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15ddefault"
+            },
+            {
+                "source": "LINSPACE-772fbaa3-2429-47d3-8c07-a44b0c1eb1d8",
                 "sourceHandle": "default",
                 "target": "CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9c",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LINSPACE-b4847d83-7571-4dff-9a6c-0286966815ffdefault-CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9cdefault"
+                "id": "reactflow__edge-LINSPACE-772fbaa3-2429-47d3-8c07-a44b0c1eb1d8default-CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9cdefault"
             }
         ],
         "viewport": {
-            "x": -454.16852149654983,
-            "y": 260.7534565927997,
-            "zoom": 1.3401466962340274
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": [

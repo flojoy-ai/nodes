@@ -116,13 +116,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 351.2278936120461,
-                    "y": 605.6820717131525
+                    "x": 265.58559943685066,
+                    "y": 628.2195175487302
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 351.2278936120461,
-                    "y": 605.6820717131525
+                    "x": 265.58559943685066,
+                    "y": 628.2195175487302
                 },
                 "dragging": true
             },
@@ -146,22 +146,22 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1101.5923318394011,
-                    "y": 551.506781769423
+                    "x": 951.9436914911648,
+                    "y": 637.1490759446185
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1101.5923318394011,
-                    "y": 551.506781769423
+                    "x": 951.9436914911648,
+                    "y": 637.1490759446185
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "TABLE-d4a76c19-a1ef-454c-b91e-4ad5765c4708",
                 "type": "PLOTLY",
                 "data": {
@@ -186,16 +186,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 632.050053041256,
-                    "y": 527.7169976223861
+                    "x": 559.028728533984,
+                    "y": 586.3143567948883
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 632.050053041256,
-                    "y": 527.7169976223861
+                    "x": 559.028728533984,
+                    "y": 586.3143567948883
                 },
                 "dragging": true
             }
@@ -224,9 +224,9 @@
             }
         ],
         "viewport": {
-            "x": -325.6681440616287,
-            "y": 180.9823636576132,
-            "zoom": 0.9609716805002619
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": [

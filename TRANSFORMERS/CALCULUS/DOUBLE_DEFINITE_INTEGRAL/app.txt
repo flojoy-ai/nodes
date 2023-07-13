@@ -56,16 +56,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/CALCULUS/DOUBLE_DEFINITE_INTEGRAL/DOUBLE_DEFINITE_INTEGRAL.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 114.27261731130528,
-                    "y": 520.1267890558242
+                    "x": 337.0941872926651,
+                    "y": 429.1583499349939
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 114.27261731130528,
-                    "y": 520.1267890558242
+                    "x": 337.0941872926651,
+                    "y": 429.1583499349939
                 },
                 "dragging": true
             },
@@ -189,16 +189,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1548.184133973544,
-                    "y": 364.6471081433657
+                    "x": 1274.2566993175603,
+                    "y": 345.2268795670086
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1548.184133973544,
-                    "y": 364.6471081433657
+                    "x": 1274.2566993175603,
+                    "y": 345.2268795670086
                 },
                 "dragging": true
             },
@@ -314,13 +314,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 991.4437115358542,
-                    "y": 297.4152941204416
+                    "x": 870.833870903742,
+                    "y": 294.3489422399642
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 991.4437115358542,
-                    "y": 297.4152941204416
+                    "x": 870.833870903742,
+                    "y": 294.3489422399642
                 },
                 "dragging": true
             }
@@ -363,9 +363,9 @@
             }
         ],
         "viewport": {
-            "x": -243.74915344686633,
-            "y": 177.37829191143183,
-            "zoom": 0.7192476079699864
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": [
