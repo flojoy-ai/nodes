@@ -26,25 +26,15 @@ def WHISPER_SPEECH_TO_TEXT(
         Path to the audio file to be transcribed. Only mp3 format is supported.
     """
     openai.api_key = os.environ.get("OPENAI_API_KEY")
+    model = 'whisper-1'
+    f = None
     if default and isinstance(getattr(default, 'bytes'), bytes):
-        # if bytes exists create temp file and use it
-        with NamedTemporaryFile(suffix='.mp3') as f:
-            f.write(default.bytes)
-            f.seek(0)
-            openai.api_key = os.environ.get("OPENAI_API_KEY")
-            model = 'whisper-1'
-            transcript = openai.Audio.translate(model, f)
-            transcript_text = transcript.get('text')
-            transcription_df = pd.DataFrame(data={
-                'text': [transcript_text]
-            })
+        f = NamedTemporaryFile(suffix=".mp3")
+        f.write(default.bytes)
+        f.seek(0)
+        file_path = f.name
 
-            return DataContainer(
-                type='dataframe',
-                m=transcription_df
-            )
-
-    if file_path is None:
+    elif file_path is None:
         raise ValueError("file_path parameter is missing!")
     
     file_format = file_path.split(".")[-1]
@@ -55,10 +45,11 @@ def WHISPER_SPEECH_TO_TEXT(
     if not file_path.exists():
         raise ValueError(f"file {file_path} does not exist!")
 
-    openai.api_key = os.environ.get("OPENAI_API_KEY")
-    model = 'whisper-1'
     with open(file_path, 'rb') as f:
         transcript = openai.Audio.translate(model, f)
+
+    if f is not None:
+        f.close()
 
     transcript_text = transcript.get('text')
     transcription_df = pd.DataFrame(data={
