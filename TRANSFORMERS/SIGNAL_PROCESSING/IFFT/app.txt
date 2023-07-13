@@ -388,16 +388,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/SIGNAL_PROCESSING/FFT/FFT.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 1445.7164270820094,
-                    "y": 259.59497771866273
+                    "x": 1464.2878556534379,
+                    "y": 261.0235491472342
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 1445.7164270820094,
-                    "y": 259.59497771866273
+                    "x": 1464.2878556534379,
+                    "y": 261.0235491472342
                 },
                 "dragging": true
             },
@@ -424,13 +424,221 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 2151.5524959461554,
-                    "y": 265.08446721459364
+                    "x": 2581.552495946156,
+                    "y": 263.6558957860222
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 2151.5524959461554,
-                    "y": 265.08446721459364
+                    "x": 2581.552495946156,
+                    "y": 263.6558957860222
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "FFT-db612181-529c-4e66-924e-fa820d90f450",
+                "type": "SIGNAL_PROCESSING",
+                "data": {
+                    "id": "FFT-db612181-529c-4e66-924e-fa820d90f450",
+                    "label": "FFT 1",
+                    "func": "FFT",
+                    "type": "SIGNAL_PROCESSING",
+                    "ctrls": {
+                        "window": {
+                            "type": "select",
+                            "default": "hann",
+                            "options": [
+                                "boxcar",
+                                "triang",
+                                "blackman",
+                                "hamming",
+                                "hann",
+                                "bartlett",
+                                "flattop",
+                                "parzen",
+                                "bohman",
+                                "blackmanharris",
+                                "nuttall",
+                                "barthann",
+                                "cosine",
+                                "exponential",
+                                "tukey",
+                                "taylor",
+                                "lanczos"
+                            ],
+                            "functionName": "FFT",
+                            "param": "window",
+                            "value": "hann"
+                        },
+                        "real_signal": {
+                            "type": "bool",
+                            "default": true,
+                            "functionName": "FFT",
+                            "param": "real_signal",
+                            "value": true
+                        },
+                        "sample_rate": {
+                            "type": "int",
+                            "default": 1,
+                            "functionName": "FFT",
+                            "param": "sample_rate",
+                            "value": "800"
+                        },
+                        "display": {
+                            "type": "bool",
+                            "default": true,
+                            "functionName": "FFT",
+                            "param": "display",
+                            "value": true
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/SIGNAL_PROCESSING/FFT/FFT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1484.7537327043515,
+                    "y": 3.2160607945140214
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1484.7537327043515,
+                    "y": 3.2160607945140214
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "LINE-eff15f6c-5cae-4dc5-afcf-595347396018",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "LINE-eff15f6c-5cae-4dc5-afcf-595347396018",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1403.243110386921,
+                    "y": 502.7598748760134
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1403.243110386921,
+                    "y": 502.7598748760134
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "LINE-e08d8338-6374-4f4d-8477-775f633ebe6d",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "LINE-e08d8338-6374-4f4d-8477-775f633ebe6d",
+                    "label": "LINE 1",
+                    "func": "LINE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1814.1043615213298,
+                    "y": -47.270850465781166
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1814.1043615213298,
+                    "y": -47.270850465781166
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "LINE-bcc4b83a-9f6e-4444-ab14-b993716503ed",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "LINE-bcc4b83a-9f6e-4444-ab14-b993716503ed",
+                    "label": "LINE 2",
+                    "func": "LINE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 2112.172067313177,
+                    "y": 474.1261265472838
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 2112.172067313177,
+                    "y": 474.1261265472838
                 },
                 "dragging": true
             }
@@ -484,6 +692,48 @@
                 "target": "END-4698a238-a7fb-40fa-adc6-dfeeb7e67437",
                 "targetHandle": "default",
                 "id": "reactflow__edge-IFFT-d72d7f91-82ce-4591-991b-fe72f96c6cb4default-END-4698a238-a7fb-40fa-adc6-dfeeb7e67437default"
+            },
+            {
+                "source": "ADD-82417b86-8493-4cdc-867b-21e962e7ad69",
+                "sourceHandle": "default",
+                "target": "FFT-db612181-529c-4e66-924e-fa820d90f450",
+                "targetHandle": "default",
+                "id": "reactflow__edge-ADD-82417b86-8493-4cdc-867b-21e962e7ad69default-FFT-db612181-529c-4e66-924e-fa820d90f450default"
+            },
+            {
+                "source": "IFFT-d72d7f91-82ce-4591-991b-fe72f96c6cb4",
+                "sourceHandle": "default",
+                "target": "LINE-bcc4b83a-9f6e-4444-ab14-b993716503ed",
+                "targetHandle": "default",
+                "id": "reactflow__edge-IFFT-d72d7f91-82ce-4591-991b-fe72f96c6cb4default-LINE-bcc4b83a-9f6e-4444-ab14-b993716503eddefault"
+            },
+            {
+                "source": "FFT-db612181-529c-4e66-924e-fa820d90f450",
+                "sourceHandle": "default",
+                "target": "LINE-e08d8338-6374-4f4d-8477-775f633ebe6d",
+                "targetHandle": "default",
+                "id": "reactflow__edge-FFT-db612181-529c-4e66-924e-fa820d90f450default-LINE-e08d8338-6374-4f4d-8477-775f633ebe6ddefault"
+            },
+            {
+                "source": "ADD-82417b86-8493-4cdc-867b-21e962e7ad69",
+                "sourceHandle": "default",
+                "target": "LINE-eff15f6c-5cae-4dc5-afcf-595347396018",
+                "targetHandle": "default",
+                "id": "reactflow__edge-ADD-82417b86-8493-4cdc-867b-21e962e7ad69default-LINE-eff15f6c-5cae-4dc5-afcf-595347396018default"
+            },
+            {
+                "source": "LINE-bcc4b83a-9f6e-4444-ab14-b993716503ed",
+                "sourceHandle": "default",
+                "target": "END-4698a238-a7fb-40fa-adc6-dfeeb7e67437",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-bcc4b83a-9f6e-4444-ab14-b993716503eddefault-END-4698a238-a7fb-40fa-adc6-dfeeb7e67437default"
+            },
+            {
+                "source": "LINE-e08d8338-6374-4f4d-8477-775f633ebe6d",
+                "sourceHandle": "default",
+                "target": "END-4698a238-a7fb-40fa-adc6-dfeeb7e67437",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-e08d8338-6374-4f4d-8477-775f633ebe6ddefault-END-4698a238-a7fb-40fa-adc6-dfeeb7e67437default"
             }
         ],
         "viewport": {

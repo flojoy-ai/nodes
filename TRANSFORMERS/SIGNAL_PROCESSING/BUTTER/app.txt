@@ -164,13 +164,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/SIGNAL_PROCESSING/FFT/FFT.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
                     "x": 719.0985280702616,
                     "y": 254.0429925314706
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
                     "x": 719.0985280702616,
                     "y": 254.0429925314706
@@ -327,13 +327,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/SIGNAL_PROCESSING/FFT/FFT.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 1203.404564755418,
                     "y": 516.4662341336772
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 1203.404564755418,
                     "y": 516.4662341336772
@@ -341,12 +341,92 @@
                 "dragging": true
             },
             {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-c662104c-36e6-4b54-8f5f-ff7588218c5b",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "LINE-c662104c-36e6-4b54-8f5f-ff7588218c5b",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1105.5800368344026,
+                    "y": 209.24902538338802
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1105.5800368344026,
+                    "y": 209.24902538338802
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-1615d876-d703-4009-970b-a157b5d7af5f",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "LINE-1615d876-d703-4009-970b-a157b5d7af5f",
+                    "label": "LINE 1",
+                    "func": "LINE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1579.3044664455963,
+                    "y": 473.9320198431452
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1579.3044664455963,
+                    "y": 473.9320198431452
+                },
+                "dragging": true
+            },
+            {
                 "width": 210,
                 "height": 130,
-                "id": "END-779db918-e10f-4f8e-ac9d-c706c8589879",
+                "id": "END-34d1da0e-0f17-4392-9603-a4a3211540b4",
                 "type": "TERMINATORS",
                 "data": {
-                    "id": "END-779db918-e10f-4f8e-ac9d-c706c8589879",
+                    "id": "END-34d1da0e-0f17-4392-9603-a4a3211540b4",
                     "label": "END",
                     "func": "END",
                     "type": "TERMINATORS",
@@ -363,13 +443,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1613.4091086065228,
-                    "y": 336.8384370009181
+                    "x": 2031.958028669431,
+                    "y": 286.88394679022656
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1613.4091086065228,
-                    "y": 336.8384370009181
+                    "x": 2031.958028669431,
+                    "y": 286.88394679022656
                 },
                 "dragging": true
             }
@@ -399,16 +479,30 @@
             {
                 "source": "FFT-e97ea8b8-ce90-4c6a-aa27-ee0e5f82c9bf",
                 "sourceHandle": "default",
-                "target": "END-779db918-e10f-4f8e-ac9d-c706c8589879",
+                "target": "LINE-c662104c-36e6-4b54-8f5f-ff7588218c5b",
                 "targetHandle": "default",
-                "id": "reactflow__edge-FFT-e97ea8b8-ce90-4c6a-aa27-ee0e5f82c9bfdefault-END-779db918-e10f-4f8e-ac9d-c706c8589879default"
+                "id": "reactflow__edge-FFT-e97ea8b8-ce90-4c6a-aa27-ee0e5f82c9bfdefault-LINE-c662104c-36e6-4b54-8f5f-ff7588218c5bdefault"
             },
             {
                 "source": "FFT-da75bb73-a829-499f-a419-50ee2aeed4dd",
                 "sourceHandle": "default",
-                "target": "END-779db918-e10f-4f8e-ac9d-c706c8589879",
+                "target": "LINE-1615d876-d703-4009-970b-a157b5d7af5f",
                 "targetHandle": "default",
-                "id": "reactflow__edge-FFT-da75bb73-a829-499f-a419-50ee2aeed4dddefault-END-779db918-e10f-4f8e-ac9d-c706c8589879default"
+                "id": "reactflow__edge-FFT-da75bb73-a829-499f-a419-50ee2aeed4dddefault-LINE-1615d876-d703-4009-970b-a157b5d7af5fdefault"
+            },
+            {
+                "source": "LINE-c662104c-36e6-4b54-8f5f-ff7588218c5b",
+                "sourceHandle": "default",
+                "target": "END-34d1da0e-0f17-4392-9603-a4a3211540b4",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-c662104c-36e6-4b54-8f5f-ff7588218c5bdefault-END-34d1da0e-0f17-4392-9603-a4a3211540b4default"
+            },
+            {
+                "source": "LINE-1615d876-d703-4009-970b-a157b5d7af5f",
+                "sourceHandle": "default",
+                "target": "END-34d1da0e-0f17-4392-9603-a4a3211540b4",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-1615d876-d703-4009-970b-a157b5d7af5fdefault-END-34d1da0e-0f17-4392-9603-a4a3211540b4default"
             }
         ],
         "viewport": {

@@ -217,13 +217,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/BASIC_OSCILLATOR/BASIC_OSCILLATOR.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 188.05797144390925,
                     "y": 276.8757782209271
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 188.05797144390925,
                     "y": 276.8757782209271
@@ -275,12 +275,12 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1147.0746797426045,
+                    "x": 1202.7889654568903,
                     "y": 128.8948299478717
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1147.0746797426045,
+                    "x": 1202.7889654568903,
                     "y": 128.8948299478717
                 },
                 "dragging": true
@@ -354,13 +354,93 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1485.6209101622196,
-                    "y": 154.19604971087483
+                    "x": 1839.9066244479338,
+                    "y": 148.48176399658917
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1485.6209101622196,
-                    "y": 154.19604971087483
+                    "x": 1839.9066244479338,
+                    "y": 148.48176399658917
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-38ed0165-2ba5-418f-8603-e8592ae636c2",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "LINE-38ed0165-2ba5-418f-8603-e8592ae636c2",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 975.4183946292451,
+                    "y": 378.92458730043927
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 975.4183946292451,
+                    "y": 378.92458730043927
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-46272c52-999a-48c0-a2c4-9bf8e9f01631",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "LINE-46272c52-999a-48c0-a2c4-9bf8e9f01631",
+                    "label": "LINE 1",
+                    "func": "LINE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 1489.3610618674375,
+                    "y": 384.82137397850096
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 1489.3610618674375,
+                    "y": 384.82137397850096
                 },
                 "dragging": true
             }
@@ -400,12 +480,33 @@
                 "target": "ADD-b6b71026-3b39-41be-9230-276ce8d76e70",
                 "targetHandle": "b",
                 "id": "reactflow__edge-BASIC_OSCILLATOR-d82cc0d9-4160-4683-981f-c32f6dfe1256default-ADD-b6b71026-3b39-41be-9230-276ce8d76e70b"
+            },
+            {
+                "source": "ADD-b6b71026-3b39-41be-9230-276ce8d76e70",
+                "sourceHandle": "default",
+                "target": "LINE-38ed0165-2ba5-418f-8603-e8592ae636c2",
+                "targetHandle": "default",
+                "id": "reactflow__edge-ADD-b6b71026-3b39-41be-9230-276ce8d76e70default-LINE-38ed0165-2ba5-418f-8603-e8592ae636c2default"
+            },
+            {
+                "source": "SAVGOL-a8bd4f8a-63a4-4b06-bacd-4cf1289f022e",
+                "sourceHandle": "default",
+                "target": "LINE-46272c52-999a-48c0-a2c4-9bf8e9f01631",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SAVGOL-a8bd4f8a-63a4-4b06-bacd-4cf1289f022edefault-LINE-46272c52-999a-48c0-a2c4-9bf8e9f01631default"
+            },
+            {
+                "source": "LINE-46272c52-999a-48c0-a2c4-9bf8e9f01631",
+                "sourceHandle": "default",
+                "target": "END-5136c932-1e5b-4808-8235-f5ed6a4e1f6e",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-46272c52-999a-48c0-a2c4-9bf8e9f01631default-END-5136c932-1e5b-4808-8235-f5ed6a4e1f6edefault"
             }
         ],
         "viewport": {
-            "x": -370.442494324109,
-            "y": 122.55885385221723,
-            "zoom": 1.093090475044996
+            "x": -373.4542219202399,
+            "y": 120.20973884288571,
+            "zoom": 1.101977389476256
         }
     },
     "ctrlsManifest": [
