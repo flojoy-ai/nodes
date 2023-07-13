@@ -53,14 +53,13 @@ def KEITHLEY2400(
         current_str: str = (
             ser.readline().decode("ascii").strip()
         )  # Save answers in a string
-        voltage_current_values: str = current_str.split(",")  # Split the string
+        voltage_current_values: str = current_str.split(
+            ",")  # Split the string
         currents_neg.append(-float(voltage_current_values[1]))
 
         ser.write(b":OUTP OFF\n")  # Close output from Instrument
 
-    iv_curve = OrderedPair(x=voltages, y=currents_neg)
-
     # Close Serial Communication
     ser.close()
 
-    return iv_curve
+    return OrderedPair(x=voltages, y=currents_neg)

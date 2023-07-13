@@ -51,6 +51,4 @@ def STEPPER_DRIVER_TIC(
     tic.deenergize()
     tic.enter_safe_start()
 
-    position_parameters = OrderedPair(x=positions, y=positions)
-
-    return position_parameters
+    return OrderedPair(x=positions, y=positions)

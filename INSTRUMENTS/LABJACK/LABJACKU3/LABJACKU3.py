@@ -37,6 +37,4 @@ def LABJACKU3(
         temperatures.append(temperature)
         temperatures_celsius.append(temperature_celsius)
 
-    results = OrderedPair(x=sensor_num, y=temperatures_celsius)
-
-    return results
+    return OrderedPair(x=sensor_num, y=temperatures_celsius)
