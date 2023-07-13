@@ -2,28 +2,30 @@ from flojoy import OrderedPair, flojoy
 import numpy.linalg
 
 
-@flojoy(node_type='default')
+@flojoy(node_type="default")
 def EIG(
-	default: OrderedPair,
-	) -> OrderedPair:
-	'''
-		
-		Compute the eigenvalues and right eigenvectors of a square array.
-		
-	-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-	The parameters of the function in this Flojoy wrapper are given below.
-	-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+    default: OrderedPair,
+) -> OrderedPair:
+    """The EIG node is based on a numpy or scipy function.
+    The description of that function is as follows:
 
-	Parameters
-	----------
-	a : (..., M, M) array
-		Matrices for which the eigenvalues and right eigenvectors will
-		be computed
-			'''
-	result = OrderedPair(
-		x=default.x,
-		y=numpy.linalg.eig(
-			a=default.y,
-			)
-	)
-	return result
+
+            Compute the eigenvalues and right eigenvectors of a square array.
+
+    Parameters
+    ----------
+    a : (..., M, M) array
+            Matrices for which the eigenvalues and right eigenvectors will
+            be computed
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair'"""
+    result = OrderedPair(
+        x=default.x,
+        y=numpy.linalg.eig(
+            a=default.y,
+        ),
+    )
+    return result
