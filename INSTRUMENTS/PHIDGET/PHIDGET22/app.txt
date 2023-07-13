@@ -1,0 +1,187 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-04176810-8104-4747-9a8f-df79d12c5298",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-04176810-8104-4747-9a8f-df79d12c5298",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 983.3699387834349,
+                    "y": -33.88997242431205
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 983.3699387834349,
+                    "y": -33.88997242431205
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "PHIDGET22-c6e0fa47-17f1-4642-ae9e-f52453b7c526",
+                "type": "PHIDGET",
+                "data": {
+                    "id": "PHIDGET22-c6e0fa47-17f1-4642-ae9e-f52453b7c526",
+                    "label": "PHIDGET22",
+                    "func": "PHIDGET22",
+                    "type": "PHIDGET",
+                    "ctrls": {
+                        "n_sensors": {
+                            "type": "int",
+                            "default": 1,
+                            "functionName": "PHIDGET22",
+                            "param": "n_sensors",
+                            "value": "4"
+                        },
+                        "calibration1": {
+                            "type": "float",
+                            "default": 0.015,
+                            "functionName": "PHIDGET22",
+                            "param": "calibration1",
+                            "value": 0.015
+                        },
+                        "calibration2": {
+                            "type": "float",
+                            "default": 0.06,
+                            "functionName": "PHIDGET22",
+                            "param": "calibration2",
+                            "value": 0.06
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "Phidget22",
+                            "v": "1.14.20230331"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/INSTRUMENTS/PHIDGET/PHIDGET22/PHIDGET22.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 104.17972518130836,
+                    "y": -46.665726762869554
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 104.17972518130836,
+                    "y": -46.665726762869554
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
+                    "label": "BAR",
+                    "func": "BAR",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/BAR/BAR.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 513.6546307707831,
+                    "y": -80.58167838030928
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 513.6546307707831,
+                    "y": -80.58167838030928
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "PHIDGET22-c6e0fa47-17f1-4642-ae9e-f52453b7c526",
+                "sourceHandle": "default",
+                "target": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PHIDGET22-c6e0fa47-17f1-4642-ae9e-f52453b7c526default-BAR-8788c5f3-d566-4c58-85dc-59af4e81d36cdefault"
+            },
+            {
+                "source": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
+                "sourceHandle": "default",
+                "target": "END-04176810-8104-4747-9a8f-df79d12c5298",
+                "targetHandle": "default",
+                "id": "reactflow__edge-BAR-8788c5f3-d566-4c58-85dc-59af4e81d36cdefault-END-04176810-8104-4747-9a8f-df79d12c5298default"
+            }
+        ],
+        "viewport": {
+            "x": -358.59636577932724,
+            "y": 99.85117439980638,
+            "zoom": 1.0581352782820395
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
