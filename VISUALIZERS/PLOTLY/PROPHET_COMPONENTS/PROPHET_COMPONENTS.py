@@ -1,13 +1,10 @@
-from flojoy import flojoy, DataContainer
-from typing import Any, Dict, List
+from flojoy import flojoy, DataFrame, Plotly
 from prophet.plot import plot_components_plotly
 from prophet.serialize import model_from_json
 
 
-@flojoy
-def PROPHET_COMPONENTS(
-    dc_inputs: List[DataContainer], params: Dict[str, Any]
-) -> DataContainer:
+@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26"})
+def PROPHET_COMPONENTS(default: DataFrame, periods: int = 365) -> Plotly:
     """The PROPHET_COMPONENTS node plots the components of the prophet model trained
 
     in the PROPHET_PREDICT node. This is the output plotly graph from the
@@ -33,8 +30,8 @@ def PROPHET_COMPONENTS(
     -------
     DataContainer of type "plotly" with the figure containing the plotted components
     """
-    dc_input = dc_inputs[0]
-    extra = dc_input.get("extra", None)
+
+    extra = default.extra
     if not extra or "prophet" not in extra:
         raise ValueError(
             "Prophet model must be available in DataContainer 'extra' key to plot"
@@ -44,9 +41,9 @@ def PROPHET_COMPONENTS(
 
     model = model_from_json(extra["prophet"])
     if extra.get("run_forecast"):
-        forecast = dc_input.m
+        forecast = default.m
     else:
-        future = model.make_future_dataframe(periods=params["periods"])
+        future = model.make_future_dataframe(periods=periods)
         forecast = model.predict(future)
 
     fig = plot_components_plotly(model, forecast)
@@ -55,4 +52,4 @@ def PROPHET_COMPONENTS(
         overwrite=True,
     )
 
-    return DataContainer(type="plotly", fig=fig)
+    return Plotly(fig=fig)

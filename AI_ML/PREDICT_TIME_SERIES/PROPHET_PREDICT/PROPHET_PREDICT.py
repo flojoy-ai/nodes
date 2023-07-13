@@ -1,14 +1,14 @@
 import pandas as pd
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataFrame
 from typing import Any, Dict, List
 from prophet import Prophet
 from prophet.serialize import model_to_json
 
 
-@flojoy
+@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26"})
 def PROPHET_PREDICT(
-    dc_inputs: List[DataContainer], params: Dict[str, Any]
-) -> DataContainer:
+    default: DataFrame, run_forecast: bool = True, periods: int = 365
+) -> DataFrame:
     """The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe
 
     The DataContainer input type must be `dataframe`, and that dataframe must have its
@@ -49,35 +49,24 @@ def PROPHET_PREDICT(
         as well as the `extra` param with keys "run_forecast" which correspond to the
         input param, and potentially "original" in the event that `run_forecast` is True
     """
-    dc_input = dc_inputs[0]
-    run_forecast = params["run_forecast"]
-    match dc_input.type:
-        case "dataframe":
-            df: pd.DataFrame = dc_input.m
-            first_col = df.iloc[:, 0]
-            if not pd.api.types.is_datetime64_any_dtype(first_col):
-                raise ValueError(
-                    "First column must be of datetime type data for PROPHET_PREDICT!"
-                )
-            df.rename(
-                columns={df.columns[0]: "ds", df.columns[1]: "y"}, inplace=True
-            )  # PROPHET model expects first column to be `ds` and second to be `y`
-            model = Prophet()
-            model.fit(df)
-            extra = {"prophet": model_to_json(model), "run_forecast": run_forecast}
-            # If run_forecast, the return df is the forecast, otherwise the original
-            return_df = df.copy()
-            if run_forecast:
-                future = model.make_future_dataframe(periods=params["periods"])
-                forecast = model.predict(future)
-                extra["original"] = df
-                return_df = forecast
-            return DataContainer(
-                type="dataframe",
-                m=return_df,
-                extra=extra,
-            )
-        case _:
-            raise ValueError(
-                f"unsupported DataContainer type passed to PROPHET_PREDICT: {dc_input.type}"
-            )
+
+    df = default.m
+    first_col = df.iloc[:, 0]
+    if not pd.api.types.is_datetime64_any_dtype(first_col):
+        raise ValueError(
+            "First column must be of datetime type data for PROPHET_PREDICT!"
+        )
+    df.rename(
+        columns={df.columns[0]: "ds", df.columns[1]: "y"}, inplace=True
+    )  # PROPHET model expects first column to be `ds` and second to be `y`
+    model = Prophet()
+    model.fit(df)
+    extra = {"prophet": model_to_json(model), "run_forecast": run_forecast}
+    # If run_forecast, the return df is the forecast, otherwise the original
+    return_df = df.copy()
+    if run_forecast:
+        future = model.make_future_dataframe(periods)
+        forecast = model.predict(future)
+        extra["original"] = df
+        return_df = forecast
+    return DataFrame(df=return_df, extra=extra)

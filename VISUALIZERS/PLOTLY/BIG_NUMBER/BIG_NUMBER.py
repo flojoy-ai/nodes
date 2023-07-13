@@ -1,5 +1,4 @@
-from flojoy import flojoy, Plotly, OrderedPair, DefaultParams
-from node_sdk.small_memory import SmallMemory
+from flojoy import flojoy, Plotly, OrderedPair, DefaultParams, SmallMemory
 import plotly.graph_objects as go
 from nodes.VISUALIZERS.template import plot_layout
 
@@ -30,7 +29,7 @@ def BIG_NUMBER(
 
     Supported DC types:
     -------------------
-    `ordered_pair`
+    `ordered_pair` or `scalar`
     """
 
     job_id = default_params.job_id

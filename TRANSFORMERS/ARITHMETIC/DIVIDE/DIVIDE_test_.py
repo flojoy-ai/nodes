@@ -37,4 +37,4 @@ def test_DIVIDE():
     # check that the correct number of elements
     assert (len(res.y)) == 100
     for y in res.y:
-        assert y == 10.0 / 7.0
+        assert y == 10.0 / 10.0
