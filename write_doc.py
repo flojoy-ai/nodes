@@ -30,7 +30,6 @@ def get_md_file_content(
 
 import DocString from '@site/src/components/DocString';
 import PythonCode from '@site/src/components/PythonCode';
-import Parameters from '@site/src/components/Parameters';
 import AppDisplay from '@site/src/components/AppDisplay';
 import SectionBreak from '@site/src/components/SectionBreak';
 import AppendixSection from '@site/src/components/AppendixSection';
