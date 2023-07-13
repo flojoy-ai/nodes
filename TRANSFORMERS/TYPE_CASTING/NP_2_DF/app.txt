@@ -76,13 +76,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 93.50790044789255,
-                    "y": 626.1578804167584
+                    "x": -27.61189288784054,
+                    "y": 628.4649240993438
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 93.50790044789255,
-                    "y": 626.1578804167584
+                    "x": -27.61189288784054,
+                    "y": 628.4649240993438
                 },
                 "dragging": true
             },
@@ -116,13 +116,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 438.89555355029097,
-                    "y": 596.4538969828109
+                    "x": 351.2278936120461,
+                    "y": 605.6820717131525
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 438.89555355029097,
-                    "y": 596.4538969828109
+                    "x": 351.2278936120461,
+                    "y": 605.6820717131525
                 },
                 "dragging": true
             },
@@ -162,19 +162,19 @@
             {
                 "width": 380,
                 "height": 293,
-                "id": "LINE-4b66d4a5-2b0c-4848-9daf-2288917c119b",
+                "id": "TABLE-d4a76c19-a1ef-454c-b91e-4ad5765c4708",
                 "type": "PLOTLY",
                 "data": {
-                    "id": "LINE-4b66d4a5-2b0c-4848-9daf-2288917c119b",
-                    "label": "LINE",
-                    "func": "LINE",
+                    "id": "TABLE-d4a76c19-a1ef-454c-b91e-4ad5765c4708",
+                    "label": "TABLE",
+                    "func": "TABLE",
                     "type": "PLOTLY",
                     "ctrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair|Matrix|DataFrame",
+                            "type": "OrderedTriple|OrderedPair|DataFrame",
                             "multiple": false
                         }
                     ],
@@ -185,17 +185,17 @@
                             "type": "Plotly"
                         }
                     ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
-                    "selected": false
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": true
                 },
                 "position": {
-                    "x": 682.050949210243,
-                    "y": 514.6092142832802
+                    "x": 632.050053041256,
+                    "y": 527.7169976223861
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 682.050949210243,
-                    "y": 514.6092142832802
+                    "x": 632.050053041256,
+                    "y": 527.7169976223861
                 },
                 "dragging": true
             }
@@ -211,22 +211,22 @@
             {
                 "source": "NP_2_DF-11e21238-e5ea-43a3-b0c5-17d74f0e91f7",
                 "sourceHandle": "default",
-                "target": "LINE-4b66d4a5-2b0c-4848-9daf-2288917c119b",
+                "target": "TABLE-d4a76c19-a1ef-454c-b91e-4ad5765c4708",
                 "targetHandle": "default",
-                "id": "reactflow__edge-NP_2_DF-11e21238-e5ea-43a3-b0c5-17d74f0e91f7default-LINE-4b66d4a5-2b0c-4848-9daf-2288917c119bdefault"
+                "id": "reactflow__edge-NP_2_DF-11e21238-e5ea-43a3-b0c5-17d74f0e91f7default-TABLE-d4a76c19-a1ef-454c-b91e-4ad5765c4708default"
             },
             {
-                "source": "LINE-4b66d4a5-2b0c-4848-9daf-2288917c119b",
+                "source": "TABLE-d4a76c19-a1ef-454c-b91e-4ad5765c4708",
                 "sourceHandle": "default",
                 "target": "END-a85095ce-c32c-4a3f-9bfb-2ee5ef065fac",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LINE-4b66d4a5-2b0c-4848-9daf-2288917c119bdefault-END-a85095ce-c32c-4a3f-9bfb-2ee5ef065facdefault"
+                "id": "reactflow__edge-TABLE-d4a76c19-a1ef-454c-b91e-4ad5765c4708default-END-a85095ce-c32c-4a3f-9bfb-2ee5ef065facdefault"
             }
         ],
         "viewport": {
-            "x": -243.1468079276401,
-            "y": 415.84811491329816,
-            "zoom": 0.7174702250837344
+            "x": -325.6681440616287,
+            "y": 180.9823636576132,
+            "zoom": 0.9609716805002619
         }
     },
     "ctrlsManifest": [
