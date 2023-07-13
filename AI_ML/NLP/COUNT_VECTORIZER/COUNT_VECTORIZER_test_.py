@@ -44,15 +44,15 @@ def test_COUNT_VECTORIZER():
     # check that the outputs look correct
     assert isinstance(res, OrderedPair)
     assert (set(res.x)) == {
-        "this",
-        "document",
-        "is",
         "and",
+        "document",
+        "first",
+        "is",
+        "one",
+        "second",
         "the",
         "third",
-        "second",
-        "first",
-        "one",
+        "this",
     }
 
     assert numpy.array_equal(

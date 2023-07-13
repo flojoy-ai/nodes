@@ -4,73 +4,6 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808",
-                "type": "CLASSIFICATION",
-                "data": {
-                    "id": "SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808",
-                    "label": "SUPPORT VECTOR MACHINE",
-                    "func": "SUPPORT_VECTOR_MACHINE",
-                    "type": "CLASSIFICATION",
-                    "ctrls": {
-                        "target": {
-                            "type": "str",
-                            "default": null,
-                            "functionName": "SUPPORT_VECTOR_MACHINE",
-                            "param": "target",
-                            "value": ""
-                        },
-                        "kernel": {
-                            "type": "select",
-                            "default": "linear",
-                            "options": [
-                                "linear",
-                                "poly",
-                                "rvm",
-                                "sigmoid"
-                            ],
-                            "functionName": "SUPPORT_VECTOR_MACHINE",
-                            "param": "kernel",
-                            "value": "linear"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "training_data",
-                            "id": "training_data",
-                            "type": "DataFrame|Matrix",
-                            "multiple": false
-                        },
-                        {
-                            "name": "input_data",
-                            "id": "input_data",
-                            "type": "DataFrame|Matrix",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "DataFrame"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/AI_ML/CLASSIFICATION/SUPPORT_VECTOR_MACHINE/SUPPORT_VECTOR_MACHINE.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 928.4663087537485,
-                    "y": 682.0331845444681
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 928.4663087537485,
-                    "y": 682.0331845444681
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
                 "id": "READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845",
                 "type": "FILE",
                 "data": {
@@ -84,7 +17,7 @@
                             "default": "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
                             "functionName": "READ_CSV",
                             "param": "file_path",
-                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/assets/iris_train.csv"
+                            "value": "./PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/assets/iris_train.csv"
                         }
                     },
                     "outputs": [
@@ -98,13 +31,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 455.9215625547879,
-                    "y": 465.0512676738364
+                    "x": 654.4111754934514,
+                    "y": 510.5069042246754
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 455.9215625547879,
-                    "y": 465.0512676738364
+                    "x": 654.4111754934514,
+                    "y": 510.5069042246754
                 },
                 "dragging": true
             },
@@ -124,7 +57,7 @@
                             "default": "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
                             "functionName": "READ_CSV",
                             "param": "file_path",
-                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/assets/iris_test_no_label.csv"
+                            "value": "./PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/assets/iris_test_no_label.csv"
                         }
                     },
                     "outputs": [
@@ -138,19 +71,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 453.1972077677601,
-                    "y": 941.8488423358433
+                    "x": 656.2323843615078,
+                    "y": 772.1477992127109
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 453.1972077677601,
-                    "y": 941.8488423358433
+                    "x": 656.2323843615078,
+                    "y": 772.1477992127109
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "TABLE-500d4621-276f-4b84-a114-1e4498781381",
                 "type": "PLOTLY",
                 "data": {
@@ -175,16 +108,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1397.9275590031577,
-                    "y": 653.1483933276585
+                    "x": 1496.5324809006217,
+                    "y": 648.6028296725746
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1397.9275590031577,
-                    "y": 653.1483933276585
+                    "x": 1496.5324809006217,
+                    "y": 648.6028296725746
                 },
                 "dragging": true
             },
@@ -211,51 +144,241 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1919.9766566351086,
-                    "y": 718.6811434834397
+                    "x": 1869.9754564291857,
+                    "y": 695.9533252080201
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1919.9766566351086,
-                    "y": 718.6811434834397
+                    "x": 1869.9754564291857,
+                    "y": 695.9533252080201
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "SUPPORT_VECTOR_MACHINE-111df792-52d2-41ac-9662-1066da12d44b",
+                "type": "CLASSIFICATION",
+                "data": {
+                    "id": "SUPPORT_VECTOR_MACHINE-111df792-52d2-41ac-9662-1066da12d44b",
+                    "label": "SUPPORT VECTOR MACHINE",
+                    "func": "SUPPORT_VECTOR_MACHINE",
+                    "type": "CLASSIFICATION",
+                    "ctrls": {
+                        "kernel": {
+                            "type": "select",
+                            "default": "linear",
+                            "options": [
+                                "linear",
+                                "poly",
+                                "rbf",
+                                "sigmoid",
+                                "precomputed"
+                            ],
+                            "functionName": "SUPPORT_VECTOR_MACHINE",
+                            "param": "kernel",
+                            "value": "linear"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "train_feature",
+                            "id": "train_feature",
+                            "type": "DataFrame|Matrix",
+                            "multiple": false
+                        },
+                        {
+                            "name": "train_label",
+                            "id": "train_label",
+                            "type": "DataFrame|Matrix",
+                            "multiple": false
+                        },
+                        {
+                            "name": "input_data",
+                            "id": "input_data",
+                            "type": "DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-learn",
+                            "v": "1.2.2"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/CLASSIFICATION/SUPPORT_VECTOR_MACHINE/SUPPORT_VECTOR_MACHINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1210.9973012192495,
+                    "y": 688.4577952218613
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1210.9973012192495,
+                    "y": 688.4577952218613
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "EXTRACT_COLUMNS-afb1e4ac-a149-400c-b795-0f3fd78ab5f7",
+                "type": "EXTRACT_COLUMNS",
+                "data": {
+                    "id": "EXTRACT_COLUMNS-afb1e4ac-a149-400c-b795-0f3fd78ab5f7",
+                    "label": "EXTRACT COLUMNS",
+                    "func": "EXTRACT_COLUMNS",
+                    "type": "EXTRACT_COLUMNS",
+                    "ctrls": {
+                        "columns": {
+                            "type": "Array",
+                            "default": null,
+                            "functionName": "EXTRACT_COLUMNS",
+                            "param": "columns",
+                            "value": "sepal_length,sepal_width,petal_length,petal_width"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/EXTRACTORS/EXTRACT_COLUMNS/EXTRACT_COLUMNS/EXTRACT_COLUMNS.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 925.4528113568123,
+                    "y": 408.74992717383236
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 925.4528113568123,
+                    "y": 408.74992717383236
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "EXTRACT_COLUMNS-394a3bea-c4b0-4e54-821b-8392c1bcaac0",
+                "type": "EXTRACT_COLUMNS",
+                "data": {
+                    "id": "EXTRACT_COLUMNS-394a3bea-c4b0-4e54-821b-8392c1bcaac0",
+                    "label": "EXTRACT COLUMNS 1",
+                    "func": "EXTRACT_COLUMNS",
+                    "type": "EXTRACT_COLUMNS",
+                    "ctrls": {
+                        "columns": {
+                            "type": "Array",
+                            "default": null,
+                            "functionName": "EXTRACT_COLUMNS",
+                            "param": "columns",
+                            "value": "variety"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/EXTRACTORS/EXTRACT_COLUMNS/EXTRACT_COLUMNS/EXTRACT_COLUMNS.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 921.9762546726099,
+                    "y": 588.0217108217173
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 921.9762546726099,
+                    "y": 588.0217108217173
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845",
-                "sourceHandle": "default",
-                "target": "SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808",
-                "targetHandle": "training_data",
-                "id": "reactflow__edge-READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845default-SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808training_data"
-            },
-            {
-                "source": "READ_CSV-90526963-cd8b-4b79-bf22-12138be6d2c7",
-                "sourceHandle": "default",
-                "target": "SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808",
-                "targetHandle": "input_data",
-                "id": "reactflow__edge-READ_CSV-90526963-cd8b-4b79-bf22-12138be6d2c7default-SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808input_data"
-            },
-            {
-                "source": "SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808",
-                "sourceHandle": "default",
-                "target": "TABLE-500d4621-276f-4b84-a114-1e4498781381",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SUPPORT_VECTOR_MACHINE-e74629cb-1132-4e17-8ed0-fc14f6ee9808default-TABLE-500d4621-276f-4b84-a114-1e4498781381default"
-            },
-            {
                 "source": "TABLE-500d4621-276f-4b84-a114-1e4498781381",
                 "sourceHandle": "default",
                 "target": "END-287eeb1e-c006-47bd-baab-6e4d5620511f",
                 "targetHandle": "default",
                 "id": "reactflow__edge-TABLE-500d4621-276f-4b84-a114-1e4498781381default-END-287eeb1e-c006-47bd-baab-6e4d5620511fdefault"
+            },
+            {
+                "source": "READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845",
+                "sourceHandle": "default",
+                "target": "EXTRACT_COLUMNS-afb1e4ac-a149-400c-b795-0f3fd78ab5f7",
+                "targetHandle": "default",
+                "id": "reactflow__edge-READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845default-EXTRACT_COLUMNS-afb1e4ac-a149-400c-b795-0f3fd78ab5f7default"
+            },
+            {
+                "source": "READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845",
+                "sourceHandle": "default",
+                "target": "EXTRACT_COLUMNS-394a3bea-c4b0-4e54-821b-8392c1bcaac0",
+                "targetHandle": "default",
+                "id": "reactflow__edge-READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845default-EXTRACT_COLUMNS-394a3bea-c4b0-4e54-821b-8392c1bcaac0default"
+            },
+            {
+                "source": "SUPPORT_VECTOR_MACHINE-111df792-52d2-41ac-9662-1066da12d44b",
+                "sourceHandle": "default",
+                "target": "TABLE-500d4621-276f-4b84-a114-1e4498781381",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SUPPORT_VECTOR_MACHINE-111df792-52d2-41ac-9662-1066da12d44bdefault-TABLE-500d4621-276f-4b84-a114-1e4498781381default"
+            },
+            {
+                "source": "EXTRACT_COLUMNS-afb1e4ac-a149-400c-b795-0f3fd78ab5f7",
+                "sourceHandle": "default",
+                "target": "SUPPORT_VECTOR_MACHINE-111df792-52d2-41ac-9662-1066da12d44b",
+                "targetHandle": "train_feature",
+                "id": "reactflow__edge-EXTRACT_COLUMNS-afb1e4ac-a149-400c-b795-0f3fd78ab5f7default-SUPPORT_VECTOR_MACHINE-111df792-52d2-41ac-9662-1066da12d44btrain_feature"
+            },
+            {
+                "source": "EXTRACT_COLUMNS-394a3bea-c4b0-4e54-821b-8392c1bcaac0",
+                "sourceHandle": "default",
+                "target": "SUPPORT_VECTOR_MACHINE-111df792-52d2-41ac-9662-1066da12d44b",
+                "targetHandle": "train_label",
+                "id": "reactflow__edge-EXTRACT_COLUMNS-394a3bea-c4b0-4e54-821b-8392c1bcaac0default-SUPPORT_VECTOR_MACHINE-111df792-52d2-41ac-9662-1066da12d44btrain_label"
+            },
+            {
+                "source": "READ_CSV-90526963-cd8b-4b79-bf22-12138be6d2c7",
+                "sourceHandle": "default",
+                "target": "SUPPORT_VECTOR_MACHINE-111df792-52d2-41ac-9662-1066da12d44b",
+                "targetHandle": "input_data",
+                "id": "reactflow__edge-READ_CSV-90526963-cd8b-4b79-bf22-12138be6d2c7default-SUPPORT_VECTOR_MACHINE-111df792-52d2-41ac-9662-1066da12d44binput_data"
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 197.98083177807212,
-            "zoom": 1.4811524052100216
+            "x": -456.37712173371256,
+            "y": 259.03077225262325,
+            "zoom": 1.3466637668169514
         }
     },
     "ctrlsManifest": [

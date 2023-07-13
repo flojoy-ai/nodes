@@ -1,10 +1,11 @@
-from flojoy import flojoy, DataFrame
+from flojoy import DataFrame, flojoy
 import numpy as np
 from scipy.io import loadmat
 from os import path
 import pandas as pd
 
 
+@flojoy
 def OPEN_MATLAB(file_path: str = "") -> DataFrame:
     """The OPEN_MATLAB node loads a local file of the .mat file format.
     Note that if multiple 'tabs' of data are used, the number of rows

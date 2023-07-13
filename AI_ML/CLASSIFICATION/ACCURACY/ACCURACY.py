@@ -1,17 +1,23 @@
 from flojoy import flojoy, DataFrame
-import pandas as pd
-from typing import cast
+from typing import Optional
 
 
 @flojoy
-def ACCURACY(true_data: DataFrame, predicted_data: DataFrame) -> DataFrame:
+def ACCURACY(
+    true_data: DataFrame,
+    predicted_data: DataFrame,
+    true_label: Optional[str] = None,
+    predicted_label: Optional[str] = None,
+) -> DataFrame:
     """The ACCURACY node takes two dataframes with the true and predicted labels from a classification task,
     and indicates whether the prediction was correct or not. These dataframes should both be single columns.
 
     Parameters
     ----------
-    None
-
+    true_label: optional str
+        true label users can select from original data
+    predicted_label: optional str
+        resulting predicted label users can select
     Returns
     -------
     dataframe
@@ -22,5 +28,17 @@ def ACCURACY(true_data: DataFrame, predicted_data: DataFrame) -> DataFrame:
     true_df = true_data.m
     predicted_df = predicted_data.m
 
-    predicted_df["prediction_correct"] = true_df.iloc[:, 0] == predicted_df.iloc[:, 0]
+    # if users prov
+    if true_label:
+        true_label = true_df.iloc[:, true_label]
+    else:
+        true_label = true_df.iloc[:, 0]
+
+    if predicted_label:
+        predicted_label = predicted_df.iloc[:, predicted_label]
+    else:
+        predicted_label = predicted_df.iloc[:, 0]
+
+    predicted_df["prediction_correct"] = true_label == predicted_label
+
     return DataFrame(df=predicted_df)

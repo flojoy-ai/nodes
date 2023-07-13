@@ -17,7 +17,7 @@
                             "default": null,
                             "functionName": "LOCAL_FILE",
                             "param": "file_path",
-                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/AI_ML/SEGMENTATION/DEEPLAB_V3/assets/obama_image.jpg"
+                            "value": "./PYTHON/nodes/AI_ML/SEGMENTATION/DEEPLAB_V3/assets/obama_image.jpg"
                         },
                         "file_type": {
                             "type": "select",

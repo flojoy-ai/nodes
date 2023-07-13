@@ -1,4 +1,3 @@
-import pandas as pd
 from typing import TypedDict
 from flojoy import flojoy, DataFrame
 from sklearn.model_selection import train_test_split
@@ -22,7 +21,7 @@ def TRAIN_TEST_SPLIT(
         The size of testing data specified
     Returns
     -------
-    dataframe
+    Dataframe
         a dataframe of training data, and a dataframe of test data.
     """
 

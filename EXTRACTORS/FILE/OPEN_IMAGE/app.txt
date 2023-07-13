@@ -17,7 +17,7 @@
                             "default": "",
                             "functionName": "OPEN_IMAGE",
                             "param": "file_path",
-                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/assets/astronaut.png"
+                            "value": "./PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/assets/astronaut.png"
                         }
                     },
                     "outputs": [

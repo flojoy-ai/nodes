@@ -1,5 +1,3 @@
-import numpy
-
 from functools import wraps
 from unittest.mock import patch
 

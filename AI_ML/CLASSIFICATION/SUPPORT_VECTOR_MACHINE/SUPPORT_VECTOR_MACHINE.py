@@ -2,49 +2,43 @@ from flojoy import flojoy, DataFrame, Matrix
 import pandas as pd
 import numpy as np
 from sklearn import svm, preprocessing
-from typing import cast, Literal, Optional
+from typing import Literal
 
 
-@flojoy
+@flojoy(deps={"scikit-learn": "1.2.2"})
 def SUPPORT_VECTOR_MACHINE(
-    training_data: DataFrame | Matrix,
+    train_feature: DataFrame | Matrix,
+    train_label: DataFrame | Matrix,
     input_data: DataFrame | Matrix,
-    target: Optional[str] = None,
-    kernel: Literal["linear", "poly", "rvm", "sigmoid"] = "linear",
+    kernel: Literal["linear", "poly", "rbf", "sigmoid", "precomputed"] = "linear",
 ) -> DataFrame:
     """The SUPPORT_VECTOR_MACHINE node is used to train a support vector machine model for classification tasks.
     It takes a dataframe of labelled training data, and a dataframe of unlabelled input data.
 
     Parameters
     ----------
-    target: str, optional
-        The column name of the label in the input dataframe.
-    kernel: 'linear' | 'poly' | 'rvm' | 'sigmoid', default='linear'
+    kernel: 'linear' | 'poly' | 'rbf' | 'sigmoid' | 'precomputed', default='linear'
         Specifies the kernel type to be used in the algorithm.
+        For detailed information about kernel types:
+        https://scikit-learn.org/stable/modules/svm.html#kernel-functions
 
     Returns
     -------
-    dataframe
+    DataFrame
         The predictions for the input data.
     """
 
     le = preprocessing.LabelEncoder()
 
-    if isinstance(training_data, DataFrame):
-        df = training_data.m
-        if not target:
-            target = str(df.columns[-1])
+    if isinstance(train_feature, DataFrame):
+        train = train_feature.m.to_numpy()
+        col = train_label.m.to_numpy()
+        target_name = train_label.m.columns.values[0]
 
-        col = df[target]
-        train = df.drop(target, axis=1).to_numpy()
-    # Other case is matrix
     else:
-        # assume the last column is the labelxw
-        data = training_data.m
-        col = data[:, -1]
-
-        # remove the last column
-        train = np.delete(data, -1, axis=1)
+        train = train_feature.m
+        col = train_label.m
+        target_name = "target"
 
     X = train
     Y = le.fit_transform(col)
@@ -59,6 +53,5 @@ def SUPPORT_VECTOR_MACHINE(
 
     prediction = clf.predict(input_arr)
     prediction = le.inverse_transform(prediction)
-    prediction = pd.DataFrame({target: prediction})
-
+    prediction = pd.DataFrame({target_name: prediction})
     return DataFrame(df=prediction)

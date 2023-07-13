@@ -4,10 +4,10 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "OPEN_PARQUET-2d74e8af-c098-4d95-96d8-d2b62b2c75e4",
+                "id": "OPEN_PARQUET-196993ec-f559-44c6-8d7d-14360ed20ce7",
                 "type": "FILE",
                 "data": {
-                    "id": "OPEN_PARQUET-2d74e8af-c098-4d95-96d8-d2b62b2c75e4",
+                    "id": "OPEN_PARQUET-196993ec-f559-44c6-8d7d-14360ed20ce7",
                     "label": "OPEN PARQUET",
                     "func": "OPEN_PARQUET",
                     "type": "FILE",
@@ -17,7 +17,7 @@
                             "default": "",
                             "functionName": "OPEN_PARQUET",
                             "param": "file_path",
-                            "value": ""
+                            "value": "./PYTHON/nodes/EXTRACTORS/FILE/OPEN_PARQUET/assets/userdata1.parquet"
                         }
                     },
                     "outputs": [
@@ -27,27 +27,37 @@
                             "type": "DataFrame"
                         }
                     ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyarrow",
+                            "v": "12.0.1"
+                        },
+                        {
+                            "name": "fastparquet",
+                            "v": "2023.7.0"
+                        }
+                    ],
                     "path": "PYTHON/nodes/EXTRACTORS/FILE/OPEN_PARQUET/OPEN_PARQUET.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 944.3543150332919,
-                    "y": 289.602663713516
+                    "x": 138.68874411360315,
+                    "y": 189.74714000262355
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 944.3543150332919,
-                    "y": 289.602663713516
+                    "x": 138.68874411360315,
+                    "y": 189.74714000262355
                 },
                 "dragging": true
             },
             {
                 "width": 225,
                 "height": 226,
-                "id": "TABLE-67d16f34-f0fb-43de-902c-5c7432c2f8c9",
+                "id": "TABLE-af6328dd-0379-4824-898f-d0d3b677b664",
                 "type": "PLOTLY",
                 "data": {
-                    "id": "TABLE-67d16f34-f0fb-43de-902c-5c7432c2f8c9",
+                    "id": "TABLE-af6328dd-0379-4824-898f-d0d3b677b664",
                     "label": "TABLE",
                     "func": "TABLE",
                     "type": "PLOTLY",
@@ -71,23 +81,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1407.3456616239498,
-                    "y": 253.4453072343041
+                    "x": 520.163885181978,
+                    "y": 149.0810155005708
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1407.3456616239498,
-                    "y": 253.4453072343041
+                    "x": 520.163885181978,
+                    "y": 149.0810155005708
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-7b80ecb0-65a7-4165-a82a-4560ecc99099",
+                "id": "END-c8fc5ed5-3128-428c-ad8c-4742d7418289",
                 "type": "TERMINATORS",
                 "data": {
-                    "id": "END-7b80ecb0-65a7-4165-a82a-4560ecc99099",
+                    "id": "END-c8fc5ed5-3128-428c-ad8c-4742d7418289",
                     "label": "END",
                     "func": "END",
                     "type": "TERMINATORS",
@@ -104,37 +114,37 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1941.9903057638453,
-                    "y": 310.4548147643386
+                    "x": 925.661424950219,
+                    "y": 193.04826676898648
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1941.9903057638453,
-                    "y": 310.4548147643386
+                    "x": 925.661424950219,
+                    "y": 193.04826676898648
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "OPEN_PARQUET-2d74e8af-c098-4d95-96d8-d2b62b2c75e4",
+                "source": "OPEN_PARQUET-196993ec-f559-44c6-8d7d-14360ed20ce7",
                 "sourceHandle": "default",
-                "target": "TABLE-67d16f34-f0fb-43de-902c-5c7432c2f8c9",
+                "target": "TABLE-af6328dd-0379-4824-898f-d0d3b677b664",
                 "targetHandle": "default",
-                "id": "reactflow__edge-OPEN_PARQUET-2d74e8af-c098-4d95-96d8-d2b62b2c75e4default-TABLE-67d16f34-f0fb-43de-902c-5c7432c2f8c9default"
+                "id": "reactflow__edge-OPEN_PARQUET-196993ec-f559-44c6-8d7d-14360ed20ce7default-TABLE-af6328dd-0379-4824-898f-d0d3b677b664default"
             },
             {
-                "source": "TABLE-67d16f34-f0fb-43de-902c-5c7432c2f8c9",
+                "source": "TABLE-af6328dd-0379-4824-898f-d0d3b677b664",
                 "sourceHandle": "default",
-                "target": "END-7b80ecb0-65a7-4165-a82a-4560ecc99099",
+                "target": "END-c8fc5ed5-3128-428c-ad8c-4742d7418289",
                 "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-67d16f34-f0fb-43de-902c-5c7432c2f8c9default-END-7b80ecb0-65a7-4165-a82a-4560ecc99099default"
+                "id": "reactflow__edge-TABLE-af6328dd-0379-4824-898f-d0d3b677b664default-END-c8fc5ed5-3128-428c-ad8c-4742d7418289default"
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 197.98083177807212,
-            "zoom": 1.4811524052100216
+            "x": -456.37712173371256,
+            "y": 259.03077225262325,
+            "zoom": 1.3466637668169514
         }
     },
     "ctrlsManifest": [

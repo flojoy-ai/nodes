@@ -1,4 +1,3 @@
-import numpy as np
 from typing import TypedDict
 from sklearn.feature_extraction.text import CountVectorizer
 from flojoy import flojoy, DataFrame, Matrix

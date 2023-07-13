@@ -4,10 +4,10 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "PLOTLY_DATASET-27c54fb6-899f-4e3c-b5e2-d60dd27de071",
+                "id": "PLOTLY_DATASET-30adf97a-d9e8-481e-813a-7f7c31ce9516",
                 "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "PLOTLY_DATASET-27c54fb6-899f-4e3c-b5e2-d60dd27de071",
+                    "id": "PLOTLY_DATASET-30adf97a-d9e8-481e-813a-7f7c31ce9516",
                     "label": "PLOTLY DATASET",
                     "func": "PLOTLY_DATASET",
                     "type": "SAMPLE_DATASETS",
@@ -29,7 +29,7 @@
                             ],
                             "functionName": "PLOTLY_DATASET",
                             "param": "dataset_key",
-                            "value": "wind"
+                            "value": "tips"
                         }
                     },
                     "outputs": [
@@ -43,23 +43,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 247.44522174888542,
-                    "y": 312.10585126742234
+                    "x": 978.428833543101,
+                    "y": 619.7571715375085
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 247.44522174888542,
-                    "y": 312.10585126742234
+                    "x": 978.428833543101,
+                    "y": 619.7571715375085
                 },
                 "dragging": true
             },
             {
                 "width": 225,
                 "height": 226,
-                "id": "TABLE-e72a8cef-b0c6-4f36-a865-4491ca7484d0",
+                "id": "TABLE-4890e831-e47a-4cac-abbc-ad1cdc44a1be",
                 "type": "PLOTLY",
                 "data": {
-                    "id": "TABLE-e72a8cef-b0c6-4f36-a865-4491ca7484d0",
+                    "id": "TABLE-4890e831-e47a-4cac-abbc-ad1cdc44a1be",
                     "label": "TABLE",
                     "func": "TABLE",
                     "type": "PLOTLY",
@@ -83,40 +83,33 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1117.599565803088,
-                    "y": 297.3527014948889
+                    "x": 1514.7353534521872,
+                    "y": 579.1976186178942
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1117.599565803088,
-                    "y": 297.3527014948889
+                    "x": 1514.7353534521872,
+                    "y": 579.1976186178942
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "ONE_HOT_ENCODING-c5fa53e1-c141-4c59-9e04-b0005950a3e1",
+                "id": "ONE_HOT_ENCODING-17a639f5-ff77-406e-9892-8a3f782ae98c",
                 "type": "CLASSIFICATION",
                 "data": {
-                    "id": "ONE_HOT_ENCODING-c5fa53e1-c141-4c59-9e04-b0005950a3e1",
+                    "id": "ONE_HOT_ENCODING-17a639f5-ff77-406e-9892-8a3f782ae98c",
                     "label": "ONE HOT ENCODING",
                     "func": "ONE_HOT_ENCODING",
                     "type": "CLASSIFICATION",
                     "ctrls": {
-                        "categories": {
-                            "type": "Array",
-                            "default": null,
-                            "functionName": "ONE_HOT_ENCODING",
-                            "param": "categories",
-                            "value": ""
-                        },
                         "columns": {
                             "type": "Array",
                             "default": null,
                             "functionName": "ONE_HOT_ENCODING",
                             "param": "columns",
-                            "value": "direction"
+                            "value": "smoker,day"
                         }
                     },
                     "inputs": [
@@ -131,30 +124,30 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Matrix"
+                            "type": "DataFrame"
                         }
                     ],
                     "path": "PYTHON/nodes/AI_ML/CLASSIFICATION/ONE_HOT_ENCODING/ONE_HOT_ENCODING.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 712.7670280875083,
-                    "y": 329.49350014656653
+                    "x": 1265.9160938047276,
+                    "y": 617.6797946009418
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 712.7670280875083,
-                    "y": 329.49350014656653
+                    "x": 1265.9160938047276,
+                    "y": 617.6797946009418
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-b9655863-9480-4722-9931-b78e5141e9bd",
+                "id": "END-dd378efc-5c9b-4a23-9482-4443ce580ec3",
                 "type": "TERMINATORS",
                 "data": {
-                    "id": "END-b9655863-9480-4722-9931-b78e5141e9bd",
+                    "id": "END-dd378efc-5c9b-4a23-9482-4443ce580ec3",
                     "label": "END",
                     "func": "END",
                     "type": "TERMINATORS",
@@ -171,45 +164,44 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1584.1039231337256,
-                    "y": 341.31565845475285
+                    "x": 1794.88168866874,
+                    "y": 625.2224288315967
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1584.1039231337256,
-                    "y": 341.31565845475285
+                    "x": 1794.88168866874,
+                    "y": 625.2224288315967
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "PLOTLY_DATASET-27c54fb6-899f-4e3c-b5e2-d60dd27de071",
+                "source": "PLOTLY_DATASET-30adf97a-d9e8-481e-813a-7f7c31ce9516",
                 "sourceHandle": "default",
-                "target": "ONE_HOT_ENCODING-c5fa53e1-c141-4c59-9e04-b0005950a3e1",
+                "target": "ONE_HOT_ENCODING-17a639f5-ff77-406e-9892-8a3f782ae98c",
                 "targetHandle": "default",
-                "id": "reactflow__edge-PLOTLY_DATASET-27c54fb6-899f-4e3c-b5e2-d60dd27de071default-ONE_HOT_ENCODING-c5fa53e1-c141-4c59-9e04-b0005950a3e1default",
-                "selected": false
+                "id": "reactflow__edge-PLOTLY_DATASET-30adf97a-d9e8-481e-813a-7f7c31ce9516default-ONE_HOT_ENCODING-17a639f5-ff77-406e-9892-8a3f782ae98cdefault"
             },
             {
-                "source": "ONE_HOT_ENCODING-c5fa53e1-c141-4c59-9e04-b0005950a3e1",
+                "source": "ONE_HOT_ENCODING-17a639f5-ff77-406e-9892-8a3f782ae98c",
                 "sourceHandle": "default",
-                "target": "TABLE-e72a8cef-b0c6-4f36-a865-4491ca7484d0",
+                "target": "TABLE-4890e831-e47a-4cac-abbc-ad1cdc44a1be",
                 "targetHandle": "default",
-                "id": "reactflow__edge-ONE_HOT_ENCODING-c5fa53e1-c141-4c59-9e04-b0005950a3e1default-TABLE-e72a8cef-b0c6-4f36-a865-4491ca7484d0default"
+                "id": "reactflow__edge-ONE_HOT_ENCODING-17a639f5-ff77-406e-9892-8a3f782ae98cdefault-TABLE-4890e831-e47a-4cac-abbc-ad1cdc44a1bedefault"
             },
             {
-                "source": "TABLE-e72a8cef-b0c6-4f36-a865-4491ca7484d0",
+                "source": "TABLE-4890e831-e47a-4cac-abbc-ad1cdc44a1be",
                 "sourceHandle": "default",
-                "target": "END-b9655863-9480-4722-9931-b78e5141e9bd",
+                "target": "END-dd378efc-5c9b-4a23-9482-4443ce580ec3",
                 "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-e72a8cef-b0c6-4f36-a865-4491ca7484d0default-END-b9655863-9480-4722-9931-b78e5141e9bddefault"
+                "id": "reactflow__edge-TABLE-4890e831-e47a-4cac-abbc-ad1cdc44a1bedefault-END-dd378efc-5c9b-4a23-9482-4443ce580ec3default"
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 197.98083177807212,
-            "zoom": 1.4811524052100216
+            "x": -456.37712173371256,
+            "y": 259.03077225262325,
+            "zoom": 1.3466637668169514
         }
     },
     "ctrlsManifest": [

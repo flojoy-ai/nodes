@@ -1,5 +1,4 @@
 from os import path
-import traceback
 from flojoy import flojoy, Image
 from matplotlib import image
 from numpy import asarray

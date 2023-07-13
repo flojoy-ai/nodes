@@ -15,7 +15,7 @@
                             "default": "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
                             "functionName": "READ_CSV",
                             "param": "file_path",
-                            "value": "/Users/nick/Desktop/flojoy_dev/studio/PYTHON/nodes/AI_ML/NLP/COUNT_VECTORIZER/assets/text.csv"
+                            "value": "./PYTHON/nodes/AI_ML/NLP/COUNT_VECTORIZER/assets/text.csv"
                         }
                     },
                     "outputs": [
