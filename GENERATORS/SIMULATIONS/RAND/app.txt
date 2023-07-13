@@ -24,14 +24,14 @@
                             "default": 0,
                             "functionName": "LINSPACE",
                             "param": "end",
-                            "value": "25000"
+                            "value": "2000"
                         },
                         "step": {
                             "type": "int",
                             "default": 1000,
                             "functionName": "LINSPACE",
                             "param": "step",
-                            "value": "25000"
+                            "value": "2000"
                         }
                     },
                     "outputs": [
@@ -42,21 +42,21 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
                     "x": 138.41459532216834,
                     "y": 31.355021442009637
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
                     "x": 138.41459532216834,
                     "y": 31.355021442009637
                 }
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "SCATTER-d643dc2a-27ca-4a4d-ae0c-3e044691ad5f",
                 "type": "PLOTLY",
                 "data": {
@@ -95,8 +95,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 250,
+                "height": 159,
                 "id": "HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4",
                 "type": "PLOTLY",
                 "data": {
@@ -242,13 +242,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/RAND/RAND.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 467.51371757072974,
                     "y": 45.4986744596863
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 467.51371757072974,
                     "y": 45.4986744596863
@@ -294,9 +294,9 @@
             }
         ],
         "viewport": {
-            "x": -370.442494324109,
-            "y": 122.55885385221723,
-            "zoom": 1.093090475044996
+            "x": -373.4542219202399,
+            "y": 120.20973884288571,
+            "zoom": 1.101977389476256
         }
     },
     "ctrlsManifest": [
