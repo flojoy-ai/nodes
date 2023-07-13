@@ -1,4 +1,4 @@
-from flojoy import flojoy, OrderedPair, DataContainer
+from flojoy import flojoy, OrderedPair
 from typing import Optional
 import LabJackPython
 import u3  # Import the library from LabJackPython in order to use our U3-LV device
@@ -38,6 +38,6 @@ def LABJACKU3(
         temperatures.append(temperature)
         temperatures_celsius.append(temperature_celsius)
 
-    results = OrderedPair(x=sensor_num, y=MockTemp)
+    results = OrderedPair(x=sensor_num, y=temperatures_celsius)
 
     return results

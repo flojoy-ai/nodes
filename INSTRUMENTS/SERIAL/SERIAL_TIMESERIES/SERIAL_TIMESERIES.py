@@ -4,16 +4,15 @@ from typing import Optional
 import serial
 import numpy as np
 from datetime import datetime
-import plotly.graph_objects as go
 
 
 @flojoy(deps={"pyserial": "3.5"})
 def SERIAL_TIMESERIES(
     default: Optional[OrderedPair] = None,
     comport: str = "/dev/ttyUSB0",
-    baudrate: float = 9600,
+    baudrate: int = 9600,
     num_readings: int = 100,
-    record_period: float = 1,
+    record_period: int = 1,
 ) -> OrderedPair:
     """
     The SERIAL_TIMESERIES Node extract simple time dependent 1d data from an Ardunio,
@@ -32,19 +31,13 @@ def SERIAL_TIMESERIES(
 
     num_readings * record_period is roughly the run length in seconds.
     """
-
-    COM_PORT = comport
-    BAUD = baudrate
-    NUM = num_readings
-    RECORD_PERIOD = record_period
-
-    ser = serial.Serial(COM_PORT, timeout=1, baudrate=BAUD)
+    ser = serial.Serial(comport, timeout=1, baudrate=baudrate)
     readings = []
     times = []
     # The first reading is commonly empty.
     s = ser.readline().decode()
 
-    for i in range(NUM):
+    for i in range(num_readings):
         ts = datetime.now()
         s = ser.readline().decode()
         # Some readings may be empty.
@@ -67,8 +60,8 @@ def SERIAL_TIMESERIES(
                 # Estimate execution time.
                 time1 = 0.1
 
-            if time1 < RECORD_PERIOD:
-                sleep(RECORD_PERIOD - time1)
+            if time1 < record_period:
+                sleep(record_period - time1)
 
     times = np.array(times)
     try:
