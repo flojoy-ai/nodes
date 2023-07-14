@@ -1,10 +1,21 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.stats
 
 
-@flojoy
-def VARIATION(dc, params):
-    """
+@flojoy(node_type="default")
+def VARIATION(
+    default: OrderedPair | Matrix,
+    axis: int = 0,
+    nan_policy: str = "propagate",
+    ddof: int = 0,
+    keepdims: bool = False,
+) -> OrderedPair | Matrix | Scalar:
+    """The VARIATION node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Compute the coefficient of variation.
 
@@ -19,10 +30,6 @@ def VARIATION(dc, params):
 
             The function does not take the absolute value of the mean of the data,
             so the return value is negative if the mean is negative.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -54,16 +61,21 @@ def VARIATION(dc, params):
             If this is set to True, the axes which are reduced are left in the
             result as dimensions with size one. With this option, the result
             will broadcast correctly against the input array.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.variation(
-            a=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
-            ddof=(int(params["ddof"]) if params["ddof"] != "" else None),
-            keepdims=(bool(params["keepdims"]) if params["keepdims"] != "" else None),
-        ),
+
+    result = OrderedPair(
+        m=scipy.stats.variation(
+            a=default.y,
+            axis=axis,
+            nan_policy=nan_policy,
+            ddof=ddof,
+            keepdims=keepdims,
+        )
     )
+
+    return result

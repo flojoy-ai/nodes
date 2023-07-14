@@ -1,19 +1,27 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.signal
 
 
-@flojoy
-def DECIMATE(dc, params):
-    """
+@flojoy(node_type="default")
+def DECIMATE(
+    default: OrderedPair | Matrix,
+    q: int,
+    n: int,
+    ftype: str = "iir",
+    axis: int = -1,
+    zero_phase: bool = True,
+) -> OrderedPair | Matrix | Scalar:
+    """The DECIMATE node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Downsample the signal after applying an anti-aliasing filter.
 
             By default, an order 8 Chebyshev type I filter is used. A 30 point FIR
             filter with Hamming window is used if `ftype` is 'fir'.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -38,17 +46,22 @@ def DECIMATE(dc, params):
             recommended, since a phase shift is generally not desired.
 
     .. versionadded:: 0.18.0
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.signal.decimate(
-            x=dc[0].y,
-            q=(int(params["q"]) if params["q"] != "" else None),
-            n=(int(params["n"]) if params["n"] != "" else None),
-            ftype=(str(params["ftype"]) if params["ftype"] != "" else None),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            zero_phase=(
-                bool(params["zero_phase"]) if params["zero_phase"] != "" else None
-            ),
-        ),
+
+    result = OrderedPair(
+        m=scipy.signal.decimate(
+            x=default.y,
+            q=q,
+            n=n,
+            ftype=ftype,
+            axis=axis,
+            zero_phase=zero_phase,
+        )
     )
+
+    return result

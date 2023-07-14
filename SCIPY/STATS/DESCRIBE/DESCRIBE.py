@@ -1,15 +1,22 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.stats
 
 
-@flojoy
-def DESCRIBE(dc, params):
-    """
-            Compute several descriptive statistics of the passed array.
+@flojoy(node_type="default")
+def DESCRIBE(
+    default: OrderedPair | Matrix,
+    axis: int = 0,
+    ddof: int = 1,
+    bias: bool = True,
+    nan_policy: str = "propagate",
+) -> OrderedPair | Matrix | Scalar:
+    """The DESCRIBE node is based on a numpy or scipy function.
+    The description of that function is as follows:
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+            Compute several descriptive statistics of the passed array.
 
     Parameters
     ----------
@@ -30,16 +37,21 @@ def DESCRIBE(dc, params):
     * 'propagate': returns nan
     * 'raise': throws an error
     * 'omit': performs the calculations ignoring nan values
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.describe(
-            a=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            ddof=(int(params["ddof"]) if params["ddof"] != "" else None),
-            bias=(bool(params["bias"]) if params["bias"] != "" else None),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
-        ),
+
+    result = OrderedPair(
+        m=scipy.stats.describe(
+            a=default.y,
+            axis=axis,
+            ddof=ddof,
+            bias=bias,
+            nan_policy=nan_policy,
+        )
     )
+
+    return result

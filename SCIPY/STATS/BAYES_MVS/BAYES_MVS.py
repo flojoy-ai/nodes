@@ -1,16 +1,20 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.stats
 
 
-@flojoy
-def BAYES_MVS(dc, params):
-    """
+@flojoy(node_type="default")
+def BAYES_MVS(
+    default: OrderedPair | Matrix,
+    alpha: float = 0.9,
+) -> OrderedPair | Matrix | Scalar:
+    """The BAYES_MVS node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Bayesian confidence intervals for the mean, var, and std.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -20,11 +24,18 @@ def BAYES_MVS(dc, params):
     alpha : float, optional
             Probability that the returned confidence interval contains
             the true parameter.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.bayes_mvs(
-            data=dc[0].y,
-            alpha=(float(params["alpha"]) if params["alpha"] != "" else None),
-        ),
+
+    result = OrderedPair(
+        m=scipy.stats.bayes_mvs(
+            data=default.y,
+            alpha=alpha,
+        )
     )
+
+    return result

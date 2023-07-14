@@ -1,10 +1,21 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.stats
 
 
-@flojoy
-def SKEW(dc, params):
-    """
+@flojoy(node_type="default")
+def SKEW(
+    default: OrderedPair | Matrix,
+    axis: int = 0,
+    bias: bool = True,
+    nan_policy: str = "propagate",
+    keepdims: bool = False,
+) -> OrderedPair | Matrix | Scalar:
+    """The SKEW node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
 
 
@@ -15,10 +26,6 @@ def SKEW(dc, params):
             that there is more weight in the right tail of the distribution. The
             function `skewtest` can be used to determine if the skewness value
             is close enough to zero, statistically speaking.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -46,16 +53,21 @@ def SKEW(dc, params):
             If this is set to True, the axes which are reduced are left
             in the result as dimensions with size one. With this option,
             the result will broadcast correctly against the input array.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.skew(
-            a=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            bias=(bool(params["bias"]) if params["bias"] != "" else None),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
-            keepdims=(bool(params["keepdims"]) if params["keepdims"] != "" else None),
-        ),
+
+    result = OrderedPair(
+        m=scipy.stats.skew(
+            a=default.y,
+            axis=axis,
+            bias=bias,
+            nan_policy=nan_policy,
+            keepdims=keepdims,
+        )
     )
+
+    return result

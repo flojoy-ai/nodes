@@ -1,20 +1,25 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.stats
 
 
-@flojoy
-def NORMALTEST(dc, params):
-    """
+@flojoy(node_type="default")
+def NORMALTEST(
+    default: OrderedPair | Matrix,
+    axis: int = 0,
+    nan_policy: str = "propagate",
+) -> OrderedPair | Matrix | Scalar:
+    """The NORMALTEST node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Test whether a sample differs from a normal distribution.
 
             This function tests the null hypothesis that a sample comes
             from a normal distribution.  It is based on D'Agostino and
             Pearson's [1]_, [2]_ test that combines skew and kurtosis to
             produce an omnibus test of normality.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -30,14 +35,19 @@ def NORMALTEST(dc, params):
     * 'propagate': returns nan
     * 'raise': throws an error
     * 'omit': performs the calculations ignoring nan values
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.normaltest(
-            a=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
-        ),
+
+    result = OrderedPair(
+        m=scipy.stats.normaltest(
+            a=default.y,
+            axis=axis,
+            nan_policy=nan_policy,
+        )
     )
+
+    return result

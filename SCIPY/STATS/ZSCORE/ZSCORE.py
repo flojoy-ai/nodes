@@ -1,19 +1,25 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.stats
 
 
-@flojoy
-def ZSCORE(dc, params):
-    """
+@flojoy(node_type="default")
+def ZSCORE(
+    default: OrderedPair | Matrix,
+    axis: int = 0,
+    ddof: int = 0,
+    nan_policy: str = "propagate",
+) -> OrderedPair | Matrix | Scalar:
+    """The ZSCORE node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Compute the z score.
 
             Compute the z score of each value in the sample, relative to the
             sample mean and standard deviation.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -31,15 +37,20 @@ def ZSCORE(dc, params):
             values. Default is 'propagate'.  Note that when the value is 'omit',
             nans in the input also propagate to the output, but they do not affect
             the z-scores computed for the non-nan values.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.zscore(
-            a=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            ddof=(int(params["ddof"]) if params["ddof"] != "" else None),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
-        ),
+
+    result = OrderedPair(
+        m=scipy.stats.zscore(
+            a=default.y,
+            axis=axis,
+            ddof=ddof,
+            nan_policy=nan_policy,
+        )
     )
+
+    return result

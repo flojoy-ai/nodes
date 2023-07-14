@@ -1,10 +1,20 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.stats
 
 
-@flojoy
-def BINOM_TEST(dc, params):
-    """
+@flojoy(node_type="default")
+def BINOM_TEST(
+    default: OrderedPair | Matrix,
+    n: int,
+    p: float = 0.5,
+    alternative: str = "two-sided",
+) -> OrderedPair | Matrix | Scalar:
+    """The BINOM_TEST node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Perform a test that the probability of success is p.
 
     Note: `binom_test` is deprecated; it is recommended that `binomtest`
@@ -13,10 +23,6 @@ def BINOM_TEST(dc, params):
             This is an exact, two-sided test of the null hypothesis
             that the probability of success in a Bernoulli experiment
             is `p`.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -32,15 +38,20 @@ def BINOM_TEST(dc, params):
     alternative : {'two-sided', 'greater', 'less'}, optional
             Indicates the alternative hypothesis. The default value is
             'two-sided'.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.binom_test(
-            x=dc[0].y,
-            n=(int(params["n"]) if params["n"] != "" else None),
-            p=(float(params["p"]) if params["p"] != "" else None),
-            alternative=(
-                str(params["alternative"]) if params["alternative"] != "" else None
-            ),
-        ),
+
+    result = OrderedPair(
+        m=scipy.stats.binom_test(
+            x=default.y,
+            n=n,
+            p=p,
+            alternative=alternative,
+        )
     )
+
+    return result

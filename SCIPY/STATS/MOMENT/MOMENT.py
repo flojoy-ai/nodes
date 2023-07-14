@@ -1,10 +1,21 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.stats
 
 
-@flojoy
-def MOMENT(dc, params):
-    """
+@flojoy(node_type="default")
+def MOMENT(
+    default: OrderedPair | Matrix,
+    moment: int = 1,
+    axis: int = 0,
+    nan_policy: str = "propagate",
+    keepdims: bool = False,
+) -> OrderedPair | Matrix | Scalar:
+    """The MOMENT node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
 
 
@@ -13,10 +24,6 @@ def MOMENT(dc, params):
             A moment is a specific quantitative measure of the shape of a set of
             points. It is often used to calculate coefficients of skewness and kurtosis
             due to its close relationship with them.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -44,16 +51,21 @@ def MOMENT(dc, params):
             If this is set to True, the axes which are reduced are left
             in the result as dimensions with size one. With this option,
             the result will broadcast correctly against the input array.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.moment(
-            a=dc[0].y,
-            moment=(int(params["moment"]) if params["moment"] != "" else None),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
-            keepdims=(bool(params["keepdims"]) if params["keepdims"] != "" else None),
-        ),
+
+    result = OrderedPair(
+        m=scipy.stats.moment(
+            a=default.y,
+            moment=moment,
+            axis=axis,
+            nan_policy=nan_policy,
+            keepdims=keepdims,
+        )
     )
+
+    return result

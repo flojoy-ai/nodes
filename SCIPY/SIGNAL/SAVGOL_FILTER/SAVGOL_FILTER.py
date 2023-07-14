@@ -1,18 +1,28 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.signal
 
 
-@flojoy
-def SAVGOL_FILTER(dc, params):
-    """
+@flojoy(node_type="default")
+def SAVGOL_FILTER(
+    default: OrderedPair | Matrix,
+    window_length: int,
+    polyorder: int,
+    deriv: int = 0,
+    delta: float = 1.0,
+    axis: int = -1,
+    mode: str = "interp",
+    cval: float = 0.0,
+) -> OrderedPair | Matrix | Scalar:
+    """The SAVGOL_FILTER node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Apply a Savitzky-Golay filter to an array.
 
             This is a 1-D filter. If `x`  has dimension greater than 1, `axis`
             determines the axis along which the filter is applied.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -50,19 +60,24 @@ def SAVGOL_FILTER(dc, params):
     cval : scalar, optional
             Value to fill past the edges of the input if `mode` is 'constant'.
             Default is 0.0.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.signal.savgol_filter(
-            x=dc[0].y,
-            window_length=(
-                int(params["window_length"]) if params["window_length"] != "" else None
-            ),
-            polyorder=(int(params["polyorder"]) if params["polyorder"] != "" else None),
-            deriv=(int(params["deriv"]) if params["deriv"] != "" else None),
-            delta=(float(params["delta"]) if params["delta"] != "" else None),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            mode=(str(params["mode"]) if params["mode"] != "" else None),
-            cval=(float(params["cval"]) if params["cval"] != "" else None),
-        ),
+
+    result = OrderedPair(
+        m=scipy.signal.savgol_filter(
+            x=default.y,
+            window_length=window_length,
+            polyorder=polyorder,
+            deriv=deriv,
+            delta=delta,
+            axis=axis,
+            mode=mode,
+            cval=cval,
+        )
     )
+
+    return result

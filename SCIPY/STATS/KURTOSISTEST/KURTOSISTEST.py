@@ -1,19 +1,25 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.stats
 
 
-@flojoy
-def KURTOSISTEST(dc, params):
-    """
+@flojoy(node_type="default")
+def KURTOSISTEST(
+    default: OrderedPair | Matrix,
+    axis: int = 0,
+    nan_policy: str = "propagate",
+    alternative: str = "two-sided",
+) -> OrderedPair | Matrix | Scalar:
+    """The KURTOSISTEST node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Test whether a dataset has normal kurtosis.
 
             This function tests the null hypothesis that the kurtosis
             of the population from which the sample was drawn is that
             of the normal distribution.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -42,17 +48,20 @@ def KURTOSISTEST(dc, params):
             is greater than that of the normal distribution
 
     .. versionadded:: 1.7.0
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.kurtosistest(
-            a=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
-            alternative=(
-                str(params["alternative"]) if params["alternative"] != "" else None
-            ),
-        ),
+
+    result = OrderedPair(
+        m=scipy.stats.kurtosistest(
+            a=default.y,
+            axis=axis,
+            nan_policy=nan_policy,
+            alternative=alternative,
+        )
     )
+
+    return result

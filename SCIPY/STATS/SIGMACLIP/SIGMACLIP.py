@@ -1,10 +1,19 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.stats
 
 
-@flojoy
-def SIGMACLIP(dc, params):
-    """
+@flojoy(node_type="default")
+def SIGMACLIP(
+    default: OrderedPair | Matrix,
+    low: float = 4.0,
+    high: float = 4.0,
+) -> OrderedPair | Matrix | Scalar:
+    """The SIGMACLIP node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Perform iterative sigma-clipping of array elements.
 
             Starting from the full sample, all elements outside the critical range are
@@ -17,10 +26,6 @@ def SIGMACLIP(dc, params):
             The iteration continues with the updated sample until no
             elements are outside the (updated) range.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-
     Parameters
     ----------
     a : array_like
@@ -29,12 +34,19 @@ def SIGMACLIP(dc, params):
             Lower bound factor of sigma clipping. Default is 4.
     high : float, optional
             Upper bound factor of sigma clipping. Default is 4.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.sigmaclip(
-            a=dc[0].y,
-            low=(float(params["low"]) if params["low"] != "" else None),
-            high=(float(params["high"]) if params["high"] != "" else None),
-        ),
+
+    result = OrderedPair(
+        m=scipy.stats.sigmaclip(
+            a=default.y,
+            low=low,
+            high=high,
+        )
     )
+
+    return result

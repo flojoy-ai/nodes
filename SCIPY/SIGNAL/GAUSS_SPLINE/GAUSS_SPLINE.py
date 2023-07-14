@@ -1,15 +1,19 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.signal
 
 
-@flojoy
-def GAUSS_SPLINE(dc, params):
-    """
-            Gaussian approximation to B-spline basis function of order n.
+@flojoy(node_type="default")
+def GAUSS_SPLINE(
+    default: OrderedPair | Matrix,
+    n: int,
+) -> OrderedPair | Matrix | Scalar:
+    """The GAUSS_SPLINE node is based on a numpy or scipy function.
+    The description of that function is as follows:
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+            Gaussian approximation to B-spline basis function of order n.
 
     Parameters
     ----------
@@ -17,11 +21,18 @@ def GAUSS_SPLINE(dc, params):
             a knot vector
     n : int
             The order of the spline. Must be non-negative, i.e., n >= 0
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.signal.gauss_spline(
-            x=dc[0].y,
-            n=(int(params["n"]) if params["n"] != "" else None),
-        ),
+
+    result = OrderedPair(
+        m=scipy.signal.gauss_spline(
+            x=default.y,
+            n=n,
+        )
     )
+
+    return result

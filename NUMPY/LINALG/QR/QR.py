@@ -1,19 +1,23 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import numpy.linalg
 
 
-@flojoy
-def QR(dc, params):
-    """
+@flojoy(node_type="default")
+def QR(
+    default: OrderedPair | Matrix,
+    mode: str = "reduced",
+) -> OrderedPair | Matrix | Scalar:
+    """The QR node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Compute the qr factorization of a matrix.
 
             Factor the matrix `a` as *qr*, where `q` is orthonormal and `r` is
             upper-triangular.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -38,11 +42,22 @@ def QR(dc, params):
             but all others must be spelled out. See the Notes for more
             explanation.
 
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.qr(
-            a=dc[0].y,
-            mode=(str(params["mode"]) if params["mode"] != "" else None),
-        ),
+
+    result = numpy.linalg.qr(
+        a=default.m,
+        mode=mode,
     )
+
+    if type(result) == np.ndarray:
+        result = Matrix(m=result)
+
+    elif type(result) == np.float64:
+        result = Scalar(c=result)
+
+    return result

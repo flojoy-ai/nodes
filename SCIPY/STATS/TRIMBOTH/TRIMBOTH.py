@@ -1,10 +1,19 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.stats
 
 
-@flojoy
-def TRIMBOTH(dc, params):
-    """
+@flojoy(node_type="default")
+def TRIMBOTH(
+    default: OrderedPair | Matrix,
+    proportiontocut: float,
+    axis: int = 0,
+) -> OrderedPair | Matrix | Scalar:
+    """The TRIMBOTH node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Slice off a proportion of items from both ends of an array.
 
             Slice off the passed proportion of items from both ends of the passed
@@ -13,10 +22,6 @@ def TRIMBOTH(dc, params):
             highest ones.
             Slice off less if proportion results in a non-integer slice index (i.e.
             conservatively slices off `proportiontocut`).
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -27,16 +32,19 @@ def TRIMBOTH(dc, params):
     axis : int or None, optional
             Axis along which to trim data. Default is 0. If None, compute over
             the whole array `a`.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.trimboth(
-            a=dc[0].y,
-            proportiontocut=(
-                float(params["proportiontocut"])
-                if params["proportiontocut"] != ""
-                else None
-            ),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-        ),
+
+    result = OrderedPair(
+        m=scipy.stats.trimboth(
+            a=default.y,
+            proportiontocut=proportiontocut,
+            axis=axis,
+        )
     )
+
+    return result

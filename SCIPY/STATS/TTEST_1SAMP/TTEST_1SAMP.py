@@ -1,19 +1,26 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.stats
 
 
-@flojoy
-def TTEST_1SAMP(dc, params):
-    """
+@flojoy(node_type="default")
+def TTEST_1SAMP(
+    default: OrderedPair | Matrix,
+    popmean: float or array_like,
+    axis: int = 0,
+    nan_policy: str = "propagate",
+    alternative: str = "two-sided",
+) -> OrderedPair | Matrix | Scalar:
+    """The TTEST_1SAMP node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Calculate the T-test for the mean of ONE group of scores.
 
             This is a test for the null hypothesis that the expected value
             (mean) of a sample of independent observations `a` is equal to the given
             population mean, `popmean`.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -45,22 +52,21 @@ def TTEST_1SAMP(dc, params):
             greater than the given population mean (`popmean`)
 
     .. versionadded:: 1.6.0
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.ttest_1samp(
-            a=dc[0].y,
-            popmean=(
-                float or array_like(params["popmean"])
-                if params["popmean"] != ""
-                else None
-            ),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
-            alternative=(
-                str(params["alternative"]) if params["alternative"] != "" else None
-            ),
-        ),
+
+    result = OrderedPair(
+        m=scipy.stats.ttest_1samp(
+            a=default.y,
+            popmean=popmean,
+            axis=axis,
+            nan_policy=nan_policy,
+            alternative=alternative,
+        )
     )
+
+    return result
