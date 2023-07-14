@@ -1,13 +1,19 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataFrame, Array
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.utils import Bunch
 import pandas as pd
-from typing import cast
+from typing import cast, Literal, Optional
 
 
 # TODO: Add more datasets to this node.
 @flojoy
-def TEXT_DATASET(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def TEXT_DATASET(
+    subset: Literal["train", "test", "all"] = "train",
+    categories: Optional[Array] = None,
+    remove_headers: bool = False,
+    remove_footers: bool = False,
+    remove_quotes: bool = False,
+) -> DataFrame:
     """The TEXT_DATASET node loads the 20 newsgroups dataset from scikit-learn.
     The data is returned as a dataframe with one column containing the text
     and the other containing the category.
@@ -47,12 +53,6 @@ def TEXT_DATASET(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         Remove the quotes from the data.
     """
 
-    subset = params.get("subset", "train")
-    categories = params.get("categories", None)
-    remove_headers = params.get("remove_headers", False)
-    remove_footers = params.get("remove_footers", False)
-    remove_quotes = params.get("remove_quotes", False)
-
     to_remove = []
     if remove_headers:
         to_remove.append("headers")
@@ -74,4 +74,4 @@ def TEXT_DATASET(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     labels = [newsgroups.target_names[i] for i in newsgroups.target]
 
     df = pd.DataFrame({"Text": data, "Label": labels})
-    return DataContainer(type="dataframe", m=df)
+    return DataFrame(df=df)

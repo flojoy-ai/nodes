@@ -1,7 +1,6 @@
-from flojoy import flojoy, DataContainer
-import Phidget22
-from Phidget22.Phidget import *
-from Phidget22.Devices.VoltageRatioInput import *
+from flojoy import flojoy, OrderedPair
+from typing import Optional
+from Phidget22.Devices.VoltageRatioInput import VoltageRatioInput
 
 
 def onVoltageRatioChange(self, voltageRatio):
@@ -9,47 +8,46 @@ def onVoltageRatioChange(self, voltageRatio):
     print("VoltageRatio [" + str(self.getChannel()) + "]: " + str(voltageRatio))
 
 
-@flojoy
-def PHIDGET22(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """Pressure Measurement with Phidget 22 sensors"""
+@flojoy(deps={"Phidget22": "1.14.20230331"})
+def PHIDGET22(
+    default: Optional[OrderedPair] = None,
+    n_sensors: int = 1,
+    calibration1: float = 0.015,
+    calibration2: float = 0.06,
+) -> OrderedPair:
+    """
+    The node Phidget allows you to record pressures from Flexiforce sensors using a Phidget InterfaceKit.
+
+    Parameters
+    -----------
+    n_sensors: int
+         Defines the number of pressure sensors connected to the Phidget Interface Kit.
+    calibration1: float
+    calibration2: float
+        Calibration parameters to convert voltage into pressure.
+    """
     voltage: list[float] = []
     pressions: list[float] = []
-    N = params["n_sensors"]
+    sensor_num: list[int] = []
 
-    for i in range(0, N):
+    for i in range(0, n_sensors):
+        sensor_num.append(i + 1)
         # Creation of an instance of the VoltageRationInput class
-        voltageRatioInput = VoltageRatioInput()
+        voltage_ratio_input = VoltageRatioInput()
         # Set Channel for Communication with the Phidget Interface Kit :
-        voltageRatioInput.setChannel(i)
+        voltage_ratio_input.setChannel(i)
         # Assign the handler that will be called when the event occurs :
-        voltageRatioInput.setOnVoltageRatioChangeHandler(onVoltageRatioChange)
+        voltage_ratio_input.setOnVoltageRatioChangeHandler(onVoltageRatioChange)
         # Open the Channel after event handler is set :
-        voltageRatioInput.openWaitForAttachment(5000)
+        voltage_ratio_input.openWaitForAttachment(5000)
 
         volt_i: float = (
-            voltageRatioInput.getVoltageRatio()
+            voltage_ratio_input.getVoltageRatio()
         )  # Measure Voltage from the sensor
         voltage.append(volt_i)  # Add Voltage to the list of measurements
 
         # Example of a Calibration to convert Voltage into pressions :
-        pression_i: float = (volt_i - params["calibration1"]) / params["calibration2"]
-
+        pression_i: float = (volt_i - calibration1) / calibration2
         pressions.append(pression_i)
 
-    return DataContainer(x={"a": voltage, "b": pressions}, y=pressions)
-
-
-@flojoy
-def PHIDGET22_MOCK(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """Mock Function for the node Phidget 22"""
-    voltage: list[float] = []
-    pressions: list[float] = []
-    N = 4
-
-    for i in range(0, N):
-        volt_i: int = i * 10 + 4  # Scalar operation to modify data
-        voltage.append(volt_i)  # Add Voltage to the list of measurements
-        pression_i: float = (volt_i - 0.015) / 0.06
-        pressions.append(pression_i)
-
-    return DataContainer(x={"a": voltage, "b": pressions}, y=pressions)
+    return OrderedPair(x=sensor_num, y=pressions)

@@ -2,119 +2,167 @@
     "rfInstance": {
         "nodes": [
             {
+                "width": 210,
+                "height": 130,
+                "id": "END-04176810-8104-4747-9a8f-df79d12c5298",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-04176810-8104-4747-9a8f-df79d12c5298",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 983.3699387834349,
+                    "y": -33.88997242431205
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 983.3699387834349,
+                    "y": -33.88997242431205
+                },
+                "dragging": true
+            },
+            {
                 "width": 150,
                 "height": 150,
-                "id": "PHIDGET22-d0424b3f-03be-4cac-8b67-ffbc3571008d",
+                "id": "PHIDGET22-c6e0fa47-17f1-4642-ae9e-f52453b7c526",
                 "type": "PHIDGET",
                 "data": {
-                    "id": "PHIDGET22-d0424b3f-03be-4cac-8b67-ffbc3571008d",
+                    "id": "PHIDGET22-c6e0fa47-17f1-4642-ae9e-f52453b7c526",
                     "label": "PHIDGET22",
                     "func": "PHIDGET22",
                     "type": "PHIDGET",
                     "ctrls": {
                         "n_sensors": {
+                            "type": "int",
+                            "default": 1,
                             "functionName": "PHIDGET22",
                             "param": "n_sensors",
-                            "value": 3
+                            "value": "4"
                         },
                         "calibration1": {
+                            "type": "float",
+                            "default": 0.015,
                             "functionName": "PHIDGET22",
                             "param": "calibration1",
                             "value": 0.015
                         },
                         "calibration2": {
+                            "type": "float",
+                            "default": 0.06,
                             "functionName": "PHIDGET22",
                             "param": "calibration2",
                             "value": 0.06
                         }
                     },
-                    "pip_dependencies": [
+                    "inputs": [
                         {
-                            "name": "Phidget22"
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false
                         }
                     ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "Phidget22",
+                            "v": "1.14.20230331"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/INSTRUMENTS/PHIDGET/PHIDGET22/PHIDGET22.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 805.5589512354383,
-                    "y": 209.5153736171739
+                    "x": 104.17972518130836,
+                    "y": -46.665726762869554
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 805.5589512354383,
-                    "y": 209.5153736171739
+                    "x": 104.17972518130836,
+                    "y": -46.665726762869554
                 },
                 "dragging": true
             },
             {
                 "width": 225,
                 "height": 226,
-                "id": "SCATTER-e1ca5543-92a9-4adb-8e90-856b4929c2a8",
-                "type": "PLOTLY_VISOR",
+                "id": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "SCATTER-e1ca5543-92a9-4adb-8e90-856b4929c2a8",
-                    "label": "SCATTER",
-                    "func": "SCATTER",
-                    "type": "PLOTLY_VISOR",
+                    "id": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
+                    "label": "BAR",
+                    "func": "BAR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/BAR/BAR.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1179.8446655211528,
-                    "y": 160.9439450457453
+                    "x": 513.6546307707831,
+                    "y": -80.58167838030928
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1179.8446655211528,
-                    "y": 160.9439450457453
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-164f1210-c01b-4eec-8091-e3d59172ea66",
-                "type": "TERMINATOR",
-                "data": {
-                    "id": "END-164f1210-c01b-4eec-8091-e3d59172ea66",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 1585.5589512354384,
-                    "y": 220.94394504574535
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1585.5589512354384,
-                    "y": 220.94394504574535
+                    "x": 513.6546307707831,
+                    "y": -80.58167838030928
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "PHIDGET22-d0424b3f-03be-4cac-8b67-ffbc3571008d",
-                "sourceHandle": "main",
-                "target": "SCATTER-e1ca5543-92a9-4adb-8e90-856b4929c2a8",
-                "targetHandle": "SCATTER",
-                "id": "reactflow__edge-PHIDGET22-d0424b3f-03be-4cac-8b67-ffbc3571008dmain-SCATTER-e1ca5543-92a9-4adb-8e90-856b4929c2a8SCATTER"
+                "source": "PHIDGET22-c6e0fa47-17f1-4642-ae9e-f52453b7c526",
+                "sourceHandle": "default",
+                "target": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PHIDGET22-c6e0fa47-17f1-4642-ae9e-f52453b7c526default-BAR-8788c5f3-d566-4c58-85dc-59af4e81d36cdefault"
             },
             {
-                "source": "SCATTER-e1ca5543-92a9-4adb-8e90-856b4929c2a8",
-                "sourceHandle": "main",
-                "target": "END-164f1210-c01b-4eec-8091-e3d59172ea66",
-                "targetHandle": "END",
-                "id": "reactflow__edge-SCATTER-e1ca5543-92a9-4adb-8e90-856b4929c2a8main-END-164f1210-c01b-4eec-8091-e3d59172ea66END"
+                "source": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
+                "sourceHandle": "default",
+                "target": "END-04176810-8104-4747-9a8f-df79d12c5298",
+                "targetHandle": "default",
+                "id": "reactflow__edge-BAR-8788c5f3-d566-4c58-85dc-59af4e81d36cdefault-END-04176810-8104-4747-9a8f-df79d12c5298default"
             }
         ],
         "viewport": {
-            "x": 101.96428571428567,
-            "y": 103.24999999999997,
-            "zoom": 0.5
+            "x": -358.59636577932724,
+            "y": 99.85117439980638,
+            "zoom": 1.0581352782820395
         }
     },
     "ctrlsManifest": [
@@ -133,16 +181,7 @@
                 "minH": 1,
                 "minW": 2,
                 "i": "INPUT_PLACEHOLDER"
-            },
-            "param": {
-                "id": "PHIDGET22_PHIDGET22_n_sensors",
-                "functionName": "PHIDGET22",
-                "param": "n_sensors",
-                "nodeId": "PHIDGET22-40ee0d32-7bac-4f5e-af57-419c81c66fab",
-                "inputId": "INPUT_PLACEHOLDER",
-                "type": "int"
-            },
-            "val": 3
+            }
         }
     ]
 }

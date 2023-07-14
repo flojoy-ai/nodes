@@ -45,13 +45,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 537.2274964025175,
-                    "y": 124.6544836723508
+                    "x": 686.186058301981,
+                    "y": 132.26550508327233
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 537.2274964025175,
-                    "y": 124.6544836723508
+                    "x": 686.186058301981,
+                    "y": 132.26550508327233
                 },
                 "dragging": true
             },
@@ -99,13 +99,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 996.3776229285156,
-                    "y": 457.0554549220819
+                    "x": 700.6928626297193,
+                    "y": 377.1390831557569
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 996.3776229285156,
-                    "y": 457.0554549220819
+                    "x": 700.6928626297193,
+                    "y": 377.1390831557569
                 },
                 "dragging": true
             },
@@ -181,105 +181,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1019.4550883026429,
-                    "y": 49.466534694206985
+                    "x": 998.7966016158562,
+                    "y": 140.7987916252648
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1019.4550883026429,
-                    "y": 49.466534694206985
-                },
-                "dragging": true
-            },
-            {
-                "width": 99,
-                "height": 130,
-                "id": "MULTIPLY-208ccf97-8f12-4ee2-ba1c-2c165f730608",
-                "type": "ARITHMETIC",
-                "data": {
-                    "id": "MULTIPLY-208ccf97-8f12-4ee2-ba1c-2c165f730608",
-                    "label": "MULTIPLY",
-                    "func": "MULTIPLY",
-                    "type": "ARITHMETIC",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "a",
-                            "id": "a",
-                            "type": "OrderedPair",
-                            "multiple": false
-                        },
-                        {
-                            "name": "b",
-                            "id": "b",
-                            "type": "OrderedPair",
-                            "multiple": true
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\TRANSFORMERS\\ARITHMETIC\\MULTIPLY\\MULTIPLY.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1364.802957674891,
-                    "y": 87.72023438175188
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1364.802957674891,
-                    "y": 87.72023438175188
-                },
-                "dragging": true
-            },
-            {
-                "width": 99,
-                "height": 130,
-                "id": "DIVIDE-2e2a0a42-9025-4068-ae8b-d0bcef1c7c45",
-                "type": "ARITHMETIC",
-                "data": {
-                    "id": "DIVIDE-2e2a0a42-9025-4068-ae8b-d0bcef1c7c45",
-                    "label": "DIVIDE",
-                    "func": "DIVIDE",
-                    "type": "ARITHMETIC",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "a",
-                            "id": "a",
-                            "type": "OrderedPair",
-                            "multiple": false
-                        },
-                        {
-                            "name": "b",
-                            "id": "b",
-                            "type": "OrderedPair",
-                            "multiple": true
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\TRANSFORMERS\\ARITHMETIC\\DIVIDE\\DIVIDE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1751.3648405267677,
-                    "y": 269.98244321371203
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1751.3648405267677,
-                    "y": 269.98244321371203
+                    "x": 998.7966016158562,
+                    "y": 140.7987916252648
                 },
                 "dragging": true
             },
@@ -306,13 +214,181 @@
                     "selected": true
                 },
                 "position": {
-                    "x": 1989.5328622618058,
-                    "y": 219.18668724407786
+                    "x": 1998.209346880817,
+                    "y": 230.22128020755002
                 },
                 "selected": true,
                 "positionAbsolute": {
-                    "x": 1989.5328622618058,
-                    "y": 219.18668724407786
+                    "x": 1998.209346880817,
+                    "y": 230.22128020755002
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "SCATTER-21704aae-9020-418b-af35-0ff9aa08e52d",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "SCATTER-21704aae-9020-418b-af35-0ff9aa08e52d",
+                    "label": "SCATTER",
+                    "func": "SCATTER",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/SCATTER/SCATTER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1563.318632561524,
+                    "y": 181.0872967974346
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1563.318632561524,
+                    "y": 181.0872967974346
+                },
+                "dragging": true
+            },
+            {
+                "width": 99,
+                "height": 130,
+                "id": "DIVIDE-85b43aa1-996c-49f7-aaaa-c2f5dc70b509",
+                "type": "ARITHMETIC",
+                "data": {
+                    "id": "DIVIDE-85b43aa1-996c-49f7-aaaa-c2f5dc70b509",
+                    "label": "DIVIDE",
+                    "func": "DIVIDE",
+                    "type": "ARITHMETIC",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "a",
+                            "id": "a",
+                            "type": "OrderedPair",
+                            "multiple": false
+                        },
+                        {
+                            "name": "b",
+                            "id": "b",
+                            "type": "OrderedPair",
+                            "multiple": true
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/ARITHMETIC/DIVIDE/DIVIDE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1304.7042785347214,
+                    "y": 234.5247970818711
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1304.7042785347214,
+                    "y": 234.5247970818711
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "SINE-9d81de2f-d788-4df9-86b0-70a1d9bebe40",
+                "type": "SIMULATIONS",
+                "data": {
+                    "id": "SINE-9d81de2f-d788-4df9-86b0-70a1d9bebe40",
+                    "label": "SINE 1",
+                    "func": "SINE",
+                    "type": "SIMULATIONS",
+                    "ctrls": {
+                        "amplitude": {
+                            "type": "float",
+                            "default": 1,
+                            "functionName": "SINE",
+                            "param": "amplitude",
+                            "value": 1
+                        },
+                        "frequency": {
+                            "type": "float",
+                            "default": 1,
+                            "functionName": "SINE",
+                            "param": "frequency",
+                            "value": 1
+                        },
+                        "offset": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "SINE",
+                            "param": "offset",
+                            "value": 0
+                        },
+                        "phase": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "SINE",
+                            "param": "phase",
+                            "value": 0
+                        },
+                        "waveform": {
+                            "type": "select",
+                            "default": "sine",
+                            "options": [
+                                "sine",
+                                "square",
+                                "triangle",
+                                "sawtooth"
+                            ],
+                            "functionName": "SINE",
+                            "param": "waveform",
+                            "value": "sine"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/SINE/SINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1016.8834763936775,
+                    "y": 380.8721729409148
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1016.8834763936775,
+                    "y": 380.8721729409148
                 },
                 "dragging": true
             }
@@ -326,45 +402,46 @@
                 "id": "reactflow__edge-LINSPACE-3c8676a0-d750-4ffb-9383-744e93cdc059default-SINE-0c1b9fec-3f11-46b6-87de-4d9d4bd25878default"
             },
             {
-                "source": "SINE-0c1b9fec-3f11-46b6-87de-4d9d4bd25878",
-                "sourceHandle": "default",
-                "target": "MULTIPLY-208ccf97-8f12-4ee2-ba1c-2c165f730608",
-                "targetHandle": "a",
-                "id": "reactflow__edge-SINE-0c1b9fec-3f11-46b6-87de-4d9d4bd25878default-MULTIPLY-208ccf97-8f12-4ee2-ba1c-2c165f730608a"
-            },
-            {
-                "source": "LINSPACE-8dcb087a-7351-4d5f-bc30-19a48ab35724",
-                "sourceHandle": "default",
-                "target": "MULTIPLY-208ccf97-8f12-4ee2-ba1c-2c165f730608",
-                "targetHandle": "b",
-                "id": "reactflow__edge-LINSPACE-8dcb087a-7351-4d5f-bc30-19a48ab35724default-MULTIPLY-208ccf97-8f12-4ee2-ba1c-2c165f730608b"
-            },
-            {
-                "source": "MULTIPLY-208ccf97-8f12-4ee2-ba1c-2c165f730608",
-                "sourceHandle": "default",
-                "target": "DIVIDE-2e2a0a42-9025-4068-ae8b-d0bcef1c7c45",
-                "targetHandle": "a",
-                "id": "reactflow__edge-MULTIPLY-208ccf97-8f12-4ee2-ba1c-2c165f730608default-DIVIDE-2e2a0a42-9025-4068-ae8b-d0bcef1c7c45a"
-            },
-            {
-                "source": "LINSPACE-8dcb087a-7351-4d5f-bc30-19a48ab35724",
-                "sourceHandle": "default",
-                "target": "DIVIDE-2e2a0a42-9025-4068-ae8b-d0bcef1c7c45",
-                "targetHandle": "b",
-                "id": "reactflow__edge-LINSPACE-8dcb087a-7351-4d5f-bc30-19a48ab35724default-DIVIDE-2e2a0a42-9025-4068-ae8b-d0bcef1c7c45b"
-            },
-            {
-                "source": "DIVIDE-2e2a0a42-9025-4068-ae8b-d0bcef1c7c45",
+                "source": "SCATTER-21704aae-9020-418b-af35-0ff9aa08e52d",
                 "sourceHandle": "default",
                 "target": "END-2209463f-bfeb-4787-b0cd-0c585a316cb3",
                 "targetHandle": "default",
-                "id": "reactflow__edge-DIVIDE-2e2a0a42-9025-4068-ae8b-d0bcef1c7c45default-END-2209463f-bfeb-4787-b0cd-0c585a316cb3default"
+                "id": "reactflow__edge-SCATTER-21704aae-9020-418b-af35-0ff9aa08e52ddefault-END-2209463f-bfeb-4787-b0cd-0c585a316cb3default"
+            },
+            {
+                "source": "SINE-0c1b9fec-3f11-46b6-87de-4d9d4bd25878",
+                "sourceHandle": "default",
+                "target": "DIVIDE-85b43aa1-996c-49f7-aaaa-c2f5dc70b509",
+                "targetHandle": "a",
+                "id": "reactflow__edge-SINE-0c1b9fec-3f11-46b6-87de-4d9d4bd25878default-DIVIDE-85b43aa1-996c-49f7-aaaa-c2f5dc70b509a"
+            },
+            {
+                "source": "DIVIDE-85b43aa1-996c-49f7-aaaa-c2f5dc70b509",
+                "sourceHandle": "default",
+                "target": "SCATTER-21704aae-9020-418b-af35-0ff9aa08e52d",
+                "targetHandle": "default",
+                "id": "reactflow__edge-DIVIDE-85b43aa1-996c-49f7-aaaa-c2f5dc70b509default-SCATTER-21704aae-9020-418b-af35-0ff9aa08e52ddefault"
+            },
+            {
+                "source": "LINSPACE-8dcb087a-7351-4d5f-bc30-19a48ab35724",
+                "sourceHandle": "default",
+                "target": "SINE-9d81de2f-d788-4df9-86b0-70a1d9bebe40",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-8dcb087a-7351-4d5f-bc30-19a48ab35724default-SINE-9d81de2f-d788-4df9-86b0-70a1d9bebe40default"
+            },
+            {
+                "source": "SINE-9d81de2f-d788-4df9-86b0-70a1d9bebe40",
+                "sourceHandle": "default",
+                "target": "DIVIDE-85b43aa1-996c-49f7-aaaa-c2f5dc70b509",
+                "targetHandle": "b",
+                "id": "reactflow__edge-SINE-9d81de2f-d788-4df9-86b0-70a1d9bebe40default-DIVIDE-85b43aa1-996c-49f7-aaaa-c2f5dc70b509b",
+                "selected": false
             }
         ],
         "viewport": {
-            "x": -373.4542219202399,
-            "y": 114.20973884288571,
-            "zoom": 1.101977389476256
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": [

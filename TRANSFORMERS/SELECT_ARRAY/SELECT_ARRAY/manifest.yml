@@ -1,8 +1,0 @@
-COMMAND:
-  - name: SELECT_ARRAY
-    key: SELECT_ARRAY
-    type: SELECT_ARRAY
-    parameters:
-      column:
-        type: int
-        default: 0

@@ -15,6 +15,8 @@ def IMAGE_SMOOTHING(
     specifically for the 'image' type,
     represented by the RGB(A) channels.
 
+    Note: for "gaussian" and "median" type, you are only allowed odd number for kernel value.
+
     Args:
     dc_inputs (list[DataContainer]): List of DataContainer objects containing
     image channels.
@@ -51,6 +53,7 @@ def IMAGE_SMOOTHING(
             case "median":
                 image = cv2.medianBlur(rgba_image, kernel)
             case "bilateral":
+                rgba_image = cv2.cvtColor(rgba_image, cv2.COLOR_BGRA2BGR)
                 image = cv2.bilateralFilter(rgba_image, kernel, kernel * 5, kernel * 5)
         try:
             r, g, b, a = cv2.split(image)

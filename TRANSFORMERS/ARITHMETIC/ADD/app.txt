@@ -127,13 +127,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 207.3780552696801,
-                    "y": 180.93747110313308
+                    "x": 219.269165823263,
+                    "y": 69.16103189945369
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 207.3780552696801,
-                    "y": 180.93747110313308
+                    "x": 219.269165823263,
+                    "y": 69.16103189945369
                 },
                 "dragging": true
             },
@@ -209,13 +209,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 198.71380793093027,
-                    "y": 482.1137146993465
+                    "x": 220.1178069273795,
+                    "y": 275.2083910670039
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 198.71380793093027,
-                    "y": 482.1137146993465
+                    "x": 220.1178069273795,
+                    "y": 275.2083910670039
                 },
                 "dragging": true
             },
@@ -255,19 +255,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 581.5557127190841,
-                    "y": 221.52859261331724
+                    "x": 507.8308272868701,
+                    "y": 246.49992477584135
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 581.5557127190841,
-                    "y": 221.52859261331724
+                    "x": 507.8308272868701,
+                    "y": 246.49992477584135
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "SCATTER-60ebf12f-24b1-4b81-81a2-320252811811",
                 "type": "PLOTLY",
                 "data": {
@@ -295,13 +295,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 859.384664339284,
-                    "y": 244.4561491450475
+                    "x": 758.3102246338292,
+                    "y": 195.7025958753576
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 859.384664339284,
-                    "y": 244.4561491450475
+                    "x": 758.3102246338292,
+                    "y": 195.7025958753576
                 },
                 "dragging": true
             },
@@ -325,20 +325,22 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1393.2337422266592,
-                    "y": 370.3654880306385
+                    "x": 1145.8986427121345,
+                    "y": 245.50882721801798
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1393.2337422266592,
-                    "y": 370.3654880306385
+                    "x": 1145.8986427121345,
+                    "y": 245.50882721801798
                 },
                 "dragging": true
             },
             {
+                "width": 130,
+                "height": 130,
                 "id": "SINE-70c5c7c4-e2dc-4a9f-abd1-2ce8208eb2ff",
                 "type": "SIMULATIONS",
                 "data": {
@@ -404,14 +406,19 @@
                             "type": "OrderedPair"
                         }
                     ],
-                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/SINE/SINE.py"
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/SINE/SINE.py",
+                    "selected": false
                 },
                 "position": {
-                    "x": 193.71963417605252,
-                    "y": -76.72531491059813
+                    "x": 219.88007739393487,
+                    "y": 479.77865899708195
                 },
-                "width": 130,
-                "height": 130
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 219.88007739393487,
+                    "y": 479.77865899708195
+                },
+                "dragging": true
             }
         ],
         "edges": [
@@ -441,7 +448,8 @@
                 "sourceHandle": "default",
                 "target": "ADD-6913967c-6486-478d-91ec-e9db7d795e39",
                 "targetHandle": "a",
-                "id": "reactflow__edge-SINE-990ddb8d-e21a-4365-b291-67758709e0fedefault-ADD-6913967c-6486-478d-91ec-e9db7d795e39a"
+                "id": "reactflow__edge-SINE-990ddb8d-e21a-4365-b291-67758709e0fedefault-ADD-6913967c-6486-478d-91ec-e9db7d795e39a",
+                "selected": false
             },
             {
                 "source": "ADD-6913967c-6486-478d-91ec-e9db7d795e39",
@@ -473,9 +481,9 @@
             }
         ],
         "viewport": {
-            "x": -243.1468079276401,
-            "y": 415.84811491329816,
-            "zoom": 0.7174702250837344
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": []

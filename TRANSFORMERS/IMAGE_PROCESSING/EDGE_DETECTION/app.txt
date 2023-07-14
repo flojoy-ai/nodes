@@ -21,16 +21,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1219.1068275472603,
-                    "y": 491.4009508228414
+                    "x": 1280.0865928617056,
+                    "y": 638.2033147738593
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1219.1068275472603,
-                    "y": 491.4009508228414
+                    "x": 1280.0865928617056,
+                    "y": 638.2033147738593
                 },
                 "dragging": true
             },
@@ -88,13 +88,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 236.1860483486896,
-                    "y": 471.6046318092519
+                    "x": 258.31915756512785,
+                    "y": 470.3026842082849
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 236.1860483486896,
-                    "y": 471.6046318092519
+                    "x": 258.31915756512785,
+                    "y": 470.3026842082849
                 },
                 "dragging": true
             },
@@ -128,13 +128,93 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 742.6450999737312,
-                    "y": 462.668139650493
+                    "x": 665.9863029617956,
+                    "y": 369.65546594267767
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 742.6450999737312,
-                    "y": 462.668139650493
+                    "x": 665.9863029617956,
+                    "y": 369.65546594267767
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-285335dd-85c9-48b9-88f6-2a3dd5680804",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "IMAGE-285335dd-85c9-48b9-88f6-2a3dd5680804",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 982.4493275304173,
+                    "y": 311.74746706708333
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 982.4493275304173,
+                    "y": 311.74746706708333
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-6cd5c97a-781e-4c8f-a926-e7d295cfa402",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "IMAGE-6cd5c97a-781e-4c8f-a926-e7d295cfa402",
+                    "label": "IMAGE 1",
+                    "func": "IMAGE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 618.2655382685319,
+                    "y": 643.2133248042691
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 618.2655382685319,
+                    "y": 643.2133248042691
                 },
                 "dragging": true
             }
@@ -150,15 +230,36 @@
             {
                 "source": "EDGE_DETECTION-1f01cece-bbff-47d7-b217-5b311f88d9ba",
                 "sourceHandle": "default",
+                "target": "IMAGE-285335dd-85c9-48b9-88f6-2a3dd5680804",
+                "targetHandle": "default",
+                "id": "reactflow__edge-EDGE_DETECTION-1f01cece-bbff-47d7-b217-5b311f88d9badefault-IMAGE-285335dd-85c9-48b9-88f6-2a3dd5680804default"
+            },
+            {
+                "source": "IMAGE-285335dd-85c9-48b9-88f6-2a3dd5680804",
+                "sourceHandle": "default",
                 "target": "END-c6aafeb2-8a19-461d-bb71-83b8f8b7fc80",
                 "targetHandle": "default",
-                "id": "reactflow__edge-EDGE_DETECTION-1f01cece-bbff-47d7-b217-5b311f88d9badefault-END-c6aafeb2-8a19-461d-bb71-83b8f8b7fc80default"
+                "id": "reactflow__edge-IMAGE-285335dd-85c9-48b9-88f6-2a3dd5680804default-END-c6aafeb2-8a19-461d-bb71-83b8f8b7fc80default"
+            },
+            {
+                "source": "LOCAL_FILE-745d91c9-0bcf-4ab4-a265-210f2506f20c",
+                "sourceHandle": "default",
+                "target": "IMAGE-6cd5c97a-781e-4c8f-a926-e7d295cfa402",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-745d91c9-0bcf-4ab4-a265-210f2506f20cdefault-IMAGE-6cd5c97a-781e-4c8f-a926-e7d295cfa402default"
+            },
+            {
+                "source": "IMAGE-6cd5c97a-781e-4c8f-a926-e7d295cfa402",
+                "sourceHandle": "default",
+                "target": "END-c6aafeb2-8a19-461d-bb71-83b8f8b7fc80",
+                "targetHandle": "default",
+                "id": "reactflow__edge-IMAGE-6cd5c97a-781e-4c8f-a926-e7d295cfa402default-END-c6aafeb2-8a19-461d-bb71-83b8f8b7fc80default"
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 213.98083177807212,
-            "zoom": 1.4811524052100216
+            "x": 0,
+            "y": 0,
+            "zoom": 1
         }
     },
     "ctrlsManifest": [

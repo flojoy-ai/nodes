@@ -1,10 +1,10 @@
-from flojoy import flojoy, DataFrame, Plotly
+from flojoy import flojoy, DataFrame, Plotly, DataContainer
 from prophet.plot import plot_plotly
 from prophet.serialize import model_from_json
 
 
-@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26"})
-def PROPHET_PLOT(default: DataFrame, periods: int = 365) -> Plotly:
+@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26", "pystan": "2.19.1.1"})
+def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) -> Plotly:
     """The PROPHET_PLOT node plots forecasted trend of the time series data passed in
 
     This is the output plotly graph from the `plot_plotly` function
@@ -30,7 +30,7 @@ def PROPHET_PLOT(default: DataFrame, periods: int = 365) -> Plotly:
     -------
     DataContainer of type "plotly" with the figure containing the plotted components
     """
-    extra = default.extra
+    extra = data.extra
     if not extra or "prophet" not in extra:
         raise ValueError(
             "Prophet model must be available in DataContainer 'extra' key to plot"

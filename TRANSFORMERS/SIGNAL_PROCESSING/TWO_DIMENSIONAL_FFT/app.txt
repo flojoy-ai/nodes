@@ -4,10 +4,10 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "SKLEARNIMAGE-9d6129f4-29c5-42ff-8a2b-a03ac7a7a4c0",
+                "id": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
                 "type": "default",
                 "data": {
-                    "id": "SKLEARNIMAGE-9d6129f4-29c5-42ff-8a2b-a03ac7a7a4c0",
+                    "id": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
                     "label": "SKLEARNIMAGE",
                     "func": "SKLEARNIMAGE",
                     "type": "default",
@@ -76,23 +76,136 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 448.8825215936714,
-                    "y": 301.0931846779866
+                    "x": 289.06340100673725,
+                    "y": 31.048713013173256
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 448.8825215936714,
-                    "y": 301.0931846779866
+                    "x": 289.06340100673725,
+                    "y": 31.048713013173256
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1532.8957187538622,
+                    "y": 33.05596440245415
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1532.8957187538622,
+                    "y": 33.05596440245415
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1062.380266126793,
+                    "y": 265.13327582038596
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1062.380266126793,
+                    "y": 265.13327582038596
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
+                    "label": "IMAGE 1",
+                    "func": "IMAGE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 463.2797046471253,
+                    "y": 253.34979215719778
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 463.2797046471253,
+                    "y": 253.34979215719778
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "TWO_DIMENSIONAL_FFT-46a3f9a1-f262-447b-b18b-2eb4d53f3f2b",
+                "id": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
                 "type": "SIGNAL_PROCESSING",
                 "data": {
-                    "id": "TWO_DIMENSIONAL_FFT-46a3f9a1-f262-447b-b18b-2eb4d53f3f2b",
+                    "id": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
                     "label": "TWO DIMENSIONAL FFT",
                     "func": "TWO_DIMENSIONAL_FFT",
                     "type": "SIGNAL_PROCESSING",
@@ -134,67 +247,55 @@
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/SIGNAL_PROCESSING/TWO_DIMENSIONAL_FFT/TWO_DIMENSIONAL_FFT.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 918.8905267473655,
-                    "y": 305.8298454361863
+                    "x": 814.407349374476,
+                    "y": 21.664981920011172
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 918.8905267473655,
-                    "y": 305.8298454361863
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-5c51aa30-fbfe-48b6-8724-02227e42d4b5",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-5c51aa30-fbfe-48b6-8724-02227e42d4b5",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1328.0989582808365,
-                    "y": 316.14450992038905
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1328.0989582808365,
-                    "y": 316.14450992038905
+                    "x": 814.407349374476,
+                    "y": 21.664981920011172
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "SKLEARNIMAGE-9d6129f4-29c5-42ff-8a2b-a03ac7a7a4c0",
+                "source": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
                 "sourceHandle": "default",
-                "target": "TWO_DIMENSIONAL_FFT-46a3f9a1-f262-447b-b18b-2eb4d53f3f2b",
+                "target": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
                 "targetHandle": "default",
-                "id": "reactflow__edge-SKLEARNIMAGE-9d6129f4-29c5-42ff-8a2b-a03ac7a7a4c0default-TWO_DIMENSIONAL_FFT-46a3f9a1-f262-447b-b18b-2eb4d53f3f2bdefault"
+                "id": "reactflow__edge-SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406default"
             },
             {
-                "source": "TWO_DIMENSIONAL_FFT-46a3f9a1-f262-447b-b18b-2eb4d53f3f2b",
+                "source": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
                 "sourceHandle": "default",
-                "target": "END-5c51aa30-fbfe-48b6-8724-02227e42d4b5",
+                "target": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
                 "targetHandle": "default",
-                "id": "reactflow__edge-TWO_DIMENSIONAL_FFT-46a3f9a1-f262-447b-b18b-2eb4d53f3f2bdefault-END-5c51aa30-fbfe-48b6-8724-02227e42d4b5default"
+                "id": "reactflow__edge-IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427cdefault-END-8d20d677-c761-43cf-8b24-cde84bd667b9default"
+            },
+            {
+                "source": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
+                "sourceHandle": "default",
+                "target": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default"
+            },
+            {
+                "source": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
+                "sourceHandle": "default",
+                "target": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default-END-8d20d677-c761-43cf-8b24-cde84bd667b9default"
+            },
+            {
+                "source": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
+                "sourceHandle": "default",
+                "target": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default-IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427cdefault"
             }
         ],
         "viewport": {

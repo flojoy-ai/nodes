@@ -17,21 +17,21 @@
                             "default": 10,
                             "functionName": "LINSPACE",
                             "param": "start",
-                            "value": 10
+                            "value": "0"
                         },
                         "end": {
                             "type": "float",
                             "default": 0,
                             "functionName": "LINSPACE",
                             "param": "end",
-                            "value": 0
+                            "value": "0.75"
                         },
                         "step": {
                             "type": "int",
                             "default": 1000,
                             "functionName": "LINSPACE",
                             "param": "step",
-                            "value": 1000
+                            "value": "600"
                         }
                     },
                     "outputs": [
@@ -78,7 +78,7 @@
                             "default": 1,
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": 1
+                            "value": "30"
                         },
                         "offset": {
                             "type": "float",
@@ -160,7 +160,7 @@
                             "default": 1,
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": 1
+                            "value": "100"
                         },
                         "offset": {
                             "type": "float",
@@ -300,14 +300,14 @@
                             ],
                             "functionName": "FFT",
                             "param": "window",
-                            "value": "blackman"
+                            "value": "hann"
                         },
                         "real_signal": {
                             "type": "bool",
                             "default": true,
                             "functionName": "FFT",
                             "param": "real_signal",
-                            "value": false
+                            "value": true
                         },
                         "sample_rate": {
                             "type": "int",
@@ -354,12 +354,52 @@
                 "dragging": true
             },
             {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-2bb3fc2d-9616-4d6f-957d-b3321530afa0",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "LINE-2bb3fc2d-9616-4d6f-957d-b3321530afa0",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1525.429172539708,
+                    "y": 297.1407554549438
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1525.429172539708,
+                    "y": 297.1407554549438
+                },
+                "dragging": true
+            },
+            {
                 "width": 210,
                 "height": 130,
-                "id": "END-8c46c4ea-3bf6-4662-81cd-e8b237a9f9be",
+                "id": "END-77220101-3068-486e-986b-e7b1f0a2bf68",
                 "type": "TERMINATORS",
                 "data": {
-                    "id": "END-8c46c4ea-3bf6-4662-81cd-e8b237a9f9be",
+                    "id": "END-77220101-3068-486e-986b-e7b1f0a2bf68",
                     "label": "END",
                     "func": "END",
                     "type": "TERMINATORS",
@@ -376,13 +416,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1512.6675060177693,
-                    "y": 343.502648631045
+                    "x": 1960.3692537016036,
+                    "y": 343.02346241971634
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 1512.6675060177693,
-                    "y": 343.502648631045
+                    "x": 1960.3692537016036,
+                    "y": 343.02346241971634
                 },
                 "dragging": true
             }
@@ -426,15 +466,22 @@
             {
                 "source": "FFT-ae307ae3-517d-4103-a787-02fe288d2e97",
                 "sourceHandle": "default",
-                "target": "END-8c46c4ea-3bf6-4662-81cd-e8b237a9f9be",
+                "target": "LINE-2bb3fc2d-9616-4d6f-957d-b3321530afa0",
                 "targetHandle": "default",
-                "id": "reactflow__edge-FFT-ae307ae3-517d-4103-a787-02fe288d2e97default-END-8c46c4ea-3bf6-4662-81cd-e8b237a9f9bedefault"
+                "id": "reactflow__edge-FFT-ae307ae3-517d-4103-a787-02fe288d2e97default-LINE-2bb3fc2d-9616-4d6f-957d-b3321530afa0default"
+            },
+            {
+                "source": "LINE-2bb3fc2d-9616-4d6f-957d-b3321530afa0",
+                "sourceHandle": "default",
+                "target": "END-77220101-3068-486e-986b-e7b1f0a2bf68",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-2bb3fc2d-9616-4d6f-957d-b3321530afa0default-END-77220101-3068-486e-986b-e7b1f0a2bf68default"
             }
         ],
         "viewport": {
-            "x": -373.4542219202399,
-            "y": 120.20973884288571,
-            "zoom": 1.101977389476256
+            "x": -370.442494324109,
+            "y": 122.55885385221723,
+            "zoom": 1.093090475044996
         }
     },
     "ctrlsManifest": [

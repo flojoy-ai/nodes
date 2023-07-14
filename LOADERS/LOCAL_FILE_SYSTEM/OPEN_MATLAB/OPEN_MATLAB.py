@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 from flojoy import flojoy, DataFrame
 from typing import Union
+=======
+from flojoy import DataFrame, flojoy
+>>>>>>> new-node-api
 import numpy as np
 from scipy.io import loadmat
 from os import path
