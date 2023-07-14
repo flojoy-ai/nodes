@@ -14,12 +14,9 @@ def SERIAL_SINGLE_MEASUREMENT(
     The SERIAL_SINGLE_MEASUREMENT Node takes a single reading of data from an Ardunio,
     or a similar serial device.
 
-    For example you can record temperature following this tutorial:
-    https://learn.adafruit.com/thermistor/using-a-thermistor
-
     Parameters :
     ------------
-    baudrate: Float
+    baudrate: int
         Baud rate for the serial communication.
 
     comport: String
