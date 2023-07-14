@@ -9,7 +9,11 @@ from flojoy import flojoy, DataFrame
 
 
 @flojoy
-def READ_S3(dc_inputs: list[DataContainer], params: dict[str, str], s3_name: str = "", bucket_name: str = "", file_name: str = "") -> DataFrame:
+def READ_S3(
+    s3_name: str = "",
+    bucket_name: str = "",
+    file_name: str = "",
+) -> DataFrame:
     """
     The READ_S3 node takes S3_key name, S3 bucket name, and file name as input,
     and extract the file from the specified bucket using the S3_key that they saved.
@@ -29,9 +33,7 @@ def READ_S3(dc_inputs: list[DataContainer], params: dict[str, str], s3_name: str
         type 'dataframe', m
     """
 
-    name = params["s3_key_name"]
-
-    if name == "":
+    if s3_name == "":
         raise ValueError("Provide a name that was used to set AWS S3 key")
 
     try:
@@ -47,6 +49,6 @@ def READ_S3(dc_inputs: list[DataContainer], params: dict[str, str], s3_name: str
         df = pd.read_parquet(buffer)
 
         return DataFrame(m=df)
-    
+
     except Exception as e:
         print(e)
