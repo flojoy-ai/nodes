@@ -1,9 +1,9 @@
 import pandas as pd
-from flojoy import flojoy, DataContainer, DataFrame, Matrix
+from flojoy import flojoy, DataFrame, Matrix
 
 
 @flojoy
-def DF_2_NP(default: DataFrame) -> DataContainer:
+def DF_2_NP(default: DataFrame) -> Matrix:
     """
     Node to convert dataframe type data into matrix type data.
     It takes one dataframe type data and converts it to matrix type data.
