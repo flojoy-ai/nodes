@@ -17,14 +17,14 @@
                             "default": 10,
                             "functionName": "LINSPACE",
                             "param": "start",
-                            "value": "10"
+                            "value": "0"
                         },
                         "end": {
                             "type": "float",
                             "default": 0,
                             "functionName": "LINSPACE",
                             "param": "end",
-                            "value": "0"
+                            "value": "7"
                         },
                         "step": {
                             "type": "int",
@@ -71,14 +71,14 @@
                             "default": 10,
                             "functionName": "LINSPACE",
                             "param": "start",
-                            "value": 10
+                            "value": "0"
                         },
                         "end": {
                             "type": "float",
                             "default": 0,
                             "functionName": "LINSPACE",
                             "param": "end",
-                            "value": 0
+                            "value": "7"
                         },
                         "step": {
                             "type": "int",
@@ -100,12 +100,12 @@
                 },
                 "position": {
                     "x": 221.6136436053551,
-                    "y": 190.6112961255921
+                    "y": 191.35387198204631
                 },
                 "selected": false,
                 "positionAbsolute": {
                     "x": 221.6136436053551,
-                    "y": 190.6112961255921
+                    "y": 191.35387198204631
                 },
                 "dragging": true
             },
@@ -137,28 +137,28 @@
                             "default": 0,
                             "functionName": "RAND",
                             "param": "lower_bound",
-                            "value": 0
+                            "value": "0"
                         },
                         "upper_bound": {
                             "type": "float",
                             "default": 1,
                             "functionName": "RAND",
                             "param": "upper_bound",
-                            "value": 1
+                            "value": "4"
                         },
                         "normal_mean": {
                             "type": "float",
                             "default": 0,
                             "functionName": "RAND",
                             "param": "normal_mean",
-                            "value": 0
+                            "value": "3"
                         },
                         "normal_standard_deviation": {
                             "type": "float",
                             "default": 1,
                             "functionName": "RAND",
                             "param": "normal_standard_deviation",
-                            "value": 1
+                            "value": "1.5"
                         },
                         "poisson_events": {
                             "type": "float",
@@ -187,13 +187,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 450.38076673531896,
-                    "y": 187.6420416616138
+                    "x": 455.0449564031011,
+                    "y": 193.63885694876228
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 450.38076673531896,
-                    "y": 187.6420416616138
+                    "x": 455.0449564031011,
+                    "y": 193.63885694876228
                 },
                 "dragging": true
             },
@@ -395,9 +395,9 @@
             }
         ],
         "viewport": {
-            "x": -231.50146122260037,
-            "y": 164.43135961604688,
-            "zoom": 0.6831074892828619
+            "x": -456.37712173371256,
+            "y": 259.03077225262325,
+            "zoom": 1.3466637668169514
         }
     },
     "ctrlsManifest": [

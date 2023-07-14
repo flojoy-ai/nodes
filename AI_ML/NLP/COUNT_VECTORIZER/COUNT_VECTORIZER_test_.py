@@ -3,7 +3,7 @@ import numpy
 from functools import wraps
 from unittest.mock import patch
 
-from flojoy import Matrix, OrderedPair
+from flojoy import Matrix, DataFrame, Vector
 
 
 # Python functions are decorated at module-loading time, So we'll need to patch our decorator
@@ -42,8 +42,10 @@ def test_COUNT_VECTORIZER():
     res = COUNT_VECTORIZER.COUNT_VECTORIZER([element_a], {})
 
     # check that the outputs look correct
-    assert isinstance(res, OrderedPair)
-    assert (set(res.x)) == {
+    assert isinstance(res, COUNT_VECTORIZER.CountVectorizerOutput)
+    assert isinstance(res.tokens, DataFrame)
+    assert isinstance(res.word_count_vector, Vector)
+    assert (set(res.tokens.df)) == {
         "and",
         "document",
         "first",
@@ -56,7 +58,7 @@ def test_COUNT_VECTORIZER():
     }
 
     assert numpy.array_equal(
-        res.y,
+        res.word_count_vector.v,
         numpy.array(
             [
                 [0, 1, 1, 1, 0, 0, 1, 0, 1],

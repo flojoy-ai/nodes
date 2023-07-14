@@ -6,7 +6,7 @@ import pandas as pd
 
 class CountVectorizerOutput(TypedDict):
     tokens: DataFrame
-    word_count_vector: Matrix
+    word_count_vector: Vector
 
 
 @flojoy(deps={"scikit-learn": "1.2.2"})
