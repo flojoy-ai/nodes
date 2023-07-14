@@ -31,9 +31,9 @@ if git branch -a | grep -q $DOC_BRANCH; then
   cd $GITHUB_WORKSPACE
   python3 write_doc.py $DOC_FOLDER
   cd $DOC_FOLDER
+  python3 generate_nodesidebar.py
   if git status --porcelain | grep -q .; then
     echo "There are changes in the branch."
-    python3 generate_nodesidebar.py
     git add .
     git commit -m "update: $LAST_COMMIT_MSG"
     git push origin $DOC_BRANCH
@@ -48,8 +48,8 @@ else
   cd $GITHUB_WORKSPACE
   python3 write_doc.py $DOC_FOLDER
   cd $DOC_FOLDER
+  python3 generate_nodesidebar.py
   if git status --porcelain | grep -q .; then
-    python3 generate_nodesidebar.py
     git add .
     git commit -m "update: $LAST_COMMIT_MSG"
     git push -u origin $DOC_BRANCH --force
