@@ -21,7 +21,7 @@ def TRAIN_TEST_SPLIT(
         The size of testing data specified
     Returns
     -------
-    Dataframe
+    TrainTestSplitOutput(DataFrame, DataFrame)
         a dataframe of training data, and a dataframe of test data.
     """
 

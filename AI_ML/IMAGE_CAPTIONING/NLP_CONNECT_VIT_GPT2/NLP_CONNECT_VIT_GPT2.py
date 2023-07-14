@@ -13,11 +13,12 @@ def NLP_CONNECT_VIT_GPT2(default: Image) -> DataFrame:
 
     Parameters
     ----------
+    None
 
     Returns:
     --------
     DataContainer:
-        type 'dataframe' containing the caption column, and a single row.
+        DataFrame containing the caption column, and a single row.
 
     """
     r, g, b, a = default.r, default.g, default.b, default.a

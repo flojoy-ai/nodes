@@ -16,7 +16,7 @@ def ONE_HOT_ENCODING(
 
     Returns
     -------
-    matrix
+    Dataframe
         The one hot encoding of the input features.
     """
 

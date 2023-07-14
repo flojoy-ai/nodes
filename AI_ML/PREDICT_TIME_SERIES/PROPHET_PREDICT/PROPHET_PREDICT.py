@@ -50,8 +50,9 @@ def PROPHET_PREDICT(
     Returns
     -------
     DataFrame with param `df` which indicates either the original
-        df passed in, or the forecasted df (depending on if `run_forecast` is True),
-        as well as the `extra` param with keys "run_forecast" which correspond to the
+        df passed in, or the forecasted df (depending on if `run_forecast` is True)
+
+    DataContainer with param 'extra' containing keys "run_forecast" which correspond to the
         input param, and potentially "original" in the event that `run_forecast` is True
     """
 

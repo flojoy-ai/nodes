@@ -26,7 +26,7 @@ import COUNT_VECTORIZER
 
 
 def test_COUNT_VECTORIZER():
-    # create the two ordered pair datacontainers
+    # create the CountVectorizerOutput container
     element_a = Matrix(
         m=numpy.array(
             [

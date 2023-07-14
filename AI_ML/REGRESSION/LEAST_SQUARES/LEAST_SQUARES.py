@@ -16,9 +16,11 @@ def LEAST_SQUARES(
 
     Returns
     -------
-    ordered pair
+    OrderedPair
         x: input matrix (data points)
         y: fitted line computed with returned regression weights
+    Matrix
+        m : fitted matrix computed with returned regression weights
     """
 
     if b is None and isinstance(a, OrderedPair):

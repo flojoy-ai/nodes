@@ -16,8 +16,8 @@ def BART_LARGE_CNN(default: DataFrame) -> DataFrame:
 
     Returns:
     --------
-    DataContainer:
-        type 'dataframe' containing the summary text in the "summary_text" column.
+    DataFrame
+        dataframe containing the summary text in the "summary_text" column.
 
     """
     input_df = default.m
