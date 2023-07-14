@@ -1,1 +1,15 @@
-__all__ = ["CHOLESKY", "DET", "EIG", "EIGH", "EIGVALS", "EIGVALSH", "INV", "MATRIX_POWER", "PINV", "QR", "SLOGDET", "SVD", "TENSORINV"]
+__all__ = [
+    "CHOLESKY",
+    "DET",
+    "EIG",
+    "EIGH",
+    "EIGVALS",
+    "EIGVALSH",
+    "INV",
+    "MATRIX_POWER",
+    "PINV",
+    "QR",
+    "SLOGDET",
+    "SVD",
+    "TENSORINV",
+]

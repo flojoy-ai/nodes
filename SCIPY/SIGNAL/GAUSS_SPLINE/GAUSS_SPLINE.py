@@ -5,33 +5,34 @@ import numpy as np
 import scipy.signal
 
 
-@flojoy(node_type='default')
+@flojoy(node_type="default")
 def GAUSS_SPLINE(
-	default: OrderedPair | Matrix,
-	n: int,
-	) -> OrderedPair | Matrix | Scalar:
-	'''The GAUSS_SPLINE node is based on a numpy or scipy function.
-	The description of that function is as follows:
+    default: OrderedPair | Matrix,
+    n: int,
+) -> OrderedPair | Matrix | Scalar:
+    """The GAUSS_SPLINE node is based on a numpy or scipy function.
+    The description of that function is as follows:
 
-		Gaussian approximation to B-spline basis function of order n.
-		
-	Parameters
-	----------
-	x : array_like
-		a knot vector
-	n : int
-		The order of the spline. Must be non-negative, i.e., n >= 0
+            Gaussian approximation to B-spline basis function of order n.
 
-	Returns
-	----------
-	DataContainer:
-		type 'ordered pair', 'scalar', or 'matrix'
-	'''
+    Parameters
+    ----------
+    x : array_like
+            a knot vector
+    n : int
+            The order of the spline. Must be non-negative, i.e., n >= 0
 
-	result = OrderedPair(
-		m=scipy.signal.gauss_spline(
-			x=default.y,
-			n=n,
-		))
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
+    """
 
-	return result
+    result = OrderedPair(
+        m=scipy.signal.gauss_spline(
+            x=default.y,
+            n=n,
+        )
+    )
+
+    return result
