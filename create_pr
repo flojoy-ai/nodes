@@ -33,6 +33,7 @@ if git branch -a | grep -q $DOC_BRANCH; then
   cd $DOC_FOLDER
   if git status --porcelain | grep -q .; then
     echo "There are changes in the branch."
+    python3 generate_nodesidebar.py
     git add .
     git commit -m "update: $LAST_COMMIT_MSG"
     git push origin $DOC_BRANCH
