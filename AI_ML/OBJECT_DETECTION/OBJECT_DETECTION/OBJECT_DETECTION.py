@@ -18,12 +18,11 @@ def OBJECT_DETECTION(default: Image) -> Image:
 
     Supported DC types:
     -------------------
-    `image'
+    Image
 
     Returns:
     ----------
-    DataContainer:
-        type 'image' (RGB(A)).
+    Image (RGB(A)).
     """
     r = default.r
     g = default.g

@@ -1,8 +1,0 @@
-COMMAND:
-  - name: Extract Columns 
-    key: EXTRACT_COLUMNS
-    type: DATAFRAME
-    parameters:
-      columns:
-        type: array
-        default: ""

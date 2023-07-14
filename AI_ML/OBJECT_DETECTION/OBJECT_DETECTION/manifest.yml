@@ -1,7 +1,0 @@
-COMMAND:
-  - name: Object Detection
-    key: OBJECT_DETECTION
-    type: OBJECT_DETECTION
-    pip_dependencies:
-      - name: opencv-python-headless
-        v: "4.7.0.72"

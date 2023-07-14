@@ -1,15 +1,20 @@
 import pandas as pd
-from flojoy import flojoy, DataFrame
-from typing import Any, Dict, List
+from flojoy import flojoy, DataFrame, DataContainer
 from prophet import Prophet
+from typing import TypedDict
 from prophet.serialize import model_to_json
 
 
-@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26"})
+class ProphetPredictOutput(TypedDict):
+    dataframe: DataFrame
+    prophet_data: DataContainer
+
+
+@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26", "pystan": "2.19.1.1"})
 def PROPHET_PREDICT(
     default: DataFrame, run_forecast: bool = True, periods: int = 365
-) -> DataFrame:
-    """The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe
+) -> ProphetPredictOutput:
+    """The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe.
 
     The DataContainer input type must be `dataframe`, and that dataframe must have its
     first column (or index) be of datetime type.
@@ -44,9 +49,10 @@ def PROPHET_PREDICT(
 
     Returns
     -------
-    DataContainer of type `dataframe` with param `m` which indicates either the original
-        df passed in, or the forecasted df (depending on if `run_forecast` is True),
-        as well as the `extra` param with keys "run_forecast" which correspond to the
+    DataFrame with param `df` which indicates either the original
+        df passed in, or the forecasted df (depending on if `run_forecast` is True)
+
+    DataContainer with param 'extra' containing keys "run_forecast" which correspond to the
         input param, and potentially "original" in the event that `run_forecast` is True
     """
 
@@ -69,4 +75,6 @@ def PROPHET_PREDICT(
         forecast = model.predict(future)
         extra["original"] = df
         return_df = forecast
-    return DataFrame(df=return_df, extra=extra)
+    return ProphetPredictOutput(
+        dataframe=DataFrame(df=return_df), prophet_data=DataContainer(extra=extra)
+    )

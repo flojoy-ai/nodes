@@ -1,51 +1,31 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataFrame
+from typing import Optional
 import pandas as pd
-from typing import cast
 
 
 @flojoy
-def ONE_HOT_ENCODING(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe containing categorical features.
+def ONE_HOT_ENCODING(
+    data: DataFrame,
+    feature_col: Optional[DataFrame] = None,
+) -> DataFrame:
+    """The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe and columns dataframe containing categorical features.
 
     Parameters
     ----------
-    categories : list of str or list of int, optional
-        A list of categories, can be used to generate a one hot encoding without having to pass a dataframe.
-    columns: list of str, optional
-        Specifies the columns to encode. By default, the node will encode all categorical columns.
+    None
 
     Returns
     -------
-    matrix
+    Dataframe
         The one hot encoding of the input features.
     """
 
-    dc = dc_inputs[0] if len(dc_inputs) > 0 else None
+    df = data.m
+    if feature_col:
+        encoded = pd.get_dummies(df, columns=feature_col.m.columns.to_list())
 
-    if dc is not None and dc.type != "dataframe":
-        raise ValueError(
-            f"unsupported DataContainer type passed to ONE_HOT_ENCODING node: '{dc.type}'"
-        )
-
-    categories = params.get("categories", [])
-    columns = params.get("columns", [])
-
-    if categories:
-        data = pd.DataFrame({"category": categories})
-        # Force pandas to treat the column as categorical
-        data["category"] = data["category"].astype("category")
-        encoded = pd.get_dummies(data, dtype=int)
-
-        return DataContainer(type="dataframe", m=encoded)
-
-    if not dc:
-        raise ValueError(f"ONE_HOT_ENCODING node did not receive input DataContainer")
-
-    if columns:
-        encoded = pd.get_dummies(dc.m[columns])
     else:
-        df = cast(pd.DataFrame, dc.m)
-        cat_df = df.select_dtypes(include=["object", "category"])
-        encoded = pd.get_dummies(cat_df, dtype=int)
+        cat_df = df.select_dtypes(include=["object", "category"]).columns.to_list()
+        encoded = pd.get_dummies(df, columns=cat_df)
 
-    return DataContainer(type="dataframe", m=encoded)
+    return DataFrame(df=encoded)
