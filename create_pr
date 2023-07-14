@@ -29,7 +29,7 @@ if git branch -a | grep -q $DOC_BRANCH; then
   git checkout $DOC_BRANCH
   git pull
   cd $GITHUB_WORKSPACE
-  python3 write_doc_string.py $DOC_FOLDER
+  python3 write_doc.py $DOC_FOLDER
   cd $DOC_FOLDER
   if git status --porcelain | grep -q .; then
     echo "There are changes in the branch."
@@ -49,6 +49,7 @@ else
   python3 write_doc.py $DOC_FOLDER
   cd $DOC_FOLDER
   if git status --porcelain | grep -q .; then
+    python3 generate_nodesidebar.py
     git add .
     git commit -m "update: $LAST_COMMIT_MSG"
     git push -u origin $DOC_BRANCH --force
