@@ -4,10 +4,10 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "PLOTLY_DATASET-30adf97a-d9e8-481e-813a-7f7c31ce9516",
+                "id": "PLOTLY_DATASET-905b1a9b-05ef-4ae4-b51a-8574359571cf",
                 "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "PLOTLY_DATASET-30adf97a-d9e8-481e-813a-7f7c31ce9516",
+                    "id": "PLOTLY_DATASET-905b1a9b-05ef-4ae4-b51a-8574359571cf",
                     "label": "PLOTLY DATASET",
                     "func": "PLOTLY_DATASET",
                     "type": "SAMPLE_DATASETS",
@@ -43,23 +43,116 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 978.428833543101,
-                    "y": 619.7571715375085
+                    "x": 225.17466971279896,
+                    "y": 33.26430366645344
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 978.428833543101,
-                    "y": 619.7571715375085
+                    "x": 225.17466971279896,
+                    "y": 33.26430366645344
+                }
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "EXTRACT_COLUMNS-c8e238a7-337c-479f-a2c6-bf607cb52779",
+                "type": "EXTRACT_COLUMNS",
+                "data": {
+                    "id": "EXTRACT_COLUMNS-c8e238a7-337c-479f-a2c6-bf607cb52779",
+                    "label": "EXTRACT COLUMNS",
+                    "func": "EXTRACT_COLUMNS",
+                    "type": "EXTRACT_COLUMNS",
+                    "ctrls": {
+                        "columns": {
+                            "type": "Array",
+                            "default": null,
+                            "functionName": "EXTRACT_COLUMNS",
+                            "param": "columns",
+                            "value": "smoker,day"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/EXTRACTORS/EXTRACT_COLUMNS/EXTRACT_COLUMNS/EXTRACT_COLUMNS.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 479.4724139818194,
+                    "y": 227.22426944242306
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 479.4724139818194,
+                    "y": 227.22426944242306
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "ONE_HOT_ENCODING-eef29534-7bf7-4d54-aff9-8fc25081c822",
+                "type": "CLASSIFICATION",
+                "data": {
+                    "id": "ONE_HOT_ENCODING-eef29534-7bf7-4d54-aff9-8fc25081c822",
+                    "label": "ONE HOT ENCODING",
+                    "func": "ONE_HOT_ENCODING",
+                    "type": "CLASSIFICATION",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "data",
+                            "id": "data",
+                            "type": "DataFrame",
+                            "multiple": false
+                        },
+                        {
+                            "name": "feature_col",
+                            "id": "feature_col",
+                            "type": "DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/CLASSIFICATION/ONE_HOT_ENCODING/ONE_HOT_ENCODING.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 747.6834197435038,
+                    "y": 52.737263025393986
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 747.6834197435038,
+                    "y": 52.737263025393986
                 },
                 "dragging": true
             },
             {
                 "width": 225,
                 "height": 226,
-                "id": "TABLE-4890e831-e47a-4cac-abbc-ad1cdc44a1be",
+                "id": "TABLE-e6aab77d-927f-4eeb-be3f-afdd469df2ae",
                 "type": "PLOTLY",
                 "data": {
-                    "id": "TABLE-4890e831-e47a-4cac-abbc-ad1cdc44a1be",
+                    "id": "TABLE-e6aab77d-927f-4eeb-be3f-afdd469df2ae",
                     "label": "TABLE",
                     "func": "TABLE",
                     "type": "PLOTLY",
@@ -83,71 +176,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1514.7353534521872,
-                    "y": 579.1976186178942
+                    "x": 1061.7767903212753,
+                    "y": 13.83665125511368
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1514.7353534521872,
-                    "y": 579.1976186178942
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "ONE_HOT_ENCODING-17a639f5-ff77-406e-9892-8a3f782ae98c",
-                "type": "CLASSIFICATION",
-                "data": {
-                    "id": "ONE_HOT_ENCODING-17a639f5-ff77-406e-9892-8a3f782ae98c",
-                    "label": "ONE HOT ENCODING",
-                    "func": "ONE_HOT_ENCODING",
-                    "type": "CLASSIFICATION",
-                    "ctrls": {
-                        "columns": {
-                            "type": "Array",
-                            "default": null,
-                            "functionName": "ONE_HOT_ENCODING",
-                            "param": "columns",
-                            "value": "smoker,day"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "DataFrame",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "DataFrame"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/AI_ML/CLASSIFICATION/ONE_HOT_ENCODING/ONE_HOT_ENCODING.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1265.9160938047276,
-                    "y": 617.6797946009418
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1265.9160938047276,
-                    "y": 617.6797946009418
+                    "x": 1061.7767903212753,
+                    "y": 13.83665125511368
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-dd378efc-5c9b-4a23-9482-4443ce580ec3",
+                "id": "END-231a4b73-fe64-458a-8c94-639ad6bf3185",
                 "type": "TERMINATORS",
                 "data": {
-                    "id": "END-dd378efc-5c9b-4a23-9482-4443ce580ec3",
+                    "id": "END-231a4b73-fe64-458a-8c94-639ad6bf3185",
                     "label": "END",
                     "func": "END",
                     "type": "TERMINATORS",
@@ -161,41 +206,55 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1794.88168866874,
-                    "y": 625.2224288315967
+                    "x": 1435.9145236034444,
+                    "y": 59.62742310508037
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1794.88168866874,
-                    "y": 625.2224288315967
+                    "x": 1435.9145236034444,
+                    "y": 59.62742310508037
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "PLOTLY_DATASET-30adf97a-d9e8-481e-813a-7f7c31ce9516",
+                "source": "PLOTLY_DATASET-905b1a9b-05ef-4ae4-b51a-8574359571cf",
                 "sourceHandle": "default",
-                "target": "ONE_HOT_ENCODING-17a639f5-ff77-406e-9892-8a3f782ae98c",
+                "target": "EXTRACT_COLUMNS-c8e238a7-337c-479f-a2c6-bf607cb52779",
                 "targetHandle": "default",
-                "id": "reactflow__edge-PLOTLY_DATASET-30adf97a-d9e8-481e-813a-7f7c31ce9516default-ONE_HOT_ENCODING-17a639f5-ff77-406e-9892-8a3f782ae98cdefault"
+                "id": "reactflow__edge-PLOTLY_DATASET-905b1a9b-05ef-4ae4-b51a-8574359571cfdefault-EXTRACT_COLUMNS-c8e238a7-337c-479f-a2c6-bf607cb52779default"
             },
             {
-                "source": "ONE_HOT_ENCODING-17a639f5-ff77-406e-9892-8a3f782ae98c",
+                "source": "PLOTLY_DATASET-905b1a9b-05ef-4ae4-b51a-8574359571cf",
                 "sourceHandle": "default",
-                "target": "TABLE-4890e831-e47a-4cac-abbc-ad1cdc44a1be",
-                "targetHandle": "default",
-                "id": "reactflow__edge-ONE_HOT_ENCODING-17a639f5-ff77-406e-9892-8a3f782ae98cdefault-TABLE-4890e831-e47a-4cac-abbc-ad1cdc44a1bedefault"
+                "target": "ONE_HOT_ENCODING-eef29534-7bf7-4d54-aff9-8fc25081c822",
+                "targetHandle": "data",
+                "id": "reactflow__edge-PLOTLY_DATASET-905b1a9b-05ef-4ae4-b51a-8574359571cfdefault-ONE_HOT_ENCODING-eef29534-7bf7-4d54-aff9-8fc25081c822data"
             },
             {
-                "source": "TABLE-4890e831-e47a-4cac-abbc-ad1cdc44a1be",
+                "source": "EXTRACT_COLUMNS-c8e238a7-337c-479f-a2c6-bf607cb52779",
                 "sourceHandle": "default",
-                "target": "END-dd378efc-5c9b-4a23-9482-4443ce580ec3",
+                "target": "ONE_HOT_ENCODING-eef29534-7bf7-4d54-aff9-8fc25081c822",
+                "targetHandle": "feature_col",
+                "id": "reactflow__edge-EXTRACT_COLUMNS-c8e238a7-337c-479f-a2c6-bf607cb52779default-ONE_HOT_ENCODING-eef29534-7bf7-4d54-aff9-8fc25081c822feature_col"
+            },
+            {
+                "source": "ONE_HOT_ENCODING-eef29534-7bf7-4d54-aff9-8fc25081c822",
+                "sourceHandle": "default",
+                "target": "TABLE-e6aab77d-927f-4eeb-be3f-afdd469df2ae",
                 "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-4890e831-e47a-4cac-abbc-ad1cdc44a1bedefault-END-dd378efc-5c9b-4a23-9482-4443ce580ec3default"
+                "id": "reactflow__edge-ONE_HOT_ENCODING-eef29534-7bf7-4d54-aff9-8fc25081c822default-TABLE-e6aab77d-927f-4eeb-be3f-afdd469df2aedefault"
+            },
+            {
+                "source": "TABLE-e6aab77d-927f-4eeb-be3f-afdd469df2ae",
+                "sourceHandle": "default",
+                "target": "END-231a4b73-fe64-458a-8c94-639ad6bf3185",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-e6aab77d-927f-4eeb-be3f-afdd469df2aedefault-END-231a4b73-fe64-458a-8c94-639ad6bf3185default"
             }
         ],
         "viewport": {

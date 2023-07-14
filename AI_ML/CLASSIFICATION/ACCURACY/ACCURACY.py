@@ -30,12 +30,12 @@ def ACCURACY(
 
     # if users prov
     if true_label:
-        true_label = true_df.iloc[:, true_label]
+        true_label = true_df[true_label]
     else:
         true_label = true_df.iloc[:, 0]
 
     if predicted_label:
-        predicted_label = predicted_df.iloc[:, predicted_label]
+        predicted_label = predicted_df[predicted_label]
     else:
         predicted_label = predicted_df.iloc[:, 0]
 

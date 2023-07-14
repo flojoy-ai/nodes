@@ -1,20 +1,18 @@
-from flojoy import flojoy, Matrix, DataFrame, Array
-
+from flojoy import flojoy, DataFrame
 from typing import Optional
 import pandas as pd
 
 
 @flojoy
 def ONE_HOT_ENCODING(
-    default: DataFrame,
-    columns: Optional[Array] = None,
+    data: DataFrame,
+    feature_col: Optional[DataFrame] = None,
 ) -> DataFrame:
-    """The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe containing categorical features.
+    """The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe and columns dataframe containing categorical features.
 
     Parameters
     ----------
-    columns: list of str, optional
-        Specifies the columns to encode. By default, the node will encode all categorical columns.
+    None
 
     Returns
     -------
@@ -22,9 +20,9 @@ def ONE_HOT_ENCODING(
         The one hot encoding of the input features.
     """
 
-    df = default.m
-    if columns and columns.unwrap():
-        encoded = pd.get_dummies(df, columns=columns.unwrap())
+    df = data.m
+    if feature_col:
+        encoded = pd.get_dummies(df, columns=feature_col.m.columns.to_list())
 
     else:
         cat_df = df.select_dtypes(include=["object", "category"]).columns.to_list()
