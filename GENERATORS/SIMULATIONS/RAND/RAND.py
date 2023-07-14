@@ -1,12 +1,12 @@
 import random
 import numpy as np
-from flojoy import flojoy, OrderedPair, Scalar
+from flojoy import flojoy, OrderedPair, Scalar, Vector
 from typing import Literal, Optional
 
 
 @flojoy
 def RAND(
-    default: Optional[OrderedPair] = None,
+    default: Optional[OrderedPair | Vector] = None,
     distribution: Literal["normal", "uniform", "poisson"] = "normal",
     lower_bound: float = 0,
     upper_bound: float = 1,
@@ -45,7 +45,13 @@ def RAND(
 
     seed = random.randint(1, 10000)
     my_generator = np.random.default_rng(seed)
-    size = len(default.x) if default is not None else 1
+
+    match default:
+        case OrderedPair():
+            size = len(default.x) if default else 1
+        case Vector():
+            size = len(default.v) if default else 1
+
     match distribution:
         case "uniform":
             y = my_generator.uniform(low=lower_bound, high=upper_bound, size=size)
@@ -55,8 +61,13 @@ def RAND(
             )
         case "poisson":
             y = my_generator.poisson(lam=poisson_events, size=size)
-    if default is not None:
-        x = default.x
-        return OrderedPair(x=x, y=y)
-    else:
-        return Scalar(c=y)
+
+    match default:
+        case OrderedPair():
+            x = default.x
+        case Vector():
+            x = default.v
+        case _:
+            return Scalar(c=y)
+
+    return OrderedPair(x=x, y=y)
