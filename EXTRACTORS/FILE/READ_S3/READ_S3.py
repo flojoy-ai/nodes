@@ -4,11 +4,12 @@ import pandas as pd
 import yaml
 import io
 import boto3
-from flojoy import flojoy, DataContainer
+import keyring
+from flojoy import flojoy, DataFrame
 
 
 @flojoy
-def READ_S3(dc_inputs: list[DataContainer], params: dict[str, str]):
+def READ_S3(dc_inputs: list[DataContainer], params: dict[str, str], s3_name: str = "", bucket_name: str = "", file_name: str = "") -> DataFrame:
     """
     The READ_S3 node takes S3_key name, S3 bucket name, and file name as input,
     and extract the file from the specified bucket using the S3_key that they saved.
@@ -33,21 +34,19 @@ def READ_S3(dc_inputs: list[DataContainer], params: dict[str, str]):
     if name == "":
         raise ValueError("Provide a name that was used to set AWS S3 key")
 
-    home = str(Path.home())
-    file_path = os.path.join(home, ".flojoy/credentials.yaml")
+    try:
+        accessKey = keyring.get_password(f"{s3_name}accessKey")
+        secretKey = keyring.get_password(f"{s3_name}secretKey")
 
-    with open(file_path, "r") as file:
-        data = yaml.safe_load(file)
+        s3 = boto3.resource(
+            "s3", aws_access_key_id=accessKey, aws_secret_access_key=secretKey
+        )
+        object = s3.Object(bucket_name, file_name)
+        buffer = io.BytesIO()
+        object.download_fileobj(buffer)
+        df = pd.read_parquet(buffer)
 
-    s3_access_key = data[name + "accessKey"]
-    s3_secret_key = data[name + "secretKey"]
-
-    s3 = boto3.resource(
-        "s3", aws_access_key_id=s3_access_key, aws_secret_access_key=s3_secret_key
-    )
-    object = s3.Object(params["bucket_name"], params["file_name"])
-    buffer = io.BytesIO()
-    object.download_fileobj(buffer)
-    df = pd.read_parquet(buffer)
-
-    return DataContainer(type="dataframe", m=df)
+        return DataFrame(m=df)
+    
+    except Exception as e:
+        print(e)
