@@ -1,33 +1,42 @@
-from flojoy import OrderedPair, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import numpy.linalg
 
 
-@flojoy(node_type="default")
+@flojoy(node_type='default')
 def INV(
-    default: OrderedPair,
-) -> OrderedPair:
-    """The INV node is based on a numpy or scipy function.
-    The description of that function is as follows:
+	default: OrderedPair | Matrix,
+	) -> OrderedPair | Matrix | Scalar:
+	'''The INV node is based on a numpy or scipy function.
+	The description of that function is as follows:
 
+		
+		Compute the (multiplicative) inverse of a matrix.
+		
+		Given a square matrix `a`, return the matrix `ainv` satisfying
+		``dot(a, ainv) = dot(ainv, a) = eye(a.shape[0])``.
+		
+	Parameters
+	----------
+	a : (..., M, M) array_like
+		Matrix to be inverted.
 
-            Compute the (multiplicative) inverse of a matrix.
+	Returns
+	----------
+	DataContainer:
+		type 'ordered pair', 'scalar', or 'matrix'
+	'''
 
-            Given a square matrix `a`, return the matrix `ainv` satisfying
-            ``dot(a, ainv) = dot(ainv, a) = eye(a.shape[0])``.
+	result = numpy.linalg.inv(
+			a=default.m,
+			)
 
-    Parameters
-    ----------
-    a : (..., M, M) array_like
-            Matrix to be inverted.
-
-    Returns
-    ----------
-    DataContainer:
-            type 'ordered pair'"""
-    result = OrderedPair(
-        x=default.x,
-        y=numpy.linalg.inv(
-            a=default.y,
-        ),
-    )
-    return result
+	if type(result) == np.ndarray:
+		result = Matrix(m=result)
+	
+	elif type(result) == np.float64:
+		result = Scalar(c=result)
+	
+	return result

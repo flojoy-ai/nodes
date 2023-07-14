@@ -1,31 +1,35 @@
-from flojoy import OrderedPair, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy(node_type='default')
 def CUBIC(
-    default: OrderedPair,
-) -> OrderedPair:
-    """The CUBIC node is based on a numpy or scipy function.
-    The description of that function is as follows:
+	default: OrderedPair | Matrix,
+	) -> OrderedPair | Matrix | Scalar:
+	'''The CUBIC node is based on a numpy or scipy function.
+	The description of that function is as follows:
 
-            A cubic B-spline.
+		A cubic B-spline.
+		
+		This is a special case of `bspline`, and equivalent to ``bspline(x, 3)``.
+		
+	Parameters
+	----------
+	x : array_like
+		a knot vector
 
-            This is a special case of `bspline`, and equivalent to ``bspline(x, 3)``.
+	Returns
+	----------
+	DataContainer:
+		type 'ordered pair', 'scalar', or 'matrix'
+	'''
 
-    Parameters
-    ----------
-    x : array_like
-            a knot vector
+	result = OrderedPair(
+		m=scipy.signal.cubic(
+			x=default.y,
+			))
 
-    Returns
-    ----------
-    DataContainer:
-            type 'ordered pair'"""
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.signal.cubic(
-            x=default.y,
-        ),
-    )
-    return result
+	return result

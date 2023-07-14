@@ -1,8 +1,0 @@
-COMMAND:
-  - name: Gauss_spline
-    key: GAUSS_SPLINE
-    type: SCIPY_SIGNAL
-    parameters: 
-      n: 
-        type: int
-        default:

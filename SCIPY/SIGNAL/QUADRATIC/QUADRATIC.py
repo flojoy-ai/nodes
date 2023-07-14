@@ -1,31 +1,35 @@
-from flojoy import OrderedPair, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+
+
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy(node_type='default')
 def QUADRATIC(
-    default: OrderedPair,
-) -> OrderedPair:
-    """The QUADRATIC node is based on a numpy or scipy function.
-    The description of that function is as follows:
+	default: OrderedPair | Matrix,
+	) -> OrderedPair | Matrix | Scalar:
+	'''The QUADRATIC node is based on a numpy or scipy function.
+	The description of that function is as follows:
 
-            A quadratic B-spline.
+		A quadratic B-spline.
+		
+		This is a special case of `bspline`, and equivalent to ``bspline(x, 2)``.
+		
+	Parameters
+	----------
+	x : array_like
+		a knot vector
 
-            This is a special case of `bspline`, and equivalent to ``bspline(x, 2)``.
+	Returns
+	----------
+	DataContainer:
+		type 'ordered pair', 'scalar', or 'matrix'
+	'''
 
-    Parameters
-    ----------
-    x : array_like
-            a knot vector
+	result = OrderedPair(
+		m=scipy.signal.quadratic(
+			x=default.y,
+			))
 
-    Returns
-    ----------
-    DataContainer:
-            type 'ordered pair'"""
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.signal.quadratic(
-            x=default.y,
-        ),
-    )
-    return result
+	return result

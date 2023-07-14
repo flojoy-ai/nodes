@@ -1,8 +1,0 @@
-COMMAND:
-  - name: Anderson
-    key: ANDERSON
-    type: SCIPY_STATS
-    parameters: 
-      dist: 
-        type: string
-        default: norm

@@ -1,8 +1,0 @@
-COMMAND:
-  - name: Matrix_power
-    key: MATRIX_POWER
-    type: NUMPY_LINALG
-    parameters: 
-      n: 
-        type: int
-        default:
