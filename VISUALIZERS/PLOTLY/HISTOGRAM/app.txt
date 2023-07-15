@@ -139,13 +139,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 77.49678511957677,
-                    "y": 734.91761651935
+                    "x": 22.054843684253996,
+                    "y": 723.8292282322853
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 77.49678511957677,
-                    "y": 734.91761651935
+                    "x": 22.054843684253996,
+                    "y": 723.8292282322853
                 },
                 "dragging": true
             },
@@ -191,19 +191,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 25.56354977322917,
-                    "y": 461.13212609536095
+                    "x": 18.171290915186148,
+                    "y": 440.8034142357426
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 25.56354977322917,
-                    "y": 461.13212609536095
+                    "x": 18.171290915186148,
+                    "y": 440.8034142357426
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 250,
+                "height": 159,
                 "id": "HISTOGRAM-e3f0af53-0c45-4457-ae12-7f6eb0327f39",
                 "type": "PLOTLY",
                 "data": {
@@ -275,8 +275,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 250,
+                "height": 159,
                 "id": "HISTOGRAM-6bb3aef4-a631-4732-931b-b4a71f49557e",
                 "type": "PLOTLY",
                 "data": {
@@ -315,8 +315,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 250,
+                "height": 159,
                 "id": "HISTOGRAM-3f0b2e7d-3a6c-4d14-a17c-3ba2fe7c0bfa",
                 "type": "PLOTLY",
                 "data": {
@@ -355,8 +355,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 250,
+                "height": 159,
                 "id": "HISTOGRAM-31603d5b-2656-44cd-b445-071bb1cb6b1f",
                 "type": "PLOTLY",
                 "data": {
