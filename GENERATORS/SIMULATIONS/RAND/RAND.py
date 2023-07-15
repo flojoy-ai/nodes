@@ -48,9 +48,9 @@ def RAND(
 
     match default:
         case OrderedPair():
-            size = len(default.x) if default else 1
+            size = len(default.x) if default else None
         case Vector():
-            size = len(default.v) if default else 1
+            size = len(default.v) if default else None
 
     match distribution:
         case "uniform":
