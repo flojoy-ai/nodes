@@ -202,8 +202,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "SCATTER-8f064bb5-af44-44fd-82f4-9a948f3695b5",
                 "type": "PLOTLY",
                 "data": {
@@ -242,8 +242,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "SCATTER-bbfa1109-425d-457f-8f4f-bd6477f6ed0f",
                 "type": "PLOTLY",
                 "data": {
@@ -282,8 +282,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "SCATTER-a4744b2a-78e6-4874-a2ae-177e1dd6aa82",
                 "type": "PLOTLY",
                 "data": {
@@ -311,19 +311,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 784.1301537094139,
-                    "y": 236.15086212531742
+                    "x": 672.4493562892767,
+                    "y": 250.79752408205673
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 784.1301537094139,
-                    "y": 236.15086212531742
+                    "x": 672.4493562892767,
+                    "y": 250.79752408205673
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "SCATTER-fac44ad1-a863-4a6c-87f6-b43c5ca4631a",
                 "type": "PLOTLY",
                 "data": {

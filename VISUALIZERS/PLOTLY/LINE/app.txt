@@ -265,13 +265,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\TIMESERIES\\TIMESERIES.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 69.47384345035496,
                     "y": -24.4832604248532
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 69.47384345035496,
                     "y": -24.4832604248532
@@ -279,8 +279,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "LINE-5c3fb9d2-57ce-4364-8030-96505b8ad344",
                 "type": "PLOTLY",
                 "data": {
@@ -319,8 +319,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "LINE-b77bfca4-130d-46b6-9962-f53f605d7107",
                 "type": "PLOTLY",
                 "data": {
@@ -359,8 +359,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "LINE-fba98010-ffc1-4864-8a5a-356f46f70a26",
                 "type": "PLOTLY",
                 "data": {

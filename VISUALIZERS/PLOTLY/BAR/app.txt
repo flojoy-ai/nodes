@@ -202,8 +202,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "BAR-a91c1fd4-ed0a-4c99-bb22-609ffa2299ca",
                 "type": "PLOTLY",
                 "data": {
@@ -242,8 +242,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "BAR-67887c6e-5070-4f8b-a453-6f17094bab99",
                 "type": "PLOTLY",
                 "data": {
@@ -282,8 +282,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "BAR-25c3fe48-8421-43df-9cb9-24d38dc92f35",
                 "type": "PLOTLY",
                 "data": {
@@ -322,8 +322,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "BAR-f42d1175-a463-49f9-9079-da0b770b7507",
                 "type": "PLOTLY",
                 "data": {
