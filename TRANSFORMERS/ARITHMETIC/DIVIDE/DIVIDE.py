@@ -9,7 +9,7 @@ def DIVIDE(
     a: OrderedPair | Scalar | Vector, b: list[OrderedPair | Scalar | Vector]
 ) -> OrderedPair | Scalar | Vector:
     """Divide 2 or more numeric arrays, matrices, dataframes, or constants element-wise.
-    When a constant is divideed to an array or matrix, each element in the array or
+    When a constant is divided to an array or matrix, each element in the array or
     matrix will be increased by the constant value.
     """
     initial = get_param_keys(a)
