@@ -27,9 +27,7 @@ import MULTIPLY
 
 def test_MULTIPLY():
     # create the two ordered pair datacontainers
-    element_a = OrderedPair(
-        x=numpy.linspace(-10, 10, 100), y=[10] * 100
-    )
+    element_a = OrderedPair(x=numpy.linspace(-10, 10, 100), y=[10] * 100)
 
     element_b = Scalar(c=10)
 
