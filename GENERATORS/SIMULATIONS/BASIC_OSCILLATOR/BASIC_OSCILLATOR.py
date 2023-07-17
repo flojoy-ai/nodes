@@ -19,6 +19,7 @@ def BASIC_OSCILLATOR(
     sample rate and the time in seconds as parameters, along with all the parameters
     in the SINE node.
     This node is particularly useful with signal processing applications as the sample rate is commonly used.
+
     Parameters
     ----------
     sample_rate: float
@@ -46,7 +47,7 @@ def BASIC_OSCILLATOR(
         y = offset + amplitude * signal.square(2 * np.pi * frequency * x + phase)
     elif waveform == "triangle":
         y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency * x + phase, 0.5)
-    else:  # Sawtooth
+    elif waveform == "sawtooth":
         y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency * x + phase)
 
     return OrderedPair(x=x, y=y)

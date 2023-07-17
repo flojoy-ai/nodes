@@ -1,12 +1,26 @@
 import numpy as np
-from flojoy import flojoy, Vector, OrderedPair
+from flojoy import flojoy, Vector, OrderedPair, Scalar
 from typing import Optional
 
 
 @flojoy
-def CONSTANT(default: Optional[Vector] = None, constant: float = 3.0) -> OrderedPair:
-    """Generates a single x-y vector of numeric (floating point) constants"""
-    x = np.arange(0, 1000, 1)  # type: ignore
+def CONSTANT(default: Optional[Vector] = None, constant: float = 3.0) -> OrderedPair | Scalar:
+    """The CONSTANT node generates a single x-y vector of numeric (floating point) constants
+    if there's an input vector, otherwise the constant node will generate a scalar value
+
+    Parameters
+    ----------
+    constant: float
+
+    Returns
+    -------
+    OrderedPair if there's an input vector
+        x: input vector
+        y: constant with the size of the input vector
+    Scalar if no input
+        c: constant
+    """
+    x = np.arange(0, 100, 1)
     if default:
         x = default.v
     y = np.full(len(x), constant)

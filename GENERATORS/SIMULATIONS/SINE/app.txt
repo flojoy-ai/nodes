@@ -17,14 +17,14 @@
                             "default": 10,
                             "functionName": "LINSPACE",
                             "param": "start",
-                            "value": 10
+                            "value": "0"
                         },
                         "end": {
                             "type": "float",
                             "default": 0,
                             "functionName": "LINSPACE",
                             "param": "end",
-                            "value": 0
+                            "value": "10"
                         },
                         "step": {
                             "type": "int",
@@ -45,13 +45,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 942.4353826333122,
-                    "y": 331.5553531809823
+                    "x": 889.8027237839633,
+                    "y": 298.88680630897255
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 942.4353826333122,
-                    "y": 331.5553531809823
+                    "x": 889.8027237839633,
+                    "y": 298.88680630897255
                 },
                 "dragging": true
             },
@@ -71,14 +71,14 @@
                             "default": 1,
                             "functionName": "SINE",
                             "param": "amplitude",
-                            "value": 1
+                            "value": "3"
                         },
                         "frequency": {
                             "type": "float",
                             "default": 1,
                             "functionName": "SINE",
                             "param": "frequency",
-                            "value": 1
+                            "value": "1"
                         },
                         "offset": {
                             "type": "float",
@@ -127,13 +127,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1282.4756382562118,
-                    "y": 176.0477365617848
+                    "x": 1288.8278557035471,
+                    "y": 316.7039800384934
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1282.4756382562118,
-                    "y": 176.0477365617848
+                    "x": 1288.8278557035471,
+                    "y": 316.7039800384934
                 },
                 "dragging": true
             },
@@ -157,13 +157,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 2076.467025365936,
                     "y": 329.35460171622043
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 2076.467025365936,
                     "y": 329.35460171622043
@@ -173,12 +173,12 @@
             {
                 "width": 380,
                 "height": 293,
-                "id": "SCATTER-0966e710-b72c-4cf4-ade7-1c09a3b14b37",
+                "id": "LINE-76ea7dce-0251-4f84-9187-9ed755983ccb",
                 "type": "PLOTLY",
                 "data": {
-                    "id": "SCATTER-0966e710-b72c-4cf4-ade7-1c09a3b14b37",
-                    "label": "SCATTER",
-                    "func": "SCATTER",
+                    "id": "LINE-76ea7dce-0251-4f84-9187-9ed755983ccb",
+                    "label": "LINE",
+                    "func": "LINE",
                     "type": "PLOTLY",
                     "ctrls": {},
                     "inputs": [
@@ -196,17 +196,17 @@
                             "type": "Plotly"
                         }
                     ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/SCATTER/SCATTER.py",
-                    "selected": false
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": true
                 },
                 "position": {
-                    "x": 1608.9942008510418,
-                    "y": 260.8163753487955
+                    "x": 1581.7413123706262,
+                    "y": 243.26034775386825
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1608.9942008510418,
-                    "y": 260.8163753487955
+                    "x": 1581.7413123706262,
+                    "y": 243.26034775386825
                 },
                 "dragging": true
             }
@@ -222,22 +222,22 @@
             {
                 "source": "SINE-eea67eed-8065-40ba-9f28-3420f1f4a62a",
                 "sourceHandle": "default",
-                "target": "SCATTER-0966e710-b72c-4cf4-ade7-1c09a3b14b37",
+                "target": "LINE-76ea7dce-0251-4f84-9187-9ed755983ccb",
                 "targetHandle": "default",
-                "id": "reactflow__edge-SINE-eea67eed-8065-40ba-9f28-3420f1f4a62adefault-SCATTER-0966e710-b72c-4cf4-ade7-1c09a3b14b37default"
+                "id": "reactflow__edge-SINE-eea67eed-8065-40ba-9f28-3420f1f4a62adefault-LINE-76ea7dce-0251-4f84-9187-9ed755983ccbdefault"
             },
             {
-                "source": "SCATTER-0966e710-b72c-4cf4-ade7-1c09a3b14b37",
+                "source": "LINE-76ea7dce-0251-4f84-9187-9ed755983ccb",
                 "sourceHandle": "default",
                 "target": "END-819e566f-0195-4801-a339-ccb70f162bc3",
                 "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-0966e710-b72c-4cf4-ade7-1c09a3b14b37default-END-819e566f-0195-4801-a339-ccb70f162bc3default"
+                "id": "reactflow__edge-LINE-76ea7dce-0251-4f84-9187-9ed755983ccbdefault-END-819e566f-0195-4801-a339-ccb70f162bc3default"
             }
         ],
         "viewport": {
-            "x": -454.16852149654983,
-            "y": 260.7534565927997,
-            "zoom": 1.3401466962340274
+            "x": -373.4542219202399,
+            "y": 120.20973884288571,
+            "zoom": 1.101977389476256
         }
     },
     "ctrlsManifest": [

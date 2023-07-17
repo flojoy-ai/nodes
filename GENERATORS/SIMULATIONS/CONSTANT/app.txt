@@ -2,125 +2,176 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
+                "width": 130,
                 "height": 130,
-                "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                "type": "TERMINATOR",
+                "id": "CONSTANT-d0605522-e750-442c-bb03-e0559f5604c9",
+                "type": "SIMULATIONS",
                 "data": {
-                    "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
+                    "id": "CONSTANT-d0605522-e750-442c-bb03-e0559f5604c9",
+                    "label": "2.0",
+                    "func": "CONSTANT",
+                    "type": "SIMULATIONS",
+                    "ctrls": {
+                        "constant": {
+                            "type": "float",
+                            "default": 3,
+                            "functionName": "CONSTANT",
+                            "param": "constant",
+                            "value": "2.0"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/CONSTANT/CONSTANT.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1386.4285714285716,
-                    "y": 595.4285714285714
+                    "x": 100.09048391587345,
+                    "y": 59.51438898987945
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1386.4285714285716,
-                    "y": 595.4285714285714
+                    "x": 100.09048391587345,
+                    "y": 59.51438898987945
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957",
-                "type": "PLOTLY_VISOR",
+                "id": "BIG_NUMBER-1383217e-f8d9-4d54-9e5b-cb0556a7af2f",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957",
+                    "id": "BIG_NUMBER-1383217e-f8d9-4d54-9e5b-cb0556a7af2f",
                     "label": "BIG NUMBER",
                     "func": "BIG_NUMBER",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {
                         "suffix": {
+                            "type": "str",
+                            "default": null,
                             "functionName": "BIG_NUMBER",
                             "param": "suffix",
                             "value": ""
                         },
                         "prefix": {
+                            "type": "str",
+                            "default": null,
                             "functionName": "BIG_NUMBER",
                             "param": "prefix",
                             "value": ""
                         },
-                        "relative_delta": {
-                            "functionName": "BIG_NUMBER",
-                            "param": "relative_delta",
-                            "value": true
-                        },
                         "title": {
+                            "type": "str",
+                            "default": null,
                             "functionName": "BIG_NUMBER",
                             "param": "title",
                             "value": ""
+                        },
+                        "relative_delta": {
+                            "type": "bool",
+                            "default": true,
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": true
                         }
                     },
-                    "selected": false
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/BIG_NUMBER/BIG_NUMBER.py",
+                    "selected": true
                 },
                 "position": {
-                    "x": 797.9265644225578,
-                    "y": 508.7311569539935
+                    "x": 351.40960896334144,
+                    "y": -13.773163291015123
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 797.9265644225578,
-                    "y": 508.7311569539935
+                    "x": 351.40960896334144,
+                    "y": -13.773163291015123
                 },
                 "dragging": true
             },
             {
-                "width": 130,
+                "width": 210,
                 "height": 130,
-                "id": "CONSTANT-910cbc4f-ec37-4d77-878a-643d40f38b84",
-                "type": "SIMULATION",
+                "id": "END-35d85cd3-8abd-4c37-a02d-8c9a46a65982",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "CONSTANT-910cbc4f-ec37-4d77-878a-643d40f38b84",
-                    "label": "2.0",
-                    "func": "CONSTANT",
-                    "type": "SIMULATION",
-                    "ctrls": {
-                        "constant": {
-                            "functionName": "CONSTANT",
-                            "param": "constant",
-                            "value": "2.0"
+                    "id": "END-35d85cd3-8abd-4c37-a02d-8c9a46a65982",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
                         }
-                    },
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 497.9265644225577,
-                    "y": 591.5882998111363
+                    "x": 843.2573223752532,
+                    "y": 64.22928839382539
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 497.9265644225577,
-                    "y": 591.5882998111363
+                    "x": 843.2573223752532,
+                    "y": 64.22928839382539
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957",
-                "sourceHandle": "main",
-                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                "targetHandle": "END",
-                "id": "reactflow__edge-BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957main-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
+                "source": "CONSTANT-d0605522-e750-442c-bb03-e0559f5604c9",
+                "sourceHandle": "default",
+                "target": "BIG_NUMBER-1383217e-f8d9-4d54-9e5b-cb0556a7af2f",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CONSTANT-d0605522-e750-442c-bb03-e0559f5604c9default-BIG_NUMBER-1383217e-f8d9-4d54-9e5b-cb0556a7af2fdefault"
             },
             {
-                "source": "CONSTANT-910cbc4f-ec37-4d77-878a-643d40f38b84",
-                "sourceHandle": "main",
-                "target": "BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957",
-                "targetHandle": "BIG_NUMBER",
-                "id": "reactflow__edge-CONSTANT-910cbc4f-ec37-4d77-878a-643d40f38b84main-BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957BIG_NUMBER"
+                "source": "BIG_NUMBER-1383217e-f8d9-4d54-9e5b-cb0556a7af2f",
+                "sourceHandle": "default",
+                "target": "END-35d85cd3-8abd-4c37-a02d-8c9a46a65982",
+                "targetHandle": "default",
+                "id": "reactflow__edge-BIG_NUMBER-1383217e-f8d9-4d54-9e5b-cb0556a7af2fdefault-END-35d85cd3-8abd-4c37-a02d-8c9a46a65982default"
             }
         ],
         "viewport": {
-            "x": 383.94248946966945,
-            "y": 121.85910915060867,
-            "zoom": 1.1608238532718647
+            "x": -373.4542219202399,
+            "y": 120.20973884288571,
+            "zoom": 1.101977389476256
         }
     },
     "ctrlsManifest": [

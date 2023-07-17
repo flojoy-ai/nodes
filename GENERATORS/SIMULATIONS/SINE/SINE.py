@@ -13,9 +13,22 @@ def SINE(
     phase: float = 0,
     waveform: Literal["sine", "square", "triangle", "sawtooth"] = "sine",
 ) -> OrderedPair:
-    A = amplitude
-    F = frequency
-    Y0 = offset
+    """ The SINE node generates periodic signal with a given input
+
+    Parameters
+    ----------
+    amplitude: float
+    frequency: float
+    offset: float
+    phase: float
+    waveform: select
+
+    Returns
+    -------
+    OrderedPair
+        x: input vector
+        y: generated signal
+    """
 
     match default:
         case OrderedPair():
@@ -24,12 +37,12 @@ def SINE(
             x = default.v
 
     if waveform == "sine":
-        y = Y0 + A * np.sin(2 * np.pi * F * x + phase)
+        y = offset + amplitude * np.sin(2 * np.pi * frequency * x + phase)
     elif waveform == "square":
-        y = Y0 + A * signal.square(2 * np.pi * F * x / 10 + phase)
+        y = offset + amplitude * signal.square(2 * np.pi * frequency * x / 10 + phase)
     elif waveform == "triangle":
-        y = Y0 + A * signal.sawtooth(2 * np.pi * F * x / 10 + phase, 0.5)
+        y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency * x / 10 + phase, 0.5)
     elif waveform == "sawtooth":
-        y = Y0 + A * signal.sawtooth(2 * np.pi * F / 10 * x + phase)
+        y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency / 10 * x + phase)
 
     return OrderedPair(x=x, y=y)

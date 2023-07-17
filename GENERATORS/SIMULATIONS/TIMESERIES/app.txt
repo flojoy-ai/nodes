@@ -28,13 +28,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 1454.0240539163242,
                     "y": 449.24417024363777
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 1454.0240539163242,
                     "y": 449.24417024363777
@@ -61,16 +61,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1853.4255726844237,
-                    "y": 486.7125864969281
+                    "x": 1923.2999646051112,
+                    "y": 487.6200461322617
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1853.4255726844237,
-                    "y": 486.7125864969281
+                    "x": 1923.2999646051112,
+                    "y": 487.6200461322617
                 },
                 "dragging": true
             },
@@ -139,9 +139,9 @@
             }
         ],
         "viewport": {
-            "x": -388.5128599008947,
-            "y": 286.46416379622787,
-            "zoom": 1.1464119616325565
+            "x": -373.4542219202399,
+            "y": 120.20973884288571,
+            "zoom": 1.101977389476256
         }
     },
     "ctrlsManifest": [
