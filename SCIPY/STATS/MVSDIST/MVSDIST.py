@@ -33,9 +33,10 @@ def MVSDIST(
     """
 
     result = OrderedPair(
-        m=scipy.stats.mvsdist(
+        x=default.x,
+        y=scipy.stats.mvsdist(
             data=default.y,
-        )
+        ),
     )
 
     return result

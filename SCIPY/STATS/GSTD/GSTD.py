@@ -48,11 +48,12 @@ def GSTD(
     """
 
     result = OrderedPair(
-        m=scipy.stats.gstd(
+        x=default.x,
+        y=scipy.stats.gstd(
             a=default.y,
             axis=axis,
             ddof=ddof,
-        )
+        ),
     )
 
     return result

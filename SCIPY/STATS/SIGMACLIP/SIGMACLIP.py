@@ -47,11 +47,12 @@ def SIGMACLIP(
     """
 
     result = OrderedPair(
-        m=scipy.stats.sigmaclip(
+        x=default.x,
+        y=scipy.stats.sigmaclip(
             a=default.y,
             low=low,
             high=high,
-        )
+        ),
     )
 
     return result

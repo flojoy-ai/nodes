@@ -46,12 +46,13 @@ def ZSCORE(
     """
 
     result = OrderedPair(
-        m=scipy.stats.zscore(
+        x=default.x,
+        y=scipy.stats.zscore(
             a=default.y,
             axis=axis,
             ddof=ddof,
             nan_policy=nan_policy,
-        )
+        ),
     )
 
     return result

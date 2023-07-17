@@ -45,10 +45,11 @@ def ANDERSON(
     """
 
     result = OrderedPair(
-        m=scipy.stats.anderson(
+        x=default.x,
+        y=scipy.stats.anderson(
             x=default.y,
             dist=dist,
-        )
+        ),
     )
 
     return result

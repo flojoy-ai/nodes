@@ -29,9 +29,10 @@ def QUADRATIC(
     """
 
     result = OrderedPair(
-        m=scipy.signal.quadratic(
+        x=default.x,
+        y=scipy.signal.quadratic(
             x=default.y,
-        )
+        ),
     )
 
     return result

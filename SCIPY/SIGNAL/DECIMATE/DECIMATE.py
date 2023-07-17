@@ -55,14 +55,15 @@ def DECIMATE(
     """
 
     result = OrderedPair(
-        m=scipy.signal.decimate(
+        x=default.x,
+        y=scipy.signal.decimate(
             x=default.y,
             q=q,
             n=n,
             ftype=ftype,
             axis=axis,
             zero_phase=zero_phase,
-        )
+        ),
     )
 
     return result

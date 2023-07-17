@@ -65,13 +65,14 @@ def TTEST_1SAMP(
     """
 
     result = OrderedPair(
-        m=scipy.stats.ttest_1samp(
+        x=default.x,
+        y=scipy.stats.ttest_1samp(
             a=default.y,
             popmean=popmean,
             axis=axis,
             nan_policy=nan_policy,
             alternative=alternative,
-        )
+        ),
     )
 
     return result

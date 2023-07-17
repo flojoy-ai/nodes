@@ -47,13 +47,14 @@ def DETREND(
     """
 
     result = OrderedPair(
-        m=scipy.signal.detrend(
+        x=default.x,
+        y=scipy.signal.detrend(
             data=default.y,
             axis=axis,
             type=type,
             bp=bp,
             overwrite_data=overwrite_data,
-        )
+        ),
     )
 
     return result

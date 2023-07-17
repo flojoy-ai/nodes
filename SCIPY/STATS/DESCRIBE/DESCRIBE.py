@@ -50,13 +50,14 @@ def DESCRIBE(
     """
 
     result = OrderedPair(
-        m=scipy.stats.describe(
+        x=default.x,
+        y=scipy.stats.describe(
             a=default.y,
             axis=axis,
             ddof=ddof,
             bias=bias,
             nan_policy=nan_policy,
-        )
+        ),
     )
 
     return result

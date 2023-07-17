@@ -29,9 +29,10 @@ def CUBIC(
     """
 
     result = OrderedPair(
-        m=scipy.signal.cubic(
+        x=default.x,
+        y=scipy.signal.cubic(
             x=default.y,
-        )
+        ),
     )
 
     return result

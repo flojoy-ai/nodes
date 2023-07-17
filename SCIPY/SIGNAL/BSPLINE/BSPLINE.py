@@ -30,10 +30,11 @@ def BSPLINE(
     """
 
     result = OrderedPair(
-        m=scipy.signal.bspline(
+        x=default.x,
+        y=scipy.signal.bspline(
             x=default.y,
             n=n,
-        )
+        ),
     )
 
     return result

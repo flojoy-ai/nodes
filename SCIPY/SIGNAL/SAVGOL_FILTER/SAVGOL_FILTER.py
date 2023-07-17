@@ -69,7 +69,8 @@ def SAVGOL_FILTER(
     """
 
     result = OrderedPair(
-        m=scipy.signal.savgol_filter(
+        x=default.x,
+        y=scipy.signal.savgol_filter(
             x=default.y,
             window_length=window_length,
             polyorder=polyorder,
@@ -78,7 +79,7 @@ def SAVGOL_FILTER(
             axis=axis,
             mode=mode,
             cval=cval,
-        )
+        ),
     )
 
     return result

@@ -30,10 +30,11 @@ def GAUSS_SPLINE(
     """
 
     result = OrderedPair(
-        m=scipy.signal.gauss_spline(
+        x=default.x,
+        y=scipy.signal.gauss_spline(
             x=default.y,
             n=n,
-        )
+        ),
     )
 
     return result

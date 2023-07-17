@@ -36,11 +36,12 @@ def HILBERT(
     """
 
     result = OrderedPair(
-        m=scipy.signal.hilbert(
+        x=default.x,
+        y=scipy.signal.hilbert(
             x=default.y,
             N=N,
             axis=axis,
-        )
+        ),
     )
 
     return result

@@ -34,9 +34,10 @@ def SHAPIRO(
     """
 
     result = OrderedPair(
-        m=scipy.stats.shapiro(
+        x=default.x,
+        y=scipy.stats.shapiro(
             x=default.y,
-        )
+        ),
     )
 
     return result

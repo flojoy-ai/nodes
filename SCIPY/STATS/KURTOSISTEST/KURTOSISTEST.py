@@ -61,12 +61,13 @@ def KURTOSISTEST(
     """
 
     result = OrderedPair(
-        m=scipy.stats.kurtosistest(
+        x=default.x,
+        y=scipy.stats.kurtosistest(
             a=default.y,
             axis=axis,
             nan_policy=nan_policy,
             alternative=alternative,
-        )
+        ),
     )
 
     return result

@@ -48,12 +48,13 @@ def SEM(
     """
 
     result = OrderedPair(
-        m=scipy.stats.sem(
+        x=default.x,
+        y=scipy.stats.sem(
             a=default.y,
             axis=axis,
             ddof=ddof,
             nan_policy=nan_policy,
-        )
+        ),
     )
 
     return result

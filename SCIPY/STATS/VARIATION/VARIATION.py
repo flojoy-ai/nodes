@@ -70,13 +70,14 @@ def VARIATION(
     """
 
     result = OrderedPair(
-        m=scipy.stats.variation(
+        x=default.x,
+        y=scipy.stats.variation(
             a=default.y,
             axis=axis,
             nan_policy=nan_policy,
             ddof=ddof,
             keepdims=keepdims,
-        )
+        ),
     )
 
     return result

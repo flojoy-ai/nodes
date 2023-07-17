@@ -48,11 +48,12 @@ def NORMALTEST(
     """
 
     result = OrderedPair(
-        m=scipy.stats.normaltest(
+        x=default.x,
+        y=scipy.stats.normaltest(
             a=default.y,
             axis=axis,
             nan_policy=nan_policy,
-        )
+        ),
     )
 
     return result

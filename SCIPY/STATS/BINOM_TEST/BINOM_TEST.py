@@ -47,12 +47,13 @@ def BINOM_TEST(
     """
 
     result = OrderedPair(
-        m=scipy.stats.binom_test(
+        x=default.x,
+        y=scipy.stats.binom_test(
             x=default.y,
             n=n,
             p=p,
             alternative=alternative,
-        )
+        ),
     )
 
     return result

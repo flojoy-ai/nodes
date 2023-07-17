@@ -61,12 +61,13 @@ def SKEWTEST(
     """
 
     result = OrderedPair(
-        m=scipy.stats.skewtest(
+        x=default.x,
+        y=scipy.stats.skewtest(
             a=default.y,
             axis=axis,
             nan_policy=nan_policy,
             alternative=alternative,
-        )
+        ),
     )
 
     return result

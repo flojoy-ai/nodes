@@ -33,10 +33,11 @@ def BAYES_MVS(
     """
 
     result = OrderedPair(
-        m=scipy.stats.bayes_mvs(
+        x=default.x,
+        y=scipy.stats.bayes_mvs(
             data=default.y,
             alpha=alpha,
-        )
+        ),
     )
 
     return result

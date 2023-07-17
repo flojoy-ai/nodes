@@ -38,9 +38,10 @@ def JARQUE_BERA(
     """
 
     result = OrderedPair(
-        m=scipy.stats.jarque_bera(
+        x=default.x,
+        y=scipy.stats.jarque_bera(
             x=default.y,
-        )
+        ),
     )
 
     return result

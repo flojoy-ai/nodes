@@ -52,12 +52,13 @@ def GZSCORE(
     """
 
     result = OrderedPair(
-        m=scipy.stats.gzscore(
+        x=default.x,
+        y=scipy.stats.gzscore(
             a=default.y,
             axis=axis,
             ddof=ddof,
             nan_policy=nan_policy,
-        )
+        ),
     )
 
     return result

@@ -32,10 +32,11 @@ def YEOJOHNSON(
     """
 
     result = OrderedPair(
-        m=scipy.stats.yeojohnson(
+        x=default.x,
+        y=scipy.stats.yeojohnson(
             x=default.y,
             lmbda=lmbda,
-        )
+        ),
     )
 
     return result

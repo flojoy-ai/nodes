@@ -28,9 +28,10 @@ def KAISER_BETA(
     """
 
     result = OrderedPair(
-        m=scipy.signal.kaiser_beta(
+        x=default.x,
+        y=scipy.signal.kaiser_beta(
             a=default.y,
-        )
+        ),
     )
 
     return result

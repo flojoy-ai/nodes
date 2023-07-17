@@ -43,12 +43,13 @@ def TRIM1(
     """
 
     result = OrderedPair(
-        m=scipy.stats.trim1(
+        x=default.x,
+        y=scipy.stats.trim1(
             a=default.y,
             proportiontocut=proportiontocut,
             tail=tail,
             axis=axis,
-        )
+        ),
     )
 
     return result

@@ -41,12 +41,13 @@ def ARGRELMIN(
     """
 
     result = OrderedPair(
-        m=scipy.signal.argrelmin(
+        x=default.x,
+        y=scipy.signal.argrelmin(
             data=default.y,
             axis=axis,
             order=order,
             mode=mode,
-        )
+        ),
     )
 
     return result

@@ -41,11 +41,12 @@ def TRIMBOTH(
     """
 
     result = OrderedPair(
-        m=scipy.stats.trimboth(
+        x=default.x,
+        y=scipy.stats.trimboth(
             a=default.y,
             proportiontocut=proportiontocut,
             axis=axis,
-        )
+        ),
     )
 
     return result

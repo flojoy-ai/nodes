@@ -60,13 +60,14 @@ def MOMENT(
     """
 
     result = OrderedPair(
-        m=scipy.stats.moment(
+        x=default.x,
+        y=scipy.stats.moment(
             a=default.y,
             moment=moment,
             axis=axis,
             nan_policy=nan_policy,
             keepdims=keepdims,
-        )
+        ),
     )
 
     return result

@@ -39,11 +39,12 @@ def TRIM_MEAN(
     """
 
     result = OrderedPair(
-        m=scipy.stats.trim_mean(
+        x=default.x,
+        y=scipy.stats.trim_mean(
             a=default.y,
             proportiontocut=proportiontocut,
             axis=axis,
-        )
+        ),
     )
 
     return result
