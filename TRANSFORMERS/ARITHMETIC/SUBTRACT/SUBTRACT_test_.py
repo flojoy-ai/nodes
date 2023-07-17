@@ -27,9 +27,7 @@ import SUBTRACT
 
 def test_SUBTRACT():
     # create the two ordered pair datacontainers
-    element_a = OrderedPair(
-        x=numpy.linspace(-10, 10, 100), y=[11] * 100
-    )
+    element_a = OrderedPair(x=numpy.linspace(-10, 10, 100), y=[11] * 100)
 
     element_b = Scalar(c=10)
 
