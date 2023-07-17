@@ -1,16 +1,25 @@
 import numpy as np
-from flojoy import flojoy, OrderedPair
+from flojoy import flojoy, OrderedPair, Scalar, Vector
+from nodes.TRANSFORMERS.ARITHMETIC.utils.arithmetic_utils import get_val
 from functools import reduce
 
 
 @flojoy
-def DIVIDE(a: OrderedPair, b: list[OrderedPair]) -> OrderedPair:
+def DIVIDE(
+    a: OrderedPair | Scalar | Vector, b: list[OrderedPair | Scalar | Vector]
+) -> OrderedPair | Scalar | Vector:
     """Divide 2 or more numeric arrays, matrices, dataframes, or constants element-wise.
-    When a constant is added to an array or matrix, each element in the array or
+    When a constant is divided to an array or matrix, each element in the array or
     matrix will be increased by the constant value.
     """
-    x = a.x
+    initial = get_val(a)
+    seq = map(lambda dc: get_val(dc), b)
+    y = reduce(lambda u, v: np.divide(u, v), seq, initial)
 
-    y = reduce(lambda u, v: np.divide(u, v.y), b, a.y)
-
-    return OrderedPair(x=x, y=y)
+    match a:
+        case OrderedPair():
+            return OrderedPair(x=a.x, y=y)
+        case Vector():
+            return Vector(v=y)
+        case Scalar():
+            return Scalar(c=y)

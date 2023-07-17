@@ -37,20 +37,20 @@ def TWO_DIMENSIONAL_FFT(
     Image
         The frequency spectrum of the color channel
     """
-    match default.type:
-        case "grayscale" | "matrix":
+    match default:
+        case Grayscale() | Matrix():
             input = default.m
             fourier = fft.rfft2(input) if real_signal else fft.fft2(input)
-            if default.type == "matrix":
+            if isinstance(default, Matrix):
                 fourier = fourier.real
                 return Matrix(m=fourier)
-        case "dataframe":
+        case DataFrame():
             input: pd.DataFrame = pd.DataFrame(default.m)
             fourier = fft.rfft2(input) if real_signal else fft.fft2(input)
             fourier = fourier.real
             result = pd.DataFrame(columns=fourier.columns, index=fourier.index)
             return DataFrame(df=result)
-        case "image":
+        case Image():
             red = default.r
             green = default.g
             blue = default.b

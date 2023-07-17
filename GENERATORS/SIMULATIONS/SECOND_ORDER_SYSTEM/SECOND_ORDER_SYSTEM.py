@@ -1,5 +1,5 @@
 import numpy as np
-from flojoy import flojoy, OrderedPair, DefaultParams, SmallMemory
+from flojoy import flojoy, OrderedPair, DefaultParams, SmallMemory, Vector
 
 
 memory_key = "SECOND_ORDER_SYSTEM"
@@ -7,7 +7,7 @@ memory_key = "SECOND_ORDER_SYSTEM"
 
 @flojoy(inject_node_metadata=True)
 def SECOND_ORDER_SYSTEM(
-    default: OrderedPair,
+    default: OrderedPair | Vector,
     default_params: DefaultParams,
     d1: float = 250,
     d2: float = 100,
@@ -31,6 +31,11 @@ def SECOND_ORDER_SYSTEM(
 
     # Let's first define things that won't change over
     # each iteration: time constants, etc ...
+    match default:
+        case OrderedPair():
+            def_key = default.y
+        case Vector():
+            def_key = default.v
 
     node_id = default_params.node_id
 
@@ -60,7 +65,7 @@ def SECOND_ORDER_SYSTEM(
     y_primes = np.zeros((2, 1)) if initialize else data[::-1]
 
     # Using input from controller as v[0].y ...
-    response = ac * default.y[-1] + bpd * y_primes[0] - bd * y_primes[1]
+    response = ac * def_key[-1] + bpd * y_primes[0] - bd * y_primes[1]
     y_primes[1] = y_primes[0]
 
     # prepend the most recent result to the front of the histrory
@@ -69,5 +74,5 @@ def SECOND_ORDER_SYSTEM(
     SmallMemory().write_to_memory(node_id, memory_key, y_primes[::-1])
     # ... and return the result!
     return OrderedPair(
-        x=default.y, y=np.ones_like(default.y) * float(y_primes[0])
+        x=def_key, y=np.ones_like(def_key) * float(y_primes[0])
     )  # returns input output pair
