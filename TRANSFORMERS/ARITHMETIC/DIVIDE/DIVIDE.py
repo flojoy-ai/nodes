@@ -1,6 +1,6 @@
 import numpy as np
 from flojoy import flojoy, OrderedPair, Scalar, Vector
-from nodes.TRANSFORMERS.ARITHMETIC.utils.arithmetic_utils import get_param_keys
+from nodes.TRANSFORMERS.ARITHMETIC.utils.arithmetic_utils import get_val
 from functools import reduce
 
 
@@ -12,8 +12,8 @@ def DIVIDE(
     When a constant is divided to an array or matrix, each element in the array or
     matrix will be increased by the constant value.
     """
-    initial = get_param_keys(a)
-    seq = map(lambda dc: get_param_keys(dc), b)
+    initial = get_val(a)
+    seq = map(lambda dc: get_val(dc), b)
     y = reduce(lambda u, v: np.divide(u, v), seq, initial)
 
     match a:
