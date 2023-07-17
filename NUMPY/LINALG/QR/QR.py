@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import numpy.linalg
 
@@ -9,6 +10,7 @@ import numpy.linalg
 def QR(
     default: OrderedPair | Matrix,
     mode: str = "reduced",
+    select_return: Literal["q", "r", "(h, tau)"] = "q",
 ) -> OrderedPair | Matrix | Scalar:
     """The QR node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -21,6 +23,9 @@ def QR(
 
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['q', 'r', '(h, tau)']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : array_like, shape (..., M, N)
             An array-like object with the dimensionality of at least 2.
     mode : {'reduced', 'complete', 'r', 'raw'}, optional
@@ -54,9 +59,12 @@ def QR(
         mode=mode,
     )
 
+    if type(result) == namedtuple:
+        result = result._asdict()
+        result = result[select_return]
+
     if type(result) == np.ndarray:
         result = Matrix(m=result)
-
     elif type(result) == np.float64:
         result = Scalar(c=result)
 

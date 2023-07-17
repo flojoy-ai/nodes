@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import numpy.linalg
 
@@ -11,6 +12,7 @@ def SVD(
     full_matrices: bool = True,
     compute_uv: bool = True,
     hermitian: bool = False,
+    select_return: Literal["u", "s", "vh"] = "u",
 ) -> OrderedPair | Matrix | Scalar:
     """The SVD node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -27,6 +29,9 @@ def SVD(
 
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['u', 's', 'vh']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : (..., M, N) array_like
             A real or complex array with ``a.ndim >= 2``.
     full_matrices : bool, optional
@@ -57,9 +62,12 @@ def SVD(
         hermitian=hermitian,
     )
 
+    if type(result) == namedtuple:
+        result = result._asdict()
+        result = result[select_return]
+
     if type(result) == np.ndarray:
         result = Matrix(m=result)
-
     elif type(result) == np.float64:
         result = Scalar(c=result)
 

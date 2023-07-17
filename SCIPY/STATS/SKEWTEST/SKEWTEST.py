@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -11,6 +12,7 @@ def SKEWTEST(
     axis: int = 0,
     nan_policy: str = "propagate",
     alternative: str = "two-sided",
+    select_return: Literal["statistic", "pvalue"] = "statistic",
 ) -> OrderedPair | Matrix | Scalar:
     """The SKEWTEST node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -23,6 +25,9 @@ def SKEWTEST(
 
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['statistic', 'pvalue']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : array
             The data to be tested.
     axis : int or None, optional

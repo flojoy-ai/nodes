@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import numpy.linalg
 
@@ -8,6 +9,7 @@ import numpy.linalg
 @flojoy(node_type="default")
 def EIG(
     default: OrderedPair | Matrix,
+    select_return: Literal["w", "v"] = "w",
 ) -> OrderedPair | Matrix | Scalar:
     """The EIG node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -17,6 +19,9 @@ def EIG(
 
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['w', 'v']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : (..., M, M) array
             Matrices for which the eigenvalues and right eigenvectors will
             be computed
@@ -31,9 +36,12 @@ def EIG(
         a=default.m,
     )
 
+    if type(result) == namedtuple:
+        result = result._asdict()
+        result = result[select_return]
+
     if type(result) == np.ndarray:
         result = Matrix(m=result)
-
     elif type(result) == np.float64:
         result = Scalar(c=result)
 
