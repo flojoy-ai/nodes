@@ -8,8 +8,8 @@ import numpy.linalg
 
 @flojoy(node_type="default")
 def DET(
-    default: OrderedPair | Matrix,
-) -> OrderedPair | Matrix | Scalar:
+    default: Matrix,
+) -> Matrix | Scalar:
     """The DET node is based on a numpy or scipy function.
     The description of that function is as follows:
 

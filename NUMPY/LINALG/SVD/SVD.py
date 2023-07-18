@@ -8,12 +8,12 @@ import numpy.linalg
 
 @flojoy(node_type="default")
 def SVD(
-    default: OrderedPair | Matrix,
+    default: Matrix,
     full_matrices: bool = True,
     compute_uv: bool = True,
     hermitian: bool = False,
     select_return: Literal["u", "s", "vh"] = "u",
-) -> OrderedPair | Matrix | Scalar:
+) -> Matrix | Scalar:
     """The SVD node is based on a numpy or scipy function.
     The description of that function is as follows:
 

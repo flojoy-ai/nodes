@@ -8,9 +8,9 @@ import numpy.linalg
 
 @flojoy(node_type="default")
 def TENSORINV(
-    default: OrderedPair | Matrix,
+    default: Matrix,
     ind: int = 2,
-) -> OrderedPair | Matrix | Scalar:
+) -> Matrix | Scalar:
     """The TENSORINV node is based on a numpy or scipy function.
     The description of that function is as follows:
 

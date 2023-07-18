@@ -8,8 +8,8 @@ import numpy.linalg
 
 @flojoy(node_type="default")
 def INV(
-    default: OrderedPair | Matrix,
-) -> OrderedPair | Matrix | Scalar:
+    default: Matrix,
+) -> Matrix | Scalar:
     """The INV node is based on a numpy or scipy function.
     The description of that function is as follows:
 

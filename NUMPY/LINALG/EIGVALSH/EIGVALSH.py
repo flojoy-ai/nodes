@@ -8,9 +8,9 @@ import numpy.linalg
 
 @flojoy(node_type="default")
 def EIGVALSH(
-    default: OrderedPair | Matrix,
+    default: Matrix,
     UPLO: str = "L",
-) -> OrderedPair | Matrix | Scalar:
+) -> Matrix | Scalar:
     """The EIGVALSH node is based on a numpy or scipy function.
     The description of that function is as follows:
 

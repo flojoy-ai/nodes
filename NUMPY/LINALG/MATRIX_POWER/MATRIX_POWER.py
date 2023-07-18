@@ -8,9 +8,9 @@ import numpy.linalg
 
 @flojoy(node_type="default")
 def MATRIX_POWER(
-    default: OrderedPair | Matrix,
+    default: Matrix,
     n: int,
-) -> OrderedPair | Matrix | Scalar:
+) -> Matrix | Scalar:
     """The MATRIX_POWER node is based on a numpy or scipy function.
     The description of that function is as follows:
 

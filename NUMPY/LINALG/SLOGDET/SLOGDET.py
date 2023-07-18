@@ -8,9 +8,9 @@ import numpy.linalg
 
 @flojoy(node_type="default")
 def SLOGDET(
-    default: OrderedPair | Matrix,
+    default: Matrix,
     select_return: Literal["sign", "logdet"] = "sign",
-) -> OrderedPair | Matrix | Scalar:
+) -> Matrix | Scalar:
     """The SLOGDET node is based on a numpy or scipy function.
     The description of that function is as follows:
 

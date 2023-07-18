@@ -8,9 +8,9 @@ import numpy.linalg
 
 @flojoy(node_type="default")
 def EIG(
-    default: OrderedPair | Matrix,
+    default: Matrix,
     select_return: Literal["w", "v"] = "w",
-) -> OrderedPair | Matrix | Scalar:
+) -> Matrix | Scalar:
     """The EIG node is based on a numpy or scipy function.
     The description of that function is as follows:
 
