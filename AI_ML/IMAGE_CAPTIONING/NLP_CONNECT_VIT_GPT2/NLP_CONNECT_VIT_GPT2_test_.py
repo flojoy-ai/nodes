@@ -5,7 +5,7 @@ from unittest.mock import patch
 import PIL.Image
 import numpy as np
 
-from flojoy import Image, DataFrame
+from flojoy import Image 
 
 
 @pytest.fixture(scope="module")

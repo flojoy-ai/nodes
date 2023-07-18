@@ -1,8 +1,5 @@
 from flojoy import flojoy, run_in_venv, DataFrame, Image
 
-import numpy as np
-import pandas as pd
-
 
 @flojoy
 @run_in_venv(
@@ -25,6 +22,9 @@ def NLP_CONNECT_VIT_GPT2(default: Image) -> DataFrame:
     DataFrame:
         DataFrame containing the caption column, and a single row.
     """
+
+    import numpy as np
+    import pandas as pd
 
     import transformers
     import torchvision.transforms.functional as TF
