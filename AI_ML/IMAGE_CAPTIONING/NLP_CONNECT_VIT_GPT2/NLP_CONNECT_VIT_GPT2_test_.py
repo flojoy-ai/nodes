@@ -1,17 +1,10 @@
 import os
 import pytest
-from unittest.mock import patch
 
 import PIL.Image
 import numpy as np
 
 from flojoy import Image
-
-
-@pytest.fixture(scope="module")
-def mock_flojoy_decorator():
-    with patch("flojoy.flojoy", lambda x: x) as mock_flojoy:
-        yield mock_flojoy
 
 
 @pytest.fixture
