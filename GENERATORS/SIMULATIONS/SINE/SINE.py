@@ -17,11 +17,11 @@ def SINE(
 
     Parameters
     ----------
-    amplitude: float
-    frequency: float
-    offset: float
-    phase: float
-    waveform: select
+    amplitude : float
+    frequency : float
+    offset : float
+    phase : float
+    waveform : select
 
     Returns
     -------

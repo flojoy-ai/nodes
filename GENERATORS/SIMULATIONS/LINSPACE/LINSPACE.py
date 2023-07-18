@@ -8,11 +8,11 @@ def LINSPACE(start: float = 10, end: float = 0, step: int = 1000) -> Vector:
 
     Parameters
     ---------
-    start: float
+    start : float
         the first value of the output vector, or the start of the interval
-    end: float
+    end : float
         the last value of the output vector, or the end of the interval
-    step: int
+    step : int
         number of samples to generate
 
     Returns

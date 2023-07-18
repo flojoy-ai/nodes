@@ -10,7 +10,7 @@ def CONSTANT(default: Optional[Vector] = None, constant: float = 3.0) -> Ordered
 
     Parameters
     ----------
-    constant: float
+    constant : float
 
     Returns
     -------
