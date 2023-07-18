@@ -2,34 +2,185 @@
     "rfInstance": {
         "nodes": [
             {
+                "width": 380,
+                "height": 293,
+                "id": "SCATTER3D-c235c9ca-cf7e-4eb9-8a18-55c63dba0d23",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "SCATTER3D-c235c9ca-cf7e-4eb9-8a18-55c63dba0d23",
+                    "label": "SCATTER3D",
+                    "func": "SCATTER3D",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/SCATTER3D/SCATTER3D.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 384.2010520738708,
+                    "y": -41.19272110379816
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 384.2010520738708,
+                    "y": -41.19272110379816
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "SCATTER3D-d1d7b1a2-5f04-4783-9bed-87e558267d9a",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "SCATTER3D-d1d7b1a2-5f04-4783-9bed-87e558267d9a",
+                    "label": "SCATTER3D 1",
+                    "func": "SCATTER3D",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/SCATTER3D/SCATTER3D.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 331.0262517085224,
+                    "y": 306.51248370240035
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 331.0262517085224,
+                    "y": 306.51248370240035
+                },
+                "dragging": true
+            },
+            {
                 "width": 150,
                 "height": 150,
-                "id": "PLOTLY_DATASET-5a7231e7-7fa7-480f-9562-c117499c99cd",
+                "id": "R_DATASET-d7753af8-7ef0-494d-91db-4d6b4bc073c1",
                 "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "PLOTLY_DATASET-5a7231e7-7fa7-480f-9562-c117499c99cd",
-                    "label": "PLOTLY DATASET",
-                    "func": "PLOTLY_DATASET",
+                    "id": "R_DATASET-d7753af8-7ef0-494d-91db-4d6b4bc073c1",
+                    "label": "R DATASET",
+                    "func": "R_DATASET",
                     "type": "SAMPLE_DATASETS",
                     "ctrls": {
                         "dataset_key": {
                             "type": "select",
-                            "default": "wind",
+                            "default": "iris",
                             "options": [
-                                "wind",
+                                "ability.cov",
+                                "airmiles",
+                                "AirPassengers",
+                                "airquality",
+                                "anscombe",
+                                "attenu",
+                                "attitude",
+                                "austres",
+                                "BJsales",
+                                "BOD",
+                                "cars",
+                                "ChickWeight",
+                                "chickwts",
+                                "co2",
+                                "crimtab",
+                                "discoveries",
+                                "DNase",
+                                "esoph",
+                                "euro",
+                                "EuStockMarkets",
+                                "faithful",
+                                "Formaldehyde",
+                                "freeny",
+                                "HairEyeColor",
+                                "Harman23",
+                                "Harman74",
+                                "Indometh",
+                                "infert",
+                                "InsectSprays",
                                 "iris",
-                                "carshare",
-                                "tips",
-                                "election",
-                                "experiment",
-                                "gapminder",
-                                "medals_long",
-                                "medals_wide",
-                                "stocks"
+                                "iris3",
+                                "islands",
+                                "JohnsonJohnson",
+                                "LakeHuron",
+                                "LifeCycleSavings",
+                                "Loblolly",
+                                "longley",
+                                "lynx",
+                                "morley",
+                                "mtcars",
+                                "nhtemp",
+                                "Nile",
+                                "nottem",
+                                "npk",
+                                "occupationalStatus",
+                                "Orange",
+                                "OrchardSprays",
+                                "PlantGrowth",
+                                "precip",
+                                "presidents",
+                                "pressure",
+                                "Puromycin",
+                                "quakes",
+                                "randu",
+                                "rivers",
+                                "rock",
+                                "Seatbelts",
+                                "sleep",
+                                "stackloss",
+                                "sunspot.month",
+                                "sunspot.year",
+                                "sunspots",
+                                "swiss",
+                                "Theoph",
+                                "Titanic",
+                                "ToothGrowth",
+                                "treering",
+                                "trees",
+                                "UCBAdmissions",
+                                "UKDriverDeaths",
+                                "UKgas",
+                                "USAccDeaths",
+                                "USArrests",
+                                "USJudgeRatings",
+                                "USPersonalExpenditure",
+                                "VADeaths",
+                                "volcano",
+                                "warpbreaks",
+                                "women",
+                                "WorldPhones",
+                                "WWWusage"
                             ],
-                            "functionName": "PLOTLY_DATASET",
+                            "functionName": "R_DATASET",
                             "param": "dataset_key",
-                            "value": "gapminder"
+                            "value": "iris"
                         }
                     },
                     "outputs": [
@@ -39,27 +190,33 @@
                             "type": "DataFrame"
                         }
                     ],
-                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_DATASETS\\PLOTLY_DATASET\\PLOTLY_DATASET.py",
+                    "pip_dependencies": [
+                        {
+                            "name": "rdatasets",
+                            "v": "0.1.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SAMPLE_DATASETS/R_DATASET/R_DATASET.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -153.13246731470204,
-                    "y": 152.21548757941065
+                    "x": -327.1013034066817,
+                    "y": 18.845183246653903
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -153.13246731470204,
-                    "y": 152.21548757941065
+                    "x": -327.1013034066817,
+                    "y": 18.845183246653903
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204",
+                "id": "DF_2_ORDEREDTRIPLE-66867c30-e78c-46b0-93c2-5fccad01b475",
                 "type": "TYPE_CASTING",
                 "data": {
-                    "id": "DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204",
+                    "id": "DF_2_ORDEREDTRIPLE-66867c30-e78c-46b0-93c2-5fccad01b475",
                     "label": "DF 2 ORDEREDTRIPLE",
                     "func": "DF_2_ORDEREDTRIPLE",
                     "type": "TYPE_CASTING",
@@ -101,67 +258,27 @@
                             "type": "OrderedTriple"
                         }
                     ],
-                    "path": "",
+                    "path": "PYTHON/nodes/TRANSFORMERS/TYPE_CASTING/DF_2_ORDEREDTRIPLE/DF_2_ORDEREDTRIPLE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 138.28356151980358,
-                    "y": 155.19957354474383
+                    "x": 37.22416689868248,
+                    "y": -2.97966136067015
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 138.28356151980358,
-                    "y": 155.19957354474383
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3",
-                "type": "TYPE_CASTING",
-                "data": {
-                    "id": "ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3",
-                    "label": "ORDERED TRIPLE 2 SURFACE",
-                    "func": "ORDERED_TRIPLE_2_SURFACE",
-                    "type": "TYPE_CASTING",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedTriple",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Surface"
-                        }
-                    ],
-                    "path": "",
-                    "selected": false
-                },
-                "position": {
-                    "x": 432.81238809404584,
-                    "y": 157.95703541664443
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 432.81238809404584,
-                    "y": 157.95703541664443
+                    "x": 37.22416689868248,
+                    "y": -2.97966136067015
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
+                "id": "END-a65b629f-979e-4394-aef3-0ab4e1490245",
                 "type": "TERMINATORS",
                 "data": {
-                    "id": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
+                    "id": "END-a65b629f-979e-4394-aef3-0ab4e1490245",
                     "label": "END",
                     "func": "END",
                     "type": "TERMINATORS",
@@ -174,148 +291,61 @@
                             "multiple": false
                         }
                     ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1298.2738429101842,
-                    "y": 160.3054054196486
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1298.2738429101842,
-                    "y": 160.3054054196486
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "SURFACE3D-815e6548-3e6e-4740-b240-4e61891fec60",
-                "type": "PLOTLY",
-                "data": {
-                    "id": "SURFACE3D-815e6548-3e6e-4740-b240-4e61891fec60",
-                    "label": "SURFACE3D",
-                    "func": "SURFACE3D",
-                    "type": "PLOTLY",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedTriple|DataFrame|Surface|Matrix",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\SURFACE3D\\SURFACE3D.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 780.9204415982466,
-                    "y": 78.56150142040786
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 780.9204415982466,
-                    "y": 78.56150142040786
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "SCATTER3D-c2cf4c18-05bf-4993-8481-e737d690158b",
-                "type": "PLOTLY",
-                "data": {
-                    "id": "SCATTER3D-c2cf4c18-05bf-4993-8481-e737d690158b",
-                    "label": "SCATTER3D",
-                    "func": "SCATTER3D",
-                    "type": "PLOTLY",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedTriple|DataFrame",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/SCATTER3D/SCATTER3D.py",
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
                     "selected": true
                 },
                 "position": {
-                    "x": 798.268525762229,
-                    "y": 433.4045049390065
+                    "x": 972.4401122555857,
+                    "y": 96.34826702671484
                 },
                 "selected": true,
                 "positionAbsolute": {
-                    "x": 798.268525762229,
-                    "y": 433.4045049390065
+                    "x": 972.4401122555857,
+                    "y": 96.34826702671484
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "PLOTLY_DATASET-5a7231e7-7fa7-480f-9562-c117499c99cd",
+                "source": "R_DATASET-d7753af8-7ef0-494d-91db-4d6b4bc073c1",
                 "sourceHandle": "default",
-                "target": "DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204",
+                "target": "DF_2_ORDEREDTRIPLE-66867c30-e78c-46b0-93c2-5fccad01b475",
                 "targetHandle": "default",
-                "id": "reactflow__edge-PLOTLY_DATASET-5a7231e7-7fa7-480f-9562-c117499c99cddefault-DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204default"
+                "id": "reactflow__edge-R_DATASET-d7753af8-7ef0-494d-91db-4d6b4bc073c1default-DF_2_ORDEREDTRIPLE-66867c30-e78c-46b0-93c2-5fccad01b475default"
             },
             {
-                "source": "DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204",
+                "source": "DF_2_ORDEREDTRIPLE-66867c30-e78c-46b0-93c2-5fccad01b475",
                 "sourceHandle": "default",
-                "target": "ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3",
+                "target": "SCATTER3D-c235c9ca-cf7e-4eb9-8a18-55c63dba0d23",
                 "targetHandle": "default",
-                "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204default-ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3default"
+                "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-66867c30-e78c-46b0-93c2-5fccad01b475default-SCATTER3D-c235c9ca-cf7e-4eb9-8a18-55c63dba0d23default"
             },
             {
-                "source": "ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3",
+                "source": "R_DATASET-d7753af8-7ef0-494d-91db-4d6b4bc073c1",
                 "sourceHandle": "default",
-                "target": "SURFACE3D-815e6548-3e6e-4740-b240-4e61891fec60",
+                "target": "SCATTER3D-d1d7b1a2-5f04-4783-9bed-87e558267d9a",
                 "targetHandle": "default",
-                "id": "reactflow__edge-ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3default-SURFACE3D-815e6548-3e6e-4740-b240-4e61891fec60default"
+                "id": "reactflow__edge-R_DATASET-d7753af8-7ef0-494d-91db-4d6b4bc073c1default-SCATTER3D-d1d7b1a2-5f04-4783-9bed-87e558267d9adefault"
             },
             {
-                "source": "SURFACE3D-815e6548-3e6e-4740-b240-4e61891fec60",
+                "source": "SCATTER3D-c235c9ca-cf7e-4eb9-8a18-55c63dba0d23",
                 "sourceHandle": "default",
-                "target": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
+                "target": "END-a65b629f-979e-4394-aef3-0ab4e1490245",
                 "targetHandle": "default",
-                "id": "reactflow__edge-SURFACE3D-815e6548-3e6e-4740-b240-4e61891fec60default-END-27d70d41-6ff3-4222-9fa6-7278850d6cffdefault"
+                "id": "reactflow__edge-SCATTER3D-c235c9ca-cf7e-4eb9-8a18-55c63dba0d23default-END-a65b629f-979e-4394-aef3-0ab4e1490245default"
             },
             {
-                "source": "DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204",
+                "source": "SCATTER3D-d1d7b1a2-5f04-4783-9bed-87e558267d9a",
                 "sourceHandle": "default",
-                "target": "SCATTER3D-c2cf4c18-05bf-4993-8481-e737d690158b",
+                "target": "END-a65b629f-979e-4394-aef3-0ab4e1490245",
                 "targetHandle": "default",
-                "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204default-SCATTER3D-c2cf4c18-05bf-4993-8481-e737d690158bdefault"
-            },
-            {
-                "source": "SCATTER3D-c2cf4c18-05bf-4993-8481-e737d690158b",
-                "sourceHandle": "default",
-                "target": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER3D-c2cf4c18-05bf-4993-8481-e737d690158bdefault-END-27d70d41-6ff3-4222-9fa6-7278850d6cffdefault"
+                "id": "reactflow__edge-SCATTER3D-d1d7b1a2-5f04-4783-9bed-87e558267d9adefault-END-a65b629f-979e-4394-aef3-0ab4e1490245default"
             }
         ],
         "viewport": {
             "x": -373.4542219202399,
-            "y": 120.20973884288571,
+            "y": 91.70973884288571,
             "zoom": 1.101977389476256
         }
     },

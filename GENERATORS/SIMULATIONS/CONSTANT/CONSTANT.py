@@ -14,10 +14,11 @@ def CONSTANT(default: Optional[Vector] = None, constant: float = 3.0) -> Ordered
 
     Returns
     -------
-    OrderedPair if there's an input vector
+    OrderedPair|Scalar
+        OrderedPair if there's an input
         x: input vector
         y: constant with the size of the input vector
-    Scalar if no input
+        Scalar if no input
         c: constant
     """
     if default:
