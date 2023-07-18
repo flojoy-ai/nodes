@@ -26,7 +26,7 @@ def test_COUNT_VECTORIZER(mock_flojoy_decorator):
     assert isinstance(res, dict)
     assert isinstance(res["tokens"], DataFrame)
     assert isinstance(res["word_count_vector"], Vector)
-    assert set(res["tokens"].m.T.iloc[0].tolist()) == {
+    assert set(res["tokens"].m.iloc[:, 0].tolist()) == {
         "and",
         "document",
         "first",
