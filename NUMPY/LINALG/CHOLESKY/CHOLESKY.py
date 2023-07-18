@@ -40,9 +40,9 @@ def CHOLESKY(
         a=default.m,
     )
 
-    if type(result) == np.ndarray:
+    if isinstance(result, np.ndarray):
         result = Matrix(m=result)
-    elif type(result) == np.float64:
+    elif isinstance(result, np.float64):
         result = Scalar(c=result)
 
     return result

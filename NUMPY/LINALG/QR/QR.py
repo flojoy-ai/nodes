@@ -59,13 +59,13 @@ def QR(
         mode=mode,
     )
 
-    if type(result) == namedtuple:
+    if isinstance(result, namedtuple):
         result = result._asdict()
         result = result[select_return]
 
-    if type(result) == np.ndarray:
+    if isinstance(result, np.ndarray):
         result = Matrix(m=result)
-    elif type(result) == np.float64:
+    elif isinstance(result, np.float64):
         result = Scalar(c=result)
 
     return result
