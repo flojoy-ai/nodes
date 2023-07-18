@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -46,12 +47,13 @@ def BINOM_TEST(
     """
 
     result = OrderedPair(
-        m=scipy.stats.binom_test(
+        x=default.x,
+        y=scipy.stats.binom_test(
             x=default.y,
             n=n,
             p=p,
             alternative=alternative,
-        )
+        ),
     )
 
     return result

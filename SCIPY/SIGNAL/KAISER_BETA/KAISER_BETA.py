@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.signal
 
@@ -27,9 +28,10 @@ def KAISER_BETA(
     """
 
     result = OrderedPair(
-        m=scipy.signal.kaiser_beta(
+        x=default.x,
+        y=scipy.signal.kaiser_beta(
             a=default.y,
-        )
+        ),
     )
 
     return result

@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -51,13 +52,14 @@ def TMIN(
     """
 
     result = OrderedPair(
-        m=scipy.stats.tmin(
+        x=default.x,
+        y=scipy.stats.tmin(
             a=default.y,
             lowerlimit=lowerlimit,
             axis=axis,
             inclusive=inclusive,
             nan_policy=nan_policy,
-        )
+        ),
     )
 
     return result

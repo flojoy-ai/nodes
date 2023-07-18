@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -59,13 +60,14 @@ def MOMENT(
     """
 
     result = OrderedPair(
-        m=scipy.stats.moment(
+        x=default.x,
+        y=scipy.stats.moment(
             a=default.y,
             moment=moment,
             axis=axis,
             nan_policy=nan_policy,
             keepdims=keepdims,
-        )
+        ),
     )
 
     return result

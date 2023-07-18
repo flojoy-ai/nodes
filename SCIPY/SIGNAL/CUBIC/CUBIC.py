@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.signal
 
@@ -28,9 +29,10 @@ def CUBIC(
     """
 
     result = OrderedPair(
-        m=scipy.signal.cubic(
+        x=default.x,
+        y=scipy.signal.cubic(
             x=default.y,
-        )
+        ),
     )
 
     return result

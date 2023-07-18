@@ -2,17 +2,17 @@ import pytest
 from functools import wraps
 from unittest.mock import patch
 
+
 @pytest.fixture
 def mock_flojoy_decorator():
-
     def no_op_decorator(func=None, **kwargs):
-
         def decorator(func):
             @wraps(func)
             def decorated_function(*args, **kwargs):
                 return func(*args, **kwargs)
+
             return decorated_function
-        
+
         if func is not None:
             return decorator(func)
 

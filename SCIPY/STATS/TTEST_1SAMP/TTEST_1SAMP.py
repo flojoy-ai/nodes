@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -12,6 +13,7 @@ def TTEST_1SAMP(
     axis: int = 0,
     nan_policy: str = "propagate",
     alternative: str = "two-sided",
+    select_return: Literal["statistic", "pvalue"] = "statistic",
 ) -> OrderedPair | Matrix | Scalar:
     """The TTEST_1SAMP node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -24,6 +26,9 @@ def TTEST_1SAMP(
 
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['statistic', 'pvalue']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : array_like
             Sample observation.
     popmean : float or array_like
@@ -60,13 +65,14 @@ def TTEST_1SAMP(
     """
 
     result = OrderedPair(
-        m=scipy.stats.ttest_1samp(
+        x=default.x,
+        y=scipy.stats.ttest_1samp(
             a=default.y,
             popmean=popmean,
             axis=axis,
             nan_policy=nan_policy,
             alternative=alternative,
-        )
+        ),
     )
 
     return result

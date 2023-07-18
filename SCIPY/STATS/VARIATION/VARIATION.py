@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -69,13 +70,14 @@ def VARIATION(
     """
 
     result = OrderedPair(
-        m=scipy.stats.variation(
+        x=default.x,
+        y=scipy.stats.variation(
             a=default.y,
             axis=axis,
             nan_policy=nan_policy,
             ddof=ddof,
             keepdims=keepdims,
-        )
+        ),
     )
 
     return result

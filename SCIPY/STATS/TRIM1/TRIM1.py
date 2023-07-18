@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -42,12 +43,13 @@ def TRIM1(
     """
 
     result = OrderedPair(
-        m=scipy.stats.trim1(
+        x=default.x,
+        y=scipy.stats.trim1(
             a=default.y,
             proportiontocut=proportiontocut,
             tail=tail,
             axis=axis,
-        )
+        ),
     )
 
     return result
