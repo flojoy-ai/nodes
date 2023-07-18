@@ -17,7 +17,7 @@
                             "default": 0,
                             "functionName": "TIMER",
                             "param": "sleep_time",
-                            "value": "0.5"
+                            "value": "2"
                         }
                     },
                     "inputs": [
@@ -36,13 +36,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes\\LOGIC_GATES\\TIMERS\\TIMER\\TIMER.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 102.89594923414663,
                     "y": 110.49136885391965
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 102.89594923414663,
                     "y": 110.49136885391965
@@ -129,6 +129,60 @@
                     "y": 120.18610526153276
                 },
                 "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-60fef0fd-99d3-4564-a49b-4e1e4e477ce2",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-60fef0fd-99d3-4564-a49b-4e1e4e477ce2",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "default",
+                    "ctrls": {
+                        "start": {
+                            "type": "float",
+                            "default": 10,
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": "0"
+                        },
+                        "end": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": "1"
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": "150"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": -259.564845824626,
+                    "y": 111.55746152604394
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": -259.564845824626,
+                    "y": 111.55746152604394
+                },
+                "dragging": true
             }
         ],
         "edges": [
@@ -145,12 +199,19 @@
                 "target": "END-ab10e538-ad40-4af1-a447-979a455ba0d3",
                 "targetHandle": "default",
                 "id": "reactflow__edge-CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0default-END-ab10e538-ad40-4af1-a447-979a455ba0d3default"
+            },
+            {
+                "source": "LINSPACE-60fef0fd-99d3-4564-a49b-4e1e4e477ce2",
+                "sourceHandle": "default",
+                "target": "TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-60fef0fd-99d3-4564-a49b-4e1e4e477ce2default-TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31default"
             }
         ],
         "viewport": {
-            "x": -296.35399545928726,
-            "y": 66.8470830817738,
-            "zoom": 0.8744723800359967
+            "x": -370.442494324109,
+            "y": 122.55885385221723,
+            "zoom": 1.093090475044996
         }
     },
     "ctrlsManifest": [

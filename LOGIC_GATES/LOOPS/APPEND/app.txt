@@ -155,13 +155,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/RAND/RAND.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": -116.99910130481645,
                     "y": 31.67641795910953
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": -116.99910130481645,
                     "y": 31.67641795910953
@@ -513,9 +513,9 @@
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 196.48083177807212,
-            "zoom": 1.4811524052100216
+            "x": -373.4542219202399,
+            "y": 120.20973884288571,
+            "zoom": 1.101977389476256
         }
     },
     "ctrlsManifest": [

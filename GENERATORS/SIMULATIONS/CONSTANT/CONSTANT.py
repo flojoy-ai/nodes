@@ -4,9 +4,7 @@ from typing import Optional
 
 
 @flojoy
-def CONSTANT(
-    default: Optional[Vector] = None, constant: float = 3.0
-) -> OrderedPair | Scalar:
+def CONSTANT(default: Optional[Vector] = None, constant: float = 3.0) -> OrderedPair | Scalar:
     """The CONSTANT node generates a single x-y vector of numeric (floating point) constants
     if there's an input vector, otherwise the constant node will generate a scalar value
 
@@ -22,8 +20,8 @@ def CONSTANT(
     Scalar if no input
         c: constant
     """
-    x = np.arange(0, 100, 1)
     if default:
         x = default.v
-    y = np.full(len(x), constant)
-    return OrderedPair(x=x, y=y)
+        y = np.full(len(x), constant)
+        return OrderedPair(x=x, y=y)
+    return Scalar(c=constant)
