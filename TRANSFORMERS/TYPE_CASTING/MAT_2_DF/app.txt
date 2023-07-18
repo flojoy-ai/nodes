@@ -35,22 +35,22 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/MATRIX/MATRIX.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 188.5633762135401,
-                    "y": 349.2164179190142
+                    "x": 31.56177539175036,
+                    "y": 391.0835114714915
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 188.5633762135401,
-                    "y": 349.2164179190142
+                    "x": 31.56177539175036,
+                    "y": 391.0835114714915
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "LINE-a0ba433b-38d5-4456-820c-b1e3913bb89c",
                 "type": "PLOTLY",
                 "data": {
@@ -108,16 +108,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 1160.9517006157112,
-                    "y": 359.447100902452
+                    "x": 1286.552981273143,
+                    "y": 372.23982393237566
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 1160.9517006157112,
-                    "y": 359.447100902452
+                    "x": 1286.552981273143,
+                    "y": 372.23982393237566
                 },
                 "dragging": true
             },
@@ -151,13 +151,53 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 411.8143678232408,
-                    "y": 339.92513337331167
+                    "x": 389.71784622610005,
+                    "y": 371.3254535376696
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 411.8143678232408,
-                    "y": 339.92513337331167
+                    "x": 389.71784622610005,
+                    "y": 371.3254535376696
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-421b9148-d54d-4501-a158-b7c5f3af2be3",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "LINE-421b9148-d54d-4501-a158-b7c5f3af2be3",
+                    "label": "LINE 1",
+                    "func": "LINE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 694.4690759603592,
+                    "y": 720.820385001287
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 694.4690759603592,
+                    "y": 720.820385001287
                 },
                 "dragging": true
             }
@@ -183,12 +223,19 @@
                 "target": "LINE-a0ba433b-38d5-4456-820c-b1e3913bb89c",
                 "targetHandle": "default",
                 "id": "reactflow__edge-MAT_2_DF-b47f36ab-ee94-4b8a-9f26-6cd00c8a299ddefault-LINE-a0ba433b-38d5-4456-820c-b1e3913bb89cdefault"
+            },
+            {
+                "source": "MATRIX-ec259036-e37b-4671-8a8d-d684584ffbb2",
+                "sourceHandle": "default",
+                "target": "LINE-421b9148-d54d-4501-a158-b7c5f3af2be3",
+                "targetHandle": "default",
+                "id": "reactflow__edge-MATRIX-ec259036-e37b-4671-8a8d-d684584ffbb2default-LINE-421b9148-d54d-4501-a158-b7c5f3af2be3default"
             }
         ],
         "viewport": {
-            "x": 0,
-            "y": 0,
-            "zoom": 1
+            "x": -373.4542219202399,
+            "y": 120.20973884288571,
+            "zoom": 1.101977389476256
         }
     },
     "ctrlsManifest": [

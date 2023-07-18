@@ -1,5 +1,3 @@
-In this example, `SKLEARNIMAGE` generates an array that consists of RGB colors.
+In this example, `LINSPACE` generates an array of 100 values. 
 
-This array is then passed to the `NP_2_DF` node, which stacks 3-4 different arrays into a single 2D array.
-
-Finally, this array is converted to `dataframe` type and plots its data.
+This array is then passed to the `NP_2_DF` node, which converts it into a `dataframe` and plotted.

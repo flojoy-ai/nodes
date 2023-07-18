@@ -4,91 +4,6 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "SKLEARNIMAGE-e736d6fb-7e8e-41cd-87d3-a4f10d5f70c3",
-                "type": "SAMPLE_IMAGES",
-                "data": {
-                    "id": "SKLEARNIMAGE-e736d6fb-7e8e-41cd-87d3-a4f10d5f70c3",
-                    "label": "SKLEARNIMAGE",
-                    "func": "SKLEARNIMAGE",
-                    "type": "SAMPLE_IMAGES",
-                    "ctrls": {
-                        "img_key": {
-                            "type": "select",
-                            "default": "astronaut",
-                            "options": [
-                                "astronaut",
-                                "binary_blobs",
-                                "brain",
-                                "brick",
-                                "camera",
-                                "cat",
-                                "cell",
-                                "cells3d",
-                                "checkerboard",
-                                "chelsea",
-                                "clock",
-                                "coffee",
-                                "coins",
-                                "colorwheel",
-                                "create_image_fetcher",
-                                "data_dir",
-                                "download_all",
-                                "eagle",
-                                "file_hash",
-                                "grass",
-                                "gravel",
-                                "horse",
-                                "hubble_deep_field",
-                                "human_mitosis",
-                                "image_fetcher",
-                                "immunohistochemistry",
-                                "kidney",
-                                "lbp_frontal_face_cascade_filename",
-                                "lfw_subset",
-                                "lily",
-                                "logo",
-                                "microaneurysms",
-                                "moon",
-                                "nickel_solidification",
-                                "page",
-                                "protein_transport",
-                                "retina",
-                                "rocket",
-                                "shepp_logan_phantom",
-                                "skin",
-                                "stereo_motorcycle",
-                                "text",
-                                "vortex"
-                            ],
-                            "functionName": "SKLEARNIMAGE",
-                            "param": "img_key",
-                            "value": "astronaut"
-                        }
-                    },
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/GENERATORS/SAMPLE_IMAGES/SKLEARNIMAGE/SKLEARNIMAGE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": -27.61189288784054,
-                    "y": 628.4649240993438
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -27.61189288784054,
-                    "y": 628.4649240993438
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
                 "id": "NP_2_DF-11e21238-e5ea-43a3-b0c5-17d74f0e91f7",
                 "type": "TYPE_CASTING",
                 "data": {
@@ -146,22 +61,22 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 951.9436914911648,
-                    "y": 637.1490759446185
+                    "x": 1054.9994347347476,
+                    "y": 664.8948529717371
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 951.9436914911648,
-                    "y": 637.1490759446185
+                    "x": 1054.9994347347476,
+                    "y": 664.8948529717371
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "TABLE-d4a76c19-a1ef-454c-b91e-4ad5765c4708",
                 "type": "PLOTLY",
                 "data": {
@@ -198,16 +113,103 @@
                     "y": 586.3143567948883
                 },
                 "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-d0aaf6e0-f853-4320-8a7d-f263c66e264f",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-d0aaf6e0-f853-4320-8a7d-f263c66e264f",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "default",
+                    "ctrls": {
+                        "start": {
+                            "type": "float",
+                            "default": 10,
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": "1"
+                        },
+                        "end": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": "100"
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": "100"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -161.4323562074541,
+                    "y": 621.0106652694616
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -161.4323562074541,
+                    "y": 621.0106652694616
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-526053aa-c2e9-4ce7-9cc8-49854826713e",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "TABLE-526053aa-c2e9-4ce7-9cc8-49854826713e",
+                    "label": "TABLE 1",
+                    "func": "TABLE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 577.5513728698076,
+                    "y": 935.7552072258692
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 577.5513728698076,
+                    "y": 935.7552072258692
+                },
+                "dragging": true
             }
         ],
         "edges": [
-            {
-                "source": "SKLEARNIMAGE-e736d6fb-7e8e-41cd-87d3-a4f10d5f70c3",
-                "sourceHandle": "default",
-                "target": "NP_2_DF-11e21238-e5ea-43a3-b0c5-17d74f0e91f7",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SKLEARNIMAGE-e736d6fb-7e8e-41cd-87d3-a4f10d5f70c3default-NP_2_DF-11e21238-e5ea-43a3-b0c5-17d74f0e91f7default"
-            },
             {
                 "source": "NP_2_DF-11e21238-e5ea-43a3-b0c5-17d74f0e91f7",
                 "sourceHandle": "default",
@@ -221,12 +223,33 @@
                 "target": "END-a85095ce-c32c-4a3f-9bfb-2ee5ef065fac",
                 "targetHandle": "default",
                 "id": "reactflow__edge-TABLE-d4a76c19-a1ef-454c-b91e-4ad5765c4708default-END-a85095ce-c32c-4a3f-9bfb-2ee5ef065facdefault"
+            },
+            {
+                "source": "LINSPACE-d0aaf6e0-f853-4320-8a7d-f263c66e264f",
+                "sourceHandle": "default",
+                "target": "NP_2_DF-11e21238-e5ea-43a3-b0c5-17d74f0e91f7",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-d0aaf6e0-f853-4320-8a7d-f263c66e264fdefault-NP_2_DF-11e21238-e5ea-43a3-b0c5-17d74f0e91f7default"
+            },
+            {
+                "source": "LINSPACE-d0aaf6e0-f853-4320-8a7d-f263c66e264f",
+                "sourceHandle": "default",
+                "target": "TABLE-526053aa-c2e9-4ce7-9cc8-49854826713e",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-d0aaf6e0-f853-4320-8a7d-f263c66e264fdefault-TABLE-526053aa-c2e9-4ce7-9cc8-49854826713edefault"
+            },
+            {
+                "source": "TABLE-526053aa-c2e9-4ce7-9cc8-49854826713e",
+                "sourceHandle": "default",
+                "target": "END-a85095ce-c32c-4a3f-9bfb-2ee5ef065fac",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-526053aa-c2e9-4ce7-9cc8-49854826713edefault-END-a85095ce-c32c-4a3f-9bfb-2ee5ef065facdefault"
             }
         ],
         "viewport": {
-            "x": 0,
-            "y": 0,
-            "zoom": 1
+            "x": -373.4542219202399,
+            "y": 120.20973884288571,
+            "zoom": 1.101977389476256
         }
     },
     "ctrlsManifest": [

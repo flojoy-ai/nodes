@@ -15,6 +15,7 @@ from flojoy import (
     ParametricImage,
     ParametricGrayscale,
     ParametricMatrix,
+    Vector,
 )
 
 
@@ -36,24 +37,18 @@ def NP_2_DF(default: DataContainer) -> DataFrame:
     match default:
         case DataFrame() | ParametricDataFrame():
             return default
-
+        case Vector():
+            df = pd.DataFrame(default.v)
         case OrderedPair() | ParametricOrderedPair():
             df = pd.DataFrame(default.y)
-            return DataFrame(df=df)
-
         case OrderedTriple() | ParametricOrderedTriple():
             df = pd.DataFrame(default.z)
-            return DataFrame(df=df)
-
         case Matrix() | ParametricMatrix():
             np_array = np.asarray(default.m)
             df = pd.DataFrame(np_array)
-            return DataFrame(df=df)
         case Grayscale() | ParametricGrayscale():
             np_array = np.asarray(default.img)
             df = pd.DataFrame(np_array)
-            return DataFrame(df=df)
-
         case Image() | ParametricImage():
             red = default.r
             green = default.g
@@ -63,12 +58,11 @@ def NP_2_DF(default: DataContainer) -> DataFrame:
                 merge = np.stack((red, green, blue), axis=2)
                 merge = merge.reshape(-1, merge.shape[-1])
                 df = pd.DataFrame(merge)
-                return DataFrame(df=df)
             else:
                 alpha = default.a
                 merge = np.stack((red, green, blue, alpha), axis=2)
                 merge = merge.reshape(-1, merge.shape[-1])
                 df = pd.DataFrame(merge)
-                return DataFrame(df=df)
         case _:
             raise ValueError(f"unsupported DataContainer type passed for NP_2_DF")
+    return DataFrame(df=df)

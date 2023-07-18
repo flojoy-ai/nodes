@@ -13,7 +13,7 @@ def SINE(
     phase: float = 0,
     waveform: Literal["sine", "square", "triangle", "sawtooth"] = "sine",
 ) -> OrderedPair:
-    """ The SINE node generates periodic signal with a given input
+    """The SINE node generates periodic signal with a given input
 
     Parameters
     ----------
@@ -41,7 +41,9 @@ def SINE(
     elif waveform == "square":
         y = offset + amplitude * signal.square(2 * np.pi * frequency * x / 10 + phase)
     elif waveform == "triangle":
-        y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency * x / 10 + phase, 0.5)
+        y = offset + amplitude * signal.sawtooth(
+            2 * np.pi * frequency * x / 10 + phase, 0.5
+        )
     elif waveform == "sawtooth":
         y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency / 10 * x + phase)
 

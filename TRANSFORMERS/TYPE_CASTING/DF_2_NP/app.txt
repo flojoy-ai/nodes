@@ -4,10 +4,10 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "R_DATASET-2cbb8a61-2c9a-4ad1-aa30-531be333cdf7",
+                "id": "R_DATASET-ad64b331-4254-4c92-9004-5ff1b2a3e068",
                 "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "R_DATASET-2cbb8a61-2c9a-4ad1-aa30-531be333cdf7",
+                    "id": "R_DATASET-ad64b331-4254-4c92-9004-5ff1b2a3e068",
                     "label": "R DATASET",
                     "func": "R_DATASET",
                     "type": "SAMPLE_DATASETS",
@@ -120,23 +120,62 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -21.263377334327345,
-                    "y": 160.19882921815832
+                    "x": 129.12994444999038,
+                    "y": 0.5223227493047915
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -21.263377334327345,
-                    "y": 160.19882921815832
+                    "x": 129.12994444999038,
+                    "y": 0.5223227493047915
+                }
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-c85f490f-cedd-4313-b4bd-6548337a03cd",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "LINE-c85f490f-cedd-4313-b4bd-6548337a03cd",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 439.4845276918145,
+                    "y": -251.74736197389925
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 439.4845276918145,
+                    "y": -251.74736197389925
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "DF_2_NP-91929d87-cbfb-430e-b5ac-78ee01dba01d",
+                "id": "DF_2_NP-25cb09f4-11ed-4d39-b9e7-92dcf3dc426d",
                 "type": "TYPE_CASTING",
                 "data": {
-                    "id": "DF_2_NP-91929d87-cbfb-430e-b5ac-78ee01dba01d",
+                    "id": "DF_2_NP-25cb09f4-11ed-4d39-b9e7-92dcf3dc426d",
                     "label": "DF 2 NP",
                     "func": "DF_2_NP",
                     "type": "TYPE_CASTING",
@@ -153,31 +192,31 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Any"
+                            "type": "Matrix"
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/TYPE_CASTING/DF_2_NP/DF_2_NP.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 260.1411269778855,
-                    "y": 160.46643712153627
+                    "x": 482.80005210931347,
+                    "y": 181.71577584291458
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 260.1411269778855,
-                    "y": 160.46643712153627
+                    "x": 482.80005210931347,
+                    "y": 181.71577584291458
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
-                "id": "LINE-fb139689-2bc4-4fbe-853a-46c9a65d0ec2",
+                "width": 380,
+                "height": 293,
+                "id": "LINE-d2daa313-1e2f-4396-ba82-89344d47ff24",
                 "type": "PLOTLY",
                 "data": {
-                    "id": "LINE-fb139689-2bc4-4fbe-853a-46c9a65d0ec2",
-                    "label": "LINE",
+                    "id": "LINE-d2daa313-1e2f-4396-ba82-89344d47ff24",
+                    "label": "LINE 1",
                     "func": "LINE",
                     "type": "PLOTLY",
                     "ctrls": {},
@@ -185,7 +224,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair|Matrix|DataFrame",
+                            "type": "OrderedPair|DataFrame|Matrix",
                             "multiple": false
                         }
                     ],
@@ -200,23 +239,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 597.7981862927004,
-                    "y": 121.3471798684717
+                    "x": 938.5825590093252,
+                    "y": 157.6482638429419
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 597.7981862927004,
-                    "y": 121.3471798684717
+                    "x": 938.5825590093252,
+                    "y": 157.6482638429419
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-c6bc9629-bc58-4bbd-80da-204aaa449eea",
+                "id": "END-cd428516-c26d-4622-b0a5-9b6cb37f607a",
                 "type": "TERMINATORS",
                 "data": {
-                    "id": "END-c6bc9629-bc58-4bbd-80da-204aaa449eea",
+                    "id": "END-cd428516-c26d-4622-b0a5-9b6cb37f607a",
                     "label": "END",
                     "func": "END",
                     "type": "TERMINATORS",
@@ -233,44 +272,58 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 965.378096229007,
-                    "y": 169.1651959796751
+                    "x": 1448.9159812533987,
+                    "y": -74.66205203269763
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 965.378096229007,
-                    "y": 169.1651959796751
+                    "x": 1448.9159812533987,
+                    "y": -74.66205203269763
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "R_DATASET-2cbb8a61-2c9a-4ad1-aa30-531be333cdf7",
+                "source": "R_DATASET-ad64b331-4254-4c92-9004-5ff1b2a3e068",
                 "sourceHandle": "default",
-                "target": "DF_2_NP-91929d87-cbfb-430e-b5ac-78ee01dba01d",
+                "target": "LINE-c85f490f-cedd-4313-b4bd-6548337a03cd",
                 "targetHandle": "default",
-                "id": "reactflow__edge-R_DATASET-2cbb8a61-2c9a-4ad1-aa30-531be333cdf7default-DF_2_NP-91929d87-cbfb-430e-b5ac-78ee01dba01ddefault"
+                "id": "reactflow__edge-R_DATASET-ad64b331-4254-4c92-9004-5ff1b2a3e068default-LINE-c85f490f-cedd-4313-b4bd-6548337a03cddefault"
             },
             {
-                "source": "DF_2_NP-91929d87-cbfb-430e-b5ac-78ee01dba01d",
+                "source": "R_DATASET-ad64b331-4254-4c92-9004-5ff1b2a3e068",
                 "sourceHandle": "default",
-                "target": "LINE-fb139689-2bc4-4fbe-853a-46c9a65d0ec2",
+                "target": "DF_2_NP-25cb09f4-11ed-4d39-b9e7-92dcf3dc426d",
                 "targetHandle": "default",
-                "id": "reactflow__edge-DF_2_NP-91929d87-cbfb-430e-b5ac-78ee01dba01ddefault-LINE-fb139689-2bc4-4fbe-853a-46c9a65d0ec2default"
+                "id": "reactflow__edge-R_DATASET-ad64b331-4254-4c92-9004-5ff1b2a3e068default-DF_2_NP-25cb09f4-11ed-4d39-b9e7-92dcf3dc426ddefault"
             },
             {
-                "source": "LINE-fb139689-2bc4-4fbe-853a-46c9a65d0ec2",
+                "source": "DF_2_NP-25cb09f4-11ed-4d39-b9e7-92dcf3dc426d",
                 "sourceHandle": "default",
-                "target": "END-c6bc9629-bc58-4bbd-80da-204aaa449eea",
+                "target": "LINE-d2daa313-1e2f-4396-ba82-89344d47ff24",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LINE-fb139689-2bc4-4fbe-853a-46c9a65d0ec2default-END-c6bc9629-bc58-4bbd-80da-204aaa449eeadefault"
+                "id": "reactflow__edge-DF_2_NP-25cb09f4-11ed-4d39-b9e7-92dcf3dc426ddefault-LINE-d2daa313-1e2f-4396-ba82-89344d47ff24default"
+            },
+            {
+                "source": "LINE-c85f490f-cedd-4313-b4bd-6548337a03cd",
+                "sourceHandle": "default",
+                "target": "END-cd428516-c26d-4622-b0a5-9b6cb37f607a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-c85f490f-cedd-4313-b4bd-6548337a03cddefault-END-cd428516-c26d-4622-b0a5-9b6cb37f607adefault"
+            },
+            {
+                "source": "LINE-d2daa313-1e2f-4396-ba82-89344d47ff24",
+                "sourceHandle": "default",
+                "target": "END-cd428516-c26d-4622-b0a5-9b6cb37f607a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-d2daa313-1e2f-4396-ba82-89344d47ff24default-END-cd428516-c26d-4622-b0a5-9b6cb37f607adefault"
             }
         ],
         "viewport": {
-            "x": 0,
-            "y": 0,
-            "zoom": 1
+            "x": -373.4542219202399,
+            "y": 120.20973884288571,
+            "zoom": 1.101977389476256
         }
     },
     "ctrlsManifest": [
