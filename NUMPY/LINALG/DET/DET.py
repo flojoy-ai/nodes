@@ -31,10 +31,6 @@ def DET(
         a=default.m,
     )
 
-    if type(result) == namedtuple:
-        result = result._asdict()
-        result = result[select_return]
-
     if type(result) == np.ndarray:
         result = Matrix(m=result)
     elif type(result) == np.float64:
