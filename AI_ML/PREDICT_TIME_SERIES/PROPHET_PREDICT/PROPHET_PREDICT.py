@@ -11,8 +11,7 @@ class ProphetPredictOutput(TypedDict):
 @run_in_venv(
     pip_dependencies=[
         "prophet==1.1.4",
-    ],
-    verbose=True
+    ]
 )
 def PROPHET_PREDICT(
     default: DataFrame, run_forecast: bool = True, periods: int = 365
