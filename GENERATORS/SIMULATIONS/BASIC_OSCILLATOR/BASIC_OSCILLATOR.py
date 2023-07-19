@@ -49,5 +49,7 @@ def BASIC_OSCILLATOR(
         y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency * x + phase, 0.5)
     elif waveform == "sawtooth":
         y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency * x + phase)
+    else:
+        raise ValueError(f"The select type {waveform} is not supported!")
 
     return OrderedPair(x=x, y=y)

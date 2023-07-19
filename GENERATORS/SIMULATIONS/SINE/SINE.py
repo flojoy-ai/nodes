@@ -46,5 +46,7 @@ def SINE(
         )
     elif waveform == "sawtooth":
         y = offset + amplitude * signal.sawtooth(2 * np.pi * frequency / 10 * x + phase)
+    else:
+        raise ValueError(f"The select type {waveform} is not supported!")
 
     return OrderedPair(x=x, y=y)
