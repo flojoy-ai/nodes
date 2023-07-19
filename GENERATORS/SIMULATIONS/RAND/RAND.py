@@ -19,6 +19,7 @@ def RAND(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     DataContainer:
         type 'ordered pair'
     """
+
     distribution: str = params["distribution"]
     seed: int = random.randint(1, 10000)
     my_generator = np.random.default_rng(seed)

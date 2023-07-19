@@ -1,0 +1,134 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "READ_S3-4e5e8dec-036d-4bc2-b4cf-2165c66a8923",
+                "type": "FILE",
+                "data": {
+                    "id": "READ_S3-4e5e8dec-036d-4bc2-b4cf-2165c66a8923",
+                    "label": "READ S3",
+                    "func": "READ_S3",
+                    "type": "FILE",
+                    "ctrls": {
+                        "s3_name": {
+                            "functionName": "READ_S3",
+                            "param": "s3_name",
+                            "value": "flojoy-testing"
+                        },
+                        "bucket_name": {
+                            "functionName": "READ_S3",
+                            "param": "bucket_name",
+                            "value": "read-s3-node-testing"
+                        },
+                        "file_name": {
+                            "functionName": "READ_S3",
+                            "param": "file_name",
+                            "value": "userdata1.parquet"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 238.01114122664217,
+                    "y": 667.3907700195157
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 238.01114122664217,
+                    "y": 667.3907700195157
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-ec894b0d-cc13-4dcc-9ee6-f66dfdb38ed0",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-ec894b0d-cc13-4dcc-9ee6-f66dfdb38ed0",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1379.4397126552135,
+                    "y": 665.9621985909441
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1379.4397126552135,
+                    "y": 665.9621985909441
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-d71cf926-0c67-443d-9f6e-a3f6649c9c22",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "TABLE-d71cf926-0c67-443d-9f6e-a3f6649c9c22",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 705.1539983694992,
+                    "y": 574.5336271623727
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 705.1539983694992,
+                    "y": 574.5336271623727
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "READ_S3-4e5e8dec-036d-4bc2-b4cf-2165c66a8923",
+                "sourceHandle": "main",
+                "target": "TABLE-d71cf926-0c67-443d-9f6e-a3f6649c9c22",
+                "targetHandle": "TABLE",
+                "id": "reactflow__edge-READ_S3-4e5e8dec-036d-4bc2-b4cf-2165c66a8923main-TABLE-d71cf926-0c67-443d-9f6e-a3f6649c9c22TABLE"
+            },
+            {
+                "source": "TABLE-d71cf926-0c67-443d-9f6e-a3f6649c9c22",
+                "sourceHandle": "main",
+                "target": "END-ec894b0d-cc13-4dcc-9ee6-f66dfdb38ed0",
+                "targetHandle": "END",
+                "id": "reactflow__edge-TABLE-d71cf926-0c67-443d-9f6e-a3f6649c9c22main-END-ec894b0d-cc13-4dcc-9ee6-f66dfdb38ed0END"
+            }
+        ],
+        "viewport": {
+            "x": 383.94248946966945,
+            "y": 98.35910915060867,
+            "zoom": 1.1608238532718647
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
