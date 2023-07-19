@@ -48,9 +48,13 @@ def RAND(
 
     match default:
         case OrderedPair():
-            size = len(default.x) if default else None
+            size = len(default.x)
+            x = default.x
         case Vector():
-            size = len(default.v) if default else None
+            size = len(default.v)
+            x = default.v
+        case _:
+            size = 1
 
     match distribution:
         case "uniform":
@@ -62,12 +66,4 @@ def RAND(
         case "poisson":
             y = my_generator.poisson(lam=poisson_events, size=size)
 
-    match default:
-        case OrderedPair():
-            x = default.x
-        case Vector():
-            x = default.v
-        case _:
-            return Scalar(c=y)
-
-    return OrderedPair(x=x, y=y)
+    return OrderedPair(x=x, y=y) if default else Scalar(c=y)

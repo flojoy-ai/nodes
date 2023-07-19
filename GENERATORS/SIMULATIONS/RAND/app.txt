@@ -42,55 +42,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 138.41459532216834,
-                    "y": 31.355021442009637
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 138.41459532216834,
-                    "y": 31.355021442009637
-                }
-            },
-            {
-                "width": 225,
-                "height": 226,
-                "id": "SCATTER-d643dc2a-27ca-4a4d-ae0c-3e044691ad5f",
-                "type": "PLOTLY",
-                "data": {
-                    "id": "SCATTER-d643dc2a-27ca-4a4d-ae0c-3e044691ad5f",
-                    "label": "SCATTER",
-                    "func": "SCATTER",
-                    "type": "PLOTLY",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair|DataFrame|Matrix",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/SCATTER/SCATTER.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 802.0633136463221,
-                    "y": 393.44619318359895
+                    "x": 71.58328955005041,
+                    "y": -121.19469825521614
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 802.0633136463221,
-                    "y": 393.44619318359895
+                    "x": 71.58328955005041,
+                    "y": -121.19469825521614
                 },
                 "dragging": true
             },
@@ -124,13 +85,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 765.7818094931146,
-                    "y": -90.07080747236009
+                    "x": 807.1730016964145,
+                    "y": -111.45313449538975
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 765.7818094931146,
-                    "y": -90.07080747236009
+                    "x": 807.1730016964145,
+                    "y": -111.45313449538975
                 },
                 "dragging": true
             },
@@ -157,13 +118,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1264.6750918368523,
-                    "y": 190.59635441802334
+                    "x": 1375.1520235520945,
+                    "y": 103.4971422058673
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1264.6750918368523,
-                    "y": 190.59635441802334
+                    "x": 1375.1520235520945,
+                    "y": 103.4971422058673
                 },
                 "dragging": true
             },
@@ -245,13 +206,170 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 467.51371757072974,
-                    "y": 45.4986744596863
+                    "x": 454.43802731096747,
+                    "y": -117.22102655068787
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 467.51371757072974,
-                    "y": 45.4986744596863
+                    "x": 454.43802731096747,
+                    "y": -117.22102655068787
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "RAND-e09e675f-ccaf-44b3-8842-6cea418c4b00",
+                "type": "SIMULATIONS",
+                "data": {
+                    "id": "RAND-e09e675f-ccaf-44b3-8842-6cea418c4b00",
+                    "label": "RAND 1",
+                    "func": "RAND",
+                    "type": "SIMULATIONS",
+                    "ctrls": {
+                        "distribution": {
+                            "type": "select",
+                            "default": "normal",
+                            "options": [
+                                "normal",
+                                "uniform",
+                                "poisson"
+                            ],
+                            "functionName": "RAND",
+                            "param": "distribution",
+                            "value": "normal"
+                        },
+                        "lower_bound": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "RAND",
+                            "param": "lower_bound",
+                            "value": 0
+                        },
+                        "upper_bound": {
+                            "type": "float",
+                            "default": 1,
+                            "functionName": "RAND",
+                            "param": "upper_bound",
+                            "value": 1
+                        },
+                        "normal_mean": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "RAND",
+                            "param": "normal_mean",
+                            "value": "30"
+                        },
+                        "normal_standard_deviation": {
+                            "type": "float",
+                            "default": 1,
+                            "functionName": "RAND",
+                            "param": "normal_standard_deviation",
+                            "value": "50"
+                        },
+                        "poisson_events": {
+                            "type": "float",
+                            "default": 1,
+                            "functionName": "RAND",
+                            "param": "poisson_events",
+                            "value": 1
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Vector",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/RAND/RAND.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 385.163294287524,
+                    "y": 328.61362457174704
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 385.163294287524,
+                    "y": 328.61362457174704
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266",
+                    "label": "BIG NUMBER",
+                    "func": "BIG_NUMBER",
+                    "type": "PLOTLY",
+                    "ctrls": {
+                        "suffix": {
+                            "type": "str",
+                            "default": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "suffix",
+                            "value": ""
+                        },
+                        "prefix": {
+                            "type": "str",
+                            "default": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "prefix",
+                            "value": ""
+                        },
+                        "title": {
+                            "type": "str",
+                            "default": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "title",
+                            "value": ""
+                        },
+                        "relative_delta": {
+                            "type": "bool",
+                            "default": true,
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": true
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/BIG_NUMBER/BIG_NUMBER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 818.3036219776461,
+                    "y": 287.8342828015806
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 818.3036219776461,
+                    "y": 287.8342828015806
                 },
                 "dragging": true
             }
@@ -263,13 +381,6 @@
                 "target": "END-ebbe9c0f-1a6d-4781-9441-be59a8e49036",
                 "targetHandle": "default",
                 "id": "reactflow__edge-HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4default-END-ebbe9c0f-1a6d-4781-9441-be59a8e49036default"
-            },
-            {
-                "source": "SCATTER-d643dc2a-27ca-4a4d-ae0c-3e044691ad5f",
-                "sourceHandle": "default",
-                "target": "END-ebbe9c0f-1a6d-4781-9441-be59a8e49036",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-d643dc2a-27ca-4a4d-ae0c-3e044691ad5fdefault-END-ebbe9c0f-1a6d-4781-9441-be59a8e49036default"
             },
             {
                 "source": "LINSPACE-cc55781a-14c8-4405-8fd1-0157351b3486",
@@ -286,11 +397,18 @@
                 "id": "reactflow__edge-RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60adefault-HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4default"
             },
             {
-                "source": "RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60a",
+                "source": "RAND-e09e675f-ccaf-44b3-8842-6cea418c4b00",
                 "sourceHandle": "default",
-                "target": "SCATTER-d643dc2a-27ca-4a4d-ae0c-3e044691ad5f",
+                "target": "BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266",
                 "targetHandle": "default",
-                "id": "reactflow__edge-RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60adefault-SCATTER-d643dc2a-27ca-4a4d-ae0c-3e044691ad5fdefault"
+                "id": "reactflow__edge-RAND-e09e675f-ccaf-44b3-8842-6cea418c4b00default-BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266default"
+            },
+            {
+                "source": "BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266",
+                "sourceHandle": "default",
+                "target": "END-ebbe9c0f-1a6d-4781-9441-be59a8e49036",
+                "targetHandle": "default",
+                "id": "reactflow__edge-BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266default-END-ebbe9c0f-1a6d-4781-9441-be59a8e49036default"
             }
         ],
         "viewport": {
