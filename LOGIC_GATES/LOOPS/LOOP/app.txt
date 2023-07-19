@@ -92,12 +92,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "GOTO-c29d54b5-4478-42da-b59b-5e5b190a2ee6",
-                "type": "LOOPS",
+                "type": "GOTOS",
                 "data": {
                     "id": "GOTO-c29d54b5-4478-42da-b59b-5e5b190a2ee6",
                     "label": "GOTO",
                     "func": "GOTO",
-                    "type": "LOOPS",
+                    "type": "GOTOS",
                     "ctrls": {
                         "goto_node_id": {
                             "type": "NodeReference",
@@ -250,12 +250,12 @@
                 "width": 210,
                 "height": 130,
                 "id": "LOOP-05cb3304-8821-40d9-8c1a-035a2211090e",
-                "type": "CONDITIONALS",
+                "type": "LOOPS",
                 "data": {
                     "id": "LOOP-05cb3304-8821-40d9-8c1a-035a2211090e",
                     "label": "LOOP",
                     "func": "LOOP",
-                    "type": "CONDITIONALS",
+                    "type": "LOOPS",
                     "ctrls": {
                         "num_loops": {
                             "type": "int",

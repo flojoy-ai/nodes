@@ -5,9 +5,7 @@ First, you'll need to place these three nodes:
 
 - The [`LOOP`](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/LOOPS/LOOP/LOOP.py) node which will define the number of loops.
 
-- The [`GOTO`](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/LOOPS/GOTO/GOTO.py) node will define where the loop ends. This node takes a parameter called 'referred_node' in which you can choose where the loop starts again (Generally, it's the [`LOOP`](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/LOOPS/LOOP/LOOP.py) node).
-
-- The [`END`](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END/END.py) node which is connected to the "end" output of the [`LOOP`](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/LOOPS/LOOP/LOOP.py) node, which serve, to terminate the program.
+- The [`TABLE`](https://github.com/flojoy-io/nodes/blob/main/VISUALIZERS/PLOTLY/TABLE/TABLE.py) node which is connected with end output of the loop node.
 
 After that, we can place nodes to generate and visualize data within the loop :
 
