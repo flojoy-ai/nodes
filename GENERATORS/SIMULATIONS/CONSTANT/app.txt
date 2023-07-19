@@ -39,19 +39,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 100.09048391587345,
-                    "y": 59.51438898987945
+                    "x": 50.20803758274229,
+                    "y": 56.6908542917777
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 100.09048391587345,
-                    "y": 59.51438898987945
+                    "x": 50.20803758274229,
+                    "y": 56.6908542917777
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "BIG_NUMBER-1383217e-f8d9-4d54-9e5b-cb0556a7af2f",
                 "type": "PLOTLY",
                 "data": {
@@ -105,16 +105,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/BIG_NUMBER/BIG_NUMBER.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 351.40960896334144,
-                    "y": -13.773163291015123
+                    "x": 430.3585972373649,
+                    "y": 7.098408321657757
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 351.40960896334144,
-                    "y": -13.773163291015123
+                    "x": 430.3585972373649,
+                    "y": 7.098408321657757
                 },
                 "dragging": true
             },
@@ -150,6 +150,148 @@
                     "y": 64.22928839382539
                 },
                 "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-069ee852-f45a-4607-9ddc-1a28a7ab3df7",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-069ee852-f45a-4607-9ddc-1a28a7ab3df7",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "default",
+                    "ctrls": {
+                        "start": {
+                            "type": "float",
+                            "default": 10,
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": "0"
+                        },
+                        "end": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": 0
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": 1000
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -288.0159355029796,
+                    "y": 411.17998600040187
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -288.0159355029796,
+                    "y": 411.17998600040187
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "CONSTANT-af7ebbe2-22b6-47db-9a72-ee864819d9a1",
+                "type": "SIMULATIONS",
+                "data": {
+                    "id": "CONSTANT-af7ebbe2-22b6-47db-9a72-ee864819d9a1",
+                    "label": "4",
+                    "func": "CONSTANT",
+                    "type": "SIMULATIONS",
+                    "ctrls": {
+                        "constant": {
+                            "type": "float",
+                            "default": 3,
+                            "functionName": "CONSTANT",
+                            "param": "constant",
+                            "value": "4"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/CONSTANT/CONSTANT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 61.00453124038546,
+                    "y": 427.0593853062967
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 61.00453124038546,
+                    "y": 427.0593853062967
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "LINE-62ab80ea-5da5-4a75-8982-5897536b1986",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "LINE-62ab80ea-5da5-4a75-8982-5897536b1986",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 439.17316595049164,
+                    "y": 378.25107322159386
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 439.17316595049164,
+                    "y": 378.25107322159386
+                },
+                "dragging": true
             }
         ],
         "edges": [
@@ -166,6 +308,27 @@
                 "target": "END-35d85cd3-8abd-4c37-a02d-8c9a46a65982",
                 "targetHandle": "default",
                 "id": "reactflow__edge-BIG_NUMBER-1383217e-f8d9-4d54-9e5b-cb0556a7af2fdefault-END-35d85cd3-8abd-4c37-a02d-8c9a46a65982default"
+            },
+            {
+                "source": "LINSPACE-069ee852-f45a-4607-9ddc-1a28a7ab3df7",
+                "sourceHandle": "default",
+                "target": "CONSTANT-af7ebbe2-22b6-47db-9a72-ee864819d9a1",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-069ee852-f45a-4607-9ddc-1a28a7ab3df7default-CONSTANT-af7ebbe2-22b6-47db-9a72-ee864819d9a1default"
+            },
+            {
+                "source": "CONSTANT-af7ebbe2-22b6-47db-9a72-ee864819d9a1",
+                "sourceHandle": "default",
+                "target": "LINE-62ab80ea-5da5-4a75-8982-5897536b1986",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CONSTANT-af7ebbe2-22b6-47db-9a72-ee864819d9a1default-LINE-62ab80ea-5da5-4a75-8982-5897536b1986default"
+            },
+            {
+                "source": "LINE-62ab80ea-5da5-4a75-8982-5897536b1986",
+                "sourceHandle": "default",
+                "target": "END-35d85cd3-8abd-4c37-a02d-8c9a46a65982",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-62ab80ea-5da5-4a75-8982-5897536b1986default-END-35d85cd3-8abd-4c37-a02d-8c9a46a65982default"
             }
         ],
         "viewport": {
