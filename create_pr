@@ -63,9 +63,9 @@ fi
 
 if [ "$STUDIO_PR" = true ]; then
 
-STUDIO_REPOSITORY="flojoy-io/studio"
-STUDIO_FOLDER="bin/$STUDIO_REPOSITORY"
-STUDIO_BRANCH="update-node-submodule-$COMMIT_SHA"
+  STUDIO_REPOSITORY="flojoy-io/studio"
+  STUDIO_FOLDER="bin/$STUDIO_REPOSITORY"
+  STUDIO_BRANCH="update-node-submodule-$COMMIT_SHA"
 
   clone "$STUDIO_REPOSITORY" "$STUDIO_FOLDER"
 
