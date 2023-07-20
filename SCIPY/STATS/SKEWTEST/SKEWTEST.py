@@ -1,22 +1,33 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.stats
 
 
-@flojoy
-def SKEWTEST(dc, params):
-    """
+@flojoy(node_type="default")
+def SKEWTEST(
+    default: OrderedPair | Matrix,
+    axis: int = 0,
+    nan_policy: str = "propagate",
+    alternative: str = "two-sided",
+    select_return: Literal["statistic", "pvalue"] = "statistic",
+) -> OrderedPair | Matrix | Scalar:
+    """The SKEWTEST node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Test whether the skew is different from the normal distribution.
 
             This function tests the null hypothesis that the skewness of
             the population that the sample was drawn from is the same
             as that of a corresponding normal distribution.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['statistic', 'pvalue']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : array
             The data to be tested.
     axis : int or None, optional
@@ -42,17 +53,21 @@ def SKEWTEST(dc, params):
             is greater than that of the normal distribution
 
     .. versionadded:: 1.7.0
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
+
+    result = OrderedPair(
+        x=default.x,
         y=scipy.stats.skewtest(
-            a=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
-            alternative=(
-                str(params["alternative"]) if params["alternative"] != "" else None
-            ),
+            a=default.y,
+            axis=axis,
+            nan_policy=nan_policy,
+            alternative=alternative,
         ),
     )
+
+    return result

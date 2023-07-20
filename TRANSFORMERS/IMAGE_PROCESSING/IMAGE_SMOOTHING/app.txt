@@ -1,0 +1,305 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736",
+                "type": "IMAGE_PROCESSING",
+                "data": {
+                    "id": "IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736",
+                    "label": "IMAGE SMOOTHING",
+                    "func": "IMAGE_SMOOTHING",
+                    "type": "IMAGE_PROCESSING",
+                    "ctrls": {
+                        "kernel": {
+                            "type": "int",
+                            "default": 5,
+                            "functionName": "IMAGE_SMOOTHING",
+                            "param": "kernel",
+                            "value": "8"
+                        },
+                        "smoothing_type": {
+                            "type": "select",
+                            "default": "average",
+                            "options": [
+                                "average",
+                                "gaussian",
+                                "median",
+                                "bilateral"
+                            ],
+                            "functionName": "IMAGE_SMOOTHING",
+                            "param": "smoothing_type",
+                            "value": "average"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/IMAGE_SMOOTHING/IMAGE_SMOOTHING.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 727.3487305553774,
+                    "y": 155.3525852303302
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 727.3487305553774,
+                    "y": 155.3525852303302
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
+                "type": "LOCAL_FILE_SYSTEM",
+                "data": {
+                    "id": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
+                    "label": "LOCAL FILE",
+                    "func": "LOCAL_FILE",
+                    "type": "LOCAL_FILE_SYSTEM",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": null,
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_path",
+                            "value": "/Users/jinwonlee/Desktop/test.png"
+                        },
+                        "file_type": {
+                            "type": "select",
+                            "default": "Image",
+                            "options": [
+                                "Image",
+                                "JSON",
+                                "CSV",
+                                "Excel",
+                                "XML"
+                            ],
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_type",
+                            "value": "Image"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|DataFrame"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "xlrd",
+                            "v": "2.0.1"
+                        },
+                        {
+                            "name": "lxml",
+                            "v": "4.9.2"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 393.7135717819896,
+                    "y": 278.0915860062198
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 393.7135717819896,
+                    "y": 278.0915860062198
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-3ed99c64-452e-4a7b-a439-3aab3140483a",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-3ed99c64-452e-4a7b-a439-3aab3140483a",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1285.440862145957,
+                    "y": 550.5450019826343
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1285.440862145957,
+                    "y": 550.5450019826343
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1045.9840067988252,
+                    "y": 152.56873926010599
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1045.9840067988252,
+                    "y": 152.56873926010599
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94c",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94c",
+                    "label": "IMAGE 1",
+                    "func": "IMAGE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 662.8988425018024,
+                    "y": 513.5775685841171
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 662.8988425018024,
+                    "y": 513.5775685841171
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
+                "sourceHandle": "default",
+                "target": "IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497default-IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736default"
+            },
+            {
+                "source": "IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736",
+                "sourceHandle": "default",
+                "target": "IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181",
+                "targetHandle": "default",
+                "id": "reactflow__edge-IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736default-IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181default"
+            },
+            {
+                "source": "IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181",
+                "sourceHandle": "default",
+                "target": "END-3ed99c64-452e-4a7b-a439-3aab3140483a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181default-END-3ed99c64-452e-4a7b-a439-3aab3140483adefault"
+            },
+            {
+                "source": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
+                "sourceHandle": "default",
+                "target": "IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94c",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497default-IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94cdefault"
+            },
+            {
+                "source": "IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94c",
+                "sourceHandle": "default",
+                "target": "END-3ed99c64-452e-4a7b-a439-3aab3140483a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94cdefault-END-3ed99c64-452e-4a7b-a439-3aab3140483adefault"
+            }
+        ],
+        "viewport": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

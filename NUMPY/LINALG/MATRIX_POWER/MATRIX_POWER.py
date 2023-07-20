@@ -1,10 +1,19 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import numpy.linalg
 
 
-@flojoy
-def MATRIX_POWER(dc, params):
-    """
+@flojoy(node_type="default")
+def MATRIX_POWER(
+    default: Matrix,
+    n: int,
+) -> Matrix | Scalar:
+    """The MATRIX_POWER node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Raise a square matrix to the (integer) power `n`.
 
@@ -15,10 +24,6 @@ def MATRIX_POWER(dc, params):
 
     .. note:: Stacks of object matrices are not currently supported.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-
     Parameters
     ----------
     a : (..., M, M) array_like
@@ -26,11 +31,21 @@ def MATRIX_POWER(dc, params):
     n : int
             The exponent can be any integer or long integer, positive,
             negative, or zero.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.matrix_power(
-            a=dc[0].y,
-            n=(int(params["n"]) if params["n"] != "" else None),
-        ),
+
+    result = numpy.linalg.matrix_power(
+        a=default.m,
+        n=n,
     )
+
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    elif isinstance(result, np.float64):
+        result = Scalar(c=result)
+
+    return result

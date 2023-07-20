@@ -1,10 +1,25 @@
 import pandas as pd
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import (
+    flojoy,
+    DataContainer,
+    DataFrame,
+    OrderedPair,
+    OrderedTriple,
+    Matrix,
+    Grayscale,
+    Image,
+    ParametricDataFrame,
+    ParametricOrderedPair,
+    ParametricOrderedTriple,
+    ParametricImage,
+    ParametricGrayscale,
+    ParametricMatrix,
+)
 
 
 @flojoy
-def NP_2_DF(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def NP_2_DF(default: DataContainer) -> DataFrame:
     """
     Node to convert numpy array data into dataframe type data
 
@@ -17,41 +32,43 @@ def NP_2_DF(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     dataframe
         Converted numpy array value from the input
     """
-    dc_input = dc_inputs[0]
-    match dc_input.type:
-        case "dataframe" | "parametric_dataframe":
-            return dc_input
 
-        case "ordered_pair" | "parametric_ordered_pair":
-            df = pd.DataFrame(dc_input.y)
-            return DataContainer(type="dataframe", m=df)
+    match default:
+        case DataFrame() | ParametricDataFrame():
+            return default
 
-        case "ordered_triple" | "parametric_ordered_triple":
-            df = pd.DataFrame(dc_input.z)
-            return DataContainer(type="dataframe", m=df)
+        case OrderedPair() | ParametricOrderedPair():
+            df = pd.DataFrame(default.y)
+            return DataFrame(df=df)
 
-        case "matrix" | "grayscale" | "parametric_matrix" | "parametric_grayscale":
-            np_array = np.asarray(dc_input.m)
+        case OrderedTriple() | ParametricOrderedTriple():
+            df = pd.DataFrame(default.z)
+            return DataFrame(df=df)
+
+        case Matrix() | ParametricMatrix():
+            np_array = np.asarray(default.m)
             df = pd.DataFrame(np_array)
-            return DataContainer(type="dataframe", m=df)
+            return DataFrame(df=df)
+        case Grayscale() | ParametricGrayscale():
+            np_array = np.asarray(default.img)
+            df = pd.DataFrame(np_array)
+            return DataFrame(df=df)
 
-        case "image" | "parametric_image":
-            red = dc_input.r
-            green = dc_input.g
-            blue = dc_input.b
+        case Image() | ParametricImage():
+            red = default.r
+            green = default.g
+            blue = default.b
 
-            if dc_input.a == None:
+            if default.a == None:
                 merge = np.stack((red, green, blue), axis=2)
                 merge = merge.reshape(-1, merge.shape[-1])
                 df = pd.DataFrame(merge)
-                return DataContainer(type="dataframe", m=df)
+                return DataFrame(df=df)
             else:
-                alpha = dc_inputs[0].a
+                alpha = default.a
                 merge = np.stack((red, green, blue, alpha), axis=2)
                 merge = merge.reshape(-1, merge.shape[-1])
                 df = pd.DataFrame(merge)
-                return DataContainer(type="dataframe", m=df)
+                return DataFrame(df=df)
         case _:
-            raise ValueError(
-                f"unsupported DataContainer type passed for NP_2_DF : {dc_input.type}"
-            )
+            raise ValueError(f"unsupported DataContainer type passed for NP_2_DF")

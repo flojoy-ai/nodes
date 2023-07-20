@@ -2,196 +2,419 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                "type": "TERMINATOR",
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-cc55781a-14c8-4405-8fd1-0157351b3486",
+                "type": "default",
                 "data": {
-                    "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
+                    "id": "LINSPACE-cc55781a-14c8-4405-8fd1-0157351b3486",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "default",
+                    "ctrls": {
+                        "start": {
+                            "type": "float",
+                            "default": 10,
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": "0"
+                        },
+                        "end": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": "2000"
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": "2000"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1577.8571428571431,
-                    "y": 332.57142857142844
+                    "x": 71.58328955005041,
+                    "y": -121.19469825521614
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1577.8571428571431,
-                    "y": 332.57142857142844
+                    "x": 71.58328955005041,
+                    "y": -121.19469825521614
+                },
+                "dragging": true
+            },
+            {
+                "width": 250,
+                "height": 159,
+                "id": "HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4",
+                    "label": "HISTOGRAM",
+                    "func": "HISTOGRAM",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/HISTOGRAM/HISTOGRAM.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 807.1730016964145,
+                    "y": -111.45313449538975
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 807.1730016964145,
+                    "y": -111.45313449538975
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-ebbe9c0f-1a6d-4781-9441-be59a8e49036",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-ebbe9c0f-1a6d-4781-9441-be59a8e49036",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1375.1520235520945,
+                    "y": 103.4971422058673
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1375.1520235520945,
+                    "y": 103.4971422058673
                 },
                 "dragging": true
             },
             {
                 "width": 130,
                 "height": 130,
-                "id": "RAND-d851014d-30ce-4993-8cee-5db9a268094b",
-                "type": "SIMULATION",
+                "id": "RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60a",
+                "type": "SIMULATIONS",
                 "data": {
-                    "id": "RAND-d851014d-30ce-4993-8cee-5db9a268094b",
+                    "id": "RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60a",
                     "label": "RAND",
                     "func": "RAND",
-                    "type": "SIMULATION",
+                    "type": "SIMULATIONS",
                     "ctrls": {
                         "distribution": {
+                            "type": "select",
+                            "default": "normal",
+                            "options": [
+                                "normal",
+                                "uniform",
+                                "poisson"
+                            ],
                             "functionName": "RAND",
                             "param": "distribution",
                             "value": "normal"
-                        }
-                    },
-                    "selected": false
-                },
-                "position": {
-                    "x": 696.338479762768,
-                    "y": 339.3573387503679
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 696.338479762768,
-                    "y": 339.3573387503679
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155",
-                "type": "PLOTLY_VISOR",
-                "data": {
-                    "id": "SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155",
-                    "label": "SCATTER",
-                    "func": "SCATTER",
-                    "type": "PLOTLY_VISOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 1033.4813369056253,
-                    "y": 543.6430530360819
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1033.4813369056253,
-                    "y": 543.6430530360819
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "LINSPACE-6cee1154-2a90-45e2-bd1d-f23d7f9dd405",
-                "type": "default",
-                "data": {
-                    "id": "LINSPACE-6cee1154-2a90-45e2-bd1d-f23d7f9dd405",
-                    "label": "LINSPACE",
-                    "func": "LINSPACE",
-                    "type": "SIMULATION",
-                    "ctrls": {
-                        "start": {
-                            "functionName": "LINSPACE",
-                            "param": "start",
+                        },
+                        "lower_bound": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "RAND",
+                            "param": "lower_bound",
                             "value": "0"
                         },
-                        "end": {
-                            "functionName": "LINSPACE",
-                            "param": "end",
-                            "value": "25000"
+                        "upper_bound": {
+                            "type": "float",
+                            "default": 1,
+                            "functionName": "RAND",
+                            "param": "upper_bound",
+                            "value": "1"
                         },
-                        "step": {
-                            "functionName": "LINSPACE",
-                            "param": "step",
-                            "value": "25000"
+                        "normal_mean": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "RAND",
+                            "param": "normal_mean",
+                            "value": "0"
+                        },
+                        "normal_standard_deviation": {
+                            "type": "float",
+                            "default": 1,
+                            "functionName": "RAND",
+                            "param": "normal_standard_deviation",
+                            "value": "5"
+                        },
+                        "poisson_events": {
+                            "type": "float",
+                            "default": 1,
+                            "functionName": "RAND",
+                            "param": "poisson_events",
+                            "value": "1"
                         }
                     },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/RAND/RAND.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 454.43802731096747,
+                    "y": -117.22102655068787
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 454.43802731096747,
+                    "y": -117.22102655068787
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "RAND-e09e675f-ccaf-44b3-8842-6cea418c4b00",
+                "type": "SIMULATIONS",
+                "data": {
+                    "id": "RAND-e09e675f-ccaf-44b3-8842-6cea418c4b00",
+                    "label": "RAND 1",
+                    "func": "RAND",
+                    "type": "SIMULATIONS",
+                    "ctrls": {
+                        "distribution": {
+                            "type": "select",
+                            "default": "normal",
+                            "options": [
+                                "normal",
+                                "uniform",
+                                "poisson"
+                            ],
+                            "functionName": "RAND",
+                            "param": "distribution",
+                            "value": "normal"
+                        },
+                        "lower_bound": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "RAND",
+                            "param": "lower_bound",
+                            "value": 0
+                        },
+                        "upper_bound": {
+                            "type": "float",
+                            "default": 1,
+                            "functionName": "RAND",
+                            "param": "upper_bound",
+                            "value": 1
+                        },
+                        "normal_mean": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "RAND",
+                            "param": "normal_mean",
+                            "value": "30"
+                        },
+                        "normal_standard_deviation": {
+                            "type": "float",
+                            "default": 1,
+                            "functionName": "RAND",
+                            "param": "normal_standard_deviation",
+                            "value": "50"
+                        },
+                        "poisson_events": {
+                            "type": "float",
+                            "default": 1,
+                            "functionName": "RAND",
+                            "param": "poisson_events",
+                            "value": 1
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Vector",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/RAND/RAND.py",
                     "selected": true
                 },
                 "position": {
-                    "x": 317.7670511913392,
-                    "y": 329.35733875036766
+                    "x": 385.163294287524,
+                    "y": 328.61362457174704
                 },
                 "selected": true,
                 "positionAbsolute": {
-                    "x": 317.7670511913392,
-                    "y": 329.35733875036766
+                    "x": 385.163294287524,
+                    "y": 328.61362457174704
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
-                "id": "HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0",
-                "type": "PLOTLY_VISOR",
+                "width": 225,
+                "height": 226,
+                "id": "BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0",
-                    "label": "HISTOGRAM",
-                    "func": "HISTOGRAM",
-                    "type": "PLOTLY_VISOR",
-                    "ctrls": {},
+                    "id": "BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266",
+                    "label": "BIG NUMBER",
+                    "func": "BIG_NUMBER",
+                    "type": "PLOTLY",
+                    "ctrls": {
+                        "suffix": {
+                            "type": "str",
+                            "default": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "suffix",
+                            "value": ""
+                        },
+                        "prefix": {
+                            "type": "str",
+                            "default": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "prefix",
+                            "value": ""
+                        },
+                        "title": {
+                            "type": "str",
+                            "default": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "title",
+                            "value": ""
+                        },
+                        "relative_delta": {
+                            "type": "bool",
+                            "default": true,
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": true
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/BIG_NUMBER/BIG_NUMBER.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1056.3384797627677,
-                    "y": 50.785910178939105
+                    "x": 818.3036219776461,
+                    "y": 287.8342828015806
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1056.3384797627677,
-                    "y": 50.785910178939105
+                    "x": 818.3036219776461,
+                    "y": 287.8342828015806
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LINSPACE-6cee1154-2a90-45e2-bd1d-f23d7f9dd405",
-                "sourceHandle": "main",
-                "target": "RAND-d851014d-30ce-4993-8cee-5db9a268094b",
-                "targetHandle": "RAND",
-                "id": "reactflow__edge-LINSPACE-6cee1154-2a90-45e2-bd1d-f23d7f9dd405main-RAND-d851014d-30ce-4993-8cee-5db9a268094bRAND"
+                "source": "HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4",
+                "sourceHandle": "default",
+                "target": "END-ebbe9c0f-1a6d-4781-9441-be59a8e49036",
+                "targetHandle": "default",
+                "id": "reactflow__edge-HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4default-END-ebbe9c0f-1a6d-4781-9441-be59a8e49036default"
             },
             {
-                "source": "RAND-d851014d-30ce-4993-8cee-5db9a268094b",
-                "sourceHandle": "main",
-                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                "targetHandle": "END",
-                "id": "reactflow__edge-RAND-d851014d-30ce-4993-8cee-5db9a268094bmain-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
+                "source": "LINSPACE-cc55781a-14c8-4405-8fd1-0157351b3486",
+                "sourceHandle": "default",
+                "target": "RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-cc55781a-14c8-4405-8fd1-0157351b3486default-RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60adefault"
             },
             {
-                "source": "RAND-d851014d-30ce-4993-8cee-5db9a268094b",
-                "sourceHandle": "main",
-                "target": "HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0",
-                "targetHandle": "HISTOGRAM",
-                "id": "reactflow__edge-RAND-d851014d-30ce-4993-8cee-5db9a268094bmain-HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0HISTOGRAM"
+                "source": "RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60a",
+                "sourceHandle": "default",
+                "target": "HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4",
+                "targetHandle": "default",
+                "id": "reactflow__edge-RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60adefault-HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4default"
             },
             {
-                "source": "RAND-d851014d-30ce-4993-8cee-5db9a268094b",
-                "sourceHandle": "main",
-                "target": "SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155",
-                "targetHandle": "SCATTER",
-                "id": "reactflow__edge-RAND-d851014d-30ce-4993-8cee-5db9a268094bmain-SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155SCATTER"
+                "source": "RAND-e09e675f-ccaf-44b3-8842-6cea418c4b00",
+                "sourceHandle": "default",
+                "target": "BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266",
+                "targetHandle": "default",
+                "id": "reactflow__edge-RAND-e09e675f-ccaf-44b3-8842-6cea418c4b00default-BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266default"
             },
             {
-                "source": "HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0",
-                "sourceHandle": "main",
-                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                "targetHandle": "END",
-                "id": "reactflow__edge-HISTOGRAM-4b3337b8-5d08-4a4e-a81e-236d4ad6a3b0main-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
-            },
-            {
-                "source": "SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155",
-                "sourceHandle": "main",
-                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                "targetHandle": "END",
-                "id": "reactflow__edge-SCATTER-29d74e27-cf04-4c31-b3c7-8798d9a0d155main-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
+                "source": "BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266",
+                "sourceHandle": "default",
+                "target": "END-ebbe9c0f-1a6d-4781-9441-be59a8e49036",
+                "targetHandle": "default",
+                "id": "reactflow__edge-BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266default-END-ebbe9c0f-1a6d-4781-9441-be59a8e49036default"
             }
         ],
         "viewport": {
-            "x": 283.34955722861605,
-            "y": 49.320022553149215,
-            "zoom": 0.856688003714636
+            "x": -373.4542219202399,
+            "y": 120.20973884288571,
+            "zoom": 1.101977389476256
         }
     },
     "ctrlsManifest": [

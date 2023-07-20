@@ -1,16 +1,23 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.signal
 
 
-@flojoy
-def ARGRELMIN(dc, params):
-    """
+@flojoy(node_type="default")
+def ARGRELMIN(
+    default: OrderedPair | Matrix,
+    axis: int = 0,
+    order: int = 1,
+    mode: str = "clip",
+) -> OrderedPair | Matrix | Scalar:
+    """The ARGRELMIN node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Calculate the relative minima of `data`.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -26,13 +33,21 @@ def ARGRELMIN(dc, params):
             Available options are 'wrap' (wrap around) or 'clip' (treat overflow
             as the same as the last (or first) element).
             Default 'clip'. See numpy.take.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
+
+    result = OrderedPair(
+        x=default.x,
         y=scipy.signal.argrelmin(
-            data=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            order=(int(params["order"]) if params["order"] != "" else None),
-            mode=(str(params["mode"]) if params["mode"] != "" else None),
+            data=default.y,
+            axis=axis,
+            order=order,
+            mode=mode,
         ),
     )
+
+    return result

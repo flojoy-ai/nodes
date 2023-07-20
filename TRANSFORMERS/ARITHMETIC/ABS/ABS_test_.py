@@ -3,7 +3,7 @@ import numpy
 from functools import wraps
 from unittest.mock import patch
 
-from flojoy import DataContainer
+from flojoy import DataContainer, Scalar
 
 
 # Python functions are decorated at module-loading time, So we'll need to patch our decorator
@@ -27,7 +27,7 @@ import ABS
 
 def test_ABS():
     # create the two ordered pair datacontainers
-    element_a = DataContainer(type="scalar", c=-10)
+    element_a = Scalar(c=-10)
 
     # node under test
     res = ABS.ABS([element_a], {})

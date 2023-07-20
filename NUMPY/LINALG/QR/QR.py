@@ -1,22 +1,31 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import numpy.linalg
 
 
-@flojoy
-def QR(dc, params):
-    """
+@flojoy(node_type="default")
+def QR(
+    default: Matrix,
+    mode: str = "reduced",
+    select_return: Literal["q", "r", "(h, tau)"] = "q",
+) -> Matrix | Scalar:
+    """The QR node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Compute the qr factorization of a matrix.
 
             Factor the matrix `a` as *qr*, where `q` is orthonormal and `r` is
             upper-triangular.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['q', 'r', '(h, tau)']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : array_like, shape (..., M, N)
             An array-like object with the dimensionality of at least 2.
     mode : {'reduced', 'complete', 'r', 'raw'}, optional
@@ -38,11 +47,25 @@ def QR(dc, params):
             but all others must be spelled out. See the Notes for more
             explanation.
 
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.qr(
-            a=dc[0].y,
-            mode=(str(params["mode"]) if params["mode"] != "" else None),
-        ),
+
+    result = numpy.linalg.qr(
+        a=default.m,
+        mode=mode,
     )
+
+    if isinstance(result, namedtuple):
+        result = result._asdict()
+        result = result[select_return]
+
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    elif isinstance(result, np.float64):
+        result = Scalar(c=result)
+
+    return result

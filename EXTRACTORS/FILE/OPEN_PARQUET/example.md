@@ -1,1 +1,1 @@
-In this example, `OPEN_PARQUET` loads loads a local file of the .parquet file format
+In this example, `OPEN_PARQUET` loads a local file of the .parquet file format

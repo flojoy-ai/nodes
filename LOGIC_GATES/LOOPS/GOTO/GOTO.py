@@ -1,10 +1,7 @@
-from flojoy import JobResultBuilder, flojoy
-from flojoy import DataContainer
+from flojoy import DataContainer, JobResultBuilder, flojoy, NodeReference
 
 
 @flojoy
-def GOTO(dc_inputs: list[DataContainer], params: dict) -> dict:
-    goto_node_id = params.get("goto_node_id", None)
-    next_nodes = [goto_node_id] if goto_node_id is not None else []
-
-    return JobResultBuilder().from_inputs(dc_inputs).flow_to_nodes(next_nodes).build()
+def GOTO(default: DataContainer, goto_node_id: NodeReference):
+    next_nodes = [goto_node_id.ref] if goto_node_id else []
+    return JobResultBuilder().from_inputs([default]).flow_to_nodes(next_nodes).build()

@@ -4,314 +4,459 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "LINSPACE-6c7ae713-2d23-45fc-9de2-9ce88637b3dd",
+                "id": "LINSPACE-32bf4749-f44a-4f3b-9fca-280a8c1a7930",
                 "type": "default",
                 "data": {
-                    "id": "LINSPACE-6c7ae713-2d23-45fc-9de2-9ce88637b3dd",
+                    "id": "LINSPACE-32bf4749-f44a-4f3b-9fca-280a8c1a7930",
                     "label": "LINSPACE",
                     "func": "LINSPACE",
-                    "type": "SIMULATION",
+                    "type": "default",
                     "ctrls": {
                         "start": {
+                            "type": "float",
+                            "default": 10,
                             "functionName": "LINSPACE",
                             "param": "start",
                             "value": 10
                         },
                         "end": {
+                            "type": "float",
+                            "default": 0,
                             "functionName": "LINSPACE",
                             "param": "end",
                             "value": 0
                         },
                         "step": {
+                            "type": "int",
+                            "default": 1000,
                             "functionName": "LINSPACE",
                             "param": "step",
                             "value": 1000
                         }
                     },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\LINSPACE\\LINSPACE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -497.20236746592354,
-                    "y": -208.39640557957426
+                    "x": 145.49252342766638,
+                    "y": -35.65136970553726
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -497.20236746592354,
-                    "y": -208.39640557957426
+                    "x": 145.49252342766638,
+                    "y": -35.65136970553726
                 },
                 "dragging": true
             },
             {
                 "width": 130,
                 "height": 130,
-                "id": "TIMESERIES-23fef32c-9d2f-44cc-ba31-ef05391a958b",
-                "type": "SIMULATION",
+                "id": "TIMESERIES-1f113e5c-ee47-4e67-a040-ed8107f98095",
+                "type": "SIMULATIONS",
                 "data": {
-                    "id": "TIMESERIES-23fef32c-9d2f-44cc-ba31-ef05391a958b",
+                    "id": "TIMESERIES-1f113e5c-ee47-4e67-a040-ed8107f98095",
                     "label": "TIMESERIES",
                     "func": "TIMESERIES",
-                    "type": "SIMULATION",
-                    "ctrls": {},
+                    "type": "SIMULATIONS",
+                    "ctrls": {
+                        "start_date": {
+                            "type": "str",
+                            "default": "2023-01-01",
+                            "functionName": "TIMESERIES",
+                            "param": "start_date",
+                            "value": "2023-01-01"
+                        },
+                        "end_date": {
+                            "type": "str",
+                            "default": "2023-07-20",
+                            "functionName": "TIMESERIES",
+                            "param": "end_date",
+                            "value": "2023-07-20"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\TIMESERIES\\TIMESERIES.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -481.20236746592354,
-                    "y": 45.603594420425736
+                    "x": -31.98906231081486,
+                    "y": 180.07660190864533
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -481.20236746592354,
-                    "y": 45.603594420425736
+                    "x": -31.98906231081486,
+                    "y": 180.07660190864533
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "MATRIX-bb1dc76f-50a7-4e4d-94f2-66c729fef752",
+                "type": "SIMULATIONS",
+                "data": {
+                    "id": "MATRIX-bb1dc76f-50a7-4e4d-94f2-66c729fef752",
+                    "label": "MATRIX",
+                    "func": "MATRIX",
+                    "type": "SIMULATIONS",
+                    "ctrls": {
+                        "row": {
+                            "type": "int",
+                            "default": 2,
+                            "functionName": "MATRIX",
+                            "param": "row",
+                            "value": "10"
+                        },
+                        "column": {
+                            "type": "int",
+                            "default": 2,
+                            "functionName": "MATRIX",
+                            "param": "column",
+                            "value": "10"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Matrix"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\MATRIX\\MATRIX.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 22.054843684253996,
+                    "y": 723.8292282322853
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 22.054843684253996,
+                    "y": 723.8292282322853
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "R_DATASET-514510f6-380c-471f-ba27-bce9cc9affbf",
-                "type": "SAMPLE_DATASET",
+                "id": "PLOTLY_DATASET-a2a99924-c20c-40b8-8725-378427432b04",
+                "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "R_DATASET-514510f6-380c-471f-ba27-bce9cc9affbf",
-                    "label": "R DATASET",
-                    "func": "R_DATASET",
-                    "type": "SAMPLE_DATASET",
+                    "id": "PLOTLY_DATASET-a2a99924-c20c-40b8-8725-378427432b04",
+                    "label": "PLOTLY DATASET",
+                    "func": "PLOTLY_DATASET",
+                    "type": "SAMPLE_DATASETS",
                     "ctrls": {
                         "dataset_key": {
-                            "functionName": "R_DATASET",
+                            "type": "select",
+                            "default": "wind",
+                            "options": [
+                                "wind",
+                                "iris",
+                                "carshare",
+                                "tips",
+                                "election",
+                                "experiment",
+                                "gapminder",
+                                "medals_long",
+                                "medals_wide",
+                                "stocks"
+                            ],
+                            "functionName": "PLOTLY_DATASET",
                             "param": "dataset_key",
                             "value": "iris"
                         }
                     },
-                    "pip_dependencies": [
+                    "outputs": [
                         {
-                            "name": "rdatasets",
-                            "v": "0.1.0"
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
                         }
                     ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_DATASETS\\PLOTLY_DATASET\\PLOTLY_DATASET.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -457.20236746592354,
-                    "y": 301.60359442042574
+                    "x": 18.171290915186148,
+                    "y": 440.8034142357426
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -457.20236746592354,
-                    "y": 301.60359442042574
+                    "x": 18.171290915186148,
+                    "y": 440.8034142357426
                 },
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
-                "id": "MATRIX-e319af94-17b7-4755-8818-b68ea1576bd7",
-                "type": "default",
+                "width": 250,
+                "height": 159,
+                "id": "HISTOGRAM-e3f0af53-0c45-4457-ae12-7f6eb0327f39",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "MATRIX-e319af94-17b7-4755-8818-b68ea1576bd7",
-                    "label": "MATRIX",
-                    "func": "MATRIX",
-                    "type": "SIMULATION",
-                    "ctrls": {
-                        "row": {
-                            "functionName": "MATRIX",
-                            "param": "row",
-                            "value": "8"
-                        },
-                        "column": {
-                            "functionName": "MATRIX",
-                            "param": "column",
-                            "value": "7"
-                        }
-                    },
-                    "selected": false
-                },
-                "position": {
-                    "x": -453.20236746592354,
-                    "y": 609.6035944204257
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -453.20236746592354,
-                    "y": 609.6035944204257
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "HISTOGRAM-810b3f14-1cb9-49cc-92fd-01168994c760",
-                "type": "PLOTLY_VISOR",
-                "data": {
-                    "id": "HISTOGRAM-810b3f14-1cb9-49cc-92fd-01168994c760",
+                    "id": "HISTOGRAM-e3f0af53-0c45-4457-ae12-7f6eb0327f39",
                     "label": "HISTOGRAM",
                     "func": "HISTOGRAM",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\HISTOGRAM\\HISTOGRAM.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 90.79763253407646,
-                    "y": -286.39640557957426
+                    "x": 752.250474584973,
+                    "y": 441.97734280295566
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 90.79763253407646,
-                    "y": -286.39640557957426
+                    "x": 752.250474584973,
+                    "y": 441.97734280295566
                 },
                 "dragging": true
             },
             {
-                "id": "END-aafa9ee2-3ea5-4292-8f6c-093f8595d55c",
-                "type": "TERMINATOR",
+                "width": 210,
+                "height": 130,
+                "id": "END-13de4aba-1c8e-45e2-801e-3102187a3923",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "END-aafa9ee2-3ea5-4292-8f6c-093f8595d55c",
+                    "id": "END-13de4aba-1c8e-45e2-801e-3102187a3923",
                     "label": "END",
                     "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {}
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
+                    "selected": false
                 },
                 "position": {
-                    "x": 770.7976325340765,
-                    "y": 235.60359442042574
+                    "x": 1334.6531036384777,
+                    "y": 271.2955530802111
                 },
-                "width": 210,
-                "height": 130
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1334.6531036384777,
+                    "y": 271.2955530802111
+                },
+                "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
-                "id": "HISTOGRAM-3037db4e-9ef0-42b1-8936-5f337b45a850",
-                "type": "PLOTLY_VISOR",
+                "width": 250,
+                "height": 159,
+                "id": "HISTOGRAM-6bb3aef4-a631-4732-931b-b4a71f49557e",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "HISTOGRAM-3037db4e-9ef0-42b1-8936-5f337b45a850",
+                    "id": "HISTOGRAM-6bb3aef4-a631-4732-931b-b4a71f49557e",
                     "label": "HISTOGRAM 1",
                     "func": "HISTOGRAM",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\HISTOGRAM\\HISTOGRAM.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 98.79763253407646,
-                    "y": 265.60359442042574
+                    "x": 379.88476599867,
+                    "y": 666.8839022599676
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 98.79763253407646,
-                    "y": 265.60359442042574
+                    "x": 379.88476599867,
+                    "y": 666.8839022599676
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
-                "id": "HISTOGRAM-79312f1d-79fe-4fbe-9b86-bf8bfe98cf45",
-                "type": "PLOTLY_VISOR",
+                "width": 250,
+                "height": 159,
+                "id": "HISTOGRAM-3f0b2e7d-3a6c-4d14-a17c-3ba2fe7c0bfa",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "HISTOGRAM-79312f1d-79fe-4fbe-9b86-bf8bfe98cf45",
+                    "id": "HISTOGRAM-3f0b2e7d-3a6c-4d14-a17c-3ba2fe7c0bfa",
                     "label": "HISTOGRAM 2",
                     "func": "HISTOGRAM",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\HISTOGRAM\\HISTOGRAM.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 102.79763253407646,
-                    "y": -10.396405579574264
+                    "x": 396.5206086873053,
+                    "y": 169.585423555329
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 102.79763253407646,
-                    "y": -10.396405579574264
+                    "x": 396.5206086873053,
+                    "y": 169.585423555329
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
-                "id": "HISTOGRAM-cf7fb841-b1e6-416b-bf3d-56af4da968aa",
-                "type": "PLOTLY_VISOR",
+                "width": 250,
+                "height": 159,
+                "id": "HISTOGRAM-31603d5b-2656-44cd-b445-071bb1cb6b1f",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "HISTOGRAM-cf7fb841-b1e6-416b-bf3d-56af4da968aa",
+                    "id": "HISTOGRAM-31603d5b-2656-44cd-b445-071bb1cb6b1f",
                     "label": "HISTOGRAM 3",
                     "func": "HISTOGRAM",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\HISTOGRAM\\HISTOGRAM.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 108.79763253407646,
-                    "y": 561.6035944204257
+                    "x": 749.3456302612497,
+                    "y": -69.67675638632511
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 108.79763253407646,
-                    "y": 561.6035944204257
+                    "x": 749.3456302612497,
+                    "y": -69.67675638632511
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LINSPACE-6c7ae713-2d23-45fc-9de2-9ce88637b3dd",
-                "sourceHandle": "main",
-                "target": "HISTOGRAM-810b3f14-1cb9-49cc-92fd-01168994c760",
-                "targetHandle": "HISTOGRAM",
-                "id": "reactflow__edge-LINSPACE-6c7ae713-2d23-45fc-9de2-9ce88637b3ddmain-HISTOGRAM-810b3f14-1cb9-49cc-92fd-01168994c760HISTOGRAM"
+                "source": "LINSPACE-32bf4749-f44a-4f3b-9fca-280a8c1a7930",
+                "sourceHandle": "default",
+                "target": "HISTOGRAM-31603d5b-2656-44cd-b445-071bb1cb6b1f",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-32bf4749-f44a-4f3b-9fca-280a8c1a7930default-HISTOGRAM-31603d5b-2656-44cd-b445-071bb1cb6b1fdefault"
             },
             {
-                "source": "TIMESERIES-23fef32c-9d2f-44cc-ba31-ef05391a958b",
-                "sourceHandle": "main",
-                "target": "HISTOGRAM-79312f1d-79fe-4fbe-9b86-bf8bfe98cf45",
-                "targetHandle": "HISTOGRAM",
-                "id": "reactflow__edge-TIMESERIES-23fef32c-9d2f-44cc-ba31-ef05391a958bmain-HISTOGRAM-79312f1d-79fe-4fbe-9b86-bf8bfe98cf45HISTOGRAM"
+                "source": "TIMESERIES-1f113e5c-ee47-4e67-a040-ed8107f98095",
+                "sourceHandle": "default",
+                "target": "HISTOGRAM-3f0b2e7d-3a6c-4d14-a17c-3ba2fe7c0bfa",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TIMESERIES-1f113e5c-ee47-4e67-a040-ed8107f98095default-HISTOGRAM-3f0b2e7d-3a6c-4d14-a17c-3ba2fe7c0bfadefault"
             },
             {
-                "source": "R_DATASET-514510f6-380c-471f-ba27-bce9cc9affbf",
-                "sourceHandle": "main",
-                "target": "HISTOGRAM-3037db4e-9ef0-42b1-8936-5f337b45a850",
-                "targetHandle": "HISTOGRAM",
-                "id": "reactflow__edge-R_DATASET-514510f6-380c-471f-ba27-bce9cc9affbfmain-HISTOGRAM-3037db4e-9ef0-42b1-8936-5f337b45a850HISTOGRAM"
+                "source": "PLOTLY_DATASET-a2a99924-c20c-40b8-8725-378427432b04",
+                "sourceHandle": "default",
+                "target": "HISTOGRAM-e3f0af53-0c45-4457-ae12-7f6eb0327f39",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PLOTLY_DATASET-a2a99924-c20c-40b8-8725-378427432b04default-HISTOGRAM-e3f0af53-0c45-4457-ae12-7f6eb0327f39default"
             },
             {
-                "source": "MATRIX-e319af94-17b7-4755-8818-b68ea1576bd7",
-                "sourceHandle": "main",
-                "target": "HISTOGRAM-cf7fb841-b1e6-416b-bf3d-56af4da968aa",
-                "targetHandle": "HISTOGRAM",
-                "id": "reactflow__edge-MATRIX-e319af94-17b7-4755-8818-b68ea1576bd7main-HISTOGRAM-cf7fb841-b1e6-416b-bf3d-56af4da968aaHISTOGRAM"
+                "source": "MATRIX-bb1dc76f-50a7-4e4d-94f2-66c729fef752",
+                "sourceHandle": "default",
+                "target": "HISTOGRAM-6bb3aef4-a631-4732-931b-b4a71f49557e",
+                "targetHandle": "default",
+                "id": "reactflow__edge-MATRIX-bb1dc76f-50a7-4e4d-94f2-66c729fef752default-HISTOGRAM-6bb3aef4-a631-4732-931b-b4a71f49557edefault"
             },
             {
-                "source": "HISTOGRAM-810b3f14-1cb9-49cc-92fd-01168994c760",
-                "sourceHandle": "main",
-                "target": "END-aafa9ee2-3ea5-4292-8f6c-093f8595d55c",
-                "targetHandle": "END",
-                "id": "reactflow__edge-HISTOGRAM-810b3f14-1cb9-49cc-92fd-01168994c760main-END-aafa9ee2-3ea5-4292-8f6c-093f8595d55cEND"
+                "source": "HISTOGRAM-3f0b2e7d-3a6c-4d14-a17c-3ba2fe7c0bfa",
+                "sourceHandle": "default",
+                "target": "END-13de4aba-1c8e-45e2-801e-3102187a3923",
+                "targetHandle": "default",
+                "id": "reactflow__edge-HISTOGRAM-3f0b2e7d-3a6c-4d14-a17c-3ba2fe7c0bfadefault-END-13de4aba-1c8e-45e2-801e-3102187a3923default"
             },
             {
-                "source": "HISTOGRAM-79312f1d-79fe-4fbe-9b86-bf8bfe98cf45",
-                "sourceHandle": "main",
-                "target": "END-aafa9ee2-3ea5-4292-8f6c-093f8595d55c",
-                "targetHandle": "END",
-                "id": "reactflow__edge-HISTOGRAM-79312f1d-79fe-4fbe-9b86-bf8bfe98cf45main-END-aafa9ee2-3ea5-4292-8f6c-093f8595d55cEND"
+                "source": "HISTOGRAM-31603d5b-2656-44cd-b445-071bb1cb6b1f",
+                "sourceHandle": "default",
+                "target": "END-13de4aba-1c8e-45e2-801e-3102187a3923",
+                "targetHandle": "default",
+                "id": "reactflow__edge-HISTOGRAM-31603d5b-2656-44cd-b445-071bb1cb6b1fdefault-END-13de4aba-1c8e-45e2-801e-3102187a3923default"
             },
             {
-                "source": "HISTOGRAM-3037db4e-9ef0-42b1-8936-5f337b45a850",
-                "sourceHandle": "main",
-                "target": "END-aafa9ee2-3ea5-4292-8f6c-093f8595d55c",
-                "targetHandle": "END",
-                "id": "reactflow__edge-HISTOGRAM-3037db4e-9ef0-42b1-8936-5f337b45a850main-END-aafa9ee2-3ea5-4292-8f6c-093f8595d55cEND"
+                "source": "HISTOGRAM-e3f0af53-0c45-4457-ae12-7f6eb0327f39",
+                "sourceHandle": "default",
+                "target": "END-13de4aba-1c8e-45e2-801e-3102187a3923",
+                "targetHandle": "default",
+                "id": "reactflow__edge-HISTOGRAM-e3f0af53-0c45-4457-ae12-7f6eb0327f39default-END-13de4aba-1c8e-45e2-801e-3102187a3923default"
             },
             {
-                "source": "HISTOGRAM-cf7fb841-b1e6-416b-bf3d-56af4da968aa",
-                "sourceHandle": "main",
-                "target": "END-aafa9ee2-3ea5-4292-8f6c-093f8595d55c",
-                "targetHandle": "END",
-                "id": "reactflow__edge-HISTOGRAM-cf7fb841-b1e6-416b-bf3d-56af4da968aamain-END-aafa9ee2-3ea5-4292-8f6c-093f8595d55cEND"
+                "source": "HISTOGRAM-6bb3aef4-a631-4732-931b-b4a71f49557e",
+                "sourceHandle": "default",
+                "target": "END-13de4aba-1c8e-45e2-801e-3102187a3923",
+                "targetHandle": "default",
+                "id": "reactflow__edge-HISTOGRAM-6bb3aef4-a631-4732-931b-b4a71f49557edefault-END-13de4aba-1c8e-45e2-801e-3102187a3923default"
             }
         ],
         "viewport": {
-            "x": 386.5510318488166,
-            "y": 106.11354232520893,
-            "zoom": 0.7582897221981599
+            "x": -296.35399545928726,
+            "y": 66.8470830817738,
+            "zoom": 0.8744723800359967
         }
     },
     "ctrlsManifest": [

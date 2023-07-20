@@ -1,15 +1,20 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.stats
 
 
-@flojoy
-def YEOJOHNSON(dc, params):
-    """
-            Return a dataset transformed by a Yeo-Johnson power transformation.
+@flojoy(node_type="default")
+def YEOJOHNSON(
+    default: OrderedPair | Matrix,
+    lmbda: float,
+) -> OrderedPair | Matrix | Scalar:
+    """The YEOJOHNSON node is based on a numpy or scipy function.
+    The description of that function is as follows:
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+            Return a dataset transformed by a Yeo-Johnson power transformation.
 
     Parameters
     ----------
@@ -19,11 +24,19 @@ def YEOJOHNSON(dc, params):
             If ``lmbda`` is ``None``, find the lambda that maximizes the
             log-likelihood function and return it as the second output argument.
             Otherwise the transformation is done for the given value.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
+
+    result = OrderedPair(
+        x=default.x,
         y=scipy.stats.yeojohnson(
-            x=dc[0].y,
-            lmbda=(float(params["lmbda"]) if params["lmbda"] != "" else None),
+            x=default.y,
+            lmbda=lmbda,
         ),
     )
+
+    return result

@@ -1,10 +1,19 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import numpy.linalg
 
 
-@flojoy
-def SLOGDET(dc, params):
-    """
+@flojoy(node_type="default")
+def SLOGDET(
+    default: Matrix,
+    select_return: Literal["sign", "logdet"] = "sign",
+) -> Matrix | Scalar:
+    """The SLOGDET node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Compute the sign and (natural) logarithm of the determinant of an array.
 
@@ -13,18 +22,31 @@ def SLOGDET(dc, params):
             issues, because it computes the logarithm of the determinant rather than
             the determinant itself.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['sign', 'logdet']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : (..., M, M) array_like
             Input array, has to be a square 2-D array.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.slogdet(
-            a=dc[0].y,
-        ),
+
+    result = numpy.linalg.slogdet(
+        a=default.m,
     )
+
+    if isinstance(result, namedtuple):
+        result = result._asdict()
+        result = result[select_return]
+
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    elif isinstance(result, np.float64):
+        result = Scalar(c=result)
+
+    return result

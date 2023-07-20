@@ -16,4 +16,4 @@ The workflow of this app is described below:
 
 [GOTO](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/LOOPS/GOTO/GOTO.py): This node refering to the `LOOP` node to check if the specified number of iteration is completed.
 
-[TERMINATE](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END.py): This node terminating the current script run. The output of this node is same as its parent node.
+[TERMINATE](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END/END.py): This node terminating the current script run. The output of this node is same as its parent node.

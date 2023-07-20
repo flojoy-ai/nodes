@@ -1,10 +1,21 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.stats
 
 
-@flojoy
-def NORMALTEST(dc, params):
-    """
+@flojoy(node_type="default")
+def NORMALTEST(
+    default: OrderedPair | Matrix,
+    axis: int = 0,
+    nan_policy: str = "propagate",
+    select_return: Literal["statistic", "pvalue"] = "statistic",
+) -> OrderedPair | Matrix | Scalar:
+    """The NORMALTEST node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Test whether a sample differs from a normal distribution.
 
             This function tests the null hypothesis that a sample comes
@@ -12,12 +23,11 @@ def NORMALTEST(dc, params):
             Pearson's [1]_, [2]_ test that combines skew and kurtosis to
             produce an omnibus test of normality.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['statistic', 'pvalue']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : array_like
             The array containing the sample to be tested.
     axis : int or None, optional
@@ -30,14 +40,20 @@ def NORMALTEST(dc, params):
     * 'propagate': returns nan
     * 'raise': throws an error
     * 'omit': performs the calculations ignoring nan values
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
+
+    result = OrderedPair(
+        x=default.x,
         y=scipy.stats.normaltest(
-            a=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
+            a=default.y,
+            axis=axis,
+            nan_policy=nan_policy,
         ),
     )
+
+    return result

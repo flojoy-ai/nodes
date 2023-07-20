@@ -1,20 +1,26 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.stats
 
 
-@flojoy
-def TRIM_MEAN(dc, params):
-    """
+@flojoy(node_type="default")
+def TRIM_MEAN(
+    default: OrderedPair | Matrix,
+    proportiontocut: float,
+    axis: int = 0,
+) -> OrderedPair | Matrix | Scalar:
+    """The TRIM_MEAN node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Return mean of array after trimming distribution from both tails.
 
             If `proportiontocut` = 0.1, slices off 'leftmost' and 'rightmost' 10% of
             scores. The input is sorted before slicing. Slices off less if proportion
             results in a non-integer slice index (i.e., conservatively slices off
             `proportiontocut` ).
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -25,16 +31,20 @@ def TRIM_MEAN(dc, params):
     axis : int or None, optional
             Axis along which the trimmed means are computed. Default is 0.
             If None, compute over the whole array `a`.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
+
+    result = OrderedPair(
+        x=default.x,
         y=scipy.stats.trim_mean(
-            a=dc[0].y,
-            proportiontocut=(
-                float(params["proportiontocut"])
-                if params["proportiontocut"] != ""
-                else None
-            ),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
+            a=default.y,
+            proportiontocut=proportiontocut,
+            axis=axis,
         ),
     )
+
+    return result
