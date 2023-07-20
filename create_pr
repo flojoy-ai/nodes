@@ -17,78 +17,91 @@ clone()
   git fetch origin
 }
 
-
-clone "$DOC_REPOSITORY" "$DOC_FOLDER"
-
-git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
-git config core.ignorecase false
-
-if git branch -a | grep -q $DOC_BRANCH; then
-  git checkout $DOC_BRANCH
-  git pull
-  cd $GITHUB_WORKSPACE
-  python3 write_doc.py $DOC_FOLDER
-  cd $DOC_FOLDER
-  python3 generate_nodesidebar.py
-  if git status --porcelain | grep -q .; then
-    echo "There are changes in the branch."
-    git add .
-    git commit -m "update: $LAST_COMMIT_MSG"
-    git push origin $DOC_BRANCH
-    if [ "$IS_MERGED" = true ]; then
-      pr_number=$(gh pr list --state open --base main --limit 1 --json number --jq '.[0].number')
-      gh pr edit $pr_number --title "$PR_TITLE - nodes PR:$PR_NUM [merged]"
-      gh pr ready
-    fi
-  fi
-else
-  git checkout -b $DOC_BRANCH
-  cd $GITHUB_WORKSPACE
-  python3 write_doc.py $DOC_FOLDER
-  cd $DOC_FOLDER
-  python3 generate_nodesidebar.py
-  if git status --porcelain | grep -q .; then
-    git add .
-    git commit -m "update: $LAST_COMMIT_MSG"
-    git push -u origin $DOC_BRANCH --force
-    gh pr create \
-      --body "corresponding PR in nodes: https://github.com/flojoy-io/nodes/pull/$PR_NUM" \
-      --title "[WIP] $PR_TITLE - nodes PR:$PR_NUM" \
-      --head "$DOC_BRANCH" \
-      --base "main" \
-      --assignee $USER_NAME \
-      --draft
-  fi
-fi
-
 if [ "$STUDIO_PR" = true ]; then
 
   STUDIO_REPOSITORY="flojoy-io/studio"
   STUDIO_FOLDER="bin/$STUDIO_REPOSITORY"
-  STUDIO_BRANCH="update-node-submodule-$COMMIT_SHA"
+  STUDIO_BRANCH="nodes-submodule-update"
 
   clone "$STUDIO_REPOSITORY" "$STUDIO_FOLDER"
 
   git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
   git config core.ignorecase false
+  if git branch -a | grep -q $STUDIO_BRANCH; then
+      git checkout $STUDIO_BRANCH
+      git pull
+      git submodule update --init --recursive
+      cd PYTHON/nodes
+      git checkout main
+      git pull
+      cd ../../
+      git add .
+      git commit -m "update submodule to commit: $LAST_COMMIT_MSG"
+      git push -u origin $STUDIO_BRANCH --force
+      pr_number=$(gh pr list --state open --base develop --limit 1 --json number --jq '.[0].number')
+      gh pr edit $pr_number --title "[nodes] $LAST_COMMIT_MSG"
+  else
+    git checkout develop
+    git pull
+    git checkout -b $STUDIO_BRANCH
+    git submodule update --init --recursive
+    cd PYTHON/nodes
+    git checkout main
+    git pull
+    cd ../../
+    if git status --porcelain | grep -q .; then
+      git add .
+      git commit -m "update submodule to commit: $LAST_COMMIT_MSG"
+      git push -u origin $STUDIO_BRANCH --force
+      gh pr create \
+        --body "corresponding commit in nodes: https://github.com/flojoy-io/nodes/commit/$COMMIT_SHA" \
+        --title "[nodes] $LAST_COMMIT_MSG" \
+        --head "$STUDIO_BRANCH" \
+        --base "develop" \
+        --assignee $USER_NAME
+    fi
+  fi
+else
+  clone "$DOC_REPOSITORY" "$DOC_FOLDER"
 
-  git checkout develop
-  git pull
-  git checkout -b $STUDIO_BRANCH
-  git submodule update --init --recursive
-  cd PYTHON/nodes
-  git checkout main
-  git pull
-  cd ../../
-  if git status --porcelain | grep -q .; then
-    git add .
-    git commit -m "update submodule to commit: $LAST_COMMIT_MSG"
-    git push -u origin $STUDIO_BRANCH --force
-    gh pr create \
-      --body "corresponding commit in nodes: https://github.com/flojoy-io/nodes/commit/$COMMIT_SHA" \
-      --title "[nodes] $LAST_COMMIT_MSG - #$COMMIT_SHA" \
-      --head "$STUDIO_BRANCH" \
-      --base "develop" \
-      --assignee $USER_NAME
+  git config --local user.name "$USER_NAME" && git config --local user.email "$USER_EMAIL"
+  git config core.ignorecase false
+
+  if git branch -a | grep -q $DOC_BRANCH; then
+    git checkout $DOC_BRANCH
+    git pull
+    cd $GITHUB_WORKSPACE
+    python3 write_doc.py $DOC_FOLDER
+    cd $DOC_FOLDER
+    python3 generate_nodesidebar.py
+    if git status --porcelain | grep -q .; then
+      echo "There are changes in the branch."
+      git add .
+      git commit -m "update: $LAST_COMMIT_MSG"
+      git push origin $DOC_BRANCH
+      if [ "$IS_MERGED" = true ]; then
+        pr_number=$(gh pr list --state open --base main --limit 1 --json number --jq '.[0].number')
+        gh pr edit $pr_number --title "$PR_TITLE - nodes PR:$PR_NUM [merged]"
+        gh pr ready
+      fi
+    fi
+  else
+    git checkout -b $DOC_BRANCH
+    cd $GITHUB_WORKSPACE
+    python3 write_doc.py $DOC_FOLDER
+    cd $DOC_FOLDER
+    python3 generate_nodesidebar.py
+    if git status --porcelain | grep -q .; then
+      git add .
+      git commit -m "update: $LAST_COMMIT_MSG"
+      git push -u origin $DOC_BRANCH --force
+      gh pr create \
+        --body "corresponding PR in nodes: https://github.com/flojoy-io/nodes/pull/$PR_NUM" \
+        --title "[WIP] $PR_TITLE - nodes PR:$PR_NUM" \
+        --head "$DOC_BRANCH" \
+        --base "main" \
+        --assignee $USER_NAME \
+        --draft
+    fi
   fi
 fi
