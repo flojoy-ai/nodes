@@ -31,7 +31,11 @@ def WHISPER_SPEECH_TO_TEXT(
     - file_path: string
         Path to the audio file to be transcribed. Only mp3 format is supported.
     """
-    openai.api_key = os.environ.get("OPENAI_API_KEY")
+    api_key = os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        raise Exception("OPENAI_API_KEY environment variable not set")
+    
+    openai.api_key = api_key
     model = 'whisper-1'
     f = None
     if default and isinstance(getattr(default, 'bytes'), bytes):

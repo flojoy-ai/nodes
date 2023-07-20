@@ -35,7 +35,11 @@ def DALLE_IMAGE_GENERATOR(
     height: int
         The height of the generated image.
     """
-    openai.api_key = os.environ.get("OPENAI_API_KEY")
+    api_key = os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        raise Exception("OPENAI_API_KEY environment variable not set")
+    
+    openai.api_key = api_key
     result = openai.Image.create(prompt=prompt, n=1, size=f"{width}x{height}")
     if not result.data:
         raise Exception("No image data in result")

@@ -37,6 +37,11 @@ def JSON_EXTRACTOR(
         Text to extract information from. Example: "I'm John, I am 30 years old and I live in New York."
     """
 
+    api_key = os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        raise Exception("OPENAI_API_KEY environment variable not set")
+    openai.api_key = api_key
+
     if not properties:
         raise Exception("No properties found to extract.")
 
@@ -49,7 +54,6 @@ def JSON_EXTRACTOR(
         }
         schema["parameters"]["required"].append(property)
 
-    openai.api_key = os.environ.get("OPENAI_API_KEY")
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-0613",
         messages=[
