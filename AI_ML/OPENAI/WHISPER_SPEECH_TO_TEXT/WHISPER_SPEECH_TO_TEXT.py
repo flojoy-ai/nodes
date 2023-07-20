@@ -4,10 +4,13 @@ import openai
 import pandas as pd
 import os
 from pathlib import Path
+import time
 from tempfile import NamedTemporaryFile
 
 
 ACCEPTED_AUDIO_FORMATS = ["mp3", "wav"]
+API_RETRY_ATTEMPTS = 5
+API_RETRY_INTERVAL_IN_SECONDS = 1
 
 
 @flojoy
@@ -56,7 +59,18 @@ def WHISPER_SPEECH_TO_TEXT(
         raise ValueError(f"file {file_path} does not exist!")
 
     with open(file_path, 'rb') as f:
-        transcript = openai.Audio.translate(model, f)
+        for i in range(API_RETRY_ATTEMPTS):
+            try:
+                transcript = openai.Audio.translate(model, f)
+                print(f'No error in attempt {i} of transcription')
+                break
+            except openai.error.RateLimitError:
+                if i > API_RETRY_ATTEMPTS:
+                    raise Exception("Rate limit error. Max retries exceeded.")
+
+                print(f"Rate limit error, retrying in {API_RETRY_INTERVAL_IN_SECONDS} seconds")
+                time.sleep(API_RETRY_INTERVAL_IN_SECONDS)
+                continue
 
     if f is not None:
         f.close()

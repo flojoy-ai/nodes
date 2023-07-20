@@ -4,6 +4,7 @@ import pandas as pd
 import os
 import json
 from copy import deepcopy
+import time
 
 
 ACCEPTED_SCHEMA_FORMATS = [".json"]
@@ -13,6 +14,9 @@ BASE_SCHEMA = {
     "description": "Extracts the information as JSON.",
     "parameters": {"type": "object", "properties": {}, "required": []},
 }
+
+API_RETRY_ATTEMPTS = 5
+API_RETRY_INTERVAL_IN_SECONDS = 1
 
 
 @flojoy
@@ -54,15 +58,27 @@ def JSON_EXTRACTOR(
         }
         schema["parameters"]["required"].append(property)
 
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo-0613",
-        messages=[
-            {"role": "user", "content": prompt},
-        ],
-        temperature=0,
-        functions=[schema],
-        function_call={"name": schema.get("name", "json_extractor")},
-    )
+    for i in range(API_RETRY_ATTEMPTS):
+        try:
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo-0613",
+                messages=[
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=0,
+                functions=[schema],
+                function_call={"name": schema.get("name", "json_extractor")},
+            )
+            print(f'No error in attempt {i} of extraction.')
+            break
+        except openai.error.RateLimitError:
+            if i > API_RETRY_ATTEMPTS:
+                raise Exception("Rate limit error. Max retries exceeded.")
+
+            print(f"Rate limit error, retrying in {API_RETRY_INTERVAL_IN_SECONDS} seconds")
+            time.sleep(API_RETRY_INTERVAL_IN_SECONDS)
+            continue
+    
 
     if not response.choices:
         raise Exception("No extraction choices found in response.")
