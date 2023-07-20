@@ -2,7 +2,6 @@ on:
   pull_request:
   pull_request_target:
     types:
-      - synchronize
       - closed
     branches:
       - main
