@@ -1,15 +1,12 @@
 on:
-  pull_request:
-  pull_request_target:
-    types:
-      - closed
+  push:
     branches:
       - main
 
-name: create-studio-docs-pr
+name: create-studio-pr
 
 jobs:
-  send-pull-requests:
+  send-pull-request:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -31,19 +28,10 @@ jobs:
         id: email
         uses: KRANTHI0918/get-github-email-by-username-action@v2.1
         with:
-          github-username: ${{ github.event.pull_request.user.login }}
+          github-username: ${{ github.actor }}
           token: ${{ steps.generate_token.outputs.token }}
       
       - name: Get last commit message
-        if: github.event.pull_request.merged != true
-        run: |
-          cd ${{ github.workspace }}
-          git fetch origin ${{ github.head_ref }}
-          git checkout ${{ github.head_ref }}
-          echo "LAST_COMMIT_MSG=$(git log -1 --pretty=format:'%s')" >> "$GITHUB_ENV"
-
-      - name: Get last commit message
-        if: github.event.pull_request.merged == true
         run: |
           cd ${{ github.workspace }}
           git fetch origin main
@@ -54,13 +42,11 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.generate_token.outputs.token }}
           APP_TOKEN: ${{ steps.generate_token.outputs.token }}
-          USER_NAME: ${{ github.event.pull_request.user.login }}
+          USER_NAME: ${{ github.actor }}
           USER_EMAIL: ${{ steps.email.outputs.email }}
           LAST_COMMIT_MSG: ${{ env.LAST_COMMIT_MSG }}
-          PR_NUM: ${{github.event.pull_request.number}}
+          COMMIT_SHA: ${{ github.sha }}
           GITHUB_WORKSPACE: ${{github.workspace}}
-          PR_BRANCH: ${{ github.head_ref }}
-          IS_MERGED: ${{ github.event.pull_request.merged == true }}
-          PR_TITLE: ${{ github.event.pull_request.title }}
+          STUDIO_PR: true
         run: |
           bash create_pr
