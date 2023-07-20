@@ -5,7 +5,10 @@ from PIL import Image as PilImage
 import requests
 from io import BytesIO
 import os
+import time
 
+API_RETRY_ATTEMPTS = 5
+API_RETRY_INTERVAL_IN_SECONDS = 1
 
 @flojoy
 @run_in_venv(
@@ -40,7 +43,20 @@ def DALLE_IMAGE_GENERATOR(
         raise Exception("OPENAI_API_KEY environment variable not set")
     
     openai.api_key = api_key
-    result = openai.Image.create(prompt=prompt, n=1, size=f"{width}x{height}")
+
+    for i in range(API_RETRY_ATTEMPTS):
+        try:
+            result = openai.Image.create(prompt=prompt, n=1, size=f"{width}x{height}")
+            print(f'No error in attempt {i} of generating image')
+            break
+        except openai.error.RateLimitError:
+            if i > API_RETRY_ATTEMPTS:
+                raise Exception("Rate limit error. Max retries exceeded.")
+
+            print(f"Rate limit error, retrying in {API_RETRY_INTERVAL_IN_SECONDS} seconds")
+            time.sleep(API_RETRY_INTERVAL_IN_SECONDS)
+            continue
+
     if not result.data:
         raise Exception("No image data in result")
 
