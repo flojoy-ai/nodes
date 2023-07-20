@@ -1,4 +1,0 @@
-COMMAND:
-  - name: Table
-    key: TABLE
-    type: PLOTLY_VISOR

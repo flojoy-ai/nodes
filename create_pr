@@ -1,5 +1,5 @@
 #!/bin/bash
-
+PR_TITLE=$PR_TITLE
 DOC_REPOSITORY="flojoy-io/docs"
 DOC_FOLDER="bin/$DOC_REPOSITORY"
 DOC_BRANCH="update-node-docs-$PR_NUM"
@@ -29,29 +29,33 @@ if git branch -a | grep -q $DOC_BRANCH; then
   git checkout $DOC_BRANCH
   git pull
   cd $GITHUB_WORKSPACE
-  python3 write_doc_string.py $DOC_FOLDER
+  python3 write_doc.py $DOC_FOLDER
   cd $DOC_FOLDER
+  python3 generate_nodesidebar.py
   if git status --porcelain | grep -q .; then
     echo "There are changes in the branch."
     git add .
     git commit -m "update: $LAST_COMMIT_MSG"
     git push origin $DOC_BRANCH
     if [ "$IS_MERGED" = true ]; then
+      pr_number=$(gh pr list --state open --base main --limit 1 --json number --jq '.[0].number')
+      gh pr edit $pr_number --title "$PR_TITLE - nodes PR:$PR_NUM [merged]"
       gh pr ready
     fi
   fi
 else
   git checkout -b $DOC_BRANCH
   cd $GITHUB_WORKSPACE
-  python3 write_doc_string.py $DOC_FOLDER
+  python3 write_doc.py $DOC_FOLDER
   cd $DOC_FOLDER
+  python3 generate_nodesidebar.py
   if git status --porcelain | grep -q .; then
     git add .
     git commit -m "update: $LAST_COMMIT_MSG"
     git push -u origin $DOC_BRANCH --force
     gh pr create \
       --body "corresponding PR in nodes: https://github.com/flojoy-io/nodes/pull/$PR_NUM" \
-      --title "Update nodes doc from PR: $PR_NUM" \
+      --title "[WIP] $PR_TITLE - nodes PR:$PR_NUM" \
       --head "$DOC_BRANCH" \
       --base "main" \
       --assignee $USER_NAME \
@@ -78,6 +82,8 @@ if git branch -a | grep -q $STUDIO_BRANCH; then
       git add .
       git commit -m "update: $LAST_COMMIT_MSG"
       git push origin $STUDIO_BRANCH
+      pr_number=$(gh pr list --state open --base develop --limit 1 --json number --jq '.[0].number')
+      gh pr edit $pr_number --title "$PR_TITLE - nodes PR:$PR_NUM [merged]"
       gh pr ready
     fi
   else 
@@ -107,7 +113,7 @@ else
     git push -u origin $STUDIO_BRANCH --force
     gh pr create \
       --body "corresponding PR in nodes: https://github.com/flojoy-io/nodes/pull/$PR_NUM" \
-      --title "Update submodule from PR: $PR_NUM" \
+      --title "[WIP] $PR_TITLE - nodes PR:$PR_NUM" \
       --head "$STUDIO_BRANCH" \
       --base "develop" \
       --assignee $USER_NAME \

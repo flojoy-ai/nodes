@@ -30,7 +30,7 @@ def LOCAL_FILE(
 
     Returns:
     --------
-    DataContainer:
+    Image:
         type 'image' for file_type 'image'
 
         type 'dataframe' for file_type 'json', 'csv', 'excel', 'xml'

@@ -1,10 +1,18 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import numpy.linalg
 
 
-@flojoy
-def CHOLESKY(dc, params):
-    """
+@flojoy(node_type="default")
+def CHOLESKY(
+    default: Matrix,
+) -> Matrix | Scalar:
+    """The CHOLESKY node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Cholesky decomposition.
 
@@ -16,19 +24,25 @@ def CHOLESKY(dc, params):
             In addition, only the lower-triangular and diagonal elements of `a`
             are used. Only `L` is actually returned.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-
     Parameters
     ----------
     a : (..., M, M) array_like
             Hermitian (symmetric if all elements are real), positive-definite
             input matrix.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.cholesky(
-            a=dc[0].y,
-        ),
+
+    result = numpy.linalg.cholesky(
+        a=default.m,
     )
+
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    elif isinstance(result, np.float64):
+        result = Scalar(c=result)
+
+    return result

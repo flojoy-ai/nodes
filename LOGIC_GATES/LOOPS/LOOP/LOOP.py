@@ -1,15 +1,22 @@
 import json
-
-from node_sdk.small_memory import SmallMemory
-
-from flojoy import JobResultBuilder, DataContainer, flojoy
+from typing import TypedDict, Any, Optional
+from flojoy import JobResultBuilder, DataContainer, flojoy, DefaultParams, SmallMemory
 
 memory_key = "loop-info"
 
 
+class LoopOutput(TypedDict):
+    body: Any
+    end: Any
+
+
 class LoopData:
     def __init__(
-        self, node_id, num_loops=-1, current_iteration=0, is_finished=False
+        self,
+        node_id: str,
+        num_loops: int = -1,
+        current_iteration: int = 0,
+        is_finished: bool = False,
     ) -> None:
         self.node_id = node_id
         self.num_loops = int(num_loops)
@@ -34,7 +41,7 @@ class LoopData:
         }
 
     @staticmethod
-    def from_data(node_id, data: dict):
+    def from_data(node_id: str, data: dict[str, Any]):
         loop_data = LoopData(
             node_id,
             num_loops=data.get("num_loops", -1),
@@ -43,12 +50,16 @@ class LoopData:
         )
         return loop_data
 
-    def print(self, prefix=""):
+    def print(self, prefix: str = ""):
         print(f"{prefix}loop Data:", json.dumps(self.get_data(), indent=2))
 
 
-@flojoy
-def LOOP(dc_inputs: list[DataContainer], params: dict) -> dict:
+@flojoy(inject_node_metadata=True)
+def LOOP(
+    default_params: DefaultParams,
+    default: Optional[DataContainer] = None,
+    num_loops: int = -1,
+) -> LoopOutput:
     """The LOOP node is a specialized node that iterates through the body nodes for a given number of times.
     To ensure proper functionality, the LOOP node relies on a companion node called the `GOTO` node.
 
@@ -57,15 +68,14 @@ def LOOP(dc_inputs: list[DataContainer], params: dict) -> dict:
     num_loops : int
         number of times to iterate through body nodes default is `-1` meaning infinity.
     """
-    num_loops: int = params.get("num_loops", 0)
-    node_id = params.get("node_id", 0)
+    node_id = default_params.node_id
 
     print("\n\nstart loop:", node_id)
 
     # infinite loop
     if num_loops == -1:
         print("infinite loop")
-        return build_result(inputs=dc_inputs, is_loop_finished=False)
+        return build_result(inputs=[default] if default else [], is_loop_finished=False)
 
     loop_data: LoopData = load_loop_data(node_id, num_loops)
     loop_data.print("at start ")
@@ -84,35 +94,39 @@ def LOOP(dc_inputs: list[DataContainer], params: dict) -> dict:
 
     print("end loop\n\n")
 
-    return build_result(dc_inputs, loop_data.is_finished)
+    return build_result([default] if default else [], loop_data.is_finished)
 
 
-def load_loop_data(node_id, default_num_loops) -> LoopData:
-    data = SmallMemory().read_memory(node_id, memory_key) or {}
+def load_loop_data(node_id: str, default_num_loops: int) -> LoopData:
+    data: dict[str, Any] = SmallMemory().read_memory(node_id, memory_key) or {}
     loop_data = LoopData.from_data(
         node_id=node_id, data={"num_loops": default_num_loops, **data}
     )
     return loop_data
 
 
-def store_loop_data(node_id, loop_data: LoopData):
+def store_loop_data(node_id: str, loop_data: LoopData):
     SmallMemory().write_to_memory(node_id, memory_key, loop_data.get_data())
     loop_data.print("store ")
 
 
-def delete_loop_data(node_id):
+def delete_loop_data(node_id: str):
     SmallMemory().delete_object(node_id, memory_key)
     print("delete loop data")
 
 
-def build_result(inputs, is_loop_finished: bool):
-    return (
-        JobResultBuilder()
+def build_result(inputs: list[DataContainer], is_loop_finished: bool):
+    return LoopOutput(
+        body=JobResultBuilder()
         .from_inputs(inputs)
         .flow_by_flag(
-            flag=is_loop_finished,
-            directionsWhenFalse=["body"],
-            directionsWhenTrue=["end"],
+            flag=is_loop_finished, false_direction=["body"], true_direction=["end"]
         )
-        .build()
+        .build(),
+        end=JobResultBuilder()
+        .from_inputs(inputs)
+        .flow_by_flag(
+            flag=is_loop_finished, false_direction=["body"], true_direction=["end"]
+        )
+        .build(),
     )

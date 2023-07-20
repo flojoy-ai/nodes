@@ -1,10 +1,20 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.stats
 
 
-@flojoy
-def GSTD(dc, params):
-    """
+@flojoy(node_type="default")
+def GSTD(
+    default: OrderedPair | Matrix,
+    axis: int = 0,
+    ddof: int = 1,
+) -> OrderedPair | Matrix | Scalar:
+    """The GSTD node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Calculate the geometric standard deviation of an array.
 
@@ -20,10 +30,6 @@ def GSTD(dc, params):
 
     .. versionadded:: 1.3.0
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-
     Parameters
     ----------
     a : array_like
@@ -34,12 +40,20 @@ def GSTD(dc, params):
     ddof : int, optional
             Degree of freedom correction in the calculation of the
             geometric standard deviation. Default is 1.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
+
+    result = OrderedPair(
+        x=default.x,
         y=scipy.stats.gstd(
-            a=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            ddof=(int(params["ddof"]) if params["ddof"] != "" else None),
+            a=default.y,
+            axis=axis,
+            ddof=ddof,
         ),
     )
+
+    return result

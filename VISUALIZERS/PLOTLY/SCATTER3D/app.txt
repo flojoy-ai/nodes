@@ -2,111 +2,274 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-244cc33d-e308-422c-b884-2df06a3aa0cc",
-                "type": "TERMINATOR",
+                "width": 150,
+                "height": 150,
+                "id": "PLOTLY_DATASET-6af3469b-5751-4778-84a1-2b17bc9c0894",
+                "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "END-244cc33d-e308-422c-b884-2df06a3aa0cc",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
+                    "id": "PLOTLY_DATASET-6af3469b-5751-4778-84a1-2b17bc9c0894",
+                    "label": "PLOTLY DATASET",
+                    "func": "PLOTLY_DATASET",
+                    "type": "SAMPLE_DATASETS",
+                    "ctrls": {
+                        "dataset_key": {
+                            "type": "select",
+                            "default": "wind",
+                            "options": [
+                                "wind",
+                                "iris",
+                                "carshare",
+                                "tips",
+                                "election",
+                                "experiment",
+                                "gapminder",
+                                "medals_long",
+                                "medals_wide",
+                                "stocks"
+                            ],
+                            "functionName": "PLOTLY_DATASET",
+                            "param": "dataset_key",
+                            "value": "iris"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_DATASETS\\PLOTLY_DATASET\\PLOTLY_DATASET.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1116.2030950203848,
-                    "y": 225.70846023537183
+                    "x": -298.0815755738636,
+                    "y": 105.97367325652914
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1116.2030950203848,
-                    "y": 225.70846023537183
+                    "x": -298.0815755738636,
+                    "y": 105.97367325652914
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-9bf7a22c-ae80-4214-ae2e-28a5d7e83d81",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-9bf7a22c-ae80-4214-ae2e-28a5d7e83d81",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 970.0654328891447,
+                    "y": 129.05154701626657
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 970.0654328891447,
+                    "y": 129.05154701626657
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "R_DATASET-c646b5a2-bc0c-4928-82a5-a34d43ea9444",
-                "type": "SAMPLE_DATASET",
+                "id": "DF_2_ORDEREDTRIPLE-a3a65384-680c-4114-81e1-476ec8835a58",
+                "type": "TYPE_CASTING",
                 "data": {
-                    "id": "R_DATASET-c646b5a2-bc0c-4928-82a5-a34d43ea9444",
-                    "label": "R DATASET",
-                    "func": "R_DATASET",
-                    "type": "SAMPLE_DATASET",
+                    "id": "DF_2_ORDEREDTRIPLE-a3a65384-680c-4114-81e1-476ec8835a58",
+                    "label": "DF 2 ORDEREDTRIPLE",
+                    "func": "DF_2_ORDEREDTRIPLE",
+                    "type": "TYPE_CASTING",
                     "ctrls": {
-                        "dataset_key": {
-                            "functionName": "R_DATASET",
-                            "param": "dataset_key",
-                            "value": "iris"
+                        "x": {
+                            "type": "int",
+                            "default": 0,
+                            "functionName": "DF_2_ORDEREDTRIPLE",
+                            "param": "x",
+                            "value": 0
+                        },
+                        "y": {
+                            "type": "int",
+                            "default": 1,
+                            "functionName": "DF_2_ORDEREDTRIPLE",
+                            "param": "y",
+                            "value": 1
+                        },
+                        "z": {
+                            "type": "int",
+                            "default": 2,
+                            "functionName": "DF_2_ORDEREDTRIPLE",
+                            "param": "z",
+                            "value": 2
                         }
                     },
-                    "pip_dependencies": [
+                    "inputs": [
                         {
-                            "name": "rdatasets",
-                            "v": "0.1.0"
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "multiple": false
                         }
                     ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple"
+                        }
+                    ],
+                    "path": "",
                     "selected": false
                 },
                 "position": {
-                    "x": 50.73216035873514,
-                    "y": 197.35131180108993
+                    "x": 133.23533231847682,
+                    "y": 94.6441744121388
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 50.73216035873514,
-                    "y": 197.35131180108993
+                    "x": 133.23533231847682,
+                    "y": 94.6441744121388
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
-                "id": "SCATTER3D-435d9d2c-1e00-4a05-92f1-514a5ea4d4c5",
-                "type": "PLOTLY_VISOR",
+                "width": 225,
+                "height": 226,
+                "id": "SCATTER3D-27578128-aa7b-40fe-8dfd-d971192bba27",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "SCATTER3D-435d9d2c-1e00-4a05-92f1-514a5ea4d4c5",
-                    "label": "SCATTER3D",
+                    "id": "SCATTER3D-27578128-aa7b-40fe-8dfd-d971192bba27",
+                    "label": "SCATTER3D 1",
                     "func": "SCATTER3D",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
-                    "inputs": [],
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\SCATTER3D\\SCATTER3D.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 556.7321603587352,
-                    "y": 167.35131180108993
+                    "x": 194.33796607992497,
+                    "y": 418.50728439606235
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 556.7321603587352,
-                    "y": 167.35131180108993
+                    "x": 194.33796607992497,
+                    "y": 418.50728439606235
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "SCATTER3D-0ba51c41-646b-47e4-a6e0-a306230f4ec6",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "SCATTER3D-0ba51c41-646b-47e4-a6e0-a306230f4ec6",
+                    "label": "SCATTER3D 1",
+                    "func": "SCATTER3D",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\SCATTER3D\\SCATTER3D.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 484.38259832770757,
+                    "y": 34.16199428293129
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 484.38259832770757,
+                    "y": 34.16199428293129
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "R_DATASET-c646b5a2-bc0c-4928-82a5-a34d43ea9444",
-                "sourceHandle": "main",
-                "target": "SCATTER3D-435d9d2c-1e00-4a05-92f1-514a5ea4d4c5",
-                "targetHandle": "SCATTER3D",
-                "id": "reactflow__edge-R_DATASET-c646b5a2-bc0c-4928-82a5-a34d43ea9444main-SCATTER3D-435d9d2c-1e00-4a05-92f1-514a5ea4d4c5SCATTER3D"
+                "source": "PLOTLY_DATASET-6af3469b-5751-4778-84a1-2b17bc9c0894",
+                "sourceHandle": "default",
+                "target": "DF_2_ORDEREDTRIPLE-a3a65384-680c-4114-81e1-476ec8835a58",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PLOTLY_DATASET-6af3469b-5751-4778-84a1-2b17bc9c0894default-DF_2_ORDEREDTRIPLE-a3a65384-680c-4114-81e1-476ec8835a58default"
             },
             {
-                "source": "SCATTER3D-435d9d2c-1e00-4a05-92f1-514a5ea4d4c5",
-                "sourceHandle": "main",
-                "target": "END-244cc33d-e308-422c-b884-2df06a3aa0cc",
-                "targetHandle": "END",
-                "id": "reactflow__edge-SCATTER3D-435d9d2c-1e00-4a05-92f1-514a5ea4d4c5main-END-244cc33d-e308-422c-b884-2df06a3aa0ccEND"
+                "source": "PLOTLY_DATASET-6af3469b-5751-4778-84a1-2b17bc9c0894",
+                "sourceHandle": "default",
+                "target": "SCATTER3D-27578128-aa7b-40fe-8dfd-d971192bba27",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PLOTLY_DATASET-6af3469b-5751-4778-84a1-2b17bc9c0894default-SCATTER3D-27578128-aa7b-40fe-8dfd-d971192bba27default"
+            },
+            {
+                "source": "SCATTER3D-27578128-aa7b-40fe-8dfd-d971192bba27",
+                "sourceHandle": "default",
+                "target": "END-9bf7a22c-ae80-4214-ae2e-28a5d7e83d81",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SCATTER3D-27578128-aa7b-40fe-8dfd-d971192bba27default-END-9bf7a22c-ae80-4214-ae2e-28a5d7e83d81default"
+            },
+            {
+                "source": "DF_2_ORDEREDTRIPLE-a3a65384-680c-4114-81e1-476ec8835a58",
+                "sourceHandle": "default",
+                "target": "SCATTER3D-0ba51c41-646b-47e4-a6e0-a306230f4ec6",
+                "targetHandle": "default",
+                "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-a3a65384-680c-4114-81e1-476ec8835a58default-SCATTER3D-0ba51c41-646b-47e4-a6e0-a306230f4ec6default"
+            },
+            {
+                "source": "SCATTER3D-0ba51c41-646b-47e4-a6e0-a306230f4ec6",
+                "sourceHandle": "default",
+                "target": "END-9bf7a22c-ae80-4214-ae2e-28a5d7e83d81",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SCATTER3D-0ba51c41-646b-47e4-a6e0-a306230f4ec6default-END-9bf7a22c-ae80-4214-ae2e-28a5d7e83d81default"
             }
         ],
         "viewport": {
-            "x": -1.925865746739305,
-            "y": 25.981885860670957,
-            "zoom": 1.098607348110647
+            "x": -296.35399545928726,
+            "y": 66.8470830817738,
+            "zoom": 0.8744723800359967
         }
     },
     "ctrlsManifest": [

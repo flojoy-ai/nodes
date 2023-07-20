@@ -1,14 +1,22 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import OrderedPair, flojoy, Scalar, Vector
+from nodes.TRANSFORMERS.ARITHMETIC.utils.arithmetic_utils import get_val
+from functools import reduce
 
 
 @flojoy
-def MULTIPLY(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def MULTIPLY(
+    a: OrderedPair | Scalar | Vector, b: list[OrderedPair | Scalar | Vector]
+) -> OrderedPair | Scalar | Vector:
     """Takes 2 input vectors, multiplies them, and returns the result"""
-    a = dc_inputs[0].y
-    b = dc_inputs[1].y
+    initial = get_val(a)
+    seq = map(lambda dc: get_val(dc), b)
+    y = reduce(lambda u, v: np.multiply(u, v), seq, initial)
 
-    x = dc_inputs[0].x
-    y = np.multiply(a, b)
-
-    return DataContainer(x=x, y=y)
+    match a:
+        case OrderedPair():
+            return OrderedPair(x=a.x, y=y)
+        case Vector():
+            return Vector(v=y)
+        case Scalar():
+            return Scalar(c=y)

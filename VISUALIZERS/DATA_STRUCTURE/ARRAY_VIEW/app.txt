@@ -2,114 +2,478 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-d1db4ad1-e647-4059-b60f-173210b3f769",
-                "type": "TERMINATOR",
+                "width": 240,
+                "height": 260,
+                "id": "ARRAY_VIEW-1efcd977-7ea1-4036-b70b-9e04177953f8",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "END-d1db4ad1-e647-4059-b60f-173210b3f769",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
+                    "id": "ARRAY_VIEW-1efcd977-7ea1-4036-b70b-9e04177953f8",
+                    "label": "ARRAY VIEW",
+                    "func": "ARRAY_VIEW",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Matrix|DataFrame|Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\DATA_STRUCTURE\\ARRAY_VIEW\\ARRAY_VIEW.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1066.7749715880866,
-                    "y": 253.50666759254665
+                    "x": 366.4303758700532,
+                    "y": 134.05264409813714
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1066.7749715880866,
-                    "y": 253.50666759254665
+                    "x": 366.4303758700532,
+                    "y": 134.05264409813714
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "LINSPACE-1fbf482b-1149-49c0-8733-fa70d153dba3",
+                "id": "LOCAL_FILE-6cd15e81-644c-47c3-9309-bdfb92b80322",
+                "type": "LOCAL_FILE_SYSTEM",
+                "data": {
+                    "id": "LOCAL_FILE-6cd15e81-644c-47c3-9309-bdfb92b80322",
+                    "label": "LOCAL FILE",
+                    "func": "LOCAL_FILE",
+                    "type": "LOCAL_FILE_SYSTEM",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": null,
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_path",
+                            "value": ""
+                        },
+                        "file_type": {
+                            "type": "select",
+                            "default": "Image",
+                            "options": [
+                                "Image",
+                                "JSON",
+                                "CSV",
+                                "Excel",
+                                "XML"
+                            ],
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_type",
+                            "value": "Image"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|DataFrame"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "xlrd",
+                            "v": "2.0.1"
+                        },
+                        {
+                            "name": "lxml",
+                            "v": "4.9.2"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOADERS\\LOCAL_FILE_SYSTEM\\LOCAL_FILE\\LOCAL_FILE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -232.3350019193849,
+                    "y": 222.68903387760122
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -232.3350019193849,
+                    "y": 222.68903387760122
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 727.4931647979206,
+                    "y": 308.7656577735042
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 727.4931647979206,
+                    "y": 308.7656577735042
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "PLOTLY_DATASET-19eba195-7482-48cc-aac0-8cc1325fe0c9",
+                "type": "SAMPLE_DATASETS",
+                "data": {
+                    "id": "PLOTLY_DATASET-19eba195-7482-48cc-aac0-8cc1325fe0c9",
+                    "label": "PLOTLY DATASET",
+                    "func": "PLOTLY_DATASET",
+                    "type": "SAMPLE_DATASETS",
+                    "ctrls": {
+                        "dataset_key": {
+                            "type": "select",
+                            "default": "wind",
+                            "options": [
+                                "wind",
+                                "iris",
+                                "carshare",
+                                "tips",
+                                "election",
+                                "experiment",
+                                "gapminder",
+                                "medals_long",
+                                "medals_wide",
+                                "stocks"
+                            ],
+                            "functionName": "PLOTLY_DATASET",
+                            "param": "dataset_key",
+                            "value": "stocks"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_DATASETS\\PLOTLY_DATASET\\PLOTLY_DATASET.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -240.06249858954502,
+                    "y": 687.4465652665302
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -240.06249858954502,
+                    "y": 687.4465652665302
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-f5c8b478-c39a-4450-abfa-52fbc5b5177b",
                 "type": "default",
                 "data": {
-                    "id": "LINSPACE-1fbf482b-1149-49c0-8733-fa70d153dba3",
+                    "id": "LINSPACE-f5c8b478-c39a-4450-abfa-52fbc5b5177b",
                     "label": "LINSPACE",
                     "func": "LINSPACE",
-                    "type": "SIMULATION",
+                    "type": "default",
                     "ctrls": {
                         "start": {
+                            "type": "float",
+                            "default": 10,
                             "functionName": "LINSPACE",
                             "param": "start",
                             "value": 10
                         },
                         "end": {
+                            "type": "float",
+                            "default": 0,
                             "functionName": "LINSPACE",
                             "param": "end",
                             "value": 0
                         },
                         "step": {
+                            "type": "int",
+                            "default": 1000,
                             "functionName": "LINSPACE",
                             "param": "step",
                             "value": 1000
                         }
                     },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\LINSPACE\\LINSPACE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -51.90922250527529,
-                    "y": 240.49397658402108
+                    "x": -208.63046860299858,
+                    "y": -16.592276921086295
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -51.90922250527529,
-                    "y": 240.49397658402108
+                    "x": -208.63046860299858,
+                    "y": -16.592276921086295
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "MATRIX-eb2f42c0-a990-4294-8032-45abfac569df",
+                "type": "SIMULATIONS",
+                "data": {
+                    "id": "MATRIX-eb2f42c0-a990-4294-8032-45abfac569df",
+                    "label": "MATRIX",
+                    "func": "MATRIX",
+                    "type": "SIMULATIONS",
+                    "ctrls": {
+                        "row": {
+                            "type": "int",
+                            "default": 2,
+                            "functionName": "MATRIX",
+                            "param": "row",
+                            "value": 2
+                        },
+                        "column": {
+                            "type": "int",
+                            "default": 2,
+                            "functionName": "MATRIX",
+                            "param": "column",
+                            "value": 2
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Matrix"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\MATRIX\\MATRIX.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -237.60214272514102,
+                    "y": 461.86680064131633
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -237.60214272514102,
+                    "y": 461.86680064131633
                 },
                 "dragging": true
             },
             {
                 "width": 240,
                 "height": 260,
-                "id": "ARRAY_VIEW-f74a04cc-1bc3-4bf8-bb01-d7b621375162",
-                "type": "PLOTLY_VISOR",
+                "id": "ARRAY_VIEW-7d78d396-398b-499b-953f-e29aa877b5cf",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "ARRAY_VIEW-f74a04cc-1bc3-4bf8-bb01-d7b621375162",
-                    "label": "ARRAY VIEW",
+                    "id": "ARRAY_VIEW-7d78d396-398b-499b-953f-e29aa877b5cf",
+                    "label": "ARRAY VIEW 1",
                     "func": "ARRAY_VIEW",
-                    "type": "DATA_STRUCTURE",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Matrix|DataFrame|Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\DATA_STRUCTURE\\ARRAY_VIEW\\ARRAY_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 57.622423079275194,
+                    "y": 1.7214033588389839
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 57.622423079275194,
+                    "y": 1.7214033588389839
+                },
+                "dragging": true
+            },
+            {
+                "width": 240,
+                "height": 260,
+                "id": "ARRAY_VIEW-111b6446-143e-43aa-83e9-3138fcdbf17b",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "ARRAY_VIEW-111b6446-143e-43aa-83e9-3138fcdbf17b",
+                    "label": "ARRAY VIEW 2",
+                    "func": "ARRAY_VIEW",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Matrix|DataFrame|Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\DATA_STRUCTURE\\ARRAY_VIEW\\ARRAY_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 47.984363760758214,
+                    "y": 371.99332085303405
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 47.984363760758214,
+                    "y": 371.99332085303405
+                },
+                "dragging": true
+            },
+            {
+                "width": 240,
+                "height": 260,
+                "id": "ARRAY_VIEW-6736c8e9-a710-4b14-bdd4-829e0ee961c7",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "ARRAY_VIEW-6736c8e9-a710-4b14-bdd4-829e0ee961c7",
+                    "label": "ARRAY VIEW 3",
+                    "func": "ARRAY_VIEW",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Matrix|DataFrame|Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\DATA_STRUCTURE\\ARRAY_VIEW\\ARRAY_VIEW.py",
                     "selected": true
                 },
                 "position": {
-                    "x": 450.5469442156465,
-                    "y": 183.00350555773372
+                    "x": 408.2387752517457,
+                    "y": 553.3504390006673
                 },
                 "selected": true,
                 "positionAbsolute": {
-                    "x": 450.5469442156465,
-                    "y": 183.00350555773372
+                    "x": 408.2387752517457,
+                    "y": 553.3504390006673
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LINSPACE-1fbf482b-1149-49c0-8733-fa70d153dba3",
-                "sourceHandle": "main",
-                "target": "ARRAY_VIEW-f74a04cc-1bc3-4bf8-bb01-d7b621375162",
-                "targetHandle": "ARRAY_VIEW",
-                "id": "reactflow__edge-LINSPACE-1fbf482b-1149-49c0-8733-fa70d153dba3main-ARRAY_VIEW-f74a04cc-1bc3-4bf8-bb01-d7b621375162ARRAY_VIEW"
+                "source": "LOCAL_FILE-6cd15e81-644c-47c3-9309-bdfb92b80322",
+                "sourceHandle": "default",
+                "target": "ARRAY_VIEW-1efcd977-7ea1-4036-b70b-9e04177953f8",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-6cd15e81-644c-47c3-9309-bdfb92b80322default-ARRAY_VIEW-1efcd977-7ea1-4036-b70b-9e04177953f8default"
             },
             {
-                "source": "ARRAY_VIEW-f74a04cc-1bc3-4bf8-bb01-d7b621375162",
-                "sourceHandle": "main",
-                "target": "END-d1db4ad1-e647-4059-b60f-173210b3f769",
-                "targetHandle": "END",
-                "id": "reactflow__edge-ARRAY_VIEW-f74a04cc-1bc3-4bf8-bb01-d7b621375162main-END-d1db4ad1-e647-4059-b60f-173210b3f769END"
+                "source": "ARRAY_VIEW-1efcd977-7ea1-4036-b70b-9e04177953f8",
+                "sourceHandle": "default",
+                "target": "END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58",
+                "targetHandle": "default",
+                "id": "reactflow__edge-ARRAY_VIEW-1efcd977-7ea1-4036-b70b-9e04177953f8default-END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58default"
+            },
+            {
+                "source": "MATRIX-eb2f42c0-a990-4294-8032-45abfac569df",
+                "sourceHandle": "default",
+                "target": "ARRAY_VIEW-111b6446-143e-43aa-83e9-3138fcdbf17b",
+                "targetHandle": "default",
+                "id": "reactflow__edge-MATRIX-eb2f42c0-a990-4294-8032-45abfac569dfdefault-ARRAY_VIEW-111b6446-143e-43aa-83e9-3138fcdbf17bdefault"
+            },
+            {
+                "source": "ARRAY_VIEW-111b6446-143e-43aa-83e9-3138fcdbf17b",
+                "sourceHandle": "default",
+                "target": "END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58",
+                "targetHandle": "default",
+                "id": "reactflow__edge-ARRAY_VIEW-111b6446-143e-43aa-83e9-3138fcdbf17bdefault-END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58default"
+            },
+            {
+                "source": "PLOTLY_DATASET-19eba195-7482-48cc-aac0-8cc1325fe0c9",
+                "sourceHandle": "default",
+                "target": "ARRAY_VIEW-6736c8e9-a710-4b14-bdd4-829e0ee961c7",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PLOTLY_DATASET-19eba195-7482-48cc-aac0-8cc1325fe0c9default-ARRAY_VIEW-6736c8e9-a710-4b14-bdd4-829e0ee961c7default"
+            },
+            {
+                "source": "LINSPACE-f5c8b478-c39a-4450-abfa-52fbc5b5177b",
+                "sourceHandle": "default",
+                "target": "ARRAY_VIEW-7d78d396-398b-499b-953f-e29aa877b5cf",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-f5c8b478-c39a-4450-abfa-52fbc5b5177bdefault-ARRAY_VIEW-7d78d396-398b-499b-953f-e29aa877b5cfdefault"
+            },
+            {
+                "source": "ARRAY_VIEW-7d78d396-398b-499b-953f-e29aa877b5cf",
+                "sourceHandle": "default",
+                "target": "END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58",
+                "targetHandle": "default",
+                "id": "reactflow__edge-ARRAY_VIEW-7d78d396-398b-499b-953f-e29aa877b5cfdefault-END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58default"
+            },
+            {
+                "source": "ARRAY_VIEW-6736c8e9-a710-4b14-bdd4-829e0ee961c7",
+                "sourceHandle": "default",
+                "target": "END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58",
+                "targetHandle": "default",
+                "id": "reactflow__edge-ARRAY_VIEW-6736c8e9-a710-4b14-bdd4-829e0ee961c7default-END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58default"
             }
         ],
         "viewport": {
-            "x": 383.94248946966945,
-            "y": 153.35910915060867,
-            "zoom": 1.1608238532718647
+            "x": -296.35399545928726,
+            "y": 66.8470830817738,
+            "zoom": 0.8744723800359967
         }
     },
     "ctrlsManifest": [

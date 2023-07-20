@@ -1,0 +1,318 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "READ_CSV-f1fcde08-f265-49e1-8fef-ca10fdd91cb5",
+                "type": "FILE",
+                "data": {
+                    "id": "READ_CSV-f1fcde08-f265-49e1-8fef-ca10fdd91cb5",
+                    "label": "READ CSV",
+                    "func": "READ_CSV",
+                    "type": "FILE",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
+                            "functionName": "READ_CSV",
+                            "param": "file_path",
+                            "value": "./PYTHON/nodes/AI_ML/NLP/COUNT_VECTORIZER/assets/text.csv"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/READ_CSV.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 331.7913972781864,
+                    "y": -45.20608554695849
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 331.7913972781864,
+                    "y": -45.20608554695849
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-872d4963-d2da-4147-9b54-0487a4b6d5c2",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "TABLE-872d4963-d2da-4147-9b54-0487a4b6d5c2",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 977.4500939326523,
+                    "y": 145.97012982652666
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 977.4500939326523,
+                    "y": 145.97012982652666
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-5af7fb76-685e-4970-8de1-67192cdbe6b8",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "TABLE-5af7fb76-685e-4970-8de1-67192cdbe6b8",
+                    "label": "TABLE 1",
+                    "func": "TABLE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 967.4035764399761,
+                    "y": -239.07237117806883
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 967.4035764399761,
+                    "y": -239.07237117806883
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-d704234b-c148-4243-a75e-0cf8e6f0d770",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-d704234b-c148-4243-a75e-0cf8e6f0d770",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1424.8846979849764,
+                    "y": -36.2985347256772
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1424.8846979849764,
+                    "y": -36.2985347256772
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "COUNT_VECTORIZER-cc904776-6e4f-48a4-8f6a-33be7f48900e",
+                "type": "NLP",
+                "data": {
+                    "id": "COUNT_VECTORIZER-cc904776-6e4f-48a4-8f6a-33be7f48900e",
+                    "label": "COUNT VECTORIZER",
+                    "func": "COUNT_VECTORIZER",
+                    "type": "NLP",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame|Matrix|Vector",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "tokens",
+                            "id": "tokens",
+                            "type": "DataFrame"
+                        },
+                        {
+                            "name": "word_count_vector",
+                            "id": "word_count_vector",
+                            "type": "Matrix"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-learn",
+                            "v": "1.2.2"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/NLP/COUNT_VECTORIZER/COUNT_VECTORIZER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 711.5187499870754,
+                    "y": -46.008380300353565
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 711.5187499870754,
+                    "y": -46.008380300353565
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-cae87046-5eff-4db4-9cb5-b64e5c02c50b",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "TABLE-cae87046-5eff-4db4-9cb5-b64e5c02c50b",
+                    "label": "TABLE 2",
+                    "func": "TABLE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 517.0533116509799,
+                    "y": 151.4498699326736
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 517.0533116509799,
+                    "y": 151.4498699326736
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "TABLE-5af7fb76-685e-4970-8de1-67192cdbe6b8",
+                "sourceHandle": "default",
+                "target": "END-d704234b-c148-4243-a75e-0cf8e6f0d770",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-5af7fb76-685e-4970-8de1-67192cdbe6b8default-END-d704234b-c148-4243-a75e-0cf8e6f0d770default"
+            },
+            {
+                "source": "TABLE-872d4963-d2da-4147-9b54-0487a4b6d5c2",
+                "sourceHandle": "default",
+                "target": "END-d704234b-c148-4243-a75e-0cf8e6f0d770",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-872d4963-d2da-4147-9b54-0487a4b6d5c2default-END-d704234b-c148-4243-a75e-0cf8e6f0d770default"
+            },
+            {
+                "source": "READ_CSV-f1fcde08-f265-49e1-8fef-ca10fdd91cb5",
+                "sourceHandle": "default",
+                "target": "COUNT_VECTORIZER-cc904776-6e4f-48a4-8f6a-33be7f48900e",
+                "targetHandle": "default",
+                "id": "reactflow__edge-READ_CSV-f1fcde08-f265-49e1-8fef-ca10fdd91cb5default-COUNT_VECTORIZER-cc904776-6e4f-48a4-8f6a-33be7f48900edefault"
+            },
+            {
+                "source": "COUNT_VECTORIZER-cc904776-6e4f-48a4-8f6a-33be7f48900e",
+                "sourceHandle": "tokens",
+                "target": "TABLE-5af7fb76-685e-4970-8de1-67192cdbe6b8",
+                "targetHandle": "default",
+                "id": "reactflow__edge-COUNT_VECTORIZER-cc904776-6e4f-48a4-8f6a-33be7f48900etokens-TABLE-5af7fb76-685e-4970-8de1-67192cdbe6b8default"
+            },
+            {
+                "source": "COUNT_VECTORIZER-cc904776-6e4f-48a4-8f6a-33be7f48900e",
+                "sourceHandle": "word_count_vector",
+                "target": "TABLE-872d4963-d2da-4147-9b54-0487a4b6d5c2",
+                "targetHandle": "default",
+                "id": "reactflow__edge-COUNT_VECTORIZER-cc904776-6e4f-48a4-8f6a-33be7f48900eword_count_vector-TABLE-872d4963-d2da-4147-9b54-0487a4b6d5c2default"
+            },
+            {
+                "source": "READ_CSV-f1fcde08-f265-49e1-8fef-ca10fdd91cb5",
+                "sourceHandle": "default",
+                "target": "TABLE-cae87046-5eff-4db4-9cb5-b64e5c02c50b",
+                "targetHandle": "default",
+                "id": "reactflow__edge-READ_CSV-f1fcde08-f265-49e1-8fef-ca10fdd91cb5default-TABLE-cae87046-5eff-4db4-9cb5-b64e5c02c50bdefault"
+            }
+        ],
+        "viewport": {
+            "x": -277.07893884404893,
+            "y": 103.38141914149585,
+            "zoom": 0.8175961276759318
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

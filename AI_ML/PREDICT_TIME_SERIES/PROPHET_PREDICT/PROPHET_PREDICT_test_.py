@@ -1,11 +1,9 @@
-import numpy
-
 from functools import wraps
 from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
-from flojoy import DataContainer
+from flojoy import DataFrame
 from prophet import Prophet
 from prophet.serialize import model_from_json
 
@@ -38,7 +36,7 @@ def test_PROPHET_PREDICT():
     data = np.random.randn(num_days)  # Random data points
 
     df = pd.DataFrame({"Timestamp": timestamps, "Data": data})
-    dc = DataContainer(type="dataframe", m=df)
+    dc = DataFrame(df=df)
 
     # node under test
     res = PROPHET_PREDICT.PROPHET_PREDICT([dc], {"run_forecast": True, "periods": 365})

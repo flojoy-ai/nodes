@@ -1,10 +1,20 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import numpy.linalg
 
 
-@flojoy
-def PINV(dc, params):
-    """
+@flojoy(node_type="default")
+def PINV(
+    default: Matrix,
+    rcond: float = 1e-15,
+    hermitian: bool = False,
+) -> Matrix | Scalar:
+    """The PINV node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Compute the (Moore-Penrose) pseudo-inverse of a matrix.
 
@@ -14,10 +24,6 @@ def PINV(dc, params):
 
     .. versionchanged:: 1.14
             Can now operate on stacks of matrices
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -34,14 +40,22 @@ def PINV(dc, params):
             Defaults to False.
 
     .. versionadded:: 1.17.0
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.pinv(
-            a=dc[0].y,
-            rcond=(float(params["rcond"]) if params["rcond"] != "" else None),
-            hermitian=(
-                bool(params["hermitian"]) if params["hermitian"] != "" else None
-            ),
-        ),
+
+    result = numpy.linalg.pinv(
+        a=default.m,
+        rcond=rcond,
+        hermitian=hermitian,
     )
+
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    elif isinstance(result, np.float64):
+        result = Scalar(c=result)
+
+    return result

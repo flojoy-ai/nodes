@@ -1,10 +1,21 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.stats
 
 
-@flojoy
-def TRIM1(dc, params):
-    """
+@flojoy(node_type="default")
+def TRIM1(
+    default: OrderedPair | Matrix,
+    proportiontocut: float,
+    tail: str = "right",
+    axis: int = 0,
+) -> OrderedPair | Matrix | Scalar:
+    """The TRIM1 node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Slice off a proportion from ONE end of the passed array distribution.
 
             If `proportiontocut` = 0.1, slices off 'leftmost' or 'rightmost'
@@ -12,10 +23,6 @@ def TRIM1(dc, params):
             the tail).
             Slice off less if proportion results in a non-integer slice index
             (i.e. conservatively slices off `proportiontocut` ).
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -28,17 +35,21 @@ def TRIM1(dc, params):
     axis : int or None, optional
             Axis along which to trim data. Default is 0. If None, compute over
             the whole array `a`.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
+
+    result = OrderedPair(
+        x=default.x,
         y=scipy.stats.trim1(
-            a=dc[0].y,
-            proportiontocut=(
-                float(params["proportiontocut"])
-                if params["proportiontocut"] != ""
-                else None
-            ),
-            tail=(str(params["tail"]) if params["tail"] != "" else None),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
+            a=default.y,
+            proportiontocut=proportiontocut,
+            tail=tail,
+            axis=axis,
         ),
     )
+
+    return result

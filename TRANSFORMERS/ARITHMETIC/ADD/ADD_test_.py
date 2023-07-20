@@ -1,9 +1,9 @@
-import numpy
+import numpy as np
 
 from functools import wraps
 from unittest.mock import patch
 
-from flojoy import DataContainer
+from flojoy import OrderedPair
 
 
 # Python functions are decorated at module-loading time, So we'll need to patch our decorator
@@ -27,18 +27,14 @@ import ADD
 
 def test_ADD():
     # create the two ordered pair datacontainers
-    element_a = DataContainer(
-        type="ordered_pair", x=numpy.linspace(-10, 10, 100), y=[10] * 100
-    )
+    element_a = OrderedPair(x=np.linspace(-10, 10, 100), y=np.array([10] * 100))
 
-    element_b = DataContainer(
-        type="ordered_pair", x=numpy.linspace(-10, 10, 100), y=[7] * 100
-    )
+    element_b = OrderedPair(x=np.linspace(-10, 10, 100), y=np.array([7] * 100))
 
     # node under test
-    res = ADD.ADD([element_a, element_b], {})
+    res = ADD.ADD(element_a, element_b)
 
     # check that the correct number of elements
     assert (len(res.y)) == 100
     for y in res.y:
-        assert y == 17
+        assert y == 20

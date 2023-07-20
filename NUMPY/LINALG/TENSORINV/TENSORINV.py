@@ -1,10 +1,19 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import numpy.linalg
 
 
-@flojoy
-def TENSORINV(dc, params):
-    """
+@flojoy(node_type="default")
+def TENSORINV(
+    default: Matrix,
+    ind: int = 2,
+) -> Matrix | Scalar:
+    """The TENSORINV node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Compute the 'inverse' of an N-dimensional array.
 
@@ -12,10 +21,6 @@ def TENSORINV(dc, params):
             ``tensordot(a, b, ind)``, i. e., up to floating-point accuracy,
             ``tensordot(tensorinv(a), a, ind)`` is the "identity" tensor for the
             tensordot operation.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -25,11 +30,21 @@ def TENSORINV(dc, params):
     ind : int, optional
             Number of first indices that are involved in the inverse sum.
             Must be a positive integer, default is 2.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.tensorinv(
-            a=dc[0].y,
-            ind=(int(params["ind"]) if params["ind"] != "" else None),
-        ),
+
+    result = numpy.linalg.tensorinv(
+        a=default.m,
+        ind=ind,
     )
+
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    elif isinstance(result, np.float64):
+        result = Scalar(c=result)
+
+    return result

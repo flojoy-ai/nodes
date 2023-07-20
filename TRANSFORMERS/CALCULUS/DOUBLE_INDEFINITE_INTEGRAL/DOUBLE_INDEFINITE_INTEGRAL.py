@@ -1,11 +1,9 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedTriple, Matrix
 import numpy as np
 
 
 @flojoy
-def DOUBLE_INDEFINITE_INTEGRAL(
-    dc_inputs: list[DataContainer], params: dict
-) -> DataContainer:
+def DOUBLE_INDEFINITE_INTEGRAL(default: OrderedTriple) -> Matrix:
     """
     The INDEFINITE_INTEGRAL node takes three matrices and computes double integral.
     It returns a matrix where each cell represents volumn up to the given point.
@@ -19,11 +17,9 @@ def DOUBLE_INDEFINITE_INTEGRAL(
     DataContainer:
         type 'matrix', m
     """
-    dc_input = dc_inputs[0]
-
-    input_x = dc_input.x
-    input_y = dc_input.y
-    input_z = dc_input.z
+    input_x = default.x
+    input_y = default.y
+    input_z = default.z
 
     integrate = np.zeros_like(input_x)
 
@@ -58,4 +54,4 @@ def DOUBLE_INDEFINITE_INTEGRAL(
                     - result[i - 1][j - 1]
                 )
 
-    return DataContainer(type="matrix", m=result)
+    return Matrix(m=result)

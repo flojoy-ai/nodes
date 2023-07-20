@@ -1,18 +1,23 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import numpy.linalg
 
 
-@flojoy
-def EIGVALSH(dc, params):
-    """
+@flojoy(node_type="default")
+def EIGVALSH(
+    default: Matrix,
+    UPLO: str = "L",
+) -> Matrix | Scalar:
+    """The EIGVALSH node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Compute the eigenvalues of a complex Hermitian or real symmetric matrix.
 
     Main difference from eigh: the eigenvectors are not computed.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -26,11 +31,21 @@ def EIGVALSH(dc, params):
             be considered in the computation to preserve the notion of a Hermitian
             matrix. It therefore follows that the imaginary part of the diagonal
             will always be treated as zero.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.eigvalsh(
-            a=dc[0].y,
-            UPLO=(str(params["UPLO"]) if params["UPLO"] != "" else None),
-        ),
+
+    result = numpy.linalg.eigvalsh(
+        a=default.m,
+        UPLO=UPLO,
     )
+
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    elif isinstance(result, np.float64):
+        result = Scalar(c=result)
+
+    return result

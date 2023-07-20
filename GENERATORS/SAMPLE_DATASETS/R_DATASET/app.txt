@@ -2,110 +2,228 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 380,
-                "height": 293,
-                "id": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
-                "type": "PLOTLY_VISOR",
-                "data": {
-                    "id": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
-                    "label": "TABLE",
-                    "func": "TABLE",
-                    "type": "PLOTLY_VISOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 546.9942259972702,
-                    "y": 112.59212378208309
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 546.9942259972702,
-                    "y": 112.59212378208309
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-166c0b70-9c60-4e42-a618-85b66610c473",
-                "type": "TERMINATOR",
-                "data": {
-                    "id": "END-166c0b70-9c60-4e42-a618-85b66610c473",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 945.5656545686987,
-                    "y": 162.59212378208304
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 945.5656545686987,
-                    "y": 162.59212378208304
-                },
-                "dragging": true
-            },
-            {
                 "width": 150,
                 "height": 150,
-                "id": "R_DATASET-d7ea4e14-0fd2-432e-a1b1-b234286f995d",
-                "type": "SAMPLE_DATASET",
+                "id": "R_DATASET-52b424e0-d868-40e9-90c2-992ff9c78e0e",
+                "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "R_DATASET-d7ea4e14-0fd2-432e-a1b1-b234286f995d",
+                    "id": "R_DATASET-52b424e0-d868-40e9-90c2-992ff9c78e0e",
                     "label": "R DATASET",
                     "func": "R_DATASET",
-                    "type": "SAMPLE_DATASET",
+                    "type": "SAMPLE_DATASETS",
                     "ctrls": {
                         "dataset_key": {
+                            "type": "select",
+                            "default": "iris",
+                            "options": [
+                                "ability.cov",
+                                "airmiles",
+                                "AirPassengers",
+                                "airquality",
+                                "anscombe",
+                                "attenu",
+                                "attitude",
+                                "austres",
+                                "BJsales",
+                                "BOD",
+                                "cars",
+                                "ChickWeight",
+                                "chickwts",
+                                "co2",
+                                "crimtab",
+                                "discoveries",
+                                "DNase",
+                                "esoph",
+                                "euro",
+                                "EuStockMarkets",
+                                "faithful",
+                                "Formaldehyde",
+                                "freeny",
+                                "HairEyeColor",
+                                "Harman23",
+                                "Harman74",
+                                "Indometh",
+                                "infert",
+                                "InsectSprays",
+                                "iris",
+                                "iris3",
+                                "islands",
+                                "JohnsonJohnson",
+                                "LakeHuron",
+                                "LifeCycleSavings",
+                                "Loblolly",
+                                "longley",
+                                "lynx",
+                                "morley",
+                                "mtcars",
+                                "nhtemp",
+                                "Nile",
+                                "nottem",
+                                "npk",
+                                "occupationalStatus",
+                                "Orange",
+                                "OrchardSprays",
+                                "PlantGrowth",
+                                "precip",
+                                "presidents",
+                                "pressure",
+                                "Puromycin",
+                                "quakes",
+                                "randu",
+                                "rivers",
+                                "rock",
+                                "Seatbelts",
+                                "sleep",
+                                "stackloss",
+                                "sunspot.month",
+                                "sunspot.year",
+                                "sunspots",
+                                "swiss",
+                                "Theoph",
+                                "Titanic",
+                                "ToothGrowth",
+                                "treering",
+                                "trees",
+                                "UCBAdmissions",
+                                "UKDriverDeaths",
+                                "UKgas",
+                                "USAccDeaths",
+                                "USArrests",
+                                "USJudgeRatings",
+                                "USPersonalExpenditure",
+                                "VADeaths",
+                                "volcano",
+                                "warpbreaks",
+                                "women",
+                                "WorldPhones",
+                                "WWWusage"
+                            ],
                             "functionName": "R_DATASET",
                             "param": "dataset_key",
                             "value": "iris"
                         }
                     },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
                     "pip_dependencies": [
                         {
                             "name": "rdatasets",
                             "v": "0.1.0"
                         }
                     ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_DATASETS\\R_DATASET\\R_DATASET.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 155.4876003476146,
-                    "y": 177.61454275878134
+                    "x": 128.51593747608803,
+                    "y": 199.87310163004685
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 155.4876003476146,
-                    "y": 177.61454275878134
+                    "x": 128.51593747608803,
+                    "y": 199.87310163004685
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcd",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcd",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\TABLE\\TABLE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 539.9445089046594,
+                    "y": 128.4445302014754
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 539.9445089046594,
+                    "y": 128.4445302014754
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-a5316cd2-8a7b-48ec-a10f-d116974b4ab5",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-a5316cd2-8a7b-48ec-a10f-d116974b4ab5",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1187.0873660475165,
+                    "y": 187.01595877290396
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1187.0873660475165,
+                    "y": 187.01595877290396
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
-                "sourceHandle": "main",
-                "target": "END-166c0b70-9c60-4e42-a618-85b66610c473",
-                "targetHandle": "END",
-                "id": "reactflow__edge-TABLE-e800470c-1dfa-418e-b3be-08934023ea54main-END-166c0b70-9c60-4e42-a618-85b66610c473END"
+                "source": "R_DATASET-52b424e0-d868-40e9-90c2-992ff9c78e0e",
+                "sourceHandle": "default",
+                "target": "TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcd",
+                "targetHandle": "default",
+                "id": "reactflow__edge-R_DATASET-52b424e0-d868-40e9-90c2-992ff9c78e0edefault-TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcddefault"
             },
             {
-                "source": "R_DATASET-d7ea4e14-0fd2-432e-a1b1-b234286f995d",
-                "sourceHandle": "main",
-                "target": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
-                "targetHandle": "TABLE",
-                "id": "reactflow__edge-R_DATASET-d7ea4e14-0fd2-432e-a1b1-b234286f995dmain-TABLE-e800470c-1dfa-418e-b3be-08934023ea54TABLE"
+                "source": "TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcd",
+                "sourceHandle": "default",
+                "target": "END-a5316cd2-8a7b-48ec-a10f-d116974b4ab5",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcddefault-END-a5316cd2-8a7b-48ec-a10f-d116974b4ab5default"
             }
         ],
         "viewport": {
-            "x": 231.72498032641062,
-            "y": 32.9189448113047,
-            "zoom": 0.7070174838334414
+            "x": -296.35399545928726,
+            "y": 66.8470830817738,
+            "zoom": 0.8744723800359967
         }
     },
     "ctrlsManifest": [

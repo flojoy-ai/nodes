@@ -4,102 +4,149 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "PLOTLY_DATASET-ca6c81e8-13cd-4e86-b77d-12149be0512c",
-                "type": "SAMPLE_DATASET",
+                "id": "PLOTLY_DATASET-18ff6bc0-bc2c-4a83-8d32-e0017d63b86a",
+                "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "PLOTLY_DATASET-ca6c81e8-13cd-4e86-b77d-12149be0512c",
+                    "id": "PLOTLY_DATASET-18ff6bc0-bc2c-4a83-8d32-e0017d63b86a",
                     "label": "PLOTLY DATASET",
                     "func": "PLOTLY_DATASET",
-                    "type": "SAMPLE_DATASET",
+                    "type": "SAMPLE_DATASETS",
                     "ctrls": {
                         "dataset_key": {
+                            "type": "select",
+                            "default": "wind",
+                            "options": [
+                                "wind",
+                                "iris",
+                                "carshare",
+                                "tips",
+                                "election",
+                                "experiment",
+                                "gapminder",
+                                "medals_long",
+                                "medals_wide",
+                                "stocks"
+                            ],
                             "functionName": "PLOTLY_DATASET",
                             "param": "dataset_key",
                             "value": "wind"
                         }
                     },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_DATASETS\\PLOTLY_DATASET\\PLOTLY_DATASET.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 146.99422599727012,
-                    "y": 155.44926663922587
+                    "x": 642.5684228036087,
+                    "y": 144.85787227656903
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 146.99422599727012,
-                    "y": 155.44926663922587
+                    "x": 642.5684228036087,
+                    "y": 144.85787227656903
                 },
                 "dragging": true
             },
             {
                 "width": 225,
                 "height": 226,
-                "id": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
-                "type": "PLOTLY_VISOR",
+                "id": "TABLE-074b186e-cc6b-43d4-910e-63c2a8e3650a",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
+                    "id": "TABLE-074b186e-cc6b-43d4-910e-63c2a8e3650a",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\TABLE\\TABLE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 546.9942259972702,
-                    "y": 112.59212378208309
+                    "x": 1069.1596600416776,
+                    "y": 111.92430876780708
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 546.9942259972702,
-                    "y": 112.59212378208309
+                    "x": 1069.1596600416776,
+                    "y": 111.92430876780708
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-166c0b70-9c60-4e42-a618-85b66610c473",
-                "type": "TERMINATOR",
+                "id": "END-f45b6df2-b5a5-408b-b945-9363620e8c3b",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "END-166c0b70-9c60-4e42-a618-85b66610c473",
+                    "id": "END-f45b6df2-b5a5-408b-b945-9363620e8c3b",
                     "label": "END",
                     "func": "END",
-                    "type": "TERMINATOR",
+                    "type": "TERMINATORS",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 945.5656545686987,
-                    "y": 162.59212378208304
+                    "x": 1534.631733258007,
+                    "y": 150.26303165505033
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 945.5656545686987,
-                    "y": 162.59212378208304
+                    "x": 1534.631733258007,
+                    "y": 150.26303165505033
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "PLOTLY_DATASET-ca6c81e8-13cd-4e86-b77d-12149be0512c",
-                "sourceHandle": "main",
-                "target": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
-                "targetHandle": "TABLE",
-                "id": "reactflow__edge-PLOTLY_DATASET-ca6c81e8-13cd-4e86-b77d-12149be0512cmain-TABLE-e800470c-1dfa-418e-b3be-08934023ea54TABLE"
+                "source": "PLOTLY_DATASET-18ff6bc0-bc2c-4a83-8d32-e0017d63b86a",
+                "sourceHandle": "default",
+                "target": "TABLE-074b186e-cc6b-43d4-910e-63c2a8e3650a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PLOTLY_DATASET-18ff6bc0-bc2c-4a83-8d32-e0017d63b86adefault-TABLE-074b186e-cc6b-43d4-910e-63c2a8e3650adefault"
             },
             {
-                "source": "TABLE-e800470c-1dfa-418e-b3be-08934023ea54",
-                "sourceHandle": "main",
-                "target": "END-166c0b70-9c60-4e42-a618-85b66610c473",
-                "targetHandle": "END",
-                "id": "reactflow__edge-TABLE-e800470c-1dfa-418e-b3be-08934023ea54main-END-166c0b70-9c60-4e42-a618-85b66610c473END"
+                "source": "TABLE-074b186e-cc6b-43d4-910e-63c2a8e3650a",
+                "sourceHandle": "default",
+                "target": "END-f45b6df2-b5a5-408b-b945-9363620e8c3b",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-074b186e-cc6b-43d4-910e-63c2a8e3650adefault-END-f45b6df2-b5a5-408b-b945-9363620e8c3bdefault"
             }
         ],
         "viewport": {
-            "x": 231.72498032641062,
-            "y": 32.9189448113047,
-            "zoom": 0.7070174838334414
+            "x": -296.35399545928726,
+            "y": 66.8470830817738,
+            "zoom": 0.8744723800359967
         }
     },
     "ctrlsManifest": [

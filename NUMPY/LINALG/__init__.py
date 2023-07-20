@@ -1,6 +1,5 @@
 __all__ = [
     "CHOLESKY",
-    "COND",
     "DET",
     "EIG",
     "EIGH",

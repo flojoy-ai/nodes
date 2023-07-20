@@ -3,155 +3,220 @@
         "nodes": [
             {
                 "width": 150,
-                "height": 135,
-                "id": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
-                "type": "default",
-                "data": {
-                    "id": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
-                    "label": "LINSPACE",
-                    "func": "LINSPACE",
-                    "type": "SIMULATION",
-                    "ctrls": {
-                        "start": {
-                            "functionName": "LINSPACE",
-                            "param": "start",
-                            "value": "0"
-                        },
-                        "end": {
-                            "functionName": "LINSPACE",
-                            "param": "end",
-                            "value": "0.6"
-                        },
-                        "step": {
-                            "functionName": "LINSPACE",
-                            "param": "step",
-                            "value": "10"
-                        }
-                    },
-                    "selected": false
-                },
-                "position": {
-                    "x": 1.3714312052589008,
-                    "y": 280.86285687947384
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1.3714312052589008,
-                    "y": 280.86285687947384
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
                 "height": 150,
-                "id": "KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2",
-                "type": "KEITHLEY2400",
+                "id": "KEITHLEY2400-06832353-c0e3-4b21-80f1-99f7827063ab",
+                "type": "KEITHLEY",
                 "data": {
-                    "id": "KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2",
+                    "id": "KEITHLEY2400-06832353-c0e3-4b21-80f1-99f7827063ab",
                     "label": "KEITHLEY2400",
                     "func": "KEITHLEY2400",
-                    "type": "KEITHLEY2400",
+                    "type": "KEITHLEY",
                     "ctrls": {
                         "comport": {
+                            "type": "str",
+                            "default": "/dev/ttyUSB0",
                             "functionName": "KEITHLEY2400",
                             "param": "comport",
                             "value": "/dev/ttyUSB0"
                         },
                         "baudrate": {
+                            "type": "float",
+                            "default": 9600,
                             "functionName": "KEITHLEY2400",
                             "param": "baudrate",
-                            "value": "9600"
+                            "value": 9600
                         }
                     },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyserial",
+                            "v": "3.5"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/INSTRUMENTS/KEITHLEY/KEITHLEY2400/KEITHLEY2400.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 411.6611111244576,
-                    "y": 279.7462908670198
+                    "x": 200.68907961661031,
+                    "y": 13.035882888633353
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 411.6611111244576,
-                    "y": 279.7462908670198
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-7ebef9ed-07f9-4363-abc6-16e0d50589f7",
-                "type": "TERMINATOR",
-                "data": {
-                    "id": "END-7ebef9ed-07f9-4363-abc6-16e0d50589f7",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 1226.0471936627987,
-                    "y": 282.4445145949168
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1226.0471936627987,
-                    "y": 282.4445145949168
+                    "x": 200.68907961661031,
+                    "y": 13.035882888633353
                 },
                 "dragging": true
             },
             {
                 "width": 225,
                 "height": 226,
-                "id": "LINE-f9a46878-a550-45e4-9564-d2fcb73a8134",
-                "type": "PLOTLY_VISOR",
+                "id": "LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "LINE-f9a46878-a550-45e4-9564-d2fcb73a8134",
+                    "id": "LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06",
                     "label": "LINE",
                     "func": "LINE",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 784.8859596750218,
-                    "y": 242.04955647111308
+                    "x": 551.1961381818137,
+                    "y": -23.670798508066298
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 784.8859596750218,
-                    "y": 242.04955647111308
+                    "x": 551.1961381818137,
+                    "y": -23.670798508066298
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-4ab72a2d-4c0a-422f-aac2-1adfc221c8aa",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-4ab72a2d-4c0a-422f-aac2-1adfc221c8aa",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 920.4465656226953,
+                    "y": 27.238771529071983
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 920.4465656226953,
+                    "y": 27.238771529071983
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LINSPACE-9ef0bb07-00b7-4d2b-8cb3-bba95cdc6477",
+                "type": "default",
+                "data": {
+                    "id": "LINSPACE-9ef0bb07-00b7-4d2b-8cb3-bba95cdc6477",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "default",
+                    "ctrls": {
+                        "start": {
+                            "type": "float",
+                            "default": 10,
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": 10
+                        },
+                        "end": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": 0
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": 1000
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -152.73436905978036,
+                    "y": 11.992374302794559
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -152.73436905978036,
+                    "y": 11.992374302794559
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
-                "sourceHandle": "main",
-                "target": "KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2",
-                "targetHandle": "KEITHLEY2400",
-                "id": "reactflow__edge-LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135cemain-KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2KEITHLEY2400"
+                "source": "LINSPACE-9ef0bb07-00b7-4d2b-8cb3-bba95cdc6477",
+                "sourceHandle": "default",
+                "target": "KEITHLEY2400-06832353-c0e3-4b21-80f1-99f7827063ab",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-9ef0bb07-00b7-4d2b-8cb3-bba95cdc6477default-KEITHLEY2400-06832353-c0e3-4b21-80f1-99f7827063abdefault"
             },
             {
-                "source": "KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2",
-                "sourceHandle": "main",
-                "target": "LINE-f9a46878-a550-45e4-9564-d2fcb73a8134",
-                "targetHandle": "LINE",
-                "id": "reactflow__edge-KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2main-LINE-f9a46878-a550-45e4-9564-d2fcb73a8134LINE"
+                "source": "KEITHLEY2400-06832353-c0e3-4b21-80f1-99f7827063ab",
+                "sourceHandle": "default",
+                "target": "LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06",
+                "targetHandle": "default",
+                "id": "reactflow__edge-KEITHLEY2400-06832353-c0e3-4b21-80f1-99f7827063abdefault-LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06default"
             },
             {
-                "source": "LINE-f9a46878-a550-45e4-9564-d2fcb73a8134",
-                "sourceHandle": "main",
-                "target": "END-7ebef9ed-07f9-4363-abc6-16e0d50589f7",
-                "targetHandle": "END",
-                "id": "reactflow__edge-LINE-f9a46878-a550-45e4-9564-d2fcb73a8134main-END-7ebef9ed-07f9-4363-abc6-16e0d50589f7END"
+                "source": "LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06",
+                "sourceHandle": "default",
+                "target": "END-4ab72a2d-4c0a-422f-aac2-1adfc221c8aa",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06default-END-4ab72a2d-4c0a-422f-aac2-1adfc221c8aadefault"
             }
         ],
         "viewport": {
-            "x": 226.6796457828928,
-            "y": 31.056018042519327,
-            "zoom": 0.6853504029717089
+            "x": -358.59636577932724,
+            "y": 99.85117439980638,
+            "zoom": 1.0581352782820395
         }
     },
     "ctrlsManifest": [
@@ -170,97 +235,7 @@
                 "minH": 1,
                 "minW": 2,
                 "i": "INPUT_PLACEHOLDER"
-            },
-            "param": {
-                "id": "LINSPACE_LINSPACE_start",
-                "functionName": "LINSPACE",
-                "param": "start",
-                "nodeId": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
-                "inputId": "INPUT_PLACEHOLDER",
-                "type": "float"
-            },
-            "val": 0
-        },
-        {
-            "type": "input",
-            "name": "Numeric Input",
-            "minWidth": 1,
-            "minHeight": 1,
-            "hidden": false,
-            "id": "ctrl-ea31ed1b-1e45-4f56-a3e2-763e1b5ed939",
-            "layout": {
-                "x": 0,
-                "y": 1,
-                "h": 2,
-                "w": 2,
-                "i": "ctrl-ea31ed1b-1e45-4f56-a3e2-763e1b5ed939",
-                "minH": 1,
-                "minW": 1,
-                "static": false
-            },
-            "param": {
-                "id": "LINSPACE_LINSPACE_end",
-                "functionName": "LINSPACE",
-                "param": "end",
-                "nodeId": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
-                "inputId": "ctrl-ea31ed1b-1e45-4f56-a3e2-763e1b5ed939",
-                "type": "float"
-            },
-            "val": 0.6
-        },
-        {
-            "type": "input",
-            "name": "Numeric Input",
-            "minWidth": 1,
-            "minHeight": 1,
-            "hidden": false,
-            "id": "ctrl-d950fa9c-10f6-4466-9043-01cb5812ed88",
-            "layout": {
-                "x": 0,
-                "y": 2,
-                "h": 2,
-                "w": 2,
-                "i": "ctrl-d950fa9c-10f6-4466-9043-01cb5812ed88",
-                "minH": 1,
-                "minW": 1,
-                "static": false
-            },
-            "param": {
-                "id": "LINSPACE_LINSPACE_step",
-                "functionName": "LINSPACE",
-                "param": "step",
-                "nodeId": "LINSPACE-340e6c5c-8e47-4a5e-95ed-dc627e9135ce",
-                "inputId": "ctrl-d950fa9c-10f6-4466-9043-01cb5812ed88",
-                "type": "float"
-            },
-            "val": 10
-        },
-        {
-            "type": "input",
-            "name": "Text Input",
-            "minWidth": 1,
-            "minHeight": 1,
-            "hidden": false,
-            "id": "ctrl-01e8bbab-f3a8-4fc3-8bd5-18c69b7ca3b1",
-            "layout": {
-                "x": 0,
-                "y": 3,
-                "h": 2,
-                "w": 2,
-                "i": "ctrl-01e8bbab-f3a8-4fc3-8bd5-18c69b7ca3b1",
-                "minH": 1,
-                "minW": 1,
-                "static": false
-            },
-            "param": {
-                "id": "KEITHLEY2400_KEITHLEY2400_comport",
-                "functionName": "KEITHLEY2400",
-                "param": "comport",
-                "nodeId": "KEITHLEY2400-54df98a4-25c9-4fbe-9430-7dbadacf03f2",
-                "inputId": "ctrl-01e8bbab-f3a8-4fc3-8bd5-18c69b7ca3b1",
-                "type": "string"
-            },
-            "val": "/dev/ttyUSB0"
+            }
         }
     ]
 }

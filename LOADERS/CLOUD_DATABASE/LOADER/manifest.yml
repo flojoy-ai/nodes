@@ -1,0 +1,8 @@
+COMMAND:
+  - name: Loader
+    key: LOADER
+    type: CLOUD_DATABASE
+    parameters:
+      measurement_uuid:
+        type: string
+        default: ""

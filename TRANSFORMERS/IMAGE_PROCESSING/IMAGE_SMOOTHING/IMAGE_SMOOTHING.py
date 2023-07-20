@@ -1,14 +1,21 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, Image
 import cv2
 import numpy as np
+from typing import Literal
 
 
 @flojoy
-def IMAGE_SMOOTHING(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def IMAGE_SMOOTHING(
+    default: Image,
+    kernel: int = 5,
+    smoothing_type: Literal["average", "gaussian", "median", "bilateral"] = "average",
+) -> Image:
     """
     Apply image smoothing operation on the input `DataContainer` class,
     specifically for the 'image' type,
     represented by the RGB(A) channels.
+
+    Note: for "gaussian" and "median" type, you are only allowed odd number for kernel value.
 
     Args:
     dc_inputs (list[DataContainer]): List of DataContainer objects containing
@@ -27,15 +34,10 @@ def IMAGE_SMOOTHING(dc_inputs: list[DataContainer], params: dict) -> DataContain
     Raises:
     Exception: If an error occurs during smoothing.
     """
-    dc_input = dc_inputs[0]
-    if dc_input.type != "image":
-        raise ValueError(f"unsupported data IMAGE_SMOOTHING node: '{dc_input.type}'")
-    r = dc_input.r
-    g = dc_input.g
-    b = dc_input.b
-    a = dc_input.a
-    kernel = params.get("kernel", 5)
-    smoothing_type = params.get("smoothing_type", "average")
+    r = default.r
+    g = default.g
+    b = default.b
+    a = default.a
 
     if a is not None:
         rgba_image = np.stack((r, g, b, a), axis=2)
@@ -51,6 +53,7 @@ def IMAGE_SMOOTHING(dc_inputs: list[DataContainer], params: dict) -> DataContain
             case "median":
                 image = cv2.medianBlur(rgba_image, kernel)
             case "bilateral":
+                rgba_image = cv2.cvtColor(rgba_image, cv2.COLOR_BGRA2BGR)
                 image = cv2.bilateralFilter(rgba_image, kernel, kernel * 5, kernel * 5)
         try:
             r, g, b, a = cv2.split(image)
@@ -58,8 +61,7 @@ def IMAGE_SMOOTHING(dc_inputs: list[DataContainer], params: dict) -> DataContain
             r, g, b = cv2.split(image)
         if a is None:
             a = None
-        return DataContainer(
-            type="image",
+        return Image(
             r=r,
             g=g,
             b=b,

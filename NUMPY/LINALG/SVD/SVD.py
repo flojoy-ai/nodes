@@ -1,10 +1,22 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import numpy.linalg
 
 
-@flojoy
-def SVD(dc, params):
-    """
+@flojoy(node_type="default")
+def SVD(
+    default: Matrix,
+    full_matrices: bool = True,
+    compute_uv: bool = True,
+    hermitian: bool = False,
+    select_return: Literal["u", "s", "vh"] = "u",
+) -> Matrix | Scalar:
+    """The SVD node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Singular Value Decomposition.
 
@@ -15,12 +27,11 @@ def SVD(dc, params):
             values. When `a` is higher-dimensional, SVD is applied in
             stacked mode as explained below.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['u', 's', 'vh']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : (..., M, N) array_like
             A real or complex array with ``a.ndim >= 2``.
     full_matrices : bool, optional
@@ -37,19 +48,27 @@ def SVD(dc, params):
             Defaults to False.
 
     .. versionadded:: 1.17.0
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.svd(
-            a=dc[0].y,
-            full_matrices=(
-                bool(params["full_matrices"]) if params["full_matrices"] != "" else None
-            ),
-            compute_uv=(
-                bool(params["compute_uv"]) if params["compute_uv"] != "" else None
-            ),
-            hermitian=(
-                bool(params["hermitian"]) if params["hermitian"] != "" else None
-            ),
-        ),
+
+    result = numpy.linalg.svd(
+        a=default.m,
+        full_matrices=full_matrices,
+        compute_uv=compute_uv,
+        hermitian=hermitian,
     )
+
+    if isinstance(result, namedtuple):
+        result = result._asdict()
+        result = result[select_return]
+
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    elif isinstance(result, np.float64):
+        result = Scalar(c=result)
+
+    return result

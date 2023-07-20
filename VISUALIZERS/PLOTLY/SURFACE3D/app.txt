@@ -2,110 +2,462 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-244cc33d-e308-422c-b884-2df06a3aa0cc",
-                "type": "TERMINATOR",
+                "width": 150,
+                "height": 150,
+                "id": "PLOTLY_DATASET-5a7231e7-7fa7-480f-9562-c117499c99cd",
+                "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "END-244cc33d-e308-422c-b884-2df06a3aa0cc",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
+                    "id": "PLOTLY_DATASET-5a7231e7-7fa7-480f-9562-c117499c99cd",
+                    "label": "PLOTLY DATASET",
+                    "func": "PLOTLY_DATASET",
+                    "type": "SAMPLE_DATASETS",
+                    "ctrls": {
+                        "dataset_key": {
+                            "type": "select",
+                            "default": "wind",
+                            "options": [
+                                "wind",
+                                "iris",
+                                "carshare",
+                                "tips",
+                                "election",
+                                "experiment",
+                                "gapminder",
+                                "medals_long",
+                                "medals_wide",
+                                "stocks"
+                            ],
+                            "functionName": "PLOTLY_DATASET",
+                            "param": "dataset_key",
+                            "value": "gapminder"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_DATASETS\\PLOTLY_DATASET\\PLOTLY_DATASET.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1116.2030950203848,
-                    "y": 225.70846023537183
+                    "x": -153.13246731470204,
+                    "y": 152.21548757941065
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1116.2030950203848,
-                    "y": 225.70846023537183
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "SURFACE3D-d9b42be2-ed8c-4917-9ebe-a8e98339c94a",
-                "type": "PLOTLY_VISOR",
-                "data": {
-                    "id": "SURFACE3D-d9b42be2-ed8c-4917-9ebe-a8e98339c94a",
-                    "label": "SURFACE3D",
-                    "func": "SURFACE3D",
-                    "type": "PLOTLY_VISOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 492.73727636812555,
-                    "y": 101.10267133397377
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 492.73727636812555,
-                    "y": 101.10267133397377
+                    "x": -153.13246731470204,
+                    "y": 152.21548757941065
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "R_DATASET-c646b5a2-bc0c-4928-82a5-a34d43ea9444",
-                "type": "SAMPLE_DATASET",
+                "id": "DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204",
+                "type": "TYPE_CASTING",
                 "data": {
-                    "id": "R_DATASET-c646b5a2-bc0c-4928-82a5-a34d43ea9444",
-                    "label": "R DATASET",
-                    "func": "R_DATASET",
-                    "type": "SAMPLE_DATASET",
+                    "id": "DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204",
+                    "label": "DF 2 ORDEREDTRIPLE",
+                    "func": "DF_2_ORDEREDTRIPLE",
+                    "type": "TYPE_CASTING",
                     "ctrls": {
-                        "dataset_key": {
-                            "functionName": "R_DATASET",
-                            "param": "dataset_key",
-                            "value": "iris"
+                        "x": {
+                            "type": "int",
+                            "default": 0,
+                            "functionName": "DF_2_ORDEREDTRIPLE",
+                            "param": "x",
+                            "value": 0
+                        },
+                        "y": {
+                            "type": "int",
+                            "default": 1,
+                            "functionName": "DF_2_ORDEREDTRIPLE",
+                            "param": "y",
+                            "value": 1
+                        },
+                        "z": {
+                            "type": "int",
+                            "default": 2,
+                            "functionName": "DF_2_ORDEREDTRIPLE",
+                            "param": "z",
+                            "value": 2
                         }
                     },
-                    "pip_dependencies": [
+                    "inputs": [
                         {
-                            "name": "rdatasets",
-                            "v": "0.1.0"
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "multiple": false
                         }
                     ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple"
+                        }
+                    ],
+                    "path": "",
                     "selected": false
                 },
                 "position": {
-                    "x": 50.73216035873514,
-                    "y": 197.35131180108993
+                    "x": 138.28356151980358,
+                    "y": 155.19957354474383
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 50.73216035873514,
-                    "y": 197.35131180108993
+                    "x": 138.28356151980358,
+                    "y": 155.19957354474383
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3",
+                "type": "TYPE_CASTING",
+                "data": {
+                    "id": "ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3",
+                    "label": "ORDERED TRIPLE 2 SURFACE",
+                    "func": "ORDERED_TRIPLE_2_SURFACE",
+                    "type": "TYPE_CASTING",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Surface"
+                        }
+                    ],
+                    "path": "",
+                    "selected": false
+                },
+                "position": {
+                    "x": 464.045404438885,
+                    "y": 185.28592471837874
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 464.045404438885,
+                    "y": 185.28592471837874
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1588.466529442917,
+                    "y": 230.5106635506924
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1588.466529442917,
+                    "y": 230.5106635506924
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "MATRIX-a7f20c72-1c4e-4e31-9b3f-94cf1f228fd5",
+                "type": "SIMULATIONS",
+                "data": {
+                    "id": "MATRIX-a7f20c72-1c4e-4e31-9b3f-94cf1f228fd5",
+                    "label": "MATRIX",
+                    "func": "MATRIX",
+                    "type": "SIMULATIONS",
+                    "ctrls": {
+                        "row": {
+                            "type": "int",
+                            "default": 2,
+                            "functionName": "MATRIX",
+                            "param": "row",
+                            "value": "10"
+                        },
+                        "column": {
+                            "type": "int",
+                            "default": 2,
+                            "functionName": "MATRIX",
+                            "param": "column",
+                            "value": "10"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Matrix"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\MATRIX\\MATRIX.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 579.8521281496937,
+                    "y": 536.6430374399084
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 579.8521281496937,
+                    "y": 536.6430374399084
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "SURFACE3D-62cf3ecc-359b-4cd4-ad49-bd0e6995a522",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "SURFACE3D-62cf3ecc-359b-4cd4-ad49-bd0e6995a522",
+                    "label": "SURFACE3D 1",
+                    "func": "SURFACE3D",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|DataFrame|Surface|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\SURFACE3D\\SURFACE3D.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 592.7351595694264,
+                    "y": -184.92364835673408
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 592.7351595694264,
+                    "y": -184.92364835673408
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "SURFACE3D-8be10741-50fe-4df3-b2a5-afdcf56c1035",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "SURFACE3D-8be10741-50fe-4df3-b2a5-afdcf56c1035",
+                    "label": "SURFACE3D 2",
+                    "func": "SURFACE3D",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|DataFrame|Surface|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\SURFACE3D\\SURFACE3D.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 954.7062224469232,
+                    "y": 494.12216042293704
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 954.7062224469232,
+                    "y": 494.12216042293704
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "SURFACE3D-19305f4e-d1e0-489b-adc7-383816dd5f49",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "SURFACE3D-19305f4e-d1e0-489b-adc7-383816dd5f49",
+                    "label": "SURFACE3D 3",
+                    "func": "SURFACE3D",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|DataFrame|Surface|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\SURFACE3D\\SURFACE3D.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 131.90508644311723,
+                    "y": 462.8719302399147
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 131.90508644311723,
+                    "y": 462.8719302399147
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "SURFACE3D-f4e1f4c2-c6fe-4a06-b7ad-89ffab8a1c01",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "SURFACE3D-f4e1f4c2-c6fe-4a06-b7ad-89ffab8a1c01",
+                    "label": "SURFACE3D 3",
+                    "func": "SURFACE3D",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|DataFrame|Surface|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\SURFACE3D\\SURFACE3D.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 941.4106709993805,
+                    "y": 111.8507417555283
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 941.4106709993805,
+                    "y": 111.8507417555283
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "SURFACE3D-d9b42be2-ed8c-4917-9ebe-a8e98339c94a",
-                "sourceHandle": "main",
-                "target": "END-244cc33d-e308-422c-b884-2df06a3aa0cc",
-                "targetHandle": "END",
-                "id": "reactflow__edge-SURFACE3D-d9b42be2-ed8c-4917-9ebe-a8e98339c94amain-END-244cc33d-e308-422c-b884-2df06a3aa0ccEND"
+                "source": "PLOTLY_DATASET-5a7231e7-7fa7-480f-9562-c117499c99cd",
+                "sourceHandle": "default",
+                "target": "DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PLOTLY_DATASET-5a7231e7-7fa7-480f-9562-c117499c99cddefault-DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204default"
             },
             {
-                "source": "R_DATASET-c646b5a2-bc0c-4928-82a5-a34d43ea9444",
-                "sourceHandle": "main",
-                "target": "SURFACE3D-d9b42be2-ed8c-4917-9ebe-a8e98339c94a",
-                "targetHandle": "SURFACE3D",
-                "id": "reactflow__edge-R_DATASET-c646b5a2-bc0c-4928-82a5-a34d43ea9444main-SURFACE3D-d9b42be2-ed8c-4917-9ebe-a8e98339c94aSURFACE3D"
+                "source": "DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204",
+                "sourceHandle": "default",
+                "target": "ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3",
+                "targetHandle": "default",
+                "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204default-ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3default"
+            },
+            {
+                "source": "PLOTLY_DATASET-5a7231e7-7fa7-480f-9562-c117499c99cd",
+                "sourceHandle": "default",
+                "target": "SURFACE3D-19305f4e-d1e0-489b-adc7-383816dd5f49",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PLOTLY_DATASET-5a7231e7-7fa7-480f-9562-c117499c99cddefault-SURFACE3D-19305f4e-d1e0-489b-adc7-383816dd5f49default"
+            },
+            {
+                "source": "MATRIX-a7f20c72-1c4e-4e31-9b3f-94cf1f228fd5",
+                "sourceHandle": "default",
+                "target": "SURFACE3D-8be10741-50fe-4df3-b2a5-afdcf56c1035",
+                "targetHandle": "default",
+                "id": "reactflow__edge-MATRIX-a7f20c72-1c4e-4e31-9b3f-94cf1f228fd5default-SURFACE3D-8be10741-50fe-4df3-b2a5-afdcf56c1035default"
+            },
+            {
+                "source": "DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204",
+                "sourceHandle": "default",
+                "target": "SURFACE3D-62cf3ecc-359b-4cd4-ad49-bd0e6995a522",
+                "targetHandle": "default",
+                "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204default-SURFACE3D-62cf3ecc-359b-4cd4-ad49-bd0e6995a522default"
+            },
+            {
+                "source": "SURFACE3D-8be10741-50fe-4df3-b2a5-afdcf56c1035",
+                "sourceHandle": "default",
+                "target": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SURFACE3D-8be10741-50fe-4df3-b2a5-afdcf56c1035default-END-27d70d41-6ff3-4222-9fa6-7278850d6cffdefault"
+            },
+            {
+                "source": "ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3",
+                "sourceHandle": "default",
+                "target": "SURFACE3D-f4e1f4c2-c6fe-4a06-b7ad-89ffab8a1c01",
+                "targetHandle": "default",
+                "id": "reactflow__edge-ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3default-SURFACE3D-f4e1f4c2-c6fe-4a06-b7ad-89ffab8a1c01default"
+            },
+            {
+                "source": "SURFACE3D-f4e1f4c2-c6fe-4a06-b7ad-89ffab8a1c01",
+                "sourceHandle": "default",
+                "target": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SURFACE3D-f4e1f4c2-c6fe-4a06-b7ad-89ffab8a1c01default-END-27d70d41-6ff3-4222-9fa6-7278850d6cffdefault"
             }
         ],
         "viewport": {
-            "x": -1.925865746739305,
-            "y": 25.981885860670957,
-            "zoom": 1.098607348110647
+            "x": -296.35399545928726,
+            "y": 66.8470830817738,
+            "zoom": 0.8744723800359967
         }
     },
     "ctrlsManifest": [

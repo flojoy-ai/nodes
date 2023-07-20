@@ -1,47 +1,16 @@
-- This is a tutorial for using the node called LabJAck u3 in order to measure temperature with  temperature sensors (Add models)
+This example shows Flojoy's ability to record and display temperature measurements with a LABJACK U3 device and update them in a Loop. The appendix contains all information about hardware requirements and sensor connections (Images).
 
 
-**- Hardware required** : 
-- A LabJack U3 LV daq 
-- N temperature sensors (This tutorial will present connections with LM34Caz/Nopb : https://www.digikey.com/en/products/detail/texas-instruments/LM34CAZ-NOPB/117873)
-- Connections cables (USB, Electronic cables)
+After connecting the temperature sensors to your LABJACK U3 device, place the nodes on Flojoy:
 
 
-**- Software required :**
-- Flojoy software running (Go to the page -- Getting started/Installation)
-- Exodriver for the LabJackU3 device and their requirements follow the guideline from : (https://labjack.com/pages/support?doc=/software-driver/installer-downloads/exodriver/)
+- The ['LABJACKU3'](https://github.com/flojoy-io/nodes/blob/main/INSTRUMENTS/LABJACK/LABJACKU3/LABJACKU3.py) Node communicates with the LABJACKU3 device to extract temperature measurement from the sensors. This node has only one parameter to fix: the number of sensors (6 in this example).
 
-**Connection :** 
-You need to connect the LABJACKU3 Device to your computer with an USB cable. 
 
-The you need to connect the temperature sensor to the Labjacku3 device. 
-Before that if you use the LM34Caz/Nopb you'll need to add a small resistor between the Vout and the LabJack device to the circuit to protect the sensor (see pictures) :
+- The ['BAR'](https://github.com/flojoy-io/nodes/blob/main/VISUALIZERS/PLOTLY/BAR/BAR.py) node displays all temperature measurements on the same figure.
 
-![image](./assets/LABJACKU3_sensor.jpg)
-*Connection on the LM34 temperature sensor* 
 
-![image](./assets/LABJACKU3_connections.jpg)
-*Connection between the sensor and the LabjackU3 device*
+- The ['END'](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END/END.py) node terminates the process.
 
-The connections are describe here on the pictures below (Left LabJack and right Sensors pin) : 
-VS --> +Vs pin (Power supply from the computer transferred to the sensor with this connection)
-Ground --> Ground Pin 
-Ground --> Resistor Pin (See photos)
-FI0 (For your first sensor) --> Vout pin on the sensor (Voltage are received with these FIi port where i goes from 0 to 7)
 
-When you have these 4 connections, your setup is ready, you can place your sensor where you want to measure temperature and then start Flojoy.
-
-**Node Management :** 
-
-The LabJack Node doesn't need any data input, so it can be placed on the left on the interface : 
-
-![image](./assets/LABJACKU3_nodes.png)
-*Classical node placement for temperature measurements*
-
-You'll need to set up one parameter in the CRTL panel which is the number of temperature sensors you are using for your experiment : 
-
-After that you can choose your Visualisation node that fits your project to display the temperature measurements as you want.  
-
-Also you can use the loop node (See documentation) in order to update the temperature measurements, you can set the parameters you want for the loops (Delay, number of loops, etc..) 
-
-![image](./assets/LABJACKU3_nodeswithloop.png)
+We want to update the results with the latest measurements. To do that, we add the [`LOOP`](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/LOOPS/LOOP/LOOP.py) node and the [`GOTO`](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/LOOPS/GOTO/GOTO.py) node to create a loop around our ['LABJACKU3'](https://github.com/flojoy-io/nodes/blob/main/INSTRUMENTS/LABJACK/LABJACKU3/LABJACKU3.py) and ['BAR'](https://github.com/flojoy-io/nodes/blob/main/VISUALIZERS/PLOTLY/BAR/BAR.py) nodes. (See LOOP documentation for more information).
