@@ -37,9 +37,8 @@ def READ_S3(
         raise ValueError("Provide a name that was used to set AWS S3 key")
 
     try:
-        accessKey = keyring.get_password(f"{s3_name}accessKey")
-        secretKey = keyring.get_password(f"{s3_name}secretKey")
-
+        accessKey = keyring.get_password("system", f"{s3_name}accessKey")
+        secretKey = keyring.get_password("system", f"{s3_name}secretKey")
         s3 = boto3.resource(
             "s3", aws_access_key_id=accessKey, aws_secret_access_key=secretKey
         )
@@ -48,7 +47,7 @@ def READ_S3(
         object.download_fileobj(buffer)
         df = pd.read_parquet(buffer)
 
-        return DataFrame(m=df)
+        return DataFrame(df=df)
 
     except Exception as e:
         print(e)
