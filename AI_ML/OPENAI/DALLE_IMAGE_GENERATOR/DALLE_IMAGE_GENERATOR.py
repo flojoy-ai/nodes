@@ -2,7 +2,7 @@ import numpy as np
 from flojoy import flojoy, Image, run_in_venv
 import openai
 from PIL import Image as PilImage
-import requests
+import base64
 from io import BytesIO
 import os
 import time
@@ -46,7 +46,7 @@ def DALLE_IMAGE_GENERATOR(
 
     for i in range(API_RETRY_ATTEMPTS):
         try:
-            result = openai.Image.create(prompt=prompt, n=1, size=f"{width}x{height}")
+            result = openai.Image.create(prompt=prompt, n=1, size=f"{width}x{height}", response_format='b64_json')
             print(f'No error in attempt {i} of generating image')
             break
         except openai.error.RateLimitError:
@@ -60,9 +60,9 @@ def DALLE_IMAGE_GENERATOR(
     if not result.data:
         raise Exception("No image data in result")
 
-    url = result.data[0].get("url")
-    response = requests.get(url)
-    img = PilImage.open(BytesIO(response.content))
+    base64_content = result.get('data')[0].get('b64_json')
+    image_data = base64.b64decode(base64_content)
+    img = PilImage.open(BytesIO(image_data))
 
     img_array = np.asarray(img)
     red_channel = img_array[:, :, 0]
