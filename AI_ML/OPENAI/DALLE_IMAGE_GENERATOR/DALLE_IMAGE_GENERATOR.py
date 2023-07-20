@@ -1,5 +1,5 @@
 import numpy as np
-from flojoy import flojoy, Image
+from flojoy import flojoy, Image, run_in_venv
 import openai
 from PIL import Image as PilImage
 import requests
@@ -8,6 +8,13 @@ import os
 
 
 @flojoy
+@run_in_venv(
+    pip_dependencies=[
+        "openai==0.27.8",
+        "Pillow==10.0.0",
+        "requests==2.28.1"
+    ]
+)
 def DALLE_IMAGE_GENERATOR(
     prompt: str,
     width: int = 1024,

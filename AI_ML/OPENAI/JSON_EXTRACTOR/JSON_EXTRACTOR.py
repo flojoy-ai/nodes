@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataFrame as FlojoyDataFrame
+from flojoy import flojoy, DataFrame as FlojoyDataFrame, run_in_venv
 import openai
 import pandas as pd
 import os
@@ -16,6 +16,12 @@ BASE_SCHEMA = {
 
 
 @flojoy
+@run_in_venv(
+    pip_dependencies=[
+        "openai==0.27.8",
+        "pandas==2.0.2"
+    ]
+)
 def JSON_EXTRACTOR(
     properties: str,
     prompt: str,

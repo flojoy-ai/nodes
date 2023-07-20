@@ -1,5 +1,5 @@
-from flojoy import flojoy, DataContainer, DataFrame as FlojoyDataFrame, Bytes
-from typing import List, Optional
+from flojoy import flojoy, DataFrame as FlojoyDataFrame, Bytes, run_in_venv
+from typing import Optional
 import openai
 import pandas as pd
 import os
@@ -11,6 +11,12 @@ ACCEPTED_AUDIO_FORMATS = ["mp3", "wav"]
 
 
 @flojoy
+@run_in_venv(
+    pip_dependencies=[
+        "openai==0.27.8",
+        "pandas==2.0.2"
+    ]
+)
 def WHISPER_SPEECH_TO_TEXT(
     default: Optional[Bytes] = None, 
     file_path: Optional[str] = None
