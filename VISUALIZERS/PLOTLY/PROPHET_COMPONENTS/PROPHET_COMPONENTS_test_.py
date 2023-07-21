@@ -1,6 +1,5 @@
 import pytest
 import os
-import json
 import pandas as pd
 from flojoy import DataFrame, DataContainer
 from plotly.graph_objs import Figure
