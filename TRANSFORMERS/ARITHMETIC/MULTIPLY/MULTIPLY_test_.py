@@ -1,40 +1,37 @@
-import numpy
+import numpy as np
 
-from functools import wraps
-from unittest.mock import patch
-
-from flojoy import OrderedPair, Scalar
+from flojoy import OrderedPair, Vector, Scalar
 
 
-# Python functions are decorated at module-loading time, So we'll need to patch our decorator
-#  with a simple mock ,before loading the module.
+def test_MULTIPLY_vec_vec(mock_flojoy_decorator):
+
+    import MULTIPLY
+
+    x = Vector(v=np.arange(10, 20, 1))
+    y = Vector(v=np.arange(20, 30, 1))
+    res = MULTIPLY.MULTIPLY(a=x, b=[y])
+
+    np.testing.assert_allclose(res.v, x.v*y.v)
 
 
-def mock_flojoy_decorator(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        return f(*args, **kwargs)
+def test_MULTIPLY_vec_scalar(mock_flojoy_decorator):
 
-    return decorated_function
+    import MULTIPLY
 
+    x = Vector(v=np.arange(-10, 10, 1))
+    res = MULTIPLY.MULTIPLY(a=x, b=[Scalar(c=2), Scalar(c=3)])
 
-# Patch the flojoy decorator that handles connecting our node to the App.
-patch("flojoy.flojoy", mock_flojoy_decorator).start()
-
-# After Patching the flojoy decorator, let's load the node under test.
-import MULTIPLY
+    np.testing.assert_allclose(res.v, (x.v*2)*3)
 
 
-def test_MULTIPLY():
-    # create the two ordered pair datacontainers
-    element_a = OrderedPair(x=numpy.linspace(-10, 10, 100), y=[10] * 100)
+def test_MULTIPLY_ordered_pair_vector(mock_flojoy_decorator):
 
-    element_b = Scalar(c=10)
+    import MULTIPLY
 
-    # node under test
-    res = MULTIPLY.MULTIPLY([element_a, element_b], {})
+    x = np.arange(10, 20, 1)
+    y = np.arange(20, 30, 1)
+    z = np.arange(30, 40, 1)
+    res = MULTIPLY.MULTIPLY(a=OrderedPair(x=x, y=y), b=[Vector(v=z)])
 
-    # check that the correct number of elements
-    assert (len(res.y)) == 100
-    for y in res.y:
-        assert y == 100
+    np.testing.assert_allclose(res.x, x)
+    np.testing.assert_allclose(res.y, y*z)
