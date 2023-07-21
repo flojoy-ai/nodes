@@ -1,4 +1,4 @@
-from flojoy import flojoy, Image as FlojoyImage
+from flojoy import flojoy, Image as FlojoyImage, run_in_venv
 from typing import Optional
 import os
 from pathlib import Path
@@ -28,6 +28,13 @@ def get_image_from_answers(answers):
     return None
 
 @flojoy
+@run_in_venv(
+    pip_dependencies=[
+        "stability-sdk==0.8.3",
+        "Pillow==10.0.0",
+        "requests==2.28.1"
+    ]
+)
 def STABILITY_IMAGE_TO_IMAGE(
     prompt: str,
     default: Optional[FlojoyImage] = None, 
@@ -57,8 +64,11 @@ def STABILITY_IMAGE_TO_IMAGE(
 
 
     model = "stable-diffusion-v1-5"
+    api_key = os.environ.get("STABILITY_API_KEY")
+    if not api_key:
+        raise ValueError("STABILITY_API_KEY environment variable is required")
     stability_api = client.StabilityInference(
-        key=os.environ['STABILITY_API_KEY'], # API Key reference.
+        key=api_key,
         verbose=True,
         engine=model
     )
