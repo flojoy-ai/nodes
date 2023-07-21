@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -47,12 +48,13 @@ def SEM(
     """
 
     result = OrderedPair(
-        m=scipy.stats.sem(
+        x=default.x,
+        y=scipy.stats.sem(
             a=default.y,
             axis=axis,
             ddof=ddof,
             nan_policy=nan_policy,
-        )
+        ),
     )
 
     return result

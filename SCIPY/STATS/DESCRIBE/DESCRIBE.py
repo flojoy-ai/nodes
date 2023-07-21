@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -12,6 +13,7 @@ def DESCRIBE(
     ddof: int = 1,
     bias: bool = True,
     nan_policy: str = "propagate",
+    select_return: Literal["nobs", "mean", "variance", "skewness", "kurtosis"] = "nobs",
 ) -> OrderedPair | Matrix | Scalar:
     """The DESCRIBE node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -20,6 +22,9 @@ def DESCRIBE(
 
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['nobs', 'mean', 'variance', 'skewness', 'kurtosis']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : array_like
             Input data.
     axis : int or None, optional
@@ -45,13 +50,14 @@ def DESCRIBE(
     """
 
     result = OrderedPair(
-        m=scipy.stats.describe(
+        x=default.x,
+        y=scipy.stats.describe(
             a=default.y,
             axis=axis,
             ddof=ddof,
             bias=bias,
             nan_policy=nan_policy,
-        )
+        ),
     )
 
     return result

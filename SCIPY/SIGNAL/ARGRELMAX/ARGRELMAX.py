@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.signal
 
@@ -40,12 +41,13 @@ def ARGRELMAX(
     """
 
     result = OrderedPair(
-        m=scipy.signal.argrelmax(
+        x=default.x,
+        y=scipy.signal.argrelmax(
             data=default.y,
             axis=axis,
             order=order,
             mode=mode,
-        )
+        ),
     )
 
     return result

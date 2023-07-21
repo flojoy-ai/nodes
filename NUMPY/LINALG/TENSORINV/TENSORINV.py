@@ -1,15 +1,16 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import numpy.linalg
 
 
 @flojoy(node_type="default")
 def TENSORINV(
-    default: OrderedPair | Matrix,
+    default: Matrix,
     ind: int = 2,
-) -> OrderedPair | Matrix | Scalar:
+) -> Matrix | Scalar:
     """The TENSORINV node is based on a numpy or scipy function.
     The description of that function is as follows:
 
@@ -41,10 +42,9 @@ def TENSORINV(
         ind=ind,
     )
 
-    if type(result) == np.ndarray:
+    if isinstance(result, np.ndarray):
         result = Matrix(m=result)
-
-    elif type(result) == np.float64:
+    elif isinstance(result, np.float64):
         result = Scalar(c=result)
 
     return result

@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -10,6 +11,7 @@ def NORMALTEST(
     default: OrderedPair | Matrix,
     axis: int = 0,
     nan_policy: str = "propagate",
+    select_return: Literal["statistic", "pvalue"] = "statistic",
 ) -> OrderedPair | Matrix | Scalar:
     """The NORMALTEST node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -23,6 +25,9 @@ def NORMALTEST(
 
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['statistic', 'pvalue']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : array_like
             The array containing the sample to be tested.
     axis : int or None, optional
@@ -43,11 +48,12 @@ def NORMALTEST(
     """
 
     result = OrderedPair(
-        m=scipy.stats.normaltest(
+        x=default.x,
+        y=scipy.stats.normaltest(
             a=default.y,
             axis=axis,
             nan_policy=nan_policy,
-        )
+        ),
     )
 
     return result

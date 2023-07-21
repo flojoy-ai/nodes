@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -50,13 +51,14 @@ def TMAX(
     """
 
     result = OrderedPair(
-        m=scipy.stats.tmax(
+        x=default.x,
+        y=scipy.stats.tmax(
             a=default.y,
             upperlimit=upperlimit,
             axis=axis,
             inclusive=inclusive,
             nan_policy=nan_policy,
-        )
+        ),
     )
 
     return result

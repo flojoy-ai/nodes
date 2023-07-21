@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -40,11 +41,12 @@ def TRIMBOTH(
     """
 
     result = OrderedPair(
-        m=scipy.stats.trimboth(
+        x=default.x,
+        y=scipy.stats.trimboth(
             a=default.y,
             proportiontocut=proportiontocut,
             axis=axis,
-        )
+        ),
     )
 
     return result

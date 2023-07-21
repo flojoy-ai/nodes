@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.signal
 
@@ -29,10 +30,11 @@ def BSPLINE(
     """
 
     result = OrderedPair(
-        m=scipy.signal.bspline(
+        x=default.x,
+        y=scipy.signal.bspline(
             x=default.y,
             n=n,
-        )
+        ),
     )
 
     return result

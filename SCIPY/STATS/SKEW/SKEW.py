@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -61,13 +62,14 @@ def SKEW(
     """
 
     result = OrderedPair(
-        m=scipy.stats.skew(
+        x=default.x,
+        y=scipy.stats.skew(
             a=default.y,
             axis=axis,
             bias=bias,
             nan_policy=nan_policy,
             keepdims=keepdims,
-        )
+        ),
     )
 
     return result

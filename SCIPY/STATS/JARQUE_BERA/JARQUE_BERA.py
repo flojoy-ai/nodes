@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -8,6 +9,7 @@ import scipy.stats
 @flojoy(node_type="default")
 def JARQUE_BERA(
     default: OrderedPair | Matrix,
+    select_return: Literal["jb_value", "p"] = "jb_value",
 ) -> OrderedPair | Matrix | Scalar:
     """The JARQUE_BERA node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -23,6 +25,9 @@ def JARQUE_BERA(
 
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['jb_value', 'p']. Select the desired one to return.
+            See the respective function docs for descriptors.
     x : array_like
             Observations of a random variable.
 
@@ -33,9 +38,10 @@ def JARQUE_BERA(
     """
 
     result = OrderedPair(
-        m=scipy.stats.jarque_bera(
+        x=default.x,
+        y=scipy.stats.jarque_bera(
             x=default.y,
-        )
+        ),
     )
 
     return result

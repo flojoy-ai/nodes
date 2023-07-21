@@ -1,16 +1,17 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import numpy.linalg
 
 
 @flojoy(node_type="default")
 def PINV(
-    default: OrderedPair | Matrix,
+    default: Matrix,
     rcond: float = 1e-15,
     hermitian: bool = False,
-) -> OrderedPair | Matrix | Scalar:
+) -> Matrix | Scalar:
     """The PINV node is based on a numpy or scipy function.
     The description of that function is as follows:
 
@@ -52,10 +53,9 @@ def PINV(
         hermitian=hermitian,
     )
 
-    if type(result) == np.ndarray:
+    if isinstance(result, np.ndarray):
         result = Matrix(m=result)
-
-    elif type(result) == np.float64:
+    elif isinstance(result, np.float64):
         result = Scalar(c=result)
 
     return result

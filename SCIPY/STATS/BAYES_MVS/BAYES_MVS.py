@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -32,10 +33,11 @@ def BAYES_MVS(
     """
 
     result = OrderedPair(
-        m=scipy.stats.bayes_mvs(
+        x=default.x,
+        y=scipy.stats.bayes_mvs(
             data=default.y,
             alpha=alpha,
-        )
+        ),
     )
 
     return result

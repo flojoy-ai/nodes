@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -9,6 +10,9 @@ import scipy.stats
 def ANDERSON(
     default: OrderedPair | Matrix,
     dist: str = "norm",
+    select_return: Literal[
+        "statistic", "critical_values", "significance_level"
+    ] = "statistic",
 ) -> OrderedPair | Matrix | Scalar:
     """The ANDERSON node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -24,6 +28,9 @@ def ANDERSON(
 
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['statistic', 'critical_values', 'significance_level']. Select the desired one to return.
+            See the respective function docs for descriptors.
     x : array_like
             Array of sample data.
     dist : {'norm', 'expon', 'logistic', 'gumbel', 'gumbel_l', 'gumbel_r', 'extreme1'}, optional
@@ -38,10 +45,11 @@ def ANDERSON(
     """
 
     result = OrderedPair(
-        m=scipy.stats.anderson(
+        x=default.x,
+        y=scipy.stats.anderson(
             x=default.y,
             dist=dist,
-        )
+        ),
     )
 
     return result

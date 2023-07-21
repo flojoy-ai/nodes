@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.signal
 
@@ -35,11 +36,12 @@ def HILBERT(
     """
 
     result = OrderedPair(
-        m=scipy.signal.hilbert(
+        x=default.x,
+        y=scipy.signal.hilbert(
             x=default.y,
             N=N,
             axis=axis,
-        )
+        ),
     )
 
     return result

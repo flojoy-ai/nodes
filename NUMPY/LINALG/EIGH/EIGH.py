@@ -1,15 +1,17 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import numpy.linalg
 
 
 @flojoy(node_type="default")
 def EIGH(
-    default: OrderedPair | Matrix,
+    default: Matrix,
     UPLO: str = "L",
-) -> OrderedPair | Matrix | Scalar:
+    select_return: Literal["w", "v"] = "w",
+) -> Matrix | Scalar:
     """The EIGH node is based on a numpy or scipy function.
     The description of that function is as follows:
 
@@ -28,10 +30,13 @@ def EIGH(
         UPLO=UPLO,
     )
 
-    if type(result) == np.ndarray:
-        result = Matrix(m=result)
+    if isinstance(result, namedtuple):
+        result = result._asdict()
+        result = result[select_return]
 
-    elif type(result) == np.float64:
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    elif isinstance(result, np.float64):
         result = Scalar(c=result)
 
     return result

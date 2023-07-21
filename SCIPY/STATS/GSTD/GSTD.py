@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -47,11 +48,12 @@ def GSTD(
     """
 
     result = OrderedPair(
-        m=scipy.stats.gstd(
+        x=default.x,
+        y=scipy.stats.gstd(
             a=default.y,
             axis=axis,
             ddof=ddof,
-        )
+        ),
     )
 
     return result

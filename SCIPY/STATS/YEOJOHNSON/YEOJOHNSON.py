@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -31,10 +32,11 @@ def YEOJOHNSON(
     """
 
     result = OrderedPair(
-        m=scipy.stats.yeojohnson(
+        x=default.x,
+        y=scipy.stats.yeojohnson(
             x=default.y,
             lmbda=lmbda,
-        )
+        ),
     )
 
     return result

@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.signal
 
@@ -28,9 +29,10 @@ def QUADRATIC(
     """
 
     result = OrderedPair(
-        m=scipy.signal.quadratic(
+        x=default.x,
+        y=scipy.signal.quadratic(
             x=default.y,
-        )
+        ),
     )
 
     return result

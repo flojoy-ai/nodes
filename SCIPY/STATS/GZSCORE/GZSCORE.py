@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
@@ -51,12 +52,13 @@ def GZSCORE(
     """
 
     result = OrderedPair(
-        m=scipy.stats.gzscore(
+        x=default.x,
+        y=scipy.stats.gzscore(
             a=default.y,
             axis=axis,
             ddof=ddof,
             nan_policy=nan_policy,
-        )
+        ),
     )
 
     return result

@@ -1,6 +1,7 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.signal
 
@@ -54,14 +55,15 @@ def DECIMATE(
     """
 
     result = OrderedPair(
-        m=scipy.signal.decimate(
+        x=default.x,
+        y=scipy.signal.decimate(
             x=default.y,
             q=q,
             n=n,
             ftype=ftype,
             axis=axis,
             zero_phase=zero_phase,
-        )
+        ),
     )
 
     return result
