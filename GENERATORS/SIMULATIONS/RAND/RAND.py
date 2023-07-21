@@ -46,11 +46,14 @@ def RAND(
     seed = random.randint(1, 10000)
     my_generator = np.random.default_rng(seed)
 
+
     match default:
         case OrderedPair():
             size = len(default.x) if default else None
         case Vector():
             size = len(default.v) if default else None
+        case _:
+            size = None
 
     match distribution:
         case "uniform":
