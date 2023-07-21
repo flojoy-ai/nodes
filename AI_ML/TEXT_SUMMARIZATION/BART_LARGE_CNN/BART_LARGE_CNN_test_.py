@@ -4,13 +4,7 @@ from unittest.mock import patch
 
 import pandas as pd
 
-from flojoy import DataContainer
-
-
-@pytest.fixture(scope="module")
-def mock_flojoy_decorator():
-    with patch("flojoy.flojoy", lambda x: x) as mock_flojoy:
-        yield mock_flojoy
+from flojoy import DataFrame
 
 
 @pytest.fixture
@@ -24,12 +18,7 @@ def long_text():
 def test_BART_LARGE_CNN(mock_flojoy_decorator, long_text):
     import BART_LARGE_CNN
 
-    input_dc = DataContainer(
-        type="dataframe",
-        m=pd.DataFrame({"text": [long_text] * 3}),
-    )
-
-    output_dc = BART_LARGE_CNN.BART_LARGE_CNN(dc_inputs=[input_dc], params={})
-    assert output_dc.type == "dataframe"
-    assert output_dc.m.shape == (3, 1)
-    assert output_dc.m.columns == ["summary_text"]
+    output = BART_LARGE_CNN.BART_LARGE_CNN(DataFrame(df=pd.DataFrame({"text": [long_text] * 3})))
+    assert isinstance(output, DataFrame)
+    assert output.m.shape == (3, 1)
+    assert output.m.columns == ["summary_text"]
