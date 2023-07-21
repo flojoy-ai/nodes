@@ -46,6 +46,6 @@ tomli==2.0.1
 tqdm==4.65.0
 tzdata==2023.3
 xlrd==2.0.1
-wytest==7.4.0
+pytest==7.4.0
 pytest-xdist==3.3.1
 flojoy==0.1.5.dev13
