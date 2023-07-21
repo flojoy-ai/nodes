@@ -1,4 +1,4 @@
-from flojoy import flojoy, Plotly, OrderedPair, DefaultParams, SmallMemory
+from flojoy import flojoy, Plotly, OrderedPair, DefaultParams, SmallMemory, Scalar
 import plotly.graph_objects as go
 from nodes.VISUALIZERS.template import plot_layout
 
@@ -7,7 +7,7 @@ MEMORY_KEY = "BIG_NUMBER_MEMORY_KEY"
 
 @flojoy(inject_node_metadata=True)
 def BIG_NUMBER(
-    default: OrderedPair,
+    default: OrderedPair | Scalar,
     default_params: DefaultParams,
     suffix: str,
     prefix: str,
@@ -38,7 +38,11 @@ def BIG_NUMBER(
     fig = go.Figure(layout=layout)
 
     prev_num = SmallMemory().read_memory(job_id, MEMORY_KEY)
-    big_num = default.y[-1]
+    match default:
+        case OrderedPair():
+            big_num = default.y[-1]
+        case Scalar():
+            big_num = default.c
     val_format = ".1%" if relative_delta is True else ".1f"
     fig.add_trace(
         go.Indicator(

@@ -1,10 +1,10 @@
-from flojoy import flojoy, OrderedPair
+from flojoy import flojoy, OrderedPair, Vector
 import serial
 
 
 @flojoy(deps={"pyserial": "3.5"})
 def KEITHLEY2400(
-    default: OrderedPair, comport: str = "/dev/ttyUSB0", baudrate: float = 9600
+    default: OrderedPair | Vector, comport: str = "/dev/ttyUSB0", baudrate: float = 9600
 ) -> OrderedPair:
     """
     IV curve measurement with a Keithley 2400 source meter, send voltages and measure currents.
@@ -41,7 +41,12 @@ def KEITHLEY2400(
         b":SENS:CURR:PROT 1.05\n"
     )  # Current protection set at 1.05A (Keithley 2400)
 
-    voltages = default.y
+    match default:
+        case OrderedPair():
+            voltages = default.y
+        case Vector():
+            voltages = default.v
+
     currents_neg: list[float] = []  # measured currents
 
     for voltage in voltages:
