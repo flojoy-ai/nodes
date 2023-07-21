@@ -1,56 +1,30 @@
-from functools import wraps
-from unittest.mock import patch
-
-import numpy as np
+import pytest
+import os
+import json
 import pandas as pd
-from flojoy import DataContainer
+from flojoy import DataFrame, DataContainer
 from plotly.graph_objs import Figure
-from prophet import Prophet
-from prophet.serialize import model_from_json, model_to_json
+
+@pytest.fixture
+def mock_prophet_model_json():
+    with open(os.path.join(os.path.dirname(__file__), "mock_prophet_model.json"), "r") as f:
+        return f.read()
+
+@pytest.fixture
+def mock_prophet_output_dataframe():
+    return pd.read_parquet(os.path.join(os.path.dirname(__file__), "mock_prophet_output_dataframe.parquet"))
 
 
-# Python functions are decorated at module-loading time, So we'll need to patch our decorator
-#  with a simple mock ,before loading the module.
+def test_PROPHET_COMPONENTS(mock_flojoy_decorator, mock_prophet_model_json, mock_prophet_output_dataframe):
+    import PROPHET_COMPONENTS
 
-
-def mock_flojoy_decorator(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        return f(*args, **kwargs)
-
-    return decorated_function
-
-
-# Patch the flojoy decorator that handles connecting our node to the App.
-patch("flojoy.flojoy", mock_flojoy_decorator).start()
-
-# After Patching the flojoy decorator, let's load the node under test.
-import PROPHET_COMPONENTS
-
-
-def test_PROPHET_COMPONENTS():
-    # Generate random time series data
-    start_date = pd.Timestamp("2023-01-01")
-    end_date = pd.Timestamp("2023-07-20")
-    num_days = (end_date - start_date).days + 1
-    timestamps = pd.date_range(start=start_date, end=end_date, freq="D")
-    data = np.random.randn(num_days)  # Random data points
-    df = pd.DataFrame({"ds": timestamps, "y": data})
-    # Run prediction
-    prophet = Prophet()
-    prophet.fit(df)
-    future = prophet.make_future_dataframe(periods=365)
-    forecast = prophet.predict(future)
-
-    model = model_to_json(prophet)
-    dc = DataContainer(
-        type="dataframe", m=forecast, extra={"run_forecast": True, "prophet": model}
-    )
-
-    # node under test
-    res = PROPHET_COMPONENTS.PROPHET_COMPONENTS([dc], {})
-
-    # Should get back a plotly figure
-    assert res.type == "plotly"
-    assert isinstance(res.fig, Figure)
-    assert res.fig.layout.title.text == "PROPHET_COMPONENTS"
+    default = DataFrame(df=mock_prophet_output_dataframe)
+    for run_forecast in [True, False]:
+        prophet_data = DataContainer(
+            extra={"run_forecast": run_forecast, "prophet": mock_prophet_model_json}
+        )
+        res = PROPHET_COMPONENTS.PROPHET_COMPONENTS(default=default, data=prophet_data)
+        # Should get back a plotly figure
+        assert res.type == "plotly"
+        assert isinstance(res.fig, Figure)
+        assert res.fig.layout.title.text == "PROPHET_COMPONENTS"
