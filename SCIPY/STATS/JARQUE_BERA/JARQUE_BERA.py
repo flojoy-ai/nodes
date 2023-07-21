@@ -1,10 +1,19 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.stats
 
 
-@flojoy
-def JARQUE_BERA(dc, params):
-    """
+@flojoy(node_type="default")
+def JARQUE_BERA(
+    default: OrderedPair | Matrix,
+    select_return: Literal["jb_value", "p"] = "jb_value",
+) -> OrderedPair | Matrix | Scalar:
+    """The JARQUE_BERA node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Perform the Jarque-Bera goodness of fit test on sample data.
 
             The Jarque-Bera test tests whether the sample data has the skewness and
@@ -14,18 +23,25 @@ def JARQUE_BERA(dc, params):
             (>2000) as the test statistic asymptotically has a Chi-squared distribution
             with 2 degrees of freedom.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['jb_value', 'p']. Select the desired one to return.
+            See the respective function docs for descriptors.
     x : array_like
             Observations of a random variable.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
+
+    result = OrderedPair(
+        x=default.x,
         y=scipy.stats.jarque_bera(
-            x=dc[0].y,
+            x=default.y,
         ),
     )
+
+    return result

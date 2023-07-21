@@ -1,29 +1,19 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, Vector, Scalar
 
 
 @flojoy
-def ABS(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The ABS node returns the absolute value for the input.
-    The node can handle scalar and ordered pair inputs currently
+def ABS(default: OrderedPair | Vector | Scalar) -> OrderedPair:
+    """Returns abolute value"""
+    match default:
+        case OrderedPair():
+            x = default.x
+            y = np.abs(default.y)
+        case Scalar():
+            x = default.c
+            y = np.abs(x)
+        case Vector():
+            x = default.v
+            y = np.abs(x)
 
-    TODO - reconcile.py so matrix and dataframe types can be handled.
-
-    Parameters
-    ----------
-    None
-
-    Returns:
-    --------
-    DataContainer:
-        type 'ordered pair' if 'ordered pair' is input.
-
-        type 'scalar' if 'scalar' is input.
-    """
-
-    match dc_inputs[0].type:
-        case "scalar":
-            return DataContainer(type="scalar", c=np.abs(dc_inputs[0].c))
-
-        case "ordered_pair":
-            return DataContainer(x=dc_inputs[0].x, y=np.abs(dc_inputs[0].y))
+    return OrderedPair(x=x, y=y)

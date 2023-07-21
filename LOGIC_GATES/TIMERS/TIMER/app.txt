@@ -1,0 +1,175 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31",
+                "type": "TIMERS",
+                "data": {
+                    "id": "TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31",
+                    "label": "TIMER",
+                    "func": "TIMER",
+                    "type": "TIMERS",
+                    "ctrls": {
+                        "sleep_time": {
+                            "type": "float",
+                            "default": 0,
+                            "functionName": "TIMER",
+                            "param": "sleep_time",
+                            "value": "0.5"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\TIMERS\\TIMER\\TIMER.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 102.89594923414663,
+                    "y": 110.49136885391965
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 102.89594923414663,
+                    "y": 110.49136885391965
+                },
+                "dragging": true
+            },
+            {
+                "width": 130,
+                "height": 130,
+                "id": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
+                "type": "SIMULATIONS",
+                "data": {
+                    "id": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
+                    "label": "2.0",
+                    "func": "CONSTANT",
+                    "type": "SIMULATIONS",
+                    "ctrls": {
+                        "constant": {
+                            "type": "float",
+                            "default": 3,
+                            "functionName": "CONSTANT",
+                            "param": "constant",
+                            "value": "2.0"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\CONSTANT\\CONSTANT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 434.9361307844173,
+                    "y": 123.1192529249758
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 434.9361307844173,
+                    "y": 123.1192529249758
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-ab10e538-ad40-4af1-a447-979a455ba0d3",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-ab10e538-ad40-4af1-a447-979a455ba0d3",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 880.8948891200718,
+                    "y": 120.18610526153276
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 880.8948891200718,
+                    "y": 120.18610526153276
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31",
+                "sourceHandle": "default",
+                "target": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31default-CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0default"
+            },
+            {
+                "source": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
+                "sourceHandle": "default",
+                "target": "END-ab10e538-ad40-4af1-a447-979a455ba0d3",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0default-END-ab10e538-ad40-4af1-a447-979a455ba0d3default"
+            }
+        ],
+        "viewport": {
+            "x": -296.35399545928726,
+            "y": 66.8470830817738,
+            "zoom": 0.8744723800359967
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

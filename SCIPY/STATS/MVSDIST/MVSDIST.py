@@ -1,26 +1,42 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.stats
 
 
-@flojoy
-def MVSDIST(dc, params):
-    """
+@flojoy(node_type="default")
+def MVSDIST(
+    default: OrderedPair | Matrix,
+    select_return: Literal["mdist", "vdist", "sdist"] = "mdist",
+) -> OrderedPair | Matrix | Scalar:
+    """The MVSDIST node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             'Frozen' distributions for mean, variance, and standard deviation of data.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['mdist', 'vdist', 'sdist']. Select the desired one to return.
+            See the respective function docs for descriptors.
     data : array_like
             Input array. Converted to 1-D using ravel.
             Requires 2 or more data-points.
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
+
+    result = OrderedPair(
+        x=default.x,
         y=scipy.stats.mvsdist(
-            data=dc[0].y,
+            data=default.y,
         ),
     )
+
+    return result

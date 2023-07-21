@@ -3,7 +3,7 @@ import numpy
 from functools import wraps
 from unittest.mock import patch
 
-from flojoy import DataContainer
+from flojoy import OrderedPair
 
 
 # Python functions are decorated at module-loading time, So we'll need to patch our decorator
@@ -27,11 +27,9 @@ import DIVIDE
 
 def test_DIVIDE():
     # create the two ordered pair datacontainers
-    element_a = DataContainer(
-        type="ordered_pair", x=numpy.linspace(-10, 10, 100), y=[10] * 100
-    )
+    element_a = OrderedPair(x=numpy.linspace(-10, 10, 100), y=[10] * 100)
 
-    element_b = DataContainer(type="scalar", c=10.0)
+    element_b = OrderedPair(x=numpy.linspace(-10, 10, 100), y=[7] * 100)
 
     # node under test
     res = DIVIDE.DIVIDE([element_a, element_b], {})

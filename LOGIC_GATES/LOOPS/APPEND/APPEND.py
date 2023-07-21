@@ -1,9 +1,12 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, Matrix, DataFrame
 
 
 @flojoy
-def APPEND(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def APPEND(
+    primary_dp: OrderedPair | Matrix | DataFrame,
+    secondary_dp: OrderedPair | Matrix | DataFrame,
+) -> OrderedPair | Matrix | DataFrame:
     """The APPEND node appends a single data point to an array.
     The large array must be passed to the bottom "array" connection.
     For ordered pair: the single point must have a shape of 1 (or (1,)).
@@ -14,50 +17,39 @@ def APPEND(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
 
     Returns
     -------
-    Ordered pair, dataframe or matrix.
+    OrderedPair, Matrix, DataFrame
     """
 
-    if len(dc_inputs) < 2:
-        raise ValueError(
-            f"APPEND node requires two inputs, {len(dc_inputs)} was given!"
-        )
+    if isinstance(primary_dp, OrderedPair) and isinstance(secondary_dp, OrderedPair):
+        x0 = primary_dp.x
+        y0 = primary_dp.y
 
-    dc_input = dc_inputs[0]
+        x1 = secondary_dp.x
+        y1 = secondary_dp.y
 
-    match dc_input.type:
-        case "ordered_pair":
-            y0 = dc_inputs[0].y
-            y1 = dc_inputs[1].y
-
-            x0 = dc_inputs[0].x
-            x1 = dc_inputs[1].x
-
-            if y1.shape[0] != 1:
-                raise ValueError(
-                    (
-                        "To append, APPEND node the requires the non-array "
-                        "input to have a single point. "
-                        f"The data passed has a shape of: {y1.shape}"
-                    )
+        if y1.shape[0] != 1:
+            raise ValueError(
+                (
+                    "To append, APPEND node the requires the non-array "
+                    "input to have a single point. "
+                    f"The data passed has a shape of: {y1.shape}"
                 )
+            )
 
-            y = np.append(y0, y1)
-            x = np.append(x0, x1)
+        x = np.append(x0, x1)
+        y = np.append(y0, y1)
+        return OrderedPair(x=x, y=y)
 
-            return DataContainer(x=x, y=y)
+    elif isinstance(primary_dp, Matrix) and isinstance(secondary_dp, Matrix):
+        m0 = primary_dp.m
+        m1 = secondary_dp.m
 
-        case "matrix":
-            m0 = dc_inputs[0].m
-            m1 = dc_inputs[1].m
+        m = np.append(m0, m1, axis=0)
+        return Matrix(m=m)
 
-            m = np.append(m0, m1, axis=0)
+    else:
+        df0 = primary_dp.m
+        df1 = secondary_dp.m
 
-            return DataContainer(type="matrix", m=m)
-
-        case "dataframe":
-            m0 = dc_inputs[0].m
-            m1 = dc_inputs[1].m
-
-            df = np.append(m0, m1, axis=0)
-
-            return DataContainer(type="dataframe", m=df)
+        df = np.append(df0, df1, axis=0)
+        return DataFrame(df=df)

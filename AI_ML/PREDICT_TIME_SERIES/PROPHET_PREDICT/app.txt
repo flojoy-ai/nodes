@@ -2,190 +2,271 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-5a356bc4-3014-4aeb-998f-0f1e166fca5e",
-                "type": "TERMINATOR",
-                "data": {
-                    "id": "END-5a356bc4-3014-4aeb-998f-0f1e166fca5e",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 1812.3599692606329,
-                    "y": 130.1172999221726
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1812.3599692606329,
-                    "y": 130.1172999221726
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12",
+                "id": "PROPHET_PREDICT-f91b407d-a959-4080-8f4f-9ccb8aaf62af",
                 "type": "PREDICT_TIME_SERIES",
                 "data": {
-                    "id": "PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12",
+                    "id": "PROPHET_PREDICT-f91b407d-a959-4080-8f4f-9ccb8aaf62af",
                     "label": "PROPHET PREDICT",
                     "func": "PROPHET_PREDICT",
                     "type": "PREDICT_TIME_SERIES",
                     "ctrls": {
-                        "periods": {
-                            "functionName": "PROPHET_PREDICT",
-                            "param": "periods",
-                            "value": 365
-                        },
                         "run_forecast": {
+                            "type": "bool",
+                            "default": true,
                             "functionName": "PROPHET_PREDICT",
                             "param": "run_forecast",
                             "value": true
+                        },
+                        "periods": {
+                            "type": "int",
+                            "default": 365,
+                            "functionName": "PROPHET_PREDICT",
+                            "param": "periods",
+                            "value": 365
                         }
                     },
-                    "selected": false
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/PREDICT_TIME_SERIES/PROPHET_PREDICT/PROPHET_PREDICT.py"
                 },
                 "position": {
-                    "x": 780.3599692606329,
-                    "y": 156.1172999221726
+                    "x": 44.19991981803559,
+                    "y": 49.45240668102545
                 },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 780.3599692606329,
-                    "y": 156.1172999221726
-                },
-                "dragging": true
+                "width": 150,
+                "height": 150
             },
             {
                 "width": 130,
                 "height": 130,
-                "id": "TIMESERIES-d19a3155-bebf-4b1c-8ad2-99c32748b388",
-                "type": "SIMULATION",
+                "id": "TIMESERIES-9938e1c3-e758-46d4-af6e-0a764e77dfd2",
+                "type": "SIMULATIONS",
                 "data": {
-                    "id": "TIMESERIES-d19a3155-bebf-4b1c-8ad2-99c32748b388",
+                    "id": "TIMESERIES-9938e1c3-e758-46d4-af6e-0a764e77dfd2",
                     "label": "TIMESERIES",
                     "func": "TIMESERIES",
-                    "type": "SIMULATION",
-                    "ctrls": {},
+                    "type": "SIMULATIONS",
+                    "ctrls": {
+                        "start_date": {
+                            "type": "str",
+                            "default": "2023-01-01",
+                            "functionName": "TIMESERIES",
+                            "param": "start_date",
+                            "value": "2023-01-01"
+                        },
+                        "end_date": {
+                            "type": "str",
+                            "default": "2023-07-20",
+                            "functionName": "TIMESERIES",
+                            "param": "end_date",
+                            "value": "2023-07-20"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/TIMESERIES/TIMESERIES.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 378.35996926063285,
-                    "y": 176.1172999221726
+                    "x": -270.66778749945627,
+                    "y": 36.19707996443299
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 378.35996926063285,
-                    "y": 176.1172999221726
+                    "x": -270.66778749945627,
+                    "y": 36.19707996443299
                 },
                 "dragging": true
             },
             {
                 "width": 225,
                 "height": 226,
-                "id": "PROPHET_COMPONENTS-6c94f910-0c1a-48ee-843a-4675a56fd9bc",
-                "type": "PLOTLY_VISOR",
+                "id": "PROPHET_COMPONENTS-38474a31-dfa1-4d2b-8834-558ecadb82e3",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "PROPHET_COMPONENTS-6c94f910-0c1a-48ee-843a-4675a56fd9bc",
-                    "label": "PROPHET COMPONENTS 1",
+                    "id": "PROPHET_COMPONENTS-38474a31-dfa1-4d2b-8834-558ecadb82e3",
+                    "label": "PROPHET COMPONENTS",
                     "func": "PROPHET_COMPONENTS",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {
                         "periods": {
+                            "type": "int",
+                            "default": 365,
                             "functionName": "PROPHET_COMPONENTS",
                             "param": "periods",
                             "value": 365
                         }
                     },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/PROPHET_COMPONENTS/PROPHET_COMPONENTS.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1304.3599692606329,
-                    "y": 274.1172999221726
+                    "x": 373.3721041848318,
+                    "y": -114.45853015527874
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1304.3599692606329,
-                    "y": 274.1172999221726
+                    "x": 373.3721041848318,
+                    "y": -114.45853015527874
                 },
                 "dragging": true
             },
             {
                 "width": 225,
                 "height": 226,
-                "id": "PROPHET_PLOT-f244212c-4bf6-401a-a354-03173aecd8bc",
-                "type": "PLOTLY_VISOR",
+                "id": "PROPHET_PLOT-94b3e918-2bd3-4b08-9620-0017623eef60",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "PROPHET_PLOT-f244212c-4bf6-401a-a354-03173aecd8bc",
-                    "label": "PROPHET PLOT 1",
+                    "id": "PROPHET_PLOT-94b3e918-2bd3-4b08-9620-0017623eef60",
+                    "label": "PROPHET PLOT",
                     "func": "PROPHET_PLOT",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {
                         "periods": {
+                            "type": "int",
+                            "default": 365,
                             "functionName": "PROPHET_PLOT",
                             "param": "periods",
                             "value": 365
                         }
                     },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/PROPHET_PLOT/PROPHET_PLOT.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1302.3599692606329,
-                    "y": -123.08270007782744
+                    "x": 361.84400062339495,
+                    "y": 269.6217029641205
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1302.3599692606329,
-                    "y": -123.08270007782744
+                    "x": 361.84400062339495,
+                    "y": 269.6217029641205
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-19d116f5-06e8-4a8c-b5ae-59b6db539708",
+                "type": "TERMINATORS",
+                "data": {
+                    "id": "END-19d116f5-06e8-4a8c-b5ae-59b6db539708",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATORS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 724.5157287422192,
+                    "y": 77.71454473069355
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 724.5157287422192,
+                    "y": 77.71454473069355
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "TIMESERIES-d19a3155-bebf-4b1c-8ad2-99c32748b388",
-                "sourceHandle": "main",
-                "target": "PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12",
-                "targetHandle": "PROPHET_PREDICT",
-                "id": "reactflow__edge-TIMESERIES-d19a3155-bebf-4b1c-8ad2-99c32748b388main-PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12PROPHET_PREDICT"
+                "source": "TIMESERIES-9938e1c3-e758-46d4-af6e-0a764e77dfd2",
+                "sourceHandle": "default",
+                "target": "PROPHET_PREDICT-f91b407d-a959-4080-8f4f-9ccb8aaf62af",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TIMESERIES-9938e1c3-e758-46d4-af6e-0a764e77dfd2default-PROPHET_PREDICT-f91b407d-a959-4080-8f4f-9ccb8aaf62afdefault"
             },
             {
-                "source": "PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12",
-                "sourceHandle": "main",
-                "target": "PROPHET_PLOT-f244212c-4bf6-401a-a354-03173aecd8bc",
-                "targetHandle": "PROPHET_PLOT",
-                "id": "reactflow__edge-PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12main-PROPHET_PLOT-f244212c-4bf6-401a-a354-03173aecd8bcPROPHET_PLOT"
+                "source": "PROPHET_PREDICT-f91b407d-a959-4080-8f4f-9ccb8aaf62af",
+                "sourceHandle": "default",
+                "target": "PROPHET_COMPONENTS-38474a31-dfa1-4d2b-8834-558ecadb82e3",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PROPHET_PREDICT-f91b407d-a959-4080-8f4f-9ccb8aaf62afdefault-PROPHET_COMPONENTS-38474a31-dfa1-4d2b-8834-558ecadb82e3default"
             },
             {
-                "source": "PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12",
-                "sourceHandle": "main",
-                "target": "PROPHET_COMPONENTS-6c94f910-0c1a-48ee-843a-4675a56fd9bc",
-                "targetHandle": "PROPHET_COMPONENTS",
-                "id": "reactflow__edge-PROPHET_PREDICT-373d4b4f-c15f-41b2-bc71-669f35b05e12main-PROPHET_COMPONENTS-6c94f910-0c1a-48ee-843a-4675a56fd9bcPROPHET_COMPONENTS"
+                "source": "PROPHET_PREDICT-f91b407d-a959-4080-8f4f-9ccb8aaf62af",
+                "sourceHandle": "default",
+                "target": "PROPHET_PLOT-94b3e918-2bd3-4b08-9620-0017623eef60",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PROPHET_PREDICT-f91b407d-a959-4080-8f4f-9ccb8aaf62afdefault-PROPHET_PLOT-94b3e918-2bd3-4b08-9620-0017623eef60default"
             },
             {
-                "source": "PROPHET_COMPONENTS-6c94f910-0c1a-48ee-843a-4675a56fd9bc",
-                "sourceHandle": "main",
-                "target": "END-5a356bc4-3014-4aeb-998f-0f1e166fca5e",
-                "targetHandle": "END",
-                "id": "reactflow__edge-PROPHET_COMPONENTS-6c94f910-0c1a-48ee-843a-4675a56fd9bcmain-END-5a356bc4-3014-4aeb-998f-0f1e166fca5eEND"
+                "source": "PROPHET_COMPONENTS-38474a31-dfa1-4d2b-8834-558ecadb82e3",
+                "sourceHandle": "default",
+                "target": "END-19d116f5-06e8-4a8c-b5ae-59b6db539708",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PROPHET_COMPONENTS-38474a31-dfa1-4d2b-8834-558ecadb82e3default-END-19d116f5-06e8-4a8c-b5ae-59b6db539708default"
             },
             {
-                "source": "PROPHET_PLOT-f244212c-4bf6-401a-a354-03173aecd8bc",
-                "sourceHandle": "main",
-                "target": "END-5a356bc4-3014-4aeb-998f-0f1e166fca5e",
-                "targetHandle": "END",
-                "id": "reactflow__edge-PROPHET_PLOT-f244212c-4bf6-401a-a354-03173aecd8bcmain-END-5a356bc4-3014-4aeb-998f-0f1e166fca5eEND"
+                "source": "PROPHET_PLOT-94b3e918-2bd3-4b08-9620-0017623eef60",
+                "sourceHandle": "default",
+                "target": "END-19d116f5-06e8-4a8c-b5ae-59b6db539708",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PROPHET_PLOT-94b3e918-2bd3-4b08-9620-0017623eef60default-END-19d116f5-06e8-4a8c-b5ae-59b6db539708default"
             }
         ],
         "viewport": {
-            "x": 277.51363138867714,
-            "y": 122.19256409405995,
-            "zoom": 0.8390434811449037
+            "x": -277.07893884404893,
+            "y": 103.38141914149585,
+            "zoom": 0.8175961276759318
         }
     },
     "ctrlsManifest": [

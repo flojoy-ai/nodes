@@ -4,122 +4,169 @@
             {
                 "width": 150,
                 "height": 150,
-                "id": "TEXT_DATASET-2ca8078c-4419-4cbb-93b9-7e28996e6e92",
-                "type": "SAMPLE_DATASET",
+                "id": "TEXT_DATASET-85e09f8c-f053-4ab3-88df-464421665ef3",
+                "type": "SAMPLE_DATASETS",
                 "data": {
-                    "id": "TEXT_DATASET-2ca8078c-4419-4cbb-93b9-7e28996e6e92",
+                    "id": "TEXT_DATASET-85e09f8c-f053-4ab3-88df-464421665ef3",
                     "label": "TEXT DATASET",
                     "func": "TEXT_DATASET",
-                    "type": "SAMPLE_DATASET",
+                    "type": "SAMPLE_DATASETS",
                     "ctrls": {
                         "subset": {
+                            "type": "select",
+                            "default": "train",
+                            "options": [
+                                "train",
+                                "test",
+                                "all"
+                            ],
                             "functionName": "TEXT_DATASET",
                             "param": "subset",
                             "value": "train"
                         },
                         "categories": {
+                            "type": "list[str]",
+                            "default": null,
                             "functionName": "TEXT_DATASET",
                             "param": "categories",
-                            "value": "comp.graphics, alt.atheism"
+                            "value": "comp.graphics,alt.atheism"
                         },
                         "remove_headers": {
+                            "type": "bool",
+                            "default": false,
                             "functionName": "TEXT_DATASET",
                             "param": "remove_headers",
                             "value": true
                         },
                         "remove_footers": {
+                            "type": "bool",
+                            "default": false,
                             "functionName": "TEXT_DATASET",
                             "param": "remove_footers",
                             "value": true
                         },
                         "remove_quotes": {
+                            "type": "bool",
+                            "default": false,
                             "functionName": "TEXT_DATASET",
                             "param": "remove_quotes",
                             "value": true
                         }
                     },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SAMPLE_DATASETS/TEXT_DATASET/TEXT_DATASET.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -81.45429553856721,
-                    "y": 157.80386901898453
+                    "x": 795.41760366579,
+                    "y": 492.80936134378084
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -81.45429553856721,
-                    "y": 157.80386901898453
+                    "x": 795.41760366579,
+                    "y": 492.80936134378084
+                }
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-6a242d62-814f-406e-94de-d5c6908dce5e",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "TABLE-6a242d62-814f-406e-94de-d5c6908dce5e",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 1170.5289863217536,
+                    "y": 441.8699692511366
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 1170.5289863217536,
+                    "y": 441.8699692511366
                 },
                 "dragging": true
             },
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-ff3e5e34-44fa-4fba-9498-77f9facbed5f",
-                "type": "TERMINATOR",
+                "id": "END-86813c86-a82c-4cd4-9584-b51e7e5e3746",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "END-ff3e5e34-44fa-4fba-9498-77f9facbed5f",
+                    "id": "END-86813c86-a82c-4cd4-9584-b51e7e5e3746",
                     "label": "END",
                     "func": "END",
-                    "type": "TERMINATOR",
+                    "type": "TERMINATORS",
                     "ctrls": {},
-                    "selected": true
-                },
-                "position": {
-                    "x": 670.7381867293549,
-                    "y": 146.92341815739366
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 670.7381867293549,
-                    "y": 146.92341815739366
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "TABLE-150dec7c-56da-482e-a01f-f97a84625247",
-                "type": "PLOTLY_VISOR",
-                "data": {
-                    "id": "TABLE-150dec7c-56da-482e-a01f-f97a84625247",
-                    "label": "TABLE",
-                    "func": "TABLE",
-                    "type": "PLOTLY_VISOR",
-                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 195.29523623151152,
-                    "y": 67.15994603870857
+                    "x": 1636.2318807816505,
+                    "y": 497.431265309786
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 195.29523623151152,
-                    "y": 67.15994603870857
+                    "x": 1636.2318807816505,
+                    "y": 497.431265309786
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "TEXT_DATASET-2ca8078c-4419-4cbb-93b9-7e28996e6e92",
-                "sourceHandle": "main",
-                "target": "TABLE-150dec7c-56da-482e-a01f-f97a84625247",
-                "targetHandle": "TABLE",
-                "id": "reactflow__edge-TEXT_DATASET-2ca8078c-4419-4cbb-93b9-7e28996e6e92main-TABLE-150dec7c-56da-482e-a01f-f97a84625247TABLE"
+                "source": "TEXT_DATASET-85e09f8c-f053-4ab3-88df-464421665ef3",
+                "sourceHandle": "default",
+                "target": "TABLE-6a242d62-814f-406e-94de-d5c6908dce5e",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TEXT_DATASET-85e09f8c-f053-4ab3-88df-464421665ef3default-TABLE-6a242d62-814f-406e-94de-d5c6908dce5edefault"
             },
             {
-                "source": "TABLE-150dec7c-56da-482e-a01f-f97a84625247",
-                "sourceHandle": "main",
-                "target": "END-ff3e5e34-44fa-4fba-9498-77f9facbed5f",
-                "targetHandle": "END",
-                "id": "reactflow__edge-TABLE-150dec7c-56da-482e-a01f-f97a84625247main-END-ff3e5e34-44fa-4fba-9498-77f9facbed5fEND"
+                "source": "TABLE-6a242d62-814f-406e-94de-d5c6908dce5e",
+                "sourceHandle": "default",
+                "target": "END-86813c86-a82c-4cd4-9584-b51e7e5e3746",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TABLE-6a242d62-814f-406e-94de-d5c6908dce5edefault-END-86813c86-a82c-4cd4-9584-b51e7e5e3746default"
             }
         ],
         "viewport": {
-            "x": 21.464285714285666,
-            "y": 190.74999999999997,
-            "zoom": 0.5
+            "x": -277.07893884404893,
+            "y": 103.38141914149585,
+            "zoom": 0.8175961276759318
         }
     },
     "ctrlsManifest": [

@@ -1,16 +1,24 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.signal
 
 
-@flojoy
-def DETREND(dc, params):
-    """
+@flojoy(node_type="default")
+def DETREND(
+    default: OrderedPair | Matrix,
+    axis: int = -1,
+    type: str = "linear",
+    bp: int = 0,
+    overwrite_data: bool = False,
+) -> OrderedPair | Matrix | Scalar:
+    """The DETREND node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
 
             Remove linear trend along axis from data.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -31,18 +39,22 @@ def DETREND(dc, params):
             only has an effect when ``type == 'linear'``.
     overwrite_data : bool, optional
             If True, perform in place detrending and avoid a copy. Default is False
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
+
+    result = OrderedPair(
+        x=default.x,
         y=scipy.signal.detrend(
-            data=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            type=(str(params["type"]) if params["type"] != "" else None),
-            bp=(int(params["bp"]) if params["bp"] != "" else None),
-            overwrite_data=(
-                bool(params["overwrite_data"])
-                if params["overwrite_data"] != ""
-                else None
-            ),
+            data=default.y,
+            axis=axis,
+            type=type,
+            bp=bp,
+            overwrite_data=overwrite_data,
         ),
     )
+
+    return result

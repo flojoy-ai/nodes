@@ -1,24 +1,28 @@
-The flojoy app example is showing how to use the SERIAL_SINGLE_MEASUREMENT node to extract some measurements 
-received from an Arduino microcontroller and how to visualize them with Flojoy. 
+The Flojoy app example shows how to use the SERIAL_SINGLE_MEASUREMENT node to extract some measurements
+received from an Arduino microcontroller and how to visualize them with Flojoy:
 
-Single measurement means that the measurements are all recorded at a given time when the nodes is called.
-It receives data from Serial communication with the Arduino and store the measured values in a table called reading.
-(The Arduino is printing new values on the serial console in each loop, with this node we reading value from one loop only).
- 
-
-An arduino can record measurements from different sensors and send them all to Flojoy (Single measurement does not mean single value)
-
-In this example we show how the node works if 3 differents values are transmit from the arduino to Flojoy at a given time 
-(These values have to be printed on the same line to be used properly by the node, check the arduino code : arduino_example.ino)
-
-We choose the visualization node "BAR" to plot these 3 Mock values on the Flojoy app. 
-It allows the user to see the 3 values at the same place. 
+- The ['SERIAL_SINGLE_MEASUREMENT'](https://github.com/flojoy-io/nodes/blob/main/INSTRUMENTS/SERIAL/SERIAL_SINGLE_MEASUREMENT/SERIAL_SINGLE_MEASUREMENT.py.py) node receives data from Serial communication with the Arduino and store the measured values in a table called reading. The Arduino prints new values on the serial console for each loop. The ['SERIAL_SINGLE_MEASUREMENT'](https://github.com/flojoy-io/nodes/blob/main/INSTRUMENTS/SERIAL/SERIAL_SINGLE_MEASUREMENT/SERIAL_SINGLE_MEASUREMENT.py) node extracts a single measurement (It can contain multiple values, see output).
 
 
-Update Single Measurement with Loop : 
-Thanks to the flojoy software it is still possible to update the values received from the arduino by using the "LOOP" and the "GO TO" nodes.
+- The ['BAR'](https://github.com/flojoy-io/nodes/blob/main/VISUALIZERS/PLOTLY/BAR/BAR.py) node displays all values stored in the single measurement.
 
-The app2.txt show an example app where the values received form the Arduino are updated during each loop the plot will evolve for each Loop. 
+- The ['END'](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/TERMINATORS/END/END.py) node terminates the process.
 
-This allow the user to update the measurements but at the end it'll save and display only the last measurement. 
-If you want to record all the measurements for a given period you'll need to use the node "SERIAL_TIMESERIES".
+(This example works with this Arduino code: arduino_example.ino):
+The last line Arduino must return is the
+data with a new line at the end (i.e. println()).
+
+For example:
+
+print(reading0)
+print(",")
+println(reading1)
+
+The ['SERIAL_SINGLE_MEASUREMENT'](https://github.com/flojoy-io/nodes/blob/main/INSTRUMENTS/SERIAL/SERIAL_SINGLE_MEASUREMENT/SERIAL_SINGLE_MEASUREMENT.py) node receives data from the Arduino serial console as a string and split it using "," as separators. Then it returns the values measured in a list called reading.
+
+### Update Single Measurement with Loop:
+To update the values received from the Arduino, use the [`LOOP`](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/LOOPS/LOOP/LOOP.py) and the [`GOTO`](https://github.com/flojoy-io/nodes/blob/main/LOGIC_GATES/LOOPS/GOTO/GOTO.py) node to create a loop around the ['SERIAL_SINGLE_MEASUREMENT'](https://github.com/flojoy-io/nodes/blob/main/INSTRUMENTS/SERIAL/SERIAL_SINGLE_MEASUREMENT/SERIAL_SINGLE_MEASUREMENT.py) and the ['BAR'](https://github.com/flojoy-io/nodes/blob/main/VISUALIZERS/PLOTLY/BAR/BAR.py). See app2.jpeg for an example.
+
+
+The loop allows the user to update measurements, but only the last measurement will be saved and displayed.
+To record all the measurements for a given period, use the ['SERIAL_TIMESERIES](https://github.com/flojoy-io/nodes/blob/main/INSTRUMENTS/SERIAL/SERIAL_TIMESERIES/SERIAL_TIMESERIES.py).

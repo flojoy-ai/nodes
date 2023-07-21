@@ -1,56 +1,27 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, Scalar, Vector
+from nodes.TRANSFORMERS.ARITHMETIC.utils.arithmetic_utils import get_val
+from functools import reduce
 
 
 @flojoy
-def ADD(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The ADD node adds the values from the two inputs.
-    The node can handle scalar and ordered pair inputs currently
-
-    TODO - reconcile.py so matrix and dataframe types can be handled.
-
-    Parameters
-    ----------
-    None
-
-    Returns:
-    --------
-    DataContainer:
-        type 'ordered pair' if one 'ordered pair' is input.
-
-        type 'scalar' if two 'scalars' are input.
+def ADD(
+    a: OrderedPair | Scalar | Vector, b: list[OrderedPair | Scalar | Vector]
+) -> OrderedPair | Scalar | Vector:
+    """Add 2 or more numeric arrays, matrices, dataframes, or constants element-wise.
+    When a constant is added to an array or matrix, each element in the array or
+    matrix will be increased by the constant value. If 2 arrays or matrices of different
+    sizes are added, the output will be the size of the larger array or matrix with
+    only the overlapping elements changed.
     """
+    initial = get_val(a)
+    seq = map(lambda dc: get_val(dc), b)
+    y = reduce(lambda u, v: np.add(u, v), seq, initial)
 
-    if len(dc_inputs) < 2:
-        raise ValueError(
-            f"To add the values, ADD node requires two inputs, {len(dc_inputs)} was given!"
-        )
-    match [dc_inputs[0].type, dc_inputs[1].type]:
-        case ["scalar", "ordered_pair"]:
-            raise ValueError("The 'scalar' type should be connect to the 'y' input.")
-
-        case ["ordered_pair", "ordered_pair"]:
-            a = dc_inputs[0].y
-            b = dc_inputs[1].y
-
-            x = dc_inputs[0].x
-            y = np.add(a, b)
-
-            return DataContainer(x=x, y=y)
-
-        case ["ordered_pair", "scalar"]:
-            a = dc_inputs[0].y
-            b = dc_inputs[1].c
-
-            x = dc_inputs[0].x
-            y = np.add(a, b)
-
-            return DataContainer(x=x, y=y)
-
-        case ["scalar", "scalar"]:
-            a = dc_inputs[0].c
-            b = dc_inputs[1].c
-
-            c = np.add(a, b)
-
-            return DataContainer(type="scalar", c=c)
+    match a:
+        case OrderedPair():
+            return OrderedPair(x=a.x, y=y)
+        case Vector():
+            return Vector(v=y)
+        case Scalar():
+            return Scalar(c=y)

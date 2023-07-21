@@ -1,12 +1,11 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, OrderedTriple, DataFrame, Matrix, Vector, Plotly
 import plotly.graph_objects as go
 import pandas as pd
 from nodes.VISUALIZERS.template import plot_layout
-import numpy as np
 
 
 @flojoy
-def TABLE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+def TABLE(default: OrderedTriple | OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     """The TABLE node creates a Plotly table visualization for a given input data container.
 
     Parameters:
@@ -17,41 +16,42 @@ def TABLE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     -------------------
     `ordered_pair`, `dataframe`, `ordered_triple`
     """
-    dc_input = dc_inputs[0]
-    node_name = __name__.split(".")[-1]
-    layout = plot_layout(title=node_name)
+    layout = plot_layout(title="TABLE")
     fig = go.Figure(layout=layout)
-    match dc_input.type:
-        case "ordered_pair":
-            x = dc_input.x
-            y = dc_input.y
-            fig.add_trace(
-                go.Table(
-                    header=dict(values=["x", "y"], align="center"),
-                    cells=dict(values=[x, y], align="center"),
-                )
-            )
-        case "ordered_triple":
-            x = dc_input.x
-            y = dc_input.y
-            z = dc_input.z
-            fig.add_trace(
-                go.Table(
-                    header=dict(values=["x", "y", "z"], align="center"),
-                    cells=dict(values=[x, y, z], align="center"),
-                )
-            )
-        case "dataframe":
-            df = pd.DataFrame(dc_input.m)
-            fig.add_trace(
-                go.Table(
-                    header=dict(values=list(df.columns), align="center"),
-                    cells=dict(values=[df[col] for col in df.columns], align="center"),
-                )
-            )
 
-        case _:
-            raise ValueError(
-                f"unsupported DataContainer type passed for {node_name}: {dc_input.type}"
+    if isinstance(default, OrderedPair):
+        x = default.x
+        y = default.y
+        fig.add_trace(
+            go.Table(
+                header=dict(values=["x", "y"], align="center"),
+                cells=dict(values=[x, y], align="center"),
             )
-    return DataContainer(type="plotly", fig=fig)
+        )
+    elif isinstance(default, OrderedTriple):
+        x = default.x
+        y = default.y
+        z = default.z
+        fig.add_trace(
+            go.Table(
+                header=dict(values=["x", "y", "z"], align="center"),
+                cells=dict(values=[x, y, z], align="center"),
+            )
+        )
+    elif isinstance(default, Vector):
+        v = default.v
+        fig.add_trace(
+            go.Table(
+                header=dict(values=["v"], align="center"),
+                cells=dict(values=[v], align="center"),
+            )
+        )
+    else:
+        df = pd.DataFrame(default.m)
+        fig.add_trace(
+            go.Table(
+                header=dict(values=list(df.columns), align="center"),
+                cells=dict(values=[df[col] for col in df.columns], align="center"),
+            )
+        )
+    return Plotly(fig=fig)

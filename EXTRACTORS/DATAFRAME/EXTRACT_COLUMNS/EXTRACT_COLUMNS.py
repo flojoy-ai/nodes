@@ -1,32 +1,28 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataFrame, Matrix, Array
 import pandas as pd
-from typing import List, cast
+import numpy as np
 
 
 @flojoy
-def EXTRACT_COLUMNS(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The EXTRACT_COLUMNS node takes an input dataframe and returns a dataframe with only the specified columns.
+def EXTRACT_COLUMNS(default: DataFrame | Matrix, columns: Array) -> DataFrame:
+    """The EXTRACT_COLUMNS node takes an input dataframe/matrix and returns a dataframe/matrix with only the specified columns.
 
     Parameters
     ----------
-    columns: list of str
+    columns: list of str or list of int (supports python indexing)
         The columns to extract from the input dataframe.
 
     Returns
     -------
-    dataframe
-        The dataframe with only the specified columns.
+    DataFrame | Matrix
+        The dataframe or matrix with only the specified columns.
     """
-    dc = dc_inputs[0]
-
-    if dc.type != "dataframe":
-        raise ValueError(
-            f"unsupported DataContainer type passed to EXTRACT_COLUMNS node: {dc.type}"
-        )
-    columns: List[str] = params.get("columns", None)
-
-    df = cast(pd.DataFrame, dc.m)
-    new_df = df[columns] if columns else df
-    new_df = cast(pd.DataFrame, new_df)
-
-    return DataContainer(type="dataframe", m=new_df)
+    if isinstance(default, DataFrame):
+        df = default.m
+        new_df = df[columns.unwrap()] if columns else df
+        return DataFrame(df=new_df)
+    else:
+        matrix = default.m
+        indices = np.array(columns.unwrap(), dtype=int)
+        new_matrix = matrix[:, indices] if columns else matrix
+        return Matrix(m=new_matrix)

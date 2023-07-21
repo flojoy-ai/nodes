@@ -1,50 +1,62 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair
+from typing import Optional
 
 # Import the TicUSB library to send command to Tic drivers with USB connection
 from ticlib import TicUSB
 from time import sleep
 
 
-@flojoy
+@flojoy(deps={"ticlib": "0.2.2"})
 def STEPPER_DRIVER_TIC_KNOB(
-    dc_inputs: list[DataContainer], params: dict
-) -> DataContainer:
+    default: Optional[OrderedPair] = None,
+    knob_value: int = 0,
+    current_limit: int = 30,
+    sleep_time: int = 2,
+    speed: int = 200000,
+) -> OrderedPair:
     """
-    Takes knob position as parameters to control the rotation of the motor and allow to control position
-    and speed of a motor with a TIC driver
+     The STEPPER_DRIVER_TIC_KNOB controls a stepper motor movement with a TIC driver.
+     The user controls the motor rotation with the knob position in the node's parameters.
+
+
+    Parameters :
+    ------------
+        knob_value: int
+            Defines the position of the motor. (Rotational movement)
+
+
+        current_limit: int
+            Defines the current limitation that the stepper motor will receive.
+
+
+        sleep_time: int
+             Defines the sleep time after moving to each position.
+
+
+        speed: int
+             Defines the speed of the motor movement. (Between 0 and 200000)
+
     """
-
-    speed: int = params["speed"]
-    sleep_time: int = params["sleep_time"]
-    current_limit: int = params["current_limit"]
-
     # Converting the knob value into a position
-    knob_position: int = 2 * params["knob_value"]
+    knob_position: int = 2 * knob_value
 
     # Declaration of the stepper driver (You can add serial number to specify the driver)
     tic: TicUSB = TicUSB()
-    tic.set_current_limit(current_limit)  # Set the current limit for the driver TIC
+    # Set the current limit for the driver TIC
+    tic.set_current_limit(current_limit)
     tic.energize()  # Turn on the driver
     tic.exit_safe_start()  # The driver is now ready to receive commands
-    tic.set_max_speed(speed)  # Set maximum speed for the motor during first movement.
+    # Set maximum speed for the motor during first movement.
+    tic.set_max_speed(speed)
 
     tic.halt_and_set_position(0)  # Set initial position to origin
     sleep(sleep_time)
 
-    tic.set_target_position(knob_position)  # Set target position for the first movement
+    # Set target position for the first movement
+    tic.set_target_position(knob_position)
     sleep(sleep_time)
 
     tic.deenergize()
     tic.enter_safe_start()
 
-    return DataContainer(x={"a": knob_position, "b": knob_position}, y=knob_position)
-
-
-@flojoy
-def STEPPER_DRIVER_TIC_KNOB_MOCK(
-    dc_inputs: list[DataContainer], params: dict
-) -> DataContainer:
-    """Mock function for the stepper driver node"""
-    positions: list[int] = [50, 100, 150, 200]  # Setting default positions
-    speeds: list[int] = [50000, 1000000, 150000, 200000]  # Setting default speeds
-    return DataContainer(x={"a": positions, "b": speeds}, y=positions)
+    return OrderedPair(x=knob_position, y=speed)

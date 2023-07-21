@@ -1,19 +1,27 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.stats
 
 
-@flojoy
-def TMIN(dc, params):
-    """
+@flojoy(node_type="default")
+def TMIN(
+    default: OrderedPair | Matrix,
+    lowerlimit: None or float,
+    axis: int = 0,
+    inclusive: bool = True,
+    nan_policy: str = "propagate",
+) -> OrderedPair | Matrix | Scalar:
+    """The TMIN node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Compute the trimmed minimum.
 
             This function finds the miminum value of an array `a` along the
             specified axis, but only considering values greater than a specified
             lower limit.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -36,22 +44,22 @@ def TMIN(dc, params):
     * 'propagate': returns nan
     * 'raise': throws an error
     * 'omit': performs the calculations ignoring nan values
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
+
+    result = OrderedPair(
+        x=default.x,
         y=scipy.stats.tmin(
-            a=dc[0].y,
-            lowerlimit=(
-                None or float(params["lowerlimit"])
-                if params["lowerlimit"] != ""
-                else None
-            ),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            inclusive=(
-                bool(params["inclusive"]) if params["inclusive"] != "" else None
-            ),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
+            a=default.y,
+            lowerlimit=lowerlimit,
+            axis=axis,
+            inclusive=inclusive,
+            nan_policy=nan_policy,
         ),
     )
+
+    return result

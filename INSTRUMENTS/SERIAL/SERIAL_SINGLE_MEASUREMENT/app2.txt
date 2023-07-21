@@ -4,199 +4,266 @@
             {
                 "width": 210,
                 "height": 130,
-                "id": "END-8451bed9-cff5-450d-981c-2a1a9ac7ba00",
-                "type": "TERMINATOR",
+                "id": "END-04176810-8104-4747-9a8f-df79d12c5298",
+                "type": "TERMINATORS",
                 "data": {
-                    "id": "END-8451bed9-cff5-450d-981c-2a1a9ac7ba00",
+                    "id": "END-04176810-8104-4747-9a8f-df79d12c5298",
                     "label": "END",
                     "func": "END",
-                    "type": "TERMINATOR",
+                    "type": "TERMINATORS",
                     "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 1072.3794118326769,
-                    "y": 18.11570126008138
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1072.3794118326769,
-                    "y": 18.11570126008138
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "SERIAL_SINGLE_MEASUREMENT-88e218f0-3953-415d-a175-495083a69a50",
-                "type": "SERIAL",
-                "data": {
-                    "id": "SERIAL_SINGLE_MEASUREMENT-88e218f0-3953-415d-a175-495083a69a50",
-                    "label": "SERIAL SINGLE MEASUREMENT",
-                    "func": "SERIAL_SINGLE_MEASUREMENT",
-                    "type": "SERIAL",
-                    "ctrls": {
-                        "comport": {
-                            "functionName": "SERIAL_SINGLE_MEASUREMENT",
-                            "param": "comport",
-                            "value": "/dev/ttyACM0"
-                        },
-                        "baudrate": {
-                            "functionName": "SERIAL_SINGLE_MEASUREMENT",
-                            "param": "baudrate",
-                            "value": 9600
-                        }
-                    },
-                    "pip_dependencies": [
+                    "inputs": [
                         {
-                            "name": "pyserial",
-                            "v": "3.5"
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
                         }
                     ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 23.165559237996774,
-                    "y": 299.2962219770965
+                    "x": 727.5620922738772,
+                    "y": -331.23685339173863
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 23.165559237996774,
-                    "y": 299.2962219770965
+                    "x": 727.5620922738772,
+                    "y": -331.23685339173863
                 },
                 "dragging": true
             },
             {
                 "width": 225,
                 "height": 226,
-                "id": "BAR-abbdb4f0-243c-4b9f-99a5-705260a27684",
-                "type": "PLOTLY_VISOR",
+                "id": "BAR-a5dad7fa-f6be-4814-9b64-a5c67318c653",
+                "type": "PLOTLY",
                 "data": {
-                    "id": "BAR-abbdb4f0-243c-4b9f-99a5-705260a27684",
+                    "id": "BAR-a5dad7fa-f6be-4814-9b64-a5c67318c653",
                     "label": "BAR",
                     "func": "BAR",
-                    "type": "PLOTLY_VISOR",
+                    "type": "PLOTLY",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/BAR/BAR.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 501.4117300408145,
-                    "y": 208.08974570711524
+                    "x": 686.786951072918,
+                    "y": -78.66520436501193
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 501.4117300408145,
-                    "y": 208.08974570711524
+                    "x": 686.786951072918,
+                    "y": -78.66520436501193
                 },
                 "dragging": true
             },
             {
                 "width": 150,
                 "height": 150,
-                "id": "GOTO-c30e8ba4-8d9e-4282-84b4-32b79a48b51b",
-                "type": "LOOP",
+                "id": "SERIAL_SINGLE_MEASUREMENT-e2db0dcb-93ee-4548-babe-27a69ed71b1b",
+                "type": "SERIAL",
                 "data": {
-                    "id": "GOTO-c30e8ba4-8d9e-4282-84b4-32b79a48b51b",
-                    "label": "GOTO",
-                    "func": "GOTO",
-                    "type": "LOOP",
+                    "id": "SERIAL_SINGLE_MEASUREMENT-e2db0dcb-93ee-4548-babe-27a69ed71b1b",
+                    "label": "SERIAL SINGLE MEASUREMENT",
+                    "func": "SERIAL_SINGLE_MEASUREMENT",
+                    "type": "SERIAL",
                     "ctrls": {
-                        "goto_node_id": {
-                            "functionName": "GOTO",
-                            "param": "goto_node_id",
-                            "value": "LOOP-36b15670-b814-4cbb-9a9a-d4cdd4888d1c"
+                        "comport": {
+                            "type": "str",
+                            "default": "/dev/ttyUSB0",
+                            "functionName": "SERIAL_SINGLE_MEASUREMENT",
+                            "param": "comport",
+                            "value": "/dev/ttyUSB0"
+                        },
+                        "baudrate": {
+                            "type": "int",
+                            "default": 9600,
+                            "functionName": "SERIAL_SINGLE_MEASUREMENT",
+                            "param": "baudrate",
+                            "value": 9600
                         }
                     },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyserial",
+                            "v": "3.5"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/INSTRUMENTS/SERIAL/SERIAL_SINGLE_MEASUREMENT/SERIAL_SINGLE_MEASUREMENT.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1091.880254874775,
-                    "y": 247.4188216253733
+                    "x": 334.5744013090113,
+                    "y": -48.9209187306393
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1091.880254874775,
-                    "y": 247.4188216253733
+                    "x": 334.5744013090113,
+                    "y": -48.9209187306393
                 },
                 "dragging": true
             },
             {
                 "width": 150,
-                "height": 181,
-                "id": "LOOP-36b15670-b814-4cbb-9a9a-d4cdd4888d1c",
-                "type": "LOOP",
+                "height": 150,
+                "id": "GOTO-28cca0a5-e56e-4007-aac9-dc0f7b0dc982",
+                "type": "LOOPS",
                 "data": {
-                    "id": "LOOP-36b15670-b814-4cbb-9a9a-d4cdd4888d1c",
-                    "label": "LOOP",
-                    "func": "LOOP",
-                    "type": "LOOP",
+                    "id": "GOTO-28cca0a5-e56e-4007-aac9-dc0f7b0dc982",
+                    "label": "GOTO",
+                    "func": "GOTO",
+                    "type": "LOOPS",
                     "ctrls": {
-                        "num_loops": {
-                            "functionName": "LOOP",
-                            "param": "num_loops",
-                            "value": "6"
+                        "goto_node_id": {
+                            "type": "NodeReference",
+                            "default": null,
+                            "functionName": "GOTO",
+                            "param": "goto_node_id",
+                            "value": ""
                         }
                     },
                     "inputs": [
                         {
-                            "name": "end",
-                            "id": "end",
-                            "type": "source"
-                        },
-                        {
-                            "name": "body",
-                            "id": "body",
-                            "type": "source"
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
                         }
                     ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/LOOPS/GOTO/GOTO.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -514.9768879823679,
-                    "y": 206.82659796438418
+                    "x": 1142.5132442439547,
+                    "y": -40.015875136593195
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -514.9768879823679,
-                    "y": 206.82659796438418
+                    "x": 1142.5132442439547,
+                    "y": -40.015875136593195
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LOOP-b4dadde1-5f9a-4f14-bcb6-c1670f2c8553",
+                "type": "LOOPS",
+                "data": {
+                    "id": "LOOP-b4dadde1-5f9a-4f14-bcb6-c1670f2c8553",
+                    "label": "LOOP",
+                    "func": "LOOP",
+                    "type": "LOOPS",
+                    "ctrls": {
+                        "num_loops": {
+                            "type": "int",
+                            "default": -1,
+                            "functionName": "LOOP",
+                            "param": "num_loops",
+                            "value": -1
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "body",
+                            "id": "body",
+                            "type": "Any"
+                        },
+                        {
+                            "name": "end",
+                            "id": "end",
+                            "type": "Any"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/LOOPS/LOOP/LOOP.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": -98.62703315479877,
+                    "y": -49.88271897404249
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": -98.62703315479877,
+                    "y": -49.88271897404249
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "SERIAL_SINGLE_MEASUREMENT-88e218f0-3953-415d-a175-495083a69a50",
-                "sourceHandle": "main",
-                "target": "BAR-abbdb4f0-243c-4b9f-99a5-705260a27684",
-                "targetHandle": "BAR",
-                "id": "reactflow__edge-SERIAL_SINGLE_MEASUREMENT-88e218f0-3953-415d-a175-495083a69a50main-BAR-abbdb4f0-243c-4b9f-99a5-705260a27684BAR"
+                "source": "SERIAL_SINGLE_MEASUREMENT-e2db0dcb-93ee-4548-babe-27a69ed71b1b",
+                "sourceHandle": "default",
+                "target": "BAR-a5dad7fa-f6be-4814-9b64-a5c67318c653",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SERIAL_SINGLE_MEASUREMENT-e2db0dcb-93ee-4548-babe-27a69ed71b1bdefault-BAR-a5dad7fa-f6be-4814-9b64-a5c67318c653default"
             },
             {
-                "source": "BAR-abbdb4f0-243c-4b9f-99a5-705260a27684",
-                "sourceHandle": "main",
-                "target": "GOTO-c30e8ba4-8d9e-4282-84b4-32b79a48b51b",
-                "targetHandle": "GOTO",
-                "id": "reactflow__edge-BAR-abbdb4f0-243c-4b9f-99a5-705260a27684main-GOTO-c30e8ba4-8d9e-4282-84b4-32b79a48b51bGOTO"
+                "source": "BAR-a5dad7fa-f6be-4814-9b64-a5c67318c653",
+                "sourceHandle": "default",
+                "target": "GOTO-28cca0a5-e56e-4007-aac9-dc0f7b0dc982",
+                "targetHandle": "default",
+                "id": "reactflow__edge-BAR-a5dad7fa-f6be-4814-9b64-a5c67318c653default-GOTO-28cca0a5-e56e-4007-aac9-dc0f7b0dc982default"
             },
             {
-                "source": "LOOP-36b15670-b814-4cbb-9a9a-d4cdd4888d1c",
-                "sourceHandle": "end",
-                "target": "END-8451bed9-cff5-450d-981c-2a1a9ac7ba00",
-                "targetHandle": "END",
-                "id": "reactflow__edge-LOOP-36b15670-b814-4cbb-9a9a-d4cdd4888d1cend-END-8451bed9-cff5-450d-981c-2a1a9ac7ba00END"
-            },
-            {
-                "source": "LOOP-36b15670-b814-4cbb-9a9a-d4cdd4888d1c",
+                "source": "LOOP-b4dadde1-5f9a-4f14-bcb6-c1670f2c8553",
                 "sourceHandle": "body",
-                "target": "SERIAL_SINGLE_MEASUREMENT-88e218f0-3953-415d-a175-495083a69a50",
-                "targetHandle": "SERIAL_SINGLE_MEASUREMENT",
-                "id": "reactflow__edge-LOOP-36b15670-b814-4cbb-9a9a-d4cdd4888d1cbody-SERIAL_SINGLE_MEASUREMENT-88e218f0-3953-415d-a175-495083a69a50SERIAL_SINGLE_MEASUREMENT"
+                "target": "SERIAL_SINGLE_MEASUREMENT-e2db0dcb-93ee-4548-babe-27a69ed71b1b",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOOP-b4dadde1-5f9a-4f14-bcb6-c1670f2c8553body-SERIAL_SINGLE_MEASUREMENT-e2db0dcb-93ee-4548-babe-27a69ed71b1bdefault"
+            },
+            {
+                "source": "LOOP-b4dadde1-5f9a-4f14-bcb6-c1670f2c8553",
+                "sourceHandle": "end",
+                "target": "END-04176810-8104-4747-9a8f-df79d12c5298",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOOP-b4dadde1-5f9a-4f14-bcb6-c1670f2c8553end-END-04176810-8104-4747-9a8f-df79d12c5298default"
             }
         ],
         "viewport": {
-            "x": 274.2885144771319,
-            "y": 91.99054757719483,
-            "zoom": 0.8292925607774201
+            "x": -358.59636577932724,
+            "y": 99.85117439980638,
+            "zoom": 1.0581352782820395
         }
     },
     "ctrlsManifest": [

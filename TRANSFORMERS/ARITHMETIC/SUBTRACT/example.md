@@ -1,3 +1,3 @@
-In this example, we `SUBTRACT` the outputs of two identical `LINSPACE` nodes. 
+In this example, `SUBTRACT` node is used in the process of subtracting sine function.
 
-As expected, when we check the output of the app, we see 0 everywhere, as expected!
+In the result, it generated a negative sine function which is visable through `SCATTER` node.

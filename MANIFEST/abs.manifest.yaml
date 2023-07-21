@@ -1,7 +1,0 @@
-COMMAND:
-    - {
-        name: "Absolute",
-        key: "ABS",
-        type: "ARITHMETIC",
-      }
-  

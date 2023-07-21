@@ -1,18 +1,25 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.stats
 
 
-@flojoy
-def SEM(dc, params):
-    """
+@flojoy(node_type="default")
+def SEM(
+    default: OrderedPair | Matrix,
+    axis: int = 0,
+    ddof: int = 1,
+    nan_policy: str = "propagate",
+) -> OrderedPair | Matrix | Scalar:
+    """The SEM node is based on a numpy or scipy function.
+    The description of that function is as follows:
+
             Compute standard error of the mean.
 
             Calculate the standard error of the mean (or standard error of
             measurement) of the values in the input array.
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
     Parameters
     ----------
@@ -33,15 +40,21 @@ def SEM(dc, params):
     * 'propagate': returns nan
     * 'raise': throws an error
     * 'omit': performs the calculations ignoring nan values
+
+    Returns
+    ----------
+    DataContainer:
+            type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
+
+    result = OrderedPair(
+        x=default.x,
         y=scipy.stats.sem(
-            a=dc[0].y,
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-            ddof=(int(params["ddof"]) if params["ddof"] != "" else None),
-            nan_policy=(
-                str(params["nan_policy"]) if params["nan_policy"] != "" else None
-            ),
+            a=default.y,
+            axis=axis,
+            ddof=ddof,
+            nan_policy=nan_policy,
         ),
     )
+
+    return result
