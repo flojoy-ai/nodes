@@ -16,7 +16,6 @@ RETRY_SLEEP_TIME_IN_SECONDS = 1
 @flojoy
 @run_in_venv(
     pip_dependencies=[
-        "stability-sdk==0.8.3",
         "Pillow==10.0.0",
         "requests==2.28.1"
     ]
