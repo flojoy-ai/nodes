@@ -9,10 +9,12 @@ import numpy as np
 from PIL import Image
 from stability_sdk import client
 import stability_sdk.interfaces.gooseai.generation.generation_pb2 as generation
-
+import time
 
 
 ACCEPTED_IMAGE_FORMATS = [".jpg", ".jpeg", ".png"]
+MAX_RETRY_ATTEMPTS = 3
+RETRY_SLEEP_TIME_IN_SECONDS = 1
 
 
 def get_image_from_answers(answers):
@@ -89,16 +91,24 @@ def STABILITY_IMAGE_TO_IMAGE(
             raise ValueError(f"file {image_path} does not exist!")
 
         img = Image.open(image_path)
+    
+    for _ in range(MAX_RETRY_ATTEMPTS):
+        try:
+            answers = stability_api.generate(
+                prompt=prompt,
+                init_image=img,
+                width=width, 
+                height=height,
+                cfg_scale=cfg_scale
+            )
 
-    answers = stability_api.generate(
-        prompt=prompt,
-        init_image=img,
-        width=width, 
-        height=height,
-        cfg_scale=cfg_scale
-    )
+            output_image = get_image_from_answers(answers)
+            break
+        except Exception as e:
+            print(f"Error while generating image: {e}")
+            time.sleep(RETRY_SLEEP_TIME_IN_SECONDS)
+            
 
-    output_image = get_image_from_answers(answers)
     if not output_image:
         raise Exception("Something went wrong when generating image.")
     
