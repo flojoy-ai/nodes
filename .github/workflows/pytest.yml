@@ -24,4 +24,4 @@ jobs:
 
       - name: pytest
         run: |
-          python -m pytest -vv -s .
+          python -m pytest -n auto -vv -s .
