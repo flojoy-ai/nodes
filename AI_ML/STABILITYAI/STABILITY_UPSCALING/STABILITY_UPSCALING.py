@@ -1,34 +1,26 @@
 import numpy as np
-from flojoy import flojoy, Image as FlojoyImage
+from flojoy import flojoy, Image as FlojoyImage, run_in_venv
 from typing import Optional
 from PIL import Image
 import os
 import io
 from pathlib import Path
-import warnings
 from PIL import Image
-from stability_sdk import client
-import stability_sdk.interfaces.gooseai.generation.generation_pb2 as generation
+import requests
 
 
 ACCEPTED_IMAGE_FORMATS = [".jpg", ".jpeg", ".png"]
-
-
-def get_image_from_answers(answers):
-    for resp in answers:
-        for artifact in resp.artifacts:
-            if artifact.finish_reason == generation.FILTER:
-                warnings.warn(
-                    "Your request activated the API's safety filters and could not be processed."
-                    "Please modify the prompt and try again."
-                )
-            if artifact.type == generation.ARTIFACT_IMAGE:
-                output_image = Image.open(io.BytesIO(artifact.binary))
-                return output_image
-    return None
+MAX_RETRY_ATTEMPTS = 3
+RETRY_SLEEP_TIME_IN_SECONDS = 1
 
 
 @flojoy
+@run_in_venv(
+    pip_dependencies=[
+        "Pillow==10.0.0",
+        "requests==2.28.1"
+    ]
+)
 def STABILITY_UPSCALING(
     default: Optional[FlojoyImage] = None,
     image_path: Optional[str] = None,
@@ -47,15 +39,10 @@ def STABILITY_UPSCALING(
     """
     engine_id = "esrgan-v1-x2plus"
     api_key = os.getenv("STABILITY_API_KEY")
+    api_host = os.getenv('API_HOST', 'https://api.stability.ai')
 
     if not api_key:
         raise ValueError("STABILITY_API_KEY environment variable is required")
-
-    stability_api = client.StabilityInference(
-        key=api_key,
-        upscale_engine=engine_id,
-        verbose=True,
-    )
 
     if default and getattr(default, "type") == "image":
         img_array_from_dc = np.stack([default.r, default.g, default.b], axis=2)
@@ -76,15 +63,32 @@ def STABILITY_UPSCALING(
 
         img = Image.open(image_path)
 
-    answers = stability_api.upscale(
-        init_image=img,
-        width=int(output_width),
-    )
+    
+    byte_io = io.BytesIO()
+    img.save(byte_io, 'png')
+    byte_io.seek(0)
 
-    output_image = get_image_from_answers(answers)
-    if not output_image:
-        raise Exception("Something went wrong when generating image.")
+    for _ in range(MAX_RETRY_ATTEMPTS):
+        response = requests.post(
+            f"{api_host}/v1/generation/{engine_id}/image-to-image/upscale",
+            headers={
+                "Accept": "image/png",
+                "Authorization": f"Bearer {api_key}"
+            },
+            files={
+                "image": byte_io
+            },
+            data={
+                "width": output_width,
+            }
+        )
+        if response.status_code != 500:
+            break
 
+    if response.status_code != 200:
+        print('Request failed with status code:', response.status_code)
+
+    output_image = Image.open(io.BytesIO(response.content))
     img_array = np.asarray(output_image)
     red_channel = img_array[:, :, 0]
     green_channel = img_array[:, :, 1]

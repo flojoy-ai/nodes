@@ -1,15 +1,26 @@
 import numpy as np
-from flojoy import flojoy, Image as FlojoyImage
+from flojoy import flojoy, Image as FlojoyImage, run_in_venv
 from typing import Optional
 from PIL import Image
 import requests
 import os
 import base64
 import io
+import time
 
+
+MAX_RETRY_ATTEMPTS = 3
+RETRY_SLEEP_TIME_IN_SECONDS = 1
 
 
 @flojoy
+@run_in_venv(
+    pip_dependencies=[
+        "stability-sdk==0.8.3",
+        "Pillow==10.0.0",
+        "requests==2.28.1"
+    ]
+)
 def STABILITY_TEXT_TO_IMAGE(
     prompt: str,
     width: Optional[int] = 512,
@@ -50,17 +61,26 @@ def STABILITY_TEXT_TO_IMAGE(
         "text": prompt
     }]
 
-    response = requests.post(
-        f"{api_host}/v1/generation/{engine_id}/text-to-image",
-        headers=headers,
-        json={
-            "text_prompts": prompts,
-            "height": height,
-            "width": width,
-            "samples": 1,
-            "cfg_scale": cfg_scale
-        }
-    )
+    for _ in range(MAX_RETRY_ATTEMPTS):
+        response = requests.post(
+            f"{api_host}/v1/generation/{engine_id}/text-to-image",
+            headers=headers,
+            json={
+                "text_prompts": prompts,
+                "height": height,
+                "width": width,
+                "samples": 1,
+                "cfg_scale": cfg_scale
+            }
+        )
+        if response.status_code != 500:
+            break
+        print(f"Retrying request. Status code: {response.status_code}")
+        time.sleep(RETRY_SLEEP_TIME_IN_SECONDS)
+
+    if response.status_code != 200:
+        print('Request failed with status code:', response.status_code)
+
     data = response.json()
     image_string = data["artifacts"][0].get('base64')
     image_bytes = base64.b64decode(image_string)
