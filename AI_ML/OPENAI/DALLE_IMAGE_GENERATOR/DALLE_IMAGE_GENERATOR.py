@@ -55,7 +55,6 @@ def DALLE_IMAGE_GENERATOR(
 
             print(f"Rate limit error, retrying in {API_RETRY_INTERVAL_IN_SECONDS} seconds")
             time.sleep(API_RETRY_INTERVAL_IN_SECONDS)
-            continue
 
     if not result.data:
         raise Exception("No image data in result")

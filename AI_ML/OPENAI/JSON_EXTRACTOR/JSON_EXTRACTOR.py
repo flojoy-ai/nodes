@@ -77,8 +77,6 @@ def JSON_EXTRACTOR(
 
             print(f"Rate limit error, retrying in {API_RETRY_INTERVAL_IN_SECONDS} seconds")
             time.sleep(API_RETRY_INTERVAL_IN_SECONDS)
-            continue
-    
 
     if not response.choices:
         raise Exception("No extraction choices found in response.")

@@ -70,7 +70,6 @@ def WHISPER_SPEECH_TO_TEXT(
 
                 print(f"Rate limit error, retrying in {API_RETRY_INTERVAL_IN_SECONDS} seconds")
                 time.sleep(API_RETRY_INTERVAL_IN_SECONDS)
-                continue
 
     if f is not None:
         f.close()
