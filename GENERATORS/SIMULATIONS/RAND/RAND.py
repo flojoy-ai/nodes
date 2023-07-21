@@ -53,7 +53,6 @@ def RAND(
     seed = random.randint(1, 10000)
     my_generator = np.random.default_rng(seed)
 
-
     match default:
         case OrderedPair():
             size = len(default.x)

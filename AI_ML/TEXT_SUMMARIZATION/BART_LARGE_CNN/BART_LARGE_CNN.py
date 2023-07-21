@@ -52,10 +52,8 @@ def BART_LARGE_CNN(default: DataFrame) -> DataFrame:
         )
         chunks = []
         step = 1024
-        #step = tokenizer.model_max_length - 1
-        for i in range(
-            0, len(inputs_no_trunc["input_ids"][0]), step
-        ):
+        # step = tokenizer.model_max_length - 1
+        for i in range(0, len(inputs_no_trunc["input_ids"][0]), step):
             chunk = inputs_no_trunc["input_ids"][0][i : i + step]
             chunks.append(torch.unsqueeze(chunk, 0))
         return chunks

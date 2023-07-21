@@ -18,7 +18,9 @@ def long_text():
 def test_BART_LARGE_CNN(mock_flojoy_decorator, long_text):
     import BART_LARGE_CNN
 
-    output = BART_LARGE_CNN.BART_LARGE_CNN(DataFrame(df=pd.DataFrame({"text": [long_text] * 3})))
+    output = BART_LARGE_CNN.BART_LARGE_CNN(
+        DataFrame(df=pd.DataFrame({"text": [long_text] * 3}))
+    )
     assert isinstance(output, DataFrame)
     assert output.m.shape == (3, 1)
     assert output.m.columns == ["summary_text"]

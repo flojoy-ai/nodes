@@ -4,17 +4,25 @@ import pandas as pd
 from flojoy import DataFrame, DataContainer
 from plotly.graph_objs import Figure
 
+
 @pytest.fixture
 def mock_prophet_model_json():
-    with open(os.path.join(os.path.dirname(__file__), "mock_prophet_model.json"), "r") as f:
+    with open(
+        os.path.join(os.path.dirname(__file__), "mock_prophet_model.json"), "r"
+    ) as f:
         return f.read()
+
 
 @pytest.fixture
 def mock_prophet_output_dataframe():
-    return pd.read_parquet(os.path.join(os.path.dirname(__file__), "mock_prophet_output_dataframe.parquet"))
+    return pd.read_parquet(
+        os.path.join(os.path.dirname(__file__), "mock_prophet_output_dataframe.parquet")
+    )
 
 
-def test_PROPHET_COMPONENTS(mock_flojoy_decorator, mock_prophet_model_json, mock_prophet_output_dataframe):
+def test_PROPHET_COMPONENTS(
+    mock_flojoy_decorator, mock_prophet_model_json, mock_prophet_output_dataframe
+):
     import PROPHET_COMPONENTS
 
     default = DataFrame(df=mock_prophet_output_dataframe)

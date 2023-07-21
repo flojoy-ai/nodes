@@ -4,8 +4,8 @@ import pandas as pd
 
 from flojoy import DataFrame
 
-def test_IFFT(mock_flojoy_decorator):
 
+def test_IFFT(mock_flojoy_decorator):
     import IFFT
 
     N = 600

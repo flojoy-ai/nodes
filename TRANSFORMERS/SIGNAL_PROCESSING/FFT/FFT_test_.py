@@ -4,9 +4,8 @@ from flojoy import OrderedPair
 
 
 def test_FFT(mock_flojoy_decorator):
-
     import FFT
-    
+
     N = 600
     T = 1.0 / 800.0
     x = np.linspace(0.0, N * T, N, endpoint=False)
@@ -18,7 +17,7 @@ def test_FFT(mock_flojoy_decorator):
         real_signal=False,
         sample_rate=800.0,
         display=True,
-    ) #type: ignore
+    )  # type: ignore
 
     yf = fft.fft(y)
     yf = np.abs(fft.fftshift(yf))

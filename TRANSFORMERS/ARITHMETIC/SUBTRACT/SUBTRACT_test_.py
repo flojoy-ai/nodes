@@ -4,28 +4,25 @@ from flojoy import OrderedPair, Vector, Scalar
 
 
 def test_SUBTRACT_vec_vec(mock_flojoy_decorator):
-
     import SUBTRACT
 
     x = Vector(v=np.arange(10, 20, 1))
     y = Vector(v=np.arange(20, 30, 1))
     res = SUBTRACT.SUBTRACT(a=x, b=[y])
 
-    np.testing.assert_allclose(res.v, x.v-y.v)
+    np.testing.assert_allclose(res.v, x.v - y.v)
 
 
 def test_SUBTRACT_vec_scalar(mock_flojoy_decorator):
-
     import SUBTRACT
 
     x = Vector(v=np.arange(-10, 10, 1))
     res = SUBTRACT.SUBTRACT(a=x, b=[Scalar(c=2), Scalar(c=3)])
 
-    np.testing.assert_allclose(res.v, (x.v-2)-3)
+    np.testing.assert_allclose(res.v, (x.v - 2) - 3)
 
 
 def test_SUBTRACT_ordered_pair_vector(mock_flojoy_decorator):
-
     import SUBTRACT
 
     x = np.arange(10, 20, 1)
@@ -34,4 +31,4 @@ def test_SUBTRACT_ordered_pair_vector(mock_flojoy_decorator):
     res = SUBTRACT.SUBTRACT(a=OrderedPair(x=x, y=y), b=[Vector(v=z)])
 
     np.testing.assert_allclose(res.x, x)
-    np.testing.assert_allclose(res.y, y-z)
+    np.testing.assert_allclose(res.y, y - z)

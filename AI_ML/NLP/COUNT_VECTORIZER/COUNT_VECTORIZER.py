@@ -33,6 +33,6 @@ def COUNT_VECTORIZER(default: DataFrame | Matrix | Vector) -> CountVectorizerOut
     X = vectorizer.fit_transform(data.flatten())
 
     x = pd.DataFrame({"tokens": vectorizer.get_feature_names_out()})
-    y = X.toarray() # type: ignore
+    y = X.toarray()  # type: ignore
 
     return CountVectorizerOutput(tokens=DataFrame(df=x), word_count_vector=Vector(v=y))

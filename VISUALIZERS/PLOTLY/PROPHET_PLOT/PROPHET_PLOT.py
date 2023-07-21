@@ -34,7 +34,7 @@ def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) ->
     import os
     import sys
     import prophet
-    
+
     import pandas as pd
     import numpy as np
 
@@ -54,7 +54,6 @@ def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) ->
         )  # PROPHET model expects first column to be `ds` and second to be `y`
         return df
 
-
     def _apply_macos_prophet_hotfix():
         """This is a hotfix for MacOS. See https://github.com/facebook/prophet/issues/2250#issuecomment-1559516328 for more detail"""
 
@@ -69,8 +68,8 @@ def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) ->
             print(f"Could not run prophet, applying hotfix...")
         else:
             return
-        
-        prophet_dir = prophet.__path__[0] # type: ignore
+
+        prophet_dir = prophet.__path__[0]  # type: ignore
         # Get stan dir
         stan_dir = os.path.join(prophet_dir, "stan_model")
         # Find cmdstan-xxxxx dir

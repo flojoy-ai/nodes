@@ -20,7 +20,7 @@ def test_COUNT_VECTORIZER(mock_flojoy_decorator):
     )
 
     # node under test
-    res = COUNT_VECTORIZER.COUNT_VECTORIZER(default=element_a) # type: ignore
+    res = COUNT_VECTORIZER.COUNT_VECTORIZER(default=element_a)  # type: ignore
 
     # check that the outputs look correct
     assert isinstance(res, dict)
