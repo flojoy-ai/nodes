@@ -1,37 +1,38 @@
-import numpy
-
-from functools import wraps
-from unittest.mock import patch
-
-from flojoy import DataContainer, Scalar
+import numpy as np
+from flojoy import Scalar, Vector, OrderedPair
 
 
-# Python functions are decorated at module-loading time, So we'll need to patch our decorator
-#  with a simple mock ,before loading the module.
+# Test for Scalar, Vector and OrderedPair
+
+def test_ABS_scalar(mock_flojoy_decorator):
+
+    import ABS
+
+    res = ABS.ABS(default=Scalar(c=-1.0))
+
+    assert res.x == -1.0
+    assert res.y == 1.0
 
 
-def mock_flojoy_decorator(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        return f(*args, **kwargs)
+def test_ABS_vector(mock_flojoy_decorator):
 
-    return decorated_function
+    import ABS
 
+    x = Vector(v=np.arange(-10, 10, 1))
+    res = ABS.ABS(default=x)
 
-# Patch the flojoy decorator that handles connecting our node to the App.
-patch("flojoy.flojoy", mock_flojoy_decorator).start()
-
-# After Patching the flojoy decorator, let's load the node under test.
-import ABS
+    np.testing.assert_allclose(res.x, x.v)
+    np.testing.assert_allclose(res.y, np.abs(x.v))
 
 
-def test_ABS():
-    # create the two ordered pair datacontainers
-    element_a = Scalar(c=-10)
+def test_ABS_ordered_pair(mock_flojoy_decorator):
 
-    # node under test
-    res = ABS.ABS([element_a], {})
+    import ABS
 
-    # check that the correct number of elements
-    for c in res.c:
-        assert c == 10
+    x = np.arange(-10, 10, 1)
+    y = np.arange(-20, 20, 1)
+    res = ABS.ABS(default=OrderedPair(x=x, y=y))
+
+    np.testing.assert_allclose(res.x, x)
+    np.testing.assert_allclose(res.y, np.abs(y))
+
