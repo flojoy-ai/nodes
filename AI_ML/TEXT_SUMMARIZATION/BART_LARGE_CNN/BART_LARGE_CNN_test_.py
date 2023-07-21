@@ -15,6 +15,7 @@ def long_text():
     return text
 
 
+@pytest.mark.slow
 def test_BART_LARGE_CNN(mock_flojoy_decorator, long_text):
     import BART_LARGE_CNN
 

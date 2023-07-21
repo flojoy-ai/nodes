@@ -14,6 +14,7 @@ def obama_image_array_rgb():
     return np.array(image)
 
 
+@pytest.mark.slow
 def test_NLP_CONNECT_VIT_GPT2(mock_flojoy_decorator, obama_image_array_rgb):
     import NLP_CONNECT_VIT_GPT2
 

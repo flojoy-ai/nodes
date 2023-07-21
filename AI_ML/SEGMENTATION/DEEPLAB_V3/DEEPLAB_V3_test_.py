@@ -24,6 +24,7 @@ def obama_segmentation_array_rgb():
     return np.array(image)
 
 
+@pytest.mark.slow
 def test_DEEPLAB_V3(
     mock_flojoy_decorator, obama_image_array_rgb, obama_segmentation_array_rgb
 ):
