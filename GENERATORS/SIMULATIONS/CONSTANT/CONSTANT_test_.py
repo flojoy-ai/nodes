@@ -1,27 +1,20 @@
 import numpy as np
-
-from functools import wraps
-from unittest.mock import patch
-
-from flojoy import DataContainer
+from flojoy import Vector
 
 
-def mock_flojoy_decorator(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        return f(*args, **kwargs)
-
-    return decorated_function
 
 
-patch("flojoy.flojoy", mock_flojoy_decorator).start()
-
-import CONSTANT
-
-
-def test_CONSTANT():
+def test_CONSTANT_fills_with_value(mock_flojoy_decorator):
     # node under test
-    res = CONSTANT.CONSTANT([], {"constant": 2})
+    import CONSTANT
 
-    # Check if they are equal
-    assert res.c == 2
+    res = CONSTANT.CONSTANT(default=None, constant=2.0)
+    assert np.all(res.y == 2.0)
+
+def test_CONSTANT_takes_x_as_input(mock_flojoy_decorator):
+    # node under test
+    import CONSTANT
+
+    x = Vector(v=np.arange(0, 99, 2))
+    res = CONSTANT.CONSTANT(default=x, constant=2.0)
+    np.testing.assert_allclose(res.x, x.v)
