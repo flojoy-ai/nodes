@@ -21,7 +21,10 @@ def mock_prophet_output_dataframe():
 
 
 def test_PROPHET_COMPONENTS(
-    mock_flojoy_decorator, mock_prophet_model_json, mock_prophet_output_dataframe
+    mock_flojoy_decorator,
+    mock_flojoy_cache_directory,
+    mock_prophet_model_json,
+    mock_prophet_output_dataframe,
 ):
     import PROPHET_COMPONENTS
 

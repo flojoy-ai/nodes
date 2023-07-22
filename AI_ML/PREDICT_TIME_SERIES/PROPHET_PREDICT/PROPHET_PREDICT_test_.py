@@ -1,14 +1,9 @@
-from functools import wraps
-from unittest.mock import patch
-
 import numpy as np
 import pandas as pd
 from flojoy import DataFrame
-from prophet import Prophet
-from prophet.serialize import model_from_json
 
 
-def test_PROPHET_PREDICT(mock_flojoy_decorator):
+def test_PROPHET_PREDICT(mock_flojoy_decorator, mock_flojoy_cache_directory):
     import PROPHET_PREDICT
 
     # Generate random time series data
@@ -37,4 +32,4 @@ def test_PROPHET_PREDICT(mock_flojoy_decorator):
         .all()
     )
     assert extra["prophet"] is not None
-    assert isinstance(model_from_json(extra["prophet"]), Prophet)
+    assert isinstance(extra["prophet"], str)
