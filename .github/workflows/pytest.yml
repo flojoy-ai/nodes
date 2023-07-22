@@ -39,4 +39,4 @@ jobs:
 
       - name: pytest
         run: |
-          python -m pytest -vv -m "${{ matrix.markers }}" .
+          python -m pytest -n auto -vv -m "${{ matrix.markers }}" .
