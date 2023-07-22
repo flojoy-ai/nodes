@@ -1,7 +1,5 @@
 import os
-import tempfile
 import pytest
-from unittest.mock import patch
 
 from PIL import Image as PIL_Image
 import numpy as np
@@ -27,24 +25,25 @@ def obama_segmentation_array_rgb():
 
 @pytest.mark.slow
 def test_DEEPLAB_V3(
-    mock_flojoy_decorator, obama_image_array_rgb, obama_segmentation_array_rgb
+    mock_flojoy_decorator,
+    mock_flojoy_cache_directory,
+    obama_image_array_rgb,
+    obama_segmentation_array_rgb
 ):
-    with tempfile.TemporaryDirectory() as tempdir:
-        with patch("flojoy.flojoy_node_venv._get_venv_cache_dir", return_value=tempdir) as mock_venv_cache_dir:
-            import DEEPLAB_V3
+    import DEEPLAB_V3
 
-            input_image = Image(
-                r=obama_image_array_rgb[:, :, 0],
-                g=obama_image_array_rgb[:, :, 1],
-                b=obama_image_array_rgb[:, :, 2],
-                a=None,
-            )
-            output_dc = DEEPLAB_V3.DEEPLAB_V3(default=input_image)  # type: ignore
-            output_segmentation = np.stack((output_dc.r, output_dc.g, output_dc.b), axis=2)
+    input_image = Image(
+        r=obama_image_array_rgb[:, :, 0],
+        g=obama_image_array_rgb[:, :, 1],
+        b=obama_image_array_rgb[:, :, 2],
+        a=None,
+    )
+    output_dc = DEEPLAB_V3.DEEPLAB_V3(default=input_image)  # type: ignore
+    output_segmentation = np.stack((output_dc.r, output_dc.g, output_dc.b), axis=2)
 
-            # Threshold both segmentation masks
-            output_segmentation = (output_segmentation > 0).astype(np.uint8) * 255
-            expected_segmentation = (obama_segmentation_array_rgb > 0).astype(np.uint8) * 255
+    # Threshold both segmentation masks
+    output_segmentation = (output_segmentation > 0).astype(np.uint8) * 255
+    expected_segmentation = (obama_segmentation_array_rgb > 0).astype(np.uint8) * 255
 
-            # Compare mean pixel difference of thresholded masks
-            assert np.mean(np.abs(output_segmentation - expected_segmentation)) < 1
+    # Compare mean pixel difference of thresholded masks
+    assert np.mean(np.abs(output_segmentation - expected_segmentation)) < 1

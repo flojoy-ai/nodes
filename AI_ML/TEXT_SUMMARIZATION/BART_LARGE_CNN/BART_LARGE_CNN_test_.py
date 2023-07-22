@@ -17,14 +17,13 @@ def long_text():
 
 
 @pytest.mark.slow
-def test_BART_LARGE_CNN(mock_flojoy_decorator, long_text):
-    with tempfile.TemporaryDirectory() as tempdir:
-        with patch("flojoy.flojoy_node_venv._get_venv_cache_dir", return_value=tempdir) as mock_venv_cache_dir:
-            import BART_LARGE_CNN
+def test_BART_LARGE_CNN(mock_flojoy_decorator, mock_flojoy_cache_directory, long_text):
 
-            output = BART_LARGE_CNN.BART_LARGE_CNN(
-                DataFrame(df=pd.DataFrame({"text": [long_text]}))
-            )
-            assert isinstance(output, DataFrame)
-            assert output.m.shape == (1, 1)
-            assert output.m.columns == ["summary_text"]
+    import BART_LARGE_CNN
+
+    output = BART_LARGE_CNN.BART_LARGE_CNN(
+        DataFrame(df=pd.DataFrame({"text": [long_text]}))
+    )
+    assert isinstance(output, DataFrame)
+    assert output.m.shape == (1, 1)
+    assert output.m.columns == ["summary_text"]
