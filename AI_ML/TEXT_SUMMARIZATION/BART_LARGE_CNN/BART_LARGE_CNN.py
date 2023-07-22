@@ -84,7 +84,8 @@ def BART_LARGE_CNN(default: DataFrame) -> DataFrame:
 
     column = input_df.columns[0]
 
-    output_df = pd.DataFrame(
-        input_df[column].apply(_summarize_text).rename("summary_text")
-    )
+    with torch.inference_mode():
+        output_df = pd.DataFrame(
+            input_df[column].apply(_summarize_text).rename("summary_text")
+        )
     return DataFrame(df=output_df)
