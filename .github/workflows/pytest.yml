@@ -32,7 +32,7 @@ jobs:
         id: cache-python-env
         uses: actions/cache@v3
         with:
-          path: ${{ env.pythonLocation }}
+          path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
 
       - name: Install dependencies within the environment
