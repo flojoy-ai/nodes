@@ -32,7 +32,7 @@ jobs:
         id: cache-python-env
         uses: actions/cache@v3
         with:
-          path: ~/.cache/pip
+          path: ${{ env.pythonLocation }}
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
 
       - name: Install dependencies within the environment
@@ -41,4 +41,4 @@ jobs:
 
       - name: pytest
         run: |
-          python -m pytest -vv -m ${{ matrix.markers }} --test-group-count ${{ matrix.test-group-count }} --test-group=${{ matrix.test-group }} .
+          python -m pytest -vv -m "${{ matrix.markers }}" --test-group-count ${{ matrix.test-group-count }} --test-group=${{ matrix.test-group }} .
