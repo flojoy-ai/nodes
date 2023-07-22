@@ -16,6 +16,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
+        test-group-count: [4]
+        test-group: [1, 2, 3, 4]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
@@ -29,4 +31,4 @@ jobs:
 
       - name: pytest
         run: |
-          python -m pytest -vv .
+          python -m pytest -vv --test-group-count ${{ matrix.test-group-count }} --test-group=${{ matrix.test-group }} .

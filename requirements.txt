@@ -44,5 +44,5 @@ tqdm==4.65.0
 tzdata==2023.3
 xlrd==2.0.1
 pytest==7.4.0
-pytest-xdist==3.3.1
+pytest-test-groups==1.0.3
 flojoy==0.1.5.dev13
