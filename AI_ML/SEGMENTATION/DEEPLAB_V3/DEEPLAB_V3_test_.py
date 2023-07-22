@@ -28,7 +28,7 @@ def test_DEEPLAB_V3(
     mock_flojoy_decorator,
     mock_flojoy_cache_directory,
     obama_image_array_rgb,
-    obama_segmentation_array_rgb
+    obama_segmentation_array_rgb,
 ):
     import DEEPLAB_V3
 
