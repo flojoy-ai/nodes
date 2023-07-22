@@ -1,9 +1,12 @@
-from flojoy import flojoy, DataFrame, Plotly, DataContainer
-from prophet.plot import plot_plotly
-from prophet.serialize import model_from_json
+from flojoy import flojoy, run_in_venv, DataFrame, Plotly, DataContainer
 
 
 @flojoy(deps={"prophet": "1.1.4", "holidays": "0.26", "pystan": "2.19.1.1"})
+@run_in_venv(
+    pip_dependencies=[
+        "prophet==1.1.4",
+    ]
+)
 def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) -> Plotly:
     """The PROPHET_PLOT node plots forecasted trend of the time series data passed in
 
@@ -38,7 +41,7 @@ def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) ->
     import pandas as pd
     import numpy as np
 
-    from prophet.plot import plot_components_plotly
+    from prophet.plot import plot_plotly
     from prophet.serialize import model_from_json
 
     def _make_dummy_dataframe_for_prophet():

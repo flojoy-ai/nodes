@@ -26,7 +26,7 @@ jobs:
 
       - name: pytest
         run: |
-          python -m pytest -n auto -vv .
+          python -m pytest -vv .
       
   pytest-mac:
     runs-on: macos-latest
@@ -42,7 +42,7 @@ jobs:
 
       - name: pytest
         run: |
-          python -m pytest -n auto -vv .
+          python -m pytest -vv .
     
   pytest-windows:
     runs-on: windows-latest
@@ -58,5 +58,5 @@ jobs:
 
       - name: pytest
         run: |
-          python -m pytest -n auto -vv .
+          python -m pytest -vv .
 
