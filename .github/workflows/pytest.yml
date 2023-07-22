@@ -12,8 +12,11 @@ on:
 # Run pytest on ubuntu, mac and windows
 
 jobs:
-  pytest-ubuntu:
-    runs-on: ubuntu-latest
+  pytest:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
 
@@ -27,36 +30,3 @@ jobs:
       - name: pytest
         run: |
           python -m pytest -vv .
-      
-  pytest-mac:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-          cache: "pip"
-
-      - run: pip install -r requirements.txt
-
-      - name: pytest
-        run: |
-          python -m pytest -vv .
-    
-  pytest-windows:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-          cache: "pip"
-
-      - run: pip install -r requirements.txt
-
-      - name: pytest
-        run: |
-          python -m pytest -vv .
-
