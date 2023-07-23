@@ -24,7 +24,7 @@ def test_PROPHET_PLOT(
     mock_flojoy_decorator,
     mock_flojoy_cache_directory,
     mock_prophet_output_dataframe,
-    mock_prophet_model_json
+    mock_prophet_model_json,
 ):
     import PROPHET_PLOT
 
