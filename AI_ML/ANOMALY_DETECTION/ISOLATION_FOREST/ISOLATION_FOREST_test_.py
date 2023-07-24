@@ -1,13 +1,10 @@
-import pytest
 from sklearn.datasets import fetch_kddcup99
 from sklearn.preprocessing import LabelEncoder
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_auc_score
 from flojoy import DataFrame as FlojoyDataFrame
 
 
-def test_ADD(mock_flojoy_decorator):
+def test_isolation_forest(mock_flojoy_decorator):
     import ISOLATION_FOREST
 
 

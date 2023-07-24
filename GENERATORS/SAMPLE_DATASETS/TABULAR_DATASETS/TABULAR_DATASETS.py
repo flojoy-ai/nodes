@@ -1,22 +1,15 @@
 from flojoy import flojoy, DataFrame as FlojoyDataframe
 from typing import Literal
-from sklearn.datasets import (
-    load_iris, 
-    load_diabetes, 
-    load_digits, 
-    load_wine, 
-    load_linnerud, 
-    load_breast_cancer
-)
+from sklearn import datasets
 
 
 DATASETS_MAP = {
-    "Iris": load_iris,
-    "Diabetes": load_diabetes,
-    "Digits": load_digits,
-    "Wine": load_wine,
-    "Linnerud": load_linnerud,
-    "Breast Cancer": load_breast_cancer
+    "Iris": datasets.load_iris,
+    "Diabetes": datasets.load_diabetes,
+    "Digits": datasets.load_digits,
+    "Wine": datasets.load_wine,
+    "Linnerud": datasets.load_linnerud,
+    "Breast Cancer": datasets.load_breast_cancer
 }
 
 
