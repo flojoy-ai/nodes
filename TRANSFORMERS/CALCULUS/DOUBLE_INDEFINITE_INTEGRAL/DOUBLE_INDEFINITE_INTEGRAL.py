@@ -3,28 +3,36 @@ import numpy as np
 
 
 @flojoy
-def DOUBLE_INDEFINITE_INTEGRAL(default: OrderedTriple) -> Matrix:
+def DOUBLE_INDEFINITE_INTEGRAL(default: OrderedTriple, width: int = 3, height: int = 3) -> Matrix:
     """
-    The INDEFINITE_INTEGRAL node takes three matrices and computes double integral.
-    It returns a matrix where each cell represents volumn up to the given point.
+    The DOUBLE_INDEFINITE_INTEGRAL node takes an OrderedTriple (x,y,z) and have the width and height parameter.
+    The width and height respectively represent the number of columns and rows that the x, y and z reshape matrices will have.
+    Here it's important to note that the length of x, y and z is the same and that the width times the height need to be equal to the length of x, y and z.
+    It computes the double integral approximation according to the matrices dimensions given and it returns a matrix where each cell represents volume up to the given point.
 
     Parameters
     ----------
-    None
+    width: int
+        Number of columns of the 3 matrices generate by reshaping the x, y and z columns of the OrderedTriple.
+    height: int
+        Number of rows of the 3 matrices generate by reshaping the x, y and z columns of the OrderedTriple.
 
     Returns
     -------
-    DataContainer:
-        type 'matrix', m
+    m: Matrix
+        matrix containing in each cell the volume up to that point.
     """
-    input_x = default.x
-    input_y = default.y
-    input_z = default.z
+    if np.divide(len(default.x), width) == height:
+        input_x = np.reshape(default.x, (height, width))
+        input_y = np.reshape(default.y, (height, width))
+        input_z = np.reshape(default.z, (height, width))
+    else:
+        raise ArithmeticError(f"Cannot reshape size {len(default.x)} in a matrix of {width} by {height}. Please enter appropriate width and height.")
 
     integrate = np.zeros_like(input_x)
 
     for i in range(1, len(input_x)):
-        for j in range(1, len(input_y)):
+        for j in range(1, width):
             cal = (
                 (input_x[i][j] - input_x[i][j - 1])
                 * (input_y[i][j] - input_y[i - 1][j])
@@ -41,7 +49,7 @@ def DOUBLE_INDEFINITE_INTEGRAL(default: OrderedTriple) -> Matrix:
     result = np.copy(integrate)
 
     for i in range(len(integrate)):
-        for j in range(1, len(integrate)):
+        for j in range(1, width):
             if i == 0:
                 result[i][j] = result[i][j - 1] + result[i][j]
             elif j == 1:
