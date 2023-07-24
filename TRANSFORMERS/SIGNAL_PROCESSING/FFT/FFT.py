@@ -9,6 +9,7 @@ from pandas import DataFrame as df
 def FFT(
     default: OrderedPair,
     window: Literal[
+        "none",
         "boxcar",
         "triang",
         "blackman",

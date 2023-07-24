@@ -1,6 +1,7 @@
 from typing import TypedDict
 from sklearn.feature_extraction.text import CountVectorizer
 from flojoy import flojoy, DataFrame, Matrix, Vector
+import numpy as np
 import pandas as pd
 
 
@@ -32,6 +33,6 @@ def COUNT_VECTORIZER(default: DataFrame | Matrix | Vector) -> CountVectorizerOut
     X = vectorizer.fit_transform(data.flatten())
 
     x = pd.DataFrame({"tokens": vectorizer.get_feature_names_out()})
-    y = X.toarray()
+    y = X.toarray()  # type: ignore
 
     return CountVectorizerOutput(tokens=DataFrame(df=x), word_count_vector=Vector(v=y))

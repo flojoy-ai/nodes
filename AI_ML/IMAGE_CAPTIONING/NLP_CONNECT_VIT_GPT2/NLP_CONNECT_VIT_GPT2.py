@@ -27,6 +27,7 @@ def NLP_CONNECT_VIT_GPT2(default: Image) -> DataFrame:
     import pandas as pd
 
     import transformers
+    import torch
     import torchvision.transforms.functional as TF
     from flojoy import snapshot_download
 
@@ -47,10 +48,11 @@ def NLP_CONNECT_VIT_GPT2(default: Image) -> DataFrame:
     feature_extractor = transformers.ViTImageProcessor.from_pretrained(local_repo_path)
     tokenizer = transformers.AutoTokenizer.from_pretrained(local_repo_path)
 
-    pixel_values = feature_extractor(images=[image], return_tensors="pt").pixel_values  # type: ignore
-    output_ids = model.generate(pixel_values, max_length=16, num_beams=4)  # type: ignore
-    preds = tokenizer.batch_decode(output_ids, skip_special_tokens=True)  # type: ignore
-    pred = preds[0].strip()
+    with torch.inference_mode():
+        pixel_values = feature_extractor(images=[image], return_tensors="pt").pixel_values  # type: ignore
+        output_ids = model.generate(pixel_values, max_length=16, num_beams=4)  # type: ignore
+        preds = tokenizer.batch_decode(output_ids, skip_special_tokens=True)  # type: ignore
+        pred = preds[0].strip()
 
     df_pred = pd.DataFrame.from_records([(pred,)], columns=["caption"])
 
