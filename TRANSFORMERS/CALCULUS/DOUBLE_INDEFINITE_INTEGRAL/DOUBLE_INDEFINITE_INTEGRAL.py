@@ -48,9 +48,9 @@ def DOUBLE_INDEFINITE_INTEGRAL(default: OrderedTriple, width: int = 3, height: i
 
     result = np.copy(integrate)
 
-    for i in range(len(integrate)):
+    for i in range(1, len(integrate)):
         for j in range(1, width):
-            if i == 0:
+            if i == 1:
                 result[i][j] = result[i][j - 1] + result[i][j]
             elif j == 1:
                 result[i][j] = result[i - 1][j] + result[i][j]
