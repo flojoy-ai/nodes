@@ -9,7 +9,7 @@ import scipy.stats
 @flojoy(node_type="default")
 def YEOJOHNSON(
     default: OrderedPair | Matrix,
-    lmbda: float,
+    lmbda: float = 0.1,
 ) -> OrderedPair | Matrix | Scalar:
     """The YEOJOHNSON node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -31,12 +31,14 @@ def YEOJOHNSON(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.yeojohnson(
-            x=default.y,
-            lmbda=lmbda,
-        ),
+    result = scipy.stats.yeojohnson(
+        x=default.y,
+        lmbda=lmbda,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

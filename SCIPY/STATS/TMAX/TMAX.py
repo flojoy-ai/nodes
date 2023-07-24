@@ -9,7 +9,7 @@ import scipy.stats
 @flojoy(node_type="default")
 def TMAX(
     default: OrderedPair | Matrix,
-    upperlimit: None or float,
+    upperlimit: float = 0.1,
     axis: int = 0,
     inclusive: bool = True,
     nan_policy: str = "propagate",
@@ -50,15 +50,17 @@ def TMAX(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.tmax(
-            a=default.y,
-            upperlimit=upperlimit,
-            axis=axis,
-            inclusive=inclusive,
-            nan_policy=nan_policy,
-        ),
+    result = scipy.stats.tmax(
+        a=default.y,
+        upperlimit=upperlimit,
+        axis=axis,
+        inclusive=inclusive,
+        nan_policy=nan_policy,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

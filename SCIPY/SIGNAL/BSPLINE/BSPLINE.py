@@ -9,7 +9,7 @@ import scipy.signal
 @flojoy(node_type="default")
 def BSPLINE(
     default: OrderedPair | Matrix,
-    n: int,
+    n: int = 2,
 ) -> OrderedPair | Matrix | Scalar:
     """The BSPLINE node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -29,12 +29,14 @@ def BSPLINE(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.signal.bspline(
-            x=default.y,
-            n=n,
-        ),
+    result = scipy.signal.bspline(
+        x=default.y,
+        n=n,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result
