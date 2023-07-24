@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataFrame as FlojoyDataframe, run_in_venv
+from flojoy import flojoy, DataFrame as FlojoyDataframe
 from typing import Literal
 from sklearn.datasets import (
     load_iris, 
@@ -41,7 +41,6 @@ def TABULAR_DATASETS(
     load_method = DATASETS_MAP[dataset]
     data = load_method(as_frame=True).frame
 
-    df = FlojoyDataframe(df=data)
-    return df
+    return FlojoyDataframe(df=data)
 
     
