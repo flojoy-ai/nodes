@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def TTEST_1SAMP(
     default: OrderedPair | Matrix,
     popmean: float or array_like,

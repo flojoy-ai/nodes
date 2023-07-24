@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def BINOM_TEST(
     default: OrderedPair | Matrix,
     n: int,

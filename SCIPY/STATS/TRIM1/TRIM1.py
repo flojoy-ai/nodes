@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def TRIM1(
     default: OrderedPair | Matrix,
     proportiontocut: float,

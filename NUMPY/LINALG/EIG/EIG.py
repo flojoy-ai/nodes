@@ -6,7 +6,7 @@ from typing import Literal
 import numpy.linalg
 
 
-@flojoy(node_type="default")
+@flojoy
 def EIG(
     default: Matrix,
     select_return: Literal["w", "v"] = "w",

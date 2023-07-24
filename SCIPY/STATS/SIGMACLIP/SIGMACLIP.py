@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def SIGMACLIP(
     default: OrderedPair | Matrix,
     low: float = 4.0,

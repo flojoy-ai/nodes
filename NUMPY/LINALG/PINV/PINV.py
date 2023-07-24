@@ -6,7 +6,7 @@ from typing import Literal
 import numpy.linalg
 
 
-@flojoy(node_type="default")
+@flojoy
 def PINV(
     default: Matrix,
     rcond: float = 1e-15,
