@@ -24,6 +24,19 @@ DATASETS_MAP = {
 def TABULAR_DATASETS(
     dataset: Literal["Iris", "Diabetes", "Digits", "Wine", "Linnerud", "Breast Cancer"] = "Iris"
 ) -> FlojoyDataframe:
+    """
+    The TABULAR_DATASETS node loads a tabular dataset from sklearn.datasets.
+
+    Parameters
+    ----------
+    dataset: str, default="Iris"
+        The name of the dataset to load. Options are: "Iris", "Diabetes", "Digits", "Wine", "Linnerud", "Breast Cancer".
+
+    Returns
+    -------
+    dataframe: FlojoyDataframe
+        The original dataframe for the input data.
+    """
     
     load_method = DATASETS_MAP[dataset]
     data = load_method(as_frame=True).frame
