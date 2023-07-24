@@ -2,7 +2,7 @@ import numpy as np
 from flojoy import flojoy, OrderedPair, Matrix, DataFrame
 
 
-@flojoy(node_type="default")
+@flojoy
 def APPEND(
     primary_dp: OrderedPair | Matrix | DataFrame,
     secondary_dp: OrderedPair | Matrix | DataFrame,
