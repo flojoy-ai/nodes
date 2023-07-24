@@ -45,14 +45,16 @@ def ZSCORE(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.zscore(
-            a=default.y,
-            axis=axis,
-            ddof=ddof,
-            nan_policy=nan_policy,
-        ),
+    result = scipy.stats.zscore(
+        a=default.y,
+        axis=axis,
+        ddof=ddof,
+        nan_policy=nan_policy,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

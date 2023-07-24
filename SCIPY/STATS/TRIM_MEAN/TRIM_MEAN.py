@@ -9,7 +9,7 @@ import scipy.stats
 @flojoy(node_type="default")
 def TRIM_MEAN(
     default: OrderedPair | Matrix,
-    proportiontocut: float,
+    proportiontocut: float = 0.1,
     axis: int = 0,
 ) -> OrderedPair | Matrix | Scalar:
     """The TRIM_MEAN node is based on a numpy or scipy function.
@@ -38,13 +38,15 @@ def TRIM_MEAN(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.trim_mean(
-            a=default.y,
-            proportiontocut=proportiontocut,
-            axis=axis,
-        ),
+    result = scipy.stats.trim_mean(
+        a=default.y,
+        proportiontocut=proportiontocut,
+        axis=axis,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result
