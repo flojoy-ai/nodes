@@ -1,0 +1,1 @@
+This app uses Stability AI REST API to generate an image based on a text prompt.

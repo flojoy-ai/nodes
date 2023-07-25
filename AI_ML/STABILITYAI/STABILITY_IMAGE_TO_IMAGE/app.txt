@@ -1,0 +1,191 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "LOCAL_FILE-1d8141bd-6079-4fbc-9e57-4010ad01d1df",
+                "type": "LOCAL_FILE_SYSTEM",
+                "data": {
+                    "id": "LOCAL_FILE-1d8141bd-6079-4fbc-9e57-4010ad01d1df",
+                    "label": "LOCAL FILE",
+                    "func": "LOCAL_FILE",
+                    "type": "LOCAL_FILE_SYSTEM",
+                    "ctrls": {
+                        "file_type": {
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_type",
+                            "value": "image"
+                        },
+                        "path": {
+                            "functionName": "LOCAL_FILE",
+                            "param": "path",
+                            "value": "/home/vinicius/Documents/work/flojoy/custom-nodes/notebooks/output/v1_txt2img_0.png"
+                        }
+                    },
+                    "pip_dependencies": [
+                        {
+                            "name": "xlrd",
+                            "v": "2.0.1"
+                        },
+                        {
+                            "name": "lxml",
+                            "v": "4.9.2"
+                        }
+                    ],
+                    "selected": false
+                },
+                "position": {
+                    "x": 99.40752387872573,
+                    "y": 183.7028075826588
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 99.40752387872573,
+                    "y": 183.7028075826588
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 150,
+                "id": "STABILITY_IMAGE_TO_IMAGE-3525e4f6-e104-43ff-9261-1f0b8953cad5",
+                "type": "STABILITYAI",
+                "data": {
+                    "id": "STABILITY_IMAGE_TO_IMAGE-3525e4f6-e104-43ff-9261-1f0b8953cad5",
+                    "label": "STABILITY IMAGE TO IMAGE",
+                    "func": "STABILITY_IMAGE_TO_IMAGE",
+                    "type": "STABILITYAI",
+                    "ctrls": {
+                        "prompt": {
+                            "functionName": "STABILITY_IMAGE_TO_IMAGE",
+                            "param": "prompt",
+                            "value": "An apocalyptic view style of a lighthouse on cliff. The sky must be red and dark"
+                        },
+                        "image_path": {
+                            "functionName": "STABILITY_IMAGE_TO_IMAGE",
+                            "param": "image_path",
+                            "value": ""
+                        },
+                        "width": {
+                            "functionName": "STABILITY_IMAGE_TO_IMAGE",
+                            "param": "width",
+                            "value": 512
+                        },
+                        "height": {
+                            "functionName": "STABILITY_IMAGE_TO_IMAGE",
+                            "param": "height",
+                            "value": 512
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 409.4075238787259,
+                    "y": 167.98852186837314
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 409.4075238787259,
+                    "y": 167.98852186837314
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-5ac9df10-fd93-4ef1-97da-b4ddf3fa4150",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "IMAGE-5ac9df10-fd93-4ef1-97da-b4ddf3fa4150",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 719.4075238787257,
+                    "y": 143.7028075826588
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 719.4075238787257,
+                    "y": 143.7028075826588
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-2df4757d-33d2-4ed7-a0af-9c3cf53c3df9",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-2df4757d-33d2-4ed7-a0af-9c3cf53c3df9",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 1159.4075238787257,
+                    "y": 207.98852186837308
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1159.4075238787257,
+                    "y": 207.98852186837308
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LOCAL_FILE-1d8141bd-6079-4fbc-9e57-4010ad01d1df",
+                "sourceHandle": "main",
+                "target": "STABILITY_IMAGE_TO_IMAGE-3525e4f6-e104-43ff-9261-1f0b8953cad5",
+                "targetHandle": "STABILITY_IMAGE_TO_IMAGE",
+                "id": "reactflow__edge-LOCAL_FILE-1d8141bd-6079-4fbc-9e57-4010ad01d1dfmain-STABILITY_IMAGE_TO_IMAGE-3525e4f6-e104-43ff-9261-1f0b8953cad5STABILITY_IMAGE_TO_IMAGE"
+            },
+            {
+                "source": "STABILITY_IMAGE_TO_IMAGE-3525e4f6-e104-43ff-9261-1f0b8953cad5",
+                "sourceHandle": "main",
+                "target": "IMAGE-5ac9df10-fd93-4ef1-97da-b4ddf3fa4150",
+                "targetHandle": "IMAGE",
+                "id": "reactflow__edge-STABILITY_IMAGE_TO_IMAGE-3525e4f6-e104-43ff-9261-1f0b8953cad5main-IMAGE-5ac9df10-fd93-4ef1-97da-b4ddf3fa4150IMAGE"
+            },
+            {
+                "source": "IMAGE-5ac9df10-fd93-4ef1-97da-b4ddf3fa4150",
+                "sourceHandle": "main",
+                "target": "END-2df4757d-33d2-4ed7-a0af-9c3cf53c3df9",
+                "targetHandle": "END",
+                "id": "reactflow__edge-IMAGE-5ac9df10-fd93-4ef1-97da-b4ddf3fa4150main-END-2df4757d-33d2-4ed7-a0af-9c3cf53c3df9END"
+            }
+        ],
+        "viewport": {
+            "x": 274.5956684687076,
+            "y": 75.62883486451528,
+            "zoom": 0.8302212198600376
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
