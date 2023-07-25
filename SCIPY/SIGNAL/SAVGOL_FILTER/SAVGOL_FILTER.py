@@ -9,8 +9,8 @@ import scipy.signal
 @flojoy(node_type="default")
 def SAVGOL_FILTER(
     default: OrderedPair | Matrix,
-    window_length: int,
-    polyorder: int,
+    window_length: int = 2,
+    polyorder: int = 1,
     deriv: int = 0,
     delta: float = 1.0,
     axis: int = -1,
@@ -68,18 +68,20 @@ def SAVGOL_FILTER(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.signal.savgol_filter(
-            x=default.y,
-            window_length=window_length,
-            polyorder=polyorder,
-            deriv=deriv,
-            delta=delta,
-            axis=axis,
-            mode=mode,
-            cval=cval,
-        ),
+    result = scipy.signal.savgol_filter(
+        x=default.y,
+        window_length=window_length,
+        polyorder=polyorder,
+        deriv=deriv,
+        delta=delta,
+        axis=axis,
+        mode=mode,
+        cval=cval,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

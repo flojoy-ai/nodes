@@ -9,7 +9,7 @@ import scipy.signal
 @flojoy(node_type="default")
 def HILBERT(
     default: OrderedPair | Matrix,
-    N: int,
+    N: int = 2,
     axis: int = -1,
 ) -> OrderedPair | Matrix | Scalar:
     """The HILBERT node is based on a numpy or scipy function.
@@ -35,13 +35,15 @@ def HILBERT(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.signal.hilbert(
-            x=default.y,
-            N=N,
-            axis=axis,
-        ),
+    result = scipy.signal.hilbert(
+        x=default.y,
+        N=N,
+        axis=axis,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

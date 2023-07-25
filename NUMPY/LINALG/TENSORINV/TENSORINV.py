@@ -1,4 +1,4 @@
-from flojoy import OrderedPair, flojoy, Matrix, Scalar
+from flojoy import flojoy, Matrix, Scalar
 import numpy as np
 from collections import namedtuple
 from typing import Literal
@@ -44,7 +44,7 @@ def TENSORINV(
 
     if isinstance(result, np.ndarray):
         result = Matrix(m=result)
-    elif isinstance(result, np.float64):
-        result = Scalar(c=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

@@ -30,7 +30,7 @@ def SIGMACLIP(
 
     Parameters
     ----------
-    select_return : This function has returns multiple Objects:
+    select_return : This function has returns multiple objects:
             ['clipped', 'lower', 'upper']. Select the desired one to return.
             See the respective function docs for descriptors.
     a : array_like
@@ -46,13 +46,26 @@ def SIGMACLIP(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.sigmaclip(
-            a=default.y,
-            low=low,
-            high=high,
-        ),
+    result = scipy.stats.sigmaclip(
+        a=default.y,
+        low=low,
+        high=high,
     )
+
+    return_list = ["clipped", "lower", "upper"]
+    if isinstance(result, tuple):
+        res_dict = {}
+        num = min(len(result), len(return_list))
+        for i in range(num):
+            res_dict[return_list[i]] = result[i]
+        result = res_dict[select_return]
+    else:
+        result = result._asdict()
+        result = result[select_return]
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result
