@@ -1,0 +1,8 @@
+COMMAND:
+  - name: WHISPER_SPEECH_TO_TEXT
+    key: WHISPER_SPEECH_TO_TEXT
+    type: OPENAI
+    parameters:
+      file_path:
+        type: string
+        default: 'path/to/file.mp3'

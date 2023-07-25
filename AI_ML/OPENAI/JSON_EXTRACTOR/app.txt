@@ -1,0 +1,129 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "JSON_EXTRACTOR-78390769-684a-4f27-830f-94d3d7a0a2f6",
+                "type": "OPENAI",
+                "data": {
+                    "id": "JSON_EXTRACTOR-78390769-684a-4f27-830f-94d3d7a0a2f6",
+                    "label": "JSON EXTRACTOR",
+                    "func": "JSON_EXTRACTOR",
+                    "type": "OPENAI",
+                    "ctrls": {
+                        "properties": {
+                            "functionName": "JSON_EXTRACTOR",
+                            "param": "properties",
+                            "value": "price,name,model"
+                        },
+                        "prompt": {
+                            "functionName": "JSON_EXTRACTOR",
+                            "param": "prompt",
+                            "value": "Headset Gamer Bluetooth MJ23 - $100"
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": -313.1830783573692,
+                    "y": 149.14039984367304
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -313.1830783573692,
+                    "y": 149.14039984367304
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-43b1a713-ccad-4fff-b598-955418842771",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "TABLE-43b1a713-ccad-4fff-b598-955418842771",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": true
+                },
+                "position": {
+                    "x": 27.345568694099768,
+                    "y": 117.0258591215906
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 27.345568694099768,
+                    "y": 117.0258591215906
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-70513d18-f5ff-4557-9fb4-2383ad9fb5a4",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-70513d18-f5ff-4557-9fb4-2383ad9fb5a4",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 527.7861184556114,
+                    "y": 160.2417188496932
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 527.7861184556114,
+                    "y": 160.2417188496932
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "JSON_EXTRACTOR-78390769-684a-4f27-830f-94d3d7a0a2f6",
+                "sourceHandle": "main",
+                "target": "TABLE-43b1a713-ccad-4fff-b598-955418842771",
+                "targetHandle": "TABLE",
+                "id": "reactflow__edge-JSON_EXTRACTOR-78390769-684a-4f27-830f-94d3d7a0a2f6main-TABLE-43b1a713-ccad-4fff-b598-955418842771TABLE"
+            },
+            {
+                "source": "TABLE-43b1a713-ccad-4fff-b598-955418842771",
+                "sourceHandle": "main",
+                "target": "END-70513d18-f5ff-4557-9fb4-2383ad9fb5a4",
+                "targetHandle": "END",
+                "id": "reactflow__edge-TABLE-43b1a713-ccad-4fff-b598-955418842771main-END-70513d18-f5ff-4557-9fb4-2383ad9fb5a4END"
+            }
+        ],
+        "viewport": {
+            "x": 122.96428571428567,
+            "y": 220.24999999999997,
+            "zoom": 0.5
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

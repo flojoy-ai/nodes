@@ -1,0 +1,8 @@
+COMMAND:
+  - name: DALLE_IMAGE_GENERATOR
+    key: DALLE_IMAGE_GENERATOR
+    type: OPENAI
+    parameters:
+      prompt:
+        type: string
+        default: 'A cute baby sea otter'

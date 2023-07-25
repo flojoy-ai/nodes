@@ -1,0 +1,11 @@
+COMMAND:
+  - name: JSON_EXTRACTOR
+    key: JSON_EXTRACTOR
+    type: OPENAI
+    parameters:
+      properties:
+        type: string
+        default: 'comma,separated,properties,to,extract'
+      prompt:
+        type: string
+        default: ''

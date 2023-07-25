@@ -1,4 +1,4 @@
-from flojoy import flojoy, Image, DataFrame
+from flojoy import flojoy, Image, DataFrame, Bytes
 from typing import Literal
 import numpy as np
 from PIL import Image as PIL_Image
@@ -17,8 +17,8 @@ def get_file_path(file_path: str, default_path: str | None = None):
 @flojoy(deps={"xlrd": "2.0.1", "lxml": "4.9.2"})
 def LOCAL_FILE(
     file_path: str,
-    file_type: Literal["Image", "JSON", "CSV", "Excel", "XML"] = "Image",
-) -> Image | DataFrame:
+    file_type: Literal["Image", "JSON", "CSV", "Excel", "XML", "mp3", "wav"] = "Image",
+) -> Image | DataFrame | Bytes:
     """The LOCAL_FILE node loads a local file of different type and converts it to a DataContainer class.
 
     Parameters
@@ -75,3 +75,8 @@ def LOCAL_FILE(
             file_path = get_file_path(file_path)
             df = pd.read_excel(file_path)
             return DataFrame(df=df)
+        case "mp3" | "wav":
+            file_path = get_file_path(file_path)
+            with open(file_path, "rb") as inp:
+                audio_bytes_stream = inp.read()
+            return Bytes(bytes=audio_bytes_stream)
