@@ -1,1 +1,1 @@
-An app that uses StabilitAI to generate a new image based on an input image and text.
+This app uses Stability AI Image-to-Image API to generate a new image based on a reference image and a text prompt.

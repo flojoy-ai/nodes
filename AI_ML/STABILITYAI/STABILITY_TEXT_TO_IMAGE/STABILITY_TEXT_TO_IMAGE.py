@@ -1,8 +1,6 @@
 import numpy as np
 from flojoy import flojoy, Image as FlojoyImage, run_in_venv
 from typing import Optional
-from PIL import Image
-import requests
 import os
 import base64
 import io
@@ -37,6 +35,9 @@ def STABILITY_TEXT_TO_IMAGE(
         Influences how strongly your generation is guided to match your prompt,
         higher values means more influence. Defaults to 7.0 if not specified.
     """
+    from PIL import Image
+    import requests
+    
     engine_id = "stable-diffusion-v1-5"
     api_host = "https://api.stability.ai"
     api_key = os.getenv("STABILITY_API_KEY")

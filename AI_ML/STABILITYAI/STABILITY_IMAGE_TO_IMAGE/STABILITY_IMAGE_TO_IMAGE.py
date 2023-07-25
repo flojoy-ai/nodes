@@ -5,10 +5,6 @@ from pathlib import Path
 import io
 import os
 import warnings
-import numpy as np
-from PIL import Image
-from stability_sdk import client
-import stability_sdk.interfaces.gooseai.generation.generation_pb2 as generation
 import time
 
 
@@ -44,7 +40,7 @@ def STABILITY_IMAGE_TO_IMAGE(
     cfg_scale: Optional[float] = 7.0,
 ) -> FlojoyImage:
     """
-    This node uses StabilityAI Image-to-Image API to generate an image based on an input image and a text prompt.
+    This node uses Stability AI Image-to-Image API to generate an image based on an input image and a text prompt.
     The image can be provided as a image file path or as a DataContainer Image object from a previous node.
     The previous node value has priority over the file path.
 
@@ -61,6 +57,10 @@ def STABILITY_IMAGE_TO_IMAGE(
         Influences how strongly your generation is guided to match your prompt,
         higher values means more influence. Defaults to 7.0 if not specified.
     """
+    import numpy as np
+    from PIL import Image
+    from stability_sdk import client
+    import stability_sdk.interfaces.gooseai.generation.generation_pb2 as generation
 
     model = "stable-diffusion-v1-5"
     api_key = os.environ.get("STABILITY_API_KEY")

@@ -1,12 +1,8 @@
-import numpy as np
 from flojoy import flojoy, Image as FlojoyImage, run_in_venv
 from typing import Optional
-from PIL import Image
 import os
 import io
 from pathlib import Path
-from PIL import Image
-import requests
 
 
 ACCEPTED_IMAGE_FORMATS = [".jpg", ".jpeg", ".png"]
@@ -32,6 +28,10 @@ def STABILITY_UPSCALING(
     output_width : int
         The output image width. Default is 1024.
     """
+    from PIL import Image
+    import requests
+    import numpy as np
+
     engine_id = "esrgan-v1-x2plus"
     api_key = os.getenv("STABILITY_API_KEY")
     api_host = os.getenv("API_HOST", "https://api.stability.ai")
