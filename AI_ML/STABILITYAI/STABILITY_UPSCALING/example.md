@@ -1,1 +1,1 @@
-An app that uses StabilitAI to upscale an image.
+This app uses Stability AI REST API to upscale an image.

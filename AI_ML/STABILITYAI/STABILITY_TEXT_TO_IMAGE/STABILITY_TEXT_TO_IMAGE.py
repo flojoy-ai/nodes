@@ -37,7 +37,7 @@ def STABILITY_TEXT_TO_IMAGE(
     """
     from PIL import Image
     import requests
-    
+
     engine_id = "stable-diffusion-v1-5"
     api_host = "https://api.stability.ai"
     api_key = os.getenv("STABILITY_API_KEY")

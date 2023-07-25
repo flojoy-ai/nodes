@@ -1,1 +1,1 @@
-An app that uses StabilitAI to generate a image based on a prompt.
+This app uses Stability AI REST API to generate an image based on a text prompt.
