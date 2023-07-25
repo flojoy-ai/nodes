@@ -1,6 +1,4 @@
 from flojoy import flojoy, DataFrame as FlojoyDataFrame, run_in_venv
-import openai
-import pandas as pd
 import os
 import json
 from copy import deepcopy
@@ -20,12 +18,7 @@ API_RETRY_INTERVAL_IN_SECONDS = 1
 
 
 @flojoy
-@run_in_venv(
-    pip_dependencies=[
-        "openai==0.27.8",
-        "pandas==2.0.2"
-    ]
-)
+@run_in_venv(pip_dependencies=["openai==0.27.8", "pandas==2.0.2"])
 def JSON_EXTRACTOR(
     properties: str,
     prompt: str,
@@ -40,6 +33,8 @@ def JSON_EXTRACTOR(
     prompt: string
         Text to extract information from. Example: "I'm John, I am 30 years old and I live in New York."
     """
+    import openai
+    import pandas as pd
 
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
@@ -69,13 +64,15 @@ def JSON_EXTRACTOR(
                 functions=[schema],
                 function_call={"name": schema.get("name", "json_extractor")},
             )
-            print(f'No error in attempt {i} of extraction.')
+            print(f"No error in attempt {i} of extraction.")
             break
         except openai.error.RateLimitError:
             if i > API_RETRY_ATTEMPTS:
                 raise Exception("Rate limit error. Max retries exceeded.")
 
-            print(f"Rate limit error, retrying in {API_RETRY_INTERVAL_IN_SECONDS} seconds")
+            print(
+                f"Rate limit error, retrying in {API_RETRY_INTERVAL_IN_SECONDS} seconds"
+            )
             time.sleep(API_RETRY_INTERVAL_IN_SECONDS)
 
     if not response.choices:

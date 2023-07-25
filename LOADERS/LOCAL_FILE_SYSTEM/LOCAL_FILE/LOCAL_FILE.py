@@ -77,7 +77,6 @@ def LOCAL_FILE(
             return DataFrame(df=df)
         case "mp3" | "wav":
             file_path = get_file_path(file_path)
-            with open(file_path, 'rb') as inp:
+            with open(file_path, "rb") as inp:
                 audio_bytes_stream = inp.read()
             return Bytes(bytes=audio_bytes_stream)
-
