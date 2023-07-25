@@ -28,11 +28,13 @@ def QUADRATIC(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.signal.quadratic(
-            x=default.y,
-        ),
+    result = scipy.signal.quadratic(
+        x=default.y,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

@@ -22,7 +22,7 @@ def DESCRIBE(
 
     Parameters
     ----------
-    select_return : This function has returns multiple Objects:
+    select_return : This function has returns multiple objects:
             ['nobs', 'mean', 'variance', 'skewness', 'kurtosis']. Select the desired one to return.
             See the respective function docs for descriptors.
     a : array_like
@@ -49,15 +49,28 @@ def DESCRIBE(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.describe(
-            a=default.y,
-            axis=axis,
-            ddof=ddof,
-            bias=bias,
-            nan_policy=nan_policy,
-        ),
+    result = scipy.stats.describe(
+        a=default.y,
+        axis=axis,
+        ddof=ddof,
+        bias=bias,
+        nan_policy=nan_policy,
     )
+
+    return_list = ["nobs", "mean", "variance", "skewness", "kurtosis"]
+    if isinstance(result, tuple):
+        res_dict = {}
+        num = min(len(result), len(return_list))
+        for i in range(num):
+            res_dict[return_list[i]] = result[i]
+        result = res_dict[select_return]
+    else:
+        result = result._asdict()
+        result = result[select_return]
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

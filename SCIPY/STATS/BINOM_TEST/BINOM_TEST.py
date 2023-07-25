@@ -9,7 +9,7 @@ import scipy.stats
 @flojoy
 def BINOM_TEST(
     default: OrderedPair | Matrix,
-    n: int,
+    n: int = 2,
     p: float = 0.5,
     alternative: str = "two-sided",
 ) -> OrderedPair | Matrix | Scalar:
@@ -46,14 +46,16 @@ def BINOM_TEST(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.binom_test(
-            x=default.y,
-            n=n,
-            p=p,
-            alternative=alternative,
-        ),
+    result = scipy.stats.binom_test(
+        x=default.y,
+        n=n,
+        p=p,
+        alternative=alternative,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

@@ -69,15 +69,17 @@ def VARIATION(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.variation(
-            a=default.y,
-            axis=axis,
-            nan_policy=nan_policy,
-            ddof=ddof,
-            keepdims=keepdims,
-        ),
+    result = scipy.stats.variation(
+        a=default.y,
+        axis=axis,
+        nan_policy=nan_policy,
+        ddof=ddof,
+        keepdims=keepdims,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

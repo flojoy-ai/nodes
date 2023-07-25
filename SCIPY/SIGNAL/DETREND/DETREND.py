@@ -46,15 +46,17 @@ def DETREND(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.signal.detrend(
-            data=default.y,
-            axis=axis,
-            type=type,
-            bp=bp,
-            overwrite_data=overwrite_data,
-        ),
+    result = scipy.signal.detrend(
+        data=default.y,
+        axis=axis,
+        type=type,
+        bp=bp,
+        overwrite_data=overwrite_data,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

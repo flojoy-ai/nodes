@@ -9,8 +9,8 @@ import scipy.signal
 @flojoy
 def DECIMATE(
     default: OrderedPair | Matrix,
-    q: int,
-    n: int,
+    q: int = 2,
+    n: int = 2,
     ftype: str = "iir",
     axis: int = -1,
     zero_phase: bool = True,
@@ -54,16 +54,18 @@ def DECIMATE(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.signal.decimate(
-            x=default.y,
-            q=q,
-            n=n,
-            ftype=ftype,
-            axis=axis,
-            zero_phase=zero_phase,
-        ),
+    result = scipy.signal.decimate(
+        x=default.y,
+        q=q,
+        n=n,
+        ftype=ftype,
+        axis=axis,
+        zero_phase=zero_phase,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

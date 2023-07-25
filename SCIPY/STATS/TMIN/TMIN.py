@@ -9,7 +9,7 @@ import scipy.stats
 @flojoy
 def TMIN(
     default: OrderedPair | Matrix,
-    lowerlimit: None or float,
+    lowerlimit: float = 0.1,
     axis: int = 0,
     inclusive: bool = True,
     nan_policy: str = "propagate",
@@ -51,15 +51,17 @@ def TMIN(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.tmin(
-            a=default.y,
-            lowerlimit=lowerlimit,
-            axis=axis,
-            inclusive=inclusive,
-            nan_policy=nan_policy,
-        ),
+    result = scipy.stats.tmin(
+        a=default.y,
+        lowerlimit=lowerlimit,
+        axis=axis,
+        inclusive=inclusive,
+        nan_policy=nan_policy,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

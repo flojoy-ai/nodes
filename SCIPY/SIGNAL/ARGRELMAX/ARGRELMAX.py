@@ -19,8 +19,7 @@ def ARGRELMAX(
 
             Calculate the relative maxima of `data`.
 
-    Parameters
-    ----------
+    Parameters ----------
     data : ndarray
             Array in which to find the relative maxima.
     axis : int, optional

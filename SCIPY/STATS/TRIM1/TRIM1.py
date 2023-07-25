@@ -9,7 +9,7 @@ import scipy.stats
 @flojoy
 def TRIM1(
     default: OrderedPair | Matrix,
-    proportiontocut: float,
+    proportiontocut: float = 0.1,
     tail: str = "right",
     axis: int = 0,
 ) -> OrderedPair | Matrix | Scalar:
@@ -42,14 +42,16 @@ def TRIM1(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.trim1(
-            a=default.y,
-            proportiontocut=proportiontocut,
-            tail=tail,
-            axis=axis,
-        ),
+    result = scipy.stats.trim1(
+        a=default.y,
+        proportiontocut=proportiontocut,
+        tail=tail,
+        axis=axis,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

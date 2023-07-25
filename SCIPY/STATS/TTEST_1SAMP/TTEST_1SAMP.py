@@ -9,7 +9,7 @@ import scipy.stats
 @flojoy
 def TTEST_1SAMP(
     default: OrderedPair | Matrix,
-    popmean: float or array_like,
+    popmean: float = 0.1,
     axis: int = 0,
     nan_policy: str = "propagate",
     alternative: str = "two-sided",
@@ -26,7 +26,7 @@ def TTEST_1SAMP(
 
     Parameters
     ----------
-    select_return : This function has returns multiple Objects:
+    select_return : This function has returns multiple objects:
             ['statistic', 'pvalue']. Select the desired one to return.
             See the respective function docs for descriptors.
     a : array_like
@@ -64,15 +64,28 @@ def TTEST_1SAMP(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.ttest_1samp(
-            a=default.y,
-            popmean=popmean,
-            axis=axis,
-            nan_policy=nan_policy,
-            alternative=alternative,
-        ),
+    result = scipy.stats.ttest_1samp(
+        a=default.y,
+        popmean=popmean,
+        axis=axis,
+        nan_policy=nan_policy,
+        alternative=alternative,
     )
+
+    return_list = ["statistic", "pvalue"]
+    if isinstance(result, tuple):
+        res_dict = {}
+        num = min(len(result), len(return_list))
+        for i in range(num):
+            res_dict[return_list[i]] = result[i]
+        result = res_dict[select_return]
+    else:
+        result = result._asdict()
+        result = result[select_return]
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

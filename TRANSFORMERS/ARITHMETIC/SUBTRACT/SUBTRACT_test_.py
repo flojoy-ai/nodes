@@ -1,40 +1,34 @@
-import numpy
+import numpy as np
 
-from functools import wraps
-from unittest.mock import patch
-
-from flojoy import OrderedPair, Scalar
+from flojoy import OrderedPair, Vector, Scalar
 
 
-# Python functions are decorated at module-loading time, So we'll need to patch our decorator
-#  with a simple mock ,before loading the module.
+def test_SUBTRACT_vec_vec(mock_flojoy_decorator):
+    import SUBTRACT
+
+    x = Vector(v=np.arange(10, 20, 1))
+    y = Vector(v=np.arange(20, 30, 1))
+    res = SUBTRACT.SUBTRACT(a=x, b=[y])
+
+    np.testing.assert_allclose(res.v, x.v - y.v)
 
 
-def mock_flojoy_decorator(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        return f(*args, **kwargs)
+def test_SUBTRACT_vec_scalar(mock_flojoy_decorator):
+    import SUBTRACT
 
-    return decorated_function
+    x = Vector(v=np.arange(-10, 10, 1))
+    res = SUBTRACT.SUBTRACT(a=x, b=[Scalar(c=2), Scalar(c=3)])
 
-
-# Patch the flojoy decorator that handles connecting our node to the App.
-patch("flojoy.flojoy", mock_flojoy_decorator).start()
-
-# After Patching the flojoy decorator, let's load the node under test.
-import SUBTRACT
+    np.testing.assert_allclose(res.v, (x.v - 2) - 3)
 
 
-def test_SUBTRACT():
-    # create the two ordered pair datacontainers
-    element_a = OrderedPair(x=numpy.linspace(-10, 10, 100), y=[11] * 100)
+def test_SUBTRACT_ordered_pair_vector(mock_flojoy_decorator):
+    import SUBTRACT
 
-    element_b = Scalar(c=10)
+    x = np.arange(10, 20, 1)
+    y = np.arange(20, 30, 1)
+    z = np.arange(30, 40, 1)
+    res = SUBTRACT.SUBTRACT(a=OrderedPair(x=x, y=y), b=[Vector(v=z)])
 
-    # node under test
-    res = SUBTRACT.SUBTRACT([element_a, element_b], {})
-
-    # check that the correct number of elements
-    assert (len(res.y)) == 100
-    for y in res.y:
-        assert y == 1
+    np.testing.assert_allclose(res.x, x)
+    np.testing.assert_allclose(res.y, y - z)
