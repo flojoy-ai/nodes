@@ -14,17 +14,12 @@ RETRY_SLEEP_TIME_IN_SECONDS = 1
 
 
 @flojoy
-@run_in_venv(
-    pip_dependencies=[
-        "Pillow==10.0.0",
-        "requests==2.28.1"
-    ]
-)
+@run_in_venv(pip_dependencies=["Pillow==10.0.0", "requests==2.28.1"])
 def STABILITY_TEXT_TO_IMAGE(
     prompt: str,
     width: Optional[int] = 512,
     height: Optional[int] = 512,
-    cfg_scale: Optional[float] = 7.0
+    cfg_scale: Optional[float] = 7.0,
 ) -> FlojoyImage:
     """
     The STABILITY_TEXT_TO_IMAGE node uses the STABILITY AI Rest API to convert text to an image.
@@ -39,7 +34,7 @@ def STABILITY_TEXT_TO_IMAGE(
     height : int
         The height of the image to be generated. Default is 512.
     cfg_scale: float
-        Influences how strongly your generation is guided to match your prompt, 
+        Influences how strongly your generation is guided to match your prompt,
         higher values means more influence. Defaults to 7.0 if not specified.
     """
     engine_id = "stable-diffusion-v1-5"
@@ -52,13 +47,11 @@ def STABILITY_TEXT_TO_IMAGE(
     headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
-        "Authorization": f"Bearer {api_key}"
+        "Authorization": f"Bearer {api_key}",
     }
     if prompt is None:
         raise ValueError("Prompt is required")
-    prompts = [{
-        "text": prompt
-    }]
+    prompts = [{"text": prompt}]
 
     for _ in range(MAX_RETRY_ATTEMPTS):
         response = requests.post(
@@ -69,8 +62,8 @@ def STABILITY_TEXT_TO_IMAGE(
                 "height": height,
                 "width": width,
                 "samples": 1,
-                "cfg_scale": cfg_scale
-            }
+                "cfg_scale": cfg_scale,
+            },
         )
         if response.status_code != 500:
             break
@@ -78,10 +71,10 @@ def STABILITY_TEXT_TO_IMAGE(
         time.sleep(RETRY_SLEEP_TIME_IN_SECONDS)
 
     if response.status_code != 200:
-        print('Request failed with status code:', response.status_code)
+        print("Request failed with status code:", response.status_code)
 
     data = response.json()
-    image_string = data["artifacts"][0].get('base64')
+    image_string = data["artifacts"][0].get("base64")
     image_bytes = base64.b64decode(image_string)
     image_stream = io.BytesIO(image_bytes)
     image = Image.open(image_stream)
