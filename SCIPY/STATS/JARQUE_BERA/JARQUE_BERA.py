@@ -25,7 +25,7 @@ def JARQUE_BERA(
 
     Parameters
     ----------
-    select_return : This function has returns multiple Objects:
+    select_return : This function has returns multiple objects:
             ['jb_value', 'p']. Select the desired one to return.
             See the respective function docs for descriptors.
     x : array_like
@@ -37,11 +37,24 @@ def JARQUE_BERA(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.jarque_bera(
-            x=default.y,
-        ),
+    result = scipy.stats.jarque_bera(
+        x=default.y,
     )
+
+    return_list = ["jb_value", "p"]
+    if isinstance(result, tuple):
+        res_dict = {}
+        num = min(len(result), len(return_list))
+        for i in range(num):
+            res_dict[return_list[i]] = result[i]
+        result = res_dict[select_return]
+    else:
+        result = result._asdict()
+        result = result[select_return]
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

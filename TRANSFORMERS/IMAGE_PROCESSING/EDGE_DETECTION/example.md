@@ -1,1 +1,1 @@
-ITS AN EDGE DETECTION APP WHICH USES AN EDGE DETECTION FILTER NODE TO DETECT EDGES ON AN IMAGE.
+It's an edge detection app which uses an edge detection filter node to detect edges on an image.

@@ -59,15 +59,17 @@ def MOMENT(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.moment(
-            a=default.y,
-            moment=moment,
-            axis=axis,
-            nan_policy=nan_policy,
-            keepdims=keepdims,
-        ),
+    result = scipy.stats.moment(
+        a=default.y,
+        moment=moment,
+        axis=axis,
+        nan_policy=nan_policy,
+        keepdims=keepdims,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    elif isinstance(result, np.float64 | float | np.int64 | int):
+        result = Scalar(c=float(result))
 
     return result

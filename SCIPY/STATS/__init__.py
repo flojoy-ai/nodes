@@ -1,6 +1,5 @@
 __all__ = [
     "ANDERSON",
-    "BAYES_MVS",
     "BINOM_TEST",
     "DESCRIBE",
     "GSTD",
@@ -9,7 +8,6 @@ __all__ = [
     "KURTOSIS",
     "KURTOSISTEST",
     "MOMENT",
-    "MVSDIST",
     "NORMALTEST",
     "SEM",
     "SHAPIRO",
