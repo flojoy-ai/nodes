@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def TMAX(
     default: OrderedPair | Matrix,
     upperlimit: float = 0.1,

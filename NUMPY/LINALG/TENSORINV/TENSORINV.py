@@ -6,7 +6,7 @@ from typing import Literal
 import numpy.linalg
 
 
-@flojoy(node_type="default")
+@flojoy
 def TENSORINV(
     default: Matrix,
     ind: int = 2,

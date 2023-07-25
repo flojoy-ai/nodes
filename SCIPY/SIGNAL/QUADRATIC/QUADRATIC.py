@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def QUADRATIC(
     default: OrderedPair | Matrix,
 ) -> OrderedPair | Matrix | Scalar:

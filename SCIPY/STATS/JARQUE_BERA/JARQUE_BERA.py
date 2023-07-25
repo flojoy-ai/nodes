@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def JARQUE_BERA(
     default: OrderedPair | Matrix,
     select_return: Literal["jb_value", "p"] = "jb_value",

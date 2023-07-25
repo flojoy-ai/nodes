@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def HILBERT(
     default: OrderedPair | Matrix,
     N: int = 2,

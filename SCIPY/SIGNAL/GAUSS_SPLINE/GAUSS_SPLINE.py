@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def GAUSS_SPLINE(
     default: OrderedPair | Matrix,
     n: int = 2,

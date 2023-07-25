@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def SAVGOL_FILTER(
     default: OrderedPair | Matrix,
     window_length: int = 2,
