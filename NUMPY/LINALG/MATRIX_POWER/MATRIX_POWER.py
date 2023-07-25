@@ -45,7 +45,10 @@ def MATRIX_POWER(
 
     if isinstance(result, np.ndarray):
         result = Matrix(m=result)
-    elif isinstance(result, np.float64 | float | np.int64 | int):
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
         result = Scalar(c=float(result))
 
     return result
