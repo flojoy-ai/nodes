@@ -1,18 +1,17 @@
 import pytest
 import os
-import numpy as np
-import pandas as pd
 from flojoy import DataFrame
 
 
-def test_READ_CSV(mock_flojoy_decorator):
-    test_path: str = (
-        f"{os.path.dirname(os.path.realpath(__file__))}/assets/iris_test.csv"
-    )
+@pytest.fixture
+def iris_csv_file_path():
+    return f"{os.path.dirname(os.path.realpath(__file__))}/assets/iris_test.csv"
 
+
+def test_READ_CSV(mock_flojoy_decorator, iris_csv_file_path):
     import READ_CSV
 
-    output = READ_CSV.READ_CSV(file_path=test_path)
+    output = READ_CSV.READ_CSV(file_path=iris_csv_file_path)
     assert isinstance(output, DataFrame)
     assert output.m.shape == (30, 5)
     print(output.m.columns)
