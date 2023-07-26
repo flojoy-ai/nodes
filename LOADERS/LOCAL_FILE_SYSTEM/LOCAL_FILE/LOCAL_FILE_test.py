@@ -1,9 +1,8 @@
 import pytest
-from flojoy import flojoy, Image, DataFrame
+from flojoy import Image, DataFrame
 import numpy as np
 from PIL import Image as PIL_Image
 from os import path
-import pandas as pd
 
 
 @pytest.fixture
