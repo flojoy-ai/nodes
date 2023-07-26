@@ -2,13 +2,8 @@ import os
 import pytest
 
 
-@pytest.fixture
-def output_shape():
-    return (1000, 13)
-
-
 @pytest.mark.slow
-def test_OPEN_PARQUET(mock_flojoy_decorator, mock_flojoy_cache_directory, output_shape):
+def test_OPEN_PARQUET(mock_flojoy_decorator, mock_flojoy_cache_directory):
     import OPEN_PARQUET
 
     _file_path = (
@@ -16,4 +11,4 @@ def test_OPEN_PARQUET(mock_flojoy_decorator, mock_flojoy_cache_directory, output
     )
     output = OPEN_PARQUET.OPEN_PARQUET(_file_path)
 
-    assert output.m.shape == output_shape
+    assert output.m.shape == (1000, 13)
