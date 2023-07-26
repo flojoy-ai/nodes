@@ -13,6 +13,7 @@ def obama_image_array_rgb():
     image = PIL.Image.open(_image_path).convert("RGB")
     return np.array(image)
 
+
 @pytest.mark.slow
 def test_OPEN_IMAGE(
     mock_flojoy_decorator, mock_flojoy_cache_directory, obama_image_array_rgb
@@ -34,4 +35,3 @@ def test_OPEN_IMAGE(
     np.testing.assert_array_equal(output.g, input_img.g)
     np.testing.assert_array_equal(output.b, input_img.b)
     np.testing.assert_array_equal(output.a, input_img.a)
-
