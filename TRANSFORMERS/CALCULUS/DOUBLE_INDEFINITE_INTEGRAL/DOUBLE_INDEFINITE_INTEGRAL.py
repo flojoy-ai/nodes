@@ -3,7 +3,9 @@ import numpy as np
 
 
 @flojoy
-def DOUBLE_INDEFINITE_INTEGRAL(default: OrderedTriple, width: int = 3, height: int = 3) -> Matrix:
+def DOUBLE_INDEFINITE_INTEGRAL(
+    default: OrderedTriple, width: int = 3, height: int = 3
+) -> Matrix:
     """
     The DOUBLE_INDEFINITE_INTEGRAL node takes an OrderedTriple (x,y,z) and have the width and height parameter.
     The width and height respectively represent the number of columns and rows that the x, y and z reshape matrices will have.
@@ -27,7 +29,9 @@ def DOUBLE_INDEFINITE_INTEGRAL(default: OrderedTriple, width: int = 3, height: i
         input_y = np.reshape(default.y, (height, width))
         input_z = np.reshape(default.z, (height, width))
     else:
-        raise ArithmeticError(f"Cannot reshape size {len(default.x)} in a matrix of {width} by {height}. Please enter appropriate width and height.")
+        raise ArithmeticError(
+            f"Cannot reshape size {len(default.x)} in a matrix of {width} by {height}. Please enter appropriate width and height."
+        )
 
     integrate = np.zeros_like(input_x)
 
