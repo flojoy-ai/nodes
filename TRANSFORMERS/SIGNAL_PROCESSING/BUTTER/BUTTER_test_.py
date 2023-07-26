@@ -13,11 +13,7 @@ def test_BUTTER(mock_flojoy_decorator):
 
     element = OrderedPair(x=x, y=y)
     res = BUTTER.BUTTER(
-        element,
-        filter_order=1,
-        critical_frequency=12,
-        btype='highpass',
-        sample_rate=25
+        element, filter_order=1, critical_frequency=12, btype="highpass", sample_rate=25
     )
 
     # Butter'ed sine mean should be close to zero.

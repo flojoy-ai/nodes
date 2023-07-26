@@ -20,9 +20,7 @@ def test_FIR(mock_flojoy_decorator):
     assert xf[np.argmax(yf)] == 10.0
 
     element = OrderedPair(x=x, y=y)
-    res = FIR.FIR(
-        element, sample_rate=1/T, filter_type='highpass', cutoff_high=15
-    )
+    res = FIR.FIR(element, sample_rate=1 / T, filter_type="highpass", cutoff_high=15)
 
     yf = fft.rfft(res.y)
     yf = np.abs(fft.fftshift(yf))
