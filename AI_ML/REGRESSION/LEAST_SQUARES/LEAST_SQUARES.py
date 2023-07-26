@@ -40,7 +40,7 @@ def LEAST_SQUARES(
     if isinstance(a, OrderedPair) and isinstance(b, OrderedPair):
         x = a.y
         y = b.y
-        
+
         try:
             a = np.vstack([x, np.ones(len(x))]).T
             p = np.linalg.lstsq(a, y, rcond=None)[0]
