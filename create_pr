@@ -38,7 +38,7 @@ if [ "$STUDIO_PR" = true ]; then
       git add .
       git commit -m "update submodule to commit: $LAST_COMMIT_MSG"
       git push -u origin $STUDIO_BRANCH --force
-      pr_number=$(gh pr list --state open --base develop --limit 1 --json number --jq '.[0].number')
+      pr_number=$(gh pr list --state open --base develop --head $STUDIO_BRANCH --limit 1 --json number --jq '.[0].number')
       gh pr edit $pr_number --title "[nodes] $LAST_COMMIT_MSG"
   else
     git checkout develop
@@ -80,7 +80,7 @@ else
       git commit -m "update: $LAST_COMMIT_MSG"
       git push origin $DOC_BRANCH
       if [ "$IS_MERGED" = true ]; then
-        pr_number=$(gh pr list --state open --base main --limit 1 --json number --jq '.[0].number')
+        pr_number=$(gh pr list --state open --base main --head $DOC_BRANCH --limit 1 --json number --jq '.[0].number')
         gh pr edit $pr_number --title "$PR_TITLE - nodes PR:$PR_NUM [merged]"
         gh pr ready
       fi
