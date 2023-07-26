@@ -1,7 +1,6 @@
 from typing import TypedDict
 from sklearn.feature_extraction.text import CountVectorizer
 from flojoy import flojoy, DataFrame, Matrix, Vector
-import numpy as np
 import pandas as pd
 
 
@@ -12,7 +11,7 @@ class CountVectorizerOutput(TypedDict):
 
 @flojoy(deps={"scikit-learn": "1.2.2"})
 def COUNT_VECTORIZER(default: DataFrame | Matrix | Vector) -> CountVectorizerOutput:
-    """The COUNT_VECTORIZER node converts a collection (matrix, vector or dataframe) of text documents to a matrix of token counts.
+    """The COUNT_VECTORIZER node receives a collection (matrix, vector or dataframe) of text documents to a matrix of token counts.
 
     Returns
     -------

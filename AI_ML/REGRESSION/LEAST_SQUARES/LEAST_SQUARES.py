@@ -40,7 +40,7 @@ def LEAST_SQUARES(
     if isinstance(a, OrderedPair) and isinstance(b, OrderedPair):
         x = a.y
         y = b.y
-
+        
         try:
             a = np.vstack([x, np.ones(len(x))]).T
             p = np.linalg.lstsq(a, y, rcond=None)[0]
@@ -48,6 +48,8 @@ def LEAST_SQUARES(
             raise ValueError("Least Square Computation failed.")
 
         slope, intercept = p[0:-1], p[-1]
+        print("=============== This is slope: ", slope)
+        print("=============== This is intercept: ", intercept)
         res = slope * x + intercept
 
         return OrderedPair(x=x, y=res)
