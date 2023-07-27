@@ -5,6 +5,7 @@ from moto import mock_s3
 from moto.core import set_initial_no_auth_action_count
 import pytest
 from os import path
+from flojoy import DataFrame
 
 
 def verify_upload():
@@ -37,5 +38,5 @@ def test_READ_S3(mock_flojoy_decorator, mock_flojoy_cache_directory):
     upload_shape = verify_upload()
 
     output = READ_S3.READ_S3("test", "flojoy-bucket", "userdata1.parquet")
-
+    assert isinstance(output, DataFrame)
     assert upload_shape == output.m.shape
