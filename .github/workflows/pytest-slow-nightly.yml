@@ -1,24 +1,22 @@
-name: PyTest
+name: Pytest slow nightly
+
+# Run every day at 00:00 EST
 
 on:
-  push:
-    branches:
-    - main
-  pull_request:
-    types:
-      - opened
-      - synchronize
+  schedule:
+    - cron: "0 0 * * *"
 
-# Run pytest on ubuntu, mac and windows
 
 jobs:
-  pytest:
+  pytest-slow:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
+        with: 
+          ref: main
 
       - uses: actions/setup-python@v4
         with:
@@ -38,4 +36,4 @@ jobs:
 
       - name: pytest
         run: |
-          python -m pytest -n auto -vv -m "not slow" .
+          python -m pytest -n auto -vv -m "slow" .
