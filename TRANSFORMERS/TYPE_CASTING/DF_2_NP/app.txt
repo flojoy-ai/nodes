@@ -1,0 +1,310 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 208,
+                "height": 96,
+                "id": "R_DATASET-b9a3532b-7924-41b5-b7a3-3b2f26342f57",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "R_DATASET-b9a3532b-7924-41b5-b7a3-3b2f26342f57",
+                    "label": "R DATASET",
+                    "func": "R_DATASET",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "dataset_key": {
+                            "type": "select",
+                            "default": "iris",
+                            "options": [
+                                "ability.cov",
+                                "airmiles",
+                                "AirPassengers",
+                                "airquality",
+                                "anscombe",
+                                "attenu",
+                                "attitude",
+                                "austres",
+                                "BJsales",
+                                "BOD",
+                                "cars",
+                                "ChickWeight",
+                                "chickwts",
+                                "co2",
+                                "crimtab",
+                                "discoveries",
+                                "DNase",
+                                "esoph",
+                                "euro",
+                                "EuStockMarkets",
+                                "faithful",
+                                "Formaldehyde",
+                                "freeny",
+                                "HairEyeColor",
+                                "Harman23",
+                                "Harman74",
+                                "Indometh",
+                                "infert",
+                                "InsectSprays",
+                                "iris",
+                                "iris3",
+                                "islands",
+                                "JohnsonJohnson",
+                                "LakeHuron",
+                                "LifeCycleSavings",
+                                "Loblolly",
+                                "longley",
+                                "lynx",
+                                "morley",
+                                "mtcars",
+                                "nhtemp",
+                                "Nile",
+                                "nottem",
+                                "npk",
+                                "occupationalStatus",
+                                "Orange",
+                                "OrchardSprays",
+                                "PlantGrowth",
+                                "precip",
+                                "presidents",
+                                "pressure",
+                                "Puromycin",
+                                "quakes",
+                                "randu",
+                                "rivers",
+                                "rock",
+                                "Seatbelts",
+                                "sleep",
+                                "stackloss",
+                                "sunspot.month",
+                                "sunspot.year",
+                                "sunspots",
+                                "swiss",
+                                "Theoph",
+                                "Titanic",
+                                "ToothGrowth",
+                                "treering",
+                                "trees",
+                                "UCBAdmissions",
+                                "UKDriverDeaths",
+                                "UKgas",
+                                "USAccDeaths",
+                                "USArrests",
+                                "USJudgeRatings",
+                                "USPersonalExpenditure",
+                                "VADeaths",
+                                "volcano",
+                                "warpbreaks",
+                                "women",
+                                "WorldPhones",
+                                "WWWusage"
+                            ],
+                            "desc": null,
+                            "functionName": "R_DATASET",
+                            "param": "dataset_key",
+                            "value": "airquality"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "desc": null
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "rdatasets",
+                            "v": "0.1.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SAMPLE_DATASETS/R_DATASET/R_DATASET.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -580.4601807214103,
+                    "y": 18.651973077552213
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -580.4601807214103,
+                    "y": 18.651973077552213
+                },
+                "dragging": true
+            },
+            {
+                "width": 160,
+                "height": 160,
+                "id": "DF_2_NP-84475e8e-a8be-4360-a62f-203a0bbc9c5a",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "DF_2_NP-84475e8e-a8be-4360-a62f-203a0bbc9c5a",
+                    "label": "DF 2 NP",
+                    "func": "DF_2_NP",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Matrix",
+                            "desc": "Converted dataframe value from the input"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/TYPE_CASTING/DF_2_NP/DF_2_NP.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -339.59500425249286,
+                    "y": 148.88869515224056
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -339.59500425249286,
+                    "y": 148.88869515224056
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "LINE-d6eebd8f-1c5a-4565-a07c-8591d0dc0464",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "LINE-d6eebd8f-1c5a-4565-a07c-8591d0dc0464",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -126.6228737751659,
+                    "y": 118.07746381818538
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -126.6228737751659,
+                    "y": 118.07746381818538
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "LINE-871ab113-ab85-4c34-af5e-53037f3bebd1",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "LINE-871ab113-ab85-4c34-af5e-53037f3bebd1",
+                    "label": "LINE 1",
+                    "func": "LINE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -299.7005389975791,
+                    "y": -152.8117053854877
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -299.7005389975791,
+                    "y": -152.8117053854877
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "R_DATASET-b9a3532b-7924-41b5-b7a3-3b2f26342f57",
+                "sourceHandle": "default",
+                "target": "DF_2_NP-84475e8e-a8be-4360-a62f-203a0bbc9c5a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-R_DATASET-b9a3532b-7924-41b5-b7a3-3b2f26342f57default-DF_2_NP-84475e8e-a8be-4360-a62f-203a0bbc9c5adefault"
+            },
+            {
+                "source": "R_DATASET-b9a3532b-7924-41b5-b7a3-3b2f26342f57",
+                "sourceHandle": "default",
+                "target": "LINE-871ab113-ab85-4c34-af5e-53037f3bebd1",
+                "targetHandle": "default",
+                "id": "reactflow__edge-R_DATASET-b9a3532b-7924-41b5-b7a3-3b2f26342f57default-LINE-871ab113-ab85-4c34-af5e-53037f3bebd1default"
+            },
+            {
+                "source": "DF_2_NP-84475e8e-a8be-4360-a62f-203a0bbc9c5a",
+                "sourceHandle": "default",
+                "target": "LINE-d6eebd8f-1c5a-4565-a07c-8591d0dc0464",
+                "targetHandle": "default",
+                "id": "reactflow__edge-DF_2_NP-84475e8e-a8be-4360-a62f-203a0bbc9c5adefault-LINE-d6eebd8f-1c5a-4565-a07c-8591d0dc0464default"
+            }
+        ],
+        "viewport": {
+            "x": 722.5478564221319,
+            "y": 307.5775746454569,
+            "zoom": 1.204238868134965
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
