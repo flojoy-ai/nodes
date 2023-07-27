@@ -1,0 +1,39 @@
+name: Pytest slow nightly
+
+# Run every day at 00:00 EST
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+
+jobs:
+  pytest-slow:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+        with: 
+          ref: main
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: "pip"
+
+      - name: Cache python environment
+        id: cache-python-env
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+
+      - name: Install dependencies within the environment
+        if: steps.cache-python-env.outputs.cache-hit != 'true'
+        run: pip install --upgrade --upgrade-strategy eager -r requirements.txt
+
+      - name: pytest
+        run: |
+          python -m pytest -n auto -vv -m "slow" .

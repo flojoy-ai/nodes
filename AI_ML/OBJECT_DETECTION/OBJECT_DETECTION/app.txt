@@ -2,22 +2,23 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
-                "id": "LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5",
-                "type": "LOCAL_FILE_SYSTEM",
+                "width": 160,
+                "height": 160,
+                "id": "LOCAL_FILE-6c5165f8-abe1-4d41-854b-c662b5d2a987",
+                "type": "LOADERS",
                 "data": {
-                    "id": "LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5",
+                    "id": "LOCAL_FILE-6c5165f8-abe1-4d41-854b-c662b5d2a987",
                     "label": "LOCAL FILE",
                     "func": "LOCAL_FILE",
-                    "type": "LOCAL_FILE_SYSTEM",
+                    "type": "LOADERS",
                     "ctrls": {
                         "file_path": {
                             "type": "str",
                             "default": null,
+                            "desc": "path to the file to be loaded.",
                             "functionName": "LOCAL_FILE",
                             "param": "file_path",
-                            "value": "./PYTHON/nodes/AI_ML/IMAGE_CAPTIONING/NLP_CONNECT_VIT_GPT2/assets/President_Barack_Obama.jpg"
+                            "value": "PYTHON/nodes/AI_ML/SEGMENTATION/DEEPLAB_V3/assets/obama_image.jpg"
                         },
                         "file_type": {
                             "type": "select",
@@ -29,6 +30,7 @@
                                 "Excel",
                                 "XML"
                             ],
+                            "desc": "type of file to load, default: image.",
                             "functionName": "LOCAL_FILE",
                             "param": "file_type",
                             "value": "Image"
@@ -38,7 +40,8 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Image|DataFrame"
+                            "type": "Image|DataFrame",
+                            "desc": null
                         }
                     ],
                     "pip_dependencies": [
@@ -52,207 +55,173 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 213.46240247694215,
-                    "y": 100.45399688959793
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 213.46240247694215,
-                    "y": 100.45399688959793
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-15f81c58-9f96-462f-88d6-7a70a1ee70a2",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-15f81c58-9f96-462f-88d6-7a70a1ee70a2",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
                     "selected": true
                 },
                 "position": {
-                    "x": 1657.8400105766152,
-                    "y": 156.98523041948528
+                    "x": 46.030264450970094,
+                    "y": -89.31194762115769
                 },
                 "selected": true,
                 "positionAbsolute": {
-                    "x": 1657.8400105766152,
-                    "y": 156.98523041948528
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "OBJECT_DETECTION-209e41db-c53b-4fad-905f-e30f4b27afea",
-                "type": "OBJECT_DETECTION",
-                "data": {
-                    "id": "OBJECT_DETECTION-209e41db-c53b-4fad-905f-e30f4b27afea",
-                    "label": "OBJECT DETECTION",
-                    "func": "OBJECT_DETECTION",
-                    "type": "OBJECT_DETECTION",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/AI_ML/OBJECT_DETECTION/OBJECT_DETECTION/OBJECT_DETECTION.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 726.5837721151518,
-                    "y": 91.89316538153173
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 726.5837721151518,
-                    "y": 91.89316538153173
+                    "x": 46.030264450970094,
+                    "y": -89.31194762115769
                 },
                 "dragging": true
             },
             {
                 "width": 225,
                 "height": 226,
-                "id": "IMAGE-82daa27b-1179-46d8-b02d-c7b0ed5047e9",
-                "type": "PLOTLY",
+                "id": "IMAGE-769c4e27-7d34-45ac-a2b3-b74dbf96dd4f",
+                "type": "VISUALIZERS",
                 "data": {
-                    "id": "IMAGE-82daa27b-1179-46d8-b02d-c7b0ed5047e9",
+                    "id": "IMAGE-769c4e27-7d34-45ac-a2b3-b74dbf96dd4f",
                     "label": "IMAGE",
                     "func": "IMAGE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
                             "type": "Image",
-                            "multiple": false
+                            "multiple": false,
+                            "desc": null
                         }
                     ],
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Plotly"
+                            "type": "Plotly",
+                            "desc": null
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1142.7402117767501,
-                    "y": 37.78739719802621
+                    "x": 500.58706958785456,
+                    "y": 38.328680582506564
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1142.7402117767501,
-                    "y": 37.78739719802621
+                    "x": 500.58706958785456,
+                    "y": 38.328680582506564
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
-                "id": "IMAGE-212d43b0-9dfd-4b16-9ed2-573d4ae7c660",
-                "type": "PLOTLY",
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-f28f6f34-e3dd-4840-a48e-28efc7b1ae45",
+                "type": "VISUALIZERS",
                 "data": {
-                    "id": "IMAGE-212d43b0-9dfd-4b16-9ed2-573d4ae7c660",
+                    "id": "IMAGE-f28f6f34-e3dd-4840-a48e-28efc7b1ae45",
                     "label": "IMAGE 1",
                     "func": "IMAGE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
                             "type": "Image",
-                            "multiple": false
+                            "multiple": false,
+                            "desc": null
                         }
                     ],
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Plotly"
+                            "type": "Plotly",
+                            "desc": null
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 741.1457631495206,
-                    "y": -301.3921127763143
+                    "x": 509.14868377143307,
+                    "y": -237.2501896680365
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 741.1457631495206,
-                    "y": -301.3921127763143
+                    "x": 509.14868377143307,
+                    "y": -237.2501896680365
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 132,
+                "id": "OBJECT_DETECTION-3ce0a6ee-8056-40f6-b99d-19e8358e54f5",
+                "type": "AI_ML",
+                "data": {
+                    "id": "OBJECT_DETECTION-3ce0a6ee-8056-40f6-b99d-19e8358e54f5",
+                    "label": "OBJECT DETECTION",
+                    "func": "OBJECT_DETECTION",
+                    "type": "AI_ML",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/OBJECT_DETECTION/OBJECT_DETECTION/OBJECT_DETECTION.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 260.3471692016421,
+                    "y": -89.58575634203677
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 260.3471692016421,
+                    "y": -89.58575634203677
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5",
+                "source": "LOCAL_FILE-6c5165f8-abe1-4d41-854b-c662b5d2a987",
                 "sourceHandle": "default",
-                "target": "OBJECT_DETECTION-209e41db-c53b-4fad-905f-e30f4b27afea",
+                "target": "OBJECT_DETECTION-3ce0a6ee-8056-40f6-b99d-19e8358e54f5",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5default-OBJECT_DETECTION-209e41db-c53b-4fad-905f-e30f4b27afeadefault"
+                "id": "reactflow__edge-LOCAL_FILE-6c5165f8-abe1-4d41-854b-c662b5d2a987default-OBJECT_DETECTION-3ce0a6ee-8056-40f6-b99d-19e8358e54f5default"
             },
             {
-                "source": "LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5",
+                "source": "OBJECT_DETECTION-3ce0a6ee-8056-40f6-b99d-19e8358e54f5",
                 "sourceHandle": "default",
-                "target": "IMAGE-212d43b0-9dfd-4b16-9ed2-573d4ae7c660",
+                "target": "IMAGE-769c4e27-7d34-45ac-a2b3-b74dbf96dd4f",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-d8f7ea02-349d-4cfc-8834-78cf2ecb41d5default-IMAGE-212d43b0-9dfd-4b16-9ed2-573d4ae7c660default"
+                "id": "reactflow__edge-OBJECT_DETECTION-3ce0a6ee-8056-40f6-b99d-19e8358e54f5default-IMAGE-769c4e27-7d34-45ac-a2b3-b74dbf96dd4fdefault"
             },
             {
-                "source": "OBJECT_DETECTION-209e41db-c53b-4fad-905f-e30f4b27afea",
+                "source": "LOCAL_FILE-6c5165f8-abe1-4d41-854b-c662b5d2a987",
                 "sourceHandle": "default",
-                "target": "IMAGE-82daa27b-1179-46d8-b02d-c7b0ed5047e9",
+                "target": "IMAGE-f28f6f34-e3dd-4840-a48e-28efc7b1ae45",
                 "targetHandle": "default",
-                "id": "reactflow__edge-OBJECT_DETECTION-209e41db-c53b-4fad-905f-e30f4b27afeadefault-IMAGE-82daa27b-1179-46d8-b02d-c7b0ed5047e9default"
-            },
-            {
-                "source": "IMAGE-82daa27b-1179-46d8-b02d-c7b0ed5047e9",
-                "sourceHandle": "default",
-                "target": "END-15f81c58-9f96-462f-88d6-7a70a1ee70a2",
-                "targetHandle": "default",
-                "id": "reactflow__edge-IMAGE-82daa27b-1179-46d8-b02d-c7b0ed5047e9default-END-15f81c58-9f96-462f-88d6-7a70a1ee70a2default"
+                "id": "reactflow__edge-LOCAL_FILE-6c5165f8-abe1-4d41-854b-c662b5d2a987default-IMAGE-f28f6f34-e3dd-4840-a48e-28efc7b1ae45default"
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 148.3622262035364,
-            "zoom": 1.4811524052100216
+            "x": 502.7009774274077,
+            "y": 219.59679745587334,
+            "zoom": 0.8486425101826552
         }
     },
     "ctrlsManifest": [
