@@ -12,11 +12,10 @@ on:
 jobs:
   pytest-slow:
     strategy:
+      max-parallel: 1
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
-    concurrency: 
-      group: pytest-slow-nodes
     steps:
       - uses: actions/checkout@v3
         with: 
