@@ -2,11 +2,10 @@ import pandas as pd
 import io
 import boto3
 import keyring
-from flojoy import flojoy, run_in_venv, DataFrame
+from flojoy import flojoy, DataFrame
 
 
 @flojoy
-@run_in_venv(deps={"boto3": "1.28.12", "keyring": "24.2.0"})
 def READ_S3(
     s3_name: str = "",
     bucket_name: str = "",
