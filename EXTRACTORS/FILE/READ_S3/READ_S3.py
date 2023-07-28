@@ -2,15 +2,10 @@ import pandas as pd
 import io
 import boto3
 import keyring
-from flojoy import flojoy, DataFrame, run_in_venv
+from flojoy import flojoy, DataFrame
 
 
 @flojoy
-@run_in_venv(
-    pip_dependencies=[
-        "boto3==1.28.12",
-    ]
-)
 def READ_S3(
     s3_name: str = "",
     bucket_name: str = "",
@@ -34,7 +29,6 @@ def READ_S3(
     DataContainer:
         type 'dataframe', df
     """
-
     if s3_name == "":
         raise ValueError("Provide a name that was used to set AWS S3 key")
 

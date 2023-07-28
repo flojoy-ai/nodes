@@ -3,7 +3,6 @@ import io
 import pandas as pd
 from moto import mock_s3
 from moto.core import set_initial_no_auth_action_count
-import pytest
 from os import path
 from flojoy import DataFrame
 
@@ -23,9 +22,8 @@ def create_bucket():
     return s3, bucket
 
 
-@set_initial_no_auth_action_count(10)
+@set_initial_no_auth_action_count(5)
 @mock_s3
-@pytest.mark.slow
 def test_READ_S3(mock_flojoy_decorator, mock_flojoy_cache_directory):
     import READ_S3
 
