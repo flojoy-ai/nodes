@@ -1,40 +1,42 @@
-import boto3
+import pytest
 import io
+import boto3
+import moto
 import pandas as pd
-from moto import mock_s3
-from moto.core import set_initial_no_auth_action_count
-from os import path
 from flojoy import DataFrame
 
-
-def verify_upload():
-    client = boto3.client("s3")
-    resp = client.get_object(Bucket="flojoy-bucket", Key="userdata1.parquet")
-    data = resp.get("Body").read()
-    buffer = io.BytesIO(data)
-    df = pd.read_parquet(buffer)
-    return df.shape
+# Test dataframe to write as parquet file
+@pytest.fixture
+def test_dataframe():
+    return pd.DataFrame.from_dict({"a": [1, 2, 3], "b": [4, 5, 6]})
 
 
-def create_bucket():
-    s3 = boto3.resource("s3")
-    bucket = s3.create_bucket(Bucket="flojoy-bucket")
-    return s3, bucket
+# This creates a fake bucket under s3://test_bucket with a file under s3://test_bucket/test_df.parquet
+@pytest.fixture
+def mock_bucket(test_dataframe):
+    moto_fake = moto.mock_s3()
+    try:
+        moto_fake.start()
+        conn = boto3.resource('s3')
+        conn.create_bucket(Bucket="test_bucket")
+        test_bucket = conn.Bucket("test_bucket")
+        # Write a parquet file to the bucket
+        with io.BytesIO() as f:
+            test_dataframe.to_parquet(f)
+            test_bucket.put_object(Key="test_df.parquet", Body=f.getvalue())
+        yield conn
+    finally:
+        moto_fake.stop()
 
 
-@set_initial_no_auth_action_count(5)
-@mock_s3
-def test_READ_S3(mock_flojoy_decorator, mock_flojoy_cache_directory):
+def test_READ_S3(
+    mock_flojoy_decorator,
+    mock_flojoy_cache_directory,
+    mock_bucket,
+    test_dataframe
+    ):
+
     import READ_S3
 
-    s3_resource, _ = create_bucket()
-    _file_path = f"{path.dirname(path.realpath(__file__))}/assets/userdata1.parquet"
-    s3_resource.meta.client.upload_file(
-        _file_path, "flojoy-bucket", "userdata1.parquet"
-    )
-
-    upload_shape = verify_upload()
-
-    output = READ_S3.READ_S3("test", "flojoy-bucket", "userdata1.parquet")
-    assert isinstance(output, DataFrame)
-    assert upload_shape == output.m.shape
+    output = READ_S3.READ_S3("test", "test_bucket", "test_df.parquet")
+    assert output.m.equals(test_dataframe)
