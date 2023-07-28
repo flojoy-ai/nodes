@@ -6,12 +6,7 @@ from flojoy import flojoy, run_in_venv, DataFrame
 
 
 @flojoy
-@run_in_venv(
-    pip_dependencies=[
-        "boto3==1.28.12",
-        "keyring==24.2.0"
-    ]
-)
+@run_in_venv(deps={"boto3": "1.28.12", "keyring": "24.2.0"})
 def READ_S3(
     s3_name: str = "",
     bucket_name: str = "",
