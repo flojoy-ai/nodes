@@ -2,8 +2,10 @@ from flojoy import Image, flojoy, node_initialization
 import serial
 
 
-@flojoy(deps={"pyserial":"3.5"})
-def LED_MATRIX_WS2812B(flojoy_init_input: serial.Serial, default: Image, port: str, width: int, height: int) -> dict:
+@flojoy(deps={"pyserial": "3.5"})
+def LED_MATRIX_WS2812B(
+    flojoy_init_input: serial.Serial, default: Image, port: str, width: int, height: int
+) -> dict:
     """
     The LED_MATRIX_WS2812B node takes an image as an input and sends signals to the LED Matrix to light up specific
     LEDs accoring to the image input
@@ -39,7 +41,8 @@ def LED_MATRIX_WS2812B(flojoy_init_input: serial.Serial, default: Image, port: s
     arduino.write((cmd[:-1] + "\n").encode())
     return input  # return the input so that the next node can use it
 
+
 @node_initialization(for_node=LED_MATRIX_WS2812B)
-def start_serial_connection(port : str):
+def start_serial_connection(port: str):
     arduino = serial.Serial(port, 115200)
     return arduino
