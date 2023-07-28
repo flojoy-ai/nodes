@@ -1,6 +1,5 @@
 import pytest
 import io
-import boto3
 import moto
 import pandas as pd
 from flojoy import DataFrame
@@ -17,6 +16,7 @@ def mock_bucket(test_dataframe):
     moto_fake = moto.mock_s3()
     try:
         moto_fake.start()
+        import boto3
         conn = boto3.resource('s3')
         conn.create_bucket(Bucket="test_bucket")
         test_bucket = conn.Bucket("test_bucket")
