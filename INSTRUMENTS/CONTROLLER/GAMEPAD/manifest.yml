@@ -1,7 +1,0 @@
-COMMAND:
-  - name: Gamepad 
-    key: GAMEPAD
-    type: CONTROLLER
-    pip_dependencies:
-      - name: hidapi
-        v: "0.14.0"

@@ -1,10 +1,10 @@
 import hid
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import OrderedPair, flojoy
 
 
-@flojoy
-def GAMEPAD(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
+@flojoy(node_type="default")
+def GAMEPAD() -> OrderedPair:
     """
     The GAMEPAD node reads the input from a gamepad and returns a DataContainer with the following structure:
     - it is of type ordered pair
@@ -20,8 +20,7 @@ def GAMEPAD(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             gamepad_device = device
 
     if gamepad_device is None:
-        print("ERROR: No gamepad found")
-        return DataContainer(type="ordered_pair", x=0, y=np.array(clicked_buttons))
+        raise Exception("ERROR: No gamepad found")
 
     gamepad = hid.device()
     gamepad.open(gamepad_device["vendor_id"], gamepad_device["product_id"])
@@ -75,4 +74,4 @@ def GAMEPAD(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
     if report[6] & 0b00100000:
         clicked_buttons[11] = True
 
-    return DataContainer(type="ordered_pair", x=11, y=np.array(clicked_buttons))
+    return OrderedPair(x=np.array([i for i in range(12)]), y=np.array(clicked_buttons))

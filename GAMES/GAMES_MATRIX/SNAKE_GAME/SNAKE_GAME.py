@@ -1,6 +1,5 @@
-import json
 import random
-from flojoy import flojoy, DataContainer
+from flojoy import DefaultParams, Image, OrderedPair, flojoy
 import numpy as np
 
 from flojoy.small_memory import SmallMemory
@@ -43,28 +42,14 @@ class SnakeData:
         snake_data = SnakeData(**data)
         return snake_data
 
-    def print(self, prefix=""):
-        print(f"{prefix}snake Data:", json.dumps(self.get_data(), indent=2))
 
-
-@flojoy
-def SNAKE_GAME(dc_inputs: list[DataContainer], params: dict) -> dict:
+@flojoy(inject_node_metadata=True)
+def SNAKE_GAME(default: OrderedPair, default_params: DefaultParams) -> Image:
     """The SNAKE_GAME node is a specialized node that iterates through the body nodes for a given number of times.
     To ensure proper functionality, the SNAKE_GAME node relies on a companion node called the `GOTO` node.
     """
-
-    # get snake game data
-    control_input = dc_inputs[0]
-
-    if control_input.type != "ordered_pair":
-        raise ValueError(
-            f"unsupported DataContainer type passed for SNAKE_GAME: {control_input.type}"
-        )
-
-    node_id = params.get(
-        "node_id", 0
-    )  # WARNING: special case, it gets the node id from the params despite not being specified
-    print("NODE ID IS: ", node_id)
+    control_input = default
+    node_id = default_params.node_id
     snake_data: SnakeData = load_data(node_id)
 
     # get control inputs
@@ -116,7 +101,6 @@ def SNAKE_GAME(dc_inputs: list[DataContainer], params: dict) -> dict:
             snake_data.is_finished = True
 
     if snake_data.is_finished:
-        print("GAME OVER, RESETTING")
         snake_data = SnakeData(node_id)
         store_data(node_id, snake_data)
         return output_game(snake_data)
@@ -140,14 +124,12 @@ def SNAKE_GAME(dc_inputs: list[DataContainer], params: dict) -> dict:
 
 def load_data(node_id) -> SnakeData:
     data = SmallMemory().read_memory(node_id, memory_key) or {}
-    print("LOAD DATA IS ", data)
     snake_data = SnakeData.from_data(node_id=node_id, data=data)
     return snake_data
 
 
 def store_data(node_id, snake_data: SnakeData):
     SmallMemory().write_to_memory(node_id, memory_key, snake_data.get_data())
-    snake_data.print("store snake game data")
 
 
 def get_next_food_spot(snake_data):
@@ -178,8 +160,5 @@ def output_game(snake_data):
         y_coord = snake_data.y_coords[i]
         g[y_coord][x_coord] = 255
     r[snake_data.food_y][snake_data.food_x] = 255
-    dc = DataContainer(
-        type="image", r=np.array(r), g=np.array(g), b=np.array(b), a=None
-    )
-    print("OUTPUT GAME IS ", dc)
+    dc = Image(r=np.array(r), g=np.array(g), b=np.array(b), a=None)
     return dc

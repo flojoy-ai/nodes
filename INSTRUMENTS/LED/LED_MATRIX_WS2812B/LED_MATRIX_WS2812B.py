@@ -1,9 +1,9 @@
-from flojoy import flojoy, DataContainer
+from flojoy import Image, flojoy, node_initialization
 import serial
 
 
-@flojoy
-def LED_MATRIX_WS2812B(dc_inputs: list[DataContainer], params: dict) -> dict:
+@flojoy(deps={"pyserial":"3.5"})
+def LED_MATRIX_WS2812B(flojoy_init_input: serial.Serial, default: Image, port: str, width: int, height: int) -> dict:
     """
     The LED_MATRIX_WS2812B node takes an image as an input and sends signals to the LED Matrix to light up specific
     LEDs accoring to the image input
@@ -13,16 +13,8 @@ def LED_MATRIX_WS2812B(dc_inputs: list[DataContainer], params: dict) -> dict:
     - width: the width of the LED Matrix
     - height: the height of the LED Matrix
     """
-    input = dc_inputs[0]
-    if input.type != "image":
-        raise ValueError(
-            f"unsupported DataContainer type passed for LED_MATRIX_WS2812B: {input.type}"
-        )
-    port = params.get("port")
-    width = params.get("width")  # width of the LED matrix, not the image
-    height = params.get("height")
-
-    arduino = serial.Serial(port, 115200)
+    input = default
+    arduino = flojoy_init_input
 
     cmd = ""
     # Use the function to light up the LED
@@ -45,5 +37,9 @@ def LED_MATRIX_WS2812B(dc_inputs: list[DataContainer], params: dict) -> dict:
             cmd += f"{led_position},{input.r[i][j]},{input.g[i][j]},{input.b[i][j]},"
 
     arduino.write((cmd[:-1] + "\n").encode())
-    # arduino.close()
     return input  # return the input so that the next node can use it
+
+@node_initialization(for_node=LED_MATRIX_WS2812B)
+def start_serial_connection(port : str):
+    arduino = serial.Serial(port, 115200)
+    return arduino
