@@ -7,7 +7,7 @@ from flojoy import Image
 def test_EDGE_DETECTION(mock_flojoy_decorator):
     import EDGE_DETECTION
 
-    x = np.eye(5).astype('uint8') * 255
+    x = np.eye(5).astype("uint8") * 255
     rgba_image = np.stack((x, x, x, x), axis=2)
     image = PILImage.fromarray(rgba_image)
     image = image.convert("L").filter(ImageFilter.FIND_EDGES).convert("RGB")
