@@ -1,4 +1,4 @@
-from flojoy import DataFrame
+from flojoy import DataFrame, Array
 
 
 # Tests that the function loads the training set by default
@@ -38,7 +38,9 @@ def test_load_training_set_by_default(mock_flojoy_decorator):
 def test_load_specific_categories(mock_flojoy_decorator):
     from TEXT_DATASET import TEXT_DATASET
 
-    result = TEXT_DATASET(categories=["comp.graphics", "comp.os.ms-windows.misc"])
+    result = TEXT_DATASET(
+        categories=Array(["comp.graphics", "comp.os.ms-windows.misc"])
+    )
     assert isinstance(result, DataFrame)
     assert len(result.m) == 1189
     assert set(result.m.columns) == {"Text", "Label"}
@@ -51,7 +53,7 @@ def test_load_specific_categories(mock_flojoy_decorator):
 def test_load_empty_dataset(mock_flojoy_decorator):
     from TEXT_DATASET import TEXT_DATASET
 
-    result = TEXT_DATASET(categories=["non-existent-category"])
+    result = TEXT_DATASET(categories=Array(["non-existent-category"]))
     assert isinstance(result, DataFrame)
     assert len(result.m) == 0
     assert set(result.m.columns) == {"Text", "Label"}
@@ -61,7 +63,7 @@ def test_load_empty_dataset(mock_flojoy_decorator):
 def test_load_dataset_with_all_categories_removed(mock_flojoy_decorator):
     from TEXT_DATASET import TEXT_DATASET
 
-    assert isinstance(result, DataFrame)
     result = TEXT_DATASET(remove_headers=True, remove_footers=True, remove_quotes=True)
+    assert isinstance(result, DataFrame)
     assert len(result.m) == 0
     assert set(result.m.columns) == {"Text", "Label"}
