@@ -56,4 +56,4 @@ def test_non_existent_category(mock_flojoy_decorator):
     from TEXT_DATASET import TEXT_DATASET
 
     with pytest.raises(ValueError):
-        TEXT_DATASET(categories=["non_existent_category"])
+        TEXT_DATASET(categories=Array(["non_existent_category"]))
