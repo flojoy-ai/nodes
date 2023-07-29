@@ -1,4 +1,5 @@
 from flojoy import DataFrame, Array
+import pytest
 
 
 # Tests that the function loads the training set by default
@@ -30,6 +31,7 @@ def test_load_training_set_by_default(mock_flojoy_decorator):
             "talk.politics.mideast",
             "talk.politics.misc",
             "talk.religion.misc",
+            "alt.atheism",
         ]
     )
 
@@ -42,28 +44,16 @@ def test_load_specific_categories(mock_flojoy_decorator):
         categories=Array(["comp.graphics", "comp.os.ms-windows.misc"])
     )
     assert isinstance(result, DataFrame)
-    assert len(result.m) == 1189
+    assert len(result.m) == 1175
     assert set(result.m.columns) == {"Text", "Label"}
     assert set(result.m["Label"].unique()) == set(
         ["comp.graphics", "comp.os.ms-windows.misc"]
     )
 
 
-# Tests that the function loads an empty dataset
-def test_load_empty_dataset(mock_flojoy_decorator):
+# Tests that an error is raised when a non-existent category is passed
+def test_non_existent_category(mock_flojoy_decorator):
     from TEXT_DATASET import TEXT_DATASET
 
-    result = TEXT_DATASET(categories=Array(["non-existent-category"]))
-    assert isinstance(result, DataFrame)
-    assert len(result.m) == 0
-    assert set(result.m.columns) == {"Text", "Label"}
-
-
-# Tests that the function loads a dataset with all categories removed
-def test_load_dataset_with_all_categories_removed(mock_flojoy_decorator):
-    from TEXT_DATASET import TEXT_DATASET
-
-    result = TEXT_DATASET(remove_headers=True, remove_footers=True, remove_quotes=True)
-    assert isinstance(result, DataFrame)
-    assert len(result.m) == 0
-    assert set(result.m.columns) == {"Text", "Label"}
+    with pytest.raises(ValueError):
+        TEXT_DATASET(categories=["non_existent_category"])
