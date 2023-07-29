@@ -58,7 +58,7 @@ def test_load_empty_dataset(mock_flojoy_decorator):
 
 
 # Tests that the function loads a dataset with all categories removed
-def test_load_dataset_with_all_categories_removed(self):
+def test_load_dataset_with_all_categories_removed(mock_flojoy_decorator):
     from TEXT_DATASET import TEXT_DATASET
 
     assert isinstance(result, DataFrame)
