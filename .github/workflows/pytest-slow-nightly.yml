@@ -3,8 +3,6 @@ name: Pytest slow nightly
 # Run every day at 00:00 EST
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
   workflow_dispatch:
     
 
@@ -32,4 +30,4 @@ jobs:
 
       - name: pytest
         run: |
-          python -m pytest -vv -m "slow" .
+          python -m pytest -s -vv -m "slow" .

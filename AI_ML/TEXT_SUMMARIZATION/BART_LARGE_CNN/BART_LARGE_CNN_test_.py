@@ -15,6 +15,7 @@ def long_text():
         text = f.read()
     return text
 
+
 @pytest.mark.skip
 @pytest.mark.slow
 def test_BART_LARGE_CNN(mock_flojoy_decorator, mock_flojoy_cache_directory, long_text):
