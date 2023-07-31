@@ -32,4 +32,3 @@ def test_DOUBLE_INDEFINITE_INTEGRAL(mock_flojoy_decorator):
         ),
     ):
         DOUBLE_INDEFINITE_INTEGRAL.DOUBLE_INDEFINITE_INTEGRAL(b_triple, 2, 2)
-        
