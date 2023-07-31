@@ -1,14 +1,15 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def HILBERT(
     default: OrderedPair | Matrix,
-    N: int,
+    N: int = 2,
     axis: int = -1,
 ) -> OrderedPair | Matrix | Scalar:
     """The HILBERT node is based on a numpy or scipy function.
@@ -34,12 +35,18 @@ def HILBERT(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        m=scipy.signal.hilbert(
-            x=default.y,
-            N=N,
-            axis=axis,
-        )
+    result = scipy.signal.hilbert(
+        x=default.y,
+        N=N,
+        axis=axis,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

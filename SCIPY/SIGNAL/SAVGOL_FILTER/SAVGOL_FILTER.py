@@ -1,15 +1,16 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def SAVGOL_FILTER(
     default: OrderedPair | Matrix,
-    window_length: int,
-    polyorder: int,
+    window_length: int = 2,
+    polyorder: int = 1,
     deriv: int = 0,
     delta: float = 1.0,
     axis: int = -1,
@@ -67,17 +68,23 @@ def SAVGOL_FILTER(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        m=scipy.signal.savgol_filter(
-            x=default.y,
-            window_length=window_length,
-            polyorder=polyorder,
-            deriv=deriv,
-            delta=delta,
-            axis=axis,
-            mode=mode,
-            cval=cval,
-        )
+    result = scipy.signal.savgol_filter(
+        x=default.y,
+        window_length=window_length,
+        polyorder=polyorder,
+        deriv=deriv,
+        delta=delta,
+        axis=axis,
+        mode=mode,
+        cval=cval,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

@@ -1,11 +1,12 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def KAISER_BETA(
     default: OrderedPair | Matrix,
 ) -> OrderedPair | Matrix | Scalar:
@@ -26,10 +27,16 @@ def KAISER_BETA(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        m=scipy.signal.kaiser_beta(
-            a=default.y,
-        )
+    result = scipy.signal.kaiser_beta(
+        a=default.y,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

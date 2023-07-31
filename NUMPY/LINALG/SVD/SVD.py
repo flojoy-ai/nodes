@@ -1,17 +1,19 @@
-from flojoy import OrderedPair, flojoy, Matrix, Scalar
+from flojoy import flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import numpy.linalg
 
 
-@flojoy(node_type="default")
+@flojoy
 def SVD(
-    default: OrderedPair | Matrix,
+    default: Matrix,
     full_matrices: bool = True,
     compute_uv: bool = True,
     hermitian: bool = False,
-) -> OrderedPair | Matrix | Scalar:
+    select_return: Literal["u", "s", "vh"] = "u",
+) -> Matrix | Scalar:
     """The SVD node is based on a numpy or scipy function.
     The description of that function is as follows:
 
@@ -27,6 +29,9 @@ def SVD(
 
     Parameters
     ----------
+    select_return : This function has returns multiple objects:
+            ['u', 's', 'vh']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : (..., M, N) array_like
             A real or complex array with ``a.ndim >= 2``.
     full_matrices : bool, optional
@@ -57,10 +62,23 @@ def SVD(
         hermitian=hermitian,
     )
 
-    if type(result) == np.ndarray:
-        result = Matrix(m=result)
+    return_list = ["u", "s", "vh"]
+    if isinstance(result, tuple):
+        res_dict = {}
+        num = min(len(result), len(return_list))
+        for i in range(num):
+            res_dict[return_list[i]] = result[i]
+        result = res_dict[select_return]
+    else:
+        result = result._asdict()
+        result = result[select_return]
 
-    elif type(result) == np.float64:
-        result = Scalar(c=result)
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

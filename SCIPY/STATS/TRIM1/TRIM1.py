@@ -1,14 +1,15 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def TRIM1(
     default: OrderedPair | Matrix,
-    proportiontocut: float,
+    proportiontocut: float = 0.1,
     tail: str = "right",
     axis: int = 0,
 ) -> OrderedPair | Matrix | Scalar:
@@ -41,13 +42,19 @@ def TRIM1(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        m=scipy.stats.trim1(
-            a=default.y,
-            proportiontocut=proportiontocut,
-            tail=tail,
-            axis=axis,
-        )
+    result = scipy.stats.trim1(
+        a=default.y,
+        proportiontocut=proportiontocut,
+        tail=tail,
+        axis=axis,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

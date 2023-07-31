@@ -1,14 +1,15 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def YEOJOHNSON(
     default: OrderedPair | Matrix,
-    lmbda: float,
+    lmbda: float = 0.1,
 ) -> OrderedPair | Matrix | Scalar:
     """The YEOJOHNSON node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -30,11 +31,17 @@ def YEOJOHNSON(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        m=scipy.stats.yeojohnson(
-            x=default.y,
-            lmbda=lmbda,
-        )
+    result = scipy.stats.yeojohnson(
+        x=default.y,
+        lmbda=lmbda,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

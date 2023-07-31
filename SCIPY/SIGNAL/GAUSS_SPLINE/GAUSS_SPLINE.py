@@ -1,14 +1,15 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def GAUSS_SPLINE(
     default: OrderedPair | Matrix,
-    n: int,
+    n: int = 2,
 ) -> OrderedPair | Matrix | Scalar:
     """The GAUSS_SPLINE node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -28,11 +29,17 @@ def GAUSS_SPLINE(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        m=scipy.signal.gauss_spline(
-            x=default.y,
-            n=n,
-        )
+    result = scipy.signal.gauss_spline(
+        x=default.y,
+        n=n,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

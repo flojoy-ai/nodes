@@ -1,11 +1,12 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def ZSCORE(
     default: OrderedPair | Matrix,
     axis: int = 0,
@@ -44,13 +45,19 @@ def ZSCORE(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        m=scipy.stats.zscore(
-            a=default.y,
-            axis=axis,
-            ddof=ddof,
-            nan_policy=nan_policy,
-        )
+    result = scipy.stats.zscore(
+        a=default.y,
+        axis=axis,
+        ddof=ddof,
+        nan_policy=nan_policy,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

@@ -49,8 +49,10 @@ def IMAGE_SMOOTHING(
             case "average":
                 image = cv2.blur(rgba_image, (kernel, kernel))
             case "gaussian":
+                assert kernel & 1, "Kernel must be odd for 'gaussian' smoothing."
                 image = cv2.GaussianBlur(rgba_image, (kernel, kernel), 0)
             case "median":
+                assert kernel & 1, "Kernel must be odd for 'median' smoothing."
                 image = cv2.medianBlur(rgba_image, kernel)
             case "bilateral":
                 rgba_image = cv2.cvtColor(rgba_image, cv2.COLOR_BGRA2BGR)

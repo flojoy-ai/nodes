@@ -1,13 +1,15 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def MVSDIST(
     default: OrderedPair | Matrix,
+    select_return: Literal["mdist", "vdist", "sdist"] = "mdist",
 ) -> OrderedPair | Matrix | Scalar:
     """The MVSDIST node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -17,6 +19,9 @@ def MVSDIST(
 
     Parameters
     ----------
+    select_return : This function has returns multiple Objects:
+            ['mdist', 'vdist', 'sdist']. Select the desired one to return.
+            See the respective function docs for descriptors.
     data : array_like
             Input array. Converted to 1-D using ravel.
             Requires 2 or more data-points.
@@ -28,9 +33,10 @@ def MVSDIST(
     """
 
     result = OrderedPair(
-        m=scipy.stats.mvsdist(
+        x=default.x,
+        y=scipy.stats.mvsdist(
             data=default.y,
-        )
+        ),
     )
 
     return result

@@ -1,11 +1,12 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def DETREND(
     default: OrderedPair | Matrix,
     axis: int = -1,
@@ -45,14 +46,20 @@ def DETREND(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        m=scipy.signal.detrend(
-            data=default.y,
-            axis=axis,
-            type=type,
-            bp=bp,
-            overwrite_data=overwrite_data,
-        )
+    result = scipy.signal.detrend(
+        data=default.y,
+        axis=axis,
+        type=type,
+        bp=bp,
+        overwrite_data=overwrite_data,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

@@ -1,6 +1,4 @@
 __all__ = [
-    "ARGRELMAX",
-    "ARGRELMIN",
     "BSPLINE",
     "CUBIC",
     "DECIMATE",
@@ -8,6 +6,9 @@ __all__ = [
     "GAUSS_SPLINE",
     "HILBERT",
     "KAISER_BETA",
+    "PERIODOGRAM",
     "QUADRATIC",
     "SAVGOL_FILTER",
+    "STFT",
+    "WELCH",
 ]

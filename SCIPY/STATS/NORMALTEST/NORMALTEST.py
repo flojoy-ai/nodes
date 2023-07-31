@@ -1,15 +1,17 @@
 from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def NORMALTEST(
     default: OrderedPair | Matrix,
     axis: int = 0,
     nan_policy: str = "propagate",
+    select_return: Literal["statistic", "pvalue"] = "statistic",
 ) -> OrderedPair | Matrix | Scalar:
     """The NORMALTEST node is based on a numpy or scipy function.
     The description of that function is as follows:
@@ -23,6 +25,9 @@ def NORMALTEST(
 
     Parameters
     ----------
+    select_return : This function has returns multiple objects:
+            ['statistic', 'pvalue']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : array_like
             The array containing the sample to be tested.
     axis : int or None, optional
@@ -42,12 +47,29 @@ def NORMALTEST(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        m=scipy.stats.normaltest(
-            a=default.y,
-            axis=axis,
-            nan_policy=nan_policy,
-        )
+    result = scipy.stats.normaltest(
+        a=default.y,
+        axis=axis,
+        nan_policy=nan_policy,
     )
+
+    return_list = ["statistic", "pvalue"]
+    if isinstance(result, tuple):
+        res_dict = {}
+        num = min(len(result), len(return_list))
+        for i in range(num):
+            res_dict[return_list[i]] = result[i]
+        result = res_dict[select_return]
+    else:
+        result = result._asdict()
+        result = result[select_return]
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

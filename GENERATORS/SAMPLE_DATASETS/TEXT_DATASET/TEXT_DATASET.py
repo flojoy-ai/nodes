@@ -53,21 +53,17 @@ def TEXT_DATASET(
         Remove the quotes from the data.
     """
 
-    to_remove = []
-    if remove_headers:
-        to_remove.append("headers")
-    if remove_footers:
-        to_remove.append("footers")
-    if remove_quotes:
-        to_remove.append("quotes")
-    to_remove = tuple(to_remove)
+    to_remove = tuple(
+        ["headers" for remove_headers in [remove_headers] if remove_headers]
+        + ["footers" for remove_footers in [remove_footers] if remove_footers]
+        + ["quotes" for remove_quotes in [remove_quotes] if remove_quotes]
+    )
 
-    if categories:
-        newsgroups = fetch_20newsgroups(
-            subset=subset, categories=categories, remove=to_remove
-        )
-    else:
-        newsgroups = fetch_20newsgroups(subset=subset, remove=to_remove)
+    newsgroups = fetch_20newsgroups(
+        subset=subset,
+        categories=categories.unwrap() if categories else None,
+        remove=to_remove,
+    )
 
     newsgroups = cast(Bunch, newsgroups)
     data = newsgroups.data

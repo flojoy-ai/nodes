@@ -17,27 +17,34 @@ def RAND(
     """The RAND node generates a random number or a list of random numbers
     depending on the distribution selected.
 
+    Inputs
+    ------
+    default : OrderedPair|Vector
+        Optional input to use as the x-axis for the random samples
+
     Parameters
     ----------
-    distribution: select
+    distribution : select
         the distribution over the random samples
-    lower_bound: float
+    lower_bound : float
         the lower bound of the output interval
-    upper_bound: float
+    upper_bound : float
         the upper bound of the output interval
-    normal_mean: float
+    normal_mean : float
         the mean or "center" of the normal distribution
-    normal_standard_deviation: float
+    normal_standard_deviation : float
         the spread or "width" of the normal distribution
-    poisson_events: float
+    poisson_events : float
         the expected number of events occurring in a fixed time-interval when distribution is poisson
 
     Returns
     -------
-    OrderedPair if there's an input
+    OrderedPair|Scalar
+        OrderedPair if there's an input
         x: the x-axis of the input
         y: the random samples
-    Scalar if no input connection
+
+        Scalar if there is no input
         c: the random number
     """
     if upper_bound < lower_bound:
@@ -48,9 +55,13 @@ def RAND(
 
     match default:
         case OrderedPair():
-            size = len(default.x) if default else None
+            size = len(default.x)
+            x = default.x
         case Vector():
-            size = len(default.v) if default else None
+            size = len(default.v)
+            x = default.v
+        case _:
+            size = 1
 
     match distribution:
         case "uniform":
@@ -62,12 +73,4 @@ def RAND(
         case "poisson":
             y = my_generator.poisson(lam=poisson_events, size=size)
 
-    match default:
-        case OrderedPair():
-            x = default.x
-        case Vector():
-            x = default.v
-        case _:
-            return Scalar(c=y)
-
-    return OrderedPair(x=x, y=y)
+    return OrderedPair(x=x, y=y) if default else Scalar(c=y)

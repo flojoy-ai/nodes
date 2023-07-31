@@ -1,14 +1,16 @@
-from flojoy import OrderedPair, flojoy, Matrix, Scalar
+from flojoy import flojoy, Matrix, Scalar
 import numpy as np
-
+from collections import namedtuple
+from typing import Literal
 
 import numpy.linalg
 
 
-@flojoy(node_type="default")
+@flojoy
 def EIG(
-    default: OrderedPair | Matrix,
-) -> OrderedPair | Matrix | Scalar:
+    default: Matrix,
+    select_return: Literal["w", "v"] = "w",
+) -> Matrix | Scalar:
     """The EIG node is based on a numpy or scipy function.
     The description of that function is as follows:
 
@@ -17,6 +19,9 @@ def EIG(
 
     Parameters
     ----------
+    select_return : This function has returns multiple objects:
+            ['w', 'v']. Select the desired one to return.
+            See the respective function docs for descriptors.
     a : (..., M, M) array
             Matrices for which the eigenvalues and right eigenvectors will
             be computed
@@ -31,10 +36,23 @@ def EIG(
         a=default.m,
     )
 
-    if type(result) == np.ndarray:
-        result = Matrix(m=result)
+    return_list = ["w", "v"]
+    if isinstance(result, tuple):
+        res_dict = {}
+        num = min(len(result), len(return_list))
+        for i in range(num):
+            res_dict[return_list[i]] = result[i]
+        result = res_dict[select_return]
+    else:
+        result = result._asdict()
+        result = result[select_return]
 
-    elif type(result) == np.float64:
-        result = Scalar(c=result)
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result
