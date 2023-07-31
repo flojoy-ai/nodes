@@ -1,23 +1,20 @@
 name: Pytest slow nightly
 
-# Run every day at 00:00 EST
-
+# TODO(roulbac): Set the schedule back to "0 0 * * *" once the tests are stable.
 on:
-  workflow_dispatch:
-    
-
+  schedule:
+    - cron: "0,20,40 * * * *"
 
 jobs:
   pytest-slow:
     strategy:
-      max-parallel: 1
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
-        with: 
-          ref: main
+        with:
+          ref: reda-fix-slow-tests
 
       - uses: actions/setup-python@v4
         with:
@@ -30,4 +27,5 @@ jobs:
 
       - name: pytest
         run: |
-          python -m pytest -s -vv -m "slow" .
+          python -m pytest -n 1 -s -vv -m "slow" .
+        timeout-minutes: 20
