@@ -4,6 +4,7 @@ import pytest
 import re
 from numpy.testing import assert_array_equal
 
+
 def test_DOUBLE_INDEFINITE_INTEGRAL(mock_flojoy_decorator):
     import DOUBLE_INDEFINITE_INTEGRAL
 
