@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def SHAPIRO(
     default: OrderedPair | Matrix,
     select_return: Literal["statistic", "p-value"] = "statistic",
@@ -50,7 +50,10 @@ def SHAPIRO(
 
     if isinstance(result, np.ndarray):
         result = OrderedPair(x=default.x, y=result)
-    elif isinstance(result, np.float64 | float | np.int64 | int):
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
         result = Scalar(c=float(result))
 
     return result

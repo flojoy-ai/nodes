@@ -1,5 +1,4 @@
 import numpy
-
 from flojoy import Matrix, DataFrame, Vector
 
 

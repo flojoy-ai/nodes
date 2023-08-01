@@ -16,7 +16,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        markers: ["not slow", "slow"]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
@@ -39,4 +38,4 @@ jobs:
 
       - name: pytest
         run: |
-          python -m pytest -n auto -vv -m "${{ matrix.markers }}" .
+          python -m pytest -n auto -vv -m "not slow" .

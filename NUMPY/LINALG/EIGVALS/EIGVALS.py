@@ -6,7 +6,7 @@ from typing import Literal
 import numpy.linalg
 
 
-@flojoy(node_type="default")
+@flojoy
 def EIGVALS(
     default: Matrix,
 ) -> Matrix | Scalar:
@@ -36,7 +36,10 @@ def EIGVALS(
 
     if isinstance(result, np.ndarray):
         result = Matrix(m=result)
-    elif isinstance(result, np.float64 | float | np.int64 | int):
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
         result = Scalar(c=float(result))
 
     return result

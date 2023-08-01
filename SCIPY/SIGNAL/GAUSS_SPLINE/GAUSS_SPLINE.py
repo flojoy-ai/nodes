@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def GAUSS_SPLINE(
     default: OrderedPair | Matrix,
     n: int = 2,
@@ -36,7 +36,10 @@ def GAUSS_SPLINE(
 
     if isinstance(result, np.ndarray):
         result = OrderedPair(x=default.x, y=result)
-    elif isinstance(result, np.float64 | float | np.int64 | int):
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
         result = Scalar(c=float(result))
 
     return result

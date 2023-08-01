@@ -18,7 +18,7 @@ def numpy_array_as_table(arr: np.ndarray):
     return new_arr.reshape(-1, 1)
 
 
-@flojoy(node_type="PLOTLY")
+@flojoy
 def ARRAY_VIEW(default: OrderedPair | Matrix | DataFrame | Image) -> Plotly:
     """
     The ARRAY_VIEW node takes "ordered_pair", "dataframe", "matrix", and "image" as input type

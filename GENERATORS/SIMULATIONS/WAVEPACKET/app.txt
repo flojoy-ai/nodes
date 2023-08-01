@@ -1,0 +1,228 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-04475ad6-db8e-485b-8169-a90dfb525a8f",
+                "type": "PLOTLY",
+                "data": {
+                    "id": "LINE-04475ad6-db8e-485b-8169-a90dfb525a8f",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "PLOTLY",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 282.55866857779966,
+                    "y": 274.132763882575
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 282.55866857779966,
+                    "y": 274.132763882575
+                },
+                "dragging": true
+            },
+            {
+                "width": 96,
+                "height": 96,
+                "id": "LOOP-ea5e948c-e780-4812-9684-f050d4163800",
+                "type": "LOOPS",
+                "data": {
+                    "id": "LOOP-ea5e948c-e780-4812-9684-f050d4163800",
+                    "label": "LOOP",
+                    "func": "LOOP",
+                    "type": "LOOPS",
+                    "ctrls": {
+                        "num_loops": {
+                            "type": "int",
+                            "default": -1,
+                            "desc": "number of times to iterate through body nodes default is `-1` meaning infinity.",
+                            "functionName": "LOOP",
+                            "param": "num_loops",
+                            "value": -1
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "body",
+                            "id": "body",
+                            "type": "Any",
+                            "desc": null
+                        },
+                        {
+                            "name": "end",
+                            "id": "end",
+                            "type": "Any",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/LOOPS/LOOP/LOOP.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -293.0511498580223,
+                    "y": 330.93880041091234
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -293.0511498580223,
+                    "y": 330.93880041091234
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261",
+                "type": "SIMULATIONS",
+                "data": {
+                    "id": "WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261",
+                    "label": "WAVEPACKET",
+                    "func": "WAVEPACKET",
+                    "type": "SIMULATIONS",
+                    "ctrls": {
+                        "L_box": {
+                            "type": "float",
+                            "default": 20,
+                            "desc": "The width of the box in Bohr lengths.",
+                            "functionName": "WAVEPACKET",
+                            "param": "L_box",
+                            "value": 20
+                        },
+                        "center": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "The center of the initial wavepacket.",
+                            "functionName": "WAVEPACKET",
+                            "param": "center",
+                            "value": "5"
+                        },
+                        "momentum": {
+                            "type": "float",
+                            "default": 5,
+                            "desc": "The momentum of the initial wavepacket.",
+                            "functionName": "WAVEPACKET",
+                            "param": "momentum",
+                            "value": 5
+                        },
+                        "sigma": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "The width of the initial wavepacket.",
+                            "functionName": "WAVEPACKET",
+                            "param": "sigma",
+                            "value": "1"
+                        },
+                        "dt": {
+                            "type": "float",
+                            "default": 0.2,
+                            "desc": "Time steps in atomic units, 1 a.u. = 24.188 as",
+                            "functionName": "WAVEPACKET",
+                            "param": "dt",
+                            "value": "0.1"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "desc": "The most recent wavepacket."
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/WAVEPACKET/WAVEPACKET.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -71.22529418711089,
+                    "y": 231.12759430779778
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -71.22529418711089,
+                    "y": 231.12759430779778
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LOOP-ea5e948c-e780-4812-9684-f050d4163800",
+                "sourceHandle": "body",
+                "target": "WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOOP-ea5e948c-e780-4812-9684-f050d4163800body-WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261default"
+            },
+            {
+                "source": "WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261",
+                "sourceHandle": "default",
+                "target": "LINE-04475ad6-db8e-485b-8169-a90dfb525a8f",
+                "targetHandle": "default",
+                "id": "reactflow__edge-WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261default-LINE-04475ad6-db8e-485b-8169-a90dfb525a8fdefault"
+            }
+        ],
+        "viewport": {
+            "x": 1228.4115496239685,
+            "y": 450.9513514193113,
+            "zoom": 1.915025364965201
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
