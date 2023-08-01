@@ -1,0 +1,129 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 150,
+                "id": "STABILITY_UPSCALING-86a72299-9470-4c32-a48a-902e3d3364bc",
+                "type": "STABILITYAI",
+                "data": {
+                    "id": "STABILITY_UPSCALING-86a72299-9470-4c32-a48a-902e3d3364bc",
+                    "label": "STABILITY UPSCALING",
+                    "func": "STABILITY_UPSCALING",
+                    "type": "STABILITYAI",
+                    "ctrls": {
+                        "image_path": {
+                            "functionName": "STABILITY_UPSCALING",
+                            "param": "image_path",
+                            "value": ""
+                        },
+                        "output_width": {
+                            "functionName": "STABILITY_UPSCALING",
+                            "param": "output_width",
+                            "value": 1024
+                        }
+                    },
+                    "selected": false
+                },
+                "position": {
+                    "x": 73.1790424661364,
+                    "y": 84.41265530487982
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 73.1790424661364,
+                    "y": 84.41265530487982
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-9dccee59-be5b-4688-bfcd-c47076b28061",
+                "type": "PLOTLY_VISOR",
+                "data": {
+                    "id": "IMAGE-9dccee59-be5b-4688-bfcd-c47076b28061",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "PLOTLY_VISOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 430.3218996089936,
+                    "y": 54.41265530487982
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 430.3218996089936,
+                    "y": 54.41265530487982
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 130,
+                "id": "END-a516213d-9860-41cc-95ab-81f131032e7c",
+                "type": "TERMINATOR",
+                "data": {
+                    "id": "END-a516213d-9860-41cc-95ab-81f131032e7c",
+                    "label": "END",
+                    "func": "END",
+                    "type": "TERMINATOR",
+                    "ctrls": {},
+                    "selected": false
+                },
+                "position": {
+                    "x": 814.6076138947079,
+                    "y": 147.26979816202268
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 814.6076138947079,
+                    "y": 147.26979816202268
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "STABILITY_UPSCALING-86a72299-9470-4c32-a48a-902e3d3364bc",
+                "sourceHandle": "main",
+                "target": "IMAGE-9dccee59-be5b-4688-bfcd-c47076b28061",
+                "targetHandle": "IMAGE",
+                "id": "reactflow__edge-STABILITY_UPSCALING-86a72299-9470-4c32-a48a-902e3d3364bcmain-IMAGE-9dccee59-be5b-4688-bfcd-c47076b28061IMAGE"
+            },
+            {
+                "source": "IMAGE-9dccee59-be5b-4688-bfcd-c47076b28061",
+                "sourceHandle": "main",
+                "target": "END-a516213d-9860-41cc-95ab-81f131032e7c",
+                "targetHandle": "END",
+                "id": "reactflow__edge-IMAGE-9dccee59-be5b-4688-bfcd-c47076b28061main-END-a516213d-9860-41cc-95ab-81f131032e7cEND"
+            }
+        ],
+        "viewport": {
+            "x": 372.88494577294296,
+            "y": -24.119233192928903,
+            "zoom": 1.127392126297635
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+COMMAND:
+  - name: STABILITY_UPSCALING
+    key: STABILITY_UPSCALING
+    type: STABILITYAI
+    parameters:
+      image_path:
+        type: string
+        default: ''
+      output_width:
+        type: int
+        default: 1024

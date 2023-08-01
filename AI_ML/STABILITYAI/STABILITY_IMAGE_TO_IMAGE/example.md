@@ -1,0 +1,1 @@
+This app uses Stability AI Image-to-Image API to generate a new image based on a reference image and a text prompt.

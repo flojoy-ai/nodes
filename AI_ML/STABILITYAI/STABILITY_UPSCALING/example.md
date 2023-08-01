@@ -1,0 +1,1 @@
+This app uses Stability AI REST API to upscale an image.
