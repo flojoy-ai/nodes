@@ -36,7 +36,7 @@ def WHISPER_SPEECH_TO_TEXT(
     openai.api_key = api_key
     model = "whisper-1"
     f = None
-    if default and isinstance(getattr(default, "bytes"), bytes):
+    if default and isinstance(getattr(default, "b"), bytes):
         f = NamedTemporaryFile(suffix=".mp3")
         f.write(default.bytes)
         f.seek(0)
