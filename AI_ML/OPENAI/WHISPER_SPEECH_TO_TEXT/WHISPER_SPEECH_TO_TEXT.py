@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataFrame as FlojoyDataFrame, Bytes, run_in_venv
+from flojoy import flojoy, Bytes, run_in_venv, TextBlob
 from typing import Optional
 import os
 from pathlib import Path
@@ -15,7 +15,7 @@ API_RETRY_INTERVAL_IN_SECONDS = 1
 @run_in_venv(pip_dependencies=["openai==0.27.8", "pandas==2.0.2"])
 def WHISPER_SPEECH_TO_TEXT(
     default: Optional[Bytes] = None, file_path: Optional[str] = None
-) -> FlojoyDataFrame:
+) -> TextBlob:
     """
     This node uses OpenAI whisper transcription model to convert audio to text.
     The audio can be provided as a file path or as bytes from a previous node.
@@ -74,6 +74,4 @@ def WHISPER_SPEECH_TO_TEXT(
         f.close()
 
     transcript_text = transcript.get("text")
-    transcription_df = pd.DataFrame(data={"text": [transcript_text]})
-
-    return FlojoyDataFrame(df=transcription_df)
+    return TextBlob(text_blob=transcript_text)
