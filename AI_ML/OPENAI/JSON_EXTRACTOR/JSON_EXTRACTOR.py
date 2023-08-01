@@ -20,7 +20,7 @@ API_RETRY_INTERVAL_IN_SECONDS = 1
 @flojoy
 @run_in_venv(pip_dependencies=["openai==0.27.8", "pandas==2.0.2"])
 def JSON_EXTRACTOR(
-    properties: str,
+    properties: list[str],
     prompt: str,
 ) -> FlojoyDataFrame:
     """
@@ -44,7 +44,6 @@ def JSON_EXTRACTOR(
     if not properties:
         raise Exception("No properties found to extract.")
 
-    properties = properties.split(",")
     schema = deepcopy(BASE_SCHEMA)
     for property in properties:
         schema["parameters"]["properties"][property] = {
