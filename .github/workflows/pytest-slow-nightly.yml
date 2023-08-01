@@ -2,8 +2,6 @@ name: Pytest slow nightly
 
 # TODO(roulbac): Set the schedule back to "0 0 * * *" once the tests are stable.
 on:
-  schedule:
-    - cron: "0,30 * * * *"
   workflow_dispatch:
 
 jobs:
