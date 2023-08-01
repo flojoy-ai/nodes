@@ -26,7 +26,7 @@ def DOUBLE_INDEFINITE_INTEGRAL(
     """
 
     def contains_only_numbers(column):
-        return all(isinstance(value, (np.int64, np.float64)) for value in column)
+        return all(isinstance(value, (np.int_, np.float_)) for value in column)
 
     if np.divide(len(default.x), width) == height:
         if not contains_only_numbers(default.x):
