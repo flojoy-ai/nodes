@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 180,
                 "id": "READ_S3-a7ae5adf-3873-46e1-b0f1-89abfb885ae6",
-                "type": "FILE",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "READ_S3-a7ae5adf-3873-46e1-b0f1-89abfb885ae6",
                     "label": "READ S3",
                     "func": "READ_S3",
-                    "type": "FILE",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "s3_name": {
                             "type": "str",
@@ -97,12 +97,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "TABLE-0f7daf14-fbf4-46c1-8d75-124ce212b38e",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-0f7daf14-fbf4-46c1-8d75-124ce212b38e",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

@@ -58,12 +58,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "RAND-67823db5-2e2b-48d2-9fa2-59711d68d8b3",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "RAND-67823db5-2e2b-48d2-9fa2-59711d68d8b3",
                     "label": "RAND",
                     "func": "RAND",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "distribution": {
                             "type": "select",
@@ -234,12 +234,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "SAVGOL-a8bd4f8a-63a4-4b06-bacd-4cf1289f022e",
-                "type": "SIGNAL_PROCESSING",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "SAVGOL-a8bd4f8a-63a4-4b06-bacd-4cf1289f022e",
                     "label": "SAVGOL",
                     "func": "SAVGOL",
-                    "type": "SIGNAL_PROCESSING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {
                         "window_length": {
                             "type": "int",
@@ -368,12 +368,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "LINE-38ed0165-2ba5-418f-8603-e8592ae636c2",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-38ed0165-2ba5-418f-8603-e8592ae636c2",
                     "label": "LINE",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -408,12 +408,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "LINE-46272c52-999a-48c0-a2c4-9bf8e9f01631",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-46272c52-999a-48c0-a2c4-9bf8e9f01631",
                     "label": "LINE 1",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

@@ -29,12 +29,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957",
-                "type": "PLOTLY_VISOR",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957",
                     "label": "BIG NUMBER",
                     "func": "BIG_NUMBER",
-                    "type": "PLOTLY_VISOR",
+                    "type": "VISUALIZERS",
                     "ctrls": {
                         "suffix": {
                             "functionName": "BIG_NUMBER",
@@ -74,12 +74,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "CONSTANT-910cbc4f-ec37-4d77-878a-643d40f38b84",
-                "type": "SIMULATION",
+                "type": "GENERATORS",
                 "data": {
                     "id": "CONSTANT-910cbc4f-ec37-4d77-878a-643d40f38b84",
                     "label": "2.0",
                     "func": "CONSTANT",
-                    "type": "SIMULATION",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "constant": {
                             "functionName": "CONSTANT",

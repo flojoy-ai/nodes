@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "DOUBLE_DEFINITE_INTEGRAL-c215aaac-b66e-4117-b317-1533b8e94265",
-                "type": "CALCULUS",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "DOUBLE_DEFINITE_INTEGRAL-c215aaac-b66e-4117-b317-1533b8e94265",
                     "label": "DOUBLE DEFINITE INTEGRAL",
                     "func": "DOUBLE_DEFINITE_INTEGRAL",
-                    "type": "CALCULUS",
+                    "type": "TRANSFORMERS",
                     "ctrls": {
                         "function": {
                             "type": "str",
@@ -73,12 +73,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "SINE-808a8ccb-a21c-4f1c-8777-69d0ffde8435",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "SINE-808a8ccb-a21c-4f1c-8777-69d0ffde8435",
                     "label": "SINE",
                     "func": "SINE",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "amplitude": {
                             "type": "float",
@@ -255,12 +255,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "SCATTER-d11db416-92b7-4511-a6c2-0bcdcb8064c1",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-d11db416-92b7-4511-a6c2-0bcdcb8064c1",
                     "label": "SCATTER",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -295,12 +295,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "SCATTER-b69cc4b7-5314-4bdc-a841-e546ee999921",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-b69cc4b7-5314-4bdc-a841-e546ee999921",
                     "label": "SCATTER 1",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

@@ -59,12 +59,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "R_DATASET-44eaa566-97ed-4dca-a9c5-0bcb7f680ad8",
-                "type": "SAMPLE_DATASETS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "R_DATASET-44eaa566-97ed-4dca-a9c5-0bcb7f680ad8",
                     "label": "R DATASET",
                     "func": "R_DATASET",
-                    "type": "SAMPLE_DATASETS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "dataset_key": {
                             "type": "select",
@@ -188,12 +188,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49b",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49b",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -228,12 +228,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9",
                     "label": "TABLE 1",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

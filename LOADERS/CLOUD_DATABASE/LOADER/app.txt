@@ -47,12 +47,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "CONSTANT-ee40698d-60e6-4eb4-88b5-4d19e0c41138",
-                "type": "SIMULATION",
+                "type": "GENERATORS",
                 "data": {
                     "id": "CONSTANT-ee40698d-60e6-4eb4-88b5-4d19e0c41138",
                     "label": "12",
                     "func": "CONSTANT",
-                    "type": "SIMULATION",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "constant": {
                             "functionName": "CONSTANT",
@@ -162,12 +162,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "FEEDBACK-bce3a2a9-20e8-4841-8404-1d91fcfac4f0",
-                "type": "SIMULATION",
+                "type": "GENERATORS",
                 "data": {
                     "id": "FEEDBACK-bce3a2a9-20e8-4841-8404-1d91fcfac4f0",
                     "label": "FeedBack",
                     "func": "FEEDBACK",
-                    "type": "SIMULATION",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "referred_node": {
                             "functionName": "FEEDBACK",
@@ -192,12 +192,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "LOADER-0ade6235-d420-468c-89af-bc408aee3a24",
-                "type": "CLOUD_DATABASE",
+                "type": "LOADERS",
                 "data": {
                     "id": "LOADER-0ade6235-d420-468c-89af-bc408aee3a24",
                     "label": "LOADER",
                     "func": "LOADER",
-                    "type": "CLOUD_DATABASE",
+                    "type": "LOADERS",
                     "ctrls": {
                         "measurement_uuid": {
                             "functionName": "LOADER",
@@ -222,12 +222,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "CONSTANT-a17e1542-74ca-4999-985f-e69f71750b1a",
-                "type": "SIMULATION",
+                "type": "GENERATORS",
                 "data": {
                     "id": "CONSTANT-a17e1542-74ca-4999-985f-e69f71750b1a",
                     "label": "-1",
                     "func": "CONSTANT",
-                    "type": "SIMULATION",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "constant": {
                             "functionName": "CONSTANT",
@@ -252,12 +252,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "CONSTANT-dae9c5e6-fa8a-4f2c-8d56-f77445749237",
-                "type": "SIMULATION",
+                "type": "GENERATORS",
                 "data": {
                     "id": "CONSTANT-dae9c5e6-fa8a-4f2c-8d56-f77445749237",
                     "label": "42",
                     "func": "CONSTANT",
-                    "type": "SIMULATION",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "constant": {
                             "functionName": "CONSTANT",

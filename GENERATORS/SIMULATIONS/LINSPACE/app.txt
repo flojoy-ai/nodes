@@ -59,12 +59,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "SCATTER-3d3c8af8-5efd-4d15-af93-4703e1146018",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-3d3c8af8-5efd-4d15-af93-4703e1146018",
                     "label": "SCATTER",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

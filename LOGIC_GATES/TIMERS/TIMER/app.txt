@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31",
-                "type": "TIMERS",
+                "type": "LOGIC_GATES",
                 "data": {
                     "id": "TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31",
                     "label": "TIMER",
                     "func": "TIMER",
-                    "type": "TIMERS",
+                    "type": "LOGIC_GATES",
                     "ctrls": {
                         "sleep_time": {
                             "type": "float",
@@ -53,12 +53,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
                     "label": "2.0",
                     "func": "CONSTANT",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "constant": {
                             "type": "float",

@@ -162,12 +162,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
                     "label": "IMAGE",
                     "func": "IMAGE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -202,12 +202,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
                     "label": "IMAGE 1",
                     "func": "IMAGE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

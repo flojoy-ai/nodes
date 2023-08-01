@@ -59,12 +59,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "TIMESERIES-1f113e5c-ee47-4e67-a040-ed8107f98095",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "TIMESERIES-1f113e5c-ee47-4e67-a040-ed8107f98095",
                     "label": "TIMESERIES",
                     "func": "TIMESERIES",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "start_date": {
                             "type": "str",
@@ -106,12 +106,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "MATRIX-bb1dc76f-50a7-4e4d-94f2-66c729fef752",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "MATRIX-bb1dc76f-50a7-4e4d-94f2-66c729fef752",
                     "label": "MATRIX",
                     "func": "MATRIX",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "row": {
                             "type": "int",
@@ -153,12 +153,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "PLOTLY_DATASET-a2a99924-c20c-40b8-8725-378427432b04",
-                "type": "SAMPLE_DATASETS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "PLOTLY_DATASET-a2a99924-c20c-40b8-8725-378427432b04",
                     "label": "PLOTLY DATASET",
                     "func": "PLOTLY_DATASET",
-                    "type": "SAMPLE_DATASETS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "dataset_key": {
                             "type": "select",
@@ -205,12 +205,12 @@
                 "width": 250,
                 "height": 159,
                 "id": "HISTOGRAM-e3f0af53-0c45-4457-ae12-7f6eb0327f39",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "HISTOGRAM-e3f0af53-0c45-4457-ae12-7f6eb0327f39",
                     "label": "HISTOGRAM",
                     "func": "HISTOGRAM",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -278,12 +278,12 @@
                 "width": 250,
                 "height": 159,
                 "id": "HISTOGRAM-6bb3aef4-a631-4732-931b-b4a71f49557e",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "HISTOGRAM-6bb3aef4-a631-4732-931b-b4a71f49557e",
                     "label": "HISTOGRAM 1",
                     "func": "HISTOGRAM",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -318,12 +318,12 @@
                 "width": 250,
                 "height": 159,
                 "id": "HISTOGRAM-3f0b2e7d-3a6c-4d14-a17c-3ba2fe7c0bfa",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "HISTOGRAM-3f0b2e7d-3a6c-4d14-a17c-3ba2fe7c0bfa",
                     "label": "HISTOGRAM 2",
                     "func": "HISTOGRAM",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -358,12 +358,12 @@
                 "width": 250,
                 "height": 159,
                 "id": "HISTOGRAM-31603d5b-2656-44cd-b445-071bb1cb6b1f",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "HISTOGRAM-31603d5b-2656-44cd-b445-071bb1cb6b1f",
                     "label": "HISTOGRAM 3",
                     "func": "HISTOGRAM",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

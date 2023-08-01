@@ -38,12 +38,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "STEPPER_DRIVER_TIC_KNOB-3b234e79-4648-4661-a8e8-3e14b3d0e72b",
-                "type": "STEPPER_MOTOR",
+                "type": "INSTRUMENTS",
                 "data": {
                     "id": "STEPPER_DRIVER_TIC_KNOB-3b234e79-4648-4661-a8e8-3e14b3d0e72b",
                     "label": "STEPPER DRIVER TIC KNOB",
                     "func": "STEPPER_DRIVER_TIC_KNOB",
-                    "type": "STEPPER_MOTOR",
+                    "type": "INSTRUMENTS",
                     "ctrls": {
                         "knob_value": {
                             "type": "int",

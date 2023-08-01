@@ -72,12 +72,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "CONSTANT-3ab4671f-65c7-48d6-a2c2-d03c4cd4bd8f",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "CONSTANT-3ab4671f-65c7-48d6-a2c2-d03c4cd4bd8f",
                     "label": "8",
                     "func": "CONSTANT",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "constant": {
                             "type": "float",
@@ -120,12 +120,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "CONSTANT-8ac72ae0-8f52-47e4-a1c9-76167f0b0706",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "CONSTANT-8ac72ae0-8f52-47e4-a1c9-76167f0b0706",
                     "label": "4",
                     "func": "CONSTANT",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "constant": {
                             "type": "float",
@@ -168,12 +168,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "LINE-3c753e5a-5d90-4d92-92f9-b955d32bd24e",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-3c753e5a-5d90-4d92-92f9-b955d32bd24e",
                     "label": "LINE",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -208,12 +208,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "LINE-6a05bf10-f19b-401d-b8e4-0a4d56d8f27c",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-6a05bf10-f19b-401d-b8e4-0a4d56d8f27c",
                     "label": "LINE 1",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

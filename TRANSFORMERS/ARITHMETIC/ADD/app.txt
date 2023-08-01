@@ -59,12 +59,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "SINE-990ddb8d-e21a-4365-b291-67758709e0fe",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "SINE-990ddb8d-e21a-4365-b291-67758709e0fe",
                     "label": "SINE",
                     "func": "SINE",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "amplitude": {
                             "type": "float",
@@ -141,12 +141,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "SINE-d52400c2-b5b4-49f1-a558-d0e6dd4ab509",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "SINE-d52400c2-b5b4-49f1-a558-d0e6dd4ab509",
                     "label": "SINE 1",
                     "func": "SINE",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "amplitude": {
                             "type": "float",
@@ -269,12 +269,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "SCATTER-60ebf12f-24b1-4b81-81a2-320252811811",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-60ebf12f-24b1-4b81-81a2-320252811811",
                     "label": "SCATTER",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -342,12 +342,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "SINE-70c5c7c4-e2dc-4a9f-abd1-2ce8208eb2ff",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "SINE-70c5c7c4-e2dc-4a9f-abd1-2ce8208eb2ff",
                     "label": "SINE 2",
                     "func": "SINE",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "amplitude": {
                             "type": "float",

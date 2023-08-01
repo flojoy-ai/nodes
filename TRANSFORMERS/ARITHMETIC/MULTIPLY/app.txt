@@ -38,12 +38,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15d",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15d",
                     "label": "SINE",
                     "func": "SINE",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "amplitude": {
                             "type": "float",
@@ -120,12 +120,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "SCATTER-9927419b-29bb-4d10-bf5a-79ea28add9a9",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-9927419b-29bb-4d10-bf5a-79ea28add9a9",
                     "label": "SCATTER",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -206,12 +206,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9c",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9c",
                     "label": "2.0",
                     "func": "CONSTANT",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "constant": {
                             "type": "float",

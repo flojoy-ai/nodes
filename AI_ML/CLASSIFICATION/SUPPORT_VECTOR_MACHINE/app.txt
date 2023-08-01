@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845",
-                "type": "FILE",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845",
                     "label": "READ CSV",
                     "func": "READ_CSV",
-                    "type": "FILE",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "file_path": {
                             "type": "str",
@@ -45,12 +45,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "READ_CSV-90526963-cd8b-4b79-bf22-12138be6d2c7",
-                "type": "FILE",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "READ_CSV-90526963-cd8b-4b79-bf22-12138be6d2c7",
                     "label": "READ CSV 1",
                     "func": "READ_CSV",
-                    "type": "FILE",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "file_path": {
                             "type": "str",
@@ -85,12 +85,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "TABLE-500d4621-276f-4b84-a114-1e4498781381",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-500d4621-276f-4b84-a114-1e4498781381",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -158,12 +158,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "SUPPORT_VECTOR_MACHINE-111df792-52d2-41ac-9662-1066da12d44b",
-                "type": "CLASSIFICATION",
+                "type": "AI_ML",
                 "data": {
                     "id": "SUPPORT_VECTOR_MACHINE-111df792-52d2-41ac-9662-1066da12d44b",
                     "label": "SUPPORT VECTOR MACHINE",
                     "func": "SUPPORT_VECTOR_MACHINE",
-                    "type": "CLASSIFICATION",
+                    "type": "AI_ML",
                     "ctrls": {
                         "kernel": {
                             "type": "select",
@@ -231,12 +231,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "EXTRACT_COLUMNS-afb1e4ac-a149-400c-b795-0f3fd78ab5f7",
-                "type": "EXTRACT_COLUMNS",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "EXTRACT_COLUMNS-afb1e4ac-a149-400c-b795-0f3fd78ab5f7",
                     "label": "EXTRACT COLUMNS",
                     "func": "EXTRACT_COLUMNS",
-                    "type": "EXTRACT_COLUMNS",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "columns": {
                             "type": "Array",
@@ -279,12 +279,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "EXTRACT_COLUMNS-394a3bea-c4b0-4e54-821b-8392c1bcaac0",
-                "type": "EXTRACT_COLUMNS",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "EXTRACT_COLUMNS-394a3bea-c4b0-4e54-821b-8392c1bcaac0",
                     "label": "EXTRACT COLUMNS 1",
                     "func": "EXTRACT_COLUMNS",
-                    "type": "EXTRACT_COLUMNS",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "columns": {
                             "type": "Array",

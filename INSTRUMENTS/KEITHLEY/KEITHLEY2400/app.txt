@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "KEITHLEY2400-06832353-c0e3-4b21-80f1-99f7827063ab",
-                "type": "KEITHLEY",
+                "type": "INSTRUMENTS",
                 "data": {
                     "id": "KEITHLEY2400-06832353-c0e3-4b21-80f1-99f7827063ab",
                     "label": "KEITHLEY2400",
                     "func": "KEITHLEY2400",
-                    "type": "KEITHLEY",
+                    "type": "INSTRUMENTS",
                     "ctrls": {
                         "comport": {
                             "type": "str",
@@ -66,12 +66,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06",
                     "label": "LINE",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

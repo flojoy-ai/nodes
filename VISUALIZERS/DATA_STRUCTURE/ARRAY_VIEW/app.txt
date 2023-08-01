@@ -5,12 +5,12 @@
                 "width": 240,
                 "height": 260,
                 "id": "ARRAY_VIEW-1efcd977-7ea1-4036-b70b-9e04177953f8",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "ARRAY_VIEW-1efcd977-7ea1-4036-b70b-9e04177953f8",
                     "label": "ARRAY VIEW",
                     "func": "ARRAY_VIEW",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -45,12 +45,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "LOCAL_FILE-6cd15e81-644c-47c3-9309-bdfb92b80322",
-                "type": "LOCAL_FILE_SYSTEM",
+                "type": "LOADERS",
                 "data": {
                     "id": "LOCAL_FILE-6cd15e81-644c-47c3-9309-bdfb92b80322",
                     "label": "LOCAL FILE",
                     "func": "LOCAL_FILE",
-                    "type": "LOCAL_FILE_SYSTEM",
+                    "type": "LOADERS",
                     "ctrls": {
                         "file_path": {
                             "type": "str",
@@ -142,12 +142,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "PLOTLY_DATASET-19eba195-7482-48cc-aac0-8cc1325fe0c9",
-                "type": "SAMPLE_DATASETS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "PLOTLY_DATASET-19eba195-7482-48cc-aac0-8cc1325fe0c9",
                     "label": "PLOTLY DATASET",
                     "func": "PLOTLY_DATASET",
-                    "type": "SAMPLE_DATASETS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "dataset_key": {
                             "type": "select",
@@ -248,12 +248,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "MATRIX-eb2f42c0-a990-4294-8032-45abfac569df",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "MATRIX-eb2f42c0-a990-4294-8032-45abfac569df",
                     "label": "MATRIX",
                     "func": "MATRIX",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "row": {
                             "type": "int",
@@ -295,12 +295,12 @@
                 "width": 240,
                 "height": 260,
                 "id": "ARRAY_VIEW-7d78d396-398b-499b-953f-e29aa877b5cf",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "ARRAY_VIEW-7d78d396-398b-499b-953f-e29aa877b5cf",
                     "label": "ARRAY VIEW 1",
                     "func": "ARRAY_VIEW",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -335,12 +335,12 @@
                 "width": 240,
                 "height": 260,
                 "id": "ARRAY_VIEW-111b6446-143e-43aa-83e9-3138fcdbf17b",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "ARRAY_VIEW-111b6446-143e-43aa-83e9-3138fcdbf17b",
                     "label": "ARRAY VIEW 2",
                     "func": "ARRAY_VIEW",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -375,12 +375,12 @@
                 "width": 240,
                 "height": 260,
                 "id": "ARRAY_VIEW-6736c8e9-a710-4b14-bdd4-829e0ee961c7",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "ARRAY_VIEW-6736c8e9-a710-4b14-bdd4-829e0ee961c7",
                     "label": "ARRAY VIEW 3",
                     "func": "ARRAY_VIEW",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

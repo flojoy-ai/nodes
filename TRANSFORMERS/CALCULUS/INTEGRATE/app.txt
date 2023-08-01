@@ -59,12 +59,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "LINE-cd291686-3929-4601-bb11-65d38032b31f",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-cd291686-3929-4601-bb11-65d38032b31f",
                     "label": "LINE",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -99,12 +99,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "LINE-cc98b9c2-cfce-4698-810a-feeebc123bda",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-cc98b9c2-cfce-4698-810a-feeebc123bda",
                     "label": "LINE 1",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -139,12 +139,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "INTEGRATE-4e2112c5-6291-4685-aca8-1cc763f7a330",
-                "type": "CALCULUS",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "INTEGRATE-4e2112c5-6291-4685-aca8-1cc763f7a330",
                     "label": "INTEGRATE",
                     "func": "INTEGRATE",
-                    "type": "CALCULUS",
+                    "type": "TRANSFORMERS",
                     "ctrls": {},
                     "inputs": [
                         {

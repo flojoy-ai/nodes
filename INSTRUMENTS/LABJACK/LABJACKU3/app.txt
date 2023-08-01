@@ -38,12 +38,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "LABJACKU3-8bb214ab-525a-490d-b539-7811b057d85f",
-                "type": "LABJACK",
+                "type": "INSTRUMENTS",
                 "data": {
                     "id": "LABJACKU3-8bb214ab-525a-490d-b539-7811b057d85f",
                     "label": "LABJACKU3",
                     "func": "LABJACKU3",
-                    "type": "LABJACK",
+                    "type": "INSTRUMENTS",
                     "ctrls": {
                         "sensor_number": {
                             "type": "int",
@@ -92,12 +92,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "GOTO-b8fa97e1-9bb8-4236-ad03-12f028086a7b",
-                "type": "LOOPS",
+                "type": "LOGIC_GATES",
                 "data": {
                     "id": "GOTO-b8fa97e1-9bb8-4236-ad03-12f028086a7b",
                     "label": "GOTO",
                     "func": "GOTO",
-                    "type": "LOOPS",
+                    "type": "LOGIC_GATES",
                     "ctrls": {
                         "goto_node_id": {
                             "type": "NodeReference",
@@ -133,12 +133,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "LOOP-744fed19-65b1-47c3-ad99-28db2e906bde",
-                "type": "LOOPS",
+                "type": "LOGIC_GATES",
                 "data": {
                     "id": "LOOP-744fed19-65b1-47c3-ad99-28db2e906bde",
                     "label": "LOOP",
                     "func": "LOOP",
-                    "type": "LOOPS",
+                    "type": "LOGIC_GATES",
                     "ctrls": {
                         "num_loops": {
                             "type": "int",
@@ -186,12 +186,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "BAR-d54011a8-5b19-471e-9aad-74ce3ca62914",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "BAR-d54011a8-5b19-471e-9aad-74ce3ca62914",
                     "label": "BAR",
                     "func": "BAR",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736",
-                "type": "IMAGE_PROCESSING",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "IMAGE_SMOOTHING-271ab3fc-7780-4b0d-a394-9d6935b20736",
                     "label": "IMAGE SMOOTHING",
                     "func": "IMAGE_SMOOTHING",
-                    "type": "IMAGE_PROCESSING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {
                         "kernel": {
                             "type": "int",
@@ -66,12 +66,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
-                "type": "LOCAL_FILE_SYSTEM",
+                "type": "LOADERS",
                 "data": {
                     "id": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
                     "label": "LOCAL FILE",
                     "func": "LOCAL_FILE",
-                    "type": "LOCAL_FILE_SYSTEM",
+                    "type": "LOADERS",
                     "ctrls": {
                         "file_path": {
                             "type": "str",
@@ -163,12 +163,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181",
                     "label": "IMAGE",
                     "func": "IMAGE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -203,12 +203,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94c",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94c",
                     "label": "IMAGE 1",
                     "func": "IMAGE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

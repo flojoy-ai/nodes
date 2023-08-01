@@ -123,12 +123,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
                     "label": "IMAGE",
                     "func": "IMAGE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -163,12 +163,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
                     "label": "IMAGE 1",
                     "func": "IMAGE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -203,12 +203,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
-                "type": "SIGNAL_PROCESSING",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
                     "label": "TWO DIMENSIONAL FFT",
                     "func": "TWO_DIMENSIONAL_FFT",
-                    "type": "SIGNAL_PROCESSING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {
                         "real_signal": {
                             "type": "bool",

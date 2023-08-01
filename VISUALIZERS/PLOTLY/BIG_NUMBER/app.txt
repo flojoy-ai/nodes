@@ -92,12 +92,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "GOTO-c29d54b5-4478-42da-b59b-5e5b190a2ee6",
-                "type": "LOOPS",
+                "type": "LOGIC_GATES",
                 "data": {
                     "id": "GOTO-c29d54b5-4478-42da-b59b-5e5b190a2ee6",
                     "label": "GOTO",
                     "func": "GOTO",
-                    "type": "LOOPS",
+                    "type": "LOGIC_GATES",
                     "ctrls": {
                         "goto_node_id": {
                             "type": "NodeReference",
@@ -133,12 +133,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "LOOP-d294c908-88a7-4f19-8446-9a68061e1f14",
-                "type": "LOOPS",
+                "type": "LOGIC_GATES",
                 "data": {
                     "id": "LOOP-d294c908-88a7-4f19-8446-9a68061e1f14",
                     "label": "LOOP",
                     "func": "LOOP",
-                    "type": "LOOPS",
+                    "type": "LOGIC_GATES",
                     "ctrls": {
                         "num_loops": {
                             "type": "int",
@@ -186,12 +186,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "CONSTANT-b7112c9c-029c-4899-bd7f-ae304c690697",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "CONSTANT-b7112c9c-029c-4899-bd7f-ae304c690697",
                     "label": "2.0",
                     "func": "CONSTANT",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "constant": {
                             "type": "float",
@@ -234,12 +234,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "FEEDBACK-f81e0c07-98f4-4f31-b5b3-7a32118d139e",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "FEEDBACK-f81e0c07-98f4-4f31-b5b3-7a32118d139e",
                     "label": "FEEDBACK",
                     "func": "FEEDBACK",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "referred_node": {
                             "type": "NodeReference",
@@ -282,12 +282,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "CONSTANT-2c2b2a67-fa77-41db-9f40-f6bad42c460b",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "CONSTANT-2c2b2a67-fa77-41db-9f40-f6bad42c460b",
                     "label": "4",
                     "func": "CONSTANT",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "constant": {
                             "type": "float",
@@ -376,12 +376,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "BIG_NUMBER-da31944f-c5f5-461e-a3c2-fe4432f870d6",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "BIG_NUMBER-da31944f-c5f5-461e-a3c2-fe4432f870d6",
                     "label": "BIG NUMBER",
                     "func": "BIG_NUMBER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {
                         "suffix": {
                             "type": "str",

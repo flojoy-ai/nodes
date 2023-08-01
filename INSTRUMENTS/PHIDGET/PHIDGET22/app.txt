@@ -38,12 +38,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "PHIDGET22-c6e0fa47-17f1-4642-ae9e-f52453b7c526",
-                "type": "PHIDGET",
+                "type": "INSTRUMENTS",
                 "data": {
                     "id": "PHIDGET22-c6e0fa47-17f1-4642-ae9e-f52453b7c526",
                     "label": "PHIDGET22",
                     "func": "PHIDGET22",
-                    "type": "PHIDGET",
+                    "type": "INSTRUMENTS",
                     "ctrls": {
                         "n_sensors": {
                             "type": "int",
@@ -106,12 +106,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
                     "label": "BAR",
                     "func": "BAR",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

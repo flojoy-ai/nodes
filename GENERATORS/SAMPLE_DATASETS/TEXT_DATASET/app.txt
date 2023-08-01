@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "TEXT_DATASET-85e09f8c-f053-4ab3-88df-464421665ef3",
-                "type": "SAMPLE_DATASETS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "TEXT_DATASET-85e09f8c-f053-4ab3-88df-464421665ef3",
                     "label": "TEXT DATASET",
                     "func": "TEXT_DATASET",
-                    "type": "SAMPLE_DATASETS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "subset": {
                             "type": "select",
@@ -77,12 +77,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "TABLE-6a242d62-814f-406e-94de-d5c6908dce5e",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-6a242d62-814f-406e-94de-d5c6908dce5e",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

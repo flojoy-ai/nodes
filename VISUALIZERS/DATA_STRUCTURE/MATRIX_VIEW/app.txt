@@ -5,12 +5,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "MATRIX-957da30a-8624-44d8-93fb-51ec90f92485",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "MATRIX-957da30a-8624-44d8-93fb-51ec90f92485",
                     "label": "MATRIX",
                     "func": "MATRIX",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "row": {
                             "type": "int",
@@ -52,12 +52,12 @@
                 "width": 240,
                 "height": 260,
                 "id": "MATRIX_VIEW-33a3d38e-93b1-4e33-9789-9f457d04498a",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "MATRIX_VIEW-33a3d38e-93b1-4e33-9789-9f457d04498a",
                     "label": "MATRIX VIEW",
                     "func": "MATRIX_VIEW",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

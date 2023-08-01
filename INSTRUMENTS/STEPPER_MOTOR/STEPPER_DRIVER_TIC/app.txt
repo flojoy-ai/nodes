@@ -38,12 +38,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "STEPPER_DRIVER_TIC-deb4fca7-fc18-443d-bd70-f1455a749eff",
-                "type": "STEPPER_MOTOR",
+                "type": "INSTRUMENTS",
                 "data": {
                     "id": "STEPPER_DRIVER_TIC-deb4fca7-fc18-443d-bd70-f1455a749eff",
                     "label": "STEPPER DRIVER TIC",
                     "func": "STEPPER_DRIVER_TIC",
-                    "type": "STEPPER_MOTOR",
+                    "type": "INSTRUMENTS",
                     "ctrls": {
                         "current_limit": {
                             "type": "int",

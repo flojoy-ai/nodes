@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "R_DATASET-52b424e0-d868-40e9-90c2-992ff9c78e0e",
-                "type": "SAMPLE_DATASETS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "R_DATASET-52b424e0-d868-40e9-90c2-992ff9c78e0e",
                     "label": "R DATASET",
                     "func": "R_DATASET",
-                    "type": "SAMPLE_DATASETS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "dataset_key": {
                             "type": "select",
@@ -134,12 +134,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcd",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcd",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

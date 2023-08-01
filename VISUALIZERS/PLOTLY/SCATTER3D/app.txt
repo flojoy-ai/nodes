@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "PLOTLY_DATASET-6af3469b-5751-4778-84a1-2b17bc9c0894",
-                "type": "SAMPLE_DATASETS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "PLOTLY_DATASET-6af3469b-5751-4778-84a1-2b17bc9c0894",
                     "label": "PLOTLY DATASET",
                     "func": "PLOTLY_DATASET",
-                    "type": "SAMPLE_DATASETS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "dataset_key": {
                             "type": "select",
@@ -90,12 +90,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "DF_2_ORDEREDTRIPLE-a3a65384-680c-4114-81e1-476ec8835a58",
-                "type": "TYPE_CASTING",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "DF_2_ORDEREDTRIPLE-a3a65384-680c-4114-81e1-476ec8835a58",
                     "label": "DF 2 ORDEREDTRIPLE",
                     "func": "DF_2_ORDEREDTRIPLE",
-                    "type": "TYPE_CASTING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {
                         "x": {
                             "type": "int",
@@ -152,12 +152,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "SCATTER3D-27578128-aa7b-40fe-8dfd-d971192bba27",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER3D-27578128-aa7b-40fe-8dfd-d971192bba27",
                     "label": "SCATTER3D 1",
                     "func": "SCATTER3D",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -192,12 +192,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "SCATTER3D-0ba51c41-646b-47e4-a6e0-a306230f4ec6",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER3D-0ba51c41-646b-47e4-a6e0-a306230f4ec6",
                     "label": "SCATTER3D 1",
                     "func": "SCATTER3D",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

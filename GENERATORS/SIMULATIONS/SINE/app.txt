@@ -59,12 +59,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "SINE-eea67eed-8065-40ba-9f28-3420f1f4a62a",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "SINE-eea67eed-8065-40ba-9f28-3420f1f4a62a",
                     "label": "SINE",
                     "func": "SINE",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "amplitude": {
                             "type": "float",
@@ -174,12 +174,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "SCATTER-0966e710-b72c-4cf4-ade7-1c09a3b14b37",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-0966e710-b72c-4cf4-ade7-1c09a3b14b37",
                     "label": "SCATTER",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

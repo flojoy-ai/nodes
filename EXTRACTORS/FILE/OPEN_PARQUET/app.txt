@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "OPEN_PARQUET-196993ec-f559-44c6-8d7d-14360ed20ce7",
-                "type": "FILE",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "OPEN_PARQUET-196993ec-f559-44c6-8d7d-14360ed20ce7",
                     "label": "OPEN PARQUET",
                     "func": "OPEN_PARQUET",
-                    "type": "FILE",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "file_path": {
                             "type": "str",
@@ -55,12 +55,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "TABLE-af6328dd-0379-4824-898f-d0d3b677b664",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-af6328dd-0379-4824-898f-d0d3b677b664",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

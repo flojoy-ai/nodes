@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "READ_CSV-8b04aea4-84df-4d71-ae8c-356334a25be2",
-                "type": "FILE",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "READ_CSV-8b04aea4-84df-4d71-ae8c-356334a25be2",
                     "label": "READ CSV",
                     "func": "READ_CSV",
-                    "type": "FILE",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "file_path": {
                             "type": "str",
@@ -45,12 +45,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "TABLE-de9611d6-a05a-4679-afe3-a7fa7f49f8a4",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-de9611d6-a05a-4679-afe3-a7fa7f49f8a4",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

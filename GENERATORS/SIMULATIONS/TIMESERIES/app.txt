@@ -5,12 +5,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "TABLE-e495f7ee-9936-41e5-8341-8532fbe7fc37",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-e495f7ee-9936-41e5-8341-8532fbe7fc37",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -78,12 +78,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "TIMESERIES-32359924-1394-434a-a933-965680772cfb",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "TIMESERIES-32359924-1394-434a-a933-965680772cfb",
                     "label": "TIMESERIES",
                     "func": "TIMESERIES",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "start_date": {
                             "type": "str",

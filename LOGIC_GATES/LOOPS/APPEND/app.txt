@@ -38,12 +38,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "APPEND-a2c9923a-6e0d-4eee-9075-b898669afef4",
-                "type": "LOOPS",
+                "type": "LOGIC_GATES",
                 "data": {
                     "id": "APPEND-a2c9923a-6e0d-4eee-9075-b898669afef4",
                     "label": "APPEND",
                     "func": "APPEND",
-                    "type": "LOOPS",
+                    "type": "LOGIC_GATES",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -84,12 +84,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "RAND-c7739b2a-89f6-46fd-ac17-b3fdbec8c586",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "RAND-c7739b2a-89f6-46fd-ac17-b3fdbec8c586",
                     "label": "RAND",
                     "func": "RAND",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "distribution": {
                             "type": "select",
@@ -296,12 +296,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "RAND-604d3223-83f7-4e62-851c-567cf7d10cfe",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "RAND-604d3223-83f7-4e62-851c-567cf7d10cfe",
                     "label": "RAND 1",
                     "func": "RAND",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "distribution": {
                             "type": "select",
@@ -384,12 +384,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "SCATTER-fe4b85c2-0917-4786-a715-836201d919cf",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-fe4b85c2-0917-4786-a715-836201d919cf",
                     "label": "SCATTER 1",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -424,12 +424,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "SCATTER-ee3d567b-33c6-4700-a8ff-dd4f091e2d27",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-ee3d567b-33c6-4700-a8ff-dd4f091e2d27",
                     "label": "SCATTER 1",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

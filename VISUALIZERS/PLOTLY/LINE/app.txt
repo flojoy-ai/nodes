@@ -59,12 +59,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "MATRIX-adb7407c-2ba3-4478-8c1a-2c0d2dc1f095",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "MATRIX-adb7407c-2ba3-4478-8c1a-2c0d2dc1f095",
                     "label": "MATRIX",
                     "func": "MATRIX",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "row": {
                             "type": "int",
@@ -106,12 +106,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "R_DATASET-6c382bcf-a72e-488d-a784-eb21cb00839a",
-                "type": "SAMPLE_DATASETS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "R_DATASET-6c382bcf-a72e-488d-a784-eb21cb00839a",
                     "label": "R DATASET",
                     "func": "R_DATASET",
-                    "type": "SAMPLE_DATASETS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "dataset_key": {
                             "type": "select",
@@ -235,12 +235,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "TIMESERIES-511ecdda-9fd1-443e-95bb-2399e69b6484",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "TIMESERIES-511ecdda-9fd1-443e-95bb-2399e69b6484",
                     "label": "TIMESERIES",
                     "func": "TIMESERIES",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "start_date": {
                             "type": "str",
@@ -282,12 +282,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "LINE-5c3fb9d2-57ce-4364-8030-96505b8ad344",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-5c3fb9d2-57ce-4364-8030-96505b8ad344",
                     "label": "LINE",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -322,12 +322,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "LINE-b77bfca4-130d-46b6-9962-f53f605d7107",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-b77bfca4-130d-46b6-9962-f53f605d7107",
                     "label": "LINE 1",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -362,12 +362,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "LINE-fba98010-ffc1-4864-8a5a-356f46f70a26",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-fba98010-ffc1-4864-8a5a-356f46f70a26",
                     "label": "LINE 2",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -402,12 +402,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "LINE-be1cb8d9-dc67-4567-8952-8b7eaeb9134d",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-be1cb8d9-dc67-4567-8952-8b7eaeb9134d",
                     "label": "LINE 3",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

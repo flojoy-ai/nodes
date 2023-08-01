@@ -5,12 +5,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "LINE-04475ad6-db8e-485b-8169-a90dfb525a8f",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-04475ad6-db8e-485b-8169-a90dfb525a8f",
                     "label": "LINE",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -47,12 +47,12 @@
                 "width": 96,
                 "height": 96,
                 "id": "LOOP-ea5e948c-e780-4812-9684-f050d4163800",
-                "type": "LOOPS",
+                "type": "LOGIC_GATES",
                 "data": {
                     "id": "LOOP-ea5e948c-e780-4812-9684-f050d4163800",
                     "label": "LOOP",
                     "func": "LOOP",
-                    "type": "LOOPS",
+                    "type": "LOGIC_GATES",
                     "ctrls": {
                         "num_loops": {
                             "type": "int",
@@ -104,12 +104,12 @@
                 "width": 208,
                 "height": 96,
                 "id": "WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261",
                     "label": "WAVEPACKET",
                     "func": "WAVEPACKET",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "L_box": {
                             "type": "float",

@@ -93,12 +93,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "FFT-e97ea8b8-ce90-4c6a-aa27-ee0e5f82c9bf",
-                "type": "SIGNAL_PROCESSING",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "FFT-e97ea8b8-ce90-4c6a-aa27-ee0e5f82c9bf",
                     "label": "FFT",
                     "func": "FFT",
-                    "type": "SIGNAL_PROCESSING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {
                         "window": {
                             "type": "select",
@@ -181,12 +181,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "BUTTER-b2ffdf87-8ec3-42d1-973d-56d705301470",
-                "type": "SIGNAL_PROCESSING",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "BUTTER-b2ffdf87-8ec3-42d1-973d-56d705301470",
                     "label": "BUTTER",
                     "func": "BUTTER",
-                    "type": "SIGNAL_PROCESSING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {
                         "filter_order": {
                             "type": "int",
@@ -256,12 +256,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "FFT-da75bb73-a829-499f-a419-50ee2aeed4dd",
-                "type": "SIGNAL_PROCESSING",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "FFT-da75bb73-a829-499f-a419-50ee2aeed4dd",
                     "label": "FFT 1",
                     "func": "FFT",
-                    "type": "SIGNAL_PROCESSING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {
                         "window": {
                             "type": "select",
@@ -344,12 +344,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "LINE-c662104c-36e6-4b54-8f5f-ff7588218c5b",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-c662104c-36e6-4b54-8f5f-ff7588218c5b",
                     "label": "LINE",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -384,12 +384,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "LINE-1615d876-d703-4009-970b-a157b5d7af5f",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-1615d876-d703-4009-970b-a157b5d7af5f",
                     "label": "LINE 1",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
