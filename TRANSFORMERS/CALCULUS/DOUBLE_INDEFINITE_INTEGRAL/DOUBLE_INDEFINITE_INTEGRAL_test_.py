@@ -45,4 +45,4 @@ def test_DOUBLE_INDEFINITE_INTEGRAL_str_errorMessage(mock_flojoy_decorator):
         b_triple,
         2,
         2,
-    )    
+    )
