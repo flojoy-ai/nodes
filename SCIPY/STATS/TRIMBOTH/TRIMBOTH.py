@@ -6,10 +6,10 @@ from typing import Literal
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def TRIMBOTH(
     default: OrderedPair | Matrix,
-    proportiontocut: float,
+    proportiontocut: float = 0.1,
     axis: int = 0,
 ) -> OrderedPair | Matrix | Scalar:
     """The TRIMBOTH node is based on a numpy or scipy function.
@@ -40,13 +40,18 @@ def TRIMBOTH(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.trimboth(
-            a=default.y,
-            proportiontocut=proportiontocut,
-            axis=axis,
-        ),
+    result = scipy.stats.trimboth(
+        a=default.y,
+        proportiontocut=proportiontocut,
+        axis=axis,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

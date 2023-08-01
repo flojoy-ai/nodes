@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def GSTD(
     default: OrderedPair | Matrix,
     axis: int = 0,
@@ -47,13 +47,18 @@ def GSTD(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.gstd(
-            a=default.y,
-            axis=axis,
-            ddof=ddof,
-        ),
+    result = scipy.stats.gstd(
+        a=default.y,
+        axis=axis,
+        ddof=ddof,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

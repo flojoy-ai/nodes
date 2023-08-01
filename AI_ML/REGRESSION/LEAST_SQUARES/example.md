@@ -1,4 +1,4 @@
-In this example, two`LINSPACE` each generates an array of 300 samples.
+In this example, two `LINSPACE` each generates an array of 300 samples.
 
 One of the array is passed down to 'RAND' node which randomizes the data points.
 

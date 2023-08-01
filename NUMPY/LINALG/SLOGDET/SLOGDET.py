@@ -1,4 +1,4 @@
-from flojoy import OrderedPair, flojoy, Matrix, Scalar
+from flojoy import flojoy, Matrix, Scalar
 import numpy as np
 from collections import namedtuple
 from typing import Literal
@@ -6,7 +6,7 @@ from typing import Literal
 import numpy.linalg
 
 
-@flojoy(node_type="default")
+@flojoy
 def SLOGDET(
     default: Matrix,
     select_return: Literal["sign", "logdet"] = "sign",
@@ -24,7 +24,7 @@ def SLOGDET(
 
     Parameters
     ----------
-    select_return : This function has returns multiple Objects:
+    select_return : This function has returns multiple objects:
             ['sign', 'logdet']. Select the desired one to return.
             See the respective function docs for descriptors.
     a : (..., M, M) array_like
@@ -40,13 +40,23 @@ def SLOGDET(
         a=default.m,
     )
 
-    if isinstance(result, namedtuple):
+    return_list = ["sign", "logdet"]
+    if isinstance(result, tuple):
+        res_dict = {}
+        num = min(len(result), len(return_list))
+        for i in range(num):
+            res_dict[return_list[i]] = result[i]
+        result = res_dict[select_return]
+    else:
         result = result._asdict()
         result = result[select_return]
 
     if isinstance(result, np.ndarray):
         result = Matrix(m=result)
-    elif isinstance(result, np.float64):
-        result = Scalar(c=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

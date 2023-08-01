@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def JARQUE_BERA(
     default: OrderedPair | Matrix,
     select_return: Literal["jb_value", "p"] = "jb_value",
@@ -25,7 +25,7 @@ def JARQUE_BERA(
 
     Parameters
     ----------
-    select_return : This function has returns multiple Objects:
+    select_return : This function has returns multiple objects:
             ['jb_value', 'p']. Select the desired one to return.
             See the respective function docs for descriptors.
     x : array_like
@@ -37,11 +37,27 @@ def JARQUE_BERA(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.jarque_bera(
-            x=default.y,
-        ),
+    result = scipy.stats.jarque_bera(
+        x=default.y,
     )
+
+    return_list = ["jb_value", "p"]
+    if isinstance(result, tuple):
+        res_dict = {}
+        num = min(len(result), len(return_list))
+        for i in range(num):
+            res_dict[return_list[i]] = result[i]
+        result = res_dict[select_return]
+    else:
+        result = result._asdict()
+        result = result[select_return]
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

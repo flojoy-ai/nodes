@@ -2,193 +2,209 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 130,
-                "height": 130,
-                "id": "MATRIX-ec259036-e37b-4671-8a8d-d684584ffbb2",
-                "type": "SIMULATIONS",
+                "width": 150,
+                "height": 180,
+                "id": "MATRIX-e3ed97a3-2b6e-4ece-908e-f48e0de4ab79",
+                "type": "default",
                 "data": {
-                    "id": "MATRIX-ec259036-e37b-4671-8a8d-d684584ffbb2",
+                    "id": "MATRIX-e3ed97a3-2b6e-4ece-908e-f48e0de4ab79",
                     "label": "MATRIX",
                     "func": "MATRIX",
-                    "type": "SIMULATIONS",
+                    "type": "default",
                     "ctrls": {
                         "row": {
                             "type": "int",
                             "default": 2,
+                            "desc": "number of rows",
                             "functionName": "MATRIX",
                             "param": "row",
-                            "value": 2
+                            "value": "9"
                         },
                         "column": {
                             "type": "int",
                             "default": 2,
+                            "desc": "number of columns",
                             "functionName": "MATRIX",
                             "param": "column",
-                            "value": 2
+                            "value": "3"
                         }
                     },
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Matrix"
+                            "type": "Matrix",
+                            "desc": "randomly generated matrix"
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/MATRIX/MATRIX.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 188.5633762135401,
-                    "y": 349.2164179190142
+                    "x": -132.81651261184422,
+                    "y": 138.02304022364507
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 188.5633762135401,
-                    "y": 349.2164179190142
+                    "x": -132.81651261184422,
+                    "y": 138.02304022364507
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
-                "id": "LINE-a0ba433b-38d5-4456-820c-b1e3913bb89c",
-                "type": "PLOTLY",
+                "width": 160,
+                "height": 160,
+                "id": "MAT_2_DF-e3f15cc1-ec37-40ea-94be-1e3409ef0671",
+                "type": "TRANSFORMERS",
                 "data": {
-                    "id": "LINE-a0ba433b-38d5-4456-820c-b1e3913bb89c",
-                    "label": "LINE",
-                    "func": "LINE",
-                    "type": "PLOTLY",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair|Matrix|DataFrame",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 713.7881635025728,
-                    "y": 299.452799447683
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 713.7881635025728,
-                    "y": 299.452799447683
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-bdf9cd08-3bdf-4f93-ae2d-bc843ac59ef6",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-bdf9cd08-3bdf-4f93-ae2d-bc843ac59ef6",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 1160.9517006157112,
-                    "y": 359.447100902452
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 1160.9517006157112,
-                    "y": 359.447100902452
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "MAT_2_DF-b47f36ab-ee94-4b8a-9f26-6cd00c8a299d",
-                "type": "TYPE_CASTING",
-                "data": {
-                    "id": "MAT_2_DF-b47f36ab-ee94-4b8a-9f26-6cd00c8a299d",
+                    "id": "MAT_2_DF-e3f15cc1-ec37-40ea-94be-1e3409ef0671",
                     "label": "MAT 2 DF",
                     "func": "MAT_2_DF",
-                    "type": "TYPE_CASTING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
                             "type": "Matrix",
-                            "multiple": false
+                            "multiple": false,
+                            "desc": null
                         }
                     ],
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "DataFrame"
+                            "type": "DataFrame",
+                            "desc": "Converted matrix value from the input"
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/TYPE_CASTING/MAT_2_DF/MAT_2_DF.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 411.8143678232408,
-                    "y": 339.92513337331167
+                    "x": 67.66766968315704,
+                    "y": 337.22867035717144
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 411.8143678232408,
-                    "y": 339.92513337331167
+                    "x": 67.66766968315704,
+                    "y": 337.22867035717144
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "LINE-e4276e11-5fd7-4aa5-a357-9a3b7c57abab",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "LINE-e4276e11-5fd7-4aa5-a357-9a3b7c57abab",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 259.70014602948754,
+                    "y": 315.13027092154357
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 259.70014602948754,
+                    "y": 315.13027092154357
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "LINE-1effbf12-03cc-40ec-bc5f-22c7954a3abe",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "LINE-1effbf12-03cc-40ec-bc5f-22c7954a3abe",
+                    "label": "LINE 1",
+                    "func": "LINE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 52.20363423768484,
+                    "y": 16.739781481728016
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 52.20363423768484,
+                    "y": 16.739781481728016
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LINE-a0ba433b-38d5-4456-820c-b1e3913bb89c",
+                "source": "MATRIX-e3ed97a3-2b6e-4ece-908e-f48e0de4ab79",
                 "sourceHandle": "default",
-                "target": "END-bdf9cd08-3bdf-4f93-ae2d-bc843ac59ef6",
+                "target": "MAT_2_DF-e3f15cc1-ec37-40ea-94be-1e3409ef0671",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LINE-a0ba433b-38d5-4456-820c-b1e3913bb89cdefault-END-bdf9cd08-3bdf-4f93-ae2d-bc843ac59ef6default"
+                "id": "reactflow__edge-MATRIX-e3ed97a3-2b6e-4ece-908e-f48e0de4ab79default-MAT_2_DF-e3f15cc1-ec37-40ea-94be-1e3409ef0671default"
             },
             {
-                "source": "MATRIX-ec259036-e37b-4671-8a8d-d684584ffbb2",
+                "source": "MATRIX-e3ed97a3-2b6e-4ece-908e-f48e0de4ab79",
                 "sourceHandle": "default",
-                "target": "MAT_2_DF-b47f36ab-ee94-4b8a-9f26-6cd00c8a299d",
+                "target": "LINE-1effbf12-03cc-40ec-bc5f-22c7954a3abe",
                 "targetHandle": "default",
-                "id": "reactflow__edge-MATRIX-ec259036-e37b-4671-8a8d-d684584ffbb2default-MAT_2_DF-b47f36ab-ee94-4b8a-9f26-6cd00c8a299ddefault"
+                "id": "reactflow__edge-MATRIX-e3ed97a3-2b6e-4ece-908e-f48e0de4ab79default-LINE-1effbf12-03cc-40ec-bc5f-22c7954a3abedefault"
             },
             {
-                "source": "MAT_2_DF-b47f36ab-ee94-4b8a-9f26-6cd00c8a299d",
+                "source": "MAT_2_DF-e3f15cc1-ec37-40ea-94be-1e3409ef0671",
                 "sourceHandle": "default",
-                "target": "LINE-a0ba433b-38d5-4456-820c-b1e3913bb89c",
+                "target": "LINE-e4276e11-5fd7-4aa5-a357-9a3b7c57abab",
                 "targetHandle": "default",
-                "id": "reactflow__edge-MAT_2_DF-b47f36ab-ee94-4b8a-9f26-6cd00c8a299ddefault-LINE-a0ba433b-38d5-4456-820c-b1e3913bb89cdefault"
+                "id": "reactflow__edge-MAT_2_DF-e3f15cc1-ec37-40ea-94be-1e3409ef0671default-LINE-e4276e11-5fd7-4aa5-a357-9a3b7c57ababdefault"
             }
         ],
         "viewport": {
-            "x": 0,
-            "y": 0,
-            "zoom": 1
+            "x": 722.5478564221319,
+            "y": 307.5775746454569,
+            "zoom": 1.204238868134965
         }
     },
     "ctrlsManifest": [

@@ -2,15 +2,15 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
-                "id": "R_DATASET-2cbb8a61-2c9a-4ad1-aa30-531be333cdf7",
-                "type": "SAMPLE_DATASETS",
+                "width": 208,
+                "height": 96,
+                "id": "R_DATASET-b9a3532b-7924-41b5-b7a3-3b2f26342f57",
+                "type": "GENERATORS",
                 "data": {
-                    "id": "R_DATASET-2cbb8a61-2c9a-4ad1-aa30-531be333cdf7",
+                    "id": "R_DATASET-b9a3532b-7924-41b5-b7a3-3b2f26342f57",
                     "label": "R DATASET",
                     "func": "R_DATASET",
-                    "type": "SAMPLE_DATASETS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "dataset_key": {
                             "type": "select",
@@ -98,16 +98,18 @@
                                 "WorldPhones",
                                 "WWWusage"
                             ],
+                            "desc": null,
                             "functionName": "R_DATASET",
                             "param": "dataset_key",
-                            "value": "iris"
+                            "value": "airquality"
                         }
                     },
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "DataFrame"
+                            "type": "DataFrame",
+                            "desc": null
                         }
                     ],
                     "pip_dependencies": [
@@ -120,157 +122,170 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -21.263377334327345,
-                    "y": 160.19882921815832
+                    "x": -580.4601807214103,
+                    "y": 18.651973077552213
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -21.263377334327345,
-                    "y": 160.19882921815832
+                    "x": -580.4601807214103,
+                    "y": 18.651973077552213
                 },
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
-                "id": "DF_2_NP-91929d87-cbfb-430e-b5ac-78ee01dba01d",
-                "type": "TYPE_CASTING",
+                "width": 160,
+                "height": 160,
+                "id": "DF_2_NP-84475e8e-a8be-4360-a62f-203a0bbc9c5a",
+                "type": "TRANSFORMERS",
                 "data": {
-                    "id": "DF_2_NP-91929d87-cbfb-430e-b5ac-78ee01dba01d",
+                    "id": "DF_2_NP-84475e8e-a8be-4360-a62f-203a0bbc9c5a",
                     "label": "DF 2 NP",
                     "func": "DF_2_NP",
-                    "type": "TYPE_CASTING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
                             "type": "DataFrame",
-                            "multiple": false
+                            "multiple": false,
+                            "desc": null
                         }
                     ],
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Any"
+                            "type": "Matrix",
+                            "desc": "Converted dataframe value from the input"
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/TYPE_CASTING/DF_2_NP/DF_2_NP.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 260.1411269778855,
-                    "y": 160.46643712153627
+                    "x": -339.59500425249286,
+                    "y": 148.88869515224056
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 260.1411269778855,
-                    "y": 160.46643712153627
+                    "x": -339.59500425249286,
+                    "y": 148.88869515224056
                 },
                 "dragging": true
             },
             {
                 "width": 225,
                 "height": 226,
-                "id": "LINE-fb139689-2bc4-4fbe-853a-46c9a65d0ec2",
-                "type": "PLOTLY",
+                "id": "LINE-d6eebd8f-1c5a-4565-a07c-8591d0dc0464",
+                "type": "VISUALIZERS",
                 "data": {
-                    "id": "LINE-fb139689-2bc4-4fbe-853a-46c9a65d0ec2",
+                    "id": "LINE-d6eebd8f-1c5a-4565-a07c-8591d0dc0464",
                     "label": "LINE",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair|Matrix|DataFrame",
-                            "multiple": false
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false,
+                            "desc": null
                         }
                     ],
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Plotly"
+                            "type": "Plotly",
+                            "desc": null
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 597.7981862927004,
-                    "y": 121.3471798684717
+                    "x": -126.6228737751659,
+                    "y": 118.07746381818538
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 597.7981862927004,
-                    "y": 121.3471798684717
+                    "x": -126.6228737751659,
+                    "y": 118.07746381818538
                 },
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-c6bc9629-bc58-4bbd-80da-204aaa449eea",
-                "type": "TERMINATORS",
+                "width": 225,
+                "height": 226,
+                "id": "LINE-871ab113-ab85-4c34-af5e-53037f3bebd1",
+                "type": "VISUALIZERS",
                 "data": {
-                    "id": "END-c6bc9629-bc58-4bbd-80da-204aaa449eea",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
+                    "id": "LINE-871ab113-ab85-4c34-af5e-53037f3bebd1",
+                    "label": "LINE 1",
+                    "func": "LINE",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Any",
-                            "multiple": false
+                            "type": "OrderedPair|DataFrame|Matrix",
+                            "multiple": false,
+                            "desc": null
                         }
                     ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 965.378096229007,
-                    "y": 169.1651959796751
+                    "x": -299.7005389975791,
+                    "y": -152.8117053854877
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 965.378096229007,
-                    "y": 169.1651959796751
+                    "x": -299.7005389975791,
+                    "y": -152.8117053854877
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "R_DATASET-2cbb8a61-2c9a-4ad1-aa30-531be333cdf7",
+                "source": "R_DATASET-b9a3532b-7924-41b5-b7a3-3b2f26342f57",
                 "sourceHandle": "default",
-                "target": "DF_2_NP-91929d87-cbfb-430e-b5ac-78ee01dba01d",
+                "target": "DF_2_NP-84475e8e-a8be-4360-a62f-203a0bbc9c5a",
                 "targetHandle": "default",
-                "id": "reactflow__edge-R_DATASET-2cbb8a61-2c9a-4ad1-aa30-531be333cdf7default-DF_2_NP-91929d87-cbfb-430e-b5ac-78ee01dba01ddefault"
+                "id": "reactflow__edge-R_DATASET-b9a3532b-7924-41b5-b7a3-3b2f26342f57default-DF_2_NP-84475e8e-a8be-4360-a62f-203a0bbc9c5adefault"
             },
             {
-                "source": "DF_2_NP-91929d87-cbfb-430e-b5ac-78ee01dba01d",
+                "source": "R_DATASET-b9a3532b-7924-41b5-b7a3-3b2f26342f57",
                 "sourceHandle": "default",
-                "target": "LINE-fb139689-2bc4-4fbe-853a-46c9a65d0ec2",
+                "target": "LINE-871ab113-ab85-4c34-af5e-53037f3bebd1",
                 "targetHandle": "default",
-                "id": "reactflow__edge-DF_2_NP-91929d87-cbfb-430e-b5ac-78ee01dba01ddefault-LINE-fb139689-2bc4-4fbe-853a-46c9a65d0ec2default"
+                "id": "reactflow__edge-R_DATASET-b9a3532b-7924-41b5-b7a3-3b2f26342f57default-LINE-871ab113-ab85-4c34-af5e-53037f3bebd1default"
             },
             {
-                "source": "LINE-fb139689-2bc4-4fbe-853a-46c9a65d0ec2",
+                "source": "DF_2_NP-84475e8e-a8be-4360-a62f-203a0bbc9c5a",
                 "sourceHandle": "default",
-                "target": "END-c6bc9629-bc58-4bbd-80da-204aaa449eea",
+                "target": "LINE-d6eebd8f-1c5a-4565-a07c-8591d0dc0464",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LINE-fb139689-2bc4-4fbe-853a-46c9a65d0ec2default-END-c6bc9629-bc58-4bbd-80da-204aaa449eeadefault"
+                "id": "reactflow__edge-DF_2_NP-84475e8e-a8be-4360-a62f-203a0bbc9c5adefault-LINE-d6eebd8f-1c5a-4565-a07c-8591d0dc0464default"
             }
         ],
         "viewport": {
-            "x": 0,
-            "y": 0,
-            "zoom": 1
+            "x": 722.5478564221319,
+            "y": 307.5775746454569,
+            "zoom": 1.204238868134965
         }
     },
     "ctrlsManifest": [

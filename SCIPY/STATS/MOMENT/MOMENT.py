@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def MOMENT(
     default: OrderedPair | Matrix,
     moment: int = 1,
@@ -59,15 +59,20 @@ def MOMENT(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.moment(
-            a=default.y,
-            moment=moment,
-            axis=axis,
-            nan_policy=nan_policy,
-            keepdims=keepdims,
-        ),
+    result = scipy.stats.moment(
+        a=default.y,
+        moment=moment,
+        axis=axis,
+        nan_policy=nan_policy,
+        keepdims=keepdims,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result

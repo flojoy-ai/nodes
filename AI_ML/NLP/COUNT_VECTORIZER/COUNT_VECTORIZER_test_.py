@@ -1,32 +1,13 @@
 import numpy
 
-from functools import wraps
-from unittest.mock import patch
-
 from flojoy import Matrix, DataFrame, Vector
 
 
-# Python functions are decorated at module-loading time, So we'll need to patch our decorator
-#  with a simple mock ,before loading the module.
-
-
-def mock_flojoy_decorator(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        return f(*args, **kwargs)
-
-    return decorated_function
-
-
-# Patch the flojoy decorator that handles connecting our node to the App.
-patch("flojoy.flojoy", mock_flojoy_decorator).start()
-
-# After Patching the flojoy decorator, let's load the node under test.
-import COUNT_VECTORIZER
-
-
-def test_COUNT_VECTORIZER():
+def test_COUNT_VECTORIZER(mock_flojoy_decorator):
     # create the CountVectorizerOutput container
+
+    import COUNT_VECTORIZER
+
     element_a = Matrix(
         m=numpy.array(
             [
@@ -39,13 +20,13 @@ def test_COUNT_VECTORIZER():
     )
 
     # node under test
-    res = COUNT_VECTORIZER.COUNT_VECTORIZER([element_a], {})
+    res = COUNT_VECTORIZER.COUNT_VECTORIZER(default=element_a)  # type: ignore
 
     # check that the outputs look correct
-    assert isinstance(res, COUNT_VECTORIZER.CountVectorizerOutput)
-    assert isinstance(res.tokens, DataFrame)
-    assert isinstance(res.word_count_vector, Vector)
-    assert (set(res.tokens.df)) == {
+    assert isinstance(res, dict)
+    assert isinstance(res["tokens"], DataFrame)
+    assert isinstance(res["word_count_vector"], Vector)
+    assert set(res["tokens"].m.iloc[:, 0].tolist()) == {
         "and",
         "document",
         "first",
@@ -58,7 +39,7 @@ def test_COUNT_VECTORIZER():
     }
 
     assert numpy.array_equal(
-        res.word_count_vector.v,
+        res["word_count_vector"].v,
         numpy.array(
             [
                 [0, 1, 1, 1, 0, 0, 1, 0, 1],

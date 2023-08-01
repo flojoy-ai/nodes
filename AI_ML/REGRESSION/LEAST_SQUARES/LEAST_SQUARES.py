@@ -48,6 +48,8 @@ def LEAST_SQUARES(
             raise ValueError("Least Square Computation failed.")
 
         slope, intercept = p[0:-1], p[-1]
+        print("=============== This is slope: ", slope)
+        print("=============== This is intercept: ", intercept)
         res = slope * x + intercept
 
         return OrderedPair(x=x, y=res)

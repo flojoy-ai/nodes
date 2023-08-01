@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def ARGRELMAX(
     default: OrderedPair | Matrix,
     axis: int = 0,
@@ -19,8 +19,7 @@ def ARGRELMAX(
 
             Calculate the relative maxima of `data`.
 
-    Parameters
-    ----------
+    Parameters ----------
     data : ndarray
             Array in which to find the relative maxima.
     axis : int, optional

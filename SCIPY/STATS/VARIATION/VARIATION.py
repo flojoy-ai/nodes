@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.stats
 
 
-@flojoy(node_type="default")
+@flojoy
 def VARIATION(
     default: OrderedPair | Matrix,
     axis: int = 0,
@@ -69,15 +69,20 @@ def VARIATION(
             type 'ordered pair', 'scalar', or 'matrix'
     """
 
-    result = OrderedPair(
-        x=default.x,
-        y=scipy.stats.variation(
-            a=default.y,
-            axis=axis,
-            nan_policy=nan_policy,
-            ddof=ddof,
-            keepdims=keepdims,
-        ),
+    result = scipy.stats.variation(
+        a=default.y,
+        axis=axis,
+        nan_policy=nan_policy,
+        ddof=ddof,
+        keepdims=keepdims,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
 
     return result
