@@ -61,7 +61,6 @@ def LOOP(
     num_loops: int = -1,
 ) -> LoopOutput:
     """The LOOP node is a specialized node that iterates through the body nodes for a given number of times.
-    To ensure proper functionality, the LOOP node relies on a companion node called the `GOTO` node.
 
     Parameters
     ----------

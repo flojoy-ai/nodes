@@ -59,6 +59,6 @@ def BIG_NUMBER(
             },
         )
     )
-    SmallMemory().write_to_memory(job_id, MEMORY_KEY, big_num)
+    SmallMemory().write_to_memory(job_id, MEMORY_KEY, str(float(big_num)))
 
     return Plotly(fig=fig)
