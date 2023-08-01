@@ -4,22 +4,16 @@ from flojoy import (
     OrderedPair,
     SmallMemory,
     NodeReference,
-    DefaultParams,
 )
-import os
-from rq.job import Job, NoSuchJobError
-import traceback
-import numpy as np
 from typing import Optional
 
 
 memory_key = "LOOP_INDEX"
 
 
-@flojoy(node_type="default", inject_node_metadata=True)
+@flojoy(node_type="default")
 def LOOP_INDEX(
-    referred_node: NodeReference,
-    default_params: DefaultParams,
+    loop_node: NodeReference,
     default: Optional[OrderedPair | Scalar] = None,
 ) -> Scalar:
     """The LOOP_INDEX node loads the loop index from the LOOP node.
@@ -27,7 +21,7 @@ def LOOP_INDEX(
 
     Parameters
     ----------
-    referred_node: list of str
+    loop_node: str
         The LOOP node to track the loop index from.
 
     Returns
@@ -36,23 +30,15 @@ def LOOP_INDEX(
         The loop index in Scalar form.
     """
 
-    node_id = default_params.node_id
+    ref_loop_node = loop_node.unwrap()
 
-    if referred_node.unwrap() != "":
-        try:
-            y = SmallMemory().read_memory(referred_node.unwrap(), "loop-info")
-            if y is None:
-                y = SmallMemory().read_memory(node_id, memory_key)
-                if y is None:
-                    y = np.ones(1)
-                SmallMemory().write_to_memory(node_id, memory_key, y + 1)
-                c = y[0]
-            else:
-                c = y["current_iteration"]
-        except (Exception, NoSuchJobError):
-            print(traceback.format_exc())
+    if ref_loop_node == "" or "LOOP" not in ref_loop_node:
+        raise ValueError("A LOOP node id must be given.")
 
-        return Scalar(c=float(c))
-
+    loop_info = SmallMemory().read_memory(ref_loop_node, "loop-info")
+    if loop_info is None:
+        c = 1
     else:
-        raise ValueError("LOOP_INDEX: please select a node.")
+        c = loop_info.get("current_iteration")
+
+    return Scalar(c=float(c))
