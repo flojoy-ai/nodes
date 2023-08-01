@@ -31,15 +31,15 @@ def DOUBLE_INDEFINITE_INTEGRAL(
     if np.divide(len(default.x), width) == height:
         if not contains_only_numbers(default.x):
             raise ValueError(
-                "There is some value(s) that are not of type int or float. The OrderedTriple need to contain only int or float values."
+                "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values."
             )
         elif not contains_only_numbers(default.y):
             raise ValueError(
-                "There is some value(s) that are not of type int or float. The OrderedTriple need to contain only int or float values."
+                "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values."
             )
         elif not contains_only_numbers(default.z):
             raise ValueError(
-                "There is some value(s) that are not of type int or float. The OrderedTriple need to contain only int or float values."
+                "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values."
             )
 
         input_x = np.reshape(default.x, (height, width))
