@@ -79,4 +79,4 @@ def LOCAL_FILE(
             file_path = get_file_path(file_path)
             with open(file_path, "rb") as inp:
                 audio_bytes_stream = inp.read()
-            return Bytes(bytes=audio_bytes_stream)
+            return Bytes(b=audio_bytes_stream)
