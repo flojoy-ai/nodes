@@ -106,39 +106,6 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 727.4931647979206,
-                    "y": 308.7656577735042
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 727.4931647979206,
-                    "y": 308.7656577735042
-                },
-                "dragging": true
-            },
-            {
                 "width": 150,
                 "height": 150,
                 "id": "PLOTLY_DATASET-19eba195-7482-48cc-aac0-8cc1325fe0c9",
@@ -421,25 +388,11 @@
                 "id": "reactflow__edge-LOCAL_FILE-6cd15e81-644c-47c3-9309-bdfb92b80322default-ARRAY_VIEW-1efcd977-7ea1-4036-b70b-9e04177953f8default"
             },
             {
-                "source": "ARRAY_VIEW-1efcd977-7ea1-4036-b70b-9e04177953f8",
-                "sourceHandle": "default",
-                "target": "END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58",
-                "targetHandle": "default",
-                "id": "reactflow__edge-ARRAY_VIEW-1efcd977-7ea1-4036-b70b-9e04177953f8default-END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58default"
-            },
-            {
                 "source": "MATRIX-eb2f42c0-a990-4294-8032-45abfac569df",
                 "sourceHandle": "default",
                 "target": "ARRAY_VIEW-111b6446-143e-43aa-83e9-3138fcdbf17b",
                 "targetHandle": "default",
                 "id": "reactflow__edge-MATRIX-eb2f42c0-a990-4294-8032-45abfac569dfdefault-ARRAY_VIEW-111b6446-143e-43aa-83e9-3138fcdbf17bdefault"
-            },
-            {
-                "source": "ARRAY_VIEW-111b6446-143e-43aa-83e9-3138fcdbf17b",
-                "sourceHandle": "default",
-                "target": "END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58",
-                "targetHandle": "default",
-                "id": "reactflow__edge-ARRAY_VIEW-111b6446-143e-43aa-83e9-3138fcdbf17bdefault-END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58default"
             },
             {
                 "source": "PLOTLY_DATASET-19eba195-7482-48cc-aac0-8cc1325fe0c9",
@@ -454,20 +407,6 @@
                 "target": "ARRAY_VIEW-7d78d396-398b-499b-953f-e29aa877b5cf",
                 "targetHandle": "default",
                 "id": "reactflow__edge-LINSPACE-f5c8b478-c39a-4450-abfa-52fbc5b5177bdefault-ARRAY_VIEW-7d78d396-398b-499b-953f-e29aa877b5cfdefault"
-            },
-            {
-                "source": "ARRAY_VIEW-7d78d396-398b-499b-953f-e29aa877b5cf",
-                "sourceHandle": "default",
-                "target": "END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58",
-                "targetHandle": "default",
-                "id": "reactflow__edge-ARRAY_VIEW-7d78d396-398b-499b-953f-e29aa877b5cfdefault-END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58default"
-            },
-            {
-                "source": "ARRAY_VIEW-6736c8e9-a710-4b14-bdd4-829e0ee961c7",
-                "sourceHandle": "default",
-                "target": "END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58",
-                "targetHandle": "default",
-                "id": "reactflow__edge-ARRAY_VIEW-6736c8e9-a710-4b14-bdd4-829e0ee961c7default-END-c4336a1c-b75f-4b7e-acda-4a6767f5fc58default"
             }
         ],
         "viewport": {

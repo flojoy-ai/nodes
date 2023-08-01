@@ -94,39 +94,6 @@
                     "y": 263.2004437204553
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-d09bd3ca-612e-4470-ad39-4986c51b385d",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-d09bd3ca-612e-4470-ad39-4986c51b385d",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1774.4487483753492,
-                    "y": 291.3429049728291
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1774.4487483753492,
-                    "y": 291.3429049728291
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -136,13 +103,6 @@
                 "target": "SCATTER-3d3c8af8-5efd-4d15-af93-4703e1146018",
                 "targetHandle": "default",
                 "id": "reactflow__edge-LINSPACE-03f57daa-59f9-4a59-9fbd-7a15a4878b6cdefault-SCATTER-3d3c8af8-5efd-4d15-af93-4703e1146018default"
-            },
-            {
-                "source": "SCATTER-3d3c8af8-5efd-4d15-af93-4703e1146018",
-                "sourceHandle": "default",
-                "target": "END-d09bd3ca-612e-4470-ad39-4986c51b385d",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-3d3c8af8-5efd-4d15-af93-4703e1146018default-END-d09bd3ca-612e-4470-ad39-4986c51b385ddefault"
             }
         ],
         "viewport": {

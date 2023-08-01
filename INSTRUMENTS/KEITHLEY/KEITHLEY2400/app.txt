@@ -103,39 +103,6 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-4ab72a2d-4c0a-422f-aac2-1adfc221c8aa",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-4ab72a2d-4c0a-422f-aac2-1adfc221c8aa",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 920.4465656226953,
-                    "y": 27.238771529071983
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 920.4465656226953,
-                    "y": 27.238771529071983
-                },
-                "dragging": true
-            },
-            {
                 "width": 150,
                 "height": 150,
                 "id": "LINSPACE-9ef0bb07-00b7-4d2b-8cb3-bba95cdc6477",
@@ -204,13 +171,6 @@
                 "target": "LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06",
                 "targetHandle": "default",
                 "id": "reactflow__edge-KEITHLEY2400-06832353-c0e3-4b21-80f1-99f7827063abdefault-LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06default"
-            },
-            {
-                "source": "LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06",
-                "sourceHandle": "default",
-                "target": "END-4ab72a2d-4c0a-422f-aac2-1adfc221c8aa",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06default-END-4ab72a2d-4c0a-422f-aac2-1adfc221c8aadefault"
             }
         ],
         "viewport": {

@@ -42,39 +42,6 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-3194a892-6069-4c33-9b6a-e8b977e6cb91",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-3194a892-6069-4c33-9b6a-e8b977e6cb91",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1853.4255726844237,
-                    "y": 486.7125864969281
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1853.4255726844237,
-                    "y": 486.7125864969281
-                },
-                "dragging": true
-            },
-            {
                 "width": 130,
                 "height": 130,
                 "id": "TIMESERIES-32359924-1394-434a-a933-965680772cfb",
@@ -129,13 +96,6 @@
                 "target": "TABLE-e495f7ee-9936-41e5-8341-8532fbe7fc37",
                 "targetHandle": "default",
                 "id": "reactflow__edge-TIMESERIES-32359924-1394-434a-a933-965680772cfbdefault-TABLE-e495f7ee-9936-41e5-8341-8532fbe7fc37default"
-            },
-            {
-                "source": "TABLE-e495f7ee-9936-41e5-8341-8532fbe7fc37",
-                "sourceHandle": "default",
-                "target": "END-3194a892-6069-4c33-9b6a-e8b977e6cb91",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-e495f7ee-9936-41e5-8341-8532fbe7fc37default-END-3194a892-6069-4c33-9b6a-e8b977e6cb91default"
             }
         ],
         "viewport": {

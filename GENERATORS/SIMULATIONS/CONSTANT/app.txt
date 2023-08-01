@@ -2,30 +2,6 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                "type": "TERMINATOR",
-                "data": {
-                    "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 1386.4285714285716,
-                    "y": 595.4285714285714
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1386.4285714285716,
-                    "y": 595.4285714285714
-                },
-                "dragging": true
-            },
-            {
                 "width": 380,
                 "height": 293,
                 "id": "BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957",
@@ -102,13 +78,6 @@
             }
         ],
         "edges": [
-            {
-                "source": "BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957",
-                "sourceHandle": "main",
-                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                "targetHandle": "END",
-                "id": "reactflow__edge-BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957main-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
-            },
             {
                 "source": "CONSTANT-910cbc4f-ec37-4d77-878a-643d40f38b84",
                 "sourceHandle": "main",

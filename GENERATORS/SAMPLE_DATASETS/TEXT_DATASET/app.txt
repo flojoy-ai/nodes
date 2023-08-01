@@ -112,39 +112,6 @@
                     "y": 441.8699692511366
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-86813c86-a82c-4cd4-9584-b51e7e5e3746",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-86813c86-a82c-4cd4-9584-b51e7e5e3746",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1636.2318807816505,
-                    "y": 497.431265309786
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1636.2318807816505,
-                    "y": 497.431265309786
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -154,13 +121,6 @@
                 "target": "TABLE-6a242d62-814f-406e-94de-d5c6908dce5e",
                 "targetHandle": "default",
                 "id": "reactflow__edge-TEXT_DATASET-85e09f8c-f053-4ab3-88df-464421665ef3default-TABLE-6a242d62-814f-406e-94de-d5c6908dce5edefault"
-            },
-            {
-                "source": "TABLE-6a242d62-814f-406e-94de-d5c6908dce5e",
-                "sourceHandle": "default",
-                "target": "END-86813c86-a82c-4cd4-9584-b51e7e5e3746",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-6a242d62-814f-406e-94de-d5c6908dce5edefault-END-86813c86-a82c-4cd4-9584-b51e7e5e3746default"
             }
         ],
         "viewport": {

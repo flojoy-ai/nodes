@@ -54,39 +54,6 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-9bf7a22c-ae80-4214-ae2e-28a5d7e83d81",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-9bf7a22c-ae80-4214-ae2e-28a5d7e83d81",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 970.0654328891447,
-                    "y": 129.05154701626657
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 970.0654328891447,
-                    "y": 129.05154701626657
-                },
-                "dragging": true
-            },
-            {
                 "width": 150,
                 "height": 150,
                 "id": "DF_2_ORDEREDTRIPLE-a3a65384-680c-4114-81e1-476ec8835a58",
@@ -245,25 +212,11 @@
                 "id": "reactflow__edge-PLOTLY_DATASET-6af3469b-5751-4778-84a1-2b17bc9c0894default-SCATTER3D-27578128-aa7b-40fe-8dfd-d971192bba27default"
             },
             {
-                "source": "SCATTER3D-27578128-aa7b-40fe-8dfd-d971192bba27",
-                "sourceHandle": "default",
-                "target": "END-9bf7a22c-ae80-4214-ae2e-28a5d7e83d81",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER3D-27578128-aa7b-40fe-8dfd-d971192bba27default-END-9bf7a22c-ae80-4214-ae2e-28a5d7e83d81default"
-            },
-            {
                 "source": "DF_2_ORDEREDTRIPLE-a3a65384-680c-4114-81e1-476ec8835a58",
                 "sourceHandle": "default",
                 "target": "SCATTER3D-0ba51c41-646b-47e4-a6e0-a306230f4ec6",
                 "targetHandle": "default",
                 "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-a3a65384-680c-4114-81e1-476ec8835a58default-SCATTER3D-0ba51c41-646b-47e4-a6e0-a306230f4ec6default"
-            },
-            {
-                "source": "SCATTER3D-0ba51c41-646b-47e4-a6e0-a306230f4ec6",
-                "sourceHandle": "default",
-                "target": "END-9bf7a22c-ae80-4214-ae2e-28a5d7e83d81",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER3D-0ba51c41-646b-47e4-a6e0-a306230f4ec6default-END-9bf7a22c-ae80-4214-ae2e-28a5d7e83d81default"
             }
         ],
         "viewport": {

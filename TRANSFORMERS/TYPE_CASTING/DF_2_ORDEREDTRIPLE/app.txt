@@ -193,39 +193,6 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-5411f5bc-440c-40ba-876a-a2b4fbe10c63",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-5411f5bc-440c-40ba-876a-a2b4fbe10c63",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 561.373875499122,
-                    "y": 358.4341695187829
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 561.373875499122,
-                    "y": 358.4341695187829
-                },
-                "dragging": true
-            },
-            {
                 "width": 225,
                 "height": 226,
                 "id": "TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7",
@@ -322,25 +289,11 @@
                 "id": "reactflow__edge-DF_2_OrderedTriple-a34a4728-2487-42d4-ab16-527e1c885efddefault-TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7default"
             },
             {
-                "source": "TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7",
-                "sourceHandle": "default",
-                "target": "END-5411f5bc-440c-40ba-876a-a2b4fbe10c63",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7default-END-5411f5bc-440c-40ba-876a-a2b4fbe10c63default"
-            },
-            {
                 "source": "R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbae",
                 "sourceHandle": "default",
                 "target": "TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3",
                 "targetHandle": "default",
                 "id": "reactflow__edge-R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbaedefault-TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3default"
-            },
-            {
-                "source": "TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3",
-                "sourceHandle": "default",
-                "target": "END-5411f5bc-440c-40ba-876a-a2b4fbe10c63",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3default-END-5411f5bc-440c-40ba-876a-a2b4fbe10c63default"
             }
         ],
         "viewport": {

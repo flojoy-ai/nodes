@@ -437,39 +437,6 @@
                     "y": -104.27979408941752
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-808f32a4-ad05-43db-a4f7-15318f28ea45",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-808f32a4-ad05-43db-a4f7-15318f28ea45",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1213.984802077975,
-                    "y": 15.502280681030811
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1213.984802077975,
-                    "y": 15.502280681030811
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -500,34 +467,6 @@
                 "target": "LINE-b77bfca4-130d-46b6-9962-f53f605d7107",
                 "targetHandle": "default",
                 "id": "reactflow__edge-MATRIX-adb7407c-2ba3-4478-8c1a-2c0d2dc1f095default-LINE-b77bfca4-130d-46b6-9962-f53f605d7107default"
-            },
-            {
-                "source": "LINE-be1cb8d9-dc67-4567-8952-8b7eaeb9134d",
-                "sourceHandle": "default",
-                "target": "END-808f32a4-ad05-43db-a4f7-15318f28ea45",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINE-be1cb8d9-dc67-4567-8952-8b7eaeb9134ddefault-END-808f32a4-ad05-43db-a4f7-15318f28ea45default"
-            },
-            {
-                "source": "LINE-5c3fb9d2-57ce-4364-8030-96505b8ad344",
-                "sourceHandle": "default",
-                "target": "END-808f32a4-ad05-43db-a4f7-15318f28ea45",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINE-5c3fb9d2-57ce-4364-8030-96505b8ad344default-END-808f32a4-ad05-43db-a4f7-15318f28ea45default"
-            },
-            {
-                "source": "LINE-fba98010-ffc1-4864-8a5a-356f46f70a26",
-                "sourceHandle": "default",
-                "target": "END-808f32a4-ad05-43db-a4f7-15318f28ea45",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINE-fba98010-ffc1-4864-8a5a-356f46f70a26default-END-808f32a4-ad05-43db-a4f7-15318f28ea45default"
-            },
-            {
-                "source": "LINE-b77bfca4-130d-46b6-9962-f53f605d7107",
-                "sourceHandle": "default",
-                "target": "END-808f32a4-ad05-43db-a4f7-15318f28ea45",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINE-b77bfca4-130d-46b6-9962-f53f605d7107default-END-808f32a4-ad05-43db-a4f7-15318f28ea45default"
             }
         ],
         "viewport": {

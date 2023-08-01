@@ -243,72 +243,6 @@
                     "y": 333.5593015742577
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-daab7962-8e6b-40db-8e40-b4e3a819279d",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-daab7962-8e6b-40db-8e40-b4e3a819279d",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 1118.8842817507389,
-                    "y": 56.72683796976071
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 1118.8842817507389,
-                    "y": 56.72683796976071
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-a52e223f-0b17-4e49-8113-eb849b9886bf",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-a52e223f-0b17-4e49-8113-eb849b9886bf",
-                    "label": "END 1",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1109.6029321227763,
-                    "y": 375.92720318857823
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1109.6029321227763,
-                    "y": 375.92720318857823
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -334,25 +268,11 @@
                 "id": "reactflow__edge-CONDITIONAL-c44f8006-f1fb-41be-ab39-de40becaf62ctrue-LINE-3c753e5a-5d90-4d92-92f9-b955d32bd24edefault"
             },
             {
-                "source": "LINE-3c753e5a-5d90-4d92-92f9-b955d32bd24e",
-                "sourceHandle": "default",
-                "target": "END-daab7962-8e6b-40db-8e40-b4e3a819279d",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINE-3c753e5a-5d90-4d92-92f9-b955d32bd24edefault-END-daab7962-8e6b-40db-8e40-b4e3a819279ddefault"
-            },
-            {
                 "source": "CONDITIONAL-c44f8006-f1fb-41be-ab39-de40becaf62c",
                 "sourceHandle": "false",
                 "target": "LINE-6a05bf10-f19b-401d-b8e4-0a4d56d8f27c",
                 "targetHandle": "default",
                 "id": "reactflow__edge-CONDITIONAL-c44f8006-f1fb-41be-ab39-de40becaf62cfalse-LINE-6a05bf10-f19b-401d-b8e4-0a4d56d8f27cdefault"
-            },
-            {
-                "source": "LINE-6a05bf10-f19b-401d-b8e4-0a4d56d8f27c",
-                "sourceHandle": "default",
-                "target": "END-a52e223f-0b17-4e49-8113-eb849b9886bf",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINE-6a05bf10-f19b-401d-b8e4-0a4d56d8f27cdefault-END-a52e223f-0b17-4e49-8113-eb849b9886bfdefault"
             }
         ],
         "viewport": {

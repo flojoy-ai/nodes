@@ -260,39 +260,6 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-22c7b27a-10c5-4298-9245-0db822745833",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-22c7b27a-10c5-4298-9245-0db822745833",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 1179.3722517033862,
-                    "y": 263.4347427690019
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 1179.3722517033862,
-                    "y": 263.4347427690019
-                },
-                "dragging": true
-            },
-            {
                 "width": 130,
                 "height": 130,
                 "id": "SINE-70c5c7c4-e2dc-4a9f-abd1-2ce8208eb2ff",
@@ -435,13 +402,6 @@
                 "target": "SINE-d52400c2-b5b4-49f1-a558-d0e6dd4ab509",
                 "targetHandle": "default",
                 "id": "reactflow__edge-LINSPACE-5141f39e-1fea-4266-9396-4663f566a676default-SINE-d52400c2-b5b4-49f1-a558-d0e6dd4ab509default"
-            },
-            {
-                "source": "SCATTER-60ebf12f-24b1-4b81-81a2-320252811811",
-                "sourceHandle": "default",
-                "target": "END-22c7b27a-10c5-4298-9245-0db822745833",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-60ebf12f-24b1-4b81-81a2-320252811811default-END-22c7b27a-10c5-4298-9245-0db822745833default"
             },
             {
                 "source": "LINSPACE-5141f39e-1fea-4266-9396-4663f566a676",

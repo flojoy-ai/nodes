@@ -263,39 +263,6 @@
                     "y": 379.87310163004656
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-d43f4851-88ee-4a28-9c4f-e9db6f5e16fd",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-d43f4851-88ee-4a28-9c4f-e9db6f5e16fd",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 1068.5159374760876,
-                    "y": 275.58738734433257
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 1068.5159374760876,
-                    "y": 275.58738734433257
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -312,20 +279,6 @@
                 "target": "TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49b",
                 "targetHandle": "default",
                 "id": "reactflow__edge-LINSPACE-96f418c8-14ed-4457-abea-9520da6d5078default-TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49bdefault"
-            },
-            {
-                "source": "TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49b",
-                "sourceHandle": "default",
-                "target": "END-d43f4851-88ee-4a28-9c4f-e9db6f5e16fd",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49bdefault-END-d43f4851-88ee-4a28-9c4f-e9db6f5e16fddefault"
-            },
-            {
-                "source": "TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9",
-                "sourceHandle": "default",
-                "target": "END-d43f4851-88ee-4a28-9c4f-e9db6f5e16fd",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9default-END-d43f4851-88ee-4a28-9c4f-e9db6f5e16fddefault"
             }
         ],
         "viewport": {

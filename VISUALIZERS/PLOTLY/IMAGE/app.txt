@@ -104,39 +104,6 @@
                     "y": 85.72712333520752
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-796cba6c-8b14-44eb-9236-6e57d899421d",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-796cba6c-8b14-44eb-9236-6e57d899421d",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1100.4817479739488,
-                    "y": 129.55021985987543
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1100.4817479739488,
-                    "y": 129.55021985987543
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -146,13 +113,6 @@
                 "target": "IMAGE-c69df1a9-06a0-41aa-beb2-41bc8a400ed5",
                 "targetHandle": "default",
                 "id": "reactflow__edge-LOCAL_FILE-f21874a3-6a2f-4f64-ae87-faebdfba5c6ddefault-IMAGE-c69df1a9-06a0-41aa-beb2-41bc8a400ed5default"
-            },
-            {
-                "source": "IMAGE-c69df1a9-06a0-41aa-beb2-41bc8a400ed5",
-                "sourceHandle": "default",
-                "target": "END-796cba6c-8b14-44eb-9236-6e57d899421d",
-                "targetHandle": "default",
-                "id": "reactflow__edge-IMAGE-c69df1a9-06a0-41aa-beb2-41bc8a400ed5default-END-796cba6c-8b14-44eb-9236-6e57d899421ddefault"
             }
         ],
         "viewport": {

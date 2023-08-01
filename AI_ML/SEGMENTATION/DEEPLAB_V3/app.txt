@@ -184,39 +184,6 @@
                     "y": 223.0733492297885
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-057d326a-3ade-4474-882d-f0cd0d880bfe",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-057d326a-3ade-4474-882d-f0cd0d880bfe",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1863.718540377425,
-                    "y": 708.0830404721299
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1863.718540377425,
-                    "y": 708.0830404721299
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -240,13 +207,6 @@
                 "target": "IMAGE-587cc53c-8da9-4bd5-a525-44386424da4b",
                 "targetHandle": "default",
                 "id": "reactflow__edge-LOCAL_FILE-ea2690c7-1b37-40c0-9d02-b000a553c3ecdefault-IMAGE-587cc53c-8da9-4bd5-a525-44386424da4bdefault"
-            },
-            {
-                "source": "IMAGE-4f7be017-7bb2-4650-b357-536574caaef9",
-                "sourceHandle": "default",
-                "target": "END-057d326a-3ade-4474-882d-f0cd0d880bfe",
-                "targetHandle": "default",
-                "id": "reactflow__edge-IMAGE-4f7be017-7bb2-4650-b357-536574caaef9default-END-057d326a-3ade-4474-882d-f0cd0d880bfedefault"
             }
         ],
         "viewport": {

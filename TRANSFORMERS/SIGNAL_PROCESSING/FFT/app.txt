@@ -392,39 +392,6 @@
                     "y": 297.1407554549438
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-77220101-3068-486e-986b-e7b1f0a2bf68",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-77220101-3068-486e-986b-e7b1f0a2bf68",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1960.3692537016036,
-                    "y": 343.02346241971634
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1960.3692537016036,
-                    "y": 343.02346241971634
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -469,13 +436,6 @@
                 "target": "LINE-2bb3fc2d-9616-4d6f-957d-b3321530afa0",
                 "targetHandle": "default",
                 "id": "reactflow__edge-FFT-ae307ae3-517d-4103-a787-02fe288d2e97default-LINE-2bb3fc2d-9616-4d6f-957d-b3321530afa0default"
-            },
-            {
-                "source": "LINE-2bb3fc2d-9616-4d6f-957d-b3321530afa0",
-                "sourceHandle": "default",
-                "target": "END-77220101-3068-486e-986b-e7b1f0a2bf68",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINE-2bb3fc2d-9616-4d6f-957d-b3321530afa0default-END-77220101-3068-486e-986b-e7b1f0a2bf68default"
             }
         ],
         "viewport": {

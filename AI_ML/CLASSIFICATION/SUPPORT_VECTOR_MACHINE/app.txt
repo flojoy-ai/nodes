@@ -122,39 +122,6 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-287eeb1e-c006-47bd-baab-6e4d5620511f",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-287eeb1e-c006-47bd-baab-6e4d5620511f",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1869.9754564291857,
-                    "y": 695.9533252080201
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1869.9754564291857,
-                    "y": 695.9533252080201
-                },
-                "dragging": true
-            },
-            {
                 "width": 150,
                 "height": 150,
                 "id": "SUPPORT_VECTOR_MACHINE-111df792-52d2-41ac-9662-1066da12d44b",
@@ -325,13 +292,6 @@
             }
         ],
         "edges": [
-            {
-                "source": "TABLE-500d4621-276f-4b84-a114-1e4498781381",
-                "sourceHandle": "default",
-                "target": "END-287eeb1e-c006-47bd-baab-6e4d5620511f",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-500d4621-276f-4b84-a114-1e4498781381default-END-287eeb1e-c006-47bd-baab-6e4d5620511fdefault"
-            },
             {
                 "source": "READ_CSV-59c660d6-c37c-48e6-9e32-11490ebba845",
                 "sourceHandle": "default",

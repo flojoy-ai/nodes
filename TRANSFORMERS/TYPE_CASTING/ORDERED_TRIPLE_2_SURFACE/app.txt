@@ -156,39 +156,6 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1298.2738429101842,
-                    "y": 160.3054054196486
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1298.2738429101842,
-                    "y": 160.3054054196486
-                },
-                "dragging": true
-            },
-            {
                 "width": 380,
                 "height": 293,
                 "id": "SURFACE3D-815e6548-3e6e-4740-b240-4e61891fec60",
@@ -250,13 +217,6 @@
                 "target": "SURFACE3D-815e6548-3e6e-4740-b240-4e61891fec60",
                 "targetHandle": "default",
                 "id": "reactflow__edge-ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3default-SURFACE3D-815e6548-3e6e-4740-b240-4e61891fec60default"
-            },
-            {
-                "source": "SURFACE3D-815e6548-3e6e-4740-b240-4e61891fec60",
-                "sourceHandle": "default",
-                "target": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SURFACE3D-815e6548-3e6e-4740-b240-4e61891fec60default-END-27d70d41-6ff3-4222-9fa6-7278850d6cffdefault"
             }
         ],
         "viewport": {

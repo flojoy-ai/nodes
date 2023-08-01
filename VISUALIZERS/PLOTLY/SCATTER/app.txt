@@ -360,39 +360,6 @@
                     "y": -0.14382278524794856
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-fc54d745-26c4-42ba-be36-eafbe5f5a240",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-fc54d745-26c4-42ba-be36-eafbe5f5a240",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1304.312408118375,
-                    "y": 329.9324838900597
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1304.312408118375,
-                    "y": 329.9324838900597
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -423,34 +390,6 @@
                 "target": "SCATTER-bbfa1109-425d-457f-8f4f-bd6477f6ed0f",
                 "targetHandle": "default",
                 "id": "reactflow__edge-PLOTLY_DATASET-686a1fd9-8dab-4de2-80d6-21386dc65e34default-SCATTER-bbfa1109-425d-457f-8f4f-bd6477f6ed0fdefault"
-            },
-            {
-                "source": "SCATTER-fac44ad1-a863-4a6c-87f6-b43c5ca4631a",
-                "sourceHandle": "default",
-                "target": "END-fc54d745-26c4-42ba-be36-eafbe5f5a240",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-fac44ad1-a863-4a6c-87f6-b43c5ca4631adefault-END-fc54d745-26c4-42ba-be36-eafbe5f5a240default"
-            },
-            {
-                "source": "SCATTER-a4744b2a-78e6-4874-a2ae-177e1dd6aa82",
-                "sourceHandle": "default",
-                "target": "END-fc54d745-26c4-42ba-be36-eafbe5f5a240",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-a4744b2a-78e6-4874-a2ae-177e1dd6aa82default-END-fc54d745-26c4-42ba-be36-eafbe5f5a240default"
-            },
-            {
-                "source": "SCATTER-8f064bb5-af44-44fd-82f4-9a948f3695b5",
-                "sourceHandle": "default",
-                "target": "END-fc54d745-26c4-42ba-be36-eafbe5f5a240",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-8f064bb5-af44-44fd-82f4-9a948f3695b5default-END-fc54d745-26c4-42ba-be36-eafbe5f5a240default"
-            },
-            {
-                "source": "SCATTER-bbfa1109-425d-457f-8f4f-bd6477f6ed0f",
-                "sourceHandle": "default",
-                "target": "END-fc54d745-26c4-42ba-be36-eafbe5f5a240",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-bbfa1109-425d-457f-8f4f-bd6477f6ed0fdefault-END-fc54d745-26c4-42ba-be36-eafbe5f5a240default"
             }
         ],
         "viewport": {

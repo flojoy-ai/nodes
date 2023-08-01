@@ -182,39 +182,6 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-d1c65d5f-6e88-4910-8052-aa688ee7f56c",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-d1c65d5f-6e88-4910-8052-aa688ee7f56c",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1532.6747052039093,
-                    "y": 499.7207009792231
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1532.6747052039093,
-                    "y": 499.7207009792231
-                },
-                "dragging": true
-            },
-            {
                 "width": 225,
                 "height": 226,
                 "id": "MATRIX_VIEW-b76ba08c-ba34-481c-bd26-74db60851d49",
@@ -318,13 +285,6 @@
                 "id": "reactflow__edge-MATMUL-38d30041-5f6f-4bb6-b50b-3bbddc32d60adefault-MATRIX_VIEW-4839a447-fd78-4c23-87c9-de5259c26472default"
             },
             {
-                "source": "MATRIX_VIEW-4839a447-fd78-4c23-87c9-de5259c26472",
-                "sourceHandle": "default",
-                "target": "END-d1c65d5f-6e88-4910-8052-aa688ee7f56c",
-                "targetHandle": "default",
-                "id": "reactflow__edge-MATRIX_VIEW-4839a447-fd78-4c23-87c9-de5259c26472default-END-d1c65d5f-6e88-4910-8052-aa688ee7f56cdefault"
-            },
-            {
                 "source": "MATRIX-633000ac-6a8c-4597-a77f-a5b009c84dbe",
                 "sourceHandle": "default",
                 "target": "MATRIX_VIEW-fa80c51a-9545-4e71-9122-62d441c6698d",
@@ -337,20 +297,6 @@
                 "target": "MATRIX_VIEW-b76ba08c-ba34-481c-bd26-74db60851d49",
                 "targetHandle": "default",
                 "id": "reactflow__edge-MATRIX-c0889eba-3ebb-4218-ac0e-65bda9c17c66default-MATRIX_VIEW-b76ba08c-ba34-481c-bd26-74db60851d49default"
-            },
-            {
-                "source": "MATRIX_VIEW-fa80c51a-9545-4e71-9122-62d441c6698d",
-                "sourceHandle": "default",
-                "target": "END-d1c65d5f-6e88-4910-8052-aa688ee7f56c",
-                "targetHandle": "default",
-                "id": "reactflow__edge-MATRIX_VIEW-fa80c51a-9545-4e71-9122-62d441c6698ddefault-END-d1c65d5f-6e88-4910-8052-aa688ee7f56cdefault"
-            },
-            {
-                "source": "MATRIX_VIEW-b76ba08c-ba34-481c-bd26-74db60851d49",
-                "sourceHandle": "default",
-                "target": "END-d1c65d5f-6e88-4910-8052-aa688ee7f56c",
-                "targetHandle": "default",
-                "id": "reactflow__edge-MATRIX_VIEW-b76ba08c-ba34-481c-bd26-74db60851d49default-END-d1c65d5f-6e88-4910-8052-aa688ee7f56cdefault"
             }
         ],
         "viewport": {

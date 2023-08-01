@@ -96,39 +96,6 @@
                     "y": 123.1192529249758
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-ab10e538-ad40-4af1-a447-979a455ba0d3",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-ab10e538-ad40-4af1-a447-979a455ba0d3",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 880.8948891200718,
-                    "y": 120.18610526153276
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 880.8948891200718,
-                    "y": 120.18610526153276
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -138,13 +105,6 @@
                 "target": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
                 "targetHandle": "default",
                 "id": "reactflow__edge-TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31default-CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0default"
-            },
-            {
-                "source": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
-                "sourceHandle": "default",
-                "target": "END-ab10e538-ad40-4af1-a447-979a455ba0d3",
-                "targetHandle": "default",
-                "id": "reactflow__edge-CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0default-END-ab10e538-ad40-4af1-a447-979a455ba0d3default"
             }
         ],
         "viewport": {

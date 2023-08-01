@@ -2,39 +2,6 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-aa17356b-c7af-408e-8c56-531a3fe595d1",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-aa17356b-c7af-408e-8c56-531a3fe595d1",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1083.6954766397828,
-                    "y": 123.17066593843452
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1083.6954766397828,
-                    "y": 123.17066593843452
-                },
-                "dragging": true
-            },
-            {
                 "width": 150,
                 "height": 150,
                 "id": "APPEND-a2c9923a-6e0d-4eee-9075-b898669afef4",
@@ -503,13 +470,6 @@
                 "target": "SCATTER-fe4b85c2-0917-4786-a715-836201d919cf",
                 "targetHandle": "default",
                 "id": "reactflow__edge-APPEND-a2c9923a-6e0d-4eee-9075-b898669afef4default-SCATTER-fe4b85c2-0917-4786-a715-836201d919cfdefault"
-            },
-            {
-                "source": "SCATTER-fe4b85c2-0917-4786-a715-836201d919cf",
-                "sourceHandle": "default",
-                "target": "END-aa17356b-c7af-408e-8c56-531a3fe595d1",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-fe4b85c2-0917-4786-a715-836201d919cfdefault-END-aa17356b-c7af-408e-8c56-531a3fe595d1default"
             }
         ],
         "viewport": {

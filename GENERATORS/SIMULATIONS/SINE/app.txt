@@ -138,39 +138,6 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-819e566f-0195-4801-a339-ccb70f162bc3",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-819e566f-0195-4801-a339-ccb70f162bc3",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 2076.467025365936,
-                    "y": 329.35460171622043
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 2076.467025365936,
-                    "y": 329.35460171622043
-                },
-                "dragging": true
-            },
-            {
                 "width": 380,
                 "height": 293,
                 "id": "SCATTER-0966e710-b72c-4cf4-ade7-1c09a3b14b37",
@@ -225,13 +192,6 @@
                 "target": "SCATTER-0966e710-b72c-4cf4-ade7-1c09a3b14b37",
                 "targetHandle": "default",
                 "id": "reactflow__edge-SINE-eea67eed-8065-40ba-9f28-3420f1f4a62adefault-SCATTER-0966e710-b72c-4cf4-ade7-1c09a3b14b37default"
-            },
-            {
-                "source": "SCATTER-0966e710-b72c-4cf4-ade7-1c09a3b14b37",
-                "sourceHandle": "default",
-                "target": "END-819e566f-0195-4801-a339-ccb70f162bc3",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-0966e710-b72c-4cf4-ade7-1c09a3b14b37default-END-819e566f-0195-4801-a339-ccb70f162bc3default"
             }
         ],
         "viewport": {

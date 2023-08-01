@@ -87,39 +87,6 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1532.8957187538622,
-                    "y": 33.05596440245415
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1532.8957187538622,
-                    "y": 33.05596440245415
-                },
-                "dragging": true
-            },
-            {
                 "width": 380,
                 "height": 293,
                 "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
@@ -270,25 +237,11 @@
                 "id": "reactflow__edge-SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406default"
             },
             {
-                "source": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
-                "sourceHandle": "default",
-                "target": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
-                "targetHandle": "default",
-                "id": "reactflow__edge-IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427cdefault-END-8d20d677-c761-43cf-8b24-cde84bd667b9default"
-            },
-            {
                 "source": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
                 "sourceHandle": "default",
                 "target": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
                 "targetHandle": "default",
                 "id": "reactflow__edge-SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default"
-            },
-            {
-                "source": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
-                "sourceHandle": "default",
-                "target": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default-END-8d20d677-c761-43cf-8b24-cde84bd667b9default"
             },
             {
                 "source": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",

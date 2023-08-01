@@ -2,39 +2,6 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-6555aed9-4f39-456f-94bb-2fae298ae88f",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-6555aed9-4f39-456f-94bb-2fae298ae88f",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 201.3357255930201,
-                    "y": 557.2980747810793
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 201.3357255930201,
-                    "y": 557.2980747810793
-                },
-                "dragging": true
-            },
-            {
                 "width": 150,
                 "height": 150,
                 "id": "LINSPACE-69bc9f1e-8cc8-4878-b6a4-d9a06dd33a9a",
@@ -85,47 +52,6 @@
                 "positionAbsolute": {
                     "x": -452.9499886926942,
                     "y": 298.72664620965077
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "GOTO-c29d54b5-4478-42da-b59b-5e5b190a2ee6",
-                "type": "LOGIC_GATES",
-                "data": {
-                    "id": "GOTO-c29d54b5-4478-42da-b59b-5e5b190a2ee6",
-                    "label": "GOTO",
-                    "func": "GOTO",
-                    "type": "LOGIC_GATES",
-                    "ctrls": {
-                        "goto_node_id": {
-                            "type": "NodeReference",
-                            "default": "",
-                            "functionName": "GOTO",
-                            "param": "goto_node_id",
-                            "value": "LOOP-d294c908-88a7-4f19-8446-9a68061e1f14"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\LOOPS\\GOTO\\GOTO.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 842.7642970215916,
-                    "y": 378.7266462096507
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 842.7642970215916,
-                    "y": 378.7266462096507
                 },
                 "dragging": true
             },
@@ -459,13 +385,6 @@
             },
             {
                 "source": "LOOP-d294c908-88a7-4f19-8446-9a68061e1f14",
-                "sourceHandle": "end",
-                "target": "END-6555aed9-4f39-456f-94bb-2fae298ae88f",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LOOP-d294c908-88a7-4f19-8446-9a68061e1f14end-END-6555aed9-4f39-456f-94bb-2fae298ae88fdefault"
-            },
-            {
-                "source": "LOOP-d294c908-88a7-4f19-8446-9a68061e1f14",
                 "sourceHandle": "body",
                 "target": "CONSTANT-2c2b2a67-fa77-41db-9f40-f6bad42c460b",
                 "targetHandle": "default",
@@ -491,13 +410,6 @@
                 "target": "MULTIPLY-de5357d2-7121-4297-9f04-d46406df63f0",
                 "targetHandle": "b",
                 "id": "reactflow__edge-CONSTANT-b7112c9c-029c-4899-bd7f-ae304c690697default-MULTIPLY-de5357d2-7121-4297-9f04-d46406df63f0b"
-            },
-            {
-                "source": "MULTIPLY-de5357d2-7121-4297-9f04-d46406df63f0",
-                "sourceHandle": "default",
-                "target": "GOTO-c29d54b5-4478-42da-b59b-5e5b190a2ee6",
-                "targetHandle": "default",
-                "id": "reactflow__edge-MULTIPLY-de5357d2-7121-4297-9f04-d46406df63f0default-GOTO-c29d54b5-4478-42da-b59b-5e5b190a2ee6default"
             },
             {
                 "source": "FEEDBACK-f81e0c07-98f4-4f31-b5b3-7a32118d139e",

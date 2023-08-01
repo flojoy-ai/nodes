@@ -96,39 +96,6 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-e6194b0d-ff9a-4f31-815a-2ebf1b034655",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-e6194b0d-ff9a-4f31-815a-2ebf1b034655",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 1085.4832229508454,
-                    "y": 191.99797353258577
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 1085.4832229508454,
-                    "y": 191.99797353258577
-                },
-                "dragging": true
-            },
-            {
                 "width": 225,
                 "height": 226,
                 "id": "SCATTER-cf6d079b-1d2a-4e7f-b3eb-b1eb391237a9",
@@ -183,13 +150,6 @@
                 "target": "SCATTER-cf6d079b-1d2a-4e7f-b3eb-b1eb391237a9",
                 "targetHandle": "default",
                 "id": "reactflow__edge-ABS-ad25f309-790f-41e6-961e-66a8d31804ebdefault-SCATTER-cf6d079b-1d2a-4e7f-b3eb-b1eb391237a9default"
-            },
-            {
-                "source": "SCATTER-cf6d079b-1d2a-4e7f-b3eb-b1eb391237a9",
-                "sourceHandle": "default",
-                "target": "END-e6194b0d-ff9a-4f31-815a-2ebf1b034655",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-cf6d079b-1d2a-4e7f-b3eb-b1eb391237a9default-END-e6194b0d-ff9a-4f31-815a-2ebf1b034655default"
             }
         ],
         "viewport": {

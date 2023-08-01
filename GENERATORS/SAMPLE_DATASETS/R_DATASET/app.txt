@@ -169,39 +169,6 @@
                     "y": 128.4445302014754
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-a5316cd2-8a7b-48ec-a10f-d116974b4ab5",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-a5316cd2-8a7b-48ec-a10f-d116974b4ab5",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1187.0873660475165,
-                    "y": 187.01595877290396
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1187.0873660475165,
-                    "y": 187.01595877290396
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -211,13 +178,6 @@
                 "target": "TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcd",
                 "targetHandle": "default",
                 "id": "reactflow__edge-R_DATASET-52b424e0-d868-40e9-90c2-992ff9c78e0edefault-TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcddefault"
-            },
-            {
-                "source": "TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcd",
-                "sourceHandle": "default",
-                "target": "END-a5316cd2-8a7b-48ec-a10f-d116974b4ab5",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-09b6e8ee-fa4a-43d0-b7d8-4ea7f6678fcddefault-END-a5316cd2-8a7b-48ec-a10f-d116974b4ab5default"
             }
         ],
         "viewport": {
