@@ -61,7 +61,7 @@ def JSON_EXTRACTOR(
                 ],
                 temperature=0,
                 functions=[schema],
-                function_call={"name": schema.get("name", "json_extractor")},
+                function_call={"name": schema['name']},
             )
             print(f"No error in attempt {i} of extraction.")
             break
