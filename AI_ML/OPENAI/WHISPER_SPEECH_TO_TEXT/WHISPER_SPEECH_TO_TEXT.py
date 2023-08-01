@@ -17,13 +17,11 @@ def WHISPER_SPEECH_TO_TEXT(
     default: Optional[Bytes] = None, file_path: Optional[str] = None
 ) -> TextBlob:
     """
-    This node uses OpenAI whisper transcription model to convert audio to text.
-    The audio can be provided as a file path or as bytes from a previous node.
-    The previous node value has priority over the file path.
+    the node WHISPER_SPEECH_TO_TEXT uses OpenAI whisper transcription model to convert audio to text. The audio can be provided as a file path or as bytes from a previous node. The previous node value has priority over the file path.
 
     Parameters:
     -----------
-    - file_path: string
+    file_path: string
         Path to the audio file to be transcribed. Only mp3 format is supported.
     """
     import openai
