@@ -2,104 +2,104 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
-                "id": "WHISPER_SPEECH_TO_TEXT-8afbd70b-cd31-49c0-ae4c-c949f8aa02e8",
-                "type": "OPENAI",
+                "width": 208,
+                "height": 96,
+                "id": "WHISPER_SPEECH_TO_TEXT-e2b2fe60-8406-4531-8f50-8e1168a3fa8e",
+                "type": "AI_ML",
                 "data": {
-                    "id": "WHISPER_SPEECH_TO_TEXT-8afbd70b-cd31-49c0-ae4c-c949f8aa02e8",
+                    "id": "WHISPER_SPEECH_TO_TEXT-e2b2fe60-8406-4531-8f50-8e1168a3fa8e",
                     "label": "WHISPER SPEECH TO TEXT",
                     "func": "WHISPER_SPEECH_TO_TEXT",
-                    "type": "OPENAI",
+                    "type": "AI_ML",
                     "ctrls": {
                         "file_path": {
+                            "type": "str",
+                            "default": null,
+                            "desc": null,
                             "functionName": "WHISPER_SPEECH_TO_TEXT",
                             "param": "file_path",
-                            "value": "audio.mp3"
+                            "value": ""
                         }
                     },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Bytes",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/OPENAI/WHISPER_SPEECH_TO_TEXT/WHISPER_SPEECH_TO_TEXT.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -209.70286344766978,
-                    "y": 66.9440420589699
+                    "x": -63.88174782719637,
+                    "y": -11.724629890439985
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -209.70286344766978,
-                    "y": 66.9440420589699
+                    "x": -63.88174782719637,
+                    "y": -11.724629890439985
                 },
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-6d54170f-e51d-4004-a8be-6d3f661d2993",
-                "type": "TERMINATOR",
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-2ac256b5-133f-4748-bb78-20ccbf68d8e7",
+                "type": "VISUALIZERS",
                 "data": {
-                    "id": "END-6d54170f-e51d-4004-a8be-6d3f661d2993",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
+                    "id": "TEXT_VIEW-2ac256b5-133f-4748-bb78-20ccbf68d8e7",
+                    "label": "TEXT VIEW",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 799.560830472538,
-                    "y": 38.34744509440077
+                    "x": 367.7165338335171,
+                    "y": -110.92191345173526
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 799.560830472538,
-                    "y": 38.34744509440077
+                    "x": 367.7165338335171,
+                    "y": -110.92191345173526
                 },
-                "dragging": false
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "TABLE-8a526ddd-6394-484a-8bac-53238a0d3dc9",
-                "type": "PLOTLY_VISOR",
-                "data": {
-                    "id": "TABLE-8a526ddd-6394-484a-8bac-53238a0d3dc9",
-                    "label": "TABLE",
-                    "func": "TABLE",
-                    "type": "PLOTLY_VISOR",
-                    "ctrls": {},
-                    "selected": false
-                },
-                "position": {
-                    "x": 295.7471145688126,
-                    "y": 186.25179253812183
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 295.7471145688126,
-                    "y": 186.25179253812183
-                },
-                "dragging": false
+                "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "WHISPER_SPEECH_TO_TEXT-8afbd70b-cd31-49c0-ae4c-c949f8aa02e8",
-                "sourceHandle": "main",
-                "target": "TABLE-8a526ddd-6394-484a-8bac-53238a0d3dc9",
-                "targetHandle": "TABLE",
-                "id": "reactflow__edge-WHISPER_SPEECH_TO_TEXT-8afbd70b-cd31-49c0-ae4c-c949f8aa02e8main-TABLE-8a526ddd-6394-484a-8bac-53238a0d3dc9TABLE"
-            },
-            {
-                "source": "TABLE-8a526ddd-6394-484a-8bac-53238a0d3dc9",
-                "sourceHandle": "main",
-                "target": "END-6d54170f-e51d-4004-a8be-6d3f661d2993",
-                "targetHandle": "END",
-                "id": "reactflow__edge-TABLE-8a526ddd-6394-484a-8bac-53238a0d3dc9main-END-6d54170f-e51d-4004-a8be-6d3f661d2993END"
+                "source": "WHISPER_SPEECH_TO_TEXT-e2b2fe60-8406-4531-8f50-8e1168a3fa8e",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-2ac256b5-133f-4748-bb78-20ccbf68d8e7",
+                "targetHandle": "default",
+                "id": "reactflow__edge-WHISPER_SPEECH_TO_TEXT-e2b2fe60-8406-4531-8f50-8e1168a3fa8edefault-TEXT_VIEW-2ac256b5-133f-4748-bb78-20ccbf68d8e7default"
             }
         ],
         "viewport": {
-            "x": 122.96428571428567,
-            "y": 220.24999999999997,
-            "zoom": 0.5
+            "x": 716.6989575195756,
+            "y": 316.2258438592044,
+            "zoom": 1.2380988852096646
         }
     },
     "ctrlsManifest": [
