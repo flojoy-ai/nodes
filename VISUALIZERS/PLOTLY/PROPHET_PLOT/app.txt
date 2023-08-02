@@ -40,14 +40,16 @@
                             "type": "DataFrame"
                         }
                     ],
-                    "path": "PYTHON/nodes/AI_ML/PREDICT_TIME_SERIES/PROPHET_PREDICT/PROPHET_PREDICT.py"
+                    "path": "PYTHON/nodes/AI_ML/PREDICT_TIME_SERIES/PROPHET_PREDICT/PROPHET_PREDICT.py",
+                    "selected": false
                 },
                 "position": {
                     "x": 44.19991981803559,
                     "y": 49.45240668102545
                 },
                 "width": 150,
-                "height": 150
+                "height": 150,
+                "selected": false
             },
             {
                 "width": 130,

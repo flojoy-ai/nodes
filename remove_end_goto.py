@@ -19,12 +19,13 @@ def remove_end_goto(app_files: list):
               lines = f.read()
               json_load = json.loads(lines)
               rf = json_load['rfInstance']
-              nodes = list(filter(filter_end_from_nodes("END-"), rf['nodes']))
-              edges = list(filter(filter_end_from_edges("END-"), rf['edges']))
-              nodes = list(filter(filter_end_from_nodes("GOTO-"), nodes))
-              edges = list(filter(filter_end_from_edges("GOTO-"), edges))
+              nodes = list(map(map_nodes, rf['nodes']))
+            #   nodes = list(filter(filter_end_from_nodes("END-"), rf['nodes']))
+            #   edges = list(filter(filter_end_from_edges("END-"), rf['edges']))
+            #   nodes = list(filter(filter_end_from_nodes("GOTO-"), nodes))
+            #   edges = list(filter(filter_end_from_edges("GOTO-"), edges))
               json_load['rfInstance']["nodes"] = nodes
-              json_load['rfInstance']["edges"] = edges
+              json_load['rfInstance']["edges"] = rf['edges']
               with open(file, "w") as app:
                 app.write(json.dumps(json_load, indent=4))
 
@@ -32,6 +33,13 @@ def remove_end_goto(app_files: list):
 import typing
 
 
+def map_nodes(node: dict[str, typing.Any]):
+    try:
+        node['data']['selected'] = False
+        node['selected'] = False
+    except Exception:
+        pass
+    return node
 def filter_end_from_nodes(removal_id: str):
     def r(node: dict[str, typing.Any]):
         if node["id"].startswith(removal_id):

@@ -258,13 +258,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\BIG_NUMBER\\BIG_NUMBER.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 659.9071541644486,
                     "y": 17.298074781079322
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 659.9071541644486,
                     "y": 17.298074781079322

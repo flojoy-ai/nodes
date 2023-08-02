@@ -596,13 +596,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 2112.172067313177,
                     "y": 474.1261265472838
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 2112.172067313177,
                     "y": 474.1261265472838

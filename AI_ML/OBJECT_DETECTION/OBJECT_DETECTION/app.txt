@@ -55,13 +55,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 46.030264450970094,
                     "y": -89.31194762115769
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 46.030264450970094,
                     "y": -89.31194762115769

@@ -258,13 +258,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 970.118927622176,
                     "y": 474.2206729930675
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 970.118927622176,
                     "y": 474.2206729930675

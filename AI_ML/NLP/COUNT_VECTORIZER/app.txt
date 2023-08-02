@@ -30,13 +30,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/EXTRACTORS/FILE/READ_CSV/READ_CSV.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": -110.98427597492659,
                     "y": -10.73536422316019
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": -110.98427597492659,
                     "y": -10.73536422316019

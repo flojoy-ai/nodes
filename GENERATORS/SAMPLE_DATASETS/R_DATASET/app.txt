@@ -157,13 +157,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\TABLE\\TABLE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 539.9445089046594,
                     "y": 128.4445302014754
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 539.9445089046594,
                     "y": 128.4445302014754

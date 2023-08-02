@@ -398,13 +398,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 1489.3610618674375,
                     "y": 384.82137397850096
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 1489.3610618674375,
                     "y": 384.82137397850096

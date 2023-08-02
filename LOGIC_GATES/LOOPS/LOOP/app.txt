@@ -58,59 +58,8 @@
                 }
             },
             {
-                "width": 150,
-                "height": 180,
-                "id": "LOOP_INDEX-03d08c40-e9a8-43ea-be74-033129837beb",
-                "type": "default",
-                "data": {
-                    "id": "LOOP_INDEX-03d08c40-e9a8-43ea-be74-033129837beb",
-                    "label": "LOOP INDEX",
-                    "func": "LOOP_INDEX",
-                    "type": "default",
-                    "ctrls": {
-                        "referred_node": {
-                            "type": "NodeReference",
-                            "default": null,
-                            "desc": "The node where REDIS data will be loaded from.",
-                            "functionName": "LOOP_INDEX",
-                            "param": "referred_node",
-                            "value": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair|Scalar",
-                            "multiple": false,
-                            "desc": null
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Scalar",
-                            "desc": "The dataframe loaded from Redis. Ordered pair."
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/LOOP_TOOLS/LOOP_INDEX/LOOP_INDEX.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 447.11563971559974,
-                    "y": -0.02013599769463781
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 447.11563971559974,
-                    "y": -0.02013599769463781
-                },
-                "dragging": true
-            },
-            {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851",
                 "type": "VISUALIZERS",
                 "data": {
@@ -182,28 +131,79 @@
                     "y": -56.51459992169677
                 },
                 "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 180,
+                "id": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
+                "type": "default",
+                "data": {
+                    "id": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
+                    "label": "LOOP INDEX",
+                    "func": "LOOP_INDEX",
+                    "type": "default",
+                    "ctrls": {
+                        "loop_node": {
+                            "type": "NodeReference",
+                            "default": null,
+                            "desc": "The LOOP node to track the loop index from.",
+                            "functionName": "LOOP_INDEX",
+                            "param": "loop_node",
+                            "value": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Scalar",
+                            "desc": "The loop index in Scalar form."
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\LOOP_TOOLS\\LOOP_INDEX\\LOOP_INDEX.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 472.5656805220707,
+                    "y": 3.5093485056772806
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 472.5656805220707,
+                    "y": 3.5093485056772806
+                },
+                "dragging": true
             }
         ],
         "edges": [
             {
                 "source": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7",
                 "sourceHandle": "body",
-                "target": "LOOP_INDEX-03d08c40-e9a8-43ea-be74-033129837beb",
+                "target": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7body-LOOP_INDEX-03d08c40-e9a8-43ea-be74-033129837bebdefault"
+                "id": "reactflow__edge-LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7body-LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526adefault"
             },
             {
-                "source": "LOOP_INDEX-03d08c40-e9a8-43ea-be74-033129837beb",
+                "source": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
                 "sourceHandle": "default",
                 "target": "BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOOP_INDEX-03d08c40-e9a8-43ea-be74-033129837bebdefault-BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851default"
+                "id": "reactflow__edge-LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526adefault-BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851default"
             }
         ],
         "viewport": {
-            "x": 606.4472645567363,
-            "y": 234.63130388602087,
-            "zoom": 0.9186369849831518
+            "x": 555.0976680981258,
+            "y": 214.4419430555007,
+            "zoom": 0.8287213244976164
         }
     },
     "ctrlsManifest": [

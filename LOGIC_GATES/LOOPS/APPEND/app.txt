@@ -122,13 +122,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/RAND/RAND.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": -116.99910130481645,
                     "y": 31.67641795910953
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": -116.99910130481645,
                     "y": 31.67641795910953

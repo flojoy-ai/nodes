@@ -63,13 +63,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/INSTRUMENTS/STEPPER_MOTOR/STEPPER_DRIVER_TIC_KNOB/STEPPER_DRIVER_TIC_KNOB.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 934.1949826356821,
                     "y": -1.452956731347598
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 934.1949826356821,
                     "y": -1.452956731347598

@@ -38,10 +38,10 @@ def BIG_NUMBER(
     fig = go.Figure(layout=layout)
 
     prev_num = SmallMemory().read_memory(job_id, MEMORY_KEY)
-    match default:
-        case OrderedPair():
+    match default.type:
+        case "ordered_pair":
             big_num = default.y[-1]
-        case Scalar():
+        case "scalar":
             big_num = default.c
     val_format = ".1%" if relative_delta is True else ".1f"
     fig.add_trace(

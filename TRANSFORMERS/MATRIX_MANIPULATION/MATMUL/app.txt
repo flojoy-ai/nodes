@@ -82,13 +82,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/MATRIX/MATRIX.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 236.02277015172265,
                     "y": 579.6972875067837
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 236.02277015172265,
                     "y": 579.6972875067837

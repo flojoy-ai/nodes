@@ -56,13 +56,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/INSTRUMENTS/STEPPER_MOTOR/STEPPER_DRIVER_TIC/STEPPER_DRIVER_TIC.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 883.1245033729516,
                     "y": -2.309719518942927
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 883.1245033729516,
                     "y": -2.309719518942927
