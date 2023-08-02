@@ -53,24 +53,22 @@ def RAND(
     seed = random.randint(1, 10000)
     my_generator = np.random.default_rng(seed)
 
-    match default:
-        case OrderedPair():
-            size = len(default.x)
-            x = default.x
-        case Vector():
-            size = len(default.v)
-            x = default.v
-        case _:
-            size = 1
+    if isinstance(default, OrderedPair):
+        size = len(default.x)
+        x = default.x
+    elif isinstance(default, Vector):
+        size = len(default.v)
+        x = default.v
+    else:
+        size = 1
 
-    match distribution:
-        case "uniform":
-            y = my_generator.uniform(low=lower_bound, high=upper_bound, size=size)
-        case "normal":
-            y = my_generator.normal(
-                loc=normal_mean, scale=normal_standard_deviation, size=size
-            )
-        case "poisson":
-            y = my_generator.poisson(lam=poisson_events, size=size)
+    if distribution == "uniform":
+        y = my_generator.uniform(low=lower_bound, high=upper_bound, size=size)
+    elif distribution == "normal":
+        y = my_generator.normal(
+            loc=normal_mean, scale=normal_standard_deviation, size=size
+        )
+    elif "poisson":
+        y = my_generator.poisson(lam=poisson_events, size=size)
 
     return OrderedPair(x=x, y=y) if default else Scalar(c=y)

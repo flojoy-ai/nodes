@@ -18,10 +18,9 @@ def ADD(
     seq = map(lambda dc: get_val(dc), b)
     y = reduce(lambda u, v: np.add(u, v), seq, initial)
 
-    match a:
-        case OrderedPair():
-            return OrderedPair(x=a.x, y=y)
-        case Vector():
-            return Vector(v=y)
-        case Scalar():
-            return Scalar(c=y)
+    if isinstance(a, OrderedPair):
+        return OrderedPair(x=a.x, y=y)
+    elif isinstance(a, Vector):
+        return Vector(v=y)
+    elif isinstance(a, Scalar):
+        return Scalar(c=y)
