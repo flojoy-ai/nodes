@@ -16,7 +16,7 @@ def obama_image_array_rgb():
 
 @pytest.mark.slow
 def test_OPEN_IMAGE(
-    mock_flojoy_decorator, mock_flojoy_cache_directory, obama_image_array_rgb
+    mock_flojoy_decorator, obama_image_array_rgb
 ):
     import OPEN_IMAGE
 

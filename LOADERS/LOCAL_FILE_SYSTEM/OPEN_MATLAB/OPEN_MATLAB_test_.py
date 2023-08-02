@@ -3,7 +3,7 @@ import pytest
 
 
 @pytest.mark.slow
-def test_OPEN_MATLAB(mock_flojoy_decorator, mock_flojoy_cache_directory):
+def test_OPEN_MATLAB(mock_flojoy_decorator):
     import OPEN_MATLAB
 
     _file_path = f"{os.path.dirname(os.path.realpath(__file__))}/assets/default.mat"
