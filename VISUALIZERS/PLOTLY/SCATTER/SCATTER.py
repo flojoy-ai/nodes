@@ -1,12 +1,12 @@
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
-from flojoy import DataFrame, Matrix, OrderedPair, Plotly, flojoy
+from flojoy import DataFrame, Matrix, OrderedPair, Plotly, flojoy, Vector
 from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
-def SCATTER(default: OrderedPair | DataFrame | Matrix) -> Plotly:
+def SCATTER(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     """The SCATTER Node creates a Plotly Scatter visualization for a given input data container.
 
     Parameters:
@@ -19,15 +19,15 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix) -> Plotly:
     """
     layout = plot_layout(title="SCATTER")
     fig = go.Figure(layout=layout)
-    match default.type:
-        case "ordered_pair":
+    match default:
+        case OrderedPair():
             x = default.x
             if isinstance(default.x, dict):
                 dict_keys = list(default.x.keys())
                 x = default.x[dict_keys[0]]
             y = default.y
             fig.add_trace(go.Scatter(x=x, y=y, mode="markers", marker=dict(size=4)))
-        case "dataframe":
+        case DataFrame():
             df = pd.DataFrame(default.m)
             first_col = df.iloc[:, 0]
             is_timeseries = False
@@ -44,7 +44,8 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix) -> Plotly:
                     fig.add_trace(
                         go.Scatter(x=df.index, y=df[col], mode="markers", name=col)
                     )
-        case "matrix":
+
+        case Matrix():
             m: np.ndarray = default.m
             num_rows, num_cols = m.shape
 
@@ -56,5 +57,9 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix) -> Plotly:
                 )
 
             fig.update_layout(xaxis_title="Column", yaxis_title="Value")
+        case Vector():
+            y = default.v
+            x = np.arange(len(y))
+            fig.add_trace(go.Scatter(x=x, y=y, mode="markers", marker=dict(size=4)))
 
     return Plotly(fig=fig)

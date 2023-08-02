@@ -12,10 +12,10 @@ def CONSTANT(
     """Generates a single x-y vector of numeric (floating point) constants"""
     x = np.arange(0, step, 1)
     if default:
-        match default.type:
-            case "ordered_pair":
+        match default:
+            case OrderedPair():
                 x = default.y
-            case "vector":
+            case Vector():
                 x = default.v
 
     y = np.full(len(x), constant)

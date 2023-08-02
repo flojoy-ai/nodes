@@ -15,18 +15,18 @@ def get_app_files(base_path: str):
 
 def remove_end_goto(app_files: list):
     for file in app_files:
-          with open(file, "r") as f:
-              lines = f.read()
-              json_load = json.loads(lines)
-              rf = json_load['rfInstance']
-              nodes = list(map(map_nodes, rf['nodes']))
+        with open(file, "r") as f:
+            lines = f.read()
+            json_load = json.loads(lines)
+            rf = json_load["rfInstance"]
+            nodes = list(map(map_nodes, rf["nodes"]))
             #   nodes = list(filter(filter_end_from_nodes("END-"), rf['nodes']))
             #   edges = list(filter(filter_end_from_edges("END-"), rf['edges']))
             #   nodes = list(filter(filter_end_from_nodes("GOTO-"), nodes))
             #   edges = list(filter(filter_end_from_edges("GOTO-"), edges))
-              json_load['rfInstance']["nodes"] = nodes
-              json_load['rfInstance']["edges"] = rf['edges']
-              with open(file, "w") as app:
+            json_load["rfInstance"]["nodes"] = nodes
+            json_load["rfInstance"]["edges"] = rf["edges"]
+            with open(file, "w") as app:
                 app.write(json.dumps(json_load, indent=4))
 
 
@@ -35,11 +35,13 @@ import typing
 
 def map_nodes(node: dict[str, typing.Any]):
     try:
-        node['data']['selected'] = False
-        node['selected'] = False
+        node["data"]["selected"] = False
+        node["selected"] = False
     except Exception:
         pass
     return node
+
+
 def filter_end_from_nodes(removal_id: str):
     def r(node: dict[str, typing.Any]):
         if node["id"].startswith(removal_id):

@@ -3,7 +3,7 @@ from skimage import data
 from typing import Literal
 
 
-@flojoy(node_type="default", deps={'scikit-image': "0.21.0"})
+@flojoy(node_type="default", deps={"scikit-image": "0.21.0"})
 def SKLEARNIMAGE(
     img_key: Literal[
         "astronaut",
