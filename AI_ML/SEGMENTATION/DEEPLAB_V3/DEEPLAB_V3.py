@@ -56,7 +56,7 @@ def DEEPLAB_V3(default: Image) -> Image:
         "pytorch/vision:v0.15.2",
         "deeplabv3_resnet50",
         pretrained=True,
-        skip_validation=True
+        skip_validation=True,
     )
     model.eval()
     # Preprocessing
