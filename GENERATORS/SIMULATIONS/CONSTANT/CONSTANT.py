@@ -5,15 +5,18 @@ from typing import Optional
 
 @flojoy
 def CONSTANT(
-    default: Optional[Vector] = None, constant: float = 3.0, step: int = 1000
+    default: Optional[Vector | OrderedPair] = None,
+    constant: float = 3.0,
+    step: float = 1000,
 ) -> OrderedPair:
     """Generates a single x-y vector of numeric (floating point) constants"""
-
-    x: DCNpArrayType
+    x = np.arange(0, step, 1)
     if default:
-        x = default.v
-    else:
-        x = np.arange(0, step, 1)
+        match default:
+            case OrderedPair():
+                x = default.y
+            case Vector():
+                x = default.v
 
     y = np.full(len(x), constant)
 

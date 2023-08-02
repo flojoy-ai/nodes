@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "LOCAL_FILE-ea2690c7-1b37-40c0-9d02-b000a553c3ec",
-                "type": "LOCAL_FILE_SYSTEM",
+                "type": "LOADERS",
                 "data": {
                     "id": "LOCAL_FILE-ea2690c7-1b37-40c0-9d02-b000a553c3ec",
                     "label": "LOCAL FILE",
                     "func": "LOCAL_FILE",
-                    "type": "LOCAL_FILE_SYSTEM",
+                    "type": "LOADERS",
                     "ctrls": {
                         "file_path": {
                             "type": "str",
@@ -69,12 +69,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "DEEPLAB_V3-d48ad00f-5f1d-4abc-b6e9-5dbca49c6504",
-                "type": "SEGMENTATION",
+                "type": "AI_ML",
                 "data": {
                     "id": "DEEPLAB_V3-d48ad00f-5f1d-4abc-b6e9-5dbca49c6504",
                     "label": "DEEPLAB V3",
                     "func": "DEEPLAB_V3",
-                    "type": "SEGMENTATION",
+                    "type": "AI_ML",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -109,12 +109,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "IMAGE-4f7be017-7bb2-4650-b357-536574caaef9",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "IMAGE-4f7be017-7bb2-4650-b357-536574caaef9",
                     "label": "IMAGE",
                     "func": "IMAGE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -132,13 +132,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 1358.296287493712,
                     "y": 620.4805276906546
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 1358.296287493712,
                     "y": 620.4805276906546
@@ -149,12 +149,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "IMAGE-587cc53c-8da9-4bd5-a525-44386424da4b",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "IMAGE-587cc53c-8da9-4bd5-a525-44386424da4b",
                     "label": "IMAGE 1",
                     "func": "IMAGE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -182,39 +182,6 @@
                 "positionAbsolute": {
                     "x": 850.1563653366388,
                     "y": 223.0733492297885
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-057d326a-3ade-4474-882d-f0cd0d880bfe",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-057d326a-3ade-4474-882d-f0cd0d880bfe",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1863.718540377425,
-                    "y": 708.0830404721299
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1863.718540377425,
-                    "y": 708.0830404721299
                 },
                 "dragging": true
             }
@@ -240,13 +207,6 @@
                 "target": "IMAGE-587cc53c-8da9-4bd5-a525-44386424da4b",
                 "targetHandle": "default",
                 "id": "reactflow__edge-LOCAL_FILE-ea2690c7-1b37-40c0-9d02-b000a553c3ecdefault-IMAGE-587cc53c-8da9-4bd5-a525-44386424da4bdefault"
-            },
-            {
-                "source": "IMAGE-4f7be017-7bb2-4650-b357-536574caaef9",
-                "sourceHandle": "default",
-                "target": "END-057d326a-3ade-4474-882d-f0cd0d880bfe",
-                "targetHandle": "default",
-                "id": "reactflow__edge-IMAGE-4f7be017-7bb2-4650-b357-536574caaef9default-END-057d326a-3ade-4474-882d-f0cd0d880bfedefault"
             }
         ],
         "viewport": {

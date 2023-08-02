@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "OPEN_PARQUET-196993ec-f559-44c6-8d7d-14360ed20ce7",
-                "type": "FILE",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "OPEN_PARQUET-196993ec-f559-44c6-8d7d-14360ed20ce7",
                     "label": "OPEN PARQUET",
                     "func": "OPEN_PARQUET",
-                    "type": "FILE",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "file_path": {
                             "type": "str",
@@ -55,12 +55,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "TABLE-af6328dd-0379-4824-898f-d0d3b677b664",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-af6328dd-0379-4824-898f-d0d3b677b664",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -90,39 +90,6 @@
                     "y": 149.0810155005708
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-c8fc5ed5-3128-428c-ad8c-4742d7418289",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-c8fc5ed5-3128-428c-ad8c-4742d7418289",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 925.661424950219,
-                    "y": 193.04826676898648
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 925.661424950219,
-                    "y": 193.04826676898648
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -132,13 +99,6 @@
                 "target": "TABLE-af6328dd-0379-4824-898f-d0d3b677b664",
                 "targetHandle": "default",
                 "id": "reactflow__edge-OPEN_PARQUET-196993ec-f559-44c6-8d7d-14360ed20ce7default-TABLE-af6328dd-0379-4824-898f-d0d3b677b664default"
-            },
-            {
-                "source": "TABLE-af6328dd-0379-4824-898f-d0d3b677b664",
-                "sourceHandle": "default",
-                "target": "END-c8fc5ed5-3128-428c-ad8c-4742d7418289",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-af6328dd-0379-4824-898f-d0d3b677b664default-END-c8fc5ed5-3128-428c-ad8c-4742d7418289default"
             }
         ],
         "viewport": {

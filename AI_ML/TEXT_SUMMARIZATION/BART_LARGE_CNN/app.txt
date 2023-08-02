@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 180,
                 "id": "READ_CSV-c6754ffa-7213-485b-a8b5-0a0f7b5bebe0",
-                "type": "FILE",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "READ_CSV-c6754ffa-7213-485b-a8b5-0a0f7b5bebe0",
                     "label": "READ CSV",
                     "func": "READ_CSV",
-                    "type": "FILE",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "file_path": {
                             "type": "str",
@@ -47,12 +47,12 @@
                 "width": 150,
                 "height": 180,
                 "id": "BART_LARGE_CNN-cfe29f1d-4632-4270-af07-2eb6b5848cd6",
-                "type": "TEXT_SUMMARIZATION",
+                "type": "AI_ML",
                 "data": {
                     "id": "BART_LARGE_CNN-cfe29f1d-4632-4270-af07-2eb6b5848cd6",
                     "label": "BART LARGE CNN",
                     "func": "BART_LARGE_CNN",
-                    "type": "TEXT_SUMMARIZATION",
+                    "type": "AI_ML",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -89,12 +89,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "TABLE-d835eca9-2954-43ea-9970-2345933e2629",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-d835eca9-2954-43ea-9970-2345933e2629",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -131,12 +131,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "TABLE-aa682847-ab68-4ef8-a3fa-bc0ad1c4f002",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-aa682847-ab68-4ef8-a3fa-bc0ad1c4f002",
                     "label": "TABLE 1",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {

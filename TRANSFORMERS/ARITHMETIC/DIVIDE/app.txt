@@ -113,12 +113,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "SINE-0c1b9fec-3f11-46b6-87de-4d9d4bd25878",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "SINE-0c1b9fec-3f11-46b6-87de-4d9d4bd25878",
                     "label": "SINE",
                     "func": "SINE",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "amplitude": {
                             "type": "float",
@@ -192,48 +192,15 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-2209463f-bfeb-4787-b0cd-0c585a316cb3",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-2209463f-bfeb-4787-b0cd-0c585a316cb3",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 1998.209346880817,
-                    "y": 230.22128020755002
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 1998.209346880817,
-                    "y": 230.22128020755002
-                },
-                "dragging": true
-            },
-            {
                 "width": 225,
                 "height": 226,
                 "id": "SCATTER-21704aae-9020-418b-af35-0ff9aa08e52d",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-21704aae-9020-418b-af35-0ff9aa08e52d",
                     "label": "SCATTER",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -314,12 +281,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "SINE-9d81de2f-d788-4df9-86b0-70a1d9bebe40",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "SINE-9d81de2f-d788-4df9-86b0-70a1d9bebe40",
                     "label": "SINE 1",
                     "func": "SINE",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "amplitude": {
                             "type": "float",
@@ -400,13 +367,6 @@
                 "target": "SINE-0c1b9fec-3f11-46b6-87de-4d9d4bd25878",
                 "targetHandle": "default",
                 "id": "reactflow__edge-LINSPACE-3c8676a0-d750-4ffb-9383-744e93cdc059default-SINE-0c1b9fec-3f11-46b6-87de-4d9d4bd25878default"
-            },
-            {
-                "source": "SCATTER-21704aae-9020-418b-af35-0ff9aa08e52d",
-                "sourceHandle": "default",
-                "target": "END-2209463f-bfeb-4787-b0cd-0c585a316cb3",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-21704aae-9020-418b-af35-0ff9aa08e52ddefault-END-2209463f-bfeb-4787-b0cd-0c585a316cb3default"
             },
             {
                 "source": "SINE-0c1b9fec-3f11-46b6-87de-4d9d4bd25878",

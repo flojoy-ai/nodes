@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "DOUBLE_DEFINITE_INTEGRAL-c215aaac-b66e-4117-b317-1533b8e94265",
-                "type": "CALCULUS",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "DOUBLE_DEFINITE_INTEGRAL-c215aaac-b66e-4117-b317-1533b8e94265",
                     "label": "DOUBLE DEFINITE INTEGRAL",
                     "func": "DOUBLE_DEFINITE_INTEGRAL",
-                    "type": "CALCULUS",
+                    "type": "TRANSFORMERS",
                     "ctrls": {
                         "function": {
                             "type": "str",
@@ -73,12 +73,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "SINE-808a8ccb-a21c-4f1c-8777-69d0ffde8435",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "SINE-808a8ccb-a21c-4f1c-8777-69d0ffde8435",
                     "label": "SINE",
                     "func": "SINE",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "amplitude": {
                             "type": "float",
@@ -255,12 +255,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "SCATTER-d11db416-92b7-4511-a6c2-0bcdcb8064c1",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-d11db416-92b7-4511-a6c2-0bcdcb8064c1",
                     "label": "SCATTER",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -295,12 +295,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "SCATTER-b69cc4b7-5314-4bdc-a841-e546ee999921",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-b69cc4b7-5314-4bdc-a841-e546ee999921",
                     "label": "SCATTER 1",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -328,39 +328,6 @@
                 "positionAbsolute": {
                     "x": 367.236414655831,
                     "y": -53.68983399612759
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-fb60c910-1418-4259-938b-5bd861118271",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-fb60c910-1418-4259-938b-5bd861118271",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 762.666676632996,
-                    "y": 128.24667347585165
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 762.666676632996,
-                    "y": 128.24667347585165
                 },
                 "dragging": true
             }
@@ -400,20 +367,6 @@
                 "target": "SCATTER-d11db416-92b7-4511-a6c2-0bcdcb8064c1",
                 "targetHandle": "default",
                 "id": "reactflow__edge-ADD-a5baa9e5-24f1-4272-a9cf-3ad9efdf8983default-SCATTER-d11db416-92b7-4511-a6c2-0bcdcb8064c1default"
-            },
-            {
-                "source": "SCATTER-b69cc4b7-5314-4bdc-a841-e546ee999921",
-                "sourceHandle": "default",
-                "target": "END-fb60c910-1418-4259-938b-5bd861118271",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-b69cc4b7-5314-4bdc-a841-e546ee999921default-END-fb60c910-1418-4259-938b-5bd861118271default"
-            },
-            {
-                "source": "SCATTER-d11db416-92b7-4511-a6c2-0bcdcb8064c1",
-                "sourceHandle": "default",
-                "target": "END-fb60c910-1418-4259-938b-5bd861118271",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-d11db416-92b7-4511-a6c2-0bcdcb8064c1default-END-fb60c910-1418-4259-938b-5bd861118271default"
             }
         ],
         "viewport": {

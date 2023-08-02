@@ -2,125 +2,153 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                "type": "TERMINATOR",
+                "width": 208,
+                "height": 96,
+                "id": "CONSTANT-9bfa0626-7664-41a7-b5bc-ec8f62540e35",
+                "type": "GENERATORS",
                 "data": {
-                    "id": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATOR",
-                    "ctrls": {},
+                    "id": "CONSTANT-9bfa0626-7664-41a7-b5bc-ec8f62540e35",
+                    "label": "3.0",
+                    "func": "CONSTANT",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "constant": {
+                            "type": "float",
+                            "default": 3,
+                            "desc": null,
+                            "functionName": "CONSTANT",
+                            "param": "constant",
+                            "value": 3
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "desc": null,
+                            "functionName": "CONSTANT",
+                            "param": "step",
+                            "value": 1000
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector|OrderedPair",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\CONSTANT\\CONSTANT.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1386.4285714285716,
-                    "y": 595.4285714285714
+                    "x": -130.83989138018498,
+                    "y": 13.422546284269998
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1386.4285714285716,
-                    "y": 595.4285714285714
+                    "x": -130.83989138018498,
+                    "y": 13.422546284269998
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
-                "id": "BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957",
-                "type": "PLOTLY_VISOR",
+                "width": 225,
+                "height": 226,
+                "id": "BIG_NUMBER-23d35b1d-f436-4201-8aa1-69c93ff7ed99",
+                "type": "VISUALIZERS",
                 "data": {
-                    "id": "BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957",
+                    "id": "BIG_NUMBER-23d35b1d-f436-4201-8aa1-69c93ff7ed99",
                     "label": "BIG NUMBER",
                     "func": "BIG_NUMBER",
-                    "type": "PLOTLY_VISOR",
+                    "type": "VISUALIZERS",
                     "ctrls": {
                         "suffix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": null,
                             "functionName": "BIG_NUMBER",
                             "param": "suffix",
                             "value": ""
                         },
                         "prefix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": null,
                             "functionName": "BIG_NUMBER",
                             "param": "prefix",
                             "value": ""
                         },
-                        "relative_delta": {
-                            "functionName": "BIG_NUMBER",
-                            "param": "relative_delta",
-                            "value": true
-                        },
                         "title": {
+                            "type": "str",
+                            "default": null,
+                            "desc": null,
                             "functionName": "BIG_NUMBER",
                             "param": "title",
                             "value": ""
+                        },
+                        "relative_delta": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": true
                         }
                     },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\BIG_NUMBER\\BIG_NUMBER.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 797.9265644225578,
-                    "y": 508.7311569539935
+                    "x": 294.1748962833931,
+                    "y": -62.1556648169163
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 797.9265644225578,
-                    "y": 508.7311569539935
-                },
-                "dragging": true
-            },
-            {
-                "width": 130,
-                "height": 130,
-                "id": "CONSTANT-910cbc4f-ec37-4d77-878a-643d40f38b84",
-                "type": "SIMULATION",
-                "data": {
-                    "id": "CONSTANT-910cbc4f-ec37-4d77-878a-643d40f38b84",
-                    "label": "2.0",
-                    "func": "CONSTANT",
-                    "type": "SIMULATION",
-                    "ctrls": {
-                        "constant": {
-                            "functionName": "CONSTANT",
-                            "param": "constant",
-                            "value": "2.0"
-                        }
-                    },
-                    "selected": false
-                },
-                "position": {
-                    "x": 497.9265644225577,
-                    "y": 591.5882998111363
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 497.9265644225577,
-                    "y": 591.5882998111363
+                    "x": 294.1748962833931,
+                    "y": -62.1556648169163
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957",
-                "sourceHandle": "main",
-                "target": "END-06a4da40-a0ae-44ad-873b-9b65d096880a",
-                "targetHandle": "END",
-                "id": "reactflow__edge-BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957main-END-06a4da40-a0ae-44ad-873b-9b65d096880aEND"
-            },
-            {
-                "source": "CONSTANT-910cbc4f-ec37-4d77-878a-643d40f38b84",
-                "sourceHandle": "main",
-                "target": "BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957",
-                "targetHandle": "BIG_NUMBER",
-                "id": "reactflow__edge-CONSTANT-910cbc4f-ec37-4d77-878a-643d40f38b84main-BIG_NUMBER-5d523fca-e2c2-4144-a091-d3d2e6482957BIG_NUMBER"
+                "source": "CONSTANT-9bfa0626-7664-41a7-b5bc-ec8f62540e35",
+                "sourceHandle": "default",
+                "target": "BIG_NUMBER-23d35b1d-f436-4201-8aa1-69c93ff7ed99",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CONSTANT-9bfa0626-7664-41a7-b5bc-ec8f62540e35default-BIG_NUMBER-23d35b1d-f436-4201-8aa1-69c93ff7ed99default"
             }
         ],
         "viewport": {
-            "x": 383.94248946966945,
-            "y": 121.85910915060867,
-            "zoom": 1.1608238532718647
+            "x": 606.4472645567363,
+            "y": 234.63130388602087,
+            "zoom": 0.9186369849831518
         }
     },
     "ctrlsManifest": [

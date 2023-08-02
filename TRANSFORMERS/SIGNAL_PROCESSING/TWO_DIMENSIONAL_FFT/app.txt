@@ -2,19 +2,160 @@
     "rfInstance": {
         "nodes": [
             {
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1049.9664410476967,
+                    "y": 7.753302513786252
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1049.9664410476967,
+                    "y": 7.753302513786252
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
+                    "label": "IMAGE 1",
+                    "func": "IMAGE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 680.10784936201,
+                    "y": 259.1429105274428
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 680.10784936201,
+                    "y": 259.1429105274428
+                },
+                "dragging": true
+            },
+            {
+                "width": 160,
+                "height": 160,
+                "id": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
+                    "label": "TWO DIMENSIONAL FFT",
+                    "func": "TWO_DIMENSIONAL_FFT",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {
+                        "real_signal": {
+                            "type": "bool",
+                            "default": true,
+                            "functionName": "TWO_DIMENSIONAL_FFT",
+                            "param": "real_signal",
+                            "value": false
+                        },
+                        "color": {
+                            "type": "select",
+                            "default": "red",
+                            "options": [
+                                "red",
+                                "green",
+                                "blue",
+                                "grayscale"
+                            ],
+                            "functionName": "TWO_DIMENSIONAL_FFT",
+                            "param": "color",
+                            "value": "red"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Grayscale|DataFrame|Image|Matrix",
+                            "multiple": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Matrix|DataFrame|Image"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/SIGNAL_PROCESSING/TWO_DIMENSIONAL_FFT/TWO_DIMENSIONAL_FFT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 751.5106356403874,
+                    "y": 35.73398367632049
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 751.5106356403874,
+                    "y": 35.73398367632049
+                },
+                "dragging": true
+            },
+            {
                 "width": 150,
-                "height": 150,
-                "id": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
+                "height": 180,
+                "id": "SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
                 "type": "default",
                 "data": {
-                    "id": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
+                    "id": "SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
                     "label": "SKLEARNIMAGE",
                     "func": "SKLEARNIMAGE",
                     "type": "default",
                     "ctrls": {
                         "img_key": {
                             "type": "select",
-                            "default": null,
+                            "default": "astronaut",
                             "options": [
                                 "astronaut",
                                 "binary_blobs",
@@ -60,6 +201,7 @@
                                 "text",
                                 "vortex"
                             ],
+                            "desc": null,
                             "functionName": "SKLEARNIMAGE",
                             "param": "img_key",
                             "value": "astronaut"
@@ -69,239 +211,58 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Image"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/GENERATORS/SAMPLE_IMAGES/SKLEARNIMAGE/SKLEARNIMAGE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 289.06340100673725,
-                    "y": 31.048713013173256
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 289.06340100673725,
-                    "y": 31.048713013173256
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1532.8957187538622,
-                    "y": 33.05596440245415
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1532.8957187538622,
-                    "y": 33.05596440245415
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
-                "type": "PLOTLY",
-                "data": {
-                    "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
-                    "label": "IMAGE",
-                    "func": "IMAGE",
-                    "type": "PLOTLY",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
                             "type": "Image",
-                            "multiple": false
+                            "desc": null
                         }
                     ],
-                    "outputs": [
+                    "pip_dependencies": [
                         {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
+                            "name": "scikit-image",
+                            "v": "0.21.0"
                         }
                     ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_IMAGES\\SKLEARNIMAGE\\SKLEARNIMAGE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1062.380266126793,
-                    "y": 265.13327582038596
+                    "x": 417.41128879686454,
+                    "y": 21.10713477860139
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1062.380266126793,
-                    "y": 265.13327582038596
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
-                "type": "PLOTLY",
-                "data": {
-                    "id": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
-                    "label": "IMAGE 1",
-                    "func": "IMAGE",
-                    "type": "PLOTLY",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 463.2797046471253,
-                    "y": 253.34979215719778
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 463.2797046471253,
-                    "y": 253.34979215719778
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
-                "id": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
-                "type": "SIGNAL_PROCESSING",
-                "data": {
-                    "id": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
-                    "label": "TWO DIMENSIONAL FFT",
-                    "func": "TWO_DIMENSIONAL_FFT",
-                    "type": "SIGNAL_PROCESSING",
-                    "ctrls": {
-                        "real_signal": {
-                            "type": "bool",
-                            "default": true,
-                            "functionName": "TWO_DIMENSIONAL_FFT",
-                            "param": "real_signal",
-                            "value": false
-                        },
-                        "color": {
-                            "type": "select",
-                            "default": "red",
-                            "options": [
-                                "red",
-                                "green",
-                                "blue",
-                                "grayscale"
-                            ],
-                            "functionName": "TWO_DIMENSIONAL_FFT",
-                            "param": "color",
-                            "value": "red"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Grayscale|DataFrame|Image|Matrix",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Matrix|DataFrame|Image"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/TRANSFORMERS/SIGNAL_PROCESSING/TWO_DIMENSIONAL_FFT/TWO_DIMENSIONAL_FFT.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 814.407349374476,
-                    "y": 21.664981920011172
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 814.407349374476,
-                    "y": 21.664981920011172
+                    "x": 417.41128879686454,
+                    "y": 21.10713477860139
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
-                "sourceHandle": "default",
-                "target": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406default"
-            },
-            {
-                "source": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
-                "sourceHandle": "default",
-                "target": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
-                "targetHandle": "default",
-                "id": "reactflow__edge-IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427cdefault-END-8d20d677-c761-43cf-8b24-cde84bd667b9default"
-            },
-            {
-                "source": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
-                "sourceHandle": "default",
-                "target": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default"
-            },
-            {
-                "source": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
-                "sourceHandle": "default",
-                "target": "END-8d20d677-c761-43cf-8b24-cde84bd667b9",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default-END-8d20d677-c761-43cf-8b24-cde84bd667b9default"
-            },
-            {
                 "source": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
                 "sourceHandle": "default",
                 "target": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
                 "targetHandle": "default",
                 "id": "reactflow__edge-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default-IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427cdefault"
+            },
+            {
+                "source": "SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
+                "sourceHandle": "default",
+                "target": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426cdefault-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default"
+            },
+            {
+                "source": "SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
+                "sourceHandle": "default",
+                "target": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426cdefault-IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406default"
             }
         ],
         "viewport": {
-            "x": -373.4542219202399,
-            "y": 120.20973884288571,
-            "zoom": 1.101977389476256
+            "x": 606.4472645567363,
+            "y": 234.63130388602087,
+            "zoom": 0.9186369849831518
         }
     },
     "ctrlsManifest": [

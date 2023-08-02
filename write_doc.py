@@ -326,4 +326,4 @@ if __name__ == "__main__":
     docs_dir_path = sys.argv[1]
     docs_dir = path.abspath(path.join(docs_dir_path, "docs"))
     print(" docs dir: ", docs_dir)
-write_doc(docs_dir=docs_dir)
+    write_doc(docs_dir=docs_dir)
