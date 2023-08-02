@@ -2,91 +2,6 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
-                "id": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
-                "type": "default",
-                "data": {
-                    "id": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
-                    "label": "SKLEARNIMAGE",
-                    "func": "SKLEARNIMAGE",
-                    "type": "default",
-                    "ctrls": {
-                        "img_key": {
-                            "type": "select",
-                            "default": null,
-                            "options": [
-                                "astronaut",
-                                "binary_blobs",
-                                "brain",
-                                "brick",
-                                "camera",
-                                "cat",
-                                "cell",
-                                "cells3d",
-                                "checkerboard",
-                                "chelsea",
-                                "clock",
-                                "coffee",
-                                "coins",
-                                "colorwheel",
-                                "create_image_fetcher",
-                                "data_dir",
-                                "download_all",
-                                "eagle",
-                                "file_hash",
-                                "grass",
-                                "gravel",
-                                "horse",
-                                "hubble_deep_field",
-                                "human_mitosis",
-                                "image_fetcher",
-                                "immunohistochemistry",
-                                "kidney",
-                                "lbp_frontal_face_cascade_filename",
-                                "lfw_subset",
-                                "lily",
-                                "logo",
-                                "microaneurysms",
-                                "moon",
-                                "nickel_solidification",
-                                "page",
-                                "protein_transport",
-                                "retina",
-                                "rocket",
-                                "shepp_logan_phantom",
-                                "skin",
-                                "stereo_motorcycle",
-                                "text",
-                                "vortex"
-                            ],
-                            "functionName": "SKLEARNIMAGE",
-                            "param": "img_key",
-                            "value": "astronaut"
-                        }
-                    },
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/GENERATORS/SAMPLE_IMAGES/SKLEARNIMAGE/SKLEARNIMAGE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 289.06340100673725,
-                    "y": 31.048713013173256
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 289.06340100673725,
-                    "y": 31.048713013173256
-                },
-                "dragging": true
-            },
-            {
                 "width": 380,
                 "height": 293,
                 "id": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
@@ -116,13 +31,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1062.380266126793,
-                    "y": 265.13327582038596
+                    "x": 1049.9664410476967,
+                    "y": 7.753302513786252
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1062.380266126793,
-                    "y": 265.13327582038596
+                    "x": 1049.9664410476967,
+                    "y": 7.753302513786252
                 },
                 "dragging": true
             },
@@ -156,19 +71,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 463.2797046471253,
-                    "y": 253.34979215719778
+                    "x": 680.10784936201,
+                    "y": 259.1429105274428
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 463.2797046471253,
-                    "y": 253.34979215719778
+                    "x": 680.10784936201,
+                    "y": 259.1429105274428
                 },
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
+                "width": 160,
+                "height": 160,
                 "id": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
                 "type": "TRANSFORMERS",
                 "data": {
@@ -214,47 +129,140 @@
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/SIGNAL_PROCESSING/TWO_DIMENSIONAL_FFT/TWO_DIMENSIONAL_FFT.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 814.407349374476,
-                    "y": 21.664981920011172
+                    "x": 751.5106356403874,
+                    "y": 35.73398367632049
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 814.407349374476,
-                    "y": 21.664981920011172
+                    "x": 751.5106356403874,
+                    "y": 35.73398367632049
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 180,
+                "id": "SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
+                "type": "default",
+                "data": {
+                    "id": "SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
+                    "label": "SKLEARNIMAGE",
+                    "func": "SKLEARNIMAGE",
+                    "type": "default",
+                    "ctrls": {
+                        "img_key": {
+                            "type": "select",
+                            "default": "astronaut",
+                            "options": [
+                                "astronaut",
+                                "binary_blobs",
+                                "brain",
+                                "brick",
+                                "camera",
+                                "cat",
+                                "cell",
+                                "cells3d",
+                                "checkerboard",
+                                "chelsea",
+                                "clock",
+                                "coffee",
+                                "coins",
+                                "colorwheel",
+                                "create_image_fetcher",
+                                "data_dir",
+                                "download_all",
+                                "eagle",
+                                "file_hash",
+                                "grass",
+                                "gravel",
+                                "horse",
+                                "hubble_deep_field",
+                                "human_mitosis",
+                                "image_fetcher",
+                                "immunohistochemistry",
+                                "kidney",
+                                "lbp_frontal_face_cascade_filename",
+                                "lfw_subset",
+                                "lily",
+                                "logo",
+                                "microaneurysms",
+                                "moon",
+                                "nickel_solidification",
+                                "page",
+                                "protein_transport",
+                                "retina",
+                                "rocket",
+                                "shepp_logan_phantom",
+                                "skin",
+                                "stereo_motorcycle",
+                                "text",
+                                "vortex"
+                            ],
+                            "desc": null,
+                            "functionName": "SKLEARNIMAGE",
+                            "param": "img_key",
+                            "value": "astronaut"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "desc": null
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_IMAGES\\SKLEARNIMAGE\\SKLEARNIMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 417.41128879686454,
+                    "y": 21.10713477860139
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 417.41128879686454,
+                    "y": 21.10713477860139
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
-                "sourceHandle": "default",
-                "target": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406default"
-            },
-            {
-                "source": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
-                "sourceHandle": "default",
-                "target": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default"
-            },
-            {
                 "source": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
                 "sourceHandle": "default",
                 "target": "IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427c",
                 "targetHandle": "default",
                 "id": "reactflow__edge-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default-IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427cdefault"
+            },
+            {
+                "source": "SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
+                "sourceHandle": "default",
+                "target": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426cdefault-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default"
+            },
+            {
+                "source": "SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
+                "sourceHandle": "default",
+                "target": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426cdefault-IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406default"
             }
         ],
         "viewport": {
-            "x": -373.4542219202399,
-            "y": 120.20973884288571,
-            "zoom": 1.101977389476256
+            "x": 606.4472645567363,
+            "y": 234.63130388602087,
+            "zoom": 0.9186369849831518
         }
     },
     "ctrlsManifest": [
