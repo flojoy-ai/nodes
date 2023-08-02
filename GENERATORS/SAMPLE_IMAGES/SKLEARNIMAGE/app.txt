@@ -89,12 +89,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "OBJECT_DETECTION-4ba045ca-f490-4f8b-853c-9c38e1297062",
-                "type": "OBJECT_DETECTION",
+                "type": "AI_ML",
                 "data": {
                     "id": "OBJECT_DETECTION-4ba045ca-f490-4f8b-853c-9c38e1297062",
                     "label": "OBJECT DETECTION",
                     "func": "OBJECT_DETECTION",
-                    "type": "OBJECT_DETECTION",
+                    "type": "AI_ML",
                     "ctrls": {},
                     "inputs": [
                         {

@@ -2,62 +2,8 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
-                "id": "LINSPACE-ec927a55-840d-4e1d-bfe3-7069d35eaca5",
-                "type": "default",
-                "data": {
-                    "id": "LINSPACE-ec927a55-840d-4e1d-bfe3-7069d35eaca5",
-                    "label": "LINSPACE",
-                    "func": "LINSPACE",
-                    "type": "default",
-                    "ctrls": {
-                        "start": {
-                            "type": "float",
-                            "default": 10,
-                            "functionName": "LINSPACE",
-                            "param": "start",
-                            "value": 10
-                        },
-                        "end": {
-                            "type": "float",
-                            "default": 0,
-                            "functionName": "LINSPACE",
-                            "param": "end",
-                            "value": 0
-                        },
-                        "step": {
-                            "type": "int",
-                            "default": 1000,
-                            "functionName": "LINSPACE",
-                            "param": "step",
-                            "value": 1000
-                        }
-                    },
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\LINSPACE\\LINSPACE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 19.77518382763421,
-                    "y": -79.20725161431301
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 19.77518382763421,
-                    "y": -79.20725161431301
-                },
-                "dragging": true
-            },
-            {
-                "width": 130,
-                "height": 130,
+                "width": 208,
+                "height": 96,
                 "id": "TIMESERIES-305de524-fd3a-422d-bdf1-31d59094fec3",
                 "type": "GENERATORS",
                 "data": {
@@ -92,19 +38,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -2.0718236744695986,
-                    "y": 125.72951526577788
+                    "x": -63.304829660611006,
+                    "y": 109.24551147270125
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -2.0718236744695986,
-                    "y": 125.72951526577788
+                    "x": -63.304829660611006,
+                    "y": 109.24551147270125
                 },
                 "dragging": true
             },
             {
-                "width": 130,
-                "height": 130,
+                "width": 208,
+                "height": 96,
                 "id": "MATRIX-a9b94d12-79cd-41b8-bac6-e764b105f4fa",
                 "type": "GENERATORS",
                 "data": {
@@ -136,22 +82,22 @@
                         }
                     ],
                     "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\MATRIX\\MATRIX.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": -8.905815928064925,
-                    "y": 378.7074924446537
+                    "x": -89.90574242528106,
+                    "y": 369.53768944496886
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": -8.905815928064925,
-                    "y": 378.7074924446537
+                    "x": -89.90574242528106,
+                    "y": 369.53768944496886
                 },
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
+                "width": 208,
+                "height": 96,
                 "id": "PLOTLY_DATASET-db79195b-b335-4d6e-b159-66385db68a90",
                 "type": "GENERATORS",
                 "data": {
@@ -191,19 +137,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 22.506662806454145,
-                    "y": 625.9792684792644
+                    "x": -69.19136719039435,
+                    "y": 630.5641699791069
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 22.506662806454145,
-                    "y": 625.9792684792644
+                    "x": -69.19136719039435,
+                    "y": 630.5641699791069
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "BAR-a91c1fd4-ed0a-4c99-bb22-609ffa2299ca",
                 "type": "VISUALIZERS",
                 "data": {
@@ -231,19 +177,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 271.810495779071,
-                    "y": 98.89951965355135
+                    "x": 289.7569908907779,
+                    "y": 24.93517972661823
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 271.810495779071,
-                    "y": 98.89951965355135
+                    "x": 289.7569908907779,
+                    "y": 24.93517972661823
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "BAR-67887c6e-5070-4f8b-a453-6f17094bab99",
                 "type": "VISUALIZERS",
                 "data": {
@@ -271,19 +217,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 437.02228968829434,
-                    "y": 610.8795544259854
+                    "x": 348.3808606913409,
+                    "y": 531.4079284287167
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 437.02228968829434,
-                    "y": 610.8795544259854
+                    "x": 348.3808606913409,
+                    "y": 531.4079284287167
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "BAR-25c3fe48-8421-43df-9cb9-24d38dc92f35",
                 "type": "VISUALIZERS",
                 "data": {
@@ -311,65 +257,18 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 582.8070155150792,
-                    "y": 318.62000176290394
+                    "x": 657.6937400125055,
+                    "y": 249.8464792652676
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 582.8070155150792,
-                    "y": 318.62000176290394
-                },
-                "dragging": true
-            },
-            {
-                "width": 225,
-                "height": 226,
-                "id": "BAR-f42d1175-a463-49f9-9079-da0b770b7507",
-                "type": "VISUALIZERS",
-                "data": {
-                    "id": "BAR-f42d1175-a463-49f9-9079-da0b770b7507",
-                    "label": "BAR 3",
-                    "func": "BAR",
-                    "type": "VISUALIZERS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair|DataFrame|Matrix",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\BAR\\BAR.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 615.5747879865954,
-                    "y": -101.17977593795786
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 615.5747879865954,
-                    "y": -101.17977593795786
+                    "x": 657.6937400125055,
+                    "y": 249.8464792652676
                 },
                 "dragging": true
             }
         ],
         "edges": [
-            {
-                "source": "LINSPACE-ec927a55-840d-4e1d-bfe3-7069d35eaca5",
-                "sourceHandle": "default",
-                "target": "BAR-f42d1175-a463-49f9-9079-da0b770b7507",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINSPACE-ec927a55-840d-4e1d-bfe3-7069d35eaca5default-BAR-f42d1175-a463-49f9-9079-da0b770b7507default"
-            },
             {
                 "source": "TIMESERIES-305de524-fd3a-422d-bdf1-31d59094fec3",
                 "sourceHandle": "default",
@@ -393,9 +292,9 @@
             }
         ],
         "viewport": {
-            "x": -296.35399545928726,
-            "y": 66.8470830817738,
-            "zoom": 0.8744723800359967
+            "x": 606.4472645567363,
+            "y": 234.63130388602087,
+            "zoom": 0.9186369849831518
         }
     },
     "ctrlsManifest": [

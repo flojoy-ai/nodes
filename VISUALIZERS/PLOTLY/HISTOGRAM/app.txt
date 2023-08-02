@@ -2,62 +2,8 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
-                "id": "LINSPACE-32bf4749-f44a-4f3b-9fca-280a8c1a7930",
-                "type": "default",
-                "data": {
-                    "id": "LINSPACE-32bf4749-f44a-4f3b-9fca-280a8c1a7930",
-                    "label": "LINSPACE",
-                    "func": "LINSPACE",
-                    "type": "default",
-                    "ctrls": {
-                        "start": {
-                            "type": "float",
-                            "default": 10,
-                            "functionName": "LINSPACE",
-                            "param": "start",
-                            "value": 10
-                        },
-                        "end": {
-                            "type": "float",
-                            "default": 0,
-                            "functionName": "LINSPACE",
-                            "param": "end",
-                            "value": 0
-                        },
-                        "step": {
-                            "type": "int",
-                            "default": 1000,
-                            "functionName": "LINSPACE",
-                            "param": "step",
-                            "value": 1000
-                        }
-                    },
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\LINSPACE\\LINSPACE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 145.49252342766638,
-                    "y": -35.65136970553726
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 145.49252342766638,
-                    "y": -35.65136970553726
-                },
-                "dragging": true
-            },
-            {
-                "width": 130,
-                "height": 130,
+                "width": 208,
+                "height": 96,
                 "id": "TIMESERIES-1f113e5c-ee47-4e67-a040-ed8107f98095",
                 "type": "GENERATORS",
                 "data": {
@@ -92,19 +38,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -31.98906231081486,
-                    "y": 180.07660190864533
+                    "x": -7.7821224453163325,
+                    "y": 48.813887088913134
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -31.98906231081486,
-                    "y": 180.07660190864533
+                    "x": -7.7821224453163325,
+                    "y": 48.813887088913134
                 },
                 "dragging": true
             },
             {
-                "width": 130,
-                "height": 130,
+                "width": 208,
+                "height": 96,
                 "id": "MATRIX-bb1dc76f-50a7-4e4d-94f2-66c729fef752",
                 "type": "GENERATORS",
                 "data": {
@@ -139,19 +85,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 22.054843684253996,
-                    "y": 723.8292282322853
+                    "x": -136.49306026080123,
+                    "y": 497.03098149496736
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 22.054843684253996,
-                    "y": 723.8292282322853
+                    "x": -136.49306026080123,
+                    "y": 497.03098149496736
                 },
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
+                "width": 208,
+                "height": 96,
                 "id": "PLOTLY_DATASET-a2a99924-c20c-40b8-8725-378427432b04",
                 "type": "GENERATORS",
                 "data": {
@@ -191,19 +137,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 18.171290915186148,
-                    "y": 440.8034142357426
+                    "x": -207.3110221141082,
+                    "y": 282.180770332777
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 18.171290915186148,
-                    "y": 440.8034142357426
+                    "x": -207.3110221141082,
+                    "y": 282.180770332777
                 },
                 "dragging": true
             },
             {
-                "width": 250,
-                "height": 159,
+                "width": 380,
+                "height": 293,
                 "id": "HISTOGRAM-e3f0af53-0c45-4457-ae12-7f6eb0327f39",
                 "type": "VISUALIZERS",
                 "data": {
@@ -231,19 +177,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 752.250474584973,
-                    "y": 441.97734280295566
+                    "x": 132.4645746655445,
+                    "y": 173.27376638391252
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 752.250474584973,
-                    "y": 441.97734280295566
+                    "x": 132.4645746655445,
+                    "y": 173.27376638391252
                 },
                 "dragging": true
             },
             {
-                "width": 250,
-                "height": 159,
+                "width": 380,
+                "height": 293,
                 "id": "HISTOGRAM-6bb3aef4-a631-4732-931b-b4a71f49557e",
                 "type": "VISUALIZERS",
                 "data": {
@@ -271,19 +217,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 379.88476599867,
-                    "y": 666.8839022599676
+                    "x": 576.1267979151604,
+                    "y": 390.2182152496157
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 379.88476599867,
-                    "y": 666.8839022599676
+                    "x": 576.1267979151604,
+                    "y": 390.2182152496157
                 },
                 "dragging": true
             },
             {
-                "width": 250,
-                "height": 159,
+                "width": 380,
+                "height": 293,
                 "id": "HISTOGRAM-3f0b2e7d-3a6c-4d14-a17c-3ba2fe7c0bfa",
                 "type": "VISUALIZERS",
                 "data": {
@@ -311,65 +257,18 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 396.5206086873053,
-                    "y": 169.585423555329
+                    "x": 520.1949127052811,
+                    "y": -44.71890278881858
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 396.5206086873053,
-                    "y": 169.585423555329
-                },
-                "dragging": true
-            },
-            {
-                "width": 250,
-                "height": 159,
-                "id": "HISTOGRAM-31603d5b-2656-44cd-b445-071bb1cb6b1f",
-                "type": "VISUALIZERS",
-                "data": {
-                    "id": "HISTOGRAM-31603d5b-2656-44cd-b445-071bb1cb6b1f",
-                    "label": "HISTOGRAM 3",
-                    "func": "HISTOGRAM",
-                    "type": "VISUALIZERS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair|DataFrame|Matrix",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\HISTOGRAM\\HISTOGRAM.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 749.3456302612497,
-                    "y": -69.67675638632511
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 749.3456302612497,
-                    "y": -69.67675638632511
+                    "x": 520.1949127052811,
+                    "y": -44.71890278881858
                 },
                 "dragging": true
             }
         ],
         "edges": [
-            {
-                "source": "LINSPACE-32bf4749-f44a-4f3b-9fca-280a8c1a7930",
-                "sourceHandle": "default",
-                "target": "HISTOGRAM-31603d5b-2656-44cd-b445-071bb1cb6b1f",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINSPACE-32bf4749-f44a-4f3b-9fca-280a8c1a7930default-HISTOGRAM-31603d5b-2656-44cd-b445-071bb1cb6b1fdefault"
-            },
             {
                 "source": "TIMESERIES-1f113e5c-ee47-4e67-a040-ed8107f98095",
                 "sourceHandle": "default",
@@ -393,9 +292,9 @@
             }
         ],
         "viewport": {
-            "x": -296.35399545928726,
-            "y": 66.8470830817738,
-            "zoom": 0.8744723800359967
+            "x": 606.4472645567363,
+            "y": 234.63130388602087,
+            "zoom": 0.9186369849831518
         }
     },
     "ctrlsManifest": [
