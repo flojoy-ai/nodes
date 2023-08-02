@@ -5,12 +5,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "MATRIX-957da30a-8624-44d8-93fb-51ec90f92485",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "MATRIX-957da30a-8624-44d8-93fb-51ec90f92485",
                     "label": "MATRIX",
                     "func": "MATRIX",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "row": {
                             "type": "int",
@@ -52,12 +52,12 @@
                 "width": 240,
                 "height": 260,
                 "id": "MATRIX_VIEW-33a3d38e-93b1-4e33-9789-9f457d04498a",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "MATRIX_VIEW-33a3d38e-93b1-4e33-9789-9f457d04498a",
                     "label": "MATRIX VIEW",
                     "func": "MATRIX_VIEW",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -87,39 +87,6 @@
                     "y": 95.620522779557
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-7c8843a3-119f-4f4e-83b1-0d4e55d4cbd5",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-7c8843a3-119f-4f4e-83b1-0d4e55d4cbd5",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1123.2153146260518,
-                    "y": 164.1334864111738
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1123.2153146260518,
-                    "y": 164.1334864111738
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -129,13 +96,6 @@
                 "target": "MATRIX_VIEW-33a3d38e-93b1-4e33-9789-9f457d04498a",
                 "targetHandle": "default",
                 "id": "reactflow__edge-MATRIX-957da30a-8624-44d8-93fb-51ec90f92485default-MATRIX_VIEW-33a3d38e-93b1-4e33-9789-9f457d04498adefault"
-            },
-            {
-                "source": "MATRIX_VIEW-33a3d38e-93b1-4e33-9789-9f457d04498a",
-                "sourceHandle": "default",
-                "target": "END-7c8843a3-119f-4f4e-83b1-0d4e55d4cbd5",
-                "targetHandle": "default",
-                "id": "reactflow__edge-MATRIX_VIEW-33a3d38e-93b1-4e33-9789-9f457d04498adefault-END-7c8843a3-119f-4f4e-83b1-0d4e55d4cbd5default"
             }
         ],
         "viewport": {

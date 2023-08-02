@@ -2,48 +2,15 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-04176810-8104-4747-9a8f-df79d12c5298",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-04176810-8104-4747-9a8f-df79d12c5298",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 983.3699387834349,
-                    "y": -33.88997242431205
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 983.3699387834349,
-                    "y": -33.88997242431205
-                },
-                "dragging": true
-            },
-            {
                 "width": 150,
                 "height": 150,
                 "id": "PHIDGET22-c6e0fa47-17f1-4642-ae9e-f52453b7c526",
-                "type": "PHIDGET",
+                "type": "INSTRUMENTS",
                 "data": {
                     "id": "PHIDGET22-c6e0fa47-17f1-4642-ae9e-f52453b7c526",
                     "label": "PHIDGET22",
                     "func": "PHIDGET22",
-                    "type": "PHIDGET",
+                    "type": "INSTRUMENTS",
                     "ctrls": {
                         "n_sensors": {
                             "type": "int",
@@ -106,12 +73,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
                     "label": "BAR",
                     "func": "BAR",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -150,13 +117,6 @@
                 "target": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
                 "targetHandle": "default",
                 "id": "reactflow__edge-PHIDGET22-c6e0fa47-17f1-4642-ae9e-f52453b7c526default-BAR-8788c5f3-d566-4c58-85dc-59af4e81d36cdefault"
-            },
-            {
-                "source": "BAR-8788c5f3-d566-4c58-85dc-59af4e81d36c",
-                "sourceHandle": "default",
-                "target": "END-04176810-8104-4747-9a8f-df79d12c5298",
-                "targetHandle": "default",
-                "id": "reactflow__edge-BAR-8788c5f3-d566-4c58-85dc-59af4e81d36cdefault-END-04176810-8104-4747-9a8f-df79d12c5298default"
             }
         ],
         "viewport": {

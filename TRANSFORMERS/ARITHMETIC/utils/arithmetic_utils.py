@@ -1,9 +1,9 @@
-from flojoy import OrderedPair, Scalar, Vector
+from flojoy import OrderedPair, Scalar, Vector, DCNpArrayType
 
 
 def get_val(
     data_container: OrderedPair | Scalar | Vector,
-) -> OrderedPair | Scalar | Vector:
+) -> DCNpArrayType:
     match data_container:
         case OrderedPair():
             return data_container.y

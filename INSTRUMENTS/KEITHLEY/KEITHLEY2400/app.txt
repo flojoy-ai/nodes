@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "KEITHLEY2400-06832353-c0e3-4b21-80f1-99f7827063ab",
-                "type": "KEITHLEY",
+                "type": "INSTRUMENTS",
                 "data": {
                     "id": "KEITHLEY2400-06832353-c0e3-4b21-80f1-99f7827063ab",
                     "label": "KEITHLEY2400",
                     "func": "KEITHLEY2400",
-                    "type": "KEITHLEY",
+                    "type": "INSTRUMENTS",
                     "ctrls": {
                         "comport": {
                             "type": "str",
@@ -66,12 +66,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06",
                     "label": "LINE",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -99,39 +99,6 @@
                 "positionAbsolute": {
                     "x": 551.1961381818137,
                     "y": -23.670798508066298
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-4ab72a2d-4c0a-422f-aac2-1adfc221c8aa",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-4ab72a2d-4c0a-422f-aac2-1adfc221c8aa",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 920.4465656226953,
-                    "y": 27.238771529071983
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 920.4465656226953,
-                    "y": 27.238771529071983
                 },
                 "dragging": true
             },
@@ -204,13 +171,6 @@
                 "target": "LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06",
                 "targetHandle": "default",
                 "id": "reactflow__edge-KEITHLEY2400-06832353-c0e3-4b21-80f1-99f7827063abdefault-LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06default"
-            },
-            {
-                "source": "LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06",
-                "sourceHandle": "default",
-                "target": "END-4ab72a2d-4c0a-422f-aac2-1adfc221c8aa",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINE-c497dfe3-5697-43ea-89ae-49855ed1fd06default-END-4ab72a2d-4c0a-422f-aac2-1adfc221c8aadefault"
             }
         ],
         "viewport": {

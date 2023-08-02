@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "PLOTLY_DATASET-5a7231e7-7fa7-480f-9562-c117499c99cd",
-                "type": "SAMPLE_DATASETS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "PLOTLY_DATASET-5a7231e7-7fa7-480f-9562-c117499c99cd",
                     "label": "PLOTLY DATASET",
                     "func": "PLOTLY_DATASET",
-                    "type": "SAMPLE_DATASETS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "dataset_key": {
                             "type": "select",
@@ -57,12 +57,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204",
-                "type": "TYPE_CASTING",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204",
                     "label": "DF 2 ORDEREDTRIPLE",
                     "func": "DF_2_ORDEREDTRIPLE",
-                    "type": "TYPE_CASTING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {
                         "x": {
                             "type": "int",
@@ -119,12 +119,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3",
-                "type": "TYPE_CASTING",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3",
                     "label": "ORDERED TRIPLE 2 SURFACE",
                     "func": "ORDERED_TRIPLE_2_SURFACE",
-                    "type": "TYPE_CASTING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -156,48 +156,15 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1588.466529442917,
-                    "y": 230.5106635506924
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1588.466529442917,
-                    "y": 230.5106635506924
-                },
-                "dragging": true
-            },
-            {
                 "width": 130,
                 "height": 130,
                 "id": "MATRIX-a7f20c72-1c4e-4e31-9b3f-94cf1f228fd5",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "MATRIX-a7f20c72-1c4e-4e31-9b3f-94cf1f228fd5",
                     "label": "MATRIX",
                     "func": "MATRIX",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "row": {
                             "type": "int",
@@ -239,12 +206,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "SURFACE3D-62cf3ecc-359b-4cd4-ad49-bd0e6995a522",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SURFACE3D-62cf3ecc-359b-4cd4-ad49-bd0e6995a522",
                     "label": "SURFACE3D 1",
                     "func": "SURFACE3D",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -279,12 +246,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "SURFACE3D-8be10741-50fe-4df3-b2a5-afdcf56c1035",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SURFACE3D-8be10741-50fe-4df3-b2a5-afdcf56c1035",
                     "label": "SURFACE3D 2",
                     "func": "SURFACE3D",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -319,12 +286,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "SURFACE3D-19305f4e-d1e0-489b-adc7-383816dd5f49",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SURFACE3D-19305f4e-d1e0-489b-adc7-383816dd5f49",
                     "label": "SURFACE3D 3",
                     "func": "SURFACE3D",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -359,12 +326,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "SURFACE3D-f4e1f4c2-c6fe-4a06-b7ad-89ffab8a1c01",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SURFACE3D-f4e1f4c2-c6fe-4a06-b7ad-89ffab8a1c01",
                     "label": "SURFACE3D 3",
                     "func": "SURFACE3D",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -433,25 +400,11 @@
                 "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-c2918872-5cb8-4469-b2c7-3e2ab878d204default-SURFACE3D-62cf3ecc-359b-4cd4-ad49-bd0e6995a522default"
             },
             {
-                "source": "SURFACE3D-8be10741-50fe-4df3-b2a5-afdcf56c1035",
-                "sourceHandle": "default",
-                "target": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SURFACE3D-8be10741-50fe-4df3-b2a5-afdcf56c1035default-END-27d70d41-6ff3-4222-9fa6-7278850d6cffdefault"
-            },
-            {
                 "source": "ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3",
                 "sourceHandle": "default",
                 "target": "SURFACE3D-f4e1f4c2-c6fe-4a06-b7ad-89ffab8a1c01",
                 "targetHandle": "default",
                 "id": "reactflow__edge-ORDERED_TRIPLE_2_SURFACE-810534da-2e75-4d23-b28a-d07602ab0cf3default-SURFACE3D-f4e1f4c2-c6fe-4a06-b7ad-89ffab8a1c01default"
-            },
-            {
-                "source": "SURFACE3D-f4e1f4c2-c6fe-4a06-b7ad-89ffab8a1c01",
-                "sourceHandle": "default",
-                "target": "END-27d70d41-6ff3-4222-9fa6-7278850d6cff",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SURFACE3D-f4e1f4c2-c6fe-4a06-b7ad-89ffab8a1c01default-END-27d70d41-6ff3-4222-9fa6-7278850d6cffdefault"
             }
         ],
         "viewport": {

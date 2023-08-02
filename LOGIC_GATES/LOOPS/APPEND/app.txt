@@ -2,48 +2,15 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-aa17356b-c7af-408e-8c56-531a3fe595d1",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-aa17356b-c7af-408e-8c56-531a3fe595d1",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1083.6954766397828,
-                    "y": 123.17066593843452
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1083.6954766397828,
-                    "y": 123.17066593843452
-                },
-                "dragging": true
-            },
-            {
                 "width": 150,
                 "height": 150,
                 "id": "APPEND-a2c9923a-6e0d-4eee-9075-b898669afef4",
-                "type": "LOOPS",
+                "type": "LOGIC_GATES",
                 "data": {
                     "id": "APPEND-a2c9923a-6e0d-4eee-9075-b898669afef4",
                     "label": "APPEND",
                     "func": "APPEND",
-                    "type": "LOOPS",
+                    "type": "LOGIC_GATES",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -84,12 +51,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "RAND-c7739b2a-89f6-46fd-ac17-b3fdbec8c586",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "RAND-c7739b2a-89f6-46fd-ac17-b3fdbec8c586",
                     "label": "RAND",
                     "func": "RAND",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "distribution": {
                             "type": "select",
@@ -155,13 +122,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/RAND/RAND.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": -116.99910130481645,
                     "y": 31.67641795910953
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": -116.99910130481645,
                     "y": 31.67641795910953
@@ -296,12 +263,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "RAND-604d3223-83f7-4e62-851c-567cf7d10cfe",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "RAND-604d3223-83f7-4e62-851c-567cf7d10cfe",
                     "label": "RAND 1",
                     "func": "RAND",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "distribution": {
                             "type": "select",
@@ -384,12 +351,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "SCATTER-fe4b85c2-0917-4786-a715-836201d919cf",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-fe4b85c2-0917-4786-a715-836201d919cf",
                     "label": "SCATTER 1",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -424,12 +391,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "SCATTER-ee3d567b-33c6-4700-a8ff-dd4f091e2d27",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-ee3d567b-33c6-4700-a8ff-dd4f091e2d27",
                     "label": "SCATTER 1",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -503,13 +470,6 @@
                 "target": "SCATTER-fe4b85c2-0917-4786-a715-836201d919cf",
                 "targetHandle": "default",
                 "id": "reactflow__edge-APPEND-a2c9923a-6e0d-4eee-9075-b898669afef4default-SCATTER-fe4b85c2-0917-4786-a715-836201d919cfdefault"
-            },
-            {
-                "source": "SCATTER-fe4b85c2-0917-4786-a715-836201d919cf",
-                "sourceHandle": "default",
-                "target": "END-aa17356b-c7af-408e-8c56-531a3fe595d1",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-fe4b85c2-0917-4786-a715-836201d919cfdefault-END-aa17356b-c7af-408e-8c56-531a3fe595d1default"
             }
         ],
         "viewport": {

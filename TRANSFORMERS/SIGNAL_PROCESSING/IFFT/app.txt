@@ -59,12 +59,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "SINE-12238ccc-90fc-47f9-a679-50e628d4f156",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "SINE-12238ccc-90fc-47f9-a679-50e628d4f156",
                     "label": "SINE",
                     "func": "SINE",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "amplitude": {
                             "type": "float",
@@ -141,12 +141,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "SINE-5569968e-4541-4ce2-88ad-ab72600b2f97",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "SINE-5569968e-4541-4ce2-88ad-ab72600b2f97",
                     "label": "SINE 1",
                     "func": "SINE",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "amplitude": {
                             "type": "float",
@@ -269,12 +269,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "IFFT-d72d7f91-82ce-4591-991b-fe72f96c6cb4",
-                "type": "SIGNAL_PROCESSING",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "IFFT-d72d7f91-82ce-4591-991b-fe72f96c6cb4",
                     "label": "IFFT",
                     "func": "IFFT",
-                    "type": "SIGNAL_PROCESSING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {
                         "real_signal": {
                             "type": "bool",
@@ -317,12 +317,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "FFT-44f7c803-706f-469a-8c6f-bab3b3dea659",
-                "type": "SIGNAL_PROCESSING",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "FFT-44f7c803-706f-469a-8c6f-bab3b3dea659",
                     "label": "FFT",
                     "func": "FFT",
-                    "type": "SIGNAL_PROCESSING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {
                         "window": {
                             "type": "select",
@@ -402,48 +402,15 @@
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-4698a238-a7fb-40fa-adc6-dfeeb7e67437",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-4698a238-a7fb-40fa-adc6-dfeeb7e67437",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 2581.552495946156,
-                    "y": 263.6558957860222
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 2581.552495946156,
-                    "y": 263.6558957860222
-                },
-                "dragging": true
-            },
-            {
                 "width": 150,
                 "height": 150,
                 "id": "FFT-db612181-529c-4e66-924e-fa820d90f450",
-                "type": "SIGNAL_PROCESSING",
+                "type": "TRANSFORMERS",
                 "data": {
                     "id": "FFT-db612181-529c-4e66-924e-fa820d90f450",
                     "label": "FFT 1",
                     "func": "FFT",
-                    "type": "SIGNAL_PROCESSING",
+                    "type": "TRANSFORMERS",
                     "ctrls": {
                         "window": {
                             "type": "select",
@@ -526,12 +493,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "LINE-eff15f6c-5cae-4dc5-afcf-595347396018",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-eff15f6c-5cae-4dc5-afcf-595347396018",
                     "label": "LINE",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -566,12 +533,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "LINE-e08d8338-6374-4f4d-8477-775f633ebe6d",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-e08d8338-6374-4f4d-8477-775f633ebe6d",
                     "label": "LINE 1",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -606,12 +573,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "LINE-bcc4b83a-9f6e-4444-ab14-b993716503ed",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "LINE-bcc4b83a-9f6e-4444-ab14-b993716503ed",
                     "label": "LINE 2",
                     "func": "LINE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -629,13 +596,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/LINE/LINE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 2112.172067313177,
                     "y": 474.1261265472838
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 2112.172067313177,
                     "y": 474.1261265472838
@@ -687,13 +654,6 @@
                 "id": "reactflow__edge-FFT-44f7c803-706f-469a-8c6f-bab3b3dea659default-IFFT-d72d7f91-82ce-4591-991b-fe72f96c6cb4default"
             },
             {
-                "source": "IFFT-d72d7f91-82ce-4591-991b-fe72f96c6cb4",
-                "sourceHandle": "default",
-                "target": "END-4698a238-a7fb-40fa-adc6-dfeeb7e67437",
-                "targetHandle": "default",
-                "id": "reactflow__edge-IFFT-d72d7f91-82ce-4591-991b-fe72f96c6cb4default-END-4698a238-a7fb-40fa-adc6-dfeeb7e67437default"
-            },
-            {
                 "source": "ADD-82417b86-8493-4cdc-867b-21e962e7ad69",
                 "sourceHandle": "default",
                 "target": "FFT-db612181-529c-4e66-924e-fa820d90f450",
@@ -720,20 +680,6 @@
                 "target": "LINE-eff15f6c-5cae-4dc5-afcf-595347396018",
                 "targetHandle": "default",
                 "id": "reactflow__edge-ADD-82417b86-8493-4cdc-867b-21e962e7ad69default-LINE-eff15f6c-5cae-4dc5-afcf-595347396018default"
-            },
-            {
-                "source": "LINE-bcc4b83a-9f6e-4444-ab14-b993716503ed",
-                "sourceHandle": "default",
-                "target": "END-4698a238-a7fb-40fa-adc6-dfeeb7e67437",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINE-bcc4b83a-9f6e-4444-ab14-b993716503eddefault-END-4698a238-a7fb-40fa-adc6-dfeeb7e67437default"
-            },
-            {
-                "source": "LINE-e08d8338-6374-4f4d-8477-775f633ebe6d",
-                "sourceHandle": "default",
-                "target": "END-4698a238-a7fb-40fa-adc6-dfeeb7e67437",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINE-e08d8338-6374-4f4d-8477-775f633ebe6ddefault-END-4698a238-a7fb-40fa-adc6-dfeeb7e67437default"
             }
         ],
         "viewport": {

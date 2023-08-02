@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "PLOTLY_DATASET-905b1a9b-05ef-4ae4-b51a-8574359571cf",
-                "type": "SAMPLE_DATASETS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "PLOTLY_DATASET-905b1a9b-05ef-4ae4-b51a-8574359571cf",
                     "label": "PLOTLY DATASET",
                     "func": "PLOTLY_DATASET",
-                    "type": "SAMPLE_DATASETS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "dataset_key": {
                             "type": "select",
@@ -56,12 +56,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "EXTRACT_COLUMNS-c8e238a7-337c-479f-a2c6-bf607cb52779",
-                "type": "EXTRACT_COLUMNS",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "EXTRACT_COLUMNS-c8e238a7-337c-479f-a2c6-bf607cb52779",
                     "label": "EXTRACT COLUMNS",
                     "func": "EXTRACT_COLUMNS",
-                    "type": "EXTRACT_COLUMNS",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "columns": {
                             "type": "Array",
@@ -104,12 +104,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "ONE_HOT_ENCODING-eef29534-7bf7-4d54-aff9-8fc25081c822",
-                "type": "CLASSIFICATION",
+                "type": "AI_ML",
                 "data": {
                     "id": "ONE_HOT_ENCODING-eef29534-7bf7-4d54-aff9-8fc25081c822",
                     "label": "ONE HOT ENCODING",
                     "func": "ONE_HOT_ENCODING",
-                    "type": "CLASSIFICATION",
+                    "type": "AI_ML",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -150,12 +150,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "TABLE-e6aab77d-927f-4eeb-be3f-afdd469df2ae",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-e6aab77d-927f-4eeb-be3f-afdd469df2ae",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -183,39 +183,6 @@
                 "positionAbsolute": {
                     "x": 1061.7767903212753,
                     "y": 13.83665125511368
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-231a4b73-fe64-458a-8c94-639ad6bf3185",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-231a4b73-fe64-458a-8c94-639ad6bf3185",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 1435.9145236034444,
-                    "y": 59.62742310508037
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 1435.9145236034444,
-                    "y": 59.62742310508037
                 },
                 "dragging": true
             }
@@ -248,13 +215,6 @@
                 "target": "TABLE-e6aab77d-927f-4eeb-be3f-afdd469df2ae",
                 "targetHandle": "default",
                 "id": "reactflow__edge-ONE_HOT_ENCODING-eef29534-7bf7-4d54-aff9-8fc25081c822default-TABLE-e6aab77d-927f-4eeb-be3f-afdd469df2aedefault"
-            },
-            {
-                "source": "TABLE-e6aab77d-927f-4eeb-be3f-afdd469df2ae",
-                "sourceHandle": "default",
-                "target": "END-231a4b73-fe64-458a-8c94-639ad6bf3185",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-e6aab77d-927f-4eeb-be3f-afdd469df2aedefault-END-231a4b73-fe64-458a-8c94-639ad6bf3185default"
             }
         ],
         "viewport": {
