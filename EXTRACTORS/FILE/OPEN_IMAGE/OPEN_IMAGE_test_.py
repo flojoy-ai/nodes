@@ -15,9 +15,7 @@ def obama_image_array_rgb():
 
 
 @pytest.mark.slow
-def test_OPEN_IMAGE(
-    mock_flojoy_decorator, mock_flojoy_cache_directory, obama_image_array_rgb
-):
+def test_OPEN_IMAGE(mock_flojoy_decorator, obama_image_array_rgb):
     import OPEN_IMAGE
 
     _image_path = f"{os.path.dirname(os.path.realpath(__file__))}/assets/President_Barack_Obama.jpg"
