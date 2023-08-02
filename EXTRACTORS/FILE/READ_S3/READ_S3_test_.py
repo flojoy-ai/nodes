@@ -37,7 +37,6 @@ def mock_keyring_get_password():
 
 def test_READ_S3(
     mock_flojoy_decorator,
-    mock_flojoy_cache_directory,
     mock_bucket,
     mock_keyring_get_password,
     test_dataframe,
