@@ -3,7 +3,7 @@ import pytest
 
 
 @pytest.mark.slow
-def test_OPEN_PARQUET(mock_flojoy_decorator, mock_flojoy_cache_directory):
+def test_OPEN_PARQUET(mock_flojoy_decorator):
     import OPEN_PARQUET
 
     _file_path = (
