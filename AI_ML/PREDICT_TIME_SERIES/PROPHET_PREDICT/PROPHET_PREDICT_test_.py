@@ -3,7 +3,7 @@ import pandas as pd
 from flojoy import DataFrame
 
 
-def test_PROPHET_PREDICT(mock_flojoy_decorator, mock_flojoy_cache_directory):
+def test_PROPHET_PREDICT(mock_flojoy_decorator, mock_flojoy_venv_cache_directory):
     import PROPHET_PREDICT
 
     # Generate random time series data

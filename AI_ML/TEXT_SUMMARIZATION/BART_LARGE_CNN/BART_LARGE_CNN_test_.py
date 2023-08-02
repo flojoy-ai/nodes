@@ -16,9 +16,13 @@ def long_text():
     return text
 
 
-@pytest.mark.skip
 @pytest.mark.slow
-def test_BART_LARGE_CNN(mock_flojoy_decorator, mock_flojoy_cache_directory, long_text):
+def test_BART_LARGE_CNN(
+    mock_flojoy_decorator,
+    mock_flojoy_venv_cache_directory,
+    cleanup_flojoy_cache_fixture,
+    long_text,
+):
     import BART_LARGE_CNN
 
     output = BART_LARGE_CNN.BART_LARGE_CNN(
