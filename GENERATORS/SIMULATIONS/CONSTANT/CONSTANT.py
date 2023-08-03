@@ -5,11 +5,10 @@ from typing import Optional
 
 @flojoy
 def CONSTANT(
-    default: Optional[Vector] = None, constant: float = 3.0, step: int = 1000
+    default = None, constant: float = 3.0, step: int = 1000
 ) -> OrderedPair:
     """Generates a single x-y vector of numeric (floating point) constants"""
 
-    x: DCNpArrayType
     if default:
         x = default.v
     else:
