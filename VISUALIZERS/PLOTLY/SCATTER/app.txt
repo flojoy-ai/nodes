@@ -2,15 +2,15 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
+                "width": 208,
+                "height": 96,
                 "id": "PLOTLY_DATASET-686a1fd9-8dab-4de2-80d6-21386dc65e34",
-                "type": "SAMPLE_DATASETS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "PLOTLY_DATASET-686a1fd9-8dab-4de2-80d6-21386dc65e34",
                     "label": "PLOTLY DATASET",
                     "func": "PLOTLY_DATASET",
-                    "type": "SAMPLE_DATASETS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "dataset_key": {
                             "type": "select",
@@ -44,79 +44,25 @@
                 },
                 "position": {
                     "x": 96.7381246005109,
-                    "y": 778.0447835342841
+                    "y": 744.7785434386891
                 },
                 "selected": false,
                 "positionAbsolute": {
                     "x": 96.7381246005109,
-                    "y": 778.0447835342841
+                    "y": 744.7785434386891
                 },
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
-                "id": "LINSPACE-a64efc87-8757-466c-b903-f0f556303dbe",
-                "type": "default",
-                "data": {
-                    "id": "LINSPACE-a64efc87-8757-466c-b903-f0f556303dbe",
-                    "label": "LINSPACE",
-                    "func": "LINSPACE",
-                    "type": "default",
-                    "ctrls": {
-                        "start": {
-                            "type": "float",
-                            "default": 10,
-                            "functionName": "LINSPACE",
-                            "param": "start",
-                            "value": 10
-                        },
-                        "end": {
-                            "type": "float",
-                            "default": 0,
-                            "functionName": "LINSPACE",
-                            "param": "end",
-                            "value": 0
-                        },
-                        "step": {
-                            "type": "int",
-                            "default": 1000,
-                            "functionName": "LINSPACE",
-                            "param": "step",
-                            "value": 1000
-                        }
-                    },
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\LINSPACE\\LINSPACE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 124.47121112924117,
-                    "y": 69.80390115946057
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 124.47121112924117,
-                    "y": 69.80390115946057
-                },
-                "dragging": true
-            },
-            {
-                "width": 130,
-                "height": 130,
+                "width": 208,
+                "height": 96,
                 "id": "TIMESERIES-a11c4d23-595e-4325-91ab-6901e4626395",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "TIMESERIES-a11c4d23-595e-4325-91ab-6901e4626395",
                     "label": "TIMESERIES",
                     "func": "TIMESERIES",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "start_date": {
                             "type": "str",
@@ -144,26 +90,26 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 97.2082941714267,
-                    "y": 295.30525026292963
+                    "x": 96.06118244399238,
+                    "y": 329.71860208595893
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 97.2082941714267,
-                    "y": 295.30525026292963
+                    "x": 96.06118244399238,
+                    "y": 329.71860208595893
                 },
                 "dragging": true
             },
             {
-                "width": 130,
-                "height": 130,
+                "width": 208,
+                "height": 96,
                 "id": "MATRIX-8f1eae39-3d4b-4382-a18a-8db31ab0e1a8",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "MATRIX-8f1eae39-3d4b-4382-a18a-8db31ab0e1a8",
                     "label": "MATRIX",
                     "func": "MATRIX",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "row": {
                             "type": "int",
@@ -202,15 +148,15 @@
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "SCATTER-8f064bb5-af44-44fd-82f4-9a948f3695b5",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-8f064bb5-af44-44fd-82f4-9a948f3695b5",
                     "label": "SCATTER",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -231,26 +177,26 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 390.21358494564254,
-                    "y": 475.08598948716053
+                    "x": 345.47622757570446,
+                    "y": 453.29086666590865
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 390.21358494564254,
-                    "y": 475.08598948716053
+                    "x": 345.47622757570446,
+                    "y": 453.29086666590865
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "SCATTER-bbfa1109-425d-457f-8f4f-bd6477f6ed0f",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-bbfa1109-425d-457f-8f4f-bd6477f6ed0f",
                     "label": "SCATTER 1",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -271,26 +217,26 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 811.8934636655582,
-                    "y": 675.522722190246
+                    "x": 761.4205476584486,
+                    "y": 659.4631580061657
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 811.8934636655582,
-                    "y": 675.522722190246
+                    "x": 761.4205476584486,
+                    "y": 659.4631580061657
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "SCATTER-a4744b2a-78e6-4874-a2ae-177e1dd6aa82",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-a4744b2a-78e6-4874-a2ae-177e1dd6aa82",
                     "label": "SCATTER 2",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -311,98 +257,18 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 672.4493562892767,
-                    "y": 250.79752408205673
+                    "x": 713.7453784769118,
+                    "y": 248.50330062718808
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 672.4493562892767,
-                    "y": 250.79752408205673
-                },
-                "dragging": true
-            },
-            {
-                "width": 225,
-                "height": 226,
-                "id": "SCATTER-fac44ad1-a863-4a6c-87f6-b43c5ca4631a",
-                "type": "PLOTLY",
-                "data": {
-                    "id": "SCATTER-fac44ad1-a863-4a6c-87f6-b43c5ca4631a",
-                    "label": "SCATTER 3",
-                    "func": "SCATTER",
-                    "type": "PLOTLY",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair|DataFrame|Matrix",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\SCATTER\\SCATTER.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 399.57597716039686,
-                    "y": -0.14382278524794856
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 399.57597716039686,
-                    "y": -0.14382278524794856
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-fc54d745-26c4-42ba-be36-eafbe5f5a240",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-fc54d745-26c4-42ba-be36-eafbe5f5a240",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1304.312408118375,
-                    "y": 329.9324838900597
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1304.312408118375,
-                    "y": 329.9324838900597
+                    "x": 713.7453784769118,
+                    "y": 248.50330062718808
                 },
                 "dragging": true
             }
         ],
         "edges": [
-            {
-                "source": "LINSPACE-a64efc87-8757-466c-b903-f0f556303dbe",
-                "sourceHandle": "default",
-                "target": "SCATTER-fac44ad1-a863-4a6c-87f6-b43c5ca4631a",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINSPACE-a64efc87-8757-466c-b903-f0f556303dbedefault-SCATTER-fac44ad1-a863-4a6c-87f6-b43c5ca4631adefault"
-            },
             {
                 "source": "TIMESERIES-a11c4d23-595e-4325-91ab-6901e4626395",
                 "sourceHandle": "default",
@@ -423,40 +289,12 @@
                 "target": "SCATTER-bbfa1109-425d-457f-8f4f-bd6477f6ed0f",
                 "targetHandle": "default",
                 "id": "reactflow__edge-PLOTLY_DATASET-686a1fd9-8dab-4de2-80d6-21386dc65e34default-SCATTER-bbfa1109-425d-457f-8f4f-bd6477f6ed0fdefault"
-            },
-            {
-                "source": "SCATTER-fac44ad1-a863-4a6c-87f6-b43c5ca4631a",
-                "sourceHandle": "default",
-                "target": "END-fc54d745-26c4-42ba-be36-eafbe5f5a240",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-fac44ad1-a863-4a6c-87f6-b43c5ca4631adefault-END-fc54d745-26c4-42ba-be36-eafbe5f5a240default"
-            },
-            {
-                "source": "SCATTER-a4744b2a-78e6-4874-a2ae-177e1dd6aa82",
-                "sourceHandle": "default",
-                "target": "END-fc54d745-26c4-42ba-be36-eafbe5f5a240",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-a4744b2a-78e6-4874-a2ae-177e1dd6aa82default-END-fc54d745-26c4-42ba-be36-eafbe5f5a240default"
-            },
-            {
-                "source": "SCATTER-8f064bb5-af44-44fd-82f4-9a948f3695b5",
-                "sourceHandle": "default",
-                "target": "END-fc54d745-26c4-42ba-be36-eafbe5f5a240",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-8f064bb5-af44-44fd-82f4-9a948f3695b5default-END-fc54d745-26c4-42ba-be36-eafbe5f5a240default"
-            },
-            {
-                "source": "SCATTER-bbfa1109-425d-457f-8f4f-bd6477f6ed0f",
-                "sourceHandle": "default",
-                "target": "END-fc54d745-26c4-42ba-be36-eafbe5f5a240",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-bbfa1109-425d-457f-8f4f-bd6477f6ed0fdefault-END-fc54d745-26c4-42ba-be36-eafbe5f5a240default"
             }
         ],
         "viewport": {
-            "x": -296.35399545928726,
-            "y": 66.8470830817738,
-            "zoom": 0.8744723800359967
+            "x": 606.4472645567363,
+            "y": 234.63130388602087,
+            "zoom": 0.9186369849831518
         }
     },
     "ctrlsManifest": [

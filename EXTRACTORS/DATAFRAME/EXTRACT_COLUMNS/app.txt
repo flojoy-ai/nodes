@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "PLOTLY_DATASET-d91971aa-7143-46d8-82a7-5ec15eba9816",
-                "type": "SAMPLE_DATASETS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "PLOTLY_DATASET-d91971aa-7143-46d8-82a7-5ec15eba9816",
                     "label": "PLOTLY DATASET",
                     "func": "PLOTLY_DATASET",
-                    "type": "SAMPLE_DATASETS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "dataset_key": {
                             "type": "select",
@@ -57,12 +57,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "EXTRACT_COLUMNS-e8f40b9e-1d83-478f-b43a-e0a53829e018",
-                "type": "EXTRACT_COLUMNS",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "EXTRACT_COLUMNS-e8f40b9e-1d83-478f-b43a-e0a53829e018",
                     "label": "EXTRACT COLUMNS",
                     "func": "EXTRACT_COLUMNS",
-                    "type": "EXTRACT_COLUMNS",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "columns": {
                             "type": "Array",
@@ -105,12 +105,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "EXTRACT_COLUMNS-19b5a943-df28-49dd-b030-f48cd6fc0444",
-                "type": "EXTRACT_COLUMNS",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "EXTRACT_COLUMNS-19b5a943-df28-49dd-b030-f48cd6fc0444",
                     "label": "EXTRACT COLUMNS 1",
                     "func": "EXTRACT_COLUMNS",
-                    "type": "EXTRACT_COLUMNS",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "columns": {
                             "type": "Array",
@@ -153,12 +153,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "TABLE-54f2efe9-ff96-4337-a557-5b04987361a1",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-54f2efe9-ff96-4337-a557-5b04987361a1",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -193,12 +193,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "TABLE-78464c37-c0ed-4eeb-ac3a-0d13b241e24a",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-78464c37-c0ed-4eeb-ac3a-0d13b241e24a",
                     "label": "TABLE 1",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -226,39 +226,6 @@
                 "positionAbsolute": {
                     "x": 868.488229602283,
                     "y": 655.3282103193458
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-190e5b18-4ab2-49a6-87fc-3d611186a619",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-190e5b18-4ab2-49a6-87fc-3d611186a619",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1351.5532232619507,
-                    "y": 543.4542186811299
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1351.5532232619507,
-                    "y": 543.4542186811299
                 },
                 "dragging": true
             }
@@ -291,20 +258,6 @@
                 "target": "TABLE-78464c37-c0ed-4eeb-ac3a-0d13b241e24a",
                 "targetHandle": "default",
                 "id": "reactflow__edge-EXTRACT_COLUMNS-19b5a943-df28-49dd-b030-f48cd6fc0444default-TABLE-78464c37-c0ed-4eeb-ac3a-0d13b241e24adefault"
-            },
-            {
-                "source": "TABLE-54f2efe9-ff96-4337-a557-5b04987361a1",
-                "sourceHandle": "default",
-                "target": "END-190e5b18-4ab2-49a6-87fc-3d611186a619",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-54f2efe9-ff96-4337-a557-5b04987361a1default-END-190e5b18-4ab2-49a6-87fc-3d611186a619default"
-            },
-            {
-                "source": "TABLE-78464c37-c0ed-4eeb-ac3a-0d13b241e24a",
-                "sourceHandle": "default",
-                "target": "END-190e5b18-4ab2-49a6-87fc-3d611186a619",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-78464c37-c0ed-4eeb-ac3a-0d13b241e24adefault-END-190e5b18-4ab2-49a6-87fc-3d611186a619default"
             }
         ],
         "viewport": {

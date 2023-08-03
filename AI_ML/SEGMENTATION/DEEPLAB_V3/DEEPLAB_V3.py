@@ -35,10 +35,11 @@ def DEEPLAB_V3(default: Image) -> Image:
 
     import os
     import numpy as np
-    from PIL import Image as PIL_Image
+    import PIL.Image
     import torch
     from torchvision import transforms
     import torchvision.transforms.functional as TF
+    from flojoy import Image
     from flojoy.utils import FLOJOY_CACHE_DIR
 
     # Parse input image
@@ -50,9 +51,12 @@ def DEEPLAB_V3(default: Image) -> Image:
     # Convert input image
     input_image = TF.to_pil_image(nparray).convert("RGB")
     # Set torch hub cache directory
-    torch.hub.set_dir(os.path.join(FLOJOY_CACHE_DIR, "torch_hub"))
+    torch.hub.set_dir(os.path.join(FLOJOY_CACHE_DIR, "cache", "torch_hub"))
     model = torch.hub.load(
-        "pytorch/vision:v0.10.0", "deeplabv3_resnet50", pretrained=True
+        "pytorch/vision:v0.15.2",
+        "deeplabv3_resnet50",
+        pretrained=True,
+        skip_validation=True,
     )
     model.eval()
     # Preprocessing
@@ -73,7 +77,7 @@ def DEEPLAB_V3(default: Image) -> Image:
     colors = torch.as_tensor([i for i in range(21)])[:, None] * palette
     colors = (colors % 255).numpy().astype("uint8")
     # plot the semantic segmentation predictions of 21 classes in each color
-    r = PIL_Image.fromarray(output_predictions.byte().cpu().numpy()).resize(
+    r = PIL.Image.fromarray(output_predictions.byte().cpu().numpy()).resize(
         input_image.size
     )
     r.putpalette(colors)

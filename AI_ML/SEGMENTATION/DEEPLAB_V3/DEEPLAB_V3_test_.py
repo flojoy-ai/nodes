@@ -9,24 +9,29 @@ from flojoy import Image
 
 @pytest.fixture
 def obama_image_array_rgb():
-    _image_path = (
-        f"{os.path.dirname(os.path.realpath(__file__))}/assets/obama_image.jpg"
+    _image_path = os.path.join(
+        os.path.dirname(os.path.realpath(__file__)), "assets", "obama_image.jpg"
     )
     image = PIL_Image.open(_image_path).convert("RGB")
-    return np.array(image)
+    return np.array(image, copy=True)
 
 
 @pytest.fixture
 def obama_segmentation_array_rgb():
-    _image_path = f"{os.path.dirname(os.path.realpath(__file__))}/assets/obama_segmentation_image.jpg"
+    _image_path = os.path.join(
+        os.path.dirname(os.path.realpath(__file__)),
+        "assets",
+        "obama_segmentation_image.jpg",
+    )
     image = PIL_Image.open(_image_path).convert("RGB")
-    return np.array(image)
+    return np.array(image, copy=True)
 
 
 @pytest.mark.slow
 def test_DEEPLAB_V3(
     mock_flojoy_decorator,
-    mock_flojoy_cache_directory,
+    mock_flojoy_venv_cache_directory,
+    cleanup_flojoy_cache_fixture,
     obama_image_array_rgb,
     obama_segmentation_array_rgb,
 ):

@@ -2,48 +2,15 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-1910d95d-6f10-4677-83b2-c5b78d23b2c4",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-1910d95d-6f10-4677-83b2-c5b78d23b2c4",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\TERMINATORS\\END\\END.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 2252.804064088793,
-                    "y": 461.05027356353594
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 2252.804064088793,
-                    "y": 461.05027356353594
-                },
-                "dragging": true
-            },
-            {
                 "width": 130,
                 "height": 130,
                 "id": "SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15d",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15d",
                     "label": "SINE",
                     "func": "SINE",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "amplitude": {
                             "type": "float",
@@ -120,12 +87,12 @@
                 "width": 225,
                 "height": 226,
                 "id": "SCATTER-9927419b-29bb-4d10-bf5a-79ea28add9a9",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "SCATTER-9927419b-29bb-4d10-bf5a-79ea28add9a9",
                     "label": "SCATTER",
                     "func": "SCATTER",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -206,12 +173,12 @@
                 "width": 130,
                 "height": 130,
                 "id": "CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9c",
-                "type": "SIMULATIONS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9c",
                     "label": "2.0",
                     "func": "CONSTANT",
-                    "type": "SIMULATIONS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "constant": {
                             "type": "float",
@@ -291,13 +258,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 970.118927622176,
                     "y": 474.2206729930675
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 970.118927622176,
                     "y": 474.2206729930675
@@ -306,13 +273,6 @@
             }
         ],
         "edges": [
-            {
-                "source": "SCATTER-9927419b-29bb-4d10-bf5a-79ea28add9a9",
-                "sourceHandle": "default",
-                "target": "END-1910d95d-6f10-4677-83b2-c5b78d23b2c4",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SCATTER-9927419b-29bb-4d10-bf5a-79ea28add9a9default-END-1910d95d-6f10-4677-83b2-c5b78d23b2c4default"
-            },
             {
                 "source": "SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15d",
                 "sourceHandle": "default",

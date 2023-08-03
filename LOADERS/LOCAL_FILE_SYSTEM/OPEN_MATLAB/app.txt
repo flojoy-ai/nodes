@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "OPEN_MATLAB-ca242c1a-4bfc-4c1c-bf96-a1b556428e0d",
-                "type": "LOCAL_FILE_SYSTEM",
+                "type": "LOADERS",
                 "data": {
                     "id": "OPEN_MATLAB-ca242c1a-4bfc-4c1c-bf96-a1b556428e0d",
                     "label": "OPEN MATLAB",
                     "func": "OPEN_MATLAB",
-                    "type": "LOCAL_FILE_SYSTEM",
+                    "type": "LOADERS",
                     "ctrls": {
                         "file_path": {
                             "type": "str",
@@ -44,12 +44,12 @@
                 "width": 240,
                 "height": 260,
                 "id": "ARRAY_VIEW-ae48effe-f242-41ee-8822-93fb92679ecd",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "ARRAY_VIEW-ae48effe-f242-41ee-8822-93fb92679ecd",
                     "label": "ARRAY VIEW",
                     "func": "ARRAY_VIEW",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -79,39 +79,6 @@
                     "y": 335.0194036085589
                 },
                 "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-18bb38b6-6e7b-422b-8e63-c9333fc29eb6",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-18bb38b6-6e7b-422b-8e63-c9333fc29eb6",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 1589.3591099328337,
-                    "y": 408.7666562279173
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 1589.3591099328337,
-                    "y": 408.7666562279173
-                },
-                "dragging": true
             }
         ],
         "edges": [
@@ -121,13 +88,6 @@
                 "target": "ARRAY_VIEW-ae48effe-f242-41ee-8822-93fb92679ecd",
                 "targetHandle": "default",
                 "id": "reactflow__edge-OPEN_MATLAB-ca242c1a-4bfc-4c1c-bf96-a1b556428e0ddefault-ARRAY_VIEW-ae48effe-f242-41ee-8822-93fb92679ecddefault"
-            },
-            {
-                "source": "ARRAY_VIEW-ae48effe-f242-41ee-8822-93fb92679ecd",
-                "sourceHandle": "default",
-                "target": "END-18bb38b6-6e7b-422b-8e63-c9333fc29eb6",
-                "targetHandle": "default",
-                "id": "reactflow__edge-ARRAY_VIEW-ae48effe-f242-41ee-8822-93fb92679ecddefault-END-18bb38b6-6e7b-422b-8e63-c9333fc29eb6default"
             }
         ],
         "viewport": {

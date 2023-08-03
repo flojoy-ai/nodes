@@ -5,12 +5,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "READ_CSV-efb0cda7-2730-4aa9-ad47-153aabbab38f",
-                "type": "FILE",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "READ_CSV-efb0cda7-2730-4aa9-ad47-153aabbab38f",
                     "label": "READ CSV",
                     "func": "READ_CSV",
-                    "type": "FILE",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "file_path": {
                             "type": "str",
@@ -45,12 +45,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "READ_CSV-d92e3586-c0c0-4ebd-9713-02916b36e7b6",
-                "type": "FILE",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "READ_CSV-d92e3586-c0c0-4ebd-9713-02916b36e7b6",
                     "label": "READ CSV 1",
                     "func": "READ_CSV",
-                    "type": "FILE",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "file_path": {
                             "type": "str",
@@ -85,12 +85,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "EXTRACT_COLUMNS-957fd785-5d26-4a46-8f38-3060768f5e0c",
-                "type": "EXTRACT_COLUMNS",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "EXTRACT_COLUMNS-957fd785-5d26-4a46-8f38-3060768f5e0c",
                     "label": "EXTRACT COLUMNS",
                     "func": "EXTRACT_COLUMNS",
-                    "type": "EXTRACT_COLUMNS",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "columns": {
                             "type": "Array",
@@ -133,12 +133,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "EXTRACT_COLUMNS-a11a9de2-476a-40d1-99e2-5abd3d1f38fc",
-                "type": "EXTRACT_COLUMNS",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "EXTRACT_COLUMNS-a11a9de2-476a-40d1-99e2-5abd3d1f38fc",
                     "label": "EXTRACT COLUMNS 1",
                     "func": "EXTRACT_COLUMNS",
-                    "type": "EXTRACT_COLUMNS",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "columns": {
                             "type": "Array",
@@ -181,12 +181,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "EXTRACT_COLUMNS-65b1438d-f76e-4151-90cc-6b0a0c2698b0",
-                "type": "EXTRACT_COLUMNS",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "EXTRACT_COLUMNS-65b1438d-f76e-4151-90cc-6b0a0c2698b0",
                     "label": "EXTRACT COLUMNS 2",
                     "func": "EXTRACT_COLUMNS",
-                    "type": "EXTRACT_COLUMNS",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "columns": {
                             "type": "Array",
@@ -229,12 +229,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "EXTRACT_COLUMNS-8ff329af-40f4-4efc-bb12-5d10a7fde800",
-                "type": "EXTRACT_COLUMNS",
+                "type": "EXTRACTORS",
                 "data": {
                     "id": "EXTRACT_COLUMNS-8ff329af-40f4-4efc-bb12-5d10a7fde800",
                     "label": "EXTRACT COLUMNS 3",
                     "func": "EXTRACT_COLUMNS",
-                    "type": "EXTRACT_COLUMNS",
+                    "type": "EXTRACTORS",
                     "ctrls": {
                         "columns": {
                             "type": "Array",
@@ -277,12 +277,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "SUPPORT_VECTOR_MACHINE-6d59b4fc-d2d2-4dbc-956e-6818cec198d4",
-                "type": "CLASSIFICATION",
+                "type": "AI_ML",
                 "data": {
                     "id": "SUPPORT_VECTOR_MACHINE-6d59b4fc-d2d2-4dbc-956e-6818cec198d4",
                     "label": "SUPPORT VECTOR MACHINE",
                     "func": "SUPPORT_VECTOR_MACHINE",
-                    "type": "CLASSIFICATION",
+                    "type": "AI_ML",
                     "ctrls": {
                         "kernel": {
                             "type": "select",
@@ -350,12 +350,12 @@
                 "width": 150,
                 "height": 150,
                 "id": "ACCURACY-b375ef9d-2c74-4f73-88d8-717c020422e4",
-                "type": "CLASSIFICATION",
+                "type": "AI_ML",
                 "data": {
                     "id": "ACCURACY-b375ef9d-2c74-4f73-88d8-717c020422e4",
                     "label": "ACCURACY",
                     "func": "ACCURACY",
-                    "type": "CLASSIFICATION",
+                    "type": "AI_ML",
                     "ctrls": {
                         "true_label": {
                             "type": "str",
@@ -411,12 +411,12 @@
                 "width": 380,
                 "height": 293,
                 "id": "TABLE-22193775-285f-4b58-93b5-9a8260454424",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-22193775-285f-4b58-93b5-9a8260454424",
                     "label": "TABLE",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -444,39 +444,6 @@
                 "positionAbsolute": {
                     "x": 2649.9417965837397,
                     "y": 316.6433733865691
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 130,
-                "id": "END-ae48654b-4e66-40ed-900e-4a3fe291acd9",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-ae48654b-4e66-40ed-900e-4a3fe291acd9",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 3159.2381382657973,
-                    "y": 398.56674826278174
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 3159.2381382657973,
-                    "y": 398.56674826278174
                 },
                 "dragging": true
             }
@@ -551,13 +518,6 @@
                 "target": "TABLE-22193775-285f-4b58-93b5-9a8260454424",
                 "targetHandle": "default",
                 "id": "reactflow__edge-ACCURACY-b375ef9d-2c74-4f73-88d8-717c020422e4default-TABLE-22193775-285f-4b58-93b5-9a8260454424default"
-            },
-            {
-                "source": "TABLE-22193775-285f-4b58-93b5-9a8260454424",
-                "sourceHandle": "default",
-                "target": "END-ae48654b-4e66-40ed-900e-4a3fe291acd9",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-22193775-285f-4b58-93b5-9a8260454424default-END-ae48654b-4e66-40ed-900e-4a3fe291acd9default"
             }
         ],
         "viewport": {

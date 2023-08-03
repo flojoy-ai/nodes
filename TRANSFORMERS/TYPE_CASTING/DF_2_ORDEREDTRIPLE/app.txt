@@ -2,77 +2,15 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
-                "id": "DF_2_OrderedTriple-a34a4728-2487-42d4-ab16-527e1c885efd",
-                "type": "TYPE_CASTING",
-                "data": {
-                    "id": "DF_2_OrderedTriple-a34a4728-2487-42d4-ab16-527e1c885efd",
-                    "label": "DF 2 OrderedTriple",
-                    "func": "DF_2_OrderedTriple",
-                    "type": "TYPE_CASTING",
-                    "ctrls": {
-                        "x": {
-                            "type": "int",
-                            "default": 0,
-                            "functionName": "DF_2_OrderedTriple",
-                            "param": "x",
-                            "value": 0
-                        },
-                        "y": {
-                            "type": "int",
-                            "default": 1,
-                            "functionName": "DF_2_OrderedTriple",
-                            "param": "y",
-                            "value": 1
-                        },
-                        "z": {
-                            "type": "int",
-                            "default": 2,
-                            "functionName": "DF_2_OrderedTriple",
-                            "param": "z",
-                            "value": 2
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "DataFrame",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedTriple"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/TRANSFORMERS/TYPE_CASTING/DF_2_OrderedTriple/DF_2_OrderedTriple.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 11.73890776878801,
-                    "y": 2.129479163344058
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 11.73890776878801,
-                    "y": 2.129479163344058
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
+                "width": 208,
+                "height": 96,
                 "id": "R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbae",
-                "type": "SAMPLE_DATASETS",
+                "type": "GENERATORS",
                 "data": {
                     "id": "R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbae",
                     "label": "R DATASET",
                     "func": "R_DATASET",
-                    "type": "SAMPLE_DATASETS",
+                    "type": "GENERATORS",
                     "ctrls": {
                         "dataset_key": {
                             "type": "select",
@@ -182,59 +120,26 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -311.30749516825614,
-                    "y": 86.42521712412974
+                    "x": -338.7711900770852,
+                    "y": 194.3183042659582
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -311.30749516825614,
-                    "y": 86.42521712412974
+                    "x": -338.7711900770852,
+                    "y": 194.3183042659582
                 },
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 130,
-                "id": "END-5411f5bc-440c-40ba-876a-a2b4fbe10c63",
-                "type": "TERMINATORS",
-                "data": {
-                    "id": "END-5411f5bc-440c-40ba-876a-a2b4fbe10c63",
-                    "label": "END",
-                    "func": "END",
-                    "type": "TERMINATORS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/TERMINATORS/END/END.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": 561.373875499122,
-                    "y": 358.4341695187829
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": 561.373875499122,
-                    "y": 358.4341695187829
-                },
-                "dragging": true
-            },
-            {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7",
                     "label": "TABLE 1",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -266,15 +171,15 @@
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3",
-                "type": "PLOTLY",
+                "type": "VISUALIZERS",
                 "data": {
                     "id": "TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3",
                     "label": "TABLE 1",
                     "func": "TABLE",
-                    "type": "PLOTLY",
+                    "type": "VISUALIZERS",
                     "ctrls": {},
                     "inputs": [
                         {
@@ -295,13 +200,80 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1.6013541557234987,
-                    "y": 332.53680458897173
+                    "x": -8.207108311715444,
+                    "y": 293.30295471921596
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1.6013541557234987,
-                    "y": 332.53680458897173
+                    "x": -8.207108311715444,
+                    "y": 293.30295471921596
+                },
+                "dragging": true
+            },
+            {
+                "width": 160,
+                "height": 160,
+                "id": "DF_2_ORDEREDTRIPLE-62a7516d-96b6-4546-8fb2-f0f8a538930a",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "DF_2_ORDEREDTRIPLE-62a7516d-96b6-4546-8fb2-f0f8a538930a",
+                    "label": "DF 2 ORDEREDTRIPLE",
+                    "func": "DF_2_ORDEREDTRIPLE",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {
+                        "x": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": null,
+                            "functionName": "DF_2_ORDEREDTRIPLE",
+                            "param": "x",
+                            "value": 0
+                        },
+                        "y": {
+                            "type": "int",
+                            "default": 1,
+                            "desc": null,
+                            "functionName": "DF_2_ORDEREDTRIPLE",
+                            "param": "y",
+                            "value": 1
+                        },
+                        "z": {
+                            "type": "int",
+                            "default": 2,
+                            "desc": null,
+                            "functionName": "DF_2_ORDEREDTRIPLE",
+                            "param": "z",
+                            "value": 2
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\TRANSFORMERS\\TYPE_CASTING\\DF_2_ORDEREDTRIPLE\\DF_2_ORDEREDTRIPLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 22.290347003831585,
+                    "y": 63.93602572915705
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 22.290347003831585,
+                    "y": 63.93602572915705
                 },
                 "dragging": true
             }
@@ -310,43 +282,29 @@
             {
                 "source": "R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbae",
                 "sourceHandle": "default",
-                "target": "DF_2_OrderedTriple-a34a4728-2487-42d4-ab16-527e1c885efd",
-                "targetHandle": "default",
-                "id": "reactflow__edge-R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbaedefault-DF_2_OrderedTriple-a34a4728-2487-42d4-ab16-527e1c885efddefault"
-            },
-            {
-                "source": "DF_2_OrderedTriple-a34a4728-2487-42d4-ab16-527e1c885efd",
-                "sourceHandle": "default",
-                "target": "TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7",
-                "targetHandle": "default",
-                "id": "reactflow__edge-DF_2_OrderedTriple-a34a4728-2487-42d4-ab16-527e1c885efddefault-TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7default"
-            },
-            {
-                "source": "TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7",
-                "sourceHandle": "default",
-                "target": "END-5411f5bc-440c-40ba-876a-a2b4fbe10c63",
-                "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7default-END-5411f5bc-440c-40ba-876a-a2b4fbe10c63default"
-            },
-            {
-                "source": "R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbae",
-                "sourceHandle": "default",
                 "target": "TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3",
                 "targetHandle": "default",
                 "id": "reactflow__edge-R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbaedefault-TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3default"
             },
             {
-                "source": "TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3",
+                "source": "R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbae",
                 "sourceHandle": "default",
-                "target": "END-5411f5bc-440c-40ba-876a-a2b4fbe10c63",
+                "target": "DF_2_ORDEREDTRIPLE-62a7516d-96b6-4546-8fb2-f0f8a538930a",
                 "targetHandle": "default",
-                "id": "reactflow__edge-TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3default-END-5411f5bc-440c-40ba-876a-a2b4fbe10c63default"
+                "id": "reactflow__edge-R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbaedefault-DF_2_ORDEREDTRIPLE-62a7516d-96b6-4546-8fb2-f0f8a538930adefault"
+            },
+            {
+                "source": "DF_2_ORDEREDTRIPLE-62a7516d-96b6-4546-8fb2-f0f8a538930a",
+                "sourceHandle": "default",
+                "target": "TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7",
+                "targetHandle": "default",
+                "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-62a7516d-96b6-4546-8fb2-f0f8a538930adefault-TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7default"
             }
         ],
         "viewport": {
-            "x": -454.16852149654983,
-            "y": 260.7534565927997,
-            "zoom": 1.3401466962340274
+            "x": 606.4472645567363,
+            "y": 234.63130388602087,
+            "zoom": 0.9186369849831518
         }
     },
     "ctrlsManifest": [
