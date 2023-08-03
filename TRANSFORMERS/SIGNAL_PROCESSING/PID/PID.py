@@ -53,7 +53,7 @@ def PID(
     integral: float = integral + 0.5 * Ki * (
         regulation_error + regulation_error_primes[0]
     )
-    output_signal = (
+    output_signal = -1 * (
         Kp * regulation_error
         + integral
         + 0.1667
