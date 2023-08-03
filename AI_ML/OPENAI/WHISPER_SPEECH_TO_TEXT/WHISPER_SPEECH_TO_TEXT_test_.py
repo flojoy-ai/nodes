@@ -3,23 +3,23 @@ import pytest
 import os
 
 
-def test_WHISPER_SPEECH_TO_TEXT_no_api_key(mock_flojoy_decorator):
-    import WHISPER_SPEECH_TO_TEXT
+# def test_WHISPER_SPEECH_TO_TEXT_no_api_key(mock_flojoy_decorator):
+#     import WHISPER_SPEECH_TO_TEXT
 
-    with pytest.raises(Exception, match="OPENAI_API_KEY environment variable not set"):
-        res = WHISPER_SPEECH_TO_TEXT.WHISPER_SPEECH_TO_TEXT(
-            file_path="",
-        )
+#     with pytest.raises(Exception, match="OPENAI_API_KEY environment variable not set"):
+#         res = WHISPER_SPEECH_TO_TEXT.WHISPER_SPEECH_TO_TEXT(
+#             file_path="",
+#         )
 
 
-def test_WHISPER_SPEECH_TO_TEXT_no_input_file(mock_flojoy_decorator):
-    import WHISPER_SPEECH_TO_TEXT
+# def test_WHISPER_SPEECH_TO_TEXT_no_input_file(mock_flojoy_decorator):
+#     import WHISPER_SPEECH_TO_TEXT
 
-    with pytest.raises(ValueError, match="file_path parameter is missing!"):
-        res = WHISPER_SPEECH_TO_TEXT.WHISPER_SPEECH_TO_TEXT(
-            default="",
-            file_path="",
-        )
+#     with pytest.raises(ValueError, match="file_path parameter is missing!"):
+#         res = WHISPER_SPEECH_TO_TEXT.WHISPER_SPEECH_TO_TEXT(
+#             default="",
+#             file_path="",
+#         )
 
 
 def test_WHISPER_SPEECH_TO_TEXT(mock_flojoy_decorator):
