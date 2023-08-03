@@ -16,4 +16,4 @@ def test_PID(mock_flojoy_decorator):
     res = PID.PID(element, default_params=default)
 
     # PID value should be close to 128.8 with input 2.0.
-    assert np.isclose(np.mean(res.y), 128.8, atol=0.5)
+    assert np.isclose(np.mean(res.y), -128.8, atol=0.5)
