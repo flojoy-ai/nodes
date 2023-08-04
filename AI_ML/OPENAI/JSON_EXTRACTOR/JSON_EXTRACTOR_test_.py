@@ -7,7 +7,7 @@ import os
 
 #     with pytest.raises(Exception, match="OPENAI_API_KEY environment variable not set"):
 #         properties = "price,name,model"
-#         prompt = """Headset Gamer Bluetooth MJ23 - $100 
+#         prompt = """Headset Gamer Bluetooth MJ23 - $100
 # Extract the price, name and model from the above text."""
 #         res = JSON_EXTRACTOR.JSON_EXTRACTOR(
 #             properties=properties,
