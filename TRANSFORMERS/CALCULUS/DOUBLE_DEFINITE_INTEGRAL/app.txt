@@ -126,7 +126,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair",
+                            "type": "OrderedPair|Vector",
                             "multiple": false
                         }
                     ],
@@ -188,7 +188,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair"
+                            "type": "Vector"
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
@@ -220,13 +220,13 @@
                         {
                             "name": "a",
                             "id": "a",
-                            "type": "OrderedPair|Scalar",
+                            "type": "OrderedPair|Scalar|Vector",
                             "multiple": false
                         },
                         {
                             "name": "b",
                             "id": "b",
-                            "type": "OrderedPair|Scalar",
+                            "type": "OrderedPair|Scalar|Vector",
                             "multiple": true
                         }
                     ],
@@ -234,7 +234,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair|Scalar"
+                            "type": "OrderedPair|Scalar|Vector"
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/ARITHMETIC/ADD/ADD.py",

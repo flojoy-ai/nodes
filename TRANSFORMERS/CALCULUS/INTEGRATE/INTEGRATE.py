@@ -1,4 +1,4 @@
-from flojoy import flojoy, OrderedPair
+from flojoy import flojoy, OrderedPair, Vector
 import numpy as np
 
 
@@ -15,7 +15,7 @@ def trapz(x, y):
 
 
 @flojoy
-def INTEGRATE(default: OrderedPair) -> OrderedPair:
+def INTEGRATE(default: OrderedPair | Vector) -> OrderedPair:
     """
     The INTEGRATE node takes two lists as input and integrates it using the composite
     trapezoidal rule.
@@ -28,8 +28,12 @@ def INTEGRATE(default: OrderedPair) -> OrderedPair:
     -------
     OrderedPair, x, y
     """
-    input_x = default.x
-    input_y = default.y
+    if isinstance(default, OrderedPair):
+        input_x = default.x
+        input_y = default.y
+    else:
+        input_x = np.arange(len(default.v))
+        input_y = default.v
 
     if type(input_x) != np.ndarray:
         raise ValueError(f"Invalid type for x:{type(input_x)}")
