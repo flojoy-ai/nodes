@@ -1,4 +1,4 @@
-from flojoy import flojoy, Image, DataFrame, run_in_venv
+from flojoy import flojoy, Image, DataFrame
 from typing import Literal
 import numpy as np
 from PIL import Image as PIL_Image
@@ -14,7 +14,7 @@ def get_file_path(file_path: str, default_path: str | None = None):
     return f_path
 
 
-@flojoy
+@flojoy(deps={"xlrd": "2.0.1", "lxml": "4.9.2", "openpyxl": "3.0.10"})
 def LOCAL_FILE(
     file_path: str,
     file_type: Literal["Image", "JSON", "CSV", "Excel", "XML"] = "Image",
