@@ -32,9 +32,7 @@ def INTEGRATE(default: OrderedPair | Vector) -> OrderedPair:
         input_x = default.x
         input_y = default.y
     else:
-        input_x = np.zeros_like(default.v)
-        for i in range(0, len(default.v)):
-            input_x[i] = i
+        input_x = np.arange(len(default.v))
         input_y = default.v
 
     if type(input_x) != np.ndarray:
