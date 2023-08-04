@@ -2,14 +2,6 @@ from flojoy import flojoy, OrderedPair, Vector
 import numpy as np
 
 
-def diff(input_x, input_y):
-    result = np.zeros_like(input_x)
-    for i in range(0, len(input_x)):
-        result[i] = input_y[i + 1] - input_y[i]
-
-    return result
-
-
 @flojoy
 def DIFFERENTIATE(default: OrderedPair | Vector) -> OrderedPair:
     """
@@ -37,11 +29,10 @@ def DIFFERENTIATE(default: OrderedPair | Vector) -> OrderedPair:
 
         return OrderedPair(x=input_x, y=differentiate)
     else:
-        x_axis = [0] * (len(default.v) - 1)
-        input_x = np.array(x_axis)
-        for i in range(0, (len(input_x))):
-            input_x[i] = i
+        input_x = np.arange((len(default.v) - 1))
+        differentiate = np.zeros_like(input_x)
 
-        differentiate = diff(input_x, default.v)
+        for i in range(0, len(input_x)):
+            differentiate[i] = default.v[i + 1] - default.v[i]
 
         return OrderedPair(x=input_x, y=differentiate)
