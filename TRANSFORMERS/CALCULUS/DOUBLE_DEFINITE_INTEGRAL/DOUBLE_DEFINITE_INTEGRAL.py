@@ -3,7 +3,7 @@ from scipy import integrate
 from sympy import parse_expr, lambdify
 
 
-@flojoy
+@flojoy(deps={"sympy": "1.12"})
 def DOUBLE_DEFINITE_INTEGRAL(
     function: str = "",
     upper_bound_x: float = 0.0,

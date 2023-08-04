@@ -6,7 +6,7 @@ on:
     branches:
       - main
 
-name: create-studio-docs-pr
+name: create-docs-pr
 
 jobs:
   send-pull-requests:
@@ -15,53 +15,53 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
    
-      # - name: Set up Python
-      #   uses: actions/setup-python@v4
-      #   with:
-      #     python-version: "3.10"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
         
-      # - name: Generate token
-      #   id: generate_token
-      #   uses: tibdex/github-app-token@v1
-      #   with:
-      #     app_id: ${{ secrets.APP_ID }}
-      #     private_key: ${{ secrets.PRIVATE_KEY }}
+      - name: Generate token
+        id: generate_token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
 
-      # - name: Get email
-      #   id: email
-      #   uses: KRANTHI0918/get-github-email-by-username-action@v2.1
-      #   with:
-      #     github-username: ${{ github.event.pull_request.user.login }}
-      #     token: ${{ steps.generate_token.outputs.token }}
+      - name: Get email
+        id: email
+        uses: KRANTHI0918/get-github-email-by-username-action@v2.1
+        with:
+          github-username: ${{ github.event.pull_request.user.login }}
+          token: ${{ steps.generate_token.outputs.token }}
       
-      # - name: Get last commit message
-      #   if: github.event.pull_request.merged != true
-      #   run: |
-      #     cd ${{ github.workspace }}
-      #     git fetch origin ${{ github.head_ref }}
-      #     git checkout ${{ github.head_ref }}
-      #     echo "LAST_COMMIT_MSG=$(git log -1 --pretty=format:'%s')" >> "$GITHUB_ENV"
+      - name: Get last commit message
+        if: github.event.pull_request.merged != true
+        run: |
+          cd ${{ github.workspace }}
+          git fetch origin ${{ github.head_ref }}
+          git checkout ${{ github.head_ref }}
+          echo "LAST_COMMIT_MSG=$(git log -1 --pretty=format:'%s')" >> "$GITHUB_ENV"
 
-      # - name: Get last commit message
-      #   if: github.event.pull_request.merged == true
-      #   run: |
-      #     cd ${{ github.workspace }}
-      #     git fetch origin main
-      #     git checkout main
-      #     echo "LAST_COMMIT_MSG=$(git log -1 --pretty=format:'%s')" >> "$GITHUB_ENV"
+      - name: Get last commit message
+        if: github.event.pull_request.merged == true
+        run: |
+          cd ${{ github.workspace }}
+          git fetch origin main
+          git checkout main
+          echo "LAST_COMMIT_MSG=$(git log -1 --pretty=format:'%s')" >> "$GITHUB_ENV"
 
-      # - name: Send pull-request
-      #   env:
-      #     GH_TOKEN: ${{ steps.generate_token.outputs.token }}
-      #     APP_TOKEN: ${{ steps.generate_token.outputs.token }}
-      #     USER_NAME: ${{ github.event.pull_request.user.login }}
-      #     USER_EMAIL: ${{ steps.email.outputs.email }}
-      #     LAST_COMMIT_MSG: ${{ env.LAST_COMMIT_MSG }}
-      #     PR_NUM: ${{github.event.pull_request.number}}
-      #     GITHUB_WORKSPACE: ${{github.workspace}}
-      #     PR_BRANCH: ${{ github.head_ref }}
-      #     IS_MERGED: ${{ github.event.pull_request.merged == true }}
-      #     PR_TITLE: ${{ github.event.pull_request.title }}
-      #     STUDIO_PR: false
-      #   run: |
-      #     bash create_pr
+      - name: Send pull-request
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
+          APP_TOKEN: ${{ steps.generate_token.outputs.token }}
+          USER_NAME: ${{ github.event.pull_request.user.login }}
+          USER_EMAIL: ${{ steps.email.outputs.email }}
+          LAST_COMMIT_MSG: ${{ env.LAST_COMMIT_MSG }}
+          PR_NUM: ${{github.event.pull_request.number}}
+          GITHUB_WORKSPACE: ${{github.workspace}}
+          PR_BRANCH: ${{ github.head_ref }}
+          IS_MERGED: ${{ github.event.pull_request.merged == true }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          STUDIO_PR: false
+        run: |
+          bash create_pr
