@@ -75,4 +75,3 @@ def LOCAL_FILE(
             file_path = get_file_path(file_path)
             df = pd.read_excel(file_path)
             return DataFrame(df=df)
-
