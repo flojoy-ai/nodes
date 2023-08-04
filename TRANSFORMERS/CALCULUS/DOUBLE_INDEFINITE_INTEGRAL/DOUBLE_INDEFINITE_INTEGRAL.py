@@ -2,6 +2,10 @@ from flojoy import flojoy, OrderedTriple, Matrix
 import numpy as np
 
 
+def contains_only_numbers(column):
+    return all(isinstance(value, (np.int_, np.float_, int, float)) for value in column)
+
+
 @flojoy
 def DOUBLE_INDEFINITE_INTEGRAL(
     default: OrderedTriple, width: int = 3, height: int = 3
@@ -26,9 +30,6 @@ def DOUBLE_INDEFINITE_INTEGRAL(
         matrix that contains the volume up to that point in each cell.
     """
 
-    def contains_only_numbers(column):
-        return all(isinstance(value, (np.int_, np.float_)) for value in column)
-
     if np.divide(len(default.x), width) == height:
         if not contains_only_numbers(default.x):
             raise ValueError(
@@ -42,10 +43,10 @@ def DOUBLE_INDEFINITE_INTEGRAL(
             raise ValueError(
                 "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values."
             )
-
-        input_x = np.reshape(default.x, (height, width))
-        input_y = np.reshape(default.y, (height, width))
-        input_z = np.reshape(default.z, (height, width))
+        else:
+            input_x = np.reshape(default.x, (height, width))
+            input_y = np.reshape(default.y, (height, width))
+            input_z = np.reshape(default.z, (height, width))
     else:
         raise ArithmeticError(
             f"Cannot reshape size {len(default.x)} in a matrix of {width} by {height}. Please enter appropriate width and height."
