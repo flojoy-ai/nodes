@@ -7,8 +7,7 @@ from flojoy import flojoy, run_in_venv, DataFrame, Image
         "transformers==4.30.2",
         "torch==1.13.0",
         "torchvision==0.14.0",
-    ],
-    verbose=True
+    ]
 )
 def NLP_CONNECT_VIT_GPT2(default: Image) -> DataFrame:
     """The NLP_CONNECT_VIT_GPT2 node captions an input image and produces an output string wrapped
