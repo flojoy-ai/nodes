@@ -17,7 +17,7 @@
                             "default": null,
                             "functionName": "LOCAL_FILE",
                             "param": "file_path",
-                            "value": "/Users/jinwonlee/Desktop/test.png"
+                            "value": ""
                         },
                         "file_type": {
                             "type": "select",
