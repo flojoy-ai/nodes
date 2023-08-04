@@ -132,13 +132,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 1358.296287493712,
                     "y": 620.4805276906546
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 1358.296287493712,
                     "y": 620.4805276906546

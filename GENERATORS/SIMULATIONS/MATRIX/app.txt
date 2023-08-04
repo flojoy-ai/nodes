@@ -75,13 +75,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes\\VISUALIZERS\\DATA_STRUCTURE\\MATRIX_VIEW\\MATRIX_VIEW.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 611.6471944648578,
                     "y": 95.620522779557
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 611.6471944648578,
                     "y": 95.620522779557

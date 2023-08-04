@@ -2,8 +2,8 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
+                "width": 96,
+                "height": 96,
                 "id": "TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31",
                 "type": "LOGIC_GATES",
                 "data": {
@@ -17,7 +17,7 @@
                             "default": 0,
                             "functionName": "TIMER",
                             "param": "sleep_time",
-                            "value": "0.5"
+                            "value": "1.5"
                         }
                     },
                     "inputs": [
@@ -36,64 +36,150 @@
                         }
                     ],
                     "path": "PYTHON/nodes\\LOGIC_GATES\\TIMERS\\TIMER\\TIMER.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 102.89594923414663,
-                    "y": 110.49136885391965
+                    "x": 248.76423256094694,
+                    "y": 106.13709173968681
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 102.89594923414663,
-                    "y": 110.49136885391965
+                    "x": 248.76423256094694,
+                    "y": 106.13709173968681
                 },
                 "dragging": true
             },
             {
-                "width": 130,
-                "height": 130,
-                "id": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
-                "type": "GENERATORS",
+                "width": 380,
+                "height": 293,
+                "id": "BIG_NUMBER-65eb6fbe-2374-4cf8-ba51-c40c7eb017aa",
+                "type": "VISUALIZERS",
                 "data": {
-                    "id": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
-                    "label": "2.0",
-                    "func": "CONSTANT",
-                    "type": "GENERATORS",
+                    "id": "BIG_NUMBER-65eb6fbe-2374-4cf8-ba51-c40c7eb017aa",
+                    "label": "BIG NUMBER",
+                    "func": "BIG_NUMBER",
+                    "type": "VISUALIZERS",
                     "ctrls": {
-                        "constant": {
-                            "type": "float",
-                            "default": 3,
-                            "functionName": "CONSTANT",
-                            "param": "constant",
-                            "value": "2.0"
+                        "suffix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "suffix",
+                            "value": ""
+                        },
+                        "prefix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "prefix",
+                            "value": ""
+                        },
+                        "title": {
+                            "type": "str",
+                            "default": null,
+                            "desc": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "title",
+                            "value": ""
+                        },
+                        "relative_delta": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": true
                         }
                     },
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair",
-                            "multiple": false
+                            "type": "OrderedPair|Scalar",
+                            "multiple": false,
+                            "desc": null
                         }
                     ],
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair"
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\VISUALIZERS\\PLOTLY\\BIG_NUMBER\\BIG_NUMBER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 518.2358414847172,
+                    "y": 4.169096131465835
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 518.2358414847172,
+                    "y": 4.169096131465835
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "CONSTANT-8797a1fe-b49f-469e-81a7-813fe7638a7e",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "CONSTANT-8797a1fe-b49f-469e-81a7-813fe7638a7e",
+                    "label": "3.0",
+                    "func": "CONSTANT",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "constant": {
+                            "type": "float",
+                            "default": 3,
+                            "desc": null,
+                            "functionName": "CONSTANT",
+                            "param": "constant",
+                            "value": 3
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "desc": null,
+                            "functionName": "CONSTANT",
+                            "param": "step",
+                            "value": 1000
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector|OrderedPair",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "desc": null
                         }
                     ],
                     "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\CONSTANT\\CONSTANT.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 434.9361307844173,
-                    "y": 123.1192529249758
+                    "x": -125.44180464761385,
+                    "y": 104.56416879553518
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 434.9361307844173,
-                    "y": 123.1192529249758
+                    "x": -125.44180464761385,
+                    "y": 104.56416879553518
                 },
                 "dragging": true
             }
@@ -102,15 +188,22 @@
             {
                 "source": "TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31",
                 "sourceHandle": "default",
-                "target": "CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0",
+                "target": "BIG_NUMBER-65eb6fbe-2374-4cf8-ba51-c40c7eb017aa",
                 "targetHandle": "default",
-                "id": "reactflow__edge-TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31default-CONSTANT-e21a2fe3-d370-4587-b0c6-7c61f8656fd0default"
+                "id": "reactflow__edge-TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31default-BIG_NUMBER-65eb6fbe-2374-4cf8-ba51-c40c7eb017aadefault"
+            },
+            {
+                "source": "CONSTANT-8797a1fe-b49f-469e-81a7-813fe7638a7e",
+                "sourceHandle": "default",
+                "target": "TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CONSTANT-8797a1fe-b49f-469e-81a7-813fe7638a7edefault-TIMER-b85f2c5b-f7de-4485-953d-986177ab9d31default"
             }
         ],
         "viewport": {
-            "x": -296.35399545928726,
-            "y": 66.8470830817738,
-            "zoom": 0.8744723800359967
+            "x": 606.4472645567363,
+            "y": 234.63130388602087,
+            "zoom": 0.9186369849831518
         }
     },
     "ctrlsManifest": [

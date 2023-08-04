@@ -135,13 +135,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/BAR/BAR.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 509.9694052032725,
                     "y": 64.67437309401998
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 509.9694052032725,
                     "y": 64.67437309401998

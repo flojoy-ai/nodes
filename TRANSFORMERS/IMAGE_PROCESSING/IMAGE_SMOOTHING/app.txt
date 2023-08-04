@@ -49,13 +49,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/IMAGE_SMOOTHING/IMAGE_SMOOTHING.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 727.3487305553774,
                     "y": 155.3525852303302
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 727.3487305553774,
                     "y": 155.3525852303302

@@ -53,7 +53,7 @@ def PID(
     integral: float = integral + 0.5 * Ki * (
         regulation_error + regulation_error_primes[0]
     )
-    output_signal = (
+    output_signal = -1 * (
         Kp * regulation_error
         + integral
         + 0.1667
@@ -64,9 +64,9 @@ def PID(
             + 3.0 * (regulation_error_primes[0] - regulation_error_primes[1])
         )
     )
-    regulation_error_primes[2]: float = regulation_error_primes[1]
-    regulation_error_primes[1]: float = regulation_error_primes[0]
-    regulation_error_primes[0]: float = regulation_error
+    regulation_error_primes[2] = regulation_error_primes[1]
+    regulation_error_primes[1] = regulation_error_primes[0]
+    regulation_error_primes[0] = regulation_error
 
     # Now write to memory ...
     SmallMemory().write_to_memory(

@@ -2,7 +2,7 @@ import json
 import os
 from typing import Optional
 import requests
-from flojoy import DataContainer, flojoy, get_env_var_key
+from flojoy import DataContainer, flojoy, get_env_var
 from flojoy.utils import PlotlyJSONEncoder
 
 
@@ -15,7 +15,7 @@ def LOADER(
     measurement_id: Optional[str] = None,
     dc_id: Optional[str] = None,
 ) -> DataContainer:
-    api_key = get_env_var_key("FLOJOY_CLOUD_API_KEY")
+    api_key = get_env_var("FLOJOY_CLOUD_API_KEY")
 
     if api_key is None:
         raise KeyError("Frontier API key is not found!")

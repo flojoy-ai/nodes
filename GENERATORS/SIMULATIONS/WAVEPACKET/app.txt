@@ -33,70 +33,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 282.55866857779966,
-                    "y": 274.132763882575
+                    "x": 327.14642964578854,
+                    "y": 198.79482276769716
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 282.55866857779966,
-                    "y": 274.132763882575
-                },
-                "dragging": true
-            },
-            {
-                "width": 96,
-                "height": 96,
-                "id": "LOOP-ea5e948c-e780-4812-9684-f050d4163800",
-                "type": "LOGIC_GATES",
-                "data": {
-                    "id": "LOOP-ea5e948c-e780-4812-9684-f050d4163800",
-                    "label": "LOOP",
-                    "func": "LOOP",
-                    "type": "LOGIC_GATES",
-                    "ctrls": {
-                        "num_loops": {
-                            "type": "int",
-                            "default": -1,
-                            "desc": "number of times to iterate through body nodes default is `-1` meaning infinity.",
-                            "functionName": "LOOP",
-                            "param": "num_loops",
-                            "value": -1
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false,
-                            "desc": null
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "body",
-                            "id": "body",
-                            "type": "Any",
-                            "desc": null
-                        },
-                        {
-                            "name": "end",
-                            "id": "end",
-                            "type": "Any",
-                            "desc": null
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOGIC_GATES/LOOPS/LOOP/LOOP.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": -293.0511498580223,
-                    "y": 330.93880041091234
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -293.0511498580223,
-                    "y": 330.93880041091234
+                    "x": 327.14642964578854,
+                    "y": 198.79482276769716
                 },
                 "dragging": true
             },
@@ -182,28 +125,85 @@
                     "y": 231.12759430779778
                 },
                 "dragging": true
+            },
+            {
+                "width": 96,
+                "height": 96,
+                "id": "LOOP-4a9435b9-f3d9-42bb-ac6f-058b309d33f5",
+                "type": "LOGIC_GATES",
+                "data": {
+                    "id": "LOOP-4a9435b9-f3d9-42bb-ac6f-058b309d33f5",
+                    "label": "LOOP",
+                    "func": "LOOP",
+                    "type": "LOGIC_GATES",
+                    "ctrls": {
+                        "num_loops": {
+                            "type": "int",
+                            "default": -1,
+                            "desc": "number of times to iterate through body nodes default is `-1` meaning infinity.",
+                            "functionName": "LOOP",
+                            "param": "num_loops",
+                            "value": "20"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "body",
+                            "id": "body",
+                            "type": "Any",
+                            "desc": null
+                        },
+                        {
+                            "name": "end",
+                            "id": "end",
+                            "type": "Any",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\LOOPS\\LOOP\\LOOP.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -398.0667272413819,
+                    "y": 300.8094166726855
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -398.0667272413819,
+                    "y": 300.8094166726855
+                },
+                "dragging": true
             }
         ],
         "edges": [
-            {
-                "source": "LOOP-ea5e948c-e780-4812-9684-f050d4163800",
-                "sourceHandle": "body",
-                "target": "WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LOOP-ea5e948c-e780-4812-9684-f050d4163800body-WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261default"
-            },
             {
                 "source": "WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261",
                 "sourceHandle": "default",
                 "target": "LINE-04475ad6-db8e-485b-8169-a90dfb525a8f",
                 "targetHandle": "default",
                 "id": "reactflow__edge-WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261default-LINE-04475ad6-db8e-485b-8169-a90dfb525a8fdefault"
+            },
+            {
+                "source": "LOOP-4a9435b9-f3d9-42bb-ac6f-058b309d33f5",
+                "sourceHandle": "body",
+                "target": "WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOOP-4a9435b9-f3d9-42bb-ac6f-058b309d33f5body-WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261default"
             }
         ],
         "viewport": {
-            "x": 1228.4115496239685,
-            "y": 450.9513514193113,
-            "zoom": 1.915025364965201
+            "x": 606.4472645567363,
+            "y": 234.63130388602087,
+            "zoom": 0.9186369849831518
         }
     },
     "ctrlsManifest": [

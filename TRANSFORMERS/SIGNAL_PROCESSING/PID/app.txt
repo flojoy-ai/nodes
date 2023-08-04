@@ -2,109 +2,8 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
-                "id": "LOOP-67e6ac26-cc23-4159-8659-ef0577421ee3",
-                "type": "LOGIC_GATES",
-                "data": {
-                    "id": "LOOP-67e6ac26-cc23-4159-8659-ef0577421ee3",
-                    "label": "LOOP",
-                    "func": "LOOP",
-                    "type": "LOGIC_GATES",
-                    "ctrls": {
-                        "num_loops": {
-                            "type": "int",
-                            "default": -1,
-                            "functionName": "LOOP",
-                            "param": "num_loops",
-                            "value": "15"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "body",
-                            "id": "body",
-                            "type": "Any"
-                        },
-                        {
-                            "name": "end",
-                            "id": "end",
-                            "type": "Any"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\LOOPS\\LOOP\\LOOP.py",
-                    "selected": true
-                },
-                "position": {
-                    "x": -120.5168017191627,
-                    "y": 215.79596215972782
-                },
-                "selected": true,
-                "positionAbsolute": {
-                    "x": -120.5168017191627,
-                    "y": 215.79596215972782
-                },
-                "dragging": true
-            },
-            {
-                "width": 130,
-                "height": 130,
-                "id": "CONSTANT-763b863d-7a28-4264-8f33-3e02c65f85d5",
-                "type": "GENERATORS",
-                "data": {
-                    "id": "CONSTANT-763b863d-7a28-4264-8f33-3e02c65f85d5",
-                    "label": "100",
-                    "func": "CONSTANT",
-                    "type": "GENERATORS",
-                    "ctrls": {
-                        "constant": {
-                            "type": "float",
-                            "default": 3,
-                            "functionName": "CONSTANT",
-                            "param": "constant",
-                            "value": "100"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\CONSTANT\\CONSTANT.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 233.2840998939468,
-                    "y": 257.4687143861847
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 233.2840998939468,
-                    "y": 257.4687143861847
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
+                "width": 160,
+                "height": 160,
                 "id": "PID-cee43c6b-237d-45f8-98d0-319f48acaebf",
                 "type": "TRANSFORMERS",
                 "data": {
@@ -154,19 +53,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 677.7645079422954,
-                    "y": 81.60321798273725
+                    "x": 691.7222902734321,
+                    "y": 96.72414884146878
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 677.7645079422954,
-                    "y": 81.60321798273725
+                    "x": 691.7222902734321,
+                    "y": 96.72414884146878
                 },
                 "dragging": true
             },
             {
-                "width": 130,
-                "height": 130,
+                "width": 208,
+                "height": 96,
                 "id": "SECOND_ORDER_SYSTEM-f97650dd-54de-4204-be2d-a04451e4b622",
                 "type": "GENERATORS",
                 "data": {
@@ -209,19 +108,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 978.4912585306391,
-                    "y": 87.6001248789845
+                    "x": 969.1860703098813,
+                    "y": 130.6366203999895
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 978.4912585306391,
-                    "y": 87.6001248789845
+                    "x": 969.1860703098813,
+                    "y": 130.6366203999895
                 },
                 "dragging": true
             },
             {
-                "width": 130,
-                "height": 130,
+                "width": 208,
+                "height": 96,
                 "id": "FEEDBACK-7dce3ba5-d2e2-4b60-8a2c-06218b5f718d",
                 "type": "GENERATORS",
                 "data": {
@@ -268,52 +167,6 @@
                 "dragging": true
             },
             {
-                "width": 99,
-                "height": 130,
-                "id": "SUBTRACT-3a3c4ed2-1ec0-433a-b6d6-d9819a2a02c1",
-                "type": "ARITHMETIC",
-                "data": {
-                    "id": "SUBTRACT-3a3c4ed2-1ec0-433a-b6d6-d9819a2a02c1",
-                    "label": "SUBTRACT",
-                    "func": "SUBTRACT",
-                    "type": "ARITHMETIC",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "a",
-                            "id": "a",
-                            "type": "OrderedPair",
-                            "multiple": false
-                        },
-                        {
-                            "name": "b",
-                            "id": "b",
-                            "type": "OrderedPair",
-                            "multiple": true
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\TRANSFORMERS\\ARITHMETIC\\SUBTRACT\\SUBTRACT.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 462.9560157284769,
-                    "y": 114.87540487187692
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 462.9560157284769,
-                    "y": 114.87540487187692
-                },
-                "dragging": true
-            },
-            {
                 "width": 380,
                 "height": 293,
                 "id": "LINE-ed3aba7c-7235-43dd-baeb-6ad9dbc763b9",
@@ -354,8 +207,8 @@
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
+                "width": 160,
+                "height": 160,
                 "id": "DS_LOAD-1cfd0ec3-cbf0-4316-b2f0-2654e5a54e49",
                 "type": "LOADERS",
                 "data": {
@@ -400,30 +253,174 @@
                     "y": 460.341992432171
                 },
                 "dragging": true
+            },
+            {
+                "width": 96,
+                "height": 96,
+                "id": "LOOP-ee157ec4-dc88-4f4e-be71-5db5e3bbe87c",
+                "type": "LOGIC_GATES",
+                "data": {
+                    "id": "LOOP-ee157ec4-dc88-4f4e-be71-5db5e3bbe87c",
+                    "label": "LOOP",
+                    "func": "LOOP",
+                    "type": "LOGIC_GATES",
+                    "ctrls": {
+                        "num_loops": {
+                            "type": "int",
+                            "default": -1,
+                            "desc": "number of times to iterate through body nodes default is `-1` meaning infinity.",
+                            "functionName": "LOOP",
+                            "param": "num_loops",
+                            "value": "15"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "body",
+                            "id": "body",
+                            "type": "Any",
+                            "desc": null
+                        },
+                        {
+                            "name": "end",
+                            "id": "end",
+                            "type": "Any",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\LOOPS\\LOOP\\LOOP.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -55.67628506838092,
+                    "y": 265.6921237098219
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -55.67628506838092,
+                    "y": 265.6921237098219
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "CONSTANT-f84cbbe2-6624-49c7-8a7a-a65b34b277db",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "CONSTANT-f84cbbe2-6624-49c7-8a7a-a65b34b277db",
+                    "label": "100",
+                    "func": "CONSTANT",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "constant": {
+                            "type": "float",
+                            "default": 3,
+                            "desc": null,
+                            "functionName": "CONSTANT",
+                            "param": "constant",
+                            "value": "100"
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "desc": null,
+                            "functionName": "CONSTANT",
+                            "param": "step",
+                            "value": 1000
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector|OrderedPair",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\CONSTANT\\CONSTANT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 245.52016850960797,
+                    "y": 232.96864047833014
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 245.52016850960797,
+                    "y": 232.96864047833014
+                },
+                "dragging": true
+            },
+            {
+                "width": 72,
+                "height": 72,
+                "id": "SUBTRACT-513db751-391e-4342-aee3-9f322a4c3118",
+                "type": "ARITHMETIC",
+                "data": {
+                    "id": "SUBTRACT-513db751-391e-4342-aee3-9f322a4c3118",
+                    "label": "SUBTRACT",
+                    "func": "SUBTRACT",
+                    "type": "ARITHMETIC",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "a",
+                            "id": "a",
+                            "type": "OrderedPair|Scalar|Vector",
+                            "multiple": false,
+                            "desc": null
+                        },
+                        {
+                            "name": "b",
+                            "id": "b",
+                            "type": "OrderedPair|Scalar|Vector",
+                            "multiple": true,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar|Vector",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\TRANSFORMERS\\ARITHMETIC\\SUBTRACT\\SUBTRACT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 539.5038389646794,
+                    "y": 129.82546731386907
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 539.5038389646794,
+                    "y": 129.82546731386907
+                },
+                "dragging": true
             }
         ],
         "edges": [
-            {
-                "source": "LOOP-67e6ac26-cc23-4159-8659-ef0577421ee3",
-                "sourceHandle": "body",
-                "target": "CONSTANT-763b863d-7a28-4264-8f33-3e02c65f85d5",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LOOP-67e6ac26-cc23-4159-8659-ef0577421ee3body-CONSTANT-763b863d-7a28-4264-8f33-3e02c65f85d5default"
-            },
-            {
-                "source": "LOOP-67e6ac26-cc23-4159-8659-ef0577421ee3",
-                "sourceHandle": "body",
-                "target": "FEEDBACK-7dce3ba5-d2e2-4b60-8a2c-06218b5f718d",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LOOP-67e6ac26-cc23-4159-8659-ef0577421ee3body-FEEDBACK-7dce3ba5-d2e2-4b60-8a2c-06218b5f718ddefault"
-            },
-            {
-                "source": "SUBTRACT-3a3c4ed2-1ec0-433a-b6d6-d9819a2a02c1",
-                "sourceHandle": "default",
-                "target": "PID-cee43c6b-237d-45f8-98d0-319f48acaebf",
-                "targetHandle": "default",
-                "id": "reactflow__edge-SUBTRACT-3a3c4ed2-1ec0-433a-b6d6-d9819a2a02c1default-PID-cee43c6b-237d-45f8-98d0-319f48acaebfdefault"
-            },
             {
                 "source": "PID-cee43c6b-237d-45f8-98d0-319f48acaebf",
                 "sourceHandle": "default",
@@ -432,38 +429,59 @@
                 "id": "reactflow__edge-PID-cee43c6b-237d-45f8-98d0-319f48acaebfdefault-SECOND_ORDER_SYSTEM-f97650dd-54de-4204-be2d-a04451e4b622default"
             },
             {
-                "source": "FEEDBACK-7dce3ba5-d2e2-4b60-8a2c-06218b5f718d",
-                "sourceHandle": "default",
-                "target": "SUBTRACT-3a3c4ed2-1ec0-433a-b6d6-d9819a2a02c1",
-                "targetHandle": "a",
-                "id": "reactflow__edge-FEEDBACK-7dce3ba5-d2e2-4b60-8a2c-06218b5f718ddefault-SUBTRACT-3a3c4ed2-1ec0-433a-b6d6-d9819a2a02c1a"
-            },
-            {
-                "source": "CONSTANT-763b863d-7a28-4264-8f33-3e02c65f85d5",
-                "sourceHandle": "default",
-                "target": "SUBTRACT-3a3c4ed2-1ec0-433a-b6d6-d9819a2a02c1",
-                "targetHandle": "b",
-                "id": "reactflow__edge-CONSTANT-763b863d-7a28-4264-8f33-3e02c65f85d5default-SUBTRACT-3a3c4ed2-1ec0-433a-b6d6-d9819a2a02c1b"
-            },
-            {
-                "source": "LOOP-67e6ac26-cc23-4159-8659-ef0577421ee3",
-                "sourceHandle": "end",
-                "target": "DS_LOAD-1cfd0ec3-cbf0-4316-b2f0-2654e5a54e49",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LOOP-67e6ac26-cc23-4159-8659-ef0577421ee3end-DS_LOAD-1cfd0ec3-cbf0-4316-b2f0-2654e5a54e49default"
-            },
-            {
                 "source": "DS_LOAD-1cfd0ec3-cbf0-4316-b2f0-2654e5a54e49",
                 "sourceHandle": "default",
                 "target": "LINE-ed3aba7c-7235-43dd-baeb-6ad9dbc763b9",
                 "targetHandle": "default",
                 "id": "reactflow__edge-DS_LOAD-1cfd0ec3-cbf0-4316-b2f0-2654e5a54e49default-LINE-ed3aba7c-7235-43dd-baeb-6ad9dbc763b9default"
+            },
+            {
+                "source": "LOOP-ee157ec4-dc88-4f4e-be71-5db5e3bbe87c",
+                "sourceHandle": "body",
+                "target": "CONSTANT-f84cbbe2-6624-49c7-8a7a-a65b34b277db",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOOP-ee157ec4-dc88-4f4e-be71-5db5e3bbe87cbody-CONSTANT-f84cbbe2-6624-49c7-8a7a-a65b34b277dbdefault"
+            },
+            {
+                "source": "LOOP-ee157ec4-dc88-4f4e-be71-5db5e3bbe87c",
+                "sourceHandle": "body",
+                "target": "FEEDBACK-7dce3ba5-d2e2-4b60-8a2c-06218b5f718d",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOOP-ee157ec4-dc88-4f4e-be71-5db5e3bbe87cbody-FEEDBACK-7dce3ba5-d2e2-4b60-8a2c-06218b5f718ddefault"
+            },
+            {
+                "source": "FEEDBACK-7dce3ba5-d2e2-4b60-8a2c-06218b5f718d",
+                "sourceHandle": "default",
+                "target": "SUBTRACT-513db751-391e-4342-aee3-9f322a4c3118",
+                "targetHandle": "a",
+                "id": "reactflow__edge-FEEDBACK-7dce3ba5-d2e2-4b60-8a2c-06218b5f718ddefault-SUBTRACT-513db751-391e-4342-aee3-9f322a4c3118a"
+            },
+            {
+                "source": "CONSTANT-f84cbbe2-6624-49c7-8a7a-a65b34b277db",
+                "sourceHandle": "default",
+                "target": "SUBTRACT-513db751-391e-4342-aee3-9f322a4c3118",
+                "targetHandle": "b",
+                "id": "reactflow__edge-CONSTANT-f84cbbe2-6624-49c7-8a7a-a65b34b277dbdefault-SUBTRACT-513db751-391e-4342-aee3-9f322a4c3118b"
+            },
+            {
+                "source": "SUBTRACT-513db751-391e-4342-aee3-9f322a4c3118",
+                "sourceHandle": "default",
+                "target": "PID-cee43c6b-237d-45f8-98d0-319f48acaebf",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SUBTRACT-513db751-391e-4342-aee3-9f322a4c3118default-PID-cee43c6b-237d-45f8-98d0-319f48acaebfdefault"
+            },
+            {
+                "source": "LOOP-ee157ec4-dc88-4f4e-be71-5db5e3bbe87c",
+                "sourceHandle": "end",
+                "target": "DS_LOAD-1cfd0ec3-cbf0-4316-b2f0-2654e5a54e49",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOOP-ee157ec4-dc88-4f4e-be71-5db5e3bbe87cend-DS_LOAD-1cfd0ec3-cbf0-4316-b2f0-2654e5a54e49default"
             }
         ],
         "viewport": {
-            "x": -296.35399545928726,
-            "y": 66.8470830817738,
-            "zoom": 0.8744723800359967
+            "x": 606.4472645567363,
+            "y": 234.63130388602087,
+            "zoom": 0.9186369849831518
         }
     },
     "ctrlsManifest": [

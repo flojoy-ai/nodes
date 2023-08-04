@@ -43,7 +43,7 @@ def test_ADD(mock_flojoy_decorator):
     assert ADD.ADD(1, 2) == 3
 ```
 
-**IMPORTANT** Additionally, if the node under test writes to the Flojoy cache directory (`~/.flojoy`), PLEASE use the `mock_flojoy_cache_directory` fixture (present in `conftest.py`). Any cache written by your test will then be cleaned up once the test finishes running, and that ensures CI testing will not crash due to excessive disk volume usage.
+**IMPORTANT** Additionally, if the node under test writes to the Flojoy cache directory (`~/.flojoy`), PLEASE use the `cleanup_flojoy_cache_fixture` fixture (present in `conftest.py`). Any cache written by your test will then be cleaned up once the test finishes running, and that ensures CI testing will not crash due to excessive disk volume usage.
 
 ### Best practices
 

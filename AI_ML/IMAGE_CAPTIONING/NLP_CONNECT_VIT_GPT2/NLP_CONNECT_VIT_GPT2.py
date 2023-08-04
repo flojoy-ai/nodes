@@ -30,7 +30,7 @@ def NLP_CONNECT_VIT_GPT2(default: Image) -> DataFrame:
     import transformers
     import torch
     import torchvision.transforms.functional as TF
-    from flojoy import snapshot_download
+    from flojoy import DataFrame, snapshot_download
 
     r, g, b, a = default.r, default.g, default.b, default.a
     nparray = (

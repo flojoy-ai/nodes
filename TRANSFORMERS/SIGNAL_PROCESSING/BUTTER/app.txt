@@ -164,13 +164,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/SIGNAL_PROCESSING/FFT/FFT.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 719.0985280702616,
                     "y": 254.0429925314706
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 719.0985280702616,
                     "y": 254.0429925314706
