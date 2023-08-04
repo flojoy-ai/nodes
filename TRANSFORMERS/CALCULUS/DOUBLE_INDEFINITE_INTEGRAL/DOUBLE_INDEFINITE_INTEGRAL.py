@@ -24,7 +24,24 @@ def DOUBLE_INDEFINITE_INTEGRAL(
     m: Matrix
         matrix containing in each cell the volume up to that point.
     """
+
+    def contains_only_numbers(column):
+        return all(isinstance(value, (np.int_, np.float_)) for value in column)
+
     if np.divide(len(default.x), width) == height:
+        if not contains_only_numbers(default.x):
+            raise ValueError(
+                "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values."
+            )
+        elif not contains_only_numbers(default.y):
+            raise ValueError(
+                "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values."
+            )
+        elif not contains_only_numbers(default.z):
+            raise ValueError(
+                "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values."
+            )
+
         input_x = np.reshape(default.x, (height, width))
         input_y = np.reshape(default.y, (height, width))
         input_z = np.reshape(default.z, (height, width))
