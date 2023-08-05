@@ -24,7 +24,7 @@
                             "default": 0,
                             "functionName": "LINSPACE",
                             "param": "end",
-                            "value": "10"
+                            "value": "100"
                         },
                         "step": {
                             "type": "int",
@@ -38,7 +38,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair"
+                            "type": "Vector"
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
@@ -70,7 +70,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair",
+                            "type": "OrderedPair|Vector",
                             "multiple": false
                         }
                     ],
@@ -110,7 +110,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair|DataFrame|Matrix",
+                            "type": "OrderedPair|DataFrame|Matrix|Vector",
                             "multiple": false
                         }
                     ],
@@ -150,7 +150,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair|DataFrame|Matrix",
+                            "type": "OrderedPair|DataFrame|Matrix|Vector",
                             "multiple": false
                         }
                     ],
