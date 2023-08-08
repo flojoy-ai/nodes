@@ -1,5 +1,5 @@
 import numpy as np
-from flojoy import flojoy, OrderedPair, Vector
+from flojoy import flojoy, OrderedPair
 
 
 @flojoy

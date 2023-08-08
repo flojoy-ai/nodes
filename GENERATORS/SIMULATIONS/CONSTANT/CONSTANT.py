@@ -1,7 +1,5 @@
 import numpy as np
-from flojoy import DCNpArrayType, flojoy, Vector, OrderedPair
-from typing import Optional
-
+from flojoy import flojoy, OrderedPair
 
 @flojoy
 def CONSTANT(
