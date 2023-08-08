@@ -2,8 +2,12 @@ from flojoy import flojoy, OrderedTriple, Matrix
 import numpy as np
 
 
-def contains_only_numbers(column):
-    return all(isinstance(value, (np.int_, np.float_, int, float)) for value in column)
+def contains_only_numbers(column, colName):
+    for value in column:
+        if not isinstance(value.item(), (int, float)):
+            raise ValueError(
+                f"The value {value.item()} in column {colName} is of type {type(value.item())}. The OrderedTriple need to contain only int or float values."
+            )
 
 
 @flojoy
@@ -30,22 +34,13 @@ def DOUBLE_INDEFINITE_INTEGRAL(
     """
 
     if np.divide(len(default.x), width) == height:
-        if not contains_only_numbers(default.x):
-            raise ValueError(
-                "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values."
-            )
-        elif not contains_only_numbers(default.y):
-            raise ValueError(
-                "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values."
-            )
-        elif not contains_only_numbers(default.z):
-            raise ValueError(
-                "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values."
-            )
-        else:
-            input_x = np.reshape(default.x, (height, width))
-            input_y = np.reshape(default.y, (height, width))
-            input_z = np.reshape(default.z, (height, width))
+        contains_only_numbers(default.x, "x")
+        contains_only_numbers(default.y, "y")
+        contains_only_numbers(default.z, "z")
+
+        input_x = np.reshape(default.x, (height, width))
+        input_y = np.reshape(default.y, (height, width))
+        input_z = np.reshape(default.z, (height, width))
     else:
         raise ArithmeticError(
             f"Cannot reshape size {len(default.x)} in a matrix of {width} by {height}. Please enter appropriate width and height."

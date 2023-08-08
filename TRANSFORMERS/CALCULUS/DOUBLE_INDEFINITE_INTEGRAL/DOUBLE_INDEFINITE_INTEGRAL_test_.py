@@ -40,7 +40,7 @@ def test_DOUBLE_INDEFINITE_INTEGRAL_str_errorMessage(mock_flojoy_decorator):
 
     np.testing.assert_raises_regex(
         ValueError,
-        "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values.",
+        f"The value hello in column z is of type {type('hello')}. The OrderedTriple need to contain only int or float values.",
         DOUBLE_INDEFINITE_INTEGRAL.DOUBLE_INDEFINITE_INTEGRAL,
         b_triple,
         2,
