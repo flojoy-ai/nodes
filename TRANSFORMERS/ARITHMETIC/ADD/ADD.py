@@ -1,8 +1,16 @@
 import numpy as np
 from flojoy import flojoy, OrderedPair, Scalar, Vector
 from nodes.TRANSFORMERS.ARITHMETIC.utils.arithmetic_utils import get_val
-from functools import reduce
 
+def reduce(func, seq, initial):
+    """Reduce is a function that turns a sequence into a single value.
+    It applies a rolling computation to sequential pairs of values in a list.
+    For example, if you wanted to compute the product of a list of integers.
+    """
+    result = initial
+    for item in seq:
+        result = func(result, item)
+    return result
 
 @flojoy
 def ADD(
@@ -17,6 +25,7 @@ def ADD(
     initial = get_val(a)
     seq = map(lambda dc: get_val(dc), b)
     y = reduce(lambda u, v: np.add(u, v), seq, initial)
+
 
     if isinstance(a, OrderedPair):
         return OrderedPair(x=a.x, y=y)
