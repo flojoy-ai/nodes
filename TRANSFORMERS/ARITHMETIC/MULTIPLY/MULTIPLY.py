@@ -1,6 +1,6 @@
 import numpy as np
 from flojoy import OrderedPair, flojoy, Scalar, Vector
-from nodes.TRANSFORMERS.ARITHMETIC.utils.arithmetic_utils import get_val
+fromflojoy.nodes.TRANSFORMERS.ARITHMETIC.utils.arithmetic_utils import get_val
 from functools import reduce
 
 

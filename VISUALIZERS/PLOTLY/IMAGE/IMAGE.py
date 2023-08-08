@@ -1,7 +1,7 @@
 from flojoy import flojoy, Image, Plotly
 import plotly.express as px
 import numpy as np
-from nodes.VISUALIZERS.template import plot_layout
+from flojoy.nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
