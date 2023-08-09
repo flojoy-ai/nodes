@@ -55,7 +55,7 @@ def TWO_DIMENSIONAL_FFT(
             green = default.g
             blue = default.b
             alpha = default.a
-            if color == "Grayscale":
+            if color == "grayscale":
                 if alpha is None:
                     rgba_image = np.stack((red, green, blue), axis=2)
                 else:
