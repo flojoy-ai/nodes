@@ -73,12 +73,12 @@ The first arg that the @flojoy decorator injects into a node function is always 
 - `OrderedPair`
 - `OrderedTriple`
 - `Image` (a color image encoded in 3 R/G/B matrices)
-- `greyscale` (a greyscale image incoded in 1 matrix)
-- `timeseries`
-- `constant` (TODO: rename to `scalar`)
-- `matrix` (eg, from numpy)
+- `Grayscale` (a grayscale image incoded in 1 matrix)
+- `Timeseries`
+- `Scalar`
+- `Matrix` (eg, from numpy)
 - `DataFrame` (eg, from pandas)
-- `plotly` (a plotly object)
+- `Plotly` (a plotly object)
 
 Nodes should try to accomodate any reasonable combination of inputs that a first-time Flojoy Studio user might try. 
 
@@ -103,7 +103,3 @@ There are 2 top-level node categories:
 ## Visualization and control nodes
 
 Unlike other nodes, visualization and control nodes require adding a component on the frontend to display the visualization object or control widget. In other words, they require working knowledge of Typescript/React in addition to Python.
-
-
-
-
