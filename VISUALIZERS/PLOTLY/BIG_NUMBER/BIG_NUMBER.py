@@ -22,22 +22,23 @@ def BIG_NUMBER(
     title: str,
     relative_delta: bool = True,
 ) -> Plotly:
-    """The BIG_NUMBER node generates a plotly figure displaying a big number with optional prefix and suffix.
+    """
+    The BIG_NUMBER node generates a Plotly figure, displaying a big number with an optional prefix and suffix.
 
-    Parameters:
-    -----------
-    relative_delta: bool
+    Parameters
+    ----------
+    relative_delta : bool
         whether to show relative delta from last run along with big number
-    suffix: str
+    suffix : str
         any suffix to show with big number
-    prefix: str
+    prefix : str
         any prefix to show with big number
-    title: str
-        title of the plot. default `BIG_NUMBER`
+    title : str
+        title of the plot, default "BIG_NUMBER"
 
-    Supported DC types:
-    -------------------
-    `ordered_pair` or `scalar`
+    Supported DC types
+    ------------------
+    ordered_pair, scalar
     """
 
     job_id = default_params.job_id

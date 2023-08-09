@@ -14,19 +14,21 @@ def CAMERA(
         "default", "640x360", "640x480", "1280x720", "1920x1080"
     ] = "default",
 ) -> DataContainer:
-    """The CAMERA node acquires an image using the selected camera.
-    If no camera is detected, an error would be thrown.
+    """
+    The CAMERA node acquires an image using the selected camera.
 
-    Parameters:
+    If no camera is detected, an error would be shown.
+
+    Parameters
     ----------
     camera_ind : int
-        Camera index (i.e. camera identifier)
+        Camera index (i.e. camera identifier).
     resolution : select
         Camera resolution. Choose from a few options.
 
-    Returns:
-    ----------
-    DataContainer:
+    Returns
+    -------
+    DataContainer
         type 'image'
     """
 

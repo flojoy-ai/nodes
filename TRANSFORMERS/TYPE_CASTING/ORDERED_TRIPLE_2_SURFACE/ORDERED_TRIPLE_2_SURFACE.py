@@ -4,18 +4,22 @@ import numpy as np
 
 @flojoy
 def ORDERED_TRIPLE_2_SURFACE(default: OrderedTriple) -> Surface:
-    """The ORDERED_TRIPLE_2_SURFACE node takes `OrderedTriple` instance of DataContainer class containing three arrays: x, y, and z.
-    It reshapes the z array into a 2D grid using the unique values of x and y.
+    """
+    The ORDERED_TRIPLE_2_SURFACE node takes an "OrderedTriple" instance of the DataContainer class that contains three arrays: x, y, and z.
+
+    It then reshapes the z array into a 2D grid using the unique values of x and y.
+
     The resulting 2D grid is used to create a Surface object with corresponding x, y, and z values.
 
-    Parameters:
-    ------------
+    Parameters
+    ----------
     None
 
-    Returns:
-    `Surface`
-
+    Returns
+    -------
+    Surface
     """
+    
     x = np.unique(default.x)
     y = np.unique(default.y)
 

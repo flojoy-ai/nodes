@@ -12,23 +12,23 @@ def READ_S3(
     file_name: str = "",
 ) -> DataFrame:
     """
-    The READ_S3 node takes S3_key name, S3 bucket name, and file name as input,
-    and extract the file from the specified bucket using the S3_key that they saved.
+    The READ_S3 node takes a S3_key name, S3 bucket name, and file name as input, and extracts the file from the specified bucket using the S3_key that was saved.
 
     Parameters
     ----------
-    s3_name:
+    s3_name :
         name of the key that the user used to save access and secret access key
-    bucket_name:
+    bucket_name :
         AWS S3 bucket name that they are trying to access
-    file_name:
+    file_name :
         name of the file that they want to extract
 
     Returns
-    ------
-    DataContainer:
-        type 'dataframe', df
+    -------
+    DataContainer
+        type dataframe, df
     """
+    
     if s3_name == "":
         raise ValueError("Provide a name that was used to set AWS S3 key")
 

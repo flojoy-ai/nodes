@@ -11,29 +11,36 @@ def IMAGE_SMOOTHING(
     smoothing_type: Literal["average", "gaussian", "median", "bilateral"] = "average",
 ) -> Image:
     """
-    Apply image smoothing operation on the input `DataContainer` class,
-    specifically for the 'image' type,
-    represented by the RGB(A) channels.
+    The IMAGE_SMOOTHING node applies an image smoothing operation on the input DataContainer class, specifically for the 'image' type, represented by the RGB(A) channels.
 
-    Note: for "gaussian" and "median" type, you are only allowed odd number for kernel value.
+    Note: For "gaussian" and "median" type, you are only allowed an odd number for the kernel value.
 
-    Args:
-    dc_inputs (list[DataContainer]): List of DataContainer objects containing
-    image channels.
-    params (dict): Additional parameters for image smoothing.
+    Arguments
+    ---------
+    dc_inputs (list[DataContainer])
+        List of DataContainer objects containing image channels.
+    params (dict)
+        Additional parameters for image smoothing.
 
-    Params:
-    kernel: The strength of the smoothing. A large value will lead
-    to stronger smoothing. smoothing_type: The type of smoothing to use
-    (https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html).
+    Parameters
+    ----------
+    kernel
+        The strength of the smoothing. 
+        A large value will lead to stronger smoothing. 
+    smoothing_type
+        The type of smoothing to use (https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html).
 
-    Returns:
-    DataContainer: A `DataContainer` class of type 'image' representing the
-    output image with image smoothing results.
+    Returns
+    -------
+    DataContainer
+        A `DataContainer` class of type 'image' representing the output image with image smoothing results.
 
-    Raises:
-    Exception: If an error occurs during smoothing.
+    Raises
+    ------
+    Exception
+        If an error occurs during smoothing.
     """
+
     r = default.r
     g = default.g
     b = default.b

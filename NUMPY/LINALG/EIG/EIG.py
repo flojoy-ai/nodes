@@ -11,25 +11,25 @@ def EIG(
     default: Matrix,
     select_return: Literal["w", "v"] = "w",
 ) -> Matrix | Scalar:
-    """The EIG node is based on a numpy or scipy function.
+    """
+    The EIG node is based on a numpy or scipy function.
+
     The description of that function is as follows:
-
-
-            Compute the eigenvalues and right eigenvectors of a square array.
+    
+        Compute the eigenvalues and right eigenvectors of a square array.
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects:
-            ['w', 'v']. Select the desired one to return.
-            See the respective function docs for descriptors.
+    select_return : This function has returns for multiple objects ['w', 'v'].
+        Select the desired one to return.
+        See the respective function docs for descriptors.
     a : (..., M, M) array
-            Matrices for which the eigenvalues and right eigenvectors will
-            be computed
+        Matrices for which the eigenvalues and right eigenvectors will be computed.
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = numpy.linalg.eig(

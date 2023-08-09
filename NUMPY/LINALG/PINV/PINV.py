@@ -12,39 +12,37 @@ def PINV(
     rcond: float = 1e-15,
     hermitian: bool = False,
 ) -> Matrix | Scalar:
-    """The PINV node is based on a numpy or scipy function.
+    """
+    The PINV node is based on a numpy or scipy function. 
+    
     The description of that function is as follows:
 
+        Compute the (Moore-Penrose) pseudo-inverse of a matrix.
 
-            Compute the (Moore-Penrose) pseudo-inverse of a matrix.
-
-            Calculate the generalized inverse of a matrix using its
-            singular-value decomposition (SVD) and including all
-            *large* singular values.
+        Calculate the generalized inverse of a matrix using its singular-value decomposition (SVD) and including all *large* singular values.
 
     .. versionchanged:: 1.14
-            Can now operate on stacks of matrices
+        Can now operate on stacks of matrices
 
     Parameters
     ----------
     a : (..., M, N) array_like
-            Matrix or stack of matrices to be pseudo-inverted.
+        Matrix or stack of matrices to be pseudo-inverted.
     rcond : (...) array_like of float
-            Cutoff for small singular values.
-            Singular values less than or equal to
-            ``rcond * largest_singular_value`` are set to zero.
-            Broadcasts against the stack of matrices.
+        Cutoff for small singular values.
+        Singular values less than or equal to "rcond * largest_singular_value" are set to zero.
+        Broadcasts against the stack of matrices.
     hermitian : bool, optional
-            If True, `a` is assumed to be Hermitian (symmetric if real-valued),
-            enabling a more efficient method for finding singular values.
-            Defaults to False.
+        If True, "a" is assumed to be Hermitian (symmetric if real-valued), enabling a more 
+        efficient method for finding singular values.
+        Defaults to False.
 
     .. versionadded:: 1.17.0
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = numpy.linalg.pinv(

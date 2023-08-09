@@ -6,16 +6,18 @@ import numpy as np
 
 @flojoy
 def SURFACE3D(default: OrderedTriple | DataFrame | Surface | Matrix) -> Plotly:
-    """The SURFACE3D node creates a Plotly 3D Surface visualization for a given input data container.
+    """
+    The SURFACE3D node creates a Plotly 3D Surface visualization for a given input data container.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     None
 
-    Supported DC types:
-    -------------------
-    `ordered_triple`, `dataframe`, `surface`, `matrix`
+    Supported DC types
+    ------------------
+    ordered_triple, dataframe, surface, matrix
     """
+    
     layout = plot_layout(title="SURFACE3D")
 
     if isinstance(default, OrderedTriple):

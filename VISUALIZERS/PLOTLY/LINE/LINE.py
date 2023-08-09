@@ -7,16 +7,18 @@ from nodes.VISUALIZERS.template import plot_layout
 
 @flojoy
 def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
-    """The LINE node creates a Plotly Line visualization for a given input data container.
+    """
+    The LINE node creates a Plotly Line visualization for a given input data container.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     None
 
-    Supported DC types:
-    -------------------
-    `ordered_pair`, `dataframe` (including timeseries), `matrix`, `vector`
+    Supported DC types
+    ------------------
+    ordered_pair, dataframe (including timeseries), matrix, vector
     """
+    
     layout = plot_layout(title="LINE")
     fig = go.Figure(layout=layout)
 

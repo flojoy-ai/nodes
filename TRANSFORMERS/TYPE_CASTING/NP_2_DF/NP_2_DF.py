@@ -21,7 +21,7 @@ from flojoy import (
 @flojoy
 def NP_2_DF(default: DataContainer) -> DataFrame:
     """
-    Node to convert numpy array data into dataframe type data
+    The NP_2_DF node converts numpy array data into dataframe type data.
 
     Parameters
     ----------
@@ -30,7 +30,7 @@ def NP_2_DF(default: DataContainer) -> DataFrame:
     Returns
     -------
     dataframe
-        Converted numpy array value from the input
+        Converted numpy array value from the input.
     """
 
     match default:

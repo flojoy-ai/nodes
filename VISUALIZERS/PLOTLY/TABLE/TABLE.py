@@ -6,16 +6,18 @@ from nodes.VISUALIZERS.template import plot_layout
 
 @flojoy
 def TABLE(default: OrderedTriple | OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
-    """The TABLE node creates a Plotly table visualization for a given input data container.
+    """
+    The TABLE node creates a Plotly Table visualization for a given input data container.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     None
 
-    Supported DC types:
-    -------------------
-    `ordered_pair`, `dataframe`, `ordered_triple`
+    Supported DC types
+    ------------------
+    ordered_pair, dataframe, ordered_triple
     """
+    
     layout = plot_layout(title="TABLE")
     fig = go.Figure(layout=layout)
 

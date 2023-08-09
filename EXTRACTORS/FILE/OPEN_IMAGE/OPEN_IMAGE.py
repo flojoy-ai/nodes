@@ -7,17 +7,16 @@ from numpy import asarray
 @flojoy
 def OPEN_IMAGE(file_path: str = "") -> Image:
     """
-    The OPEN_IMAGE node loads an image file from disk and
-    returns a image type Datacontainer object.
+    The OPEN_IMAGE node loads an image file from disk and returns an image type DataContainer object.
 
     Parameters
     ----------
     file_path : str
-        path to the file to be loaded.
+        path to the file to be loaded
 
-    Returns:
-    --------
-    DataContainer:
+    Returns
+    -------
+    DataContainer
         type 'image', r, g, b, a
     """
 
