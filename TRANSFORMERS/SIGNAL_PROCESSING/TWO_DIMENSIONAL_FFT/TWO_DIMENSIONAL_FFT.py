@@ -14,7 +14,7 @@ def extrapolate(x):
 def TWO_DIMENSIONAL_FFT(
     default: Grayscale | DataFrame | Image | Matrix,
     real_signal: bool = True,
-    color: Literal["red", "green", "blue", "grayscale"] = "red",
+    color: Literal["red", "green", "blue", "Grayscale"] = "red",
 ) -> Matrix | DataFrame | Image:
     """The TWO_DIMENSIONAL_FFT node performs a two-dimensional fourier transform on the input matrix.
     With the FFT algorithm, the input matrix will undergo a change of basis
@@ -55,7 +55,7 @@ def TWO_DIMENSIONAL_FFT(
             green = default.g
             blue = default.b
             alpha = default.a
-            if color == "grayscale":
+            if color == "Grayscale":
                 if alpha is None:
                     rgba_image = np.stack((red, green, blue), axis=2)
                 else:

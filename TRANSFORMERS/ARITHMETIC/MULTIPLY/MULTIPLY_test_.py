@@ -22,7 +22,7 @@ def test_MULTIPLY_vec_scalar(mock_flojoy_decorator):
     np.testing.assert_allclose(res.v, (x.v * 2) * 3)
 
 
-def test_MULTIPLY_ordered_pair_vector(mock_flojoy_decorator):
+def test_MULTIPLY_OrderedPair_vector(mock_flojoy_decorator):
     import MULTIPLY
 
     x = np.arange(10, 20, 1)

@@ -28,11 +28,11 @@ import APPEND
 def test_APPEND():
     # create the two ordered pair datacontainers
     element_a = DataContainer(
-        type="ordered_pair", x=numpy.linspace(0, 10, 10), y=numpy.linspace(0, 10, 10)
+        type="OrderedPair", x=numpy.linspace(0, 10, 10), y=numpy.linspace(0, 10, 10)
     )
 
     element_b = DataContainer(
-        type="ordered_pair", x=numpy.linspace(11, 12, 1), y=numpy.linspace(11, 12, 1)
+        type="OrderedPair", x=numpy.linspace(11, 12, 1), y=numpy.linspace(11, 12, 1)
     )
 
     # node under test
@@ -43,8 +43,8 @@ def test_APPEND():
     assert res.y[-1] == 11
 
     # create the two matrix datacontainers
-    element_a = DataContainer(type="matrix", m=numpy.ones((10, 10)))
-    element_b = DataContainer(type="matrix", m=numpy.ones((1, 10)))
+    element_a = DataContainer(type="Matrix", m=numpy.ones((10, 10)))
+    element_b = DataContainer(type="Matrix", m=numpy.ones((1, 10)))
 
     # node under test
     res = APPEND.APPEND([element_a, element_b], {})
@@ -53,8 +53,8 @@ def test_APPEND():
     assert (res.m.shape) == (11, 10)
 
     # create the two dataframe datacontainers
-    element_a = DataContainer(type="dataframe", m=numpy.ones((10, 10)))
-    element_b = DataContainer(type="dataframe", m=numpy.ones((1, 10)))
+    element_a = DataContainer(type="DataFrame", m=numpy.ones((10, 10)))
+    element_b = DataContainer(type="DataFrame", m=numpy.ones((1, 10)))
 
     # node under test
     res = APPEND.APPEND([element_a, element_b], {})

@@ -27,7 +27,7 @@ def CAMERA(
     Returns:
     ----------
     DataContainer:
-        type 'image'
+        type 'Image'
     """
 
     try:
@@ -64,7 +64,7 @@ def CAMERA(
             alpha_channel = None
 
         camera_image = DataContainer(
-            type="image",
+            type="Image",
             r=red_channel,
             g=green_channel,
             b=blue_channel,

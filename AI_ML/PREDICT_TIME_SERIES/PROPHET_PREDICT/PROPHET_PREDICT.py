@@ -21,7 +21,7 @@ def PROPHET_PREDICT(
     The DataContainer input type must be `dataframe`, and that dataframe must have its
     first column (or index) be of datetime type.
 
-    This node always returns a DataContainer of type 'dataframe'. It will also
+    This node always returns a DataContainer of type 'DataFrame'. It will also
     always return an `extra` field with a key `prophet` whose value is the JSONified
     Prophet model, which can be loaded as follows:
         ```python

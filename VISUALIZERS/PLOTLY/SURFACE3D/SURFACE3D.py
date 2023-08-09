@@ -14,7 +14,7 @@ def SURFACE3D(default: OrderedTriple | DataFrame | Surface | Matrix) -> Plotly:
 
     Supported DC types:
     -------------------
-    `ordered_triple`, `dataframe`, `surface`, `matrix`
+    `OrderedTriple`, `dataframe`, `surface`, `matrix`
     """
     layout = plot_layout(title="SURFACE3D")
 

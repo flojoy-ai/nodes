@@ -15,7 +15,7 @@ def HISTOGRAM(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
 
     Supported DC types:
     ------------------
-    `ordered_pair`, `dataframe`, `matrix`, `vector`
+    `OrderedPair`, `dataframe`, `matrix`, `vector`
 
     """
     layout = plot_layout(title="HISTOGRAM")

@@ -485,7 +485,7 @@
                 ],
                 "surface": [
                   {
-                    "type": "surface",
+                    "type": "Surface",
                     "colorbar": {
                       "outlinewidth": 0,
                       "ticks": ""
@@ -1027,7 +1027,7 @@
           }
         },
         "data": {
-          "type": "matrix",
+          "type": "Matrix",
           "m": [
             [
               15,
@@ -1521,7 +1521,7 @@
                 ],
                 "surface": [
                   {
-                    "type": "surface",
+                    "type": "Surface",
                     "colorbar": {
                       "outlinewidth": 0,
                       "ticks": ""
@@ -2063,7 +2063,7 @@
           }
         },
         "data": {
-          "type": "plotly",
+          "type": "Plotly",
           "fig": {
             "data": [
               {
@@ -2468,7 +2468,7 @@
                   ],
                   "surface": [
                     {
-                      "type": "surface",
+                      "type": "Surface",
                       "colorbar": {
                         "outlinewidth": 0,
                         "ticks": ""
@@ -3658,7 +3658,7 @@
                         "#f0f921"
                       ]
                     ],
-                    "type": "surface"
+                    "type": "Surface"
                   }
                 ],
                 "table": [
@@ -3962,7 +3962,7 @@
           }
         },
         "data": {
-          "type": "plotly",
+          "type": "Plotly",
           "fig": {
             "data": [
               {
@@ -4605,7 +4605,7 @@
                           "#f0f921"
                         ]
                       ],
-                      "type": "surface"
+                      "type": "Surface"
                     }
                   ],
                   "table": [
