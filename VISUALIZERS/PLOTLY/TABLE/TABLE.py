@@ -14,7 +14,7 @@ def TABLE(default: OrderedTriple | OrderedPair | DataFrame | Matrix | Vector) ->
 
     Supported DC types:
     -------------------
-    `OrderedPair`, `dataframe`, `OrderedTriple`
+    `OrderedPair`, `DataFrame`, `OrderedTriple`
     """
     layout = plot_layout(title="TABLE")
     fig = go.Figure(layout=layout)
