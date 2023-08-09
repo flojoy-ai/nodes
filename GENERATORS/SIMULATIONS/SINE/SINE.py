@@ -1,15 +1,16 @@
+from typing import Literal
 import numpy as np
-from flojoy import flojoy, OrderedPair
+from flojoy import Vector, flojoy, OrderedPair
 
 
 @flojoy
 def SINE(
-    default,
+    default: OrderedPair | Vector,
     amplitude: float = 1,
     frequency: float = 1,
     offset: float = 0,
     phase: float = 0,
-    waveform: str = "sine",
+    waveform: Literal["sine", "square", "triangle", "sawtooth"] = "sine",
 ) -> OrderedPair:
     A = amplitude
     F = frequency

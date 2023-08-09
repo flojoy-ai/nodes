@@ -14,7 +14,7 @@ def reduce(func, seq, initial):
 
 @flojoy
 def ADD(
-    a, b: list
+    a: OrderedPair | Scalar | Vector, b: list[OrderedPair | Scalar | Vector]
 ):
     """Add 2 or more numeric arrays, matrices, dataframes, or constants element-wise.
     When a constant is added to an array or matrix, each element in the array or
@@ -22,7 +22,7 @@ def ADD(
     sizes are added, the output will be the size of the larger array or matrix with
     only the overlapping elements changed.
     """
-    initial = get_val(a)
+    initial = get_val(a) if a is not None else 0
     seq = map(lambda dc: get_val(dc), b)
     y = reduce(lambda u, v: np.add(u, v), seq, initial)
 

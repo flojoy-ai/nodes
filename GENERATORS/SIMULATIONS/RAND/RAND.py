@@ -1,18 +1,19 @@
 import random
+from typing import Literal, Optional
 import numpy as np
 from flojoy import flojoy, OrderedPair, Scalar, Vector
 
 
 @flojoy
 def RAND(
-    default = None,
-    distribution: str = "normal",
+    default: Optional[OrderedPair | Vector] = None,
+    distribution: Literal["normal", "uniform", "poisson"] = "normal",
     lower_bound: float = 0,
     upper_bound: float = 1,
     normal_mean: float = 0,
     normal_standard_deviation: float = 1,
     poisson_events: float = 1,
-):
+) -> OrderedPair | Scalar:
     """The RAND node generates a random number or a list of random numbers
     depending on the distribution selected.
 

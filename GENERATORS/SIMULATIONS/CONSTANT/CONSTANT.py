@@ -1,9 +1,12 @@
+from typing import Optional
 import numpy as np
-from flojoy import flojoy, OrderedPair
+from flojoy import Vector, flojoy, OrderedPair
 
 @flojoy
 def CONSTANT(
-    default = None, constant: float = 3.0, step: int = 1000
+    default: Optional[Vector | OrderedPair] = None,
+    constant: float = 3.0,
+    step: float = 1000,
 ) -> OrderedPair:
     """Generates a single x-y vector of numeric (floating point) constants"""
 
