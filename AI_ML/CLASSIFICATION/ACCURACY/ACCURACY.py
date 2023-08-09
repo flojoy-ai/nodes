@@ -20,7 +20,7 @@ def ACCURACY(
         resulting predicted label users can select
     Returns
     -------
-    dataframe
+    DataFrame
         The input predictions dataframe, with an extra boolean column "prediction_correct".
 
     """
