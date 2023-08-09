@@ -1,8 +1,0 @@
-COMMAND:
-  - name: Append
-    key: APPEND
-    type: LOOP
-    inputs: 
-      - name: array
-        id: append_array
-        type: target
