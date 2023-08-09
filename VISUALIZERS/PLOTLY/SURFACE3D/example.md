@@ -6,4 +6,4 @@ In this example we've used following nodes to visualize different types of `Data
 
 - `DF_2_ORDEREDTRIPLE`: This is a type casting node, that converts DataFrame to `OrderedTriple` type of `DataContainer` class.
 
-- `OrderedTriple_2_SURFACE`: This node converts `OrderedTriple` to `Surface` type of `DataContainer` class.
+- `ORDERED_TRIPLE_2_SURFACE`: This node converts `OrderedTriple` to `Surface` type of `DataContainer` class.
