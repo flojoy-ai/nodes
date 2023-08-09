@@ -22,7 +22,7 @@ def COMPOSITE(
 
     Supported DC types:
     ----------------
-    `OrderedPair`, `dataframe` (including timeseries), `matrix`, `vector`
+    `OrderedPair`, `DataFrame` (including timeseries), `Matrix`, `Vector`
 
     """
     layout = plot_layout(title="COMPOSITE")

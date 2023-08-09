@@ -14,7 +14,7 @@ def SCATTER3D(default: OrderedTriple | DataFrame) -> Plotly:
 
     Supported DC types:
     -------------------
-    `OrderedTriple`, `dataframe`
+    `OrderedTriple`, `DataFrame`
     """
     layout = plot_layout(title="SCATTER3D")
     fig = go.Figure(layout=layout)
