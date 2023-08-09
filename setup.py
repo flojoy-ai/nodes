@@ -1,4 +1,14 @@
 from setuptools import setup, find_packages
+from setuptools.command.install import install
+from generate_nodes_init_file import generate_nodes_import_statements
+
+class CustomInstallCommand(install):
+    def run(self):
+        # Place your custom logic here
+        # e.g., download additional resources, compile code, etc.
+        generate_nodes_import_statements()
+        install.run(self)
+
 
 setup(
     name="flojoy_nodes",
@@ -11,6 +21,7 @@ setup(
     author_email="jack.parmer@proton.me",
     url="https://github.com/flojoy-ai/nodes",
     download_url="https://github.com/flojoy-ai/nodes/archive/refs/heads/main.zip",
+    cmdclass={"install": CustomInstallCommand},
     keywords=[
         "data-acquisition",
         "lab-automation",
