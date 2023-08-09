@@ -68,7 +68,7 @@ def numpy_array_as_table(arr: DCNpArrayType):
 @flojoy
 def MATRIX_VIEW(default: OrderedPair | Matrix) -> Plotly:
     """
-    The MATRIX_VIEW node "matrix" or "ordered_pair" type as input type and displays its visualization
+    The MATRIX_VIEW node "matrix" or "OrderedPair" type as input type and displays its visualization
     using plotly table in matrix format.
 
     Parameters

@@ -37,7 +37,7 @@ def BIG_NUMBER(
 
     Supported DC types:
     -------------------
-    `ordered_pair` or `scalar`
+    `OrderedPair` or `scalar`
     """
 
     job_id = default_params.job_id

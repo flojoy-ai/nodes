@@ -106,7 +106,7 @@
                                 "red",
                                 "green",
                                 "blue",
-                                "grayscale"
+                                "Grayscale"
                             ],
                             "functionName": "TWO_DIMENSIONAL_FFT",
                             "param": "color",

@@ -12,7 +12,7 @@ def IMAGE_SMOOTHING(
 ) -> Image:
     """
     Apply image smoothing operation on the input `DataContainer` class,
-    specifically for the 'image' type,
+    specifically for the 'Image' type,
     represented by the RGB(A) channels.
 
     Note: for "gaussian" and "median" type, you are only allowed odd number for kernel value.
@@ -28,7 +28,7 @@ def IMAGE_SMOOTHING(
     (https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html).
 
     Returns:
-    DataContainer: A `DataContainer` class of type 'image' representing the
+    DataContainer: A `DataContainer` class of type 'Image' representing the
     output image with image smoothing results.
 
     Raises:

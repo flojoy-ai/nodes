@@ -31,9 +31,9 @@ def LOCAL_FILE(
     Returns:
     --------
     Image:
-        type 'image' for file_type 'image'
+        type 'Image' for file_type 'Image'
 
-        type 'dataframe' for file_type 'json', 'csv', 'excel', 'xml'
+        type 'DataFrame' for file_type 'json', 'csv', 'excel', 'xml'
 
     """
     match file_type:

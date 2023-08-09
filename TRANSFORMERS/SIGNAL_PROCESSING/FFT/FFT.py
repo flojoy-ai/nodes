@@ -49,7 +49,7 @@ def FFT(
 
     Returns
     -------
-    Ordered_pair if display is true
+    OrderedPair if display is true
         x: frequency
         y: spectrum of the signal
     DataFrame if display is false

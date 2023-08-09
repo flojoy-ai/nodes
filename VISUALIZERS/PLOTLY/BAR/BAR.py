@@ -15,7 +15,7 @@ def BAR(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
 
     Supported DC types:
     ----------------
-    `ordered_pair`, `dataframe` (including timeseries), `matrix`, `vector`
+    `OrderedPair`, `dataframe` (including timeseries), `matrix`, `vector`
     """
 
     layout = plot_layout(title="BAR")
