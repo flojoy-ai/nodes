@@ -1,0 +1,6 @@
+flojoy
+numpy
+scipy
+pandas
+pytest
+plotly==5.8.2

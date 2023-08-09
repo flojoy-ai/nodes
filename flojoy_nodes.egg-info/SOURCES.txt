@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+flojoy_nodes/__init__.py
+flojoy_nodes/__init__.pyi
+flojoy_nodes.egg-info/PKG-INFO
+flojoy_nodes.egg-info/SOURCES.txt
+flojoy_nodes.egg-info/dependency_links.txt
+flojoy_nodes.egg-info/requires.txt
+flojoy_nodes.egg-info/top_level.txt
