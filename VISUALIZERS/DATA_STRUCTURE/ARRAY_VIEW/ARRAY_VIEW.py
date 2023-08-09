@@ -21,7 +21,7 @@ def numpy_array_as_table(arr: np.ndarray):
 @flojoy
 def ARRAY_VIEW(default: OrderedPair | Matrix | DataFrame | Image) -> Plotly:
     """
-    The ARRAY_VIEW node takes "OrderedPair", "dataframe", "matrix", and "image" as input type
+    The ARRAY_VIEW node takes "OrderedPair", "DataFrame", "Matrix", and "Image" as input type
     and displays its visualization in array format.
 
     Parameters

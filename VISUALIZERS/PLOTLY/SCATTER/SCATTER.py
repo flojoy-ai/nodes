@@ -15,7 +15,7 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
 
     Supported DC types:
     -------------------
-    `OrderedPair`, `dataframe`, `matrix`
+    `OrderedPair`, `DataFrame`, `Matrix`
     """
     layout = plot_layout(title="SCATTER")
     fig = go.Figure(layout=layout)

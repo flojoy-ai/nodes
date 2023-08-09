@@ -5,7 +5,7 @@ from flojoy import Scalar, Vector, OrderedPair
 # Test for Scalar, Vector and OrderedPair
 
 
-def test_ABS_scalar(mock_flojoy_decorator):
+def test_ABS_Scalar(mock_flojoy_decorator):
     import ABS
 
     res = ABS.ABS(default=Scalar(c=-1.0))
