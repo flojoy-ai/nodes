@@ -24,7 +24,7 @@ def ADD(
     """
     initial = get_val(a) if a is not None else 0
     seq = map(lambda dc: get_val(dc), b)
-    y = reduce(lambda u, v: np.add(u, v), seq, initial)
+    y = reduce(lambda u, v: u+v, seq, initial)
 
 
     if isinstance(a, OrderedPair):
