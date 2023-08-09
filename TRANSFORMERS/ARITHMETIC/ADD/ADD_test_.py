@@ -12,7 +12,7 @@ def test_ADD_Vector_Vector(mock_flojoy_decorator):
     np.testing.assert_allclose(res.v, x.v + y.v)
 
 
-def test_ADD_Vecotr_Scalar(mock_flojoy_decorator):
+def test_ADD_Vector_Scalar(mock_flojoy_decorator):
     import ADD
 
     x = Vector(v=np.arange(-10, 10, 1))
