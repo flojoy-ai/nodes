@@ -2307,7 +2307,7 @@
                 ],
                 "surface": [
                   {
-                    "type": "surface",
+                    "type": "Surface",
                     "colorbar": {
                       "outlinewidth": 0,
                       "ticks": ""
@@ -2881,7 +2881,7 @@
           }
         },
         "data": {
-          "type": "ordered_pair",
+          "type": "OrderedPair",
           "x": [
             0,
             1,
@@ -7196,7 +7196,7 @@
                 ],
                 "surface": [
                   {
-                    "type": "surface",
+                    "type": "Surface",
                     "colorbar": {
                       "outlinewidth": 0,
                       "ticks": ""
@@ -7764,7 +7764,7 @@
           }
         },
         "data": {
-          "type": "ordered_pair",
+          "type": "OrderedPair",
           "x": [
             1,
             1,
@@ -12079,7 +12079,7 @@
                 ],
                 "surface": [
                   {
-                    "type": "surface",
+                    "type": "Surface",
                     "colorbar": {
                       "outlinewidth": 0,
                       "ticks": ""
@@ -12647,7 +12647,7 @@
           }
         },
         "data": {
-          "type": "ordered_pair",
+          "type": "OrderedPair",
           "x": [
             1,
             1,

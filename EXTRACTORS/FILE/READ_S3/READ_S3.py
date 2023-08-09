@@ -27,7 +27,7 @@ def READ_S3(
     Returns
     ------
     DataContainer:
-        type 'dataframe', df
+        type 'DataFrame', df
     """
     if s3_name == "":
         raise ValueError("Provide a name that was used to set AWS S3 key")

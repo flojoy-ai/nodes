@@ -22,7 +22,7 @@ def test_DIVIDE_vec_scalar(mock_flojoy_decorator):
     np.testing.assert_allclose(res.v, (x.v / 2) / 3)
 
 
-def test_DIVIDE_ordered_pair_vector(mock_flojoy_decorator):
+def test_DIVIDE_OrderedPair_vector(mock_flojoy_decorator):
     import DIVIDE
 
     x = np.arange(10, 20, 1)
