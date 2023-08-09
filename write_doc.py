@@ -2,6 +2,7 @@ import os, shutil
 import traceback
 import sys
 import textwrap
+import flojoy_nodes as fjn
 
 
 path = os.path
