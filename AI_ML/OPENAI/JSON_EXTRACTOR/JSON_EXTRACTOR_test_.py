@@ -20,7 +20,7 @@ def test_JSON_EXTRACTOR(mock_flojoy_decorator):
     if api_key:
         import JSON_EXTRACTOR
 
-        properties = "price,name,model"
+        properties = ["price","name","model"]
         prompt = """Headset Gamer Bluetooth MJ23 - $100 
 Extract the price, name and model from the above text."""
         mock_properties_list = ["price", "name", "model"]
