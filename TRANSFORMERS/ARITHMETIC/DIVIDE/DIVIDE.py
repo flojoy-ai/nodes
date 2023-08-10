@@ -13,7 +13,7 @@ def DIVIDE(
 
     When a constant is divided into an array or matrix, each element in the array or matrix will be increased by the constant value.
     """
-    
+
     initial = get_val(a)
     seq = map(lambda dc: get_val(dc), b)
     y = reduce(lambda u, v: np.divide(u, v), seq, initial)

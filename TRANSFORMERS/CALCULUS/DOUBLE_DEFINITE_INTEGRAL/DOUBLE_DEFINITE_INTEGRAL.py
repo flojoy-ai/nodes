@@ -37,7 +37,7 @@ def DOUBLE_DEFINITE_INTEGRAL(
     -------
     Scalar
     """
-    
+
     func = parse_expr(function)
     symbols = tuple(func.free_symbols)
 

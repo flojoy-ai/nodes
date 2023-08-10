@@ -47,7 +47,7 @@ def RAND(
         Scalar if there is no input.
         c: the random number
     """
-    
+
     if upper_bound < lower_bound:
         upper_bound, lower_bound = lower_bound, upper_bound
 

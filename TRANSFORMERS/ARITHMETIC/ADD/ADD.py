@@ -11,11 +11,11 @@ def ADD(
     """
     The ADD node adds two or more numeric arrays, matrices, dataframes, or constants element-wise.
 
-    When a constant is added to an array or matrix, each element in the array or matrix will be increased by the constant value. 
-    
+    When a constant is added to an array or matrix, each element in the array or matrix will be increased by the constant value.
+
     If two arrays or matrices of different sizes are added, the output will be the size of the larger array or matrix with only the overlapping elements changed.
     """
-    
+
     initial = get_val(a)
     seq = map(lambda dc: get_val(dc), b)
     y = reduce(lambda u, v: np.add(u, v), seq, initial)

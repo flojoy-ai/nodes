@@ -29,7 +29,7 @@ def PLOTLY_DATASET(
     -------
     DataFrame
     """
-    
+
     df = getattr(data, dataset_key)()
 
     return DataFrame(df=df)

@@ -24,7 +24,7 @@ def STFT(
 ) -> OrderedPair | Matrix | Scalar:
     """
     The STFT node is based on a numpy or scipy function.
-    
+
     The description of that function is as follows:
 
         Compute the Short Time Fourier Transform (STFT).
@@ -33,7 +33,7 @@ def STFT(
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects []'f', 't', 'Zxx']. 
+    select_return : This function has returns multiple objects []'f', 't', 'Zxx'].
         Select the desired one to return.
         See the respective function docs for descriptors.
     x : array_like
@@ -63,7 +63,7 @@ def STFT(
         detrended segment. If 'detrend' is 'False', no detrending is
         done. Defaults to 'False'.
     return_onesided : bool, optional
-        If 'True', return a one-sided spectrum for real data. 
+        If 'True', return a one-sided spectrum for real data.
         If 'False' return a two-sided spectrum. Defaults to 'True', but for
         complex data, a two-sided spectrum is always returned.
     boundary : str or None, optional

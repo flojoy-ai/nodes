@@ -21,7 +21,7 @@ def MOMENT(
 
         Calculate the nth moment about the mean for a sample.
 
-        A moment is a specific quantitative measure of the shape of a set of points. 
+        A moment is a specific quantitative measure of the shape of a set of points.
         It is often used to calculate coefficients of skewness and kurtosis due to its close relationship with them.
 
     Parameters

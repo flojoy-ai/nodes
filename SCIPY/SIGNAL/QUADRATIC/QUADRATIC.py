@@ -12,7 +12,7 @@ def QUADRATIC(
 ) -> OrderedPair | Matrix | Scalar:
     """
     The QUADRATIC node is based on a numpy or scipy function.
-    
+
     The description of that function is as follows:
 
         A quadratic B-spline.

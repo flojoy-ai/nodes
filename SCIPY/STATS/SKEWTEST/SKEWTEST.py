@@ -16,7 +16,7 @@ def SKEWTEST(
 ) -> OrderedPair | Matrix | Scalar:
     """
     The SKEWTEST node is based on a numpy or scipy function.
-    
+
     The description of that function is as follows:
 
         Test whether the skew is different from the normal distribution.
@@ -25,7 +25,7 @@ def SKEWTEST(
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['statistic', 'pvalue']. 
+    select_return : This function has returns multiple objects ['statistic', 'pvalue'].
         Select the desired one to return.
         See the respective function docs for descriptors.
     a : array

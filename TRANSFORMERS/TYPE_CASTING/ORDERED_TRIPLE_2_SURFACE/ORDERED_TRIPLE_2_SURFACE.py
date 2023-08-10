@@ -15,7 +15,7 @@ def ORDERED_TRIPLE_2_SURFACE(default: OrderedTriple) -> Surface:
     -------
     Surface
     """
-    
+
     x = np.unique(default.x)
     y = np.unique(default.y)
 

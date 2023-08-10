@@ -13,13 +13,13 @@ def MATRIX_POWER(
 ) -> Matrix | Scalar:
     """
     The MATRIX_POWER node is based on a numpy or scipy function.
-    
+
     The description of that function is as follows:
 
         Raise a square matrix to the (integer) power 'n'.
 
-        For positive integers 'n', the power is computed by repeated matrix squarings and matrix multiplications. 
-        
+        For positive integers 'n', the power is computed by repeated matrix squarings and matrix multiplications.
+
         If "n == 0", the identity matrix of the same shape as M is returned. If "n < 0", the inverse is computed and then raised to "abs(n)".
 
     Note: Stacks of object matrices are not currently supported.

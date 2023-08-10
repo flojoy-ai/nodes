@@ -14,6 +14,6 @@ def READ_CSV(
     file_path : str
         File path to the .csv file or an URL of a .csv file.
     """
-    
+
     df = pd.read_csv(file_path)  # type: ignore
     return DataFrame(df=df)

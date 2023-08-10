@@ -13,7 +13,7 @@ def SURFACE3D(default: OrderedTriple | DataFrame | Surface | Matrix) -> Plotly:
     ------
     default : OrderedTriple|DataFrame|Surface|Matrix
     """
-    
+
     layout = plot_layout(title="SURFACE3D")
 
     if isinstance(default, OrderedTriple):

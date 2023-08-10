@@ -35,7 +35,7 @@ def LOCAL_FILE(
         type 'image' for file_type 'image'
         type 'dataframe' for file_type 'json', 'csv', 'excel', 'xml'
     """
-    
+
     match file_type:
         case "Image":
             default_image_path = path.join(

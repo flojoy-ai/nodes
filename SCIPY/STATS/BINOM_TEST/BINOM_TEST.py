@@ -33,10 +33,10 @@ def BINOM_TEST(
         The number of trials.  This is ignored if x gives both the
         number of successes and failures.
     p : float, optional
-        The hypothesized probability of success. 0 <= p <= 1. 
+        The hypothesized probability of success. 0 <= p <= 1.
         The default value is p = 0.5.
     alternative : {'two-sided', 'greater', 'less'}, optional
-        Indicates the alternative hypothesis. 
+        Indicates the alternative hypothesis.
         The default value is 'two-sided'.
 
     Returns

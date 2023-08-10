@@ -19,13 +19,13 @@ def COMPOSITE(
     Inputs
     ------
     default : OrderedPair|DataFrame|Matrix|Vector
-    
+
     Parameters
     ----------
     first_figure : 'bar' | 'line' | 'histogram' | 'scatter'
     second_figure : 'bar' | 'line' | 'histogram' | 'scatter'
     """
-    
+
     layout = plot_layout(title="COMPOSITE")
     fig = go.Figure(layout=layout)
     match_figure(fig, first_figure, primary_trace)

@@ -59,7 +59,7 @@ def FFT(
         real: real section of the signal
         imag: imaginary section of the signal
     """
-    
+
     if sample_rate <= 0:
         raise ValueError(f"Sample rate must be greater than 0")
 

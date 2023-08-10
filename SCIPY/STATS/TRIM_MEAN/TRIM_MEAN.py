@@ -19,8 +19,8 @@ def TRIM_MEAN(
 
         Return mean of array after trimming distribution from both tails.
 
-        If `proportiontocut` = 0.1, slices off 'leftmost' and 'rightmost' 10% of scores. 
-        The input is sorted before slicing. 
+        If `proportiontocut` = 0.1, slices off 'leftmost' and 'rightmost' 10% of scores.
+        The input is sorted before slicing.
         Slices off less if proportion results in a non-integer slice index (i.e. conservatively slices off 'proportiontocut').
 
     Parameters

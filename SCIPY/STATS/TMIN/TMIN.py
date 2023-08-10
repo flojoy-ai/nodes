@@ -33,7 +33,7 @@ def TMIN(
     axis : int or None, optional
         Axis along which to operate. Default is 0. If None, compute over the whole array 'a'.
     inclusive : {True, False}, optional
-        This flag determines whether values exactly equal to the lower limit are included. 
+        This flag determines whether values exactly equal to the lower limit are included.
         The default value is True.
     nan_policy : {'propagate', 'raise', 'omit'}, optional
         Defines how to handle when input contains nan.

@@ -24,7 +24,7 @@ def DESCRIBE(
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['nobs', 'mean', 'variance', 'skewness', 'kurtosis']. 
+    select_return : This function has returns multiple objects ['nobs', 'mean', 'variance', 'skewness', 'kurtosis'].
         Select the desired one to return.
         See the respective function docs for descriptors.
     a : array_like

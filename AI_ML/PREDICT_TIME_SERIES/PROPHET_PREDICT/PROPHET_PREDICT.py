@@ -32,15 +32,15 @@ def PROPHET_PREDICT(
     Parameters
     ----------
     run_forecast : bool
-        If True (default case), the dataframe of the returning DataContainer 
+        If True (default case), the dataframe of the returning DataContainer
         ("m" parameter of the DataContainer) will be the forecasted dataframe.
         It will also have an "extra" field with the key "original", which is
         the original dataframe passed in.
 
         If False, the returning dataframe will be the original data.
 
-        This node will also always have an "extra" field, run_forecast, which 
-        matches that of the parameters passed in. This is for future nodes 
+        This node will also always have an "extra" field, run_forecast, which
+        matches that of the parameters passed in. This is for future nodes
         to know if a forecast has already been run.
 
         Default = True
