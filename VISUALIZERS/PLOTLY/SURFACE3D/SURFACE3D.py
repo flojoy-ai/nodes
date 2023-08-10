@@ -12,45 +12,53 @@ def SURFACE3D(default: OrderedTriple | DataFrame | Surface | Matrix) -> Plotly:
     Inputs
     ------
     default : OrderedTriple|DataFrame|Surface|Matrix
+        the DataContainer to be visualized
+
+    Outputs
+    -------
+    Plotly
+        the DataContainer containing Plotly 3D Surface visualization
+
     """
 
     layout = plot_layout(title="SURFACE3D")
 
-    if isinstance(default, OrderedTriple):
-        x = np.unique(default.x)
-        y = np.unique(default.y)
+    match default:
+        case OrderedTriple():
+            x = np.unique(default.x)
+            y = np.unique(default.y)
 
-        z_size = len(x) * len(y)
+            z_size = len(x) * len(y)
 
-        # Truncate or pad the z array to match the desired size
-        if z_size > len(default.z):
-            z = np.pad(
-                default.z, (0, z_size - len(default.z)), mode="constant"
-            ).reshape(len(y), len(x))
-        else:
-            z = default.z[:z_size].reshape(len(y), len(x))
+            # Truncate or pad the z array to match the desired size
+            if z_size > len(default.z):
+                z = np.pad(
+                    default.z, (0, z_size - len(default.z)), mode="constant"
+                ).reshape(len(y), len(x))
+            else:
+                z = default.z[:z_size].reshape(len(y), len(x))
 
-        X, Y = np.meshgrid(x, y)
-        if z.ndim < 2:
-            num_columns = len(z) // 2
-            z = np.reshape(z, (2, num_columns))
-        fig = go.Figure(
-            data=[go.Surface(x=X, y=Y, z=z)],
-            layout=layout,
-        )
-    elif isinstance(default, Surface):
-        x = default.x
-        y = default.y
-        z = default.z
-        fig = go.Figure(data=[go.Surface(x=x, y=y, z=z)], layout=layout)
-    elif isinstance(default, Matrix):
-        m = default.m
-        if m.ndim < 2:
-            num_columns = len(m) // 2
-            m = np.reshape(m, (2, num_columns))
-        fig = go.Figure(data=[go.Surface(z=m)], layout=layout)
-    else:
-        df = default.m
-        fig = go.Figure(data=[go.Surface(z=df.values)], layout=layout)
+            X, Y = np.meshgrid(x, y)
+            if z.ndim < 2:
+                num_columns = len(z) // 2
+                z = np.reshape(z, (2, num_columns))
+            fig = go.Figure(
+                data=[go.Surface(x=X, y=Y, z=z)],
+                layout=layout,
+            )
+        case Surface():
+            x = default.x
+            y = default.y
+            z = default.z
+            fig = go.Figure(data=[go.Surface(x=x, y=y, z=z)], layout=layout)
+        case Matrix():
+            m = default.m
+            if m.ndim < 2:
+                num_columns = len(m) // 2
+                m = np.reshape(m, (2, num_columns))
+            fig = go.Figure(data=[go.Surface(z=m)], layout=layout)
+        case DataFrame():
+            df = default.m
+            fig = go.Figure(data=[go.Surface(z=df.values)], layout=layout)
 
     return Plotly(fig=fig)
