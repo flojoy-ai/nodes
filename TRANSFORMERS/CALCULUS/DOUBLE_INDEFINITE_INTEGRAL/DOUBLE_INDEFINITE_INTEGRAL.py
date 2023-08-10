@@ -3,10 +3,10 @@ import numpy as np
 
 
 def contains_only_numbers(column, colName):
-    for value in column:
-        if not isinstance(value.item(), (int, float)):
+    for i in range(0, len(column)):
+        if not isinstance(column.item(i), (int, float)):
             raise ValueError(
-                f"The value {value.item()} in column {colName} is of type {type(value.item())}. The OrderedTriple need to contain only int or float values."
+                f"The value {column.item(i)} in column {colName} is of type {type(column.item(i))}. The OrderedTriple need to contain only int or float values."
             )
 
 
