@@ -7,15 +7,20 @@ import pandas as pd
 def OPEN_PARQUET(file_path: str = "") -> DataFrame:
     """
     The OPEN_PARQUET node loads a local file of the .parquet file format. It then returns the file as a pandas.Dataframe type.
+    
+    Inputs
+    ------
+    default: None
 
     Parameters
     ----------
     file_path : str
-        path to the file to be loaded
+        File path to the .parquet file or an URL of a .parquet file.
 
     Returns
     -------
-    Dataframe
+    DataFrame
+        type `dataframe` defined with .parquet file
     """
 
     if file_path[-8:] != ".parquet":
