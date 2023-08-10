@@ -4,7 +4,7 @@ import pathlib
 
 __all__ = ["get_module_func", "create_map"]
 
-NODES_PATH = pathlib.Path(__file__).parent.parent.joinpath("nodes")
+NODES_PATH = pathlib.Path(__file__).parent.parent
 
 mapping = {}
 
@@ -31,8 +31,8 @@ def create_map():
         for file in files:
             # map file name to file path
             if file.endswith(".py"):
-                mapping[file[:-3]] = "flojoy." + (
-                    os.path.join(root[root.find("nodes") :], file[:-3])
+                mapping[file[:-3]] = "flojoy_nodes." + (
+                    os.path.join(root[root.find("nodes") + 6 :], file[:-3])
                     .replace("/", ".")
                     .replace("\\", ".")
                 )

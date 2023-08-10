@@ -6,11 +6,7 @@ import pathlib
 NODES_PATH = pathlib.Path(__file__).parent.parent
 
 badbadnotgood = ["VCTR.py", "__init__.py", ".DS_Store"]
-ignore_folders = [
-    "assets",
-    "utils",
-    "flojoy_nodes/nodes"
-]
+ignore_folders = ["assets", "utils", "flojoy_nodes/nodes"]
 
 
 def get_node_files():
@@ -36,13 +32,11 @@ def write_metadata(out_path: str):
     function_dict: dict[str, dict[str, str]] = dict()
     for single_file in node_files:
         with open(single_file) as f:
-            function_dict[os.path.basename(single_file)] = {
+            data = {
                 "metadata": f.read(),
-                "path": "flojoy."
-                + single_file[single_file.find("nodes") :]
-                .replace("/", ".")
-                .replace("\\", ".")[:-3],
+                "path": single_file[single_file.find("nodes") + 6 :].replace("\\", "/"),
             }
+            function_dict[os.path.basename(single_file)] = data
 
     s = json.dumps(obj=function_dict, indent=2)
     with open(out_path, "w") as out_file:

@@ -68,7 +68,7 @@ def browse_directories(dir_path: str, cur_type: Optional[str] = None):
     basename = os.path.basename(dir_path)
     result["name"] = (
         "ROOT"
-        if os.path.basename(dir_path) == "nodes"
+        if os.path.basename(dir_path) == "flojoy_nodes"
         else NAME_MAP.get(basename, basename)
     )
     if result["name"] != "ROOT":
@@ -90,7 +90,7 @@ def browse_directories(dir_path: str, cur_type: Optional[str] = None):
                 or "examples" in entry.path
                 or "a1-[autogen]" in entry.path
                 or "appendix" in entry.path
-                or "nodes" in entry.path
+                or "flojoy_nodes/nodes" in entry.path.replace("\\", "/")
             ):
                 continue
             cur_type = basename if basename in ALLOWED_TYPES else cur_type

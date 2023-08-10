@@ -2,6 +2,7 @@ from setuptools import setup, find_packages
 from setuptools.command.install import install
 from generate_nodes_init_file import generate_nodes_import_statements
 
+
 class CustomInstallCommand(install):
     def run(self):
         # Place your custom logic here
