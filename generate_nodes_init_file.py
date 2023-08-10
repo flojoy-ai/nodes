@@ -47,4 +47,4 @@ def make_import_statement(file_path: str):
     module_name = module_location.split(".")[-1]
     if not module_name.isupper():
         return ""
-    return f"from ..{module_location} import *"
+    return f"from ..{module_location} import {module_name}"
