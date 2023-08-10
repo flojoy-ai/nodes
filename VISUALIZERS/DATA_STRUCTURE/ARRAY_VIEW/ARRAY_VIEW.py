@@ -27,6 +27,7 @@ def ARRAY_VIEW(default: OrderedPair | Matrix | DataFrame | Image) -> Plotly:
     Inputs
     -------
     default : OrderedPair | DataFrame | Matrix | Image
+        DataContainer object to be visualized as array
 
     Returns
     -------

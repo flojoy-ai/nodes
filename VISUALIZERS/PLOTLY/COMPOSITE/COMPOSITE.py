@@ -18,8 +18,12 @@ def COMPOSITE(
 
     Inputs
     ------
-    default : OrderedPair|DataFrame|Matrix|Vector
-
+    primary_trace : OrderedPair|DataFrame|Matrix|Vector
+        DataContainer object to be visualized as the first figure
+    
+    secondary_trace : OrderedPair|DataFrame|Matrix|Vector
+        DataContainer object to be visualized as the second figure
+    
     Parameters
     ----------
     first_figure : 'bar' | 'line' | 'histogram' | 'scatter'

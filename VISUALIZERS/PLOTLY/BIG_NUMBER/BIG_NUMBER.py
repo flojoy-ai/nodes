@@ -28,6 +28,7 @@ def BIG_NUMBER(
     Inputs
     ------
     default : OrderedPair|Scalar|Vector
+        DataContainer object to be visualized
 
     Parameters
     ----------

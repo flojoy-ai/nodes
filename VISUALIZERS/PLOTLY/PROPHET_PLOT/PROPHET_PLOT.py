@@ -21,8 +21,11 @@ def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) ->
     Inputs
     ------
     default : DataFrame
+        DataContainer object to be visualized
+    
     data : DataContainer
-
+        DataContainer object that holds prophet model and forecast data in `extra` field
+   
     Parameters
     ----------
     periods : int

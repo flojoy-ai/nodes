@@ -12,6 +12,8 @@ def TABLE(default: OrderedTriple | OrderedPair | DataFrame | Vector) -> Plotly:
     Inputs
     ------
     default : OrderedTriple|OrderedPair|DataFrame|Vector
+        DataContainer object to be visualized
+    
     """
 
     layout = plot_layout(title="TABLE")

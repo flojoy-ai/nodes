@@ -74,6 +74,7 @@ def MATRIX_VIEW(default: OrderedPair | Matrix) -> Plotly:
     Inputs
     -------
     default : OrderedPair | Matrix
+        DataContainer object to be visualized in matrix format with Plotly table
 
     Returns
     -------

@@ -13,6 +13,8 @@ def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     Inputs
     ------
     default : OrderedPair|DataFrame|Matrix|Vector
+        DataContainer object to be visualized
+    
     """
 
     layout = plot_layout(title="LINE")
