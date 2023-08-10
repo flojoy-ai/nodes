@@ -20,7 +20,7 @@ def OPEN_PARQUET(file_path: str = "") -> DataFrame:
     Returns
     -------
     DataFrame
-        type `dataframe` defined with .parquet file
+        DataFrame loaded from .parquet file
     """
 
     if file_path[-8:] != ".parquet":
