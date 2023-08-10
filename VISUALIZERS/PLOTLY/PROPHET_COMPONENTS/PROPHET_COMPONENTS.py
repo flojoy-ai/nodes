@@ -24,10 +24,10 @@ def PROPHET_COMPONENTS(
     ------
     default : DataFrame
         DataContainer object to be visualized
-    
+
     data : DataContainer
         DataContainer object that holds prophet model and forecast data in `extra` field
-    
+
 
     Parameters
     ----------

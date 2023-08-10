@@ -10,7 +10,7 @@ def TEXT_VIEW(default: TextBlob):
     ------
     default : TextBlob
         DataContainer object to be visualized in text format
-    
+
     """
 
     return default

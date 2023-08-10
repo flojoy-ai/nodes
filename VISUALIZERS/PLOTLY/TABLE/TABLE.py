@@ -13,7 +13,7 @@ def TABLE(default: OrderedTriple | OrderedPair | DataFrame | Vector) -> Plotly:
     ------
     default : OrderedTriple|OrderedPair|DataFrame|Vector
         DataContainer object to be visualized
-    
+
     """
 
     layout = plot_layout(title="TABLE")

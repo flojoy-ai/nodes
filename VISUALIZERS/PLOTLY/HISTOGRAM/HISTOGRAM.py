@@ -13,7 +13,7 @@ def HISTOGRAM(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     ------
     default : OrderedPair|DataFrame|Matrix|Vector
         DataContainer object to be visualized
-    
+
     """
 
     layout = plot_layout(title="HISTOGRAM")

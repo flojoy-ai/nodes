@@ -13,7 +13,7 @@ def SCATTER3D(default: OrderedTriple | DataFrame) -> Plotly:
     ------
     default : OrderedTriple|DataFrame
         DataContainer object to be visualized
-    
+
     """
 
     layout = plot_layout(title="SCATTER3D")
