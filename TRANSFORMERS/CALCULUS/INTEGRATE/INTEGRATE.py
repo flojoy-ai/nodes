@@ -17,17 +17,13 @@ def trapz(x: np.ndarray, y: np.ndarray):
 @flojoy
 def INTEGRATE(default: OrderedPair | Vector) -> OrderedPair:
     """
-    The INTEGRATE node takes two lists as input and integrates it using the composite
-    trapezoidal rule.
-
-    Parameters
-    ----------
-    None
+    The INTEGRATE node takes two lists as input and integrates it using the composite trapezoidal rule.
 
     Returns
     -------
-    OrderedPair, x, y
+    OrderedPair
     """
+    
     match default:
         case OrderedPair():
             input_x = default.x

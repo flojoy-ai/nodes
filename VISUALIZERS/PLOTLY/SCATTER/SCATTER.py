@@ -7,16 +7,14 @@ from nodes.VISUALIZERS.template import plot_layout
 
 @flojoy
 def SCATTER(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
-    """The SCATTER Node creates a Plotly Scatter visualization for a given input data container.
-
-    Parameters:
-    ----------
-    None
-
-    Supported DC types:
-    -------------------
-    `OrderedPair`, `DataFrame`, `Matrix`
     """
+    The SCATTER node creates a Plotly Scatter visualization for a given input data container.
+
+    Inputs
+    ------
+    default : OrderedPair|DataFrame|Matrix|Vector
+    """
+    
     layout = plot_layout(title="SCATTER")
     fig = go.Figure(layout=layout)
     match default:

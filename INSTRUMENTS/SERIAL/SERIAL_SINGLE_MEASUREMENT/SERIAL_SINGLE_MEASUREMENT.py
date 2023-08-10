@@ -11,16 +11,14 @@ def SERIAL_SINGLE_MEASUREMENT(
     baudrate: int = 9600,
 ) -> OrderedPair:
     """
-    The SERIAL_SINGLE_MEASUREMENT Node takes a single reading of data from an Ardunio,
-    or a similar serial device.
+    The SERIAL_SINGLE_MEASUREMENT node takes a single reading of data from an Ardunio or a similar serial device.
 
-    Parameters :
-    ------------
-    baudrate: int
+    Parameters
+    ----------
+    baudrate : int
         Baud rate for the serial communication.
-
-    comport: String
-        Defines the comunication port on which the Serial device is connected
+    comport : string
+        Defines the comunication port on which the serial device is connected.
     """
 
     ser = serial.Serial(comport, timeout=1, baudrate=baudrate)

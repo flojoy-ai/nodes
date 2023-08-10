@@ -4,10 +4,12 @@ from flojoy import flojoy, OrderedPair, Matrix
 
 @flojoy
 def INVERT(default: OrderedPair | Matrix, rcond: float = 1.0) -> OrderedPair | Matrix:
-    """Takes 2 inputs, one matrix and one rcond if not square matrix.
-    Inverts them (or pseudo invert) and returns the result.
-    If the entered value is a scalar it returns the multiplciative
-    inverse 1/x"""
+    """
+    The INVERT node takes two inputs, one matrix and one rcond if not a square matrix, then inverts them (or pseudo invert) and returns the result.
+
+    If the entered value is a scalar, it returns the multiplciative inverse 1/x.
+    """
+    
     print(f"INVERT params: {rcond}")
     a = np.eye(3)
     b: float = rcond
