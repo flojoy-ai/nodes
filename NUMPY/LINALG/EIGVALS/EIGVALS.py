@@ -10,24 +10,24 @@ import numpy.linalg
 def EIGVALS(
     default: Matrix,
 ) -> Matrix | Scalar:
-    """The EIGVALS node is based on a numpy or scipy function.
+    """
+    The EIGVALS node is based on a numpy or scipy function.
+
     The description of that function is as follows:
 
+        Compute the eigenvalues of a general matrix.
 
-            Compute the eigenvalues of a general matrix.
-
-    Main difference between `eigvals` and `eig`: the eigenvectors aren't
-            returned.
+    Main difference between `eigvals` and `eig`: the eigenvectors are not returned.
 
     Parameters
     ----------
     a : (..., M, M) array_like
-            A complex- or real-valued matrix whose eigenvalues will be computed.
+        A complex- or real-valued matrix whose eigenvalues will be computed.
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = numpy.linalg.eigvals(

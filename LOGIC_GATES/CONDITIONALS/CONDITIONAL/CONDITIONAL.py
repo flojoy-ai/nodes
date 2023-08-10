@@ -13,13 +13,15 @@ def CONDITIONAL(
     y: OrderedPair,
     operator_type: Literal["<=", ">", "<", ">=", "!=", "=="] = ">=",
 ) -> ConditionalOutput:
-    """The CONDITIONAL node is a specialized node that compares two given DataContainer inputs
-    and enqueues nodes connected with `true` or `false` output based on the comparison result.
+    """
+    The CONDITIONAL node is a specialized node that compares two given DataContainer inputs. 
+    
+    It then enqueues nodes connected with a "true" or "false" output based on the comparison result.
 
-    Parameters:
-    -----------
-    operator_type: str, optional
-        Specifies the type of comparison to be performed between the two inputs. The default value is `>=`.
+    Parameters
+    ----------
+    operator_type : select
+        Specifies the type of comparison to be performed between the two inputs. The default value is ">=".
     """
 
     y_of_x = x.y

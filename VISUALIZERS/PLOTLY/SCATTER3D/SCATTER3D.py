@@ -6,16 +6,14 @@ from nodes.VISUALIZERS.template import plot_layout
 
 @flojoy
 def SCATTER3D(default: OrderedTriple | DataFrame) -> Plotly:
-    """The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input data container.
-
-    Parameters:
-    -----------
-    None
-
-    Supported DC types:
-    -------------------
-    `OrderedTriple`, `DataFrame`
     """
+    The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input data container.
+
+    Inputs
+    ------
+    default : OrderedTriple|DataFrame
+    """
+    
     layout = plot_layout(title="SCATTER3D")
     fig = go.Figure(layout=layout)
     if isinstance(default, OrderedTriple):

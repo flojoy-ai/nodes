@@ -11,25 +11,26 @@ def MVSDIST(
     default: OrderedPair | Matrix,
     select_return: Literal["mdist", "vdist", "sdist"] = "mdist",
 ) -> OrderedPair | Matrix | Scalar:
-    """The MVSDIST node is based on a numpy or scipy function.
+    """
+    The MVSDIST node is based on a numpy or scipy function.
+
     The description of that function is as follows:
 
-
-            'Frozen' distributions for mean, variance, and standard deviation of data.
+        'Frozen' distributions for mean, variance, and standard deviation of data.
 
     Parameters
     ----------
-    select_return : This function has returns multiple Objects:
-            ['mdist', 'vdist', 'sdist']. Select the desired one to return.
-            See the respective function docs for descriptors.
+    select_return : This function has returns multiple Objects ['mdist', 'vdist', 'sdist']. 
+        Select the desired one to return.
+        See the respective function docs for descriptors.
     data : array_like
-            Input array. Converted to 1-D using ravel.
-            Requires 2 or more data-points.
+        Input array. Converted to 1-D using ravel.
+        Requires 2 or more data-points.
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = OrderedPair(

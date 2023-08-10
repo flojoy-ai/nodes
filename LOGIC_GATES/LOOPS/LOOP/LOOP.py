@@ -60,13 +60,15 @@ def LOOP(
     default: Optional[DataContainer] = None,
     num_loops: int = -1,
 ) -> LoopOutput:
-    """The LOOP node is a specialized node that iterates through the body nodes for a given number of times.
+    """
+    The LOOP node is a specialized node that iterates through the body nodes for a given number of times.
 
     Parameters
     ----------
     num_loops : int
-        number of times to iterate through body nodes default is `-1` meaning infinity.
+        number of times to iterate through body nodes, default is "-1" meaning infinity.
     """
+
     node_id = default_params.node_id
 
     print("\n\nstart loop:", node_id)

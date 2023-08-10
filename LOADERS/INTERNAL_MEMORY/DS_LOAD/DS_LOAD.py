@@ -4,17 +4,19 @@ import numpy as np
 
 @flojoy
 def DS_LOAD(default: OrderedPair, referred_node: NodeReference) -> OrderedPair:
-    """The DS_LOAD node loads data directly from in-memory data storage.
+    """
+    The DS_LOAD node loads data directly from in-memory data storage.
 
     Parameters
     ----------
-    referred_node: str
+    referred_node : str
         The ID of the node to retrieve the result from.
 
     Returns
     -------
     OrderedPair
     """
+    
     x = default.y
     if referred_node.unwrap() != "":
         referred_node_key = referred_node.unwrap().split("-")[0]

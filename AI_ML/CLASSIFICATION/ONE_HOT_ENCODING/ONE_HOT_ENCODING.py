@@ -8,11 +8,8 @@ def ONE_HOT_ENCODING(
     data: DataFrame,
     feature_col: Optional[DataFrame] = None,
 ) -> DataFrame:
-    """The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe and columns dataframe containing categorical features.
-
-    Parameters
-    ----------
-    None
+    """
+    The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe and columns dataframe containing categorical features.
 
     Returns
     -------
