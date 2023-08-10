@@ -16,9 +16,9 @@ def BASIC_OSCILLATOR(
 ) -> OrderedPair:
     """
     The BASIC_OSCILLATOR node is a combination of the LINSPACE and SINE nodes.
-    
+
     It offers a more straightforward way to generate signals, with sample rate and the time in seconds as parameters, along with all the parameters in the SINE node.
-    
+
     This node is particularly useful with signal processing applications, as the sample rate is commonly used.
 
     Parameters
@@ -28,10 +28,15 @@ def BASIC_OSCILLATOR(
     time : float
         The total amount of time of the signal.
     waveform : select
+        The waveform type of the wave.
     amplitude : float
+        The amplitude of the wave.
     frequency : float
+        The wave frequency in radians/2pi.
     offset : float
+        The y axis offset of the function.
     phase : float
+        The x axis offset of the function.
 
     Returns
     -------
@@ -39,7 +44,7 @@ def BASIC_OSCILLATOR(
         x: time domain
         y: generated signal
     """
-    
+
     samples = sample_rate * time
     x = np.linspace(0, time, samples)
 

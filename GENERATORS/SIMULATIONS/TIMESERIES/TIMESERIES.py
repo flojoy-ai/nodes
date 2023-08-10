@@ -9,7 +9,7 @@ def TIMESERIES(
     start_date: str = "2023-01-01", end_date: str = "2023-07-20"
 ) -> DataFrame:
     """
-    The TIMESERIES node generates a random timeseries vector.
+    The TIMESERIES node generates a random timeseries vector (as a DataFrame).
 
     Parameters
     ----------
@@ -17,6 +17,11 @@ def TIMESERIES(
         The start date of the timeseries in the format YYYY:MM:DD.
     end_date : str
         The end date of the timeseries in the format YYYY:MM:DD.
+
+    Returns
+    -------
+    DataFrame
+        m: the resulting timeseries
     """
 
     try:
