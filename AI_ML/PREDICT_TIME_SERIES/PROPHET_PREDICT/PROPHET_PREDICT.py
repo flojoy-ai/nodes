@@ -23,10 +23,11 @@ def PROPHET_PREDICT(
 
     This node always returns a DataContainer of a dataframe type. It will also always return an "extra" field with a key "prophet" of which the value is the JSONified Prophet model.
     This model can be loaded as follows:
-        python
-            from prophet.serialize import model_from_json
+        ```python
+        from prophet.serialize import model_from_json
 
         model = model_from_json(dc_inputs.extra["prophet"])
+        ```
 
     Parameters
     ----------

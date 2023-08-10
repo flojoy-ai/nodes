@@ -12,14 +12,15 @@ class CountVectorizerOutput(TypedDict):
 @flojoy(deps={"scikit-learn": "1.2.2"})
 def COUNT_VECTORIZER(default: DataFrame | Matrix | Vector) -> CountVectorizerOutput:
     """
-    The COUNT_VECTORIZER node receives a collection (matrix, vector or dataframe) of text documents to a matrix of token counts.
+    The COUNT_VECTORIZER node receives a collection (matrix, vector or dataframe) of 
+    text documents to a matrix of token counts.
 
     Returns
     -------
     tokens: DataFrame
-        Dataframe(df) holds all the unique tokens observed from the input.
+        holds all the unique tokens observed from the input.
     word_count_vector: Vector
-        Vector(v) contains the occurences of these tokens from each sentence.
+        contains the occurences of these tokens from each sentence.
     """
 
     if isinstance(default, DataFrame):

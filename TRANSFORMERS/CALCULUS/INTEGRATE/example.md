@@ -1,4 +1,4 @@
-In this example, the `LINSPACE` node generate two lists (the `Ordered_pair` composed of x and y) that are required for the `INTEGRATE` node.
+In this example, the `LINSPACE` node generate two lists (the `OrderedPair` composed of x and y) that are required for the `INTEGRATE` node.
 
 Then `INTEGRATE` node computes its integration using trapezoidal rule on the given input lists.
 

@@ -13,7 +13,7 @@ def ONE_HOT_ENCODING(
 
     Returns
     -------
-    Dataframe
+    DataFrame
         The one hot encoding of the input features.
     """
 

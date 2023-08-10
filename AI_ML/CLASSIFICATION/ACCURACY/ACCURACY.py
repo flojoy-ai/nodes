@@ -23,7 +23,7 @@ def ACCURACY(
     
     Returns
     -------
-    dataframe
+    DataFrame
         The input predictions dataframe, with an extra boolean column "prediction_correct".
     """
 
