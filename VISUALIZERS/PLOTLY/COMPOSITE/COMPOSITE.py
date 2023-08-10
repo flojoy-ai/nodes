@@ -11,7 +11,7 @@ def COMPOSITE(
     primary_trace: OrderedPair | DataFrame | Matrix | Vector,
     secondary_trace: OrderedPair | DataFrame | Matrix | Vector,
     first_figure: Literal["bar", "line", "histogram", "scatter"] = "scatter",
-    second_figure: Literal["bar", "line", "histogram", "scatter"] = "scatter",
+    second_figure: Literal["bar", "line", "histogram", "scatter"] = "line",
 ) -> Plotly:
     """
     The COMPOSITE node creates a combination of Plotly visualizations for a given input data container.
@@ -23,7 +23,9 @@ def COMPOSITE(
     Parameters
     ----------
     first_figure : 'bar' | 'line' | 'histogram' | 'scatter'
+        plotly type to display as the first figure, default is 'scatter'
     second_figure : 'bar' | 'line' | 'histogram' | 'scatter'
+        plotly type to display as the second figure, default is 'line'
     """
 
     layout = plot_layout(title="COMPOSITE")

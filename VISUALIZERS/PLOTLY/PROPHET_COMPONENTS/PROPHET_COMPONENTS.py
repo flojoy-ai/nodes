@@ -1,7 +1,7 @@
 from flojoy import flojoy, run_in_venv, DataFrame, Plotly, DataContainer
 
 
-@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26", "pystan": "2.19.1.1"})
+@flojoy
 @run_in_venv(
     pip_dependencies=[
         "prophet==1.1.4",
@@ -11,20 +11,26 @@ def PROPHET_COMPONENTS(
     default: DataFrame, data: DataContainer, periods: int = 365
 ) -> Plotly:
     """
-    The PROPHET_COMPONENTS node plots the components of the prophet model trained in the PROPHET_PREDICT node. This is the output plotly graph from the "plot_components_plotly" function from "prophet.plot". It expects the trained Prophet model from the PROPHET_PREDICT node as input.
+    The PROPHET_COMPONENTS node plots the components of the prophet model trained in the PROPHET_PREDICT node.
+    This is the output plotly graph from the "plot_components_plotly" function from "prophet.plot".
+    It expects the trained Prophet model from the PROPHET_PREDICT node as input.
 
-    If "run_forecast" was True in that node, the forecasted dataframe will be available here as the "m" dc_input attribute. Otherwise, this will make the predictions on the raw dataframe (in which case it will be the "m" attribute).
+    If "run_forecast" was True in that node, the forecasted dataframe will be available in "m" attribute of default input.
+    Otherwise, this will make the predictions on the raw dataframe (in which case it will be the "m" attribute of default input).
 
-    You can tell if that forecasted dataframe is available via the "extra" field, "run_forecast", of the dc_input (dc_inputs[0].extra["run_forecast"]).
+    You can tell if that forecasted dataframe is available via the "extra" field of data input - "run_forecast", (data.extra["run_forecast"]).
+
+    Inputs
+    ------
+    default : DataFrame
+    data : DataContainer
 
     Parameters
     ----------
     periods : int
         The number of periods out to predict.
         Only used if the node passed into this node (i.e. PROPHET_PREDICT) did NOT return the forecast.
-        If the forecast was included in the DataContainer, this parameter will be ignored.
-
-        Default = 365
+        If the forecast was included in the DataContainer, this parameter will be ignored. default is 365
 
     Returns
     -------
@@ -57,15 +63,15 @@ def PROPHET_COMPONENTS(
     def _apply_macos_prophet_hotfix():
         """This is a hotfix for MacOS. See https://github.com/facebook/prophet/issues/2250#issuecomment-1559516328 for more detail"""
 
-        if not sys.platform == "darwin":
+        if sys.platform != "darwin":
             return
 
         # Test if prophet works (i.e. if the hotfix had already been applied)
         try:
             _dummy_df = _make_dummy_dataframe_for_prophet()
             prophet.Prophet().fit(_dummy_df)
-        except RuntimeError as e:
-            print(f"Could not run prophet, applying hotfix...")
+        except RuntimeError:
+            print("Could not run prophet, applying hotfix...")
         else:
             return
 
