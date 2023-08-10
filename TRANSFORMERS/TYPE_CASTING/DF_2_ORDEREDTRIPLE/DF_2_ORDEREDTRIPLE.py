@@ -6,18 +6,19 @@ def DF_2_ORDEREDTRIPLE(
     default: DataFrame, x: int = 0, y: int = 1, z: int = 2
 ) -> OrderedTriple:
     """
-    Node to convert dataframe type data into OrderedTriple type data.
-    It takes one dataframe type data to picks 3 different columns to generate OrderedTriple type.
+    The DF_2_ORDEREDTRIPLE node converts a dataframe type data into an OrderedTriple type data.
+
+    It takes one dataframe type data and selects 3 different columns to generate the OrderedTriple type.
 
     Parameters
     ----------
-    x: the index of column that represents x axis
-    y: the index of column that represents y axis
-    z: the index of column that represents z axis
+    x : the index of the column that represents the x axis
+    y : the index of the column that represents the y axis
+    z : the index of the column that represents the z axis
 
     Returns
     -------
-    OrderTriple, x, y ,z
+    OrderedTriple
     """
 
     df = default.m

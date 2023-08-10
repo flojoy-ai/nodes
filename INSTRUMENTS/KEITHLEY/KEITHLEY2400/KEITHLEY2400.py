@@ -7,15 +7,14 @@ def KEITHLEY2400(
     default: OrderedPair | Vector, comport: str = "/dev/ttyUSB0", baudrate: float = 9600
 ) -> OrderedPair:
     """
-    IV curve measurement with a Keithley 2400 source meter, send voltages and measure currents.
+    The KEITHLEY2400 node takes a IV curve measurement with a Keithley 2400 source meter, send voltages, and measures currents.
 
     Parameters
     -----------
-    comport: string
-         Comport defines the serial communication port for the Keithley2400 source meter.
-
-    baudrate: float
-         baudrate Specifies baud rate for the serial communication between the Keithley2400 and the computer.
+    comport : string
+         defines the serial communication port for the Keithley2400 source meter.
+    baudrate : float
+         specifies the baud rate for the serial communication between the Keithley2400 and the computer
     """
 
     # Start serial communication with the instrument

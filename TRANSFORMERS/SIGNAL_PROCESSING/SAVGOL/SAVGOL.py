@@ -7,15 +7,17 @@ import warnings
 def SAVGOL(
     default: OrderedPair, window_length: int = 50, poly_order: int = 1
 ) -> OrderedPair:
-    """Apply a Savitzky-Golay filter to an input signal, it's generally used for smoothing data
-    The default behaviour is implementing a 3-point moving average of the data.
+    """
+    The SAVGOL node applies a Savitzky-Golay filter to an input signal. It is generally used for smoothing data.
+
+    The default behaviour is to implement a 3-point moving average of the data.
 
     Parameters
     ----------
-    window_length: int
-        the length of the filter window, must be less than or equal to size of the input
-    poly_order: int
-        the order of the polynomial used to fit the samples, must be less than or equal to size of window_length
+    window_length : int
+        the length of the filter window, must be less than or equal to the size of the input
+    poly_order : int
+        the order of the polynomial used to fit the samples, must be less than or equal to the size of window_length
 
     Returns
     -------
@@ -23,6 +25,7 @@ def SAVGOL(
         x: time axis
         y: filtered signal
     """
+    
     signal = default.y
     if window_length >= len(default.y):
         warnings.warn(

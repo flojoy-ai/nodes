@@ -11,19 +11,15 @@ from flojoy import flojoy, run_in_venv, DataFrame
     ]
 )
 def BART_LARGE_CNN(default: DataFrame) -> DataFrame:
-    """The BART_LARGE_CNN node takes an input dataframe with multiple rows and a single column,
-    and produces a dataframe with a single "summary_text" column. The "summary_text" column contains a summary
-    of the text in the corresponding row of the input dataframe.
+    """
+    The BART_LARGE_CNN node takes an input dataframe with multiple rows and a single column, and produces a dataframe with a single "summary_text" column.
+    
+    The "summary_text" column contains a summary of the text in the corresponding row of the input dataframe.
 
-    Parameters
-    ----------
-    None
-
-    Returns:
-    --------
+    Returns
+    -------
     DataFrame
-        dataframe containing the summary text in the "summary_text" column.
-
+        dataframe containing the summary text in the "summary_text" column
     """
 
     import torch

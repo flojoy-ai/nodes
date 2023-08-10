@@ -6,16 +6,12 @@ from nodes.VISUALIZERS.template import plot_layout
 
 @flojoy
 def IMAGE(default: Image) -> Plotly:
-    """The IMAGE node creates a Plotly image visualization for a given
-    input data container type of image.
+    """
+    The IMAGE node creates a Plotly Image visualization for a given input data container type of image.
 
-    Parameters:
-    -----------
-    None
-
-    Supported DC types:
-    ------------------
-    `image`
+    Inputs
+    ------
+    default : Image
     """
 
     r = default.r

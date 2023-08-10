@@ -14,34 +14,32 @@ def ANDERSON(
         "statistic", "critical_values", "significance_level"
     ] = "statistic",
 ) -> OrderedPair | Matrix | Scalar:
-    """The ANDERSON node is based on a numpy or scipy function.
+    """
+    The ANDERSON node is based on a numpy or scipy function.
+    
     The description of that function is as follows:
 
-            Anderson-Darling test for data coming from a particular distribution.
+        Anderson-Darling test for data coming from a particular distribution.
 
-            The Anderson-Darling test tests the null hypothesis that a sample is
-            drawn from a population that follows a particular distribution.
-            For the Anderson-Darling test, the critical values depend on
-            which distribution is being tested against.  This function works
-            for normal, exponential, logistic, or Gumbel (Extreme Value
-            Type I) distributions.
+        The Anderson-Darling test tests the null hypothesis that a sample is drawn from a population that follows a particular distribution.
+        For the Anderson-Darling test, the critical values depend on which distribution is being tested against. 
+        This function works for normal, exponential, logistic, or Gumbel (Extreme Value Type I) distributions.
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects:
-            ['statistic', 'critical_values', 'significance_level']. Select the desired one to return.
-            See the respective function docs for descriptors.
+    select_return : This function has returns multiple objects ['statistic', 'critical_values', 'significance_level']. 
+        Select the desired one to return.
+        See the respective function docs for descriptors.
     x : array_like
-            Array of sample data.
+        Array of sample data.
     dist : {'norm', 'expon', 'logistic', 'gumbel', 'gumbel_l', 'gumbel_r', 'extreme1'}, optional
-            The type of distribution to test against.  The default is 'norm'.
-            The names 'extreme1', 'gumbel_l' and 'gumbel' are synonyms for the
-            same distribution.
+        The type of distribution to test against.  The default is 'norm'.
+        The names 'extreme1', 'gumbel_l' and 'gumbel' are synonyms for the same distribution.
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = scipy.stats.anderson(

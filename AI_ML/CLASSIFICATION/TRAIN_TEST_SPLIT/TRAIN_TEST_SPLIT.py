@@ -12,17 +12,20 @@ class TrainTestSplitOutput(TypedDict):
 def TRAIN_TEST_SPLIT(
     default: DataFrame, test_size: float = 0.2
 ) -> TrainTestSplitOutput:
-    """The TRAIN_TEST_SPLIT node is used to split the data into test and training according to size specified
-      before any ML tasks.
+    """
+    The TRAIN_TEST_SPLIT node is used to split the data into test and training according to a size specified before any ML tasks.
 
     Parameters
     ----------
-    test_size: float
-        The size of testing data specified
+    test_size : float
+        The size of testing data specified.
+
     Returns
     -------
-    TrainTestSplitOutput(DataFrame, DataFrame)
-        a dataframe of training data, and a dataframe of test data.
+    train: DataFrame
+        A dataframe of training data.
+    test: DataFrame
+        A dataframe of test data.
     """
 
     df = default.m

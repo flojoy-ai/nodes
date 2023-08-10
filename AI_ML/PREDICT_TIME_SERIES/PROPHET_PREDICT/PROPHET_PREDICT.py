@@ -16,14 +16,13 @@ class ProphetPredictOutput(TypedDict):
 def PROPHET_PREDICT(
     default: DataFrame, run_forecast: bool = True, periods: int = 365
 ) -> ProphetPredictOutput:
-    """The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe.
+    """
+    The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe.
 
-    The DataContainer input type must be `dataframe`, and that dataframe must have its
-    first column (or index) be of datetime type.
+    The DataContainer input type must be a dataframe, and the first column (or index) of dataframe must be of a datetime type.
 
-    This node always returns a DataContainer of type 'DataFrame'. It will also
-    always return an `extra` field with a key `prophet` whose value is the JSONified
-    Prophet model, which can be loaded as follows:
+    This node always returns a DataContainer of a dataframe type. It will also always return an "extra" field with a key "prophet" of which the value is the JSONified Prophet model.
+    This model can be loaded as follows:
         ```python
         from prophet.serialize import model_from_json
 
@@ -33,29 +32,34 @@ def PROPHET_PREDICT(
     Parameters
     ----------
     run_forecast : bool
-        If the True (default case), the returning DataContainer
-        will have its dataframe (`m` parameter of the DataContainer) be the forecasted
-        dataframe. It will also have an `extra` field with the key "original" which is
+        If True (default case), the dataframe of the returning DataContainer 
+        ("m" parameter of the DataContainer) will be the forecasted dataframe.
+        It will also have an "extra" field with the key "original", which is
         the original dataframe passed in.
 
-        If false, the returning dataframe will be the original data.
+        If False, the returning dataframe will be the original data.
 
-        This node will also always have an `extra` field "run_forecast" which matches
-        that of the param passed in. This is for future nodes to know if a forecast
-        has already been run
+        This node will also always have an "extra" field, run_forecast, which 
+        matches that of the parameters passed in. This is for future nodes 
+        to know if a forecast has already been run.
 
-        Default True
+        Default = True
+
     periods : int
         The number of periods to predict out. Only used if run_forecast is True.
-        Default 365
+        Default = 365
 
     Returns
     -------
-    DataFrame with param `df` which indicates either the original
-        df passed in, or the forecasted df (depending on if `run_forecast` is True)
+    DataFrame
+        With parameter as df.
+        Indicates either the original df passed in, or the forecasted df
+        (depending on if run_forecast is True).
 
-    DataContainer with param 'extra' containing keys "run_forecast" which correspond to the
-        input param, and potentially "original" in the event that `run_forecast` is True
+    DataContainer
+        With parameter as "extra".
+        Contains keys run_forecast which correspond to the input parameter,
+        and potentially "original" in the event that run_forecast is True.
     """
 
     import os

@@ -6,18 +6,14 @@ from nodes.VISUALIZERS.template import plot_layout
 
 @flojoy
 def HISTOGRAM(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
-    """The HISTOGRAM node creates a Plotly Histogram visualization for a given
-    input data container.
-
-    Parameters:
-    -----------
-    None
-
-    Supported DC types:
-    ------------------
-    `OrderedPair`, `DataFrame`, `Matrix`, `Vector`
-
     """
+    The HISTOGRAM node creates a Plotly Histogram visualization for a given input data container.
+
+    Inputs
+    ------
+    default : OrderedPair|DataFrame|Matrix|Vector
+    """
+    
     layout = plot_layout(title="HISTOGRAM")
     fig = go.Figure(layout=layout)
 

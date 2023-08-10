@@ -15,28 +15,22 @@ def STEPPER_DRIVER_TIC_KNOB(
     speed: int = 200000,
 ) -> OrderedPair:
     """
-     The STEPPER_DRIVER_TIC_KNOB controls a stepper motor movement with a TIC driver.
-     The user controls the motor rotation with the knob position in the node's parameters.
+    The STEPPER_DRIVER_TIC_KNOB controls a stepper motor movement with a TIC driver.
+    
+    The user controls the motor rotation with the knob position in the node's parameters.
 
-
-    Parameters :
-    ------------
-        knob_value: int
-            Defines the position of the motor. (Rotational movement)
-
-
-        current_limit: int
-            Defines the current limitation that the stepper motor will receive.
-
-
-        sleep_time: int
-             Defines the sleep time after moving to each position.
-
-
-        speed: int
-             Defines the speed of the motor movement. (Between 0 and 200000)
-
+    Parameters
+    ----------
+    knob_value : int
+        Defines the position of the motor (rotational movement).
+    current_limit : int
+        Defines the current limitation that the stepper motor will receive.
+    sleep_time : int
+        Defines the sleep time after moving to each position.
+    speed : int
+        Defines the speed of the motor movement (between 0 and 200000).
     """
+
     # Converting the knob value into a position
     knob_position: int = 2 * knob_value
 
