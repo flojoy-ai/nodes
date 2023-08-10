@@ -10,22 +10,23 @@ import scipy.signal
 def CUBIC(
     default: OrderedPair | Matrix,
 ) -> OrderedPair | Matrix | Scalar:
-    """The CUBIC node is based on a numpy or scipy function.
+    """
+    The CUBIC node is based on a numpy or scipy function.
+
     The description of that function is as follows:
 
-            A cubic B-spline.
-
-            This is a special case of `bspline`, and equivalent to ``bspline(x, 3)``.
+        A cubic B-spline.
+        This is a special case of 'bspline', and equivalent to "bspline(x, 3)".
 
     Parameters
     ----------
     x : array_like
-            a knot vector
+        a knot vector
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = scipy.signal.cubic(
