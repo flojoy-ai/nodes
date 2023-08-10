@@ -12,12 +12,12 @@ def HISTOGRAM(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     Inputs
     ------
     default : OrderedPair|DataFrame|Matrix|Vector
-        DataContainer object to be visualized
+        the DataContainer to be visualized
 
     Outputs
     -------
     Plotly
-        Plotly type of DataContainer object
+        the DataContainer containing Plotly Histogram visualization
     """
 
     layout = plot_layout(title="HISTOGRAM")

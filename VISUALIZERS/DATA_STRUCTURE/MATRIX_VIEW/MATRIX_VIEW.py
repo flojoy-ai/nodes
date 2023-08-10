@@ -74,12 +74,12 @@ def MATRIX_VIEW(default: OrderedPair | Matrix) -> Plotly:
     Inputs
     -------
     default : OrderedPair | Matrix
-        DataContainer object to be visualized in matrix format with Plotly table
-
+        the DataContainer to be visualized in matrix format.
     Outputs
     -------
     Plotly
-        Plotly type of DataContainer object"""
+        the DataContainer containing visualization of the input in matrix format
+    """
 
     if isinstance(default, Matrix):
         np_arr = default.m

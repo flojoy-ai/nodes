@@ -12,12 +12,12 @@ def SCATTER3D(default: OrderedTriple | DataFrame) -> Plotly:
     Inputs
     ------
     default : OrderedTriple|DataFrame
-        DataContainer object to be visualized
+        the DataContainer to be visualized
 
     Outputs
     -------
     Plotly
-        Plotly type of DataContainer object
+        the DataContainer containing Plotly 3D Scatter visualization
     """
 
     layout = plot_layout(title="SCATTER3D")

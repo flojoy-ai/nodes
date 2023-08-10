@@ -28,7 +28,7 @@ def BIG_NUMBER(
     Inputs
     ------
     default : OrderedPair|Scalar|Vector
-        DataContainer object to be visualized
+        the DataContainer to be visualized
 
     Parameters
     ----------
@@ -44,7 +44,7 @@ def BIG_NUMBER(
     Outputs
     -------
     Plotly
-        Plotly type of DataContainer object
+        the DataContainer containing Plotly big number visualization
     """
 
     job_id = default_params.job_id

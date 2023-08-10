@@ -12,12 +12,12 @@ def TABLE(default: OrderedTriple | OrderedPair | DataFrame | Vector) -> Plotly:
     Inputs
     ------
     default : OrderedTriple|OrderedPair|DataFrame|Vector
-        DataContainer object to be visualized
+        the DataContainer to be visualized
 
     Outputs
     -------
     Plotly
-        Plotly type of DataContainer object
+        the DataContainer containing Plotly Table visualization
 
     """
 

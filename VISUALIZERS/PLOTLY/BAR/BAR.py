@@ -13,12 +13,12 @@ def BAR(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     Inputs
     ------
     default : OrderedPair|DataFrame|Matrix|Vector
-        DataContainer object to be visualized
+        the DataContainer to be visualized in bar chart
 
     Outputs
     -------
     Plotly
-        Plotly type of DataContainer object
+        the DataContainer containing Plotly Bar chart visualization
     """
 
     layout = plot_layout(title="BAR")

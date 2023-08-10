@@ -23,10 +23,10 @@ def PROPHET_COMPONENTS(
     Inputs
     ------
     default : DataFrame
-        DataContainer object to be visualized
+        the DataContainer to be visualized
 
     data : DataContainer
-        DataContainer object that holds prophet model and forecast data in `extra` field
+        the DataContainer that holds prophet model and forecast data in the `extra` field
 
 
     Parameters
@@ -39,7 +39,7 @@ def PROPHET_COMPONENTS(
     Outputs
     -------
     Plotly
-        Plotly type of DataContainer object
+        the DataContainer containing Plotly visualization of the prophet model
     """
 
     import os

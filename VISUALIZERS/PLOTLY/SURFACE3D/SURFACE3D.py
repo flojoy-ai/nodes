@@ -12,12 +12,12 @@ def SURFACE3D(default: OrderedTriple | DataFrame | Surface | Matrix) -> Plotly:
     Inputs
     ------
     default : OrderedTriple|DataFrame|Surface|Matrix
-        DataContainer object to be visualized
+        the DataContainer to be visualized
 
     Outputs
     -------
     Plotly
-        Plotly type of DataContainer object
+        the DataContainer containing Plotly 3D Surface visualization
 
     """
 

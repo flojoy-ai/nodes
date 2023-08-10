@@ -19,10 +19,10 @@ def COMPOSITE(
     Inputs
     ------
     primary_trace : OrderedPair|DataFrame|Matrix|Vector
-        DataContainer object to be visualized as the first figure
+        the DataContainer to be visualized as the first figure
 
     secondary_trace : OrderedPair|DataFrame|Matrix|Vector
-        DataContainer object to be visualized as the second figure
+        the DataContainer to be visualized as the second figure
 
     Parameters
     ----------
@@ -34,7 +34,7 @@ def COMPOSITE(
     Outputs
     -------
     Plotly
-        Plotly type of DataContainer object
+        the DataContainer containing Plotly visualization of both figures
     """
 
     layout = plot_layout(title="COMPOSITE")
