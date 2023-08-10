@@ -4,7 +4,6 @@ from typing import Optional
 
 
 @flojoy(node_type="default")
-
 def LINSPACE(
     default: Optional[OrderedPair | Vector] = None,
     start: float = 10,

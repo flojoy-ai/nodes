@@ -9,7 +9,7 @@ def INVERT(default: OrderedPair | Matrix, rcond: float = 1.0) -> OrderedPair | M
 
     If the entered value is a scalar, it returns the multiplciative inverse 1/x.
     """
-    
+
     print(f"INVERT params: {rcond}")
     a = np.eye(3)
     b: float = rcond

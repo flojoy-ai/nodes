@@ -11,7 +11,7 @@ def MULTIPLY(
     """
     The MULTIPLY node takes two input vectors, multiplies them, and returns the result.
     """
-    
+
     initial = get_val(a)
     seq = map(lambda dc: get_val(dc), b)
     y = reduce(lambda u, v: np.multiply(u, v), seq, initial)

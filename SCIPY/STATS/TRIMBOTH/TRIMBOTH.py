@@ -19,8 +19,8 @@ def TRIMBOTH(
 
         Slice off a proportion of items from both ends of an array.
 
-        Slice off the passed proportion of items from both ends of the passed array 
-        (i.e., with 'proportiontocut' = 0.1, slices leftmost 10% and rightmost 10% of scores). 
+        Slice off the passed proportion of items from both ends of the passed array
+        (i.e., with 'proportiontocut' = 0.1, slices leftmost 10% and rightmost 10% of scores).
         The trimmed values are the lowest and highest ones.
         Slice off less if proportion results in a non-integer slice index (i.e. conservatively slices off 'proportiontocut').
 

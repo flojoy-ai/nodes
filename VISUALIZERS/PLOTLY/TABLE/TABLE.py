@@ -13,7 +13,7 @@ def TABLE(default: OrderedTriple | OrderedPair | DataFrame | Matrix | Vector) ->
     ------
     default : OrderedTriple|OrderedPair|DataFrame|Matrix|Vector
     """
-    
+
     layout = plot_layout(title="TABLE")
     fig = go.Figure(layout=layout)
 

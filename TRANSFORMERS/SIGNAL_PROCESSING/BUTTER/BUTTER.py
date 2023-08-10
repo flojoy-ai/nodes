@@ -34,7 +34,7 @@ def BUTTER(
         x: time domain
         y: filtered signal
     """
-    
+
     sig = default.y
     order: int = filter_order
     wn: int = critical_frequency  # hz

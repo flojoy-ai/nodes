@@ -21,7 +21,7 @@ def IFFT(default: DataFrame, real_signal: bool = True) -> OrderedPair:
         x = time
         y = reconstructed signal
     """
-    
+
     dc: pd.DataFrame = default.m
 
     x = dc["x"].to_numpy()

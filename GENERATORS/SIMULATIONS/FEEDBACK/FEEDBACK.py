@@ -11,7 +11,7 @@ def FEEDBACK(default: DataContainer, referred_node: NodeReference) -> DataContai
     referred_node : str
         The node ID to capture the result from.
     """
-    
+
     result = get_job_result(referred_node.ref)
     if result:
         return result

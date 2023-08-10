@@ -53,11 +53,11 @@ def SKLEARNIMAGE(
 ) -> Image:
     """
     The SKLEARNIMAGE node is designed to load example images from scikit-image.
-    
+
     Examples can be found here:
     https://scikit-image.org/docs/stable/auto_examples/index.html
     """
-    
+
     img_array = getattr(data, img_key)()
 
     if len(img_array.shape) == 2:

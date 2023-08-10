@@ -29,7 +29,7 @@ def ZSCORE(
     axis : int or None, optional
         Axis along which to operate. Default is 0. If None, compute over the whole array 'a'.
     ddof : int, optional
-        Degrees of freedom correction in the calculation of the standard deviation. 
+        Degrees of freedom correction in the calculation of the standard deviation.
         Default is 0.
     nan_policy : {'propagate', 'raise', 'omit'}, optional
         Defines how to handle when input contains nan. 'propagate' returns nan,

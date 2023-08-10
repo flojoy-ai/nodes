@@ -28,7 +28,7 @@ def BIG_NUMBER(
     Inputs
     ------
     default : OrderedPair|Scalar|Vector
-    
+
     Parameters
     ----------
     relative_delta : bool

@@ -30,7 +30,7 @@ def SEM(
         Axis along which to operate. Default is 0. If None, compute over the whole array 'a'.
     ddof : int, optional
         Delta degrees-of-freedom. How many degrees of freedom to adjust
-        for bias in limited samples relative to the population estimate of variance. 
+        for bias in limited samples relative to the population estimate of variance.
         Defaults to 1.
     nan_policy : {'propagate', 'raise', 'omit'}, optional
         Defines how to handle when input contains nan.

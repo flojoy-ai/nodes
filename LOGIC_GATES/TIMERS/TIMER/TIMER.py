@@ -21,7 +21,7 @@ def TIMER(
     sleep_time : float
         number of seconds to sleep
     """
-    
+
     node_id = default_params.node_id
     jobset_id = default_params.jobset_id
     remaining_time = sleep_time

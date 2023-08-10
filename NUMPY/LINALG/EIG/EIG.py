@@ -15,7 +15,7 @@ def EIG(
     The EIG node is based on a numpy or scipy function.
 
     The description of that function is as follows:
-    
+
         Compute the eigenvalues and right eigenvectors of a square array.
 
     Parameters

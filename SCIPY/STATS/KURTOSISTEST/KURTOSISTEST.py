@@ -25,13 +25,13 @@ def KURTOSISTEST(
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['statistic', 'pvalue']. 
+    select_return : This function has returns multiple objects ['statistic', 'pvalue'].
         Select the desired one to return.
         See the respective function docs for descriptors.
     a : array
         Array of the sample data.
     axis : int or None, optional
-        Axis along which to compute test. Default is 0. 
+        Axis along which to compute test. Default is 0.
         If None, compute over the whole array 'a'.
     nan_policy : {'propagate', 'raise', 'omit'}, optional
         Defines how to handle when input contains nan.

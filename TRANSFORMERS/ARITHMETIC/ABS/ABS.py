@@ -7,7 +7,7 @@ def ABS(default: OrderedPair | Vector | Scalar) -> OrderedPair:
     """
     The ABS node returns an absolute value.
     """
-    
+
     match default:
         case OrderedPair():
             x = default.x

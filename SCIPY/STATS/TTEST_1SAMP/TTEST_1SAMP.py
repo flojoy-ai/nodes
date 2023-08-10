@@ -26,13 +26,13 @@ def TTEST_1SAMP(
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['statistic', 'pvalue']. 
+    select_return : This function has returns multiple objects ['statistic', 'pvalue'].
         Select the desired one to return.
         See the respective function docs for descriptors.
     a : array_like
         Sample observation.
     popmean : float or array_like
-        Expected value in null hypothesis. 
+        Expected value in null hypothesis.
         If array_like, then it must have the same shape as 'a' excluding the axis dimension.
     axis : int or None, optional
         Axis along which to compute test; default is 0. If None, compute over the whole array 'a'.

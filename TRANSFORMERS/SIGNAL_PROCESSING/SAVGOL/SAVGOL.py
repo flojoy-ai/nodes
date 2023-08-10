@@ -25,7 +25,7 @@ def SAVGOL(
         x: time axis
         y: filtered signal
     """
-    
+
     signal = default.y
     if window_length >= len(default.y):
         warnings.warn(
