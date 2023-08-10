@@ -11,11 +11,7 @@ def OPEN_MATLAB(file_path: str = "") -> DataFrame:
     The OPEN_MATLAB node loads a local file of the .mat file format.
 
     Note that if multiple 'tabs' of data are used, the number of rows must match in order to stack the arrays.
-
-    Inputs
-    ------
-    default: None
-
+    
     Parameters
     ----------
     file_path : str
@@ -24,7 +20,7 @@ def OPEN_MATLAB(file_path: str = "") -> DataFrame:
     Returns
     -------
     DataFrame
-        type `dataframe` defined with .mat file
+        DataFrame loaded from the .mat file
     """
 
     if file_path == "":

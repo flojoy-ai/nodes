@@ -20,8 +20,7 @@ def EXTRACT_COLUMNS(default: DataFrame | Matrix, columns: Array) -> DataFrame:
     Returns
     -------
     DataFrame|Matrix
-        type 'dataframe' with only the specified columns if the input was dataframe
-        type 'matrix' with only the specified columns if the input was matrix
+        DataFrame or Matrix with only the specified columns
     """
 
     if isinstance(default, DataFrame):

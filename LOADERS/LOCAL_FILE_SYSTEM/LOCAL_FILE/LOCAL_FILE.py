@@ -22,10 +22,6 @@ def LOCAL_FILE(
     """
     The LOCAL_FILE node loads a local file of a different type and converts it to a DataContainer class.
 
-    Inputs
-    ------
-    default: None
-
     Parameters
     ----------
     file_type : str
@@ -36,8 +32,8 @@ def LOCAL_FILE(
     Returns
     -------
     Image|DataFrame
-        type 'image' for file_type 'image'
-        type 'dataframe' for file_type 'json', 'csv', 'excel', 'xml'
+        Image for file_type 'image'
+        DataFrame for file_type 'json', 'csv', 'excel', 'xml'
     """
 
     match file_type:

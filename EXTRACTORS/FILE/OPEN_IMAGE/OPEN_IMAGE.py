@@ -16,12 +16,12 @@ def OPEN_IMAGE(file_path: str = "") -> Image:
     Parameters
     ----------
     file_path : str
-        path of the file to be loaded
+        path to the file to be loaded
 
     Returns
     -------
     Image
-        type 'image' that was loaded from specified file path
+        Image loaded from specified file path
     """
 
     if not path.exists(file_path):

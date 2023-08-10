@@ -9,10 +9,6 @@ def READ_CSV(
     """
     The READ_CSV node reads a .csv file from disk or a URL, and then returns a dataframe.
 
-    Inputs
-    ------
-    default: None
-
     Parameters
     ----------
     file_path : str
@@ -21,7 +17,7 @@ def READ_CSV(
     Returns
     -------
     DataFrame
-         type `dataframe` defined with .csv file
+        DataFrame loaded from .csv file
     """
 
     df = pd.read_csv(file_path)  # type: ignore

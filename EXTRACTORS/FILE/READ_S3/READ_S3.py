@@ -30,7 +30,7 @@ def READ_S3(
     Returns
     -------
     DataFrame
-        type `dataframe` defined with file from specfied bucket
+        DataFrame loaded from file in the specfied bucket
 
     """
 
