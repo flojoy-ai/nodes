@@ -9,14 +9,19 @@ def OPEN_IMAGE(file_path: str = "") -> Image:
     """
     The OPEN_IMAGE node loads an image file from disk and returns an image type DataContainer object.
 
+    Inputs
+    ------
+    default: None
+
     Parameters
     ----------
     file_path : str
-        path to the file to be loaded
+        path of the file to be loaded
 
     Returns
     -------
     Image
+        type 'image' that was loaded from specified file path 
     """
 
     if not path.exists(file_path):

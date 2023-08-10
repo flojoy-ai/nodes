@@ -22,6 +22,10 @@ def LOCAL_FILE(
     """
     The LOCAL_FILE node loads a local file of a different type and converts it to a DataContainer class.
 
+    Inputs
+    ------
+    default: None
+
     Parameters
     ----------
     file_type : str
