@@ -28,6 +28,7 @@ def BIG_NUMBER(
     Inputs
     ------
     default : OrderedPair|Scalar|Vector
+        the DataContainer to be visualized
 
     Parameters
     ----------
@@ -39,6 +40,11 @@ def BIG_NUMBER(
         any prefix to show with big number
     title : str
         title of the plot, default "BIG_NUMBER"
+
+    Outputs
+    -------
+    Plotly
+        the DataContainer containing Plotly big number visualization
     """
 
     job_id = default_params.job_id

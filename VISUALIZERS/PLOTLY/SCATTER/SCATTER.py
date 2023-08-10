@@ -13,6 +13,12 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     Inputs
     ------
     default : OrderedPair|DataFrame|Matrix|Vector
+        the DataContainer to be visualized
+
+    Outputs
+    -------
+    Plotly
+        the DataContainer containing Plotly Scatter visualization
     """
 
     layout = plot_layout(title="SCATTER")
