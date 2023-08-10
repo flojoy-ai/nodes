@@ -16,8 +16,8 @@ def STEPPER_DRIVER_TIC(
     """
     The STEPPER_DRIVER_TIC node controls a stepper motor movement with a TIC driver.
 
-    The user defines the speed and the sleep time between movements. 
-    
+    The user defines the speed and the sleep time between movements.
+
     (To choose the position, use the STEPPER_DRIVER_TIC_KNOB.)
 
     Parameters

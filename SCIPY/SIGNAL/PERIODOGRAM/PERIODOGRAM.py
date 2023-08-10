@@ -20,14 +20,14 @@ def PERIODOGRAM(
 ) -> OrderedPair | Matrix | Scalar:
     """
     The PERIODOGRAM node is based on a numpy or scipy function.
-    
+
     The description of that function is as follows:
 
         Estimate power spectral density using a periodogram.
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['f', 'Pxx']. 
+    select_return : This function has returns multiple objects ['f', 'Pxx'].
         Select the desired one to return.
         See the respective function docs for descriptors.
     x : array_like
@@ -39,18 +39,18 @@ def PERIODOGRAM(
         passed to 'get_window' to generate the window values, which are
         DFT-even by default. See 'get_window' for a list of windows and
         required parameters. If 'window' is array_like it will be used
-        directly as the window and its length must be nperseg. 
+        directly as the window and its length must be nperseg.
         Defaults to 'boxcar'.
     nfft : int, optional
         Length of the FFT used. If 'None' the length of 'x' will be used.
     detrend : str or function or 'False', optional
         Specifies how to detrend each segment. If 'detrend' is a
-        string, it is passed as the 'type' argument to the 'detrend' function. 
+        string, it is passed as the 'type' argument to the 'detrend' function.
         If it is a function, it takes a segment and returns a
-        detrended segment. If 'detrend' is 'False', no detrending is done. 
+        detrended segment. If 'detrend' is 'False', no detrending is done.
         Defaults to 'constant'.
     return_onesided : bool, optional
-        If 'True', return a one-sided spectrum for real data. 
+        If 'True', return a one-sided spectrum for real data.
         If 'False' return a two-sided spectrum. Defaults to 'True', but for
         complex data, a two-sided spectrum is always returned.
     scaling : { 'density', 'spectrum' }, optional

@@ -18,8 +18,8 @@ def IMAGE_SMOOTHING(
     Parameters
     ----------
     kernel : int
-        The strength of the smoothing. 
-        A large value will lead to stronger smoothing. 
+        The strength of the smoothing.
+        A large value will lead to stronger smoothing.
     smoothing_type : select
         The type of smoothing to use (https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html).
 

@@ -20,18 +20,18 @@ def NORMALTEST(
 
         Test whether a sample differs from a normal distribution.
 
-        This function tests the null hypothesis that a sample comes from a normal distribution. 
+        This function tests the null hypothesis that a sample comes from a normal distribution.
         It is based on D'Agostino and Pearson's [1]_, [2]_ test that combines skew and kurtosis to produce an omnibus test of normality.
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['statistic', 'pvalue']. 
+    select_return : This function has returns multiple objects ['statistic', 'pvalue'].
         Select the desired one to return.
         See the respective function docs for descriptors.
     a : array_like
         The array containing the sample to be tested.
     axis : int or None, optional
-        Axis along which to compute test. Default is 0. 
+        Axis along which to compute test. Default is 0.
         If None, compute over the whole array 'a'.
     nan_policy : {'propagate', 'raise', 'omit'}, optional
         Defines how to handle when input contains nan.

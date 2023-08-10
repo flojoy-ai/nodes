@@ -14,13 +14,13 @@ def PROPHET_COMPONENTS(
     The PROPHET_COMPONENTS node plots the components of the prophet model trained in the PROPHET_PREDICT node. This is the output plotly graph from the "plot_components_plotly" function from "prophet.plot". It expects the trained Prophet model from the PROPHET_PREDICT node as input.
 
     If "run_forecast" was True in that node, the forecasted dataframe will be available here as the "m" dc_input attribute. Otherwise, this will make the predictions on the raw dataframe (in which case it will be the "m" attribute).
-    
+
     You can tell if that forecasted dataframe is available via the "extra" field, "run_forecast", of the dc_input (dc_inputs[0].extra["run_forecast"]).
 
     Parameters
     ----------
     periods : int
-        The number of periods out to predict. 
+        The number of periods out to predict.
         Only used if the node passed into this node (i.e. PROPHET_PREDICT) did NOT return the forecast.
         If the forecast was included in the DataContainer, this parameter will be ignored.
 

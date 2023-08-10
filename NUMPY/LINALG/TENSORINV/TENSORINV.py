@@ -18,13 +18,13 @@ def TENSORINV(
 
         Compute the 'inverse' of an N-dimensional array.
 
-        The result is an inverse for 'a' relative to the tensordot operation "tensordot(a, b, ind)", 
+        The result is an inverse for 'a' relative to the tensordot operation "tensordot(a, b, ind)",
         i.e. up to floating-point accuracy, "tensordot(tensorinv(a), a, ind)" is the "identity" tensor for the tensordot operation.
 
     Parameters
     ----------
     a : array_like
-        Tensor to 'invert'. 
+        Tensor to 'invert'.
         Its shape must be 'square', i.e. "prod(a.shape[:ind]) == prod(a.shape[ind:])".
     ind : int, optional
         Number of first indices that are involved in the inverse sum.

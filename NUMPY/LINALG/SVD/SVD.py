@@ -23,12 +23,12 @@ def SVD(
 
         When 'a' is a 2D array, and "full_matrices=False", then it is factorized as "u @ np.diag(s) @ vh = (u * s) @ vh",
         where 'u' and the Hermitian transpose of 'vh' are 2D arrays with orthonormal columns and 's' is a 1D array of 'a' singular values.
-        
+
         When 'a' is higher-dimensional, SVD is applied in stacked mode as explained below.
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['u', 's', 'vh']. 
+    select_return : This function has returns multiple objects ['u', 's', 'vh'].
         Select the desired one to return.
         See the respective function docs for descriptors.
     a : (..., M, N) array_like

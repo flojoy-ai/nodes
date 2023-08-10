@@ -27,7 +27,7 @@ def READ_S3(
     -------
     DataFrame
     """
-    
+
     if s3_name == "":
         raise ValueError("Provide a name that was used to set AWS S3 key")
 

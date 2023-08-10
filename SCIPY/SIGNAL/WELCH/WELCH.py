@@ -28,12 +28,12 @@ def WELCH(
 
             Estimate power spectral density using Welch's method.
 
-            Welch's method [1]_ computes an estimate of the power spectral density by dividing the data into overlapping segments, 
+            Welch's method [1]_ computes an estimate of the power spectral density by dividing the data into overlapping segments,
             computing a modified periodogram for each segment, and averaging the periodograms.
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['f', 'Pxx']. 
+    select_return : This function has returns multiple objects ['f', 'Pxx'].
         Select the desired one to return.
         See the respective function docs for descriptors.
     x : array_like
@@ -55,7 +55,7 @@ def WELCH(
         Number of points to overlap between segments. If 'None',
         noverlap = nperseg // 2. Defaults to 'None'.
     nfft : int, optional
-        Length of the FFT used, if a zero padded FFT is desired. 
+        Length of the FFT used, if a zero padded FFT is desired.
         If 'None', the FFT length is 'nperseg'. Defaults to 'None'.
     detrend : str or function or 'False', optional
         Specifies how to detrend each segment. If 'detrend' is a

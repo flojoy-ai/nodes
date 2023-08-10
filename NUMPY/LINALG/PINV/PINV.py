@@ -13,8 +13,8 @@ def PINV(
     hermitian: bool = False,
 ) -> Matrix | Scalar:
     """
-    The PINV node is based on a numpy or scipy function. 
-    
+    The PINV node is based on a numpy or scipy function.
+
     The description of that function is as follows:
 
         Compute the (Moore-Penrose) pseudo-inverse of a matrix.
@@ -33,7 +33,7 @@ def PINV(
         Singular values less than or equal to "rcond * largest_singular_value" are set to zero.
         Broadcasts against the stack of matrices.
     hermitian : bool, optional
-        If True, "a" is assumed to be Hermitian (symmetric if real-valued), enabling a more 
+        If True, "a" is assumed to be Hermitian (symmetric if real-valued), enabling a more
         efficient method for finding singular values.
         Defaults to False.
 

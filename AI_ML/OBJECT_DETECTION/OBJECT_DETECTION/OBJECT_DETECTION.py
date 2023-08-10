@@ -20,7 +20,7 @@ def OBJECT_DETECTION(default: Image) -> Image:
     -------
     Image
     """
-    
+
     r = default.r
     g = default.g
     b = default.b

@@ -28,7 +28,7 @@ def SERIAL_TIMESERIES(
     comport : string
         COM port of the serial device.
 
-    num_readings * record_period : 
+    num_readings * record_period :
         Is roughly the run length in seconds.
     """
 

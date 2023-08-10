@@ -13,7 +13,7 @@ def SCATTER3D(default: OrderedTriple | DataFrame) -> Plotly:
     ------
     default : OrderedTriple|DataFrame
     """
-    
+
     layout = plot_layout(title="SCATTER3D")
     fig = go.Figure(layout=layout)
     if isinstance(default, OrderedTriple):
