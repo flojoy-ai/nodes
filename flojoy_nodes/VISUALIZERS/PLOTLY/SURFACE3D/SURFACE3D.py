@@ -1,6 +1,6 @@
 import plotly.graph_objects as go  # type:ignore
 from flojoy import Plotly, OrderedTriple, DataFrame, flojoy, Surface, Matrix
-from nodes.VISUALIZERS.template import plot_layout
+from flojoy_nodes.VISUALIZERS.template import plot_layout
 import numpy as np
 
 
