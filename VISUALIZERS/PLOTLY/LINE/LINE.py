@@ -10,13 +10,9 @@ def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     """
     The LINE node creates a Plotly Line visualization for a given input data container.
 
-    Parameters
-    ----------
-    None
-
-    Supported DC types
-    ------------------
-    ordered_pair, dataframe (including timeseries), matrix, vector
+    Inputs
+    ------
+    default : OrderedPair|DataFrame|Matrix|Vector
     """
     
     layout = plot_layout(title="LINE")

@@ -35,8 +35,9 @@ def BASIC_OSCILLATOR(
 
     Returns
     -------
-    x: time domain
-    y: generated signal
+    OrderedPair
+        x: time domain
+        y: generated signal
     """
     
     samples = sample_rate * time

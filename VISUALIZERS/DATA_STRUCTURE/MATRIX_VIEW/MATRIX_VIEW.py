@@ -70,13 +70,9 @@ def MATRIX_VIEW(default: OrderedPair | Matrix) -> Plotly:
     """
     The MATRIX_VIEW node takes a "matrix" or "ordered_pair" type as input and displays its visualization using a Plotly table in matrix format.
 
-    Parameters
-    ----------
-    None
-
     Returns
     -------
-    plotly
+    Plotly
         Visualization of the input data in matrix format.
     """
 

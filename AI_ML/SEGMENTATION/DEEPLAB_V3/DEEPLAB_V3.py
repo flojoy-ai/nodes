@@ -18,19 +18,9 @@ def DEEPLAB_V3(default: Image) -> Image:
     
     The output is a DataContainer of an "image" type with the same dimensions as the input image, but with the red, green, and blue channels replaced with the segmentation mask.
 
-    Parameters
-    ----------
-    None
-
     Returns
     -------
-    DataContainer
-        A DataContainer with the following fields:
-            type: "image"
-            r: the red channel of the image
-            g: the green channel of the image
-            b: the blue channel of the image
-            a: the alpha channel of the image
+    Image
     """
 
     import os

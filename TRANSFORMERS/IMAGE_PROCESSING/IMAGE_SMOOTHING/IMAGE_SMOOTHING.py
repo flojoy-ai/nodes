@@ -15,30 +15,17 @@ def IMAGE_SMOOTHING(
 
     Note: For "gaussian" and "median" type, you are only allowed an odd number for the kernel value.
 
-    Arguments
-    ---------
-    dc_inputs (list[DataContainer])
-        List of DataContainer objects containing image channels.
-    params (dict)
-        Additional parameters for image smoothing.
-
     Parameters
     ----------
-    kernel
+    kernel : int
         The strength of the smoothing. 
         A large value will lead to stronger smoothing. 
-    smoothing_type
+    smoothing_type : select
         The type of smoothing to use (https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html).
 
     Returns
     -------
-    DataContainer
-        A `DataContainer` class of type 'image' representing the output image with image smoothing results.
-
-    Raises
-    ------
-    Exception
-        If an error occurs during smoothing.
+    Image
     """
 
     r = default.r

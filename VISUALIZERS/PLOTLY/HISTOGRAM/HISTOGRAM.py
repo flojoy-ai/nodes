@@ -9,13 +9,9 @@ def HISTOGRAM(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     """
     The HISTOGRAM node creates a Plotly Histogram visualization for a given input data container.
 
-    Parameters
-    ----------
-    None
-
-    Supported DC types
-    ------------------
-    ordered_pair, dataframe, matrix, vector
+    Inputs
+    ------
+    default : OrderedPair|DataFrame|Matrix|Vector
     """
     
     layout = plot_layout(title="HISTOGRAM")

@@ -18,7 +18,7 @@ def DF_2_ORDEREDTRIPLE(
 
     Returns
     -------
-    OrderTriple, x, y, z
+    OrderedTriple
     """
 
     df = default.m

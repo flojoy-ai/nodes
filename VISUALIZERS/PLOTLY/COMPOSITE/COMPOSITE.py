@@ -16,14 +16,14 @@ def COMPOSITE(
     """
     The COMPOSITE node creates a combination of Plotly visualizations for a given input data container.
 
+    Inputs
+    ------
+    default : OrderedPair|DataFrame|Matrix|Vector
+    
     Parameters
     ----------
     first_figure : 'bar' | 'line' | 'histogram' | 'scatter'
     second_figure : 'bar' | 'line' | 'histogram' | 'scatter'
-
-    Supported DC types
-    ------------------
-    ordered_pair, dataframe (including timeseries), matrix, vector
     """
     
     layout = plot_layout(title="COMPOSITE")

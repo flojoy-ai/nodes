@@ -20,7 +20,7 @@ def CONDITIONAL(
 
     Parameters
     ----------
-    operator_type : str, optional
+    operator_type : select
         Specifies the type of comparison to be performed between the two inputs. The default value is ">=".
     """
 

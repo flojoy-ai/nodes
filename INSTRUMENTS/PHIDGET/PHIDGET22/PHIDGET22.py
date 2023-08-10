@@ -21,9 +21,9 @@ def PHIDGET22(
     Parameters
     ----------
     n_sensors : int
-         Defines the number of pressure sensors connected to the Phidget InterfaceKit.
-
+        Defines the number of pressure sensors connected to the Phidget InterfaceKit.
     calibration1 : float
+        Calibration parameters to convert voltage into pressure.
     calibration2 : float
         Calibration parameters to convert voltage into pressure.
     """

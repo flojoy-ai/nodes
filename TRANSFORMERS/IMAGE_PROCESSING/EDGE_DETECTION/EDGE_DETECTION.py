@@ -13,10 +13,6 @@ def EDGE_DETECTION(default: Image) -> Image:
 
     Note that the image is converted to greyscale during this processing.
 
-    Parameters
-    ----------
-    None
-
     Returns
     -------
     image

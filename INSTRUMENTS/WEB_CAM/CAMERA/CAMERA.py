@@ -28,8 +28,7 @@ def CAMERA(
 
     Returns
     -------
-    DataContainer
-        type 'image'
+    Image
     """
 
     try:

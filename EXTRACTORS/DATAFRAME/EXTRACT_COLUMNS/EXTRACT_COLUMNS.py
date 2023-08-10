@@ -9,7 +9,7 @@ def EXTRACT_COLUMNS(default: DataFrame | Matrix, columns: Array) -> DataFrame:
 
     Parameters
     ----------
-    columns : list of str or list of int (supports python indexing)
+    columns : list of str or list of int
         The columns to extract from the input dataframe.
 
     Returns

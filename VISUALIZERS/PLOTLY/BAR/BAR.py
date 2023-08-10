@@ -10,13 +10,9 @@ def BAR(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     """
     The BAR node creates a Plotly Bar visualization for a given input data container.
 
-    Parameters
-    ----------
-    None
-
-    Supported DC types
-    ------------------
-    ordered_pair, dataframe (including timeseries), matrix, vector
+    Inputs
+    ------
+    default : OrderedPair|DataFrame|Matrix|Vector
     """
 
     layout = plot_layout(title="BAR")

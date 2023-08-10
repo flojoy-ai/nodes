@@ -11,10 +11,6 @@ def ONE_HOT_ENCODING(
     """
     The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe and columns dataframe containing categorical features.
 
-    Parameters
-    ----------
-    None
-
     Returns
     -------
     Dataframe

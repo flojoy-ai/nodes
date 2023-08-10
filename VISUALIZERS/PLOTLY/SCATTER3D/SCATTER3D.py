@@ -9,13 +9,9 @@ def SCATTER3D(default: OrderedTriple | DataFrame) -> Plotly:
     """
     The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input data container.
 
-    Parameters
-    ----------
-    None
-
-    Supported DC types
-    ------------------
-    ordered_triple, dataframe
+    Inputs
+    ------
+    default : OrderedTriple|DataFrame
     """
     
     layout = plot_layout(title="SCATTER3D")

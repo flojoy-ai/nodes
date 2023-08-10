@@ -9,13 +9,9 @@ def TABLE(default: OrderedTriple | OrderedPair | DataFrame | Matrix | Vector) ->
     """
     The TABLE node creates a Plotly Table visualization for a given input data container.
 
-    Parameters
-    ----------
-    None
-
-    Supported DC types
-    ------------------
-    ordered_pair, dataframe, ordered_triple
+    Inputs
+    ------
+    default : OrderedTriple|OrderedPair|DataFrame|Matrix|Vector
     """
     
     layout = plot_layout(title="TABLE")

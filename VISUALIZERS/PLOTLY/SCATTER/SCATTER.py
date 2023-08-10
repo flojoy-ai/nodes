@@ -10,13 +10,9 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     """
     The SCATTER node creates a Plotly Scatter visualization for a given input data container.
 
-    Parameters
-    ----------
-    None
-
-    Supported DC types
-    ------------------
-    ordered_pair, dataframe, matrix
+    Inputs
+    ------
+    default : OrderedPair|DataFrame|Matrix|Vector
     """
     
     layout = plot_layout(title="SCATTER")

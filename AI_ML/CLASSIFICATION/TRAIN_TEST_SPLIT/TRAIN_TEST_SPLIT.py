@@ -22,8 +22,10 @@ def TRAIN_TEST_SPLIT(
 
     Returns
     -------
-    TrainTestSplitOutput (DataFrame, DataFrame)
-        A dataframe of training data, and a dataframe of test data.
+    train: DataFrame
+        A dataframe of training data.
+    test: DataFrame
+        A dataframe of test data.
     """
 
     df = default.m

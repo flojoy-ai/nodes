@@ -16,9 +16,10 @@ def COUNT_VECTORIZER(default: DataFrame | Matrix | Vector) -> CountVectorizerOut
 
     Returns
     -------
-    CountVectorizerOutput (DataFrame, Vector)
-        dataframe(df) holds all the unique tokens observed from the input
-        vector(v) contains the occurences of these tokens from each sentence
+    tokens: DataFrame
+        Dataframe(df) holds all the unique tokens observed from the input.
+    word_count_vector: Vector
+        Vector(v) contains the occurences of these tokens from each sentence.
     """
 
     if isinstance(default, DataFrame):

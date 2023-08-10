@@ -23,13 +23,9 @@ def ARRAY_VIEW(default: OrderedPair | Matrix | DataFrame | Image) -> Plotly:
     """
     The ARRAY_VIEW node takes "ordered_pair", "dataframe", "matrix", and "image" as input types and displays its visualization in an array format.
 
-    Parameters
-    ----------
-    None
-
     Returns
     -------
-    plotly
+    Plotly
         Visualization of the input data in array format.
     """
 

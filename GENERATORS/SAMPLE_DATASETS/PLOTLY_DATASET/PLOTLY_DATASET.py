@@ -23,12 +23,11 @@ def PLOTLY_DATASET(
 
     Parameters
     ----------
-    dataset_key: str
+    dataset_key : str
 
     Returns
     -------
     DataFrame
-        A DataContainer object containing the retrieved pandas DataFrame.
     """
     
     df = getattr(data, dataset_key)()

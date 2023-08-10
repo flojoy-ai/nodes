@@ -16,10 +16,6 @@ def BART_LARGE_CNN(default: DataFrame) -> DataFrame:
     
     The "summary_text" column contains a summary of the text in the corresponding row of the input dataframe.
 
-    Parameters
-    ----------
-    None
-
     Returns
     -------
     DataFrame

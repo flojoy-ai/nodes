@@ -19,13 +19,9 @@ def INTEGRATE(default: OrderedPair | Vector) -> OrderedPair:
     """
     The INTEGRATE node takes two lists as input and integrates it using the composite trapezoidal rule.
 
-    Parameters
-    ----------
-    None
-
     Returns
     -------
-    OrderedPair, x, y
+    OrderedPair
     """
     
     match default:

@@ -10,10 +10,6 @@ def LEAST_SQUARES(
     """
     The LEAST_SQUARE node computes the coefficients that minimizes the distance between the inputs 'Matrix' or 'OrderedPair' class and the regression.
 
-    Parameters
-    ----------
-    None
-
     Returns
     -------
     OrderedPair

@@ -16,17 +16,16 @@ def READ_S3(
 
     Parameters
     ----------
-    s3_name :
+    s3_name : str
         name of the key that the user used to save access and secret access key
-    bucket_name :
+    bucket_name : str
         AWS S3 bucket name that they are trying to access
-    file_name :
+    file_name : str
         name of the file that they want to extract
 
     Returns
     -------
-    DataContainer
-        type dataframe, df
+    DataFrame
     """
     
     if s3_name == "":

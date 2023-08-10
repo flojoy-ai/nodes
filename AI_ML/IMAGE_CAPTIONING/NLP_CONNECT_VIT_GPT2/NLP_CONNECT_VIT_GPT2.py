@@ -13,10 +13,6 @@ def NLP_CONNECT_VIT_GPT2(default: Image) -> DataFrame:
     """
     The NLP_CONNECT_VIT_GPT2 node captions an input image and produces an output string wrapped in a dataframe.
 
-    Parameters
-    ----------
-    None
-
     Returns
     -------
     DataFrame

@@ -25,6 +25,10 @@ def BIG_NUMBER(
     """
     The BIG_NUMBER node generates a Plotly figure, displaying a big number with an optional prefix and suffix.
 
+    Inputs
+    ------
+    default : OrderedPair|Scalar|Vector
+    
     Parameters
     ----------
     relative_delta : bool
@@ -35,10 +39,6 @@ def BIG_NUMBER(
         any prefix to show with big number
     title : str
         title of the plot, default "BIG_NUMBER"
-
-    Supported DC types
-    ------------------
-    ordered_pair, scalar
     """
 
     job_id = default_params.job_id

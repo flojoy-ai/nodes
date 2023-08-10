@@ -23,10 +23,6 @@ def NP_2_DF(default: DataContainer) -> DataFrame:
     """
     The NP_2_DF node converts numpy array data into dataframe type data.
 
-    Parameters
-    ----------
-    None
-
     Returns
     -------
     dataframe

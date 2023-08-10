@@ -12,17 +12,13 @@ def OBJECT_DETECTION(default: Image) -> Image:
     """
     The OBJECT_DETECTION node detects objects in the input image, and returns an 'image' DataContainer with those objects highlighted.
 
-    Parameters
-    ----------
-    None
-
-    Supported DC types
-    ------------------
-    Image
+    Inputs
+    ------
+    default : Image
 
     Returns
     -------
-    Image (RGB(A))
+    Image
     """
     
     r = default.r

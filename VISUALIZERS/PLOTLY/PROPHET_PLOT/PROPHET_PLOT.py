@@ -26,7 +26,7 @@ def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) ->
 
     Returns
     -------
-    DataContainer of type "plotly" with the figure containing the plotted components.
+    Plotly
     """
 
     import os

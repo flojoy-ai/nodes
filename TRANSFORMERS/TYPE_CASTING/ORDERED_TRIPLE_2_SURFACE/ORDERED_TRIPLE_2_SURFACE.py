@@ -11,10 +11,6 @@ def ORDERED_TRIPLE_2_SURFACE(default: OrderedTriple) -> Surface:
 
     The resulting 2D grid is used to create a Surface object with corresponding x, y, and z values.
 
-    Parameters
-    ----------
-    None
-
     Returns
     -------
     Surface

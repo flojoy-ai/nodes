@@ -9,13 +9,9 @@ def IMAGE(default: Image) -> Plotly:
     """
     The IMAGE node creates a Plotly Image visualization for a given input data container type of image.
 
-    Parameters
-    ----------
-    None
-
-    Supported DC types
-    ------------------
-    image
+    Inputs
+    ------
+    default : Image
     """
 
     r = default.r

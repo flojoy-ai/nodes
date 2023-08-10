@@ -14,10 +14,6 @@ def APPEND(
 
     For ordered pair, the single point must have a shape of 1 (or (1,)).
 
-    Parameters
-    ----------
-    None
-
     Returns
     -------
     OrderedPair, Matrix, DataFrame

@@ -18,7 +18,7 @@ def SUPPORT_VECTOR_MACHINE(
 
     Parameters
     ----------
-    kernel : 'linear' | 'poly' | 'rbf' | 'sigmoid' | 'precomputed', default='linear'
+    kernel : 'linear' | 'poly' | 'rbf' | 'sigmoid' | 'precomputed'
         Specifies the kernel type to be used in the algorithm.
         For detailed information about kernel types:
         https://scikit-learn.org/stable/modules/svm.html#kernel-functions

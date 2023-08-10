@@ -39,7 +39,7 @@ def FFT(
 
     Parameters
     ----------
-    window : selection of window types
+    window : select
         the node will apply a window to the signal to avoid spectral leakage
     real_signal : boolean
         whether the input signal is real or complex

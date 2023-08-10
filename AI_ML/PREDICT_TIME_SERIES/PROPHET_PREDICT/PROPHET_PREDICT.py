@@ -38,25 +38,27 @@ def PROPHET_PREDICT(
 
         If False, the returning dataframe will be the original data.
 
-        This node will also always have an "extra" field, "run_forecast", which 
+        This node will also always have an "extra" field, run_forecast, which 
         matches that of the parameters passed in. This is for future nodes 
         to know if a forecast has already been run.
 
         Default = True
 
     periods : int
-        The number of periods to predict out. Only used if "run_forecast" is True.
+        The number of periods to predict out. Only used if run_forecast is True.
         Default = 365
 
     Returns
     -------
-    DataFrame with parameter as df
+    DataFrame
+        With parameter as df.
         Indicates either the original df passed in, or the forecasted df
-        (depending on if "run_forecast" is True).
+        (depending on if run_forecast is True).
 
-    DataContainer with parameter "extra"
-        Contains keys "run_forecast" which correspond to the input parameter,
-        and potentially "original" in the event that "run_forecast" is True.
+    DataContainer
+        With parameter as "extra".
+        Contains keys run_forecast which correspond to the input parameter,
+        and potentially "original" in the event that run_forecast is True.
     """
 
     import os

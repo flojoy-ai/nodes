@@ -9,13 +9,9 @@ def SURFACE3D(default: OrderedTriple | DataFrame | Surface | Matrix) -> Plotly:
     """
     The SURFACE3D node creates a Plotly 3D Surface visualization for a given input data container.
 
-    Parameters
-    ----------
-    None
-
-    Supported DC types
-    ------------------
-    ordered_triple, dataframe, surface, matrix
+    Inputs
+    ------
+    default : OrderedTriple|DataFrame|Surface|Matrix
     """
     
     layout = plot_layout(title="SURFACE3D")

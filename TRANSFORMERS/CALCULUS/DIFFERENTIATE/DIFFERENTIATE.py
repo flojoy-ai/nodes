@@ -9,10 +9,6 @@ def DIFFERENTIATE(default: OrderedPair | Vector) -> OrderedPair:
 
     It then computes the derivative of the array, y, with respect to x.
 
-    Parameters
-    ----------
-    None
-
     Returns
     -------
     numpy array

@@ -28,7 +28,7 @@ def PROPHET_COMPONENTS(
 
     Returns
     -------
-    DataContainer of type "plotly" with the figure containing the plotted components.
+    Plotly
     """
 
     import os
