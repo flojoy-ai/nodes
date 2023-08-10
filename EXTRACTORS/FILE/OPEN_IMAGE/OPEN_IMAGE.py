@@ -21,7 +21,7 @@ def OPEN_IMAGE(file_path: str = "") -> Image:
     Returns
     -------
     Image
-        type 'image' that was loaded from specified file path 
+        type 'image' that was loaded from specified file path
     """
 
     if not path.exists(file_path):

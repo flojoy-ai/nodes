@@ -7,7 +7,7 @@ import pandas as pd
 def OPEN_PARQUET(file_path: str = "") -> DataFrame:
     """
     The OPEN_PARQUET node loads a local file of the .parquet file format. It then returns the file as a pandas.Dataframe type.
-    
+
     Inputs
     ------
     default: None
