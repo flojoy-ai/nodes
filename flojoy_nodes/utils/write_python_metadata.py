@@ -3,12 +3,13 @@ import os
 
 import pathlib
 
-NODES_PATH = pathlib.Path(__file__).parent.parent.joinpath("nodes")
+NODES_PATH = pathlib.Path(__file__).parent.parent
 
 badbadnotgood = ["VCTR.py", "__init__.py", ".DS_Store"]
 ignore_folders = [
     "assets",
     "utils",
+    "flojoy_nodes/nodes"
 ]
 
 
@@ -19,7 +20,7 @@ def get_node_files():
         for file in files:
             # Check if the file matches the pattern
             if any(
-                folder_name in os.path.join(root, file)
+                folder_name in os.path.join(root, file.replace("\\", "/"))
                 for folder_name in ignore_folders
             ):
                 continue

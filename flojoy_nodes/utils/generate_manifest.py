@@ -6,7 +6,7 @@ import pathlib
 
 __all__ = ["generate_manifest"]
 
-NODES_PATH = pathlib.Path(__file__).parent.parent.joinpath("nodes")
+NODES_PATH = pathlib.Path(__file__).parent.parent
 
 NAME_MAP = {
     "AI_ML": "AI & ML",
@@ -90,6 +90,7 @@ def browse_directories(dir_path: str, cur_type: Optional[str] = None):
                 or "examples" in entry.path
                 or "a1-[autogen]" in entry.path
                 or "appendix" in entry.path
+                or "nodes" in entry.path
             ):
                 continue
             cur_type = basename if basename in ALLOWED_TYPES else cur_type

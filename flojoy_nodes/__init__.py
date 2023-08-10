@@ -1,2 +1,2 @@
-from .nodes import *
+from . import nodes
 from .utils import *
