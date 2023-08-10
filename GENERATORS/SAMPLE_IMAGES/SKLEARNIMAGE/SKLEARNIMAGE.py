@@ -3,7 +3,7 @@ from skimage import data
 from typing import Literal
 
 
-@flojoy(node_type="default", deps={"scikit-image": "0.21.0"})
+@flojoy(deps={"scikit-image": "0.21.0"})
 def SKLEARNIMAGE(
     img_key: Literal[
         "astronaut",
@@ -56,6 +56,17 @@ def SKLEARNIMAGE(
 
     Examples can be found here:
     https://scikit-image.org/docs/stable/auto_examples/index.html
+
+    Parameters
+    ----------
+    img_key : str
+        The name of the image to be loader from scikit-image.
+
+    Outputs
+    -------
+    Image
+        DataContainer containing image loaded from scikit-image.
+
     """
 
     img_array = getattr(data, img_key)()
