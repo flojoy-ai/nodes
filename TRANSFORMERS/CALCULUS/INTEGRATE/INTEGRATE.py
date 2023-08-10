@@ -23,7 +23,7 @@ def INTEGRATE(default: OrderedPair | Vector) -> OrderedPair:
     -------
     OrderedPair
     """
-    
+
     match default:
         case OrderedPair():
             input_x = default.x

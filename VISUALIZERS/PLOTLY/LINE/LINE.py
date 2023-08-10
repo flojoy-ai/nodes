@@ -14,7 +14,7 @@ def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     ------
     default : OrderedPair|DataFrame|Matrix|Vector
     """
-    
+
     layout = plot_layout(title="LINE")
     fig = go.Figure(layout=layout)
 

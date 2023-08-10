@@ -17,7 +17,7 @@ def EXTRACT_COLUMNS(default: DataFrame | Matrix, columns: Array) -> DataFrame:
     DataFrame | Matrix
         The dataframe or matrix with only the specified columns.
     """
-    
+
     if isinstance(default, DataFrame):
         df = default.m
         new_df = df[columns.unwrap()] if columns else df

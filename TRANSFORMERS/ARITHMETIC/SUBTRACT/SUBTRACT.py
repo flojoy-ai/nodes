@@ -11,7 +11,7 @@ def SUBTRACT(
     """
     The SUBTRACT node subtracts two input vectors and returns the result.
     """
-    
+
     initial = get_val(a)
     seq = map(lambda dc: get_val(dc), b)
     y = reduce(lambda u, v: np.subtract(u, v), seq, initial)

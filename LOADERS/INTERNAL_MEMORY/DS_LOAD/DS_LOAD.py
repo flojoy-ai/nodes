@@ -16,7 +16,7 @@ def DS_LOAD(default: OrderedPair, referred_node: NodeReference) -> OrderedPair:
     -------
     OrderedPair
     """
-    
+
     x = default.y
     if referred_node.unwrap() != "":
         referred_node_key = referred_node.unwrap().split("-")[0]

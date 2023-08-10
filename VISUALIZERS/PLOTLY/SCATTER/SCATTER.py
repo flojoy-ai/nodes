@@ -14,7 +14,7 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     ------
     default : OrderedPair|DataFrame|Matrix|Vector
     """
-    
+
     layout = plot_layout(title="SCATTER")
     fig = go.Figure(layout=layout)
     match default:

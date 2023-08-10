@@ -9,10 +9,10 @@ from flojoy import flojoy, run_in_venv, DataFrame, Plotly, DataContainer
 )
 def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) -> Plotly:
     """
-    The PROPHET_PLOT node plots the forecasted trend of the time series data that was passed in. This is the output plotly graph from the "plot_plotly" function from "prophet.plot". It expects as input the trained Prophet model from the PROPHET_PREDICT node. 
-    
+    The PROPHET_PLOT node plots the forecasted trend of the time series data that was passed in. This is the output plotly graph from the "plot_plotly" function from "prophet.plot". It expects as input the trained Prophet model from the PROPHET_PREDICT node.
+
     If "run_forecast" was True in that node, the forecasted dataframe will be available here as the "m" dc_input attribute. Otherwise, this will make the predictions on the raw dataframe (in which case it will be the "m" attribute).
-    
+
     You can tell if that forecasted dataframe is available via the "extra" field, "run_forecast", of the dc_input (dc_inputs[0].extra["run_forecast"]).
 
     Parameters

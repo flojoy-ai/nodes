@@ -16,18 +16,18 @@ def ANDERSON(
 ) -> OrderedPair | Matrix | Scalar:
     """
     The ANDERSON node is based on a numpy or scipy function.
-    
+
     The description of that function is as follows:
 
         Anderson-Darling test for data coming from a particular distribution.
 
         The Anderson-Darling test tests the null hypothesis that a sample is drawn from a population that follows a particular distribution.
-        For the Anderson-Darling test, the critical values depend on which distribution is being tested against. 
+        For the Anderson-Darling test, the critical values depend on which distribution is being tested against.
         This function works for normal, exponential, logistic, or Gumbel (Extreme Value Type I) distributions.
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['statistic', 'critical_values', 'significance_level']. 
+    select_return : This function has returns multiple objects ['statistic', 'critical_values', 'significance_level'].
         Select the desired one to return.
         See the respective function docs for descriptors.
     x : array_like

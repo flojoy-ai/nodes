@@ -27,7 +27,7 @@ def PHIDGET22(
     calibration2 : float
         Calibration parameters to convert voltage into pressure.
     """
-    
+
     voltage: list[float] = []
     pressions: list[float] = []
     sensor_num: list[int] = []

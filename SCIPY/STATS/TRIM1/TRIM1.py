@@ -20,7 +20,7 @@ def TRIM1(
 
         Slice off a proportion from ONE end of the passed array distribution.
 
-        If 'proportiontocut' = 0.1, slices off 'leftmost' or 'rightmost' 10% of scores. 
+        If 'proportiontocut' = 0.1, slices off 'leftmost' or 'rightmost' 10% of scores.
         The lowest or highest values are trimmed (depending on the tail).
         Slice off less if proportion results in a non-integer slice index (i.e. conservatively slices off 'proportiontocut').
 

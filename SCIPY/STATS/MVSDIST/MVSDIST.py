@@ -20,7 +20,7 @@ def MVSDIST(
 
     Parameters
     ----------
-    select_return : This function has returns multiple Objects ['mdist', 'vdist', 'sdist']. 
+    select_return : This function has returns multiple Objects ['mdist', 'vdist', 'sdist'].
         Select the desired one to return.
         See the respective function docs for descriptors.
     data : array_like

@@ -18,7 +18,7 @@ def EDGE_DETECTION(default: Image) -> Image:
     image
         The image with detected edges in white.
     """
-    
+
     r = default.r
     g = default.g
     b = default.b

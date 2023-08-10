@@ -16,7 +16,7 @@ def STEPPER_DRIVER_TIC_KNOB(
 ) -> OrderedPair:
     """
     The STEPPER_DRIVER_TIC_KNOB controls a stepper motor movement with a TIC driver.
-    
+
     The user controls the motor rotation with the knob position in the node's parameters.
 
     Parameters

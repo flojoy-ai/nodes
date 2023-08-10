@@ -20,7 +20,7 @@ def SIGMACLIP(
 
         Perform iterative sigma-clipping of array elements.
 
-        Starting from the full sample, all elements outside the critical range are removed, 
+        Starting from the full sample, all elements outside the critical range are removed,
         i.e. all elements of the input array 'c' that satisfy either of the following conditions::
 
         c < mean(c) - std(c)*low
@@ -30,7 +30,7 @@ def SIGMACLIP(
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['clipped', 'lower', 'upper']. 
+    select_return : This function has returns multiple objects ['clipped', 'lower', 'upper'].
         Select the desired one to return.
         See the respective function docs for descriptors.
     a : array_like
