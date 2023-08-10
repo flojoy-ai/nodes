@@ -50,9 +50,6 @@ class LoopData:
         )
         return loop_data
 
-    def print(self, prefix: str = ""):
-        print(f"{prefix}loop Data:", json.dumps(self.get_data(), indent=2))
-
 
 @flojoy(inject_node_metadata=True)
 def LOOP(
@@ -70,15 +67,11 @@ def LOOP(
     """
     node_id = default_params.node_id
 
-    print("\n\nstart loop:", node_id)
-
     # infinite loop
     if num_loops == -1:
-        print("infinite loop")
         return build_result(inputs=[default] if default else [], is_loop_finished=False)
 
-    loop_data: LoopData = load_loop_data(node_id, num_loops)
-    loop_data.print("at start ")
+    loop_data = load_loop_data(node_id, num_loops)
 
     # loop was previously finished, but now re-executing, so restart
     if loop_data.is_finished:
@@ -89,31 +82,28 @@ def LOOP(
     if not loop_data.is_finished:
         store_loop_data(node_id, loop_data)
     else:
-        print("finished loop")
         delete_loop_data(node_id)
 
-    print("end loop\n\n")
 
     return build_result([default] if default else [], loop_data.is_finished)
 
 
 def load_loop_data(node_id: str, default_num_loops: int) -> LoopData:
-    data: dict[str, Any] = SmallMemory().read_memory(node_id, memory_key) or {}
+    data = SmallMemory().read_memory(node_id, memory_key) or {}
+    new_data = {"num_loops": default_num_loops}
+    new_data.update(data)
     loop_data = LoopData.from_data(
-        node_id=node_id, data={"num_loops": default_num_loops, **data}
+        node_id=node_id, data=new_data
     )
     return loop_data
 
 
 def store_loop_data(node_id: str, loop_data: LoopData):
     SmallMemory().write_to_memory(node_id, memory_key, loop_data.get_data())
-    loop_data.print("store ")
 
 
 def delete_loop_data(node_id: str):
     SmallMemory().delete_object(node_id, memory_key)
-    print("delete loop data")
-
 
 def build_result(inputs: list[DataContainer], is_loop_finished: bool):
     return LoopOutput(
