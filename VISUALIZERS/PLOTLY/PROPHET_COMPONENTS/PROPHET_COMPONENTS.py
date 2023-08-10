@@ -36,9 +36,10 @@ def PROPHET_COMPONENTS(
         Only used if the node passed into this node (i.e. PROPHET_PREDICT) did NOT return the forecast.
         If the forecast was included in the DataContainer, this parameter will be ignored. default is 365
 
-    Returns
+    Outputs
     -------
     Plotly
+        Plotly type of DataContainer object
     """
 
     import os

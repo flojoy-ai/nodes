@@ -14,6 +14,11 @@ def SURFACE3D(default: OrderedTriple | DataFrame | Surface | Matrix) -> Plotly:
     default : OrderedTriple|DataFrame|Surface|Matrix
         DataContainer object to be visualized
 
+    Outputs
+    -------
+    Plotly
+        Plotly type of DataContainer object
+
     """
 
     layout = plot_layout(title="SURFACE3D")

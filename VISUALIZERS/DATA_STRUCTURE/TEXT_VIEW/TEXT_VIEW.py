@@ -11,6 +11,10 @@ def TEXT_VIEW(default: TextBlob):
     default : TextBlob
         DataContainer object to be visualized in text format
 
+    Outputs
+    -------
+    Plotly
+        Plotly type of DataContainer object
     """
 
     return default

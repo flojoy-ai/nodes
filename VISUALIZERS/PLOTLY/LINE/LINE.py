@@ -15,6 +15,10 @@ def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     default : OrderedPair|DataFrame|Matrix|Vector
         DataContainer object to be visualized
 
+    Outputs
+    -------
+    Plotly
+        Plotly type of DataContainer object
     """
 
     layout = plot_layout(title="LINE")

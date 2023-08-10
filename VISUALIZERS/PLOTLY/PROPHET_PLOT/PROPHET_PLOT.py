@@ -35,9 +35,10 @@ def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) ->
 
         Default = 365
 
-    Returns
+    Outputs
     -------
     Plotly
+        Plotly type of DataContainer object
     """
 
     import os

@@ -40,6 +40,11 @@ def BIG_NUMBER(
         any prefix to show with big number
     title : str
         title of the plot, default "BIG_NUMBER"
+
+    Outputs
+    -------
+    Plotly
+        Plotly type of DataContainer object
     """
 
     job_id = default_params.job_id

@@ -14,6 +14,10 @@ def IMAGE(default: Image) -> Plotly:
     default : Image
         DataContainer object to be visualized
 
+    Outputs
+    -------
+    Plotly
+        Plotly type of DataContainer object
     """
 
     r = default.r

@@ -29,10 +29,10 @@ def ARRAY_VIEW(default: OrderedPair | Matrix | DataFrame | Image) -> Plotly:
     default : OrderedPair | DataFrame | Matrix | Image
         DataContainer object to be visualized as array
 
-    Returns
+    Outputs
     -------
     Plotly
-        Visualization of the input data in array format.
+        Plotly type of DataContainer object
     """
 
     if isinstance(default, OrderedPair):

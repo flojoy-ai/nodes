@@ -30,6 +30,11 @@ def COMPOSITE(
         plotly type to display as the first figure, default is 'scatter'
     second_figure : 'bar' | 'line' | 'histogram' | 'scatter'
         plotly type to display as the second figure, default is 'line'
+
+    Outputs
+    -------
+    Plotly
+        Plotly type of DataContainer object
     """
 
     layout = plot_layout(title="COMPOSITE")
