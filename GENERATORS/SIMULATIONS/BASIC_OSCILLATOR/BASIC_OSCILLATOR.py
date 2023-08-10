@@ -19,8 +19,6 @@ def BASIC_OSCILLATOR(
 
     It offers a more straightforward way to generate signals, with sample rate and the time in seconds as parameters, along with all the parameters in the SINE node.
 
-    This node is particularly useful with signal processing applications, as the sample rate is commonly used.
-
     Parameters
     ----------
     sample_rate : float
