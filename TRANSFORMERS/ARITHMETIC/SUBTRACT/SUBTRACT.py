@@ -14,22 +14,22 @@ def SUBTRACT(
     Inputs
     ------
     a : OrderedPair|Scalar|Vector
-        Input from which we will subtract input b.
+        The input a use in the subtraction of a by b.
     b : OrderedPair|Scalar|Vector
-        Input we will subtract from input a.
+        The input b use in the subtraction of a by b.
 
     Returns
     -------
     OrderedPair|Scalar|Vector
-        OrderedPair if...
-        x : the x-axis of the input a.
-        y : the result of the subtraction of input b to input a.
+        OrderedPair if a is an OrderedPair.
+        x : the x-axis of input a.
+        y : the result of the subtraction of input a by input b.
 
-        Scalar if...
-        c : the result of the subtraction of input b to input a.
+        Scalar if a is a Scalar.
+        c : the result of the subtraction of input a by input b.
 
-        Vector if...
-        v : the result of the subtraction of input b to input a.
+        Vector if a is a Vector.
+        v : the result of the subtraction of input a by input b.
     """
 
     initial = get_val(a)

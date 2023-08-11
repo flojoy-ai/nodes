@@ -18,22 +18,22 @@ def ADD(
     Inputs
     ------
     a : OrderedPair|Scalar|Vector
-        Input a that we will add with input b.
+        The input a use to compute the sum of a and b.
     b : OrderedPair|Scalar|Vector
-        Input b that we will add with input a.
+        The input b use to compute the sum of a and b.
 
     Returns
     -------
     OrderedPair|Scalar|Vector
-        OrderedPair if...
-        x : the x-axis of the a input.
-        y : the sum of the input a and input b.
+        OrderedPair if a is an OrderedPair.
+        x : the x-axis of input a.
+        y : the sum of input a and input b.
 
-        Scalar if...
-        c : the sum of the input a and input b.
+        Scalar if a is a Scalar.
+        c : the sum of input a and input b.
 
-        Vector if...
-        v : the sum of the input a and input b.
+        Vector if a is a Vector.
+        v : the sum of input a and input b.
     """
 
     initial = get_val(a)
