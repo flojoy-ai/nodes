@@ -10,6 +10,11 @@ def IFFT(default: DataFrame, real_signal: bool = True) -> OrderedPair:
 
     With the IFFT algorith, the input signal will be transformed from the frequency domain back into the time domain.
 
+    Inputs
+    ------
+    default : OrderedPair
+        The data to apply inverse FFT to.
+
     Parameters
     ----------
     real_signal : boolean

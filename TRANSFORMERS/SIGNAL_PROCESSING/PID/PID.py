@@ -16,6 +16,11 @@ def PID(
     The returned value with be modified according to the
     PID parameters Kp, Ki, and Kd.
 
+    Inputs
+    ------
+    default : OrderedPair
+        The data to apply the PID function to.
+
     Parameters
     ----------
     Kp: float
@@ -28,7 +33,8 @@ def PID(
     Returns
     -------
     OrderedPair
-        The dataframe modified according to the PID.
+        x: The x axis equal to the input y axis.
+        y: The y axis which is the PID output.
     """
 
     # First let's get the parameters that won't change
