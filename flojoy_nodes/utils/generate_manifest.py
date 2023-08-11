@@ -159,8 +159,6 @@ def generate_manifest(
     nodes_map["children"].sort(key=sort_order)  # type: ignore
     if custom_nodes_path:
         custom_nodes_map = browse_directories(custom_nodes_path, root_dir=root_dir)
-        print("custom_nodes_map", custom_nodes_map, flush=True)
-        print("custom_nodes_map ch", custom_nodes_map["children"], flush=True)
         if custom_nodes_map["children"]:
             custom_nodes_map["children"].sort(key=sort_order)  # type: ignore
             nodes_map = deep_merge_dict(nodes_map, custom_nodes_map)
