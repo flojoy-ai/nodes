@@ -12,6 +12,11 @@ def SAVGOL(
 
     The default behaviour is to implement a 3-point moving average of the data.
 
+    Inputs
+    ------
+    default : OrderedPair
+        The data to apply the numpy savgol filter to.
+
     Parameters
     ----------
     window_length : int
