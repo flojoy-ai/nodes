@@ -15,21 +15,21 @@ def DIVIDE(
     Inputs
     ------
     a : OrderedPair|Scalar|Vector
-        Input that will be divide by input b.
+        The input that will be divide by b.
     b : OrderedPair|Scalar|Vector
-        Input that will divide input a.
+        The input that will divide a.
 
     Returns
     -------
     OrderedPair|Scalar|Vector
-        OrderedPair if...
-        x : the x-axis of the a input.
+        OrderedPair if a is an OrderedPair.
+        x : the x-axis of a input.
         y : the result of the division of input a by input b.
 
-        Scalar if...
+        Scalar if a is a Scalar.
         c : the result of the division of input a by input b.
 
-        Vector if...
+        Vector if a is a Vector.
         v : the result of the division of input a by input b.
     """
 

@@ -5,12 +5,12 @@ from flojoy import flojoy, OrderedPair, Vector, Scalar
 @flojoy
 def ABS(default: OrderedPair | Vector | Scalar) -> OrderedPair:
     """
-    The ABS node returns an absolute value.
+    The ABS node take a numeric array, a vector or a scalar as input and returns its absolute value.
 
     Inputs
     ------
     default : OrderedPair|Vector|Scalar
-        Input for which we want to evaluate the absolute value.
+        The input to apply the absolute value to.
 
     Returns
     -------
