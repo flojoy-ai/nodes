@@ -15,22 +15,23 @@ def SERIAL_TIMESERIES(
     record_period: int = 1,
 ) -> OrderedPair:
     """
-    The SERIAL_TIMESERIES Node extract simple time dependent 1d data from an Ardunio,
-    or a similar serial device.
+    The SERIAL_TIMESERIES node extracts simple time-dependent 1D data from an Ardunio or a similar serial device.
 
-    Parameters :
-    ------------
-    num_readings: int
+    Parameters
+    ----------
+    num_readings : int
         Number of points to record.
-    record_period: float
+    record_period : float
         Length between two recordings in seconds.
-    baudrate: int
+    baudrate : int
         Baud rate for the serial device.
-    comport: string
-        COM port of the serial device
+    comport : string
+        COM port of the serial device.
 
-    num_readings * record_period is roughly the run length in seconds.
+    num_readings * record_period :
+        Is roughly the run length in seconds.
     """
+
     ser = serial.Serial(comport, timeout=1, baudrate=baudrate)
     readings = []
     times = []

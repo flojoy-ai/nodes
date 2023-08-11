@@ -10,4 +10,4 @@ Upper_bound_y: 1
 
 Lower_bound_y: 0
 
-The value is added with the `SINE` node which move up the sine function from the scalar that was add. This difference is visible when you compare the two `SCATTER` nodes.
+The `DOUBLE_DEFINITE_INTEGRAL` result is equal to 1. So 1 is added to the `SINE` node moving up every value of the sine function by 1. This difference is visible when you compare the two `SCATTER` nodes.

@@ -11,20 +11,27 @@ def BUTTER(
     btype: Literal["lowpass", "highpass", "bandpass", "bandstop"] = "lowpass",
     sample_rate: int = 10,
 ) -> OrderedPair:
-    """The BUTTER node applies a butterworth filter to an input signal.
-    It is designed to have a frequency response that is as flat as possible in the pass band
+    """
+    The BUTTER node applies a butterworth filter to an input signal.
+
+    It is designed to have a frequency response that is as flat as possible in the pass band.
+
+    Inputs
+    ------
+    default : OrderedPair
+        The data to apply the butter filter to.
 
     Parameters
     ----------
-    filter_order: int
-        The intensity of the filter
-    critical_frequency: int
-        The frequency where the filter takes effect. For lowpass and highpass, takes in a scalar.
-        For bandpass and bandstop, takes in array with the length of two
-    btype: select
-        The type of the filter
-    sample_rate: int
-        The sample rate of the input signal
+    filter_order : int
+        The intensity of the filter.
+    critical_frequency : int
+        The frequency where the filter takes effect. For lowpass and highpass, it takes a scalar.
+        For bandpass and bandstop, it takes an array with the length of 2.
+    btype : select
+        The type of the filter.
+    sample_rate : int
+        The sample rate of the input signal.
 
     Returns
     -------
@@ -32,6 +39,7 @@ def BUTTER(
         x: time domain
         y: filtered signal
     """
+
     sig = default.y
     order: int = filter_order
     wn: int = critical_frequency  # hz

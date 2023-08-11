@@ -4,7 +4,7 @@ from Phidget22.Devices.VoltageRatioInput import VoltageRatioInput
 
 
 def onVoltageRatioChange(self, voltageRatio):
-    """Declaration of the Event handler, print Voltage variation for a channel"""
+    # Declaration of the Event handler, print Voltage variation for a channel.
     print("VoltageRatio [" + str(self.getChannel()) + "]: " + str(voltageRatio))
 
 
@@ -16,16 +16,18 @@ def PHIDGET22(
     calibration2: float = 0.06,
 ) -> OrderedPair:
     """
-    The node Phidget allows you to record pressures from Flexiforce sensors using a Phidget InterfaceKit.
+    The PHIDGET22 node allows you to record pressures from Flexiforce sensors using a Phidget InterfaceKit.
 
     Parameters
-    -----------
-    n_sensors: int
-         Defines the number of pressure sensors connected to the Phidget Interface Kit.
-    calibration1: float
-    calibration2: float
+    ----------
+    n_sensors : int
+        Defines the number of pressure sensors connected to the Phidget InterfaceKit.
+    calibration1 : float
+        Calibration parameters to convert voltage into pressure.
+    calibration2 : float
         Calibration parameters to convert voltage into pressure.
     """
+
     voltage: list[float] = []
     pressions: list[float] = []
     sensor_num: list[int] = []

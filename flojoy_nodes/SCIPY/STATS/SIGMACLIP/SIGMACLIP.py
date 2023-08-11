@@ -13,37 +13,37 @@ def SIGMACLIP(
     high: float = 4.0,
     select_return: Literal["clipped", "lower", "upper"] = "clipped",
 ) -> OrderedPair | Matrix | Scalar:
-    """The SIGMACLIP node is based on a numpy or scipy function.
+    """
+    The SIGMACLIP node is based on a numpy or scipy function.
+
     The description of that function is as follows:
 
-            Perform iterative sigma-clipping of array elements.
+        Perform iterative sigma-clipping of array elements.
 
-            Starting from the full sample, all elements outside the critical range are
-            removed, i.e. all elements of the input array `c` that satisfy either of
-    the following conditions::
+        Starting from the full sample, all elements outside the critical range are removed,
+        i.e. all elements of the input array 'c' that satisfy either of the following conditions::
 
-            c < mean(c) - std(c)*low
-            c > mean(c) + std(c)*high
+        c < mean(c) - std(c)*low
+        c > mean(c) + std(c)*high
 
-            The iteration continues with the updated sample until no
-            elements are outside the (updated) range.
+        The iteration continues with the updated sample until no elements are outside the (updated) range.
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects:
-            ['clipped', 'lower', 'upper']. Select the desired one to return.
-            See the respective function docs for descriptors.
+    select_return : This function has returns multiple objects ['clipped', 'lower', 'upper'].
+        Select the desired one to return.
+        See the respective function docs for descriptors.
     a : array_like
-            Data array, will be raveled if not 1-D.
+        Data array, will be raveled if not 1-D.
     low : float, optional
-            Lower bound factor of sigma clipping. Default is 4.
+        Lower bound factor of sigma clipping. Default is 4.
     high : float, optional
-            Upper bound factor of sigma clipping. Default is 4.
+        Upper bound factor of sigma clipping. Default is 4.
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = scipy.stats.sigmaclip(

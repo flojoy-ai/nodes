@@ -14,50 +14,47 @@ def SKEWTEST(
     alternative: str = "two-sided",
     select_return: Literal["statistic", "pvalue"] = "statistic",
 ) -> OrderedPair | Matrix | Scalar:
-    """The SKEWTEST node is based on a numpy or scipy function.
+    """
+    The SKEWTEST node is based on a numpy or scipy function.
+
     The description of that function is as follows:
 
-            Test whether the skew is different from the normal distribution.
+        Test whether the skew is different from the normal distribution.
 
-            This function tests the null hypothesis that the skewness of
-            the population that the sample was drawn from is the same
-            as that of a corresponding normal distribution.
+        This function tests the null hypothesis that the skewness of the population that the sample was drawn from is the same as that of a corresponding normal distribution.
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects:
-            ['statistic', 'pvalue']. Select the desired one to return.
-            See the respective function docs for descriptors.
+    select_return : This function has returns multiple objects ['statistic', 'pvalue'].
+        Select the desired one to return.
+        See the respective function docs for descriptors.
     a : array
-            The data to be tested.
+        The data to be tested.
     axis : int or None, optional
-            Axis along which statistics are calculated. Default is 0.
-            If None, compute over the whole array `a`.
+        Axis along which statistics are calculated. Default is 0.
+        If None, compute over the whole array `a`.
     nan_policy : {'propagate', 'raise', 'omit'}, optional
-            Defines how to handle when input contains nan.
-    The following options are available (default is 'propagate'):
-
-    * 'propagate': returns nan
-    * 'raise': throws an error
-    * 'omit': performs the calculations ignoring nan values
-
+        Defines how to handle when input contains nan.
+        The following options are available (default is 'propagate'):
+        'propagate' : returns nan
+        'raise' : throws an error
+        'omit' : performs the calculations ignoring nan values
     alternative : {'two-sided', 'less', 'greater'}, optional
-            Defines the alternative hypothesis. Default is 'two-sided'.
-    The following options are available:
-
-    * 'two-sided': the skewness of the distribution underlying the sample
-            is different from that of the normal distribution (i.e. 0)
-    * 'less': the skewness of the distribution underlying the sample
-            is less than that of the normal distribution
-    * 'greater': the skewness of the distribution underlying the sample
-            is greater than that of the normal distribution
+        Defines the alternative hypothesis. Default is 'two-sided'.
+        The following options are available:
+        'two-sided' : the skewness of the distribution underlying the sample
+        is different from that of the normal distribution (i.e. 0)
+        'less' : the skewness of the distribution underlying the sample
+        is less than that of the normal distribution
+        'greater' : the skewness of the distribution underlying the sample
+        is greater than that of the normal distribution
 
     .. versionadded:: 1.7.0
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = scipy.stats.skewtest(

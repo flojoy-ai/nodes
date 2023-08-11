@@ -31,33 +31,37 @@ def FIR(
     cutoff_high: float = 15.0,
     taps: int = 200,
 ) -> OrderedPair:
-    """The FIR node Apply a low-pass FIR filter to an input vector.
-    The filter is designed with the window method.
-    This filter takes a few inputs: the sample_rate (will be passed as a parameter
-    if the target node is not connected), the window type of the filter, the cutoff frequency.
-    and lastly the number of taps (or length) of the filter.
+    """
+    The FIR node applies a low-pass FIR filter to an input vector. The filter is designed with the window method.
+
+    This filter takes a few inputs:
+    the sample_rate (will be passed as a parameter if the target node is not connected), the window type of the filter, the cutoff frequency, and the number of taps (or length) of the filter.
+
+    Inputs
+    ------
+    default : OrderedPair
+        The data to apply a FIR filter to.
 
     Parameters
     ----------
-    sample_rate: int
-        The amount of samples during a second
-    filter_type: select
-        How the filter behaves
-    window: select
-        The window function used in the FIR
-    cutoff_low: float
-        The frequency cutoff to filter out the lower frequencies
-    cutoff_high: float
-        The frequency cutoff to filter out the upper frequencies
-    taps: int
-        The length of the filter
+    sample_rate : int
+        the amount of samples within a second
+    filter_type : select
+        how the filter behaves
+    window : select
+        the window function used in the FIR
+    cutoff_low : float
+        the frequency cutoff to filter out the lower frequencies
+    cutoff_high : float
+        the frequency cutoff to filter out the upper frequencies
+    taps : int
+        the length of the filter
 
     Returns
     -------
     OrderedPair
         x: time domain
         y: filtered signal
-    ------
     """
 
     sample_rate: int = sample_rate  # Hz

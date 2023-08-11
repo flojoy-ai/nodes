@@ -8,10 +8,12 @@ from functools import reduce
 def DIVIDE(
     a: OrderedPair | Scalar | Vector, b: list[OrderedPair | Scalar | Vector]
 ) -> OrderedPair | Scalar | Vector:
-    """Divide 2 or more numeric arrays, matrices, dataframes, or constants element-wise.
-    When a constant is divided to an array or matrix, each element in the array or
-    matrix will be increased by the constant value.
     """
+    The DIVIDE node divides two or more numeric arrays, matrices, dataframes, or constants element-wise.
+
+    When a constant is divided into an array or matrix, each element in the array or matrix will be increased by the constant value.
+    """
+
     initial = get_val(a)
     seq = map(lambda dc: get_val(dc), b)
     y = reduce(lambda u, v: np.divide(u, v), seq, initial)

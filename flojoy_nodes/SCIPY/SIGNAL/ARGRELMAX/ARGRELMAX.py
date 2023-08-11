@@ -13,30 +13,31 @@ def ARGRELMAX(
     order: int = 1,
     mode: str = "clip",
 ) -> OrderedPair | Matrix | Scalar:
-    """The ARGRELMAX node is based on a numpy or scipy function.
+    """
+    The ARGRELMAX node is based on a numpy or scipy function.
+
     The description of that function is as follows:
+        Calculate the relative maxima of `data`.
 
-
-            Calculate the relative maxima of `data`.
-
-    Parameters ----------
+    Parameters
+    ----------
     data : ndarray
-            Array in which to find the relative maxima.
+        Array in which to find the relative maxima.
     axis : int, optional
-            Axis over which to select from `data`. Default is 0.
+        Axis over which to select from 'data'. Default is 0.
     order : int, optional
-            How many points on each side to use for the comparison
-            to consider ``comparator(n, n+x)`` to be True.
+        How many points on each side to use for the comparison
+        to consider "comparator(n, n+x)" to be True.
     mode : str, optional
-            How the edges of the vector are treated.
-            Available options are 'wrap' (wrap around) or 'clip' (treat overflow
-            as the same as the last (or first) element).
-            Default 'clip'. See `numpy.take`.
+        How the edges of the vector are treated.
+        Available options are 'wrap' (wrap around) or 'clip' (treat overflow
+        as the same as the last (or first) element).
+        Default 'clip'. See numpy.take.
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = OrderedPair(

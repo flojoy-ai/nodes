@@ -4,18 +4,25 @@ import numpy as np
 
 @flojoy
 def EXTRACT_COLUMNS(default: DataFrame | Matrix, columns: Array) -> DataFrame:
-    """The EXTRACT_COLUMNS node takes an input dataframe/matrix and returns a dataframe/matrix with only the specified columns.
+    """
+    The EXTRACT_COLUMNS node takes an input dataframe/matrix and returns a dataframe/matrix with only the specified columns.
+
+    Inputs
+    ------
+    default : DataFrame|Matrix
+        Input to use as the table for column extraction
 
     Parameters
     ----------
-    columns: list of str or list of int (supports python indexing)
-        The columns to extract from the input dataframe.
+    columns : list of str or list of int
+        The columns to extract from the input dataframe
 
     Returns
     -------
-    DataFrame | Matrix
-        The dataframe or matrix with only the specified columns.
+    DataFrame|Matrix
+        DataFrame or Matrix with only the specified columns
     """
+
     if isinstance(default, DataFrame):
         df = default.m
         new_df = df[columns.unwrap()] if columns else df

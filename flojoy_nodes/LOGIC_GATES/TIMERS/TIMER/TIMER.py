@@ -13,13 +13,15 @@ def TIMER(
     default: Optional[DataContainer] = None,
     sleep_time: float = 0,
 ) -> DataContainer:
-    """The TIMER node sleeps for a specified number of seconds.
+    """
+    The TIMER node sleeps for a specified number of seconds.
 
     Parameters
     ----------
-    sleep_time: float
+    sleep_time : float
         number of seconds to sleep
     """
+
     node_id = default_params.node_id
     jobset_id = default_params.jobset_id
     remaining_time = sleep_time

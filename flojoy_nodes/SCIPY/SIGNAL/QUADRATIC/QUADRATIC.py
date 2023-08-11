@@ -10,22 +10,24 @@ import scipy.signal
 def QUADRATIC(
     default: OrderedPair | Matrix,
 ) -> OrderedPair | Matrix | Scalar:
-    """The QUADRATIC node is based on a numpy or scipy function.
+    """
+    The QUADRATIC node is based on a numpy or scipy function.
+
     The description of that function is as follows:
 
-            A quadratic B-spline.
+        A quadratic B-spline.
 
-            This is a special case of `bspline`, and equivalent to ``bspline(x, 2)``.
+        This is a special case of 'bspline', and equivalent to 'bspline(x, 2)'.
 
     Parameters
     ----------
     x : array_like
-            a knot vector
+        a knot vector
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = scipy.signal.quadratic(

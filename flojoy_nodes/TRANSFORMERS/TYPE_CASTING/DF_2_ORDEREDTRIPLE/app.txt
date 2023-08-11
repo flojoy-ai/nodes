@@ -2,12 +2,180 @@
     "rfInstance": {
         "nodes": [
             {
+                "width": 225,
+                "height": 226,
+                "id": "TABLE-15c58799-e8b5-4e2a-8da7-4e9b14da1669",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TABLE-15c58799-e8b5-4e2a-8da7-4e9b14da1669",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 15.697025265156128,
+                    "y": 162.791309303586
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 15.697025265156128,
+                    "y": 162.791309303586
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "TABLE-7324c275-2617-4256-b32d-c423d9df155e",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TABLE-7324c275-2617-4256-b32d-c423d9df155e",
+                    "label": "TABLE 1",
+                    "func": "TABLE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 13.282464927359996,
+                    "y": -117.46602364158025
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 13.282464927359996,
+                    "y": -117.46602364158025
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "SCATTER3D-78ba1168-4a01-4e8a-bb0f-7e99def107c1",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "SCATTER3D-78ba1168-4a01-4e8a-bb0f-7e99def107c1",
+                    "label": "SCATTER3D",
+                    "func": "SCATTER3D",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|DataFrame",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/SCATTER3D/SCATTER3D.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 387.833179116913,
+                    "y": 14.32067485292606
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 387.833179116913,
+                    "y": 14.32067485292606
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "SCATTER3D-7c4176bb-516e-43ff-ad01-ad792afe238f",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "SCATTER3D-7c4176bb-516e-43ff-ad01-ad792afe238f",
+                    "label": "SCATTER3D 1",
+                    "func": "SCATTER3D",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|DataFrame",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/SCATTER3D/SCATTER3D.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 388.9118161388476,
+                    "y": -300.82675939727517
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 388.9118161388476,
+                    "y": -300.82675939727517
+                },
+                "dragging": true
+            },
+            {
                 "width": 208,
                 "height": 96,
-                "id": "R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbae",
+                "id": "R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ff",
                 "type": "GENERATORS",
                 "data": {
-                    "id": "R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbae",
+                    "id": "R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ff",
                     "label": "R DATASET",
                     "func": "R_DATASET",
                     "type": "GENERATORS",
@@ -98,16 +266,18 @@
                                 "WorldPhones",
                                 "WWWusage"
                             ],
+                            "desc": null,
                             "functionName": "R_DATASET",
                             "param": "dataset_key",
-                            "value": "iris"
+                            "value": "airquality"
                         }
                     },
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "DataFrame"
+                            "type": "DataFrame",
+                            "desc": "A DataContainer object containing the retrieved pandas DataFrame."
                         }
                     ],
                     "pip_dependencies": [
@@ -120,103 +290,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -338.7711900770852,
-                    "y": 194.3183042659582
+                    "x": -428.23010575909956,
+                    "y": 78.13554210341013
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -338.7711900770852,
-                    "y": 194.3183042659582
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7",
-                "type": "VISUALIZERS",
-                "data": {
-                    "id": "TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7",
-                    "label": "TABLE 1",
-                    "func": "TABLE",
-                    "type": "VISUALIZERS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedTriple|OrderedPair|DataFrame",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 358.1790032359889,
-                    "y": 27.327589114130035
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 358.1790032359889,
-                    "y": 27.327589114130035
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3",
-                "type": "VISUALIZERS",
-                "data": {
-                    "id": "TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3",
-                    "label": "TABLE 1",
-                    "func": "TABLE",
-                    "type": "VISUALIZERS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedTriple|OrderedPair|DataFrame",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": -8.207108311715444,
-                    "y": 293.30295471921596
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -8.207108311715444,
-                    "y": 293.30295471921596
+                    "x": -428.23010575909956,
+                    "y": 78.13554210341013
                 },
                 "dragging": true
             },
             {
                 "width": 160,
                 "height": 160,
-                "id": "DF_2_ORDEREDTRIPLE-62a7516d-96b6-4546-8fb2-f0f8a538930a",
+                "id": "DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80a",
                 "type": "TRANSFORMERS",
                 "data": {
-                    "id": "DF_2_ORDEREDTRIPLE-62a7516d-96b6-4546-8fb2-f0f8a538930a",
+                    "id": "DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80a",
                     "label": "DF 2 ORDEREDTRIPLE",
                     "func": "DF_2_ORDEREDTRIPLE",
                     "type": "TRANSFORMERS",
@@ -227,7 +317,7 @@
                             "desc": null,
                             "functionName": "DF_2_ORDEREDTRIPLE",
                             "param": "x",
-                            "value": 0
+                            "value": "5"
                         },
                         "y": {
                             "type": "int",
@@ -235,7 +325,7 @@
                             "desc": null,
                             "functionName": "DF_2_ORDEREDTRIPLE",
                             "param": "y",
-                            "value": 1
+                            "value": "4"
                         },
                         "z": {
                             "type": "int",
@@ -243,7 +333,7 @@
                             "desc": null,
                             "functionName": "DF_2_ORDEREDTRIPLE",
                             "param": "z",
-                            "value": 2
+                            "value": "3"
                         }
                     },
                     "inputs": [
@@ -263,48 +353,62 @@
                             "desc": null
                         }
                     ],
-                    "path": "PYTHON/nodes\\TRANSFORMERS\\TYPE_CASTING\\DF_2_ORDEREDTRIPLE\\DF_2_ORDEREDTRIPLE.py",
+                    "path": "PYTHON/nodes/TRANSFORMERS/TYPE_CASTING/DF_2_ORDEREDTRIPLE/DF_2_ORDEREDTRIPLE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 22.290347003831585,
-                    "y": 63.93602572915705
+                    "x": -192.70484538790708,
+                    "y": -268.5141204459132
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 22.290347003831585,
-                    "y": 63.93602572915705
+                    "x": -192.70484538790708,
+                    "y": -268.5141204459132
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbae",
+                "source": "DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80a",
                 "sourceHandle": "default",
-                "target": "TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3",
+                "target": "SCATTER3D-7c4176bb-516e-43ff-ad01-ad792afe238f",
                 "targetHandle": "default",
-                "id": "reactflow__edge-R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbaedefault-TABLE-cb2c9e6a-e220-470e-a206-eda1820f9aa3default"
+                "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80adefault-SCATTER3D-7c4176bb-516e-43ff-ad01-ad792afe238fdefault"
             },
             {
-                "source": "R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbae",
+                "source": "DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80a",
                 "sourceHandle": "default",
-                "target": "DF_2_ORDEREDTRIPLE-62a7516d-96b6-4546-8fb2-f0f8a538930a",
+                "target": "TABLE-7324c275-2617-4256-b32d-c423d9df155e",
                 "targetHandle": "default",
-                "id": "reactflow__edge-R_DATASET-05d7349e-095e-4a58-9ac2-d019c8abcbaedefault-DF_2_ORDEREDTRIPLE-62a7516d-96b6-4546-8fb2-f0f8a538930adefault"
+                "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80adefault-TABLE-7324c275-2617-4256-b32d-c423d9df155edefault"
             },
             {
-                "source": "DF_2_ORDEREDTRIPLE-62a7516d-96b6-4546-8fb2-f0f8a538930a",
+                "source": "R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ff",
                 "sourceHandle": "default",
-                "target": "TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7",
+                "target": "SCATTER3D-78ba1168-4a01-4e8a-bb0f-7e99def107c1",
                 "targetHandle": "default",
-                "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-62a7516d-96b6-4546-8fb2-f0f8a538930adefault-TABLE-a1a64ba2-624d-4309-a3a6-581e496644a7default"
+                "id": "reactflow__edge-R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ffdefault-SCATTER3D-78ba1168-4a01-4e8a-bb0f-7e99def107c1default"
+            },
+            {
+                "source": "R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ff",
+                "sourceHandle": "default",
+                "target": "DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ffdefault-DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80adefault"
+            },
+            {
+                "source": "R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ff",
+                "sourceHandle": "default",
+                "target": "TABLE-15c58799-e8b5-4e2a-8da7-4e9b14da1669",
+                "targetHandle": "default",
+                "id": "reactflow__edge-R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ffdefault-TABLE-15c58799-e8b5-4e2a-8da7-4e9b14da1669default"
             }
         ],
         "viewport": {
-            "x": 606.4472645567363,
-            "y": 234.63130388602087,
-            "zoom": 0.9186369849831518
+            "x": 288.30940064494604,
+            "y": 142.1324244694165,
+            "zoom": 0.5564820197494093
         }
     },
     "ctrlsManifest": [

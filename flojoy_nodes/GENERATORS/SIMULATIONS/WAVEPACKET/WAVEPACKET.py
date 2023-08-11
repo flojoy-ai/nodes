@@ -6,9 +6,7 @@ from typing import Optional
 
 
 def gaussian_wavepacket(x, x0, k, sigma=0.1):
-    """
-    One dimensional Gaussian wavepacket
-    """
+    # One dimensional Gaussian wavepacket.
     x = np.asarray(x)
     g = np.sqrt(1 / np.sqrt(np.pi) / sigma) * np.exp(-((x - x0) ** 2) / 2 / sigma**2)
 
@@ -16,9 +14,8 @@ def gaussian_wavepacket(x, x0, k, sigma=0.1):
 
 
 def CrankNicolson(psi, V, x, dt):
-    """
-    Crank-Nicolson method for the 1D Schrodinger equation.
-    """
+    # Crank-Nicolson method for the 1D Schrodinger equation.
+
     # No. of spatial grid points
     J = x.size - 1
     dx = x[1] - x[0]
@@ -55,25 +52,26 @@ def WAVEPACKET(
     sigma: float = 1,
     dt: float = 0.2,
 ) -> OrderedPair:
-    """The WAVEPACKET node approximates the behaviour of a 1D Gaussian
-    wavepacket in an infinite-well potential box. This example uses the
-    Crank-Nicolson Method to solve the 1D Schrodinger equation.
+    """
+    The WAVEPACKET node approximates the behaviour of a 1D Gaussian wavepacket in an infinite-well potential box.
+
+    This example uses the Crank-Nicolson Method to solve the 1D Schrodinger equation.
 
     Further reading:
     http://staff.ustc.edu.cn/~zqj/posts/Numerical_TDSE/
 
     Parameters
     ----------
-    L_box: float
+    L_box : float
         The width of the box in Bohr lengths.
-    center: float
+    center : float
         The center of the initial wavepacket.
-    momentum: float
+    momentum : float
         The momentum of the initial wavepacket.
-    sigma: float
+    sigma : float
         The width of the initial wavepacket.
-    dt: float
-        Time steps in atomic units, 1 a.u. = 24.188 as
+    dt : float
+        Time steps in atomic units, 1 a.u. = 24.188 as.
 
     Returns
     -------

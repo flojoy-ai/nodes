@@ -8,30 +8,37 @@ from flojoy import flojoy, run_in_venv, DataFrame, Plotly, DataContainer
     ]
 )
 def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) -> Plotly:
-    """The PROPHET_PLOT node plots forecasted trend of the time series data passed in
+    """
+    The PROPHET_PLOT node plots the forecasted trend of the time series data that was passed in.
+    This is the output plotly graph from the "plot_plotly" function from "prophet.plot".
+    It expects as input the trained Prophet model from the PROPHET_PREDICT node.
 
-    This is the output plotly graph from the `plot_plotly` function
-    from `prophet.plot`
+     If "run_forecast" was True in that node, the forecasted dataframe will be available in "m" attribute of default input.
+    Otherwise, this will make the predictions on the raw dataframe (in which case it will be the "m" attribute of default input).
 
-    It expects as input the trained Prophet model from the PROPHET_PREDICT node. If
-    `run_forecast` was True in that node, the forecasted dataframe will be available
-    here as the `m` dc_input attribute. Otherwise, this will make the predictions on
-    the raw dataframe (which will be the `m` attribute in that case). You can tell
-    out if that forecasted dataframe is available via the `extra` field "run_forecast"
-    of the dc_input (`dc_inputs[0].extra["run_forecast"]`)
+    You can tell if that forecasted dataframe is available via the "extra" field of data input - "run_forecast", (data.extra["run_forecast"]).
+
+    Inputs
+    ------
+    default : DataFrame
+        the DataContainer to be visualized
+
+    data : DataContainer
+        the DataContainer that holds prophet model and forecast data in the `extra` field
 
     Parameters
     ----------
     periods : int
-        The number of periods out to predict. Only used if the node passed into this
-        node (ie PROPHET_PREDICT) did NOT return the forecast. If the forecast was
-        included in the DataContainer, this param will be ignored.
+        The number of periods out to predict.
+        Only used if the node passed into this node (i.e. PROPHET_PREDICT) did NOT return the forecast.
+        If the forecast was included in the DataContainer, this parameter will be ignored.
 
-        Default 365
+        Default = 365
 
-    Returns
+    Outputs
     -------
-    DataContainer of type "plotly" with the figure containing the plotted components
+    Plotly
+        the DataContainer containing Plotly visualization of the prophet model
     """
 
     import os
@@ -60,15 +67,15 @@ def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) ->
     def _apply_macos_prophet_hotfix():
         """This is a hotfix for MacOS. See https://github.com/facebook/prophet/issues/2250#issuecomment-1559516328 for more detail"""
 
-        if not sys.platform == "darwin":
+        if sys.platform != "darwin":
             return
 
         # Test if prophet works (i.e. if the hotfix had already been applied)
         try:
             _dummy_df = _make_dummy_dataframe_for_prophet()
             prophet.Prophet().fit(_dummy_df)
-        except RuntimeError as e:
-            print(f"Could not run prophet, applying hotfix...")
+        except RuntimeError:
+            print("Could not run prophet, applying hotfix...")
         else:
             return
 

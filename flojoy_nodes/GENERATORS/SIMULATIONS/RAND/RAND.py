@@ -14,13 +14,13 @@ def RAND(
     normal_standard_deviation: float = 1,
     poisson_events: float = 1,
 ) -> OrderedPair | Scalar:
-    """The RAND node generates a random number or a list of random numbers
-    depending on the distribution selected.
+    """
+    The RAND node generates a random number or a list of random numbers, depending on the distribution selected.
 
     Inputs
     ------
     default : OrderedPair|Vector
-        Optional input to use as the x-axis for the random samples
+        Optional input to use as the x-axis for the random samples.
 
     Parameters
     ----------
@@ -40,13 +40,14 @@ def RAND(
     Returns
     -------
     OrderedPair|Scalar
-        OrderedPair if there's an input
+        OrderedPair if there is an input.
         x: the x-axis of the input
         y: the random samples
 
-        Scalar if there is no input
+        Scalar if there is no input.
         c: the random number
     """
+
     if upper_bound < lower_bound:
         upper_bound, lower_bound = lower_bound, upper_bound
 

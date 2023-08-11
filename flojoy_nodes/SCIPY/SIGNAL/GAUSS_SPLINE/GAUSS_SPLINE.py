@@ -11,22 +11,24 @@ def GAUSS_SPLINE(
     default: OrderedPair | Matrix,
     n: int = 2,
 ) -> OrderedPair | Matrix | Scalar:
-    """The GAUSS_SPLINE node is based on a numpy or scipy function.
+    """
+    The GAUSS_SPLINE node is based on a numpy or scipy function.
+
     The description of that function is as follows:
 
-            Gaussian approximation to B-spline basis function of order n.
+        Gaussian approximation to B-spline basis function of order n.
 
     Parameters
     ----------
     x : array_like
-            a knot vector
+        A knot vector.
     n : int
-            The order of the spline. Must be non-negative, i.e., n >= 0
+        The order of the spline. Must be non-negative, i.e. n >= 0.
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = scipy.signal.gauss_spline(

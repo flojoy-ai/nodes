@@ -6,19 +6,24 @@ from PIL import ImageFilter, Image as PILImage
 
 @flojoy
 def EDGE_DETECTION(default: Image) -> Image:
-    """The EDGE_DETECTION node detects edges in the image passed to it.
-    This is done through the the Pillow image filter FIND_EDGES.
+    """
+    The EDGE_DETECTION node detects edges in the image that was passed to it.
+
+    This is done through the Pillow image filter, FIND_EDGES.
+
     Note that the image is converted to greyscale during this processing.
 
-    Parameters
-    ----------
-    None
+    Inputs
+    ------
+    default : Image
+        The input image to apply edge detection to.
 
     Returns
     -------
-    image
+    Image
         The image with detected edges in white.
     """
+
     r = default.r
     g = default.g
     b = default.b
