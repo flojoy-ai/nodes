@@ -14,6 +14,26 @@ def ADD(
     When a constant is added to an array or matrix, each element in the array or matrix will be increased by the constant value.
 
     If two arrays or matrices of different sizes are added, the output will be the size of the larger array or matrix with only the overlapping elements changed.
+
+    Inputs
+    ------
+    a : OrderedPair|Scalar|Vector
+        Input a that we will add with input b.
+    b : OrderedPair|Scalar|Vector
+        Input b that we will add with input a.
+    
+    Returns
+    -------
+    OrderedPair|Scalar|Vector
+        OrderedPair if...
+        x : the x-axis of the a input.
+        y : the sum of the input a and input b.
+
+        Scalar if...
+        c : the sum of the input a and input b.
+
+        Vector if...
+        v : the sum of the input a and input b.
     """
 
     initial = get_val(a)

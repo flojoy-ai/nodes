@@ -8,6 +8,26 @@ def INVERT(default: OrderedPair | Matrix, rcond: float = 1.0) -> OrderedPair | M
     The INVERT node takes two inputs, one matrix and one rcond if not a square matrix, then inverts them (or pseudo invert) and returns the result.
 
     If the entered value is a scalar, it returns the multiplciative inverse 1/x.
+
+    Inputs
+    ------
+    default : OrderedPair|Matrix
+        ...
+    
+    Parameters
+    ----------
+    rcond : float
+        ...
+    
+    Returns
+    -------
+    OrderedPair|Matrix
+        OrderedPair if...
+        x : ...
+        y : ...
+    
+        Matrix if...
+        m : ...
     """
 
     print(f"INVERT params: {rcond}")

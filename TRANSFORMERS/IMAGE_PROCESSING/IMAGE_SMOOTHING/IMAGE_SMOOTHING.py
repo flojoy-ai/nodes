@@ -15,6 +15,11 @@ def IMAGE_SMOOTHING(
 
     Note: For "gaussian" and "median" type, you are only allowed an odd number for the kernel value.
 
+    Inputs
+    ------
+    default : Image
+        The image on which we will perform the smoothing.
+
     Parameters
     ----------
     kernel : int

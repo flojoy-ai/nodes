@@ -10,6 +10,26 @@ def SUBTRACT(
 ) -> OrderedPair | Scalar | Vector:
     """
     The SUBTRACT node subtracts two input vectors and returns the result.
+
+    Inputs
+    ------
+    a : OrderedPair|Scalar|Vector
+        Input from which we will subtract input b.
+    b : OrderedPair|Scalar|Vector
+        Input we will subtract from input a.
+    
+    Returns
+    -------
+    OrderedPair|Scalar|Vector
+        OrderedPair if...
+        x : the x-axis of the input a.
+        y : the result of the subtraction of input b to input a.
+    
+        Scalar if...
+        c : the result of the subtraction of input b to input a.
+    
+        Vector if...
+        v : the result of the subtraction of input b to input a.
     """
 
     initial = get_val(a)

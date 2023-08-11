@@ -13,9 +13,14 @@ def EDGE_DETECTION(default: Image) -> Image:
 
     Note that the image is converted to greyscale during this processing.
 
+    Inputs
+    ------
+    default : Image
+        The input image in which we want to detect the edges.
+
     Returns
     -------
-    image
+    Image
         The image with detected edges in white.
     """
 
