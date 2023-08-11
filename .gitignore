@@ -2,3 +2,5 @@ __pycache__/
 .python-version
 venv/*
 **/.idea/*
+dist
+flojoy_nodes.egg-info
