@@ -17,17 +17,17 @@ def MULTIPLY(
         Input a that we will multiply to input b.
     b : OrderedPair|Scalar|Vector
         Input b that we will multiply to input a.
-    
+
     Returns
     -------
     OrderedPair|Scalar|Vector
         OrderedPair if...
         x : the x-axis of the a input.
         y : the result of the multiplication of input a and input b.
-    
+
         Scalar if...
         c : the result of the multiplication of input a and input b.
-    
+
         Vector if...
         v : the result of the multiplication of input a and input b.
     """

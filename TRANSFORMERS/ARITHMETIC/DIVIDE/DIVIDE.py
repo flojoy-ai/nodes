@@ -18,7 +18,7 @@ def DIVIDE(
         Input that will be divide by input b.
     b : OrderedPair|Scalar|Vector
         Input that will divide input a.
-    
+
     Returns
     -------
     OrderedPair|Scalar|Vector
