@@ -20,6 +20,11 @@ def DOUBLE_INDEFINITE_INTEGRAL(
 
     It computes the double integral approximation according to given dimensions of the matrices, and it returns a matrix where each cell represents the volume up to the given point.
 
+    Inputs
+    ------
+    default : OrderedTriple
+        Input from which we use x, y and z to compute the integral.
+    
     Parameters
     ----------
     width : int
@@ -30,7 +35,7 @@ def DOUBLE_INDEFINITE_INTEGRAL(
     Returns
     -------
     m: Matrix
-        matrix that contains the volume up to that point in each cell.
+        Matrix that contains the volume up to that point in each cell.
     """
 
     if np.divide(len(default.x), width) == height:

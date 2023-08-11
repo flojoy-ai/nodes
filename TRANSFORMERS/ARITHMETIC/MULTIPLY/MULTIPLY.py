@@ -8,7 +8,29 @@ from functools import reduce
 def MULTIPLY(
     a: OrderedPair | Scalar | Vector, b: list[OrderedPair | Scalar | Vector]
 ) -> OrderedPair | Scalar | Vector:
-    """The MULTIPLY node takes two input vectors, multiplies them, and returns the result."""
+    """
+    The MULTIPLY node takes two input vectors, multiplies them, and returns the result.
+
+    Inputs
+    ------
+    a : OrderedPair|Scalar|Vector
+        Input a that we will multiply to input b.
+    b : OrderedPair|Scalar|Vector
+        Input b that we will multiply to input a.
+    
+    Returns
+    -------
+    OrderedPair|Scalar|Vector
+        OrderedPair if...
+        x : the x-axis of the a input.
+        y : the result of the multiplication of input a and input b.
+    
+        Scalar if...
+        c : the result of the multiplication of input a and input b.
+    
+        Vector if...
+        v : the result of the multiplication of input a and input b.
+    """
 
     initial = get_val(a)
     seq = map(lambda dc: get_val(dc), b)

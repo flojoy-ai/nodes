@@ -4,7 +4,20 @@ from flojoy import flojoy, OrderedPair, Vector, Scalar
 
 @flojoy
 def ABS(default: OrderedPair | Vector | Scalar) -> OrderedPair:
-    """The ABS node returns an absolute value."""
+    """
+    The ABS node returns an absolute value.
+
+    Inputs
+    ------
+    default : OrderedPair|Vector|Scalar
+        Input for which we want to evaluate the absolute value.
+
+    Returns
+    -------
+    OrderedPair
+        x : the x-axis of the input.
+        y : the absolute value of the input.
+    """
 
     match default:
         case OrderedPair():

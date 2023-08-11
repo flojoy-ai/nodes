@@ -8,6 +8,11 @@ def DIFFERENTIATE(default: OrderedPair | Vector) -> OrderedPair:
 
     It then computes the derivative of the array, y, with respect to x.
 
+    Inputs
+    ------
+    default : OrderedPair|Vector
+        Input we use to get the x and y lists to be differentiate.
+
     Returns
     -------
     numpy array

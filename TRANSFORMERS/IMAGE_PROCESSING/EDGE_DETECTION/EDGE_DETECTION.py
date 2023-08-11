@@ -15,7 +15,7 @@ def EDGE_DETECTION(default: Image) -> Image:
     Inputs
     ------
     default : Image
-        The input image to apply edge detection to.
+        The input image in which we want to detect the edges.
 
     Returns
     -------
