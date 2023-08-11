@@ -17,7 +17,7 @@ def DOUBLE_INDEFINITE_INTEGRAL(
     ------
     default : OrderedTriple
         Input from which we use x, y and z to compute the integral.
-    
+
     Parameters
     ----------
     width : int

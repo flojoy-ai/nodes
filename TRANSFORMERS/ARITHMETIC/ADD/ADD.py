@@ -21,7 +21,7 @@ def ADD(
         Input a that we will add with input b.
     b : OrderedPair|Scalar|Vector
         Input b that we will add with input a.
-    
+
     Returns
     -------
     OrderedPair|Scalar|Vector

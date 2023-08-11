@@ -13,7 +13,7 @@ def MATMUL(a: Matrix, b: Matrix) -> Matrix:
         Matrix to be multiplied to input b.
     b : Matrix
         Matrix to be multiplied to input a.
-    
+
     Returns
     -------
     Matrix
