@@ -16,6 +16,11 @@ def BUTTER(
 
     It is designed to have a frequency response that is as flat as possible in the pass band.
 
+    Inputs
+    ------
+    default : OrderedPair
+        The data to apply the butter filter to.
+
     Parameters
     ----------
     filter_order : int

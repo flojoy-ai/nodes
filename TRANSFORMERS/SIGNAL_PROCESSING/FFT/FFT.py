@@ -37,6 +37,11 @@ def FFT(
 
     Through the FFT algorithm, the input vector will be transformed from a time domain into a frequency domain, which will be an ordered pair of arrays.
 
+    Inputs
+    ------
+    default : OrderedPair
+        The data to apply FFT to.
+
     Parameters
     ----------
     window : select
