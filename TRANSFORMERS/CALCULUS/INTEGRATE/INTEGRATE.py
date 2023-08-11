@@ -23,6 +23,11 @@ def INTEGRATE(default: OrderedPair | Vector) -> OrderedPair:
     default : OrderedPair|Vector
         Input from which we get the two lists we use in the integration.
 
+    Inputs
+    ------
+    default : OrderedPair|Vector
+        Input from which we get the two lists we use in the integration.
+
     Returns
     -------
     OrderedPair
