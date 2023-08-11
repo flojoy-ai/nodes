@@ -127,9 +127,13 @@ def sort_order(element):
         return len(ORDERING)
 
 
-def generate_manifest(out_path: str):
+def generate_manifest( out_path: str, custom_nodes_path: str | None = None ):
     nodes_map = browse_directories(NODES_PATH.__str__())
     nodes_map["children"].sort(key=sort_order)  # type: ignore
+    if custom_nodes_path:
+        custom_nodes_map = browse_directories(custom_nodes_path)
+        custom_nodes_map["children"].sort(key=sort_order)  # type: ignore
+        nodes_map.update(custom_nodes_map)
     print(
         f"✅ Successfully generated manifest from {__generated_nodes.__len__()} nodes !"
     )
