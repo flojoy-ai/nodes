@@ -63,12 +63,14 @@ __failed_nodes: list[str] = []
 __generated_nodes: list[str] = []
 
 
-def browse_directories(dir_path: str, cur_type: Optional[str] = None):
+def browse_directories(
+    dir_path: str, cur_type: Optional[str] = None, root_dir: str | None = None
+):
     result: dict[str, Union[str, list[Any], None]] = {}
     basename = os.path.basename(dir_path)
     result["name"] = (
         "ROOT"
-        if os.path.basename(dir_path) == "flojoy_nodes"
+        if os.path.basename(dir_path) in ["flojoy_nodes"] + [root_dir]
         else NAME_MAP.get(basename, basename)
     )
     if result["name"] != "ROOT":
@@ -127,13 +129,41 @@ def sort_order(element):
         return len(ORDERING)
 
 
-def generate_manifest( out_path: str, custom_nodes_path: str | None = None ):
+def deep_merge_dict(dict1: dict[str, Any], dict2: dict[str, Any]):
+    result = dict1.copy()
+    if not dict2["children"]:
+        return result
+    child = deep_merge_lists(dict1["children"], dict2["children"])
+    result["children"] = child
+    return result
+
+
+def deep_merge_lists(list1: list[dict[str, Any]], list2: list[dict[str, Any]]):
+    result = list1.copy()
+    for item in list2:
+        if any(item1["key"] == item["key"] for item1 in list1):
+            item_index = next(
+                (i for i, x in enumerate(list1) if x["key"] == item["key"]), -1
+            )
+            child = deep_merge_lists(list1[item_index]["children"], item["children"])
+            result[item_index]["children"] = child
+        else:
+            result.append(item)
+    return result
+
+
+def generate_manifest(
+    out_path: str, custom_nodes_path: str | None = None, root_dir: str | None = None
+):
     nodes_map = browse_directories(NODES_PATH.__str__())
     nodes_map["children"].sort(key=sort_order)  # type: ignore
     if custom_nodes_path:
-        custom_nodes_map = browse_directories(custom_nodes_path)
-        custom_nodes_map["children"].sort(key=sort_order)  # type: ignore
-        nodes_map.update(custom_nodes_map)
+        custom_nodes_map = browse_directories(custom_nodes_path, root_dir=root_dir)
+        print("custom_nodes_map", custom_nodes_map, flush=True)
+        print("custom_nodes_map ch", custom_nodes_map["children"], flush=True)
+        if custom_nodes_map["children"]:
+            custom_nodes_map["children"].sort(key=sort_order)  # type: ignore
+            nodes_map = deep_merge_dict(nodes_map, custom_nodes_map)
     print(
         f"✅ Successfully generated manifest from {__generated_nodes.__len__()} nodes !"
     )
