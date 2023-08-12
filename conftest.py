@@ -18,7 +18,6 @@ def reload_flojoy():
     reload(flojoy)
 
 
-
 @pytest.fixture
 def mock_flojoy_decorator():
     """A fixture that mocks the flojoy decorator to a no-op decorator that does not create a Flojoy node"""
