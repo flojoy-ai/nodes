@@ -100,7 +100,7 @@ def browse_directories(
             result["children"].append(subdir)
         elif entry.is_file() and entry.name.endswith(".py"):
             continue
-    if not result["children"]:
+    if not result["children"] and result["name"] != "ROOT":
         try:
             n_file_name = f"{os.path.basename(dir_path)}.py"
             n_path = os.path.join(dir_path, n_file_name)
