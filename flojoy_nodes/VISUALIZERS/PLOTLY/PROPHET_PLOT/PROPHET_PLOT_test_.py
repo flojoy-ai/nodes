@@ -1,7 +1,7 @@
 import pytest
 import os
 import pandas as pd
-from flojoy import DataFrame, DataContainer
+from flojoy import DataFrame, DataContainer, Plotly
 from plotly.graph_objs import Figure
 
 
@@ -35,6 +35,6 @@ def test_PROPHET_PLOT(
         )
         res = PROPHET_PLOT.PROPHET_PLOT(default=default, data=prophet_data)
         # Should get back a plotly figure
-        assert res.type == "plotly"
+        assert isinstance(res, Plotly)
         assert isinstance(res.fig, Figure)
         assert res.fig.layout.title.text == "PROPHET_PLOT"
