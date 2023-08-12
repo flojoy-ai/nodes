@@ -1,4 +1,4 @@
-from utils.generate_manifest import create_manifest
+from ..generate_manifest import create_manifest
 import os
 import pytest
 import unittest
