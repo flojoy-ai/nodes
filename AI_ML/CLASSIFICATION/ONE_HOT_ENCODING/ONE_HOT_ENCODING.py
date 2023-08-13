@@ -9,7 +9,20 @@ def ONE_HOT_ENCODING(
     feature_col: Optional[DataFrame] = None,
 ) -> DataFrame:
     """
-    The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe and columns dataframe containing categorical features.
+    The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe containing categorical features.
+
+    Inputs
+    -------
+    data : DataFrame
+        The input dataframe containing the categorical features.
+    
+    Parameters
+    ----------
+    feature_col: DataFrame, optional
+        A dataframe whose columns are used to create the one hot encoding.
+        For example, if `data` has columns ['a', 'b', 'c'] and `feature_col` has columns ['a', 'b'],
+        then the one hot encoding will be created only for columns ['a', 'b'] against `data`.
+        Defaults to None, meaning that all columns of categorizable objects are encoded.
 
     Returns
     -------
