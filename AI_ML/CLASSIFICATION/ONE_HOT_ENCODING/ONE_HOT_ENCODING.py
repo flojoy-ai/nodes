@@ -15,7 +15,7 @@ def ONE_HOT_ENCODING(
     -------
     data : DataFrame
         The input dataframe containing the categorical features.
-    
+
     Parameters
     ----------
     feature_col: DataFrame, optional
