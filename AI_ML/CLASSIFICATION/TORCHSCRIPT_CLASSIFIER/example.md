@@ -1,0 +1,1 @@
+This example shows hows to use the `TORCHSCRIPT_CLASIFIER` node to load any custom torchscript model and use it for image classification.
