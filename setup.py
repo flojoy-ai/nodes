@@ -1,23 +1,10 @@
-import os
 from setuptools import setup, find_packages
 from setuptools.command.install import install
 from generate_nodes_init_file import generate_nodes_import_statements
 
 
-
-def find_files():
-    matches = []
-    for root, dirnames, filenames in os.walk("flojoy_nodes"):
-        for filename in filenames:
-            if filename.endswith(".py"):
-                matches.append(os.path.join(root, filename))
-    return matches
-
-
 class CustomInstallCommand(install):
     def run(self):
-        # Place your custom logic here
-        # e.g., download additional resources, compile code, etc.
         generate_nodes_import_statements()
         install.run(self)
 
@@ -25,7 +12,7 @@ class CustomInstallCommand(install):
 setup(
     name="flojoy_nodes",
     packages=find_packages(exclude=["tests"]),
-    package_data={"flojoy_nodes": find_files()},
+    package_data={"flojoy_nodes": ["__init__.py", "**/**/*"]},
     version="0.0.1",
     license="MIT",
     description="Python client library for Flojoy nodes.",
