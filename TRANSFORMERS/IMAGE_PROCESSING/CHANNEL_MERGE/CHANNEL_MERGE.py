@@ -1,4 +1,4 @@
-from flojoy import flojoy, Image, Plotly
+from flojoy import flojoy, Image
 
 @flojoy
 def CHANNEL_MERGE(
@@ -12,9 +12,9 @@ def CHANNEL_MERGE(
 
     Returns
     -------
-    CHANNEL_OUTPUTS
-        The images, each channel itself is rendered with alpha=1, except
-        the alpha channel itself.
+    Image
+        The image with each channel given by the appropriate channel 
+        on the respective inputs
     """
 
     try:
