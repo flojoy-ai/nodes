@@ -1,8 +1,10 @@
-from flojoy import flojoy, TextBlob
+from flojoy import TextBlob, flojoy, DataContainer
+from typing import Optional
 
 
 @flojoy
 def TEXT(
+    _: Optional[DataContainer] = None,
     value: str = "Hello World!",
 ) -> TextBlob:
     """The TEXT node returns a TextBlob DataContainer.
