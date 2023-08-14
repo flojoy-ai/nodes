@@ -70,15 +70,11 @@ def LOOP(
 
     node_id = default_params.node_id
 
-    print("\n\nstart loop:", node_id)
-
     # infinite loop
     if num_loops == -1:
-        print("infinite loop")
         return build_result(inputs=[default] if default else [], is_loop_finished=False)
 
     loop_data: LoopData = load_loop_data(node_id, num_loops)
-    loop_data.print("at start ")
 
     # loop was previously finished, but now re-executing, so restart
     if loop_data.is_finished:
@@ -89,10 +85,7 @@ def LOOP(
     if not loop_data.is_finished:
         store_loop_data(node_id, loop_data)
     else:
-        print("finished loop")
         delete_loop_data(node_id)
-
-    print("end loop\n\n")
 
     return build_result([default] if default else [], loop_data.is_finished)
 
@@ -107,12 +100,10 @@ def load_loop_data(node_id: str, default_num_loops: int) -> LoopData:
 
 def store_loop_data(node_id: str, loop_data: LoopData):
     SmallMemory().write_to_memory(node_id, memory_key, loop_data.get_data())
-    loop_data.print("store ")
 
 
 def delete_loop_data(node_id: str):
     SmallMemory().delete_object(node_id, memory_key)
-    print("delete loop data")
 
 
 def build_result(inputs: list[DataContainer], is_loop_finished: bool):

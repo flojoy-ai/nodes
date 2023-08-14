@@ -9,20 +9,17 @@ def INVERT(default: OrderedPair | Matrix, rcond: float = 1.0) -> OrderedPair | M
     If the entered value is a scalar, it returns the multiplciative inverse 1/x.
     """
 
-    print(f"INVERT params: {rcond}")
     a = np.eye(3)
     b: float = rcond
 
     if isinstance(
         default, OrderedPair
     ):  # v[0] is a DataContainer object with type attribute
-        print("Performing simple inversion")
         a = default.y  # scalar valued
         return OrderedPair(x=a, y=1 / a)
     elif isinstance(default, Matrix):
         a = default.m
         if not a.shape[0] == a.shape[1]:
-            print("Not square matrix! Using pseudoinversion...")
             assert (
                 type(b) == float
             ), "Need scalar value to compare SVDs for pseudoinversion"
