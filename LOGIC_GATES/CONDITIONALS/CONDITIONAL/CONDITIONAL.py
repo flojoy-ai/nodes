@@ -1,5 +1,6 @@
-from typing import Any, TypedDict, Literal
-from flojoy import flojoy, JobResultBuilder, OrderedPair
+from typing import Any, Literal, TypedDict
+
+from flojoy import JobResultBuilder, Scalar, flojoy
 
 
 class ConditionalOutput(TypedDict):
@@ -9,11 +10,13 @@ class ConditionalOutput(TypedDict):
 
 @flojoy
 def CONDITIONAL(
-    x: OrderedPair,
-    y: OrderedPair,
+    x: Scalar,
+    y: Scalar,
     operator_type: Literal["<=", ">", "<", ">=", "!=", "=="] = ">=",
 ) -> ConditionalOutput:
-    """The CONDITIONAL node is a specialized node that compares two given DataContainer inputs.
+    """The CONDITIONAL node is a specialized node that compares two given Scalar inputs.
+    We are planning to add support for more DataContainer types in the future.
+
 
     It then enqueues nodes connected with a "true" or "false" output based on the comparison result.
 
@@ -23,20 +26,29 @@ def CONDITIONAL(
         Specifies the type of comparison to be performed between the two inputs. The default value is ">=".
     """
 
-    y_of_x = x.y
-    y_of_y = y.y
-    bool_ = compare_values(y_of_x[0], y_of_y[0], operator_type)
+    # y_of_x = x.y
+    # y_of_y = y.y
+
+    bool_ = compare_values(x.c, y.c, operator_type)
+
     data = None
-    if operator_type in ["<=", "<"]:
-        if not bool_:
-            data = OrderedPair(x=x.x, y=y.y)
-        else:
-            data = OrderedPair(x=y.x, y=x.y)
-    elif bool_:
-        data = OrderedPair(x=x.x, y=y.y)
+    if bool_:
+        data = x
     else:
-        data = OrderedPair(x=y.x, y=x.y)
+        data = y
+
+    # if operator_type in ["<=", "<"]:
+    #     if not bool_:
+    #         data = OrderedPair(x=x.x, y=y.y)
+    #     else:
+    #         data = OrderedPair(x=y.x, y=x.y)
+    # elif bool_:
+    #     data = OrderedPair(x=x.x, y=y.y)
+    # else:
+    #     data = OrderedPair(x=y.x, y=x.y)
+
     next_direction = str(bool_).lower()
+
     return ConditionalOutput(
         true=JobResultBuilder()
         .from_data(data)
