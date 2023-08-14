@@ -10,7 +10,6 @@ def get_file_path(file_path: str, default_path: str | None = None):
     f_path = path.abspath(file_path) if file_path != "" else default_path
     if not f_path:
         raise ValueError("File path is missing for file_path parameter!")
-    print(f"file will be loaded from {f_path}")
     return f_path
 
 

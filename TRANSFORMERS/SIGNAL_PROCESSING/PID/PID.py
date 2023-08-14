@@ -51,7 +51,6 @@ def PID(
         raise TypeError("Issue reading memory from REDIS.")
     integral: int = 0 if initialize else data[0]
     regulation_error_primes = np.zeros((3, 1)) if initialize else data[1:]
-    print(f"Recovered data: {data}")
 
     regulation_error = default.y[
         -1
@@ -78,6 +77,5 @@ def PID(
     SmallMemory().write_to_memory(
         node_id, memory_key, np.append(integral, regulation_error_primes)
     )
-    print(regulation_error, output_signal)
     # ... and return the result
     return OrderedPair(x=default.y, y=np.ones_like(default.y) * output_signal)
