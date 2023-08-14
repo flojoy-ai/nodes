@@ -14,8 +14,8 @@ def ABS(default: OrderedPair | Vector | Scalar) -> OrderedPair:
     Returns
     -------
     OrderedPair
-        x : the x-axis of the input.
-        y : the absolute value of the input.
+        x: the x-axis of the input.
+        y: the absolute value of the input.
     """
 
     match default:

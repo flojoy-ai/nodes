@@ -12,7 +12,7 @@ def DF_2_ORDERED_TRIPLE(
     Inputs
     ------
     default : DataFrame
-        The input DataFrame to which we apply the conversion to.
+        The input dataframe to which we apply the conversion to.
 
     Parameters
     ----------

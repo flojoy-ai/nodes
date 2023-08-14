@@ -25,14 +25,14 @@ def ADD(
     -------
     OrderedPair|Scalar|Vector
         OrderedPair if a is an OrderedPair.
-        x : the x-axis of input a.
-        y : the sum of input a and input b.
+        x: the x-axis of input a.
+        y: the sum of input a and input b.
 
         Scalar if a is a Scalar.
-        c : the sum of input a and input b.
+        c: the sum of input a and input b.
 
         Vector if a is a Vector.
-        v : the sum of input a and input b.
+        v: the sum of input a and input b.
     """
 
     initial = get_val(a)

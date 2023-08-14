@@ -30,7 +30,7 @@ def NP_2_DF(default: DataContainer) -> DataFrame:
     Returns
     -------
     DataFrame
-        The DataFrame result from the conversion of the input.
+        The dataframe result from the conversion of the input.
     """
 
     match default:

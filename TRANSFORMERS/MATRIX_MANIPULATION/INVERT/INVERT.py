@@ -22,11 +22,11 @@ def INVERT(default: OrderedPair | Matrix, rcond: float = 1.0) -> OrderedPair | M
     -------
     OrderedPair|Matrix
         OrderedPair if the default input is an OrderedPair.
-        x : the y input list of values.
-        y : the list of inverse value of the y input.
+        x: the y input list of values.
+        y: the list of inverse value of the y input.
 
         Matrix if the default input is a Matrix.
-        m : the inverse matrix of the input.
+        m: the inverse matrix of the input.
     """
 
     a = np.eye(3)
