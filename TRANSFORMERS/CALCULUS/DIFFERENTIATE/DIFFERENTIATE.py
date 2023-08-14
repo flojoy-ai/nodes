@@ -16,8 +16,8 @@ def DIFFERENTIATE(default: OrderedPair | Vector) -> OrderedPair:
     Returns
     -------
     OrderedPair
-        x : the x-axis of the input.
-        y : the result of the derivative.
+        x: the x-axis of the input.
+        y: the result of the derivative.
     """
 
     match default:
