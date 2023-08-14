@@ -4,7 +4,7 @@ from scipy import signal
 from typing import Literal
 
 
-@flojoy(node_type="default")
+@flojoy
 def BASIC_OSCILLATOR(
     sample_rate: int = 100,
     time: int = 10,

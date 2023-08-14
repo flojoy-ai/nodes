@@ -3,7 +3,7 @@ from flojoy import flojoy, Vector, OrderedPair
 from typing import Optional
 
 
-@flojoy(node_type="default")
+@flojoy
 def LINSPACE(
     default: Optional[OrderedPair | Vector] = None,
     start: float = 10,
