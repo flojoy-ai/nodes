@@ -2,7 +2,7 @@ import numpy as np
 from flojoy import flojoy, Matrix
 
 
-@flojoy(node_type="default")
+@flojoy
 def MATRIX(row: int = 2, column: int = 2) -> Matrix:
     """The MATRIX node takes two arguments, row and col, as input.
 
