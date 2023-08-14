@@ -81,8 +81,8 @@ def REGION_PROPERTIES(default: Optional[Image] = None) -> Plotly:
         for prop_name in properties:
             val = getattr(rprops[index], prop_name)
             if type(val) == tuple:
-                line = [f'<b>{prop_name}: {v:.2f}</b><br>' for v in val]
-                hoverinfo += ",".join(line)
+                line = [f' <b>{prop_name}_{idv}: {v:.2f}</b>' for idv, v in enumerate(val)]
+                hoverinfo += ",".join(line) + "<br>"
             else:
                 hoverinfo += f'<b>{prop_name}: {val:.2f}</b><br>'
         fig.add_trace(go.Scatter(
