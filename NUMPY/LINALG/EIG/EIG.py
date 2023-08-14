@@ -11,8 +11,7 @@ def EIG(
     default: Matrix,
     select_return: Literal["w", "v"] = "w",
 ) -> Matrix | Scalar:
-    """
-    The EIG node is based on a numpy or scipy function.
+    """The EIG node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

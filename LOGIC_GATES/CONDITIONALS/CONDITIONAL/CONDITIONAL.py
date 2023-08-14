@@ -13,8 +13,7 @@ def CONDITIONAL(
     y: OrderedPair,
     operator_type: Literal["<=", ">", "<", ">=", "!=", "=="] = ">=",
 ) -> ConditionalOutput:
-    """
-    The CONDITIONAL node is a specialized node that compares two given DataContainer inputs.
+    """The CONDITIONAL node is a specialized node that compares two given DataContainer inputs.
 
     It then enqueues nodes connected with a "true" or "false" output based on the comparison result.
 

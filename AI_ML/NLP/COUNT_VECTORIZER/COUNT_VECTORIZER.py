@@ -11,8 +11,7 @@ class CountVectorizerOutput(TypedDict):
 
 @flojoy(deps={"scikit-learn": "1.2.2"})
 def COUNT_VECTORIZER(default: DataFrame | Matrix | Vector) -> CountVectorizerOutput:
-    """
-    The COUNT_VECTORIZER node receives a collection (matrix, vector or dataframe) of
+    """The COUNT_VECTORIZER node receives a collection (matrix, vector or dataframe) of
     text documents to a matrix of token counts.
 
     Returns

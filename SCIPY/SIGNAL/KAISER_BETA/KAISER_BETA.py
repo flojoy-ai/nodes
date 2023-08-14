@@ -10,8 +10,7 @@ import scipy.signal
 def KAISER_BETA(
     default: OrderedPair | Matrix,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The KAISER_BETA node is based on a numpy or scipy function.
+    """The KAISER_BETA node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

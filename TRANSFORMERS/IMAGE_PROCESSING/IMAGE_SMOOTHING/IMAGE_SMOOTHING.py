@@ -10,8 +10,7 @@ def IMAGE_SMOOTHING(
     kernel: int = 5,
     smoothing_type: Literal["average", "gaussian", "median", "bilateral"] = "average",
 ) -> Image:
-    """
-    The IMAGE_SMOOTHING node applies an image smoothing operation on the input DataContainer class, specifically for the 'image' type, represented by the RGB(A) channels.
+    """The IMAGE_SMOOTHING node applies an image smoothing operation on the input DataContainer class, specifically for the 'image' type, represented by the RGB(A) channels.
 
     Note: For "gaussian" and "median" type, you are only allowed an odd number for the kernel value.
 

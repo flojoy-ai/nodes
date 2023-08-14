@@ -10,8 +10,7 @@ import numpy.linalg
 def DET(
     default: Matrix,
 ) -> Matrix | Scalar:
-    """
-    The DET node is based on a numpy or scipy function.
+    """The DET node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

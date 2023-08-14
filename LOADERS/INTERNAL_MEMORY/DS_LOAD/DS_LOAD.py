@@ -4,8 +4,7 @@ import numpy as np
 
 @flojoy
 def DS_LOAD(default: OrderedPair, referred_node: NodeReference) -> OrderedPair:
-    """
-    The DS_LOAD node loads data directly from in-memory data storage.
+    """The DS_LOAD node loads data directly from in-memory data storage.
 
     Parameters
     ----------

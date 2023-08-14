@@ -14,8 +14,8 @@ def TEXT_DATASET(
     remove_footers: bool = False,
     remove_quotes: bool = False,
 ) -> DataFrame:
-    """
-    The TEXT_DATASET node loads the 20 newsgroups dataset from scikit-learn.
+    """The TEXT_DATASET node loads the 20 newsgroups dataset from scikit-learn.
+    
     The data is returned as a dataframe with one column containing the text and the other containing the category.
 
     Parameters

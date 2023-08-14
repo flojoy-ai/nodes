@@ -5,8 +5,7 @@ from flojoy import flojoy, DataFrame, OrderedTriple
 def DF_2_ORDEREDTRIPLE(
     default: DataFrame, x: int = 0, y: int = 1, z: int = 2
 ) -> OrderedTriple:
-    """
-    The DF_2_ORDEREDTRIPLE node converts a dataframe type data into an OrderedTriple type data.
+    """The DF_2_ORDEREDTRIPLE node converts a dataframe type data into an OrderedTriple type data.
 
     It takes one dataframe type data and selects 3 different columns to generate the OrderedTriple type.
 

@@ -11,8 +11,7 @@ def SLOGDET(
     default: Matrix,
     select_return: Literal["sign", "logdet"] = "sign",
 ) -> Matrix | Scalar:
-    """
-    The SLOGDET node is based on a numpy or scipy function.
+    """The SLOGDET node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

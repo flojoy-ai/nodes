@@ -11,8 +11,7 @@ def GAUSS_SPLINE(
     default: OrderedPair | Matrix,
     n: int = 2,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The GAUSS_SPLINE node is based on a numpy or scipy function.
+    """The GAUSS_SPLINE node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 
