@@ -10,7 +10,7 @@ def MAT_2_DF(default: Matrix) -> DataFrame:
     Inputs
     ------
     default : Matrix
-        The input Matrix to which we apply the conversion to.
+        The input matrix to which we apply the conversion to.
 
     Returns
     -------

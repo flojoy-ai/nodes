@@ -9,12 +9,12 @@ def DF_2_NP(default: DataFrame) -> Matrix:
     Inputs
     ------
     default : DataFrame
-        The input DataFrame to which we apply the conversion to.
+        The input dataframe to which we apply the conversion to.
 
     Returns
     -------
     Matrix
-        The Matrix result from the conversion of the input.
+        The matrix result from the conversion of the input.
     """
 
     df = default.m
