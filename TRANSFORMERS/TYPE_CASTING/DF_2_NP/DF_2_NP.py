@@ -14,7 +14,7 @@ def DF_2_NP(default: DataFrame) -> Matrix:
     Returns
     -------
     Matrix
-        Converted dataframe values from the input.
+        The Matrix result from the conversion of the input.
     """
 
     df = default.m

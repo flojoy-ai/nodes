@@ -35,6 +35,7 @@ def DOUBLE_DEFINITE_INTEGRAL(
     Returns
     -------
     Scalar
+        c : the result of the double definite integral.
     """
 
     func = parse_expr(function)

@@ -15,8 +15,9 @@ def DIFFERENTIATE(default: OrderedPair | Vector) -> OrderedPair:
 
     Returns
     -------
-    numpy array
-        Derivative of the array.
+    OrderedPair
+        x : the x-axis of the input.
+        y : the result of the derivative.
     """
 
     match default:

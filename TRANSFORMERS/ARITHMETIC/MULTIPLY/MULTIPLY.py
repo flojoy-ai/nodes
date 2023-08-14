@@ -9,7 +9,7 @@ def MULTIPLY(
     a: OrderedPair | Scalar | Vector, b: list[OrderedPair | Scalar | Vector]
 ) -> OrderedPair | Scalar | Vector:
     """
-    The MULTIPLY node takes two input vectors, multiplies them, and returns the result.
+    The MULTIPLY node multiplies two numeric arrays, vectors, matrices, or constants element-wise and returns the result.
 
     Inputs
     ------
