@@ -1,8 +1,10 @@
-from flojoy import flojoy, Scalar
+from flojoy import flojoy, Scalar, DataContainer
+from typing import Optional
 
 
 @flojoy
 def SCALAR(
+    _: Optional[DataContainer] = None,
     value: float = 3.0,
 ) -> Scalar:
     """The SCALAR node returns a single Scalar value.
