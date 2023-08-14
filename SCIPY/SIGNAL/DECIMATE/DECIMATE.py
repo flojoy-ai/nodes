@@ -15,8 +15,7 @@ def DECIMATE(
     axis: int = -1,
     zero_phase: bool = True,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The DECIMATE node is based on a numpy or scipy function.
+    """The DECIMATE node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

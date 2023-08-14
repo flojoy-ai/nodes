@@ -19,8 +19,7 @@ def LOCAL_FILE(
     file_path: str,
     file_type: Literal["Image", "JSON", "CSV", "Excel", "XML"] = "Image",
 ) -> Image | DataFrame:
-    """
-    The LOCAL_FILE node loads a local file of a different type and converts it to a DataContainer class.
+    """The LOCAL_FILE node loads a local file of a different type and converts it to a DataContainer class.
 
     Parameters
     ----------

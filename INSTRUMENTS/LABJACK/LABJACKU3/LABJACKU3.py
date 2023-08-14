@@ -7,8 +7,7 @@ import u3  # Import the library from LabJackPython in order to use our U3-LV dev
 def LABJACKU3(
     default: Optional[OrderedPair] = None, sensor_number: int = 1
 ) -> OrderedPair:
-    """
-    The LABJACKU3 node allows you to record and returns temperature measurements with a LABJACK U3 device.
+    """The LABJACKU3 node allows you to record and returns temperature measurements with a LABJACK U3 device.
 
     Parameters
     ----------

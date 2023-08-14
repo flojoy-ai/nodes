@@ -10,8 +10,7 @@ import numpy.linalg
 def EIGVALS(
     default: Matrix,
 ) -> Matrix | Scalar:
-    """
-    The EIGVALS node is based on a numpy or scipy function.
+    """The EIGVALS node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

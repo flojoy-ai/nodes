@@ -13,8 +13,7 @@ def TRIM1(
     tail: str = "right",
     axis: int = 0,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The TRIM1 node is based on a numpy or scipy function.
+    """The TRIM1 node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

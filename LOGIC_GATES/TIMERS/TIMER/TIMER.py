@@ -13,8 +13,7 @@ def TIMER(
     default: Optional[DataContainer] = None,
     sleep_time: float = 0,
 ) -> DataContainer:
-    """
-    The TIMER node sleeps for a specified number of seconds.
+    """The TIMER node sleeps for a specified number of seconds.
 
     Parameters
     ----------

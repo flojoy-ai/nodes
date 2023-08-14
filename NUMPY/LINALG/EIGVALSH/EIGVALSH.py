@@ -11,8 +11,7 @@ def EIGVALSH(
     default: Matrix,
     UPLO: str = "L",
 ) -> Matrix | Scalar:
-    """
-    The EIGVALSH node is based on a numpy or scipy function.
+    """The EIGVALSH node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

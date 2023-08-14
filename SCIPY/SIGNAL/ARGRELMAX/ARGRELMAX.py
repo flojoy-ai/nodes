@@ -13,8 +13,7 @@ def ARGRELMAX(
     order: int = 1,
     mode: str = "clip",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The ARGRELMAX node is based on a numpy or scipy function.
+    """The ARGRELMAX node is based on a numpy or scipy function.
 
     The description of that function is as follows:
         Calculate the relative maxima of `data`.

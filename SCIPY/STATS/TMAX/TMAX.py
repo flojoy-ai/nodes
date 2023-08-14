@@ -14,8 +14,7 @@ def TMAX(
     inclusive: bool = True,
     nan_policy: str = "propagate",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The TMAX node is based on a numpy or scipy function.
+    """The TMAX node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 
