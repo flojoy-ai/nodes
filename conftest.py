@@ -9,6 +9,14 @@ from functools import wraps
 
 from flojoy.utils import FLOJOY_CACHE_DIR
 
+import flojoy
+from importlib import reload
+
+
+@pytest.fixture
+def reload_flojoy():
+    reload(flojoy)
+
 
 @pytest.fixture
 def mock_flojoy_decorator():

@@ -3,10 +3,9 @@ import traceback
 import sys
 import textwrap
 
-
 path = os.path
 
-N_PATH = "nodes/"
+N_PATH = "flojoy_nodes/"
 
 
 def get_md_file_content(
@@ -303,7 +302,7 @@ def extract_function_code(content: str):
     return content
 
 
-nodes_dir = path.abspath(path.curdir)
+nodes_dir = path.abspath(path.join(path.curdir, "flojoy_nodes"))
 
 
 def write_doc(docs_dir: str):
@@ -313,6 +312,7 @@ def write_doc(docs_dir: str):
             if (
                 file.endswith(".py")
                 and "test" not in file
+                and "utils" not in file
                 and file.split(".py")[0] != "__init__"
             ):
                 path_index = nodes_dir.rfind("nodes")
