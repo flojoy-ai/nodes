@@ -1,40 +1,33 @@
-from flojoy import (
-    flojoy,
-    run_in_venv,
-    Image,
-    DataFrame
-)
+from flojoy import flojoy, run_in_venv, Image, DataFrame
 
 
 @flojoy
 @run_in_venv(
     pip_dependencies=[
-        "torch==2.0.1", 
+        "torch==2.0.1",
         "torchvision==0.15.2",
         "numpy==1.24.3",
-        "Pillow==9.5.0"
+        "Pillow==9.5.0",
     ]
 )
 def TORCHSCRIPT_CLASSIFIER(
-    input_image: Image,
-    class_names: DataFrame,
-    model_path: str
+    input_image: Image, class_names: DataFrame, model_path: str
 ) -> DataFrame:
     """
     Execute a torchscript classifier against an input image.
-    
+
     Inputs
     ----------
     input_image : Image
         The image to classify.
     class_names : DataFrame
         A dataframe containing the class names.
-    
+
     Parameters
     ----------
     model_path : str
         The path to the torchscript model.
-    
+
     Returns
     ----------
     DataFrame
@@ -52,12 +45,16 @@ def TORCHSCRIPT_CLASSIFIER(
     channels = [input_image.r, input_image.g, input_image.b]
     mode = "RGB"
 
-    if(input_image.a is not None):
+    if input_image.a is not None:
         channels.append(input_image.a)
         mode += "A"
 
-    input_image_pil = PIL.Image.fromarray(np.stack(channels).transpose(1, 2, 0), mode=mode).convert("RGB")
-    input_tensor = torchvision.transforms.functional.to_tensor(input_image_pil).unsqueeze(0)
+    input_image_pil = PIL.Image.fromarray(
+        np.stack(channels).transpose(1, 2, 0), mode=mode
+    ).convert("RGB")
+    input_tensor = torchvision.transforms.functional.to_tensor(
+        input_image_pil
+    ).unsqueeze(0)
 
     # Run model
     with torch.inference_mode():
@@ -69,8 +66,5 @@ def TORCHSCRIPT_CLASSIFIER(
     confidence = torch.nn.functional.softmax(output, dim=1)[0][pred.item()].item()
 
     return DataFrame(
-        df=pd.DataFrame({
-            "class_name": [class_name],
-            "confidence": [confidence]
-        })
+        df=pd.DataFrame({"class_name": [class_name], "confidence": [confidence]})
     )
