@@ -18,7 +18,7 @@ def PID(
 
     Inputs
     ------
-    default : OrderedPair
+    default : Scalar
         The data to apply the PID function to.
 
     Parameters
@@ -32,9 +32,8 @@ def PID(
 
     Returns
     -------
-    OrderedPair
-        x: The x axis equal to the input y axis.
-        y: The y axis which is the PID output.
+    Scalar
+        c: The PID function output.
     """
 
     # First let's get the parameters that won't change
@@ -69,8 +68,6 @@ def PID(
     )
     regulation_error_primes[2] = regulation_error_primes[1]
     regulation_error_primes[1] = regulation_error_primes[0]
-    print("debug: ", regulation_error_primes, type(regulation_error_primes))
-    print("debug2: ", regulation_error, type(regulation_error))
     regulation_error_primes[0] = regulation_error
 
     # Now write to memory ...
