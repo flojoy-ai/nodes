@@ -1,13 +1,14 @@
 import numpy as np
-from flojoy import flojoy, OrderedPair, Matrix, DataFrame
+from flojoy import flojoy, OrderedPair, Matrix, DataFrame, Vector, Scalar
 
 
 @flojoy
 def APPEND(
-    primary_dp: OrderedPair | Matrix | DataFrame,
-    secondary_dp: OrderedPair | Matrix | DataFrame,
-) -> OrderedPair | Matrix | DataFrame:
-    """The APPEND node appends a single data point to an array.
+    primary_dp: OrderedPair | Matrix | DataFrame | Scalar | Vector,
+    secondary_dp: OrderedPair | Matrix | DataFrame | Scalar | Vector,
+) -> OrderedPair | Matrix | DataFrame | Vector:
+    """
+    The APPEND node appends a single data point to an array.
 
     The large array must be passed to the bottom "array" connection.
 
@@ -44,6 +45,27 @@ def APPEND(
 
         m = np.append(m0, m1, axis=0)
         return Matrix(m=m)
+
+    elif isinstance(primary_dp, Vector) and isinstance(secondary_dp, Vector):
+        v0 = primary_dp.v
+        v1 = secondary_dp.v
+
+        v = np.append(v0, v1, axis=0)
+        return Vector(v=v)
+
+    elif isinstance(primary_dp, Vector) and isinstance(secondary_dp, Scalar):
+        v0 = primary_dp.v
+        v1 = secondary_dp.c
+
+        v = np.append(v0, v1, axis=0)
+        return Vector(v=v)
+
+    elif isinstance(primary_dp, Scalar) and isinstance(secondary_dp, Scalar):
+        c0 = primary_dp.c
+        c1 = secondary_dp.c
+
+        v = np.append(c0, c1, axis=0)
+        return Vector(v=v)
 
     else:
         df0 = primary_dp.m

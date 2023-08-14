@@ -1,15 +1,17 @@
 import numpy as np
-from flojoy import DCNpArrayType, flojoy, Vector, OrderedPair
-from typing import Optional
+from flojoy import DCNpArrayType, flojoy, Vector, OrderedPair, Scalar
+from typing import Optional, Literal
 
 
 @flojoy
 def CONSTANT(
     default: Optional[Vector | OrderedPair] = None,
+    dc_type: Literal["Scalar", "Vector", "OrderedPair"] = "OrderedPair",
     constant: float = 3.0,
     step: float = 1000,
-) -> OrderedPair:
-    """The CONSTANT node generates a single x-y vector of numeric (floating point) constants.
+) -> OrderedPair | Vector | Scalar:
+    """
+    The CONSTANT node generates a single x-y vector of numeric (floating point) constants.
 
     Inputs
     ------
@@ -37,7 +39,12 @@ def CONSTANT(
                 x = default.y
             case Vector():
                 x = default.v
-
     y = np.full(len(x), constant)
 
-    return OrderedPair(x=x, y=y)
+    match dc_type:
+        case "OrderedPair":
+            return OrderedPair(x=x, y=y)
+        case "Vector":
+            return Vector(v=y)
+        case "Scalar":
+            return Scalar(c=constant)
