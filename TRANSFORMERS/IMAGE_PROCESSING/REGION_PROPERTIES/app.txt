@@ -2,49 +2,6 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 225,
-                "height": 226,
-                "id": "IMAGE-8a72cb1d-dcbe-43fb-8498-0e65b650e1e5",
-                "type": "VISUALIZERS",
-                "data": {
-                    "id": "IMAGE-8a72cb1d-dcbe-43fb-8498-0e65b650e1e5",
-                    "label": "IMAGE",
-                    "func": "IMAGE",
-                    "type": "VISUALIZERS",
-                    "ctrls": {},
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image",
-                            "multiple": false,
-                            "desc": "the DataContainer to be visualized"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly",
-                            "desc": null
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 259.9344110532426,
-                    "y": -81.8367900302207
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 259.9344110532426,
-                    "y": -81.8367900302207
-                },
-                "dragging": true
-            },
-            {
                 "width": 160,
                 "height": 160,
                 "id": "REGION_PROPERTIES-546889d4-12c5-4469-b56d-b4d72ca84486",
@@ -74,29 +31,21 @@
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/REGION_PROPERTIES/REGION_PROPERTIES.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": -130.83521132789542,
-                    "y": -12.503241566542698
+                    "x": 57.98636519255564,
+                    "y": -37.84293365370277
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": -130.83521132789542,
-                    "y": -12.503241566542698
+                    "x": 57.98636519255564,
+                    "y": -37.84293365370277
                 },
                 "dragging": true
             }
         ],
-        "edges": [
-            {
-                "source": "REGION_PROPERTIES-546889d4-12c5-4469-b56d-b4d72ca84486",
-                "sourceHandle": "default",
-                "target": "IMAGE-8a72cb1d-dcbe-43fb-8498-0e65b650e1e5",
-                "targetHandle": "default",
-                "id": "reactflow__edge-REGION_PROPERTIES-546889d4-12c5-4469-b56d-b4d72ca84486default-IMAGE-8a72cb1d-dcbe-43fb-8498-0e65b650e1e5default"
-            }
-        ],
+        "edges": [],
         "viewport": {
             "x": 784.8071744337306,
             "y": 312.46572680974896,
