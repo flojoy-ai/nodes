@@ -16,9 +16,12 @@ def DF_2_ORDERED_TRIPLE(
 
     Parameters
     ----------
-    x : the index of the column that represents the x axis
-    y : the index of the column that represents the y axis
-    z : the index of the column that represents the z axis
+    x : int
+        The index of the column that represents the x-axis.
+    y : int
+        The index of the column that represents the y-axis.
+    z : int
+        The index of the column that represents the z-axis.
 
     Returns
     -------

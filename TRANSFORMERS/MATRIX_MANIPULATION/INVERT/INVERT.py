@@ -6,17 +6,17 @@ from flojoy import flojoy, OrderedPair, Matrix
 def INVERT(default: OrderedPair | Matrix, rcond: float = 1.0) -> OrderedPair | Matrix:
     """The INVERT node takes two inputs, one matrix and one rcond if not a square matrix, then inverts them (or pseudo invert) and returns the result.
 
-    If the entered value is a scalar, it returns the multiplciative inverse 1/x.
+    If the entered value is a list of scalar, it returns the multiplciative inverse 1/x for each element of the list.
 
     Inputs
     ------
     default : OrderedPair|Matrix
-        The matrix or scalar to which we apply the invert.
+        The matrix or list of scalar to which we apply the invert.
 
     Parameters
     ----------
     rcond : float
-        Set the condition at which our singular values in our array are gonna be set at 0 if too small.
+        Set the rcond used to change small singular values to 0 for a more accurate result when calculating the pseuso-inverse of the matrix.
 
     Returns
     -------

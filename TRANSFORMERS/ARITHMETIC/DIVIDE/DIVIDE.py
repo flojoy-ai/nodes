@@ -23,7 +23,7 @@ def DIVIDE(
     -------
     OrderedPair|Scalar|Vector
         OrderedPair if a is an OrderedPair.
-        x : the x-axis of a input.
+        x : the x-axis of input a.
         y : the result of the division of input a by input b.
 
         Scalar if a is a Scalar.

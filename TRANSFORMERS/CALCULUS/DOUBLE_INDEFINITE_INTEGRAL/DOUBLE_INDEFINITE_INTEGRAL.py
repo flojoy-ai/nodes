@@ -35,7 +35,7 @@ def DOUBLE_INDEFINITE_INTEGRAL(
     Returns
     -------
     Matrix
-        m : matrix that contains the volume up to that point in each cell.
+        The matrix that contains the volume up to that point in each cell.
     """
 
     if np.divide(len(default.x), width) == height:

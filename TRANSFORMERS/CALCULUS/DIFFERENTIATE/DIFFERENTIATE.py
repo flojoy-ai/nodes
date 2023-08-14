@@ -11,7 +11,7 @@ def DIFFERENTIATE(default: OrderedPair | Vector) -> OrderedPair:
     Inputs
     ------
     default : OrderedPair|Vector
-        Input we use to get the x and y lists to be differentiate.
+        Input from which we get the x and y lists use in the derivative.
 
     Returns
     -------
