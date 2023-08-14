@@ -13,8 +13,7 @@ def SEM(
     ddof: int = 1,
     nan_policy: str = "propagate",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The SEM node is based on a numpy or scipy function.
+    """The SEM node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

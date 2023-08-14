@@ -16,8 +16,7 @@ def TWO_DIMENSIONAL_FFT(
     real_signal: bool = True,
     color: Literal["red", "green", "blue", "grayscale"] = "red",
 ) -> Matrix | DataFrame | Image:
-    """
-    The TWO_DIMENSIONAL_FFT node performs a two-dimensional fourier transform function on the input matrix.
+    """The TWO_DIMENSIONAL_FFT node performs a two-dimensional fourier transform function on the input matrix.
 
     With the FFT algorithm, the input matrix will undergo a change of basis from the space domain into the frequency domain.
 

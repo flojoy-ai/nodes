@@ -21,8 +21,7 @@ def WELCH(
     average: str = "mean",
     select_return: Literal["f", "Pxx"] = "f",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The WELCH node is based on a numpy or scipy function.
+    """The WELCH node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

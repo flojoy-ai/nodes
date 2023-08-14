@@ -6,15 +6,14 @@ from flojoy_nodes.VISUALIZERS.template import plot_layout
 
 @flojoy
 def SCATTER3D(default: OrderedTriple | DataFrame) -> Plotly:
-    """
-    The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input data container.
+    """The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input data container.
 
     Inputs
     ------
     default : OrderedTriple|DataFrame
         the DataContainer to be visualized
 
-    Outputs
+    Returns
     -------
     Plotly
         the DataContainer containing Plotly 3D Scatter visualization

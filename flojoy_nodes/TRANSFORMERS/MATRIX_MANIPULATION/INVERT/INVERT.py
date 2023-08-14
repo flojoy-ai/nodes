@@ -4,8 +4,7 @@ from flojoy import flojoy, OrderedPair, Matrix
 
 @flojoy
 def INVERT(default: OrderedPair | Matrix, rcond: float = 1.0) -> OrderedPair | Matrix:
-    """
-    The INVERT node takes two inputs, one matrix and one rcond if not a square matrix, then inverts them (or pseudo invert) and returns the result.
+    """The INVERT node takes two inputs, one matrix and one rcond if not a square matrix, then inverts them (or pseudo invert) and returns the result.
 
     If the entered value is a scalar, it returns the multiplciative inverse 1/x.
     """

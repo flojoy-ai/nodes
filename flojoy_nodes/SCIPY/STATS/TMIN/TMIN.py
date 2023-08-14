@@ -14,8 +14,7 @@ def TMIN(
     inclusive: bool = True,
     nan_policy: str = "propagate",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The TMIN node is based on a numpy or scipy function.
+    """The TMIN node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

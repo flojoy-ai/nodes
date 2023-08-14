@@ -13,8 +13,7 @@ def BINOM_TEST(
     p: float = 0.5,
     alternative: str = "two-sided",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The BINOM_TEST node is based on a numpy or scipy function.
+    """The BINOM_TEST node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

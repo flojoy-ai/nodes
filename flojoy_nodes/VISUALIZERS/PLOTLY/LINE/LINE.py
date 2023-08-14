@@ -7,15 +7,14 @@ from flojoy_nodes.VISUALIZERS.template import plot_layout
 
 @flojoy
 def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
-    """
-    The LINE node creates a Plotly Line visualization for a given input data container.
+    """The LINE node creates a Plotly Line visualization for a given input data container.
 
     Inputs
     ------
     default : OrderedPair|DataFrame|Matrix|Vector
         the DataContainer to be visualized
 
-    Outputs
+    Returns
     -------
     Plotly
         the DataContainer containing Plotly Line visualization of the input data
