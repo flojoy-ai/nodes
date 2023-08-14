@@ -2,6 +2,14 @@ from flojoy import flojoy, OrderedTriple, Matrix
 import numpy as np
 
 
+def contains_only_numbers(column, colName):
+    for i in range(0, len(column)):
+        if not isinstance(column.item(i), (int, float)):
+            raise ValueError(
+                f"The value {column.item(i)} in column {colName} is of type {type(column.item(i))}. The OrderedTriple need to contain only int or float values."
+            )
+
+
 @flojoy
 def DOUBLE_INDEFINITE_INTEGRAL(
     default: OrderedTriple, width: int = 3, height: int = 3
@@ -26,22 +34,10 @@ def DOUBLE_INDEFINITE_INTEGRAL(
         matrix that contains the volume up to that point in each cell.
     """
 
-    def contains_only_numbers(column):
-        return all(isinstance(value, (np.int_, np.float_)) for value in column)
-
     if np.divide(len(default.x), width) == height:
-        if not contains_only_numbers(default.x):
-            raise ValueError(
-                "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values."
-            )
-        elif not contains_only_numbers(default.y):
-            raise ValueError(
-                "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values."
-            )
-        elif not contains_only_numbers(default.z):
-            raise ValueError(
-                "There is some values that are not of type int or float. The OrderedTriple need to contain only int or float values."
-            )
+        contains_only_numbers(default.x, "x")
+        contains_only_numbers(default.y, "y")
+        contains_only_numbers(default.z, "z")
 
         input_x = np.reshape(default.x, (height, width))
         input_y = np.reshape(default.y, (height, width))
