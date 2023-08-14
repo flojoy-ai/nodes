@@ -26,8 +26,7 @@ def REGION_PROPERTIES(default: Optional[Image] = None) -> Plotly:
         else:
             image = np.stack((r, g, b, a), axis=2)
         image = PILImage.fromarray(image)
-        image = np.array(image.convert("L"))
-
+        image = np.array(image.convert("L")) # a greyscale image that can be processed
     else:
         image = np.zeros((600, 600))
         rr, cc = ellipse(300, 350, 100, 220)
@@ -35,17 +34,21 @@ def REGION_PROPERTIES(default: Optional[Image] = None) -> Plotly:
         image = rotate(image, angle=15, order=0)
         rr, cc = ellipse(100, 100, 60, 50)
         image[rr, cc] = 1
+
+    rgb_image = np.zeros((*image.shape, 3), dtype=np.uint8)
+
+    labels = label(image)
+    rprops = regionprops(labels,image)
+
         
-    rgb_image = np.zeros((600, 600, 3), dtype=np.uint8)
     rgb_image[..., 0] = image * 255  # Red channel
     rgb_image[..., 1] = image * 255  # Green channel
     rgb_image[..., 2] = image * 255  # Blue channel
+
     layout = plot_layout(title="IMAGE")
     fig = px.imshow(img=rgb_image)
     fig.layout = layout
 
-    labels = label(image)
-    rprops = regionprops(labels,image)
     properties = ['area', 'eccentricity', 'perimeter','centroid',
                   'orientation','axis_major_length', 'axis_minor_length']
 
