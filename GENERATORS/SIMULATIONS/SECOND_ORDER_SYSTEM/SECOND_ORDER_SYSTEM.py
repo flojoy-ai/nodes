@@ -15,6 +15,11 @@ def SECOND_ORDER_SYSTEM(
     """
     The SECOND_ORDER_SYSTEM has a second order exponential function. This node is designed to be used in a loop. The data is appended as the loop progress and written to memory.
 
+    Inputs
+    ------
+    default : Scalar
+        PID node output
+
     Parameters
     ----------
     d1 : float
@@ -24,18 +29,12 @@ def SECOND_ORDER_SYSTEM(
 
     Returns
     -------
-    OrderedPair
+    Scalar
         The most recent value of the second order function.
     """
 
     # Let's first define things that won't change over
     # each iteration: time constants, etc ...
-    # match default:
-    #     case OrderedPair():
-    #         def_key = default.y
-    #     case Vector():
-    #         def_key = default.v
-
     def_key = default.c
 
     node_id = default_params.node_id
