@@ -14,8 +14,7 @@ def BASIC_OSCILLATOR(
     offset: float = 0,
     phase: float = 0,
 ) -> OrderedPair:
-    """
-    The BASIC_OSCILLATOR node is a combination of the LINSPACE and SINE nodes.
+    """The BASIC_OSCILLATOR node is a combination of the LINSPACE and SINE nodes.
 
     It offers a more straightforward way to generate signals, with sample rate and the time in seconds as parameters, along with all the parameters in the SINE node.
 

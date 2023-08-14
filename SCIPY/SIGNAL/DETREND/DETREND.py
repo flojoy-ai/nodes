@@ -14,8 +14,7 @@ def DETREND(
     bp: int = 0,
     overwrite_data: bool = False,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The DETREND node is based on a numpy or scipy function.
+    """The DETREND node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

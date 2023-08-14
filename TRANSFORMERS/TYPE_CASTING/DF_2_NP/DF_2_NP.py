@@ -4,8 +4,7 @@ from flojoy import flojoy, DataFrame, Matrix
 
 @flojoy
 def DF_2_NP(default: DataFrame) -> Matrix:
-    """
-    The DF_2_NP node takes one dataframe type data and converts it to a matrix type data.
+    """The DF_2_NP node takes one dataframe type data and converts it to a matrix type data.
 
     Returns
     -------

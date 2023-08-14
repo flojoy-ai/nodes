@@ -52,8 +52,7 @@ def WAVEPACKET(
     sigma: float = 1,
     dt: float = 0.2,
 ) -> OrderedPair:
-    """
-    The WAVEPACKET node approximates the behaviour of a 1D Gaussian wavepacket in an infinite-well potential box.
+    """The WAVEPACKET node approximates the behaviour of a 1D Gaussian wavepacket in an infinite-well potential box.
 
     This example uses the Crank-Nicolson Method to solve the 1D Schrodinger equation.
 

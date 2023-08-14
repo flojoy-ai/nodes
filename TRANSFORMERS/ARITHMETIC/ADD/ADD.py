@@ -8,8 +8,7 @@ from functools import reduce
 def ADD(
     a: OrderedPair | Scalar | Vector, b: list[OrderedPair | Scalar | Vector]
 ) -> OrderedPair | Scalar | Vector:
-    """
-    The ADD node adds two or more numeric arrays, matrices, dataframes, or constants element-wise.
+    """The ADD node adds two or more numeric arrays, matrices, dataframes, or constants element-wise.
 
     When a constant is added to an array or matrix, each element in the array or matrix will be increased by the constant value.
 

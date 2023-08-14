@@ -51,8 +51,7 @@ def SKLEARNIMAGE(
         "vortex",
     ] = "astronaut"
 ) -> Image:
-    """
-    The SKLEARNIMAGE node is designed to load example images from scikit-image.
+    """The SKLEARNIMAGE node is designed to load example images from scikit-image.
 
     Examples can be found here:
     https://scikit-image.org/docs/stable/auto_examples/index.html
@@ -66,7 +65,6 @@ def SKLEARNIMAGE(
     -------
     Image
         DataContainer containing image loaded from scikit-image.
-
     """
 
     img_array = getattr(data, img_key)()

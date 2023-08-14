@@ -14,8 +14,7 @@ def MOMENT(
     nan_policy: str = "propagate",
     keepdims: bool = False,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The MOMENT node is based on a numpy or scipy function.
+    """The MOMENT node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

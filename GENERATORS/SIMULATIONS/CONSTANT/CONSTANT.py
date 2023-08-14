@@ -9,8 +9,7 @@ def CONSTANT(
     constant: float = 3.0,
     step: float = 1000,
 ) -> OrderedPair:
-    """
-    The CONSTANT node generates a single x-y vector of numeric (floating point) constants.
+    """The CONSTANT node generates a single x-y vector of numeric (floating point) constants.
 
     Inputs
     ------

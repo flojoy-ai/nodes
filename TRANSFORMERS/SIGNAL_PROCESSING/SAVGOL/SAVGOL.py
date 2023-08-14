@@ -7,8 +7,7 @@ import warnings
 def SAVGOL(
     default: OrderedPair, window_length: int = 50, poly_order: int = 1
 ) -> OrderedPair:
-    """
-    The SAVGOL node applies a Savitzky-Golay filter to an input signal. It is generally used for smoothing data.
+    """The SAVGOL node applies a Savitzky-Golay filter to an input signal. It is generally used for smoothing data.
 
     The default behaviour is to implement a 3-point moving average of the data.
 
