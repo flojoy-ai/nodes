@@ -131,7 +131,7 @@ def sort_order(element):
 
 def merge_map(map1: dict[str, Any], map2: dict[str, Any]):
     result = map1.copy()
-    if not map2["children"]:
+    if not map2["children"] or not map1["children"]:
         return result
     child = merge_list(map1["children"], map2["children"])
     result["children"] = child
@@ -145,8 +145,11 @@ def merge_list(list1: list[dict[str, Any]], list2: list[dict[str, Any]]):
             item_index = next(
                 (i for i, x in enumerate(list1) if x["key"] == item["key"]), -1
             )
-            child = merge_list(list1[item_index]["children"], item["children"])
-            result[item_index]["children"] = child
+            if not list1[item_index]["children"] or not item["children"]:
+                result[item_index]["children"] = None
+            else:
+                child = merge_list(list1[item_index]["children"], item["children"])
+                result[item_index]["children"] = child
         else:
             result.append(item)
     return result
