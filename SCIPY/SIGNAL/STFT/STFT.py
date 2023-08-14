@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def STFT(
     default: OrderedPair | Matrix,
     fs: float = 1.0,

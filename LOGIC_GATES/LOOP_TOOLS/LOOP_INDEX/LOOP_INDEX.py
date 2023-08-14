@@ -11,7 +11,7 @@ from typing import Optional
 memory_key = "LOOP_INDEX"
 
 
-@flojoy(node_type="default")
+@flojoy
 def LOOP_INDEX(
     loop_node: NodeReference,
     default: Optional[OrderedPair | Scalar] = None,
