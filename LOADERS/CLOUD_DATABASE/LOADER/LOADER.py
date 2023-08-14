@@ -18,7 +18,7 @@ def LOADER(
     api_key = get_env_var("FLOJOY_CLOUD_KEY")
 
     if api_key is None:
-        raise KeyError("Frontier API key is not found!")
+        raise KeyError("Flojoy Cloud API key is not found!")
 
     if default:
         # This will stream the data to the cloud
