@@ -28,7 +28,7 @@ def LOADER(
                 f"{FRONTIER_URI}/api/v1/measurements/{measurement_id}",
                 headers={"api_key": api_key},
                 json={
-                    "measurement": json.dumps(default, cls=PlotlyJSONEncoder),
+                    "data": json.dumps(default, cls=PlotlyJSONEncoder),
                 },
             )
 
@@ -38,7 +38,7 @@ def LOADER(
                 headers={"api_key": api_key},
                 json={
                     "measurement_id": measurement_id,
-                    "measurement": json.dumps(default, cls=PlotlyJSONEncoder),
+                    "data": json.dumps(default, cls=PlotlyJSONEncoder),
                 },
             )
 
