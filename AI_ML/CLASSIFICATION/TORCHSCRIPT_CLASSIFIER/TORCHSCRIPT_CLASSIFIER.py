@@ -29,6 +29,9 @@ def TORCHSCRIPT_CLASSIFIER(
         The image to classify.
     class_names : DataFrame
         A dataframe containing the class names.
+    
+    Parameters
+    ----------
     model_path : str
         The path to the torchscript model.
     
