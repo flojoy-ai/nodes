@@ -10,9 +10,7 @@ def SCALAR(
     Parameters
     ----------
     value: float
-        The value of the y axis output
-    step : int
-        The size of the y and x axes.
+        The value set in Parameters
 
     Returns
     -------
