@@ -17,8 +17,7 @@ def SAVGOL_FILTER(
     mode: str = "interp",
     cval: float = 0.0,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The SAVGOL_FILTER node is based on a numpy or scipy function.
+    """The SAVGOL_FILTER node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

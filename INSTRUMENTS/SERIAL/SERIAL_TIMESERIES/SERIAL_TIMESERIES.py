@@ -14,8 +14,7 @@ def SERIAL_TIMESERIES(
     num_readings: int = 100,
     record_period: int = 1,
 ) -> OrderedPair:
-    """
-    The SERIAL_TIMESERIES node extracts simple time-dependent 1D data from an Ardunio or a similar serial device.
+    """The SERIAL_TIMESERIES node extracts simple time-dependent 1D data from an Ardunio or a similar serial device.
 
     Parameters
     ----------

@@ -11,8 +11,7 @@ def YEOJOHNSON(
     default: OrderedPair | Matrix,
     lmbda: float = 0.1,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The YEOJOHNSON node is based on a numpy or scipy function.
+    """The YEOJOHNSON node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

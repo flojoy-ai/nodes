@@ -13,8 +13,7 @@ def COMPOSITE(
     first_figure: Literal["bar", "line", "histogram", "scatter"] = "scatter",
     second_figure: Literal["bar", "line", "histogram", "scatter"] = "line",
 ) -> Plotly:
-    """
-    The COMPOSITE node creates a combination of Plotly visualizations for a given input data container.
+    """The COMPOSITE node creates a combination of Plotly visualizations for a given input data container.
 
     Inputs
     ------
@@ -31,7 +30,7 @@ def COMPOSITE(
     second_figure : 'bar' | 'line' | 'histogram' | 'scatter'
         plotly type to display as the second figure, default is 'line'
 
-    Outputs
+    Returns
     -------
     Plotly
         the DataContainer containing Plotly visualization of both figures

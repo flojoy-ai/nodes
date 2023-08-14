@@ -12,8 +12,7 @@ def HILBERT(
     N: int = 2,
     axis: int = -1,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The HILBERT node is based on a numpy or scipy function.
+    """The HILBERT node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

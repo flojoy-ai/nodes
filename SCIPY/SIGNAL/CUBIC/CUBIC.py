@@ -10,8 +10,7 @@ import scipy.signal
 def CUBIC(
     default: OrderedPair | Matrix,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The CUBIC node is based on a numpy or scipy function.
+    """The CUBIC node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

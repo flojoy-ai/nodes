@@ -15,8 +15,7 @@ def PHIDGET22(
     calibration1: float = 0.015,
     calibration2: float = 0.06,
 ) -> OrderedPair:
-    """
-    The PHIDGET22 node allows you to record pressures from Flexiforce sensors using a Phidget InterfaceKit.
+    """The PHIDGET22 node allows you to record pressures from Flexiforce sensors using a Phidget InterfaceKit.
 
     Parameters
     ----------

@@ -11,8 +11,7 @@ def TENSORINV(
     default: Matrix,
     ind: int = 2,
 ) -> Matrix | Scalar:
-    """
-    The TENSORINV node is based on a numpy or scipy function.
+    """The TENSORINV node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

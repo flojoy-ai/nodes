@@ -13,8 +13,7 @@ def GZSCORE(
     ddof: int = 0,
     nan_policy: str = "propagate",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The GZSCORE node is based on a numpy or scipy function.
+    """The GZSCORE node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

@@ -13,8 +13,7 @@ def ARGRELMIN(
     order: int = 1,
     mode: str = "clip",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The ARGRELMIN node is based on a numpy or scipy function.
+    """The ARGRELMIN node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

@@ -18,7 +18,9 @@ def LOADER(
     api_key = get_env_var("FLOJOY_CLOUD_KEY")
 
     if api_key is None:
-        raise KeyError("Frontier API key is not found!")
+        raise KeyError(
+            "Flojoy Cloud key is not found! You can set it under Settings -> Environment Variables."
+        )
 
     if default:
         # This will stream the data to the cloud
@@ -28,7 +30,7 @@ def LOADER(
                 f"{FRONTIER_URI}/api/v1/measurements/{measurement_id}",
                 headers={"api_key": api_key},
                 json={
-                    "measurement": json.dumps(default, cls=PlotlyJSONEncoder),
+                    "data": json.dumps(default, cls=PlotlyJSONEncoder),
                 },
             )
 
@@ -38,7 +40,7 @@ def LOADER(
                 headers={"api_key": api_key},
                 json={
                     "measurement_id": measurement_id,
-                    "measurement": json.dumps(default, cls=PlotlyJSONEncoder),
+                    "data": json.dumps(default, cls=PlotlyJSONEncoder),
                 },
             )
 
