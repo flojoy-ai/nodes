@@ -18,7 +18,7 @@ def ORDERED_TRIPLE_2_SURFACE(default: OrderedTriple) -> Surface:
     Returns
     -------
     Surface
-        Converted OrderedTriple values from the input.
+        The Surface result from the conversion of the input.
     """
 
     x = np.unique(default.x)
