@@ -16,7 +16,7 @@ def MAT_2_DF(default: Matrix) -> DataFrame:
     Returns
     -------
     DataFrame
-        Converted matrix value from the input.
+        The DataFrame result from the conversion of the input.
     """
 
     np_data = default.m

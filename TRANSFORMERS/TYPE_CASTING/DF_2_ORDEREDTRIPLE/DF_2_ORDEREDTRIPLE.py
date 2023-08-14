@@ -24,7 +24,7 @@ def DF_2_ORDEREDTRIPLE(
     Returns
     -------
     OrderedTriple
-        Converted dataframe values from the input.
+        The OrderedTriple result from the conversion of the input.
     """
 
     df = default.m

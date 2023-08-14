@@ -27,8 +27,8 @@ def DOUBLE_INDEFINITE_INTEGRAL(
 
     Returns
     -------
-    m: Matrix
-        Matrix that contains the volume up to that point in each cell.
+    Matrix
+        m : matrix that contains the volume up to that point in each cell.
     """
 
     def contains_only_numbers(column):

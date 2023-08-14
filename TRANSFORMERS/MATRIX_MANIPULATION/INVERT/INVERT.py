@@ -12,22 +12,22 @@ def INVERT(default: OrderedPair | Matrix, rcond: float = 1.0) -> OrderedPair | M
     Inputs
     ------
     default : OrderedPair|Matrix
-        ...
+        The matrix or scalar to which we apply the invert.
 
     Parameters
     ----------
     rcond : float
-        ...
+        Set the condition at which our singular values in our array are gonna be set at 0 if too small.
 
     Returns
     -------
     OrderedPair|Matrix
-        OrderedPair if...
-        x : ...
-        y : ...
+        OrderedPair if the default input is an OrderedPair.
+        x : the y input list of values.
+        y : the list of inverse value of the y input.
 
-        Matrix if...
-        m : ...
+        Matrix if the default input is a Matrix.
+        m : the inverse matrix of the input.
     """
 
     print(f"INVERT params: {rcond}")
