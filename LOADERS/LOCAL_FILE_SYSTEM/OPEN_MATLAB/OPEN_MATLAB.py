@@ -19,7 +19,8 @@ def OPEN_MATLAB(file_path: str = "") -> DataFrame:
 
     Returns
     -------
-    Dataframe
+    DataFrame
+        DataFrame loaded from the .mat file
     """
 
     if file_path == "":

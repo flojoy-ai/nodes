@@ -15,22 +15,24 @@ def IMAGE_SMOOTHING(
 
     Note: For "gaussian" and "median" type, you are only allowed an odd number for the kernel value.
 
+    See https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html for smoothing function information.
+
     Inputs
     ------
     default : Image
-        The image on which we will perform the smoothing.
+        The input image to apply smoothing to.
 
     Parameters
     ----------
     kernel : int
-        The strength of the smoothing.
-        A large value will lead to stronger smoothing.
+        The strength of the smoothing (larger = stronger smoothing).
     smoothing_type : select
-        The type of smoothing to use (https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html).
+        The type of smoothing function to use.
 
     Returns
     -------
     Image
+        The smoothed image.
     """
 
     r = default.r

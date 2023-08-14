@@ -15,7 +15,7 @@ def LOADER(
     measurement_id: Optional[str] = None,
     dc_id: Optional[str] = None,
 ) -> DataContainer:
-    api_key = get_env_var("FLOJOY_CLOUD_API_KEY")
+    api_key = get_env_var("FLOJOY_CLOUD_KEY")
 
     if api_key is None:
         raise KeyError("Frontier API key is not found!")
