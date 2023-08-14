@@ -4,3 +4,4 @@ venv/*
 **/.idea/*
 dist
 flojoy_nodes.egg-info
+build
