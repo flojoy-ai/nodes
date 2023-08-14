@@ -18,7 +18,6 @@ def CHANNEL_MERGE(
     """
 
     try:
-
         return Image(
             r=red.r,
             b=blue.b,
