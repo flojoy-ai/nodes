@@ -226,17 +226,18 @@ def process_python_file(input_file_path: str, output_path: str):
         has_example = False
         example_dir_path = path.join(output_path, "examples", "EX1")
         # for f in ["app.txt", "example.md"]:
-        for f in ["app.txt"]:
+        for f in ["app.txt", "example.md"]:
             if path.exists(path.join(input_dir, f)):
                 # has_example = True
                 c = get_content(path.join(input_dir, f))
                 if not path.exists(path.join(example_dir_path, f)):
                     write_file_recursive(path.join(example_dir_path, f), c)
                 else:
-                    existing_c = get_content(path.join(example_dir_path, f))
-                    diff = compare_two_str(c, existing_c)
-                    if diff:
-                        write_file_recursive(path.join(example_dir_path, f), c)
+                    if f == "app.txt":
+                        existing_c = get_content(path.join(example_dir_path, f))
+                        diff = compare_two_str(c, existing_c)
+                        if diff:
+                            write_file_recursive(path.join(example_dir_path, f), c)
             else:
                 has_example = False
 
