@@ -2,11 +2,21 @@ import json
 import os
 from typing import Optional
 import requests
-from flojoy import DataContainer, flojoy, get_env_var
+from flojoy import DataContainer, flojoy, get_env_var, node_preflight
 from flojoy.utils import PlotlyJSONEncoder
 
 
-FLOJOY_CLOUD_URI: str = os.environ.get("FRONTIER_URI") or "https://cloud.flojoy.ai"
+FLOJOY_CLOUD_URI: str = os.environ.get("FLOJOY_CLOUD_URI") or "https://cloud.flojoy.ai"
+
+
+@node_preflight
+def preflight():
+    api_key = get_env_var("FLOJOY_CLOUD_KEY")
+
+    if api_key is None:
+        raise KeyError(
+            "Flojoy Cloud key is not found! You can set it under Settings -> Environment Variables."
+        )
 
 
 @flojoy
