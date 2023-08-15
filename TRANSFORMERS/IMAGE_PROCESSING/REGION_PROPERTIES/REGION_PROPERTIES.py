@@ -13,7 +13,7 @@ from PIL import Image as PILImage
 
 @flojoy
 @run_in_venv(pip_dependencies=["scikit-image==0.21.0"])
-def REGION_PROPERTIES(default: Optional[Image | Grayscale] = None) -> Plotly:
+def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> Plotly:
     """
     This image processing node is a stand-alone visualizer for analyzing
     an input array of data. There are multiple input `DataContainer` types for which
