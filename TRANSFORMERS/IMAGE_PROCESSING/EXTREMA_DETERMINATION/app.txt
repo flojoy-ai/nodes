@@ -1,0 +1,202 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 273,
+                "height": 160,
+                "id": "EXTREMA_DETERMINATION-c6cb9995-f24b-4923-a87a-9732235d9898",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "EXTREMA_DETERMINATION-c6cb9995-f24b-4923-a87a-9732235d9898",
+                    "label": "EXTREMA DETERMINATION",
+                    "func": "EXTREMA_DETERMINATION",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {
+                        "center": {
+                            "type": "list[int]",
+                            "default": null,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "center",
+                            "value": ""
+                        },
+                        "min_dist": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "min_dist",
+                            "value": 0
+                        },
+                        "persistence_algorithm": {
+                            "type": "bool",
+                            "default": false,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "persistence_algorithm",
+                            "value": false
+                        },
+                        "prominence": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "prominence",
+                            "value": 0
+                        },
+                        "bd_threshold": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "bd_threshold",
+                            "value": 0
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": null
+                        },
+                        {
+                            "name": "mask",
+                            "id": "mask",
+                            "type": "Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/EXTREMA_DETERMINATION.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 873.3647704695143,
+                    "y": 643.9966297458359
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 873.3647704695143,
+                    "y": 643.9966297458359
+                },
+                "dragging": true
+            },
+            {
+                "width": 160,
+                "height": 160,
+                "id": "LOCAL_FILE-2cc67abc-4c6c-48c1-a2b8-890dfbc06ca9",
+                "type": "LOADERS",
+                "data": {
+                    "id": "LOCAL_FILE-2cc67abc-4c6c-48c1-a2b8-890dfbc06ca9",
+                    "label": "LOCAL FILE",
+                    "func": "LOCAL_FILE",
+                    "type": "LOADERS",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "path to the file to be loaded",
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_path",
+                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/assets/ab_initio_monolayer_mos2.tif"
+                        },
+                        "file_type": {
+                            "type": "select",
+                            "default": "Image",
+                            "options": [
+                                "Image",
+                                "JSON",
+                                "CSV",
+                                "Excel",
+                                "XML"
+                            ],
+                            "desc": "type of file to load, default = image",
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_type",
+                            "value": "Image"
+                        }
+                    },
+                    "initCtrls": {},
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|DataFrame",
+                            "desc": "type 'image' for file_type 'image'\ntype 'dataframe' for file_type 'json', 'csv', 'excel', 'xml'"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "xlrd",
+                            "v": "2.0.1"
+                        },
+                        {
+                            "name": "lxml",
+                            "v": "4.9.2"
+                        },
+                        {
+                            "name": "openpyxl",
+                            "v": "3.0.10"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 324.7148497857372,
+                    "y": 565.9126031585151
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 324.7148497857372,
+                    "y": 565.9126031585151
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LOCAL_FILE-2cc67abc-4c6c-48c1-a2b8-890dfbc06ca9",
+                "sourceHandle": "default",
+                "target": "EXTREMA_DETERMINATION-c6cb9995-f24b-4923-a87a-9732235d9898",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-2cc67abc-4c6c-48c1-a2b8-890dfbc06ca9default-EXTREMA_DETERMINATION-c6cb9995-f24b-4923-a87a-9732235d9898default"
+            }
+        ],
+        "viewport": {
+            "x": 852.7959874736157,
+            "y": 352.53461082817995,
+            "zoom": 0.7476193625116623
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
