@@ -32,6 +32,7 @@ def EXTREMA_DETERMINATION(
     center: list[int] = None,
     min_dist: float = 0.0,
     persistence_algorithm: bool = True,
+    high_symmetry: bool = True,
     prominence: float = 0.0,
 ) -> Plotly:
 
@@ -116,38 +117,40 @@ def EXTREMA_DETERMINATION(
             raise IndexError("Provided mask is not the same shape as the input image.")
 
     if not persistence_algorithm:
-        if center is None:
-            center = autocenter(im=image, mask=mask)
-            # Then we need to autodetermine the center of the iamge
-            # raise ValueError("For the crossed correlated mask algorithm, the center of the peaks \
-            #                   in the image must be specified")
-        image = np.array(image, copy=True, dtype=float)
-        image -= image.min()
+        im = np.array(image, copy=True, dtype=float)
+        im -= im.min()
+        if high_symmetry:
+            if center is None:
+                center = autocenter(im=image, mask=mask)
+                # Then we need to autodetermine the center of the iamge
+                # raise ValueError("For the crossed correlated mask algorithm, the center of the peaks \
+                #                   in the image must be specified")
+            with catch_warnings():
+                simplefilter("ignore", category=RuntimeWarning)
+                im /= gaussian_filter(input=im, sigma=min(image.shape) / 20, truncate=2)
+            im = np.nan_to_num(im, copy=False)
 
-        with catch_warnings():
-            simplefilter("ignore", category=RuntimeWarning)
-            image /= gaussian_filter(input=image, sigma=min(image.shape) / 20, truncate=2)
-        image = np.nan_to_num(image, copy=False)
-
-        autocorr = np.abs(
-            cross_correlate_masked(arr1=image, arr2=image, m1=mask, m2=mask, mode="same")
-        )
-        autocorr = shift(
-            autocorr,
-            shift=np.asarray(center) - np.array(image.shape) / 2,
-            order=1,
-            mode="nearest",
-        )
-        laplacian = -1 * laplace(autocorr)
-        threshold = filters.threshold_triangle(laplacian)
-        regions = (laplacian > threshold) * mask
+            autocorr = np.abs(
+                cross_correlate_masked(arr1=im, arr2=im, m1=mask, m2=mask, mode="same")
+            )
+            autocorr = shift(
+                autocorr,
+                shift=np.asarray(center) - np.array(im.shape) / 2,
+                order=1,
+                mode="nearest",
+            )
+            laplacian = -1 * laplace(autocorr)
+            threshold = filters.threshold_triangle(laplacian)
+            regions = (laplacian > threshold) * mask
+        else:
+            regions = im * mask
 
         # To prevent noise from looking like actual peaks,
         # we erode labels using a small selection area
         regions = binary_erosion(regions, footprint=disk(2))
 
         labels = label(regions, return_num=False)
-        props = regionprops(label_image=labels, intensity_image=image)
+        props = regionprops(label_image=labels, intensity_image=im)
         candidates = [
             prop for prop in props if not np.any(np.isnan(prop.weighted_centroid))
         ]
@@ -157,12 +160,23 @@ def EXTREMA_DETERMINATION(
             if any((np.linalg.norm(peak - pos) < min_dist) for peak in peaks):
                 continue
             else:
-                peaks.append(pos)
+                peaks.append(pos[::-1])
         peaks = np.array([peaks]).reshape(-1,2) #now gives us the final array of peaks
     else: # we use the persistence algorithm
         g0 = Persistence(image).persistence
-
+        birth_death = list()
+        birth_death_indices = list()
+        persistencies = list()
         candidates = list()
+        bd_threshold = 0.0
+        for i, homclass in enumerate(g0):
+            p_birth, bl, pers, p_death = homclass
+            persistencies.append(pers)
+            if pers <= bd_threshold:
+                continue
+            x, y = bl, bl - pers
+            birth_death.append([x, y])
+            birth_death_indices.append(i)
         for i, homclass in enumerate(g0):
             p_birth, bl, pers, p_death = homclass
             if pers <= prominence:
@@ -177,7 +191,7 @@ def EXTREMA_DETERMINATION(
                 if np.linalg.norm(np.array(point1) - np.array(point2)) < min_dist
             ]
             candidates = [point for point in candidates if point not in points_to_remove]
-        candidates = np.array(candidates).reshape(-1, 2)
+        peaks = np.array(candidates).reshape(-1, 2)
         # remove peaks that are within the masked area
         if mask.sum() != mask.shape[0] * mask.shape[1]:
             peaks = np.array([p for p in candidates if mask[p[1], p[0]]]).reshape(-1,2)
@@ -188,7 +202,7 @@ def EXTREMA_DETERMINATION(
     # that's black and white so we can render it. First, scale image to
     # range 0-255.
     image -= image.min()
-    image /= image.max()
+    image = image / float(image.max())
     image *= 255
 
     rgb_image = np.zeros((*image.shape, 3), dtype=np.uint8) #only generated for plotting
@@ -196,13 +210,15 @@ def EXTREMA_DETERMINATION(
     rgb_image[..., 1] = image * 255  # Green channel
     rgb_image[..., 2] = image * 255  # Blue channel
 
-    layout = plot_layout(title=f"IMAGE with {labels.max()} objects")
+    layout = plot_layout(title=f"IMAGE with {peaks.shape[0]} objects")
     fig = px.imshow(img=rgb_image)
     fig.layout = layout
     marker_trace = go.Scatter(x=peaks[:,0], y=peaks[:,1], mode='markers', marker=dict(color='green', size=15), showlegend=False)
     fig.add_trace(marker_trace)
 
-    return Plotly
+    fig.update_xaxes(range=[0, image.shape[0]])
+    fig.update_yaxes(range=[0, image.shape[1]])
+    return Plotly(fig=fig)
 
 class UnionFind:
 
