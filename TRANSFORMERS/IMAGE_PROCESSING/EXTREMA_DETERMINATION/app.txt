@@ -2,97 +2,6 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 273,
-                "height": 160,
-                "id": "EXTREMA_DETERMINATION-c6cb9995-f24b-4923-a87a-9732235d9898",
-                "type": "TRANSFORMERS",
-                "data": {
-                    "id": "EXTREMA_DETERMINATION-c6cb9995-f24b-4923-a87a-9732235d9898",
-                    "label": "EXTREMA DETERMINATION",
-                    "func": "EXTREMA_DETERMINATION",
-                    "type": "TRANSFORMERS",
-                    "ctrls": {
-                        "center": {
-                            "type": "list[int]",
-                            "default": null,
-                            "desc": null,
-                            "functionName": "EXTREMA_DETERMINATION",
-                            "param": "center",
-                            "value": ""
-                        },
-                        "min_dist": {
-                            "type": "float",
-                            "default": 0,
-                            "desc": null,
-                            "functionName": "EXTREMA_DETERMINATION",
-                            "param": "min_dist",
-                            "value": 0
-                        },
-                        "persistence_algorithm": {
-                            "type": "bool",
-                            "default": false,
-                            "desc": null,
-                            "functionName": "EXTREMA_DETERMINATION",
-                            "param": "persistence_algorithm",
-                            "value": false
-                        },
-                        "prominence": {
-                            "type": "float",
-                            "default": 0,
-                            "desc": null,
-                            "functionName": "EXTREMA_DETERMINATION",
-                            "param": "prominence",
-                            "value": 0
-                        },
-                        "bd_threshold": {
-                            "type": "float",
-                            "default": 0,
-                            "desc": null,
-                            "functionName": "EXTREMA_DETERMINATION",
-                            "param": "bd_threshold",
-                            "value": 0
-                        }
-                    },
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image|Grayscale|Matrix",
-                            "multiple": false,
-                            "desc": null
-                        },
-                        {
-                            "name": "mask",
-                            "id": "mask",
-                            "type": "Grayscale|Matrix",
-                            "multiple": false,
-                            "desc": null
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly",
-                            "desc": null
-                        }
-                    ],
-                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/EXTREMA_DETERMINATION.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 873.3647704695143,
-                    "y": 643.9966297458359
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 873.3647704695143,
-                    "y": 643.9966297458359
-                },
-                "dragging": true
-            },
-            {
                 "width": 160,
                 "height": 160,
                 "id": "LOCAL_FILE-2cc67abc-4c6c-48c1-a2b8-890dfbc06ca9",
@@ -109,7 +18,7 @@
                             "desc": "path to the file to be loaded",
                             "functionName": "LOCAL_FILE",
                             "param": "file_path",
-                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/assets/ab_initio_monolayer_mos2.tif"
+                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/assets/lowrange.png"
                         },
                         "file_type": {
                             "type": "select",
@@ -151,27 +60,115 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 324.7148497857372,
                     "y": 565.9126031585151
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 324.7148497857372,
                     "y": 565.9126031585151
                 },
                 "dragging": true
+            },
+            {
+                "width": 273,
+                "height": 160,
+                "id": "EXTREMA_DETERMINATION-cf1f557a-a73a-4e29-a343-230dc8bc843c",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "EXTREMA_DETERMINATION-cf1f557a-a73a-4e29-a343-230dc8bc843c",
+                    "label": "EXTREMA DETERMINATION",
+                    "func": "EXTREMA_DETERMINATION",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {
+                        "center": {
+                            "type": "list[int]",
+                            "default": null,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "center",
+                            "value": "125, 125"
+                        },
+                        "min_dist": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "min_dist",
+                            "value": 0
+                        },
+                        "persistence_algorithm": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "persistence_algorithm",
+                            "value": false
+                        },
+                        "prominence": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "prominence",
+                            "value": 0
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": null
+                        },
+                        {
+                            "name": "mask",
+                            "id": "mask",
+                            "type": "Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/EXTREMA_DETERMINATION.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 636.0369080265293,
+                    "y": 586.8436346606883
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 636.0369080265293,
+                    "y": 586.8436346606883
+                }
             }
         ],
         "edges": [
             {
                 "source": "LOCAL_FILE-2cc67abc-4c6c-48c1-a2b8-890dfbc06ca9",
                 "sourceHandle": "default",
-                "target": "EXTREMA_DETERMINATION-c6cb9995-f24b-4923-a87a-9732235d9898",
+                "target": "EXTREMA_DETERMINATION-cf1f557a-a73a-4e29-a343-230dc8bc843c",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-2cc67abc-4c6c-48c1-a2b8-890dfbc06ca9default-EXTREMA_DETERMINATION-c6cb9995-f24b-4923-a87a-9732235d9898default"
+                "id": "reactflow__edge-LOCAL_FILE-2cc67abc-4c6c-48c1-a2b8-890dfbc06ca9default-EXTREMA_DETERMINATION-cf1f557a-a73a-4e29-a343-230dc8bc843cdefault"
             }
         ],
         "viewport": {
