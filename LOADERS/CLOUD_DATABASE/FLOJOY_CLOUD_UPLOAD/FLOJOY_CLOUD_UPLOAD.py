@@ -6,11 +6,11 @@ from flojoy import DataContainer, flojoy, get_env_var
 from flojoy.utils import PlotlyJSONEncoder
 
 
-FRONTIER_URI: str = os.environ.get("FRONTIER_URI") or "https://cloud.flojoy.ai"
+FLOJOY_CLOUD_URI: str = os.environ.get("FRONTIER_URI") or "https://cloud.flojoy.ai"
 
 
 @flojoy
-def FLOJOY_UPLOAD(
+def FLOJOY_CLOUD_UPLOAD(
     default: DataContainer,
     measurement_id: Optional[str] = None,
     dc_id: Optional[str] = None,
@@ -27,7 +27,7 @@ def FLOJOY_UPLOAD(
         resp: requests.Response
         if measurement_id is None:
             resp = requests.post(
-                f"{FRONTIER_URI}/api/v1/measurements/{measurement_id}",
+                f"{FLOJOY_CLOUD_URI}/api/v1/measurements/{measurement_id}",
                 headers={"api_key": api_key},
                 json={
                     "data": json.dumps(default, cls=PlotlyJSONEncoder),
@@ -36,7 +36,7 @@ def FLOJOY_UPLOAD(
 
         else:
             resp = requests.post(
-                f"{FRONTIER_URI}/api/v1/dcs",
+                f"{FLOJOY_CLOUD_URI}/api/v1/dcs",
                 headers={"api_key": api_key},
                 json={
                     "measurement_id": measurement_id,
@@ -55,7 +55,7 @@ def FLOJOY_UPLOAD(
             raise Exception("A data container ID is required for downstreaming")
 
         resp = requests.get(
-            f"{FRONTIER_URI}/api/v1/dcs/{dc_id}",
+            f"{FLOJOY_CLOUD_URI}/api/v1/dcs/{dc_id}",
             headers={"api_key": api_key},
         )
         print(resp.json())
