@@ -1,4 +1,4 @@
-from flojoy import flojoy, Plotly, run_in_venv, Image, Grayscale, Matrix
+from flojoy import flojoy, Plotly, Image, Grayscale, Matrix
 import plotly.express as px
 import plotly.graph_objects as go
 from skimage.draw import ellipse
@@ -11,8 +11,7 @@ import math
 from nodes.VISUALIZERS.template import plot_layout
 from PIL import Image as PILImage
 
-@flojoy
-@run_in_venv(pip_dependencies=["scikit-image==0.21.0"])
+@flojoy(deps={"scikit-image":"0.21.0"})
 def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> Plotly:
     """
     This image processing node is a stand-alone visualizer for analyzing
@@ -101,7 +100,7 @@ def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> P
     else:
         raise TypeError("Input array of insufficient data type to pass to the region analysis routines.")
     labels = label(image)
-    rprops = regionprops(labels,image)
+    rprops = regionprops(label_image = labels, intensity_image = image)
 
     rgb_image = np.zeros((*image.shape, 3), dtype=np.uint8) #only generated for plotting
     rgb_image[..., 0] = image * 255  # Red channel
@@ -155,6 +154,6 @@ def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> P
             mode='lines', fill='toself', showlegend=False,
             hovertemplate=hoverinfo, hoveron='points+fills'))
 
-    fig.update_xaxes(range=[0, 600])
-    fig.update_yaxes(range=[0, 600])
+    fig.update_xaxes(range=[0, image.shape[0]])
+    fig.update_yaxes(range=[0, image.shape[1]])
     return Plotly(fig=fig)
