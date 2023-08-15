@@ -32,7 +32,6 @@ def EXTREMA_DETERMINATION(
     center: list[int] = None,
     min_dist: float = 0.0,
     persistence_algorithm: bool = True,
-    high_symmetry: bool = True,
     prominence: float = 0.0,
 ) -> Plotly:
 
@@ -117,33 +116,31 @@ def EXTREMA_DETERMINATION(
             raise IndexError("Provided mask is not the same shape as the input image.")
 
     if not persistence_algorithm:
+        if center is None:
+            center = autocenter(im=image, mask=mask)
+            # Then we need to autodetermine the center of the iamge
+            # raise ValueError("For the crossed correlated mask algorithm, the center of the peaks \
+            #                   in the image must be specified")
         im = np.array(image, copy=True, dtype=float)
         im -= im.min()
-        if high_symmetry:
-            if center is None:
-                center = autocenter(im=image, mask=mask)
-                # Then we need to autodetermine the center of the iamge
-                # raise ValueError("For the crossed correlated mask algorithm, the center of the peaks \
-                #                   in the image must be specified")
-            with catch_warnings():
-                simplefilter("ignore", category=RuntimeWarning)
-                im /= gaussian_filter(input=im, sigma=min(image.shape) / 20, truncate=2)
-            im = np.nan_to_num(im, copy=False)
 
-            autocorr = np.abs(
-                cross_correlate_masked(arr1=im, arr2=im, m1=mask, m2=mask, mode="same")
-            )
-            autocorr = shift(
-                autocorr,
-                shift=np.asarray(center) - np.array(im.shape) / 2,
-                order=1,
-                mode="nearest",
-            )
-            laplacian = -1 * laplace(autocorr)
-            threshold = filters.threshold_triangle(laplacian)
-            regions = (laplacian > threshold) * mask
-        else:
-            regions = im * mask
+        with catch_warnings():
+            simplefilter("ignore", category=RuntimeWarning)
+            im /= gaussian_filter(input=im, sigma=min(image.shape) / 20, truncate=2)
+        im = np.nan_to_num(im, copy=False)
+
+        autocorr = np.abs(
+            cross_correlate_masked(arr1=im, arr2=im, m1=mask, m2=mask, mode="same")
+        )
+        autocorr = shift(
+            autocorr,
+            shift=np.asarray(center) - np.array(im.shape) / 2,
+            order=1,
+            mode="nearest",
+        )
+        laplacian = -1 * laplace(autocorr)
+        threshold = filters.threshold_triangle(laplacian)
+        regions = (laplacian > threshold) * mask
 
         # To prevent noise from looking like actual peaks,
         # we erode labels using a small selection area
@@ -192,6 +189,7 @@ def EXTREMA_DETERMINATION(
             ]
             candidates = [point for point in candidates if point not in points_to_remove]
         peaks = np.array(candidates).reshape(-1, 2)
+        print(persistencies)
         # remove peaks that are within the masked area
         if mask.sum() != mask.shape[0] * mask.shape[1]:
             peaks = np.array([p for p in candidates if mask[p[1], p[0]]]).reshape(-1,2)
