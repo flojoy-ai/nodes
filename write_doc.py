@@ -228,7 +228,7 @@ def process_python_file(input_file_path: str, output_path: str):
         # for f in ["app.txt", "example.md"]:
         for f in ["app.txt"]:
             if path.exists(path.join(input_dir, f)):
-                has_example = True
+                # has_example = True
                 c = get_content(path.join(input_dir, f))
                 if not path.exists(path.join(example_dir_path, f)):
                     write_file_recursive(path.join(example_dir_path, f), c)
@@ -241,7 +241,7 @@ def process_python_file(input_file_path: str, output_path: str):
                 has_example = False
 
         # write md file with file name
-        # md_file_path = path.join(output_path, f"{node_name}.md")
+        md_file_path = path.join(output_path, f"{node_name}.md")
         # app_jpg = "app.jpeg"
         # output_jpg = "output.jpeg"
         # img_map = {app_jpg: False, output_jpg: False}
@@ -251,19 +251,19 @@ def process_python_file(input_file_path: str, output_path: str):
         #         shutil.copy2(img_path, path.join(example_dir_path, f))
         #         img_map[f] = True
 
-        # example_section = get_example_section(
-        #     node_name,
-        #     has_app_image=img_map[app_jpg],
-        #     has_output_image=img_map[output_jpg],
-        # )
-        # md_file_content = get_md_file_content(
-        #     md_file_path,
-        #     node_name,
-        #     has_example=has_example,
-        #     example_section=example_section,
-        # )
-        # if not path.exists(md_file_path):
-        #     write_file_recursive(md_file_path, md_file_content)
+        example_section = get_example_section(
+            node_name,
+            has_app_image=False,
+            has_output_image=False,
+        )
+        md_file_content = get_md_file_content(
+            md_file_path,
+            node_name,
+            has_example=True,
+            example_section=example_section,
+        )
+        if not path.exists(md_file_path):
+            write_file_recursive(md_file_path, md_file_content)
         # else:
         #     if path.exists(path.join(example_dir_path, "app.txt")) and has_example:
         #         write_file_recursive(md_file_path, md_file_content)
