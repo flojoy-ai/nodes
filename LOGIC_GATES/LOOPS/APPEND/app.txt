@@ -2,8 +2,8 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
+                "width": 96,
+                "height": 96,
                 "id": "APPEND-a2c9923a-6e0d-4eee-9075-b898669afef4",
                 "type": "LOGIC_GATES",
                 "data": {
@@ -48,8 +48,8 @@
                 "dragging": true
             },
             {
-                "width": 130,
-                "height": 130,
+                "width": 208,
+                "height": 96,
                 "id": "RAND-c7739b2a-89f6-46fd-ac17-b3fdbec8c586",
                 "type": "GENERATORS",
                 "data": {
@@ -125,19 +125,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -116.99910130481645,
-                    "y": 31.67641795910953
+                    "x": -88.97744888284834,
+                    "y": 302.19313941734015
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -116.99910130481645,
-                    "y": 31.67641795910953
+                    "x": -88.97744888284834,
+                    "y": 302.19313941734015
                 },
                 "dragging": true
             },
             {
                 "width": 150,
-                "height": 150,
+                "height": 180,
                 "id": "LINSPACE-84e2f852-a28c-48bf-b9df-8aa5a0996511",
                 "type": "default",
                 "data": {
@@ -187,19 +187,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -447.16047439695353,
-                    "y": 11.970451908549023
+                    "x": -422.3720895621356,
+                    "y": 262.00981198149526
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -447.16047439695353,
-                    "y": 11.970451908549023
+                    "x": -422.3720895621356,
+                    "y": 262.00981198149526
                 },
                 "dragging": true
             },
             {
                 "width": 150,
-                "height": 150,
+                "height": 180,
                 "id": "LINSPACE-d44b3399-36af-4c49-aa54-bc58930977cd",
                 "type": "default",
                 "data": {
@@ -249,19 +249,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -467.0723665226683,
-                    "y": 319.26815254052497
+                    "x": -423.96213202733276,
+                    "y": -179.7328117429841
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -467.0723665226683,
-                    "y": 319.26815254052497
+                    "x": -423.96213202733276,
+                    "y": -179.7328117429841
                 },
                 "dragging": true
             },
             {
-                "width": 130,
-                "height": 130,
+                "width": 208,
+                "height": 96,
                 "id": "RAND-604d3223-83f7-4e62-851c-567cf7d10cfe",
                 "type": "GENERATORS",
                 "data": {
@@ -337,13 +337,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -64.24809691739924,
-                    "y": 348.6561269746337
+                    "x": -87.9587258898338,
+                    "y": -135.25625523550798
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -64.24809691739924,
-                    "y": 348.6561269746337
+                    "x": -87.9587258898338,
+                    "y": -135.25625523550798
                 },
                 "dragging": true
             },
@@ -377,13 +377,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 560.427035076177,
-                    "y": 55.36121100525014
+                    "x": 617.5480957824966,
+                    "y": 0.3956620236973549
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 560.427035076177,
-                    "y": 55.36121100525014
+                    "x": 617.5480957824966,
+                    "y": 0.3956620236973549
                 },
                 "dragging": true
             },
@@ -417,13 +417,100 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 223.6782344391588,
-                    "y": -267.09799352606467
+                    "x": 260.321933760194,
+                    "y": 392.4885942525692
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 223.6782344391588,
-                    "y": -267.09799352606467
+                    "x": 260.321933760194,
+                    "y": 392.4885942525692
+                },
+                "dragging": true
+            },
+            {
+                "width": 231,
+                "height": 96,
+                "id": "TEXT-b8137ef3-3857-4e92-be6a-fdba7344487a",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "TEXT-b8137ef3-3857-4e92-be6a-fdba7344487a",
+                    "label": "DESCRIPTION",
+                    "func": "TEXT",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "value": {
+                            "type": "str",
+                            "default": "Hello World!",
+                            "desc": "The value set in Parameters",
+                            "functionName": "TEXT",
+                            "param": "value",
+                            "value": "This app shows the functionality of the APPEND node. It first creates a dataset with two points using RAND and LINSPACE nodes. It then uses the APPEND node to add another point to the dataset."
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "_",
+                            "id": "_",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "desc": "text_blob: return the value being set in Parameters"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/TEXT/TEXT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 341.4913155224657,
+                    "y": -160.37761389847495
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 341.4913155224657,
+                    "y": -160.37761389847495
+                },
+                "dragging": true
+            },
+            {
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-eaf469db-ac6d-449e-94a9-9b71930987b5",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-eaf469db-ac6d-449e-94a9-9b71930987b5",
+                    "label": "TEXT VIEW",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 739.0435946974475,
+                    "y": -274.3942216087276
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 739.0435946974475,
+                    "y": -274.3942216087276
                 },
                 "dragging": true
             }
@@ -470,12 +557,26 @@
                 "target": "SCATTER-fe4b85c2-0917-4786-a715-836201d919cf",
                 "targetHandle": "default",
                 "id": "reactflow__edge-APPEND-a2c9923a-6e0d-4eee-9075-b898669afef4default-SCATTER-fe4b85c2-0917-4786-a715-836201d919cfdefault"
+            },
+            {
+                "source": "APPEND-a2c9923a-6e0d-4eee-9075-b898669afef4",
+                "sourceHandle": "default",
+                "target": "TEXT-b8137ef3-3857-4e92-be6a-fdba7344487a",
+                "targetHandle": "_",
+                "id": "reactflow__edge-APPEND-a2c9923a-6e0d-4eee-9075-b898669afef4default-TEXT-b8137ef3-3857-4e92-be6a-fdba7344487a_"
+            },
+            {
+                "source": "TEXT-b8137ef3-3857-4e92-be6a-fdba7344487a",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-eaf469db-ac6d-449e-94a9-9b71930987b5",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TEXT-b8137ef3-3857-4e92-be6a-fdba7344487adefault-TEXT_VIEW-eaf469db-ac6d-449e-94a9-9b71930987b5default"
             }
         ],
         "viewport": {
-            "x": -501.95459935516146,
-            "y": 196.48083177807212,
-            "zoom": 1.4811524052100216
+            "x": 1122.8706531201733,
+            "y": 516.7113790478016,
+            "zoom": 1.0957886685188984
         }
     },
     "ctrlsManifest": [
