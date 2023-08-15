@@ -105,7 +105,7 @@ def get_example_section(node_label: str, has_app_image: bool, has_output_image: 
 ## Examples
 
 import Example1 from './examples/EX1/example.md';
-import App1 from '!!raw-loader!./examples/EX1/app.txt';
+import App1 from '!!raw-loader!./examples/EX1/app.json';
 {app_image}
 {output_image}
 
@@ -225,8 +225,8 @@ def process_python_file(input_file_path: str, output_path: str):
         # examples
         has_example = False
         example_dir_path = path.join(output_path, "examples", "EX1")
-        # for f in ["app.txt", "example.md"]:
-        for f in ["app.txt"]:
+        # for f in ["app.json", "example.md"]:
+        for f in ["app.json"]:
             if path.exists(path.join(input_dir, f)):
                 has_example = True
                 c = get_content(path.join(input_dir, f))
@@ -265,7 +265,7 @@ def process_python_file(input_file_path: str, output_path: str):
         # if not path.exists(md_file_path):
         #     write_file_recursive(md_file_path, md_file_content)
         # else:
-        #     if path.exists(path.join(example_dir_path, "app.txt")) and has_example:
+        #     if path.exists(path.join(example_dir_path, "app.json")) and has_example:
         #         write_file_recursive(md_file_path, md_file_content)
     except Exception as e:
         print(
