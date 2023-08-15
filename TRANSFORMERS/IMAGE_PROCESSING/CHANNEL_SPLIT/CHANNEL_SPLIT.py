@@ -1,22 +1,15 @@
-from flojoy import flojoy, Image, Matrix
+from flojoy import flojoy, Image, Matrix, DCNpArrayType
 from typing import TypedDict
 import numpy as np
 
 class IMAGE_CHANNEL_OUTPUTS(TypedDict):
     r: Image
     g: Image
-    b: Image 
+    b: Image
     a: Image
-
-class NUMPY_CHANNEL_OUTPUTS(TypedDict):
-    r: Image
-    g: Image
-    b: Image 
-    a: Image
-
 
 @flojoy
-def CHANNEL_SPLIT(default: Image | Matrix) -> IMAGE_CHANNEL_OUTPUTS | NUMPY_CHANNEL_OUTPUTS:
+def CHANNEL_SPLIT(default: Image | Matrix) -> IMAGE_CHANNEL_OUTPUTS:
     """
     The CHANNEL_SPLIT node returns the rgba channels of an image 
     into 4 separate images for direct visualization. While the notion
@@ -40,50 +33,46 @@ def CHANNEL_SPLIT(default: Image | Matrix) -> IMAGE_CHANNEL_OUTPUTS | NUMPY_CHAN
             g = default.g
             b = default.b
             a = default.a
-            zeros = np.zeros(b.shape, np.uint8)
-            ones = 255*np.ones(b.shape, np.uint8)
-
-            return IMAGE_CHANNEL_OUTPUTS(
-                r=Image(
-                    r=r,
-                    g=zeros,
-                    b=zeros,
-                    a=ones,
-                ), 
-                g=Image(
-                    r=zeros,
-                    g=g,
-                    b=zeros,
-                    a=ones,
-                ), 
-                b=Image(
-                    r=zeros,
-                    g=zeros,
-                    b=b,
-                    a=ones,
-                ), 
-                a=Image(
-                    r=zeros,
-                    g=zeros,
-                    b=zeros,
-                    a=a,
-                ), 
-            )
+            
         elif isinstance(default, Matrix):
             r = default.m[...,0]
             g = default.m[...,1]
             b = default.m[...,2]
-            a = None if default.m.shape[-1] == 3 else default.m[...,3]
+            a = np.zeros_like(b) if default.m.shape[-1] == 3 else default.m[...,3]
             
             if default.m.shape[-1] != 3 or default.m.shape[-1] !=4:
                 raise IndexError("Input array is not of sensible size to split channels")
-            return NUMPY_CHANNEL_OUTPUTS(
-                r = r,
-                g=g,
-                b=b, 
-                a=a
-            )
         else:
             raise TypeError("Unexpected type of the input argument.")
+        
+        zeros = np.zeros(b.shape, np.uint8)
+        ones = 255*np.ones(b.shape, np.uint8)
+
+        return IMAGE_CHANNEL_OUTPUTS(
+            r=Image(
+                r=r,
+                g=zeros,
+                b=zeros,
+                a=ones,
+            ), 
+            g=Image(
+                r=zeros,
+                g=g,
+                b=zeros,
+                a=ones,
+            ), 
+            b=Image(
+                r=zeros,
+                g=zeros,
+                b=b,
+                a=ones,
+            ), 
+            a=Image(
+                r=zeros,
+                g=zeros,
+                b=zeros,
+                a=a,
+            ), 
+        )
     except Exception as e:
         raise e
