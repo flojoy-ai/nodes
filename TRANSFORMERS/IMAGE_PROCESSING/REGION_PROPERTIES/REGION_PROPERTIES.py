@@ -1,10 +1,10 @@
+from flojoy import flojoy, Plotly, run_in_venv, Image, Grayscale, Matrix
+import plotly.express as px
+import plotly.graph_objects as go
 from skimage.draw import ellipse
 from skimage.measure import label, regionprops, find_contours
 from skimage.transform import rotate
-from flojoy import flojoy, Plotly, run_in_venv, Image
-import plotly.express as px
-import plotly.graph_objects as go
-
+import re
 import numpy as np
 from typing import Optional
 import math 
@@ -13,38 +13,100 @@ from PIL import Image as PILImage
 
 @flojoy
 @run_in_venv(pip_dependencies=["scikit-image==0.21.0"])
-def REGION_PROPERTIES(default: Optional[Image] = None) -> Plotly:
+def REGION_PROPERTIES(default: Optional[Image | Grayscale] = None) -> Plotly:
+    """
+    This image processing node is a stand-alone visualizer for analyzing
+    an input array of data. There are multiple input `DataContainer` types for which
+    this function is applicable: `Image`, or  `Grayscale`, or `Matrix`.
+
+    Often in image analysis, it is necessary to determine subvolumes / subregions
+    inside a given image, whether this be for object count (e.g. the counting of 
+    cells on a glass plate), object dimensional analysis (determining coutours of 
+    a region, centroid of a region relative to the pixel coordinate origin of the image,
+    determining the semi-major (-minor) axes of a region, etc.). This functionality
+    is entirely provided by this node in a two-step process:
+
+        - First, the regions of the INTEGER image are identified and labelled (NOTA BENE
+            the integer type requirement)
+        - Second, the regions are then analysed.
+    The first step is provided by the morphology library of scikit-image's label function,
+    while the second is provided by scikit-image's regionprops function.
+
+    After processing, the results of this node are visualized in the main UI,
+    where the user can see:
+        - The input array / image
+        - The semi-major and semi-minor axes of the contour drawn relative to the contour centroid
+        - The contour centroid
+        - The countour bounding-box
+        - A mouse-hover utility that displays the contour information to the user for the contour
+          above which is the mouse.
+    
+    Parameters
+    ----------
+    default     :       Optional[Image | Grayscale],
+        The input node to this function. If nothing is supplied, then a demo test
+        case is returned to illustrate the functionality of this node.
+
+    Returns
+    -------
+    fig         :       Plotly
+        Returns the Plotly superclass of `DataContainer` that has the illustrated
+        features as determined by this node.
+
+    
+    """
 
     if default:
-        r = default.r
-        g = default.g
-        b = default.b
-        a = default.a
+        if isinstance(default, Image):
+            r = default.r
+            g = default.g
+            b = default.b
+            a = default.a
 
-        if a is None:
-            image = np.stack((r, g, b), axis=2)
-        else:
-            image = np.stack((r, g, b, a), axis=2)
-        image = PILImage.fromarray(image)
-        image = np.array(image.convert("L")) # a greyscale image that can be processed
+            if a is None:
+                image = np.stack((r, g, b), axis=2)
+            else:
+                image = np.stack((r, g, b, a), axis=2)
+            image = PILImage.fromarray(image)
+            image = np.array(image.convert("L"), dtype=np.uint8) # a greyscale image that can be processed
+        elif isinstance(default, Grayscale) or isinstance(default, Matrix):
+            image = np.array(default.m) #explicit typing just to be extra safe
+        
     else:
-        image = np.zeros((600, 600))
+        image = np.zeros((600, 600), dtype=np.uint8)
         rr, cc = ellipse(300, 350, 100, 220)
         image[rr, cc] = 1
         image = rotate(image, angle=15, order=0)
         rr, cc = ellipse(100, 100, 60, 50)
         image[rr, cc] = 1
 
-    rgb_image = np.zeros((*image.shape, 3), dtype=np.uint8)
-
+    # Slight problem. If we're generating a dummy dataset, or if the input is of
+    # type `Image`, then there is no problem for the below, since all values will
+    # be in range 0-255 (uint8). This is good because the array `rgb_image` below 
+    # is guaranteed to be able to work and visualize the input array, and the `label`
+    # are `regionprops` routines, which only accept integer array inputs, will be fine
+    # as well. PROBLEM: if the input type is greyscale or matrix, meaning only a 2D
+    # array, we have at no point enforced that the values of these arrays be uint8.
+    # Indeed, they may not and in most cases will not be, and can have values within
+    # an extreme dynamic range. To fix this, we need a case to explicitly handle greyscale
+    # and matrix input data types, both for visualization and for region property analysis.
+    original_dtype = str(np.min_scalar_type(image))
+    if 'int' in original_dtype: #we are good, and all are integers
+        pass
+    elif 'f' in original_dtype: #matches 'float' and 'f8' etc
+        nbits = int(re.search(r'\d+', str(original_dtype)).group())
+        image = image.astype(
+            getattr(np, f'int{nbits}')
+        )
+    else:
+        raise TypeError("Input array of insufficient data type to pass to the region analysis routines.")
     labels = label(image)
     rprops = regionprops(labels,image)
 
-        
+    rgb_image = np.zeros((*image.shape, 3), dtype=np.uint8) #only generated for plotting
     rgb_image[..., 0] = image * 255  # Red channel
     rgb_image[..., 1] = image * 255  # Green channel
     rgb_image[..., 2] = image * 255  # Blue channel
-
     layout = plot_layout(title="IMAGE")
     fig = px.imshow(img=rgb_image)
     fig.layout = layout
