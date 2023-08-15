@@ -1,8 +1,8 @@
-In this example, we use the `R_DATASET` and `DF_2_ORDEREDTRIPLE` nodes. The parameters that are used for these nodes, are the following:
+In this example, we use the `R_DATASET` and `DF_2_ORDERED_TRIPLE` nodes. The parameters that are used for these nodes, are the following:
 
 `R_DATASET` : airquality
 
-`DF_2_ORDEREDTRIPLE` : x=5, y=4, z=3
+`DF_2_ORDERED_TRIPLE` : x=5, y=4, z=3
 
 Here the `airquality` dataset has 6 columns in total. Using these parameters will generate an OrderedTriple with the columns x, y, and z, which corresponds to how the parameters were set.
 
