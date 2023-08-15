@@ -107,7 +107,7 @@ def REGION_PROPERTIES(default: Optional[Image | Grayscale] = None) -> Plotly:
     rgb_image[..., 0] = image * 255  # Red channel
     rgb_image[..., 1] = image * 255  # Green channel
     rgb_image[..., 2] = image * 255  # Blue channel
-    layout = plot_layout(title="IMAGE")
+    layout = plot_layout(title=f"IMAGE with {labels.max()} objects")
     fig = px.imshow(img=rgb_image)
     fig.layout = layout
 
