@@ -215,11 +215,12 @@ def process_python_file(input_file_path: str, output_path: str):
                 md_file_path = path.join(
                     output_path, path.basename(input_file_path).replace(".py", ".md")
                 )
-                c = get_content(md_file_path)
-                for line in lines:
-                    if line["new"] not in c:
-                        c = c.replace(line["prev"], line["new"])
-                write_file_recursive(md_file_path, c)
+                if path.exists(md_file_path):
+                    c = get_content(md_file_path)
+                    for line in lines:
+                        if line["new"] not in c:
+                            c = c.replace(line["prev"], line["new"])
+                    write_file_recursive(md_file_path, c)
 
         # examples
         has_example = False
