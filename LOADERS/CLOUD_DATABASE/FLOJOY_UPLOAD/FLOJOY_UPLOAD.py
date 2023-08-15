@@ -10,7 +10,7 @@ FRONTIER_URI: str = os.environ.get("FRONTIER_URI") or "https://cloud.flojoy.ai"
 
 
 @flojoy
-def LOADER(
+def FLOJOY_UPLOAD(
     default: DataContainer,
     measurement_id: Optional[str] = None,
     dc_id: Optional[str] = None,
