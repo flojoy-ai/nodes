@@ -33,13 +33,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 15.697025265156128,
-                    "y": 162.791309303586
+                    "x": -435.06929455342424,
+                    "y": 253.30663456836112
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 15.697025265156128,
-                    "y": 162.791309303586
+                    "x": -435.06929455342424,
+                    "y": 253.30663456836112
                 },
                 "dragging": true
             },
@@ -75,13 +75,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 13.282464927359996,
-                    "y": -117.46602364158025
+                    "x": 168.96882438277328,
+                    "y": 72.61615941444757
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 13.282464927359996,
-                    "y": -117.46602364158025
+                    "x": 168.96882438277328,
+                    "y": 72.61615941444757
                 },
                 "dragging": true
             },
@@ -117,13 +117,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 387.833179116913,
-                    "y": 14.32067485292606
+                    "x": -316.3760514430379,
+                    "y": -1.972083694733442
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 387.833179116913,
-                    "y": 14.32067485292606
+                    "x": -316.3760514430379,
+                    "y": -1.972083694733442
                 },
                 "dragging": true
             },
@@ -159,13 +159,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 388.9118161388476,
-                    "y": -300.82675939727517
+                    "x": 309.2583299058454,
+                    "y": -338.84319600848073
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 388.9118161388476,
-                    "y": -300.82675939727517
+                    "x": 309.2583299058454,
+                    "y": -338.84319600848073
                 },
                 "dragging": true
             },
@@ -290,52 +290,53 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -428.23010575909956,
-                    "y": 78.13554210341013
+                    "x": -708.8276140799027,
+                    "y": 11.154201407476478
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -428.23010575909956,
-                    "y": 78.13554210341013
+                    "x": -708.8276140799027,
+                    "y": 11.154201407476478
                 },
                 "dragging": true
             },
             {
                 "width": 160,
                 "height": 160,
-                "id": "DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80a",
+                "id": "DF_2_ORDERED_TRIPLE-34ac9e04-7127-435e-8219-2bc2c81f8803",
                 "type": "TRANSFORMERS",
                 "data": {
-                    "id": "DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80a",
-                    "label": "DF 2 ORDEREDTRIPLE",
-                    "func": "DF_2_ORDEREDTRIPLE",
+                    "id": "DF_2_ORDERED_TRIPLE-34ac9e04-7127-435e-8219-2bc2c81f8803",
+                    "label": "DF 2 ORDERED TRIPLE",
+                    "func": "DF_2_ORDERED_TRIPLE",
                     "type": "TRANSFORMERS",
                     "ctrls": {
                         "x": {
                             "type": "int",
                             "default": 0,
                             "desc": null,
-                            "functionName": "DF_2_ORDEREDTRIPLE",
+                            "functionName": "DF_2_ORDERED_TRIPLE",
                             "param": "x",
-                            "value": "5"
+                            "value": 0
                         },
                         "y": {
                             "type": "int",
                             "default": 1,
                             "desc": null,
-                            "functionName": "DF_2_ORDEREDTRIPLE",
+                            "functionName": "DF_2_ORDERED_TRIPLE",
                             "param": "y",
-                            "value": "4"
+                            "value": 1
                         },
                         "z": {
                             "type": "int",
                             "default": 2,
                             "desc": null,
-                            "functionName": "DF_2_ORDEREDTRIPLE",
+                            "functionName": "DF_2_ORDERED_TRIPLE",
                             "param": "z",
-                            "value": "3"
+                            "value": 2
                         }
                     },
+                    "initCtrls": {},
                     "inputs": [
                         {
                             "name": "default",
@@ -353,36 +354,22 @@
                             "desc": null
                         }
                     ],
-                    "path": "PYTHON/nodes/TRANSFORMERS/TYPE_CASTING/DF_2_ORDEREDTRIPLE/DF_2_ORDEREDTRIPLE.py",
+                    "path": "",
                     "selected": false
                 },
                 "position": {
-                    "x": -192.70484538790708,
-                    "y": -268.5141204459132
+                    "x": -115.76411140796596,
+                    "y": -242.48429314436225
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -192.70484538790708,
-                    "y": -268.5141204459132
+                    "x": -115.76411140796596,
+                    "y": -242.48429314436225
                 },
                 "dragging": true
             }
         ],
         "edges": [
-            {
-                "source": "DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80a",
-                "sourceHandle": "default",
-                "target": "SCATTER3D-7c4176bb-516e-43ff-ad01-ad792afe238f",
-                "targetHandle": "default",
-                "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80adefault-SCATTER3D-7c4176bb-516e-43ff-ad01-ad792afe238fdefault"
-            },
-            {
-                "source": "DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80a",
-                "sourceHandle": "default",
-                "target": "TABLE-7324c275-2617-4256-b32d-c423d9df155e",
-                "targetHandle": "default",
-                "id": "reactflow__edge-DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80adefault-TABLE-7324c275-2617-4256-b32d-c423d9df155edefault"
-            },
             {
                 "source": "R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ff",
                 "sourceHandle": "default",
@@ -393,22 +380,36 @@
             {
                 "source": "R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ff",
                 "sourceHandle": "default",
-                "target": "DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80a",
+                "target": "TABLE-15c58799-e8b5-4e2a-8da7-4e9b14da1669",
                 "targetHandle": "default",
-                "id": "reactflow__edge-R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ffdefault-DF_2_ORDEREDTRIPLE-545cd14b-64b4-4e85-a0cf-b139e037c80adefault"
+                "id": "reactflow__edge-R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ffdefault-TABLE-15c58799-e8b5-4e2a-8da7-4e9b14da1669default"
             },
             {
                 "source": "R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ff",
                 "sourceHandle": "default",
-                "target": "TABLE-15c58799-e8b5-4e2a-8da7-4e9b14da1669",
+                "target": "DF_2_ORDERED_TRIPLE-34ac9e04-7127-435e-8219-2bc2c81f8803",
                 "targetHandle": "default",
-                "id": "reactflow__edge-R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ffdefault-TABLE-15c58799-e8b5-4e2a-8da7-4e9b14da1669default"
+                "id": "reactflow__edge-R_DATASET-3126c01d-b84a-46bd-8e9f-cd8763f479ffdefault-DF_2_ORDERED_TRIPLE-34ac9e04-7127-435e-8219-2bc2c81f8803default"
+            },
+            {
+                "source": "DF_2_ORDERED_TRIPLE-34ac9e04-7127-435e-8219-2bc2c81f8803",
+                "sourceHandle": "default",
+                "target": "SCATTER3D-7c4176bb-516e-43ff-ad01-ad792afe238f",
+                "targetHandle": "default",
+                "id": "reactflow__edge-DF_2_ORDERED_TRIPLE-34ac9e04-7127-435e-8219-2bc2c81f8803default-SCATTER3D-7c4176bb-516e-43ff-ad01-ad792afe238fdefault"
+            },
+            {
+                "source": "DF_2_ORDERED_TRIPLE-34ac9e04-7127-435e-8219-2bc2c81f8803",
+                "sourceHandle": "default",
+                "target": "TABLE-7324c275-2617-4256-b32d-c423d9df155e",
+                "targetHandle": "default",
+                "id": "reactflow__edge-DF_2_ORDERED_TRIPLE-34ac9e04-7127-435e-8219-2bc2c81f8803default-TABLE-7324c275-2617-4256-b32d-c423d9df155edefault"
             }
         ],
         "viewport": {
-            "x": 288.30940064494604,
-            "y": 142.1324244694165,
-            "zoom": 0.5564820197494093
+            "x": 688.7902964004815,
+            "y": 260.4768364001233,
+            "zoom": 0.5523926457065711
         }
     },
     "ctrlsManifest": [
