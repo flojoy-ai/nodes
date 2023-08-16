@@ -16,8 +16,7 @@ class ProphetPredictOutput(TypedDict):
 def PROPHET_PREDICT(
     default: DataFrame, run_forecast: bool = True, periods: int = 365
 ) -> ProphetPredictOutput:
-    """
-    The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe.
+    """The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe.
 
     The DataContainer input type must be a dataframe, and the first column (or index) of dataframe must be of a datetime type.
 

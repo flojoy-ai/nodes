@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def PERIODOGRAM(
     default: OrderedPair | Matrix,
     fs: float = 1.0,
@@ -18,8 +18,7 @@ def PERIODOGRAM(
     axis: int = -1,
     select_return: Literal["f", "Pxx"] = "f",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The PERIODOGRAM node is based on a numpy or scipy function.
+    """The PERIODOGRAM node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

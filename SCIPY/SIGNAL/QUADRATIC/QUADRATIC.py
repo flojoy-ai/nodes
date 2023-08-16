@@ -10,8 +10,7 @@ import scipy.signal
 def QUADRATIC(
     default: OrderedPair | Matrix,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The QUADRATIC node is based on a numpy or scipy function.
+    """The QUADRATIC node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

@@ -15,8 +15,7 @@ def DESCRIBE(
     nan_policy: str = "propagate",
     select_return: Literal["nobs", "mean", "variance", "skewness", "kurtosis"] = "nobs",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The DESCRIBE node is based on a numpy or scipy function.
+    """The DESCRIBE node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

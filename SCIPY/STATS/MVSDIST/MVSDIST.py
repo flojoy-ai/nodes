@@ -11,8 +11,7 @@ def MVSDIST(
     default: OrderedPair | Matrix,
     select_return: Literal["mdist", "vdist", "sdist"] = "mdist",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The MVSDIST node is based on a numpy or scipy function.
+    """The MVSDIST node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

@@ -6,8 +6,7 @@ import serial
 def KEITHLEY2400(
     default: OrderedPair | Vector, comport: str = "/dev/ttyUSB0", baudrate: float = 9600
 ) -> OrderedPair:
-    """
-    The KEITHLEY2400 node takes a IV curve measurement with a Keithley 2400 source meter, send voltages, and measures currents.
+    """The KEITHLEY2400 node takes a IV curve measurement with a Keithley 2400 source meter, send voltages, and measures currents.
 
     Parameters
     -----------

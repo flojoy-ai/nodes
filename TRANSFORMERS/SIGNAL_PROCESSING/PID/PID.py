@@ -23,11 +23,11 @@ def PID(
 
     Parameters
     ----------
-    Kp: float
+    Kp : float
         The proprotional PID parameter.
-    Ki: float
+    Ki : float
         The integral PID parameter.
-    Kd: float
+    Kd : float
         The derivative PID parameter.
 
     Returns

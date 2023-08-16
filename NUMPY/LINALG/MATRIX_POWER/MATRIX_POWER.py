@@ -11,8 +11,7 @@ def MATRIX_POWER(
     default: Matrix,
     n: int = 2,
 ) -> Matrix | Scalar:
-    """
-    The MATRIX_POWER node is based on a numpy or scipy function.
+    """The MATRIX_POWER node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

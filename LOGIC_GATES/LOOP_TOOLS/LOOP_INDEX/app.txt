@@ -48,14 +48,15 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 153.08826345429478,
-                    "y": 125.76028881809133
+                    "x": 107.82251723419245,
+                    "y": 146.23765020337572
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 153.08826345429478,
-                    "y": 125.76028881809133
-                }
+                    "x": 107.82251723419245,
+                    "y": 146.23765020337572
+                },
+                "dragging": true
             },
             {
                 "width": 380,
@@ -182,6 +183,93 @@
                     "y": 3.5093485056772806
                 },
                 "dragging": true
+            },
+            {
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-564890c3-92c0-48b0-92e7-69606304b36f",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-564890c3-92c0-48b0-92e7-69606304b36f",
+                    "label": "TEXT VIEW",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 750.98197077314,
+                    "y": 284.7652093480159
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 750.98197077314,
+                    "y": 284.7652093480159
+                },
+                "dragging": true
+            },
+            {
+                "width": 231,
+                "height": 96,
+                "id": "TEXT-c0f0f515-0dba-4738-8a41-14da92c41ea2",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "TEXT-c0f0f515-0dba-4738-8a41-14da92c41ea2",
+                    "label": "DESCRIPTION",
+                    "func": "TEXT",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "value": {
+                            "type": "str",
+                            "default": "Hello World!",
+                            "desc": "The value set in Parameters",
+                            "functionName": "TEXT",
+                            "param": "value",
+                            "value": "This app shows the functionality of the LOOP_INDEX node. The app uses the LOOP node to loop 100 times. The index node increases by 1 for each loop and the value is shown in the BIG_NUMBER node."
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "_",
+                            "id": "_",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "desc": "text_blob: return the value being set in Parameters"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/TEXT/TEXT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 303.88247122605776,
+                    "y": 327.7798006810302
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 303.88247122605776,
+                    "y": 327.7798006810302
+                },
+                "dragging": true
             }
         ],
         "edges": [
@@ -198,12 +286,26 @@
                 "target": "BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851",
                 "targetHandle": "default",
                 "id": "reactflow__edge-LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526adefault-BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851default"
+            },
+            {
+                "source": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7",
+                "sourceHandle": "end",
+                "target": "TEXT-c0f0f515-0dba-4738-8a41-14da92c41ea2",
+                "targetHandle": "_",
+                "id": "reactflow__edge-LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7end-TEXT-c0f0f515-0dba-4738-8a41-14da92c41ea2_"
+            },
+            {
+                "source": "TEXT-c0f0f515-0dba-4738-8a41-14da92c41ea2",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-564890c3-92c0-48b0-92e7-69606304b36f",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TEXT-c0f0f515-0dba-4738-8a41-14da92c41ea2default-TEXT_VIEW-564890c3-92c0-48b0-92e7-69606304b36fdefault"
             }
         ],
         "viewport": {
-            "x": 555.0976680981258,
-            "y": 214.4419430555007,
-            "zoom": 0.8287213244976164
+            "x": 1122.8706531201733,
+            "y": 516.7113790478016,
+            "zoom": 1.0957886685188984
         }
     },
     "ctrlsManifest": [
