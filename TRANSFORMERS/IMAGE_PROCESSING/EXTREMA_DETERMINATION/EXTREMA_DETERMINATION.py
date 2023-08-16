@@ -164,6 +164,9 @@ def EXTREMA_DETERMINATION(
                 if any((np.linalg.norm(peak - pos) < min_dist) for peak in peaks):
                     continue
                 else:
+                    if prop.area_convex < 0.2*np.prod(image.shape) :
+                        for coord in prop.coords:
+                            blob_mask[coord[0], coord[1]] = 1
                     peaks.append(pos[::-1])
             peaks = np.array([peaks]).reshape(-1,2) #now gives us the final array of peaks
         case 'persistence': # we use the persistence algorithm
@@ -199,6 +202,7 @@ def EXTREMA_DETERMINATION(
             # remove peaks that are within the masked area
             if mask.sum() != mask.shape[0] * mask.shape[1]:
                 peaks = np.array([p for p in candidates if mask[p[1], p[0]]]).reshape(-1,2)
+            
         case 'log':
             # This is the most expensive algorithm!! 
             # Use only when dire!
