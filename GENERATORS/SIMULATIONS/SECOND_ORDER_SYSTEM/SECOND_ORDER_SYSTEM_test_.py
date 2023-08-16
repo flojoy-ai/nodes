@@ -1,5 +1,5 @@
 import numpy as np
-from flojoy import Vector
+from flojoy import Scalar
 
 
 def test_SECOND_ORDER_SYSTEM(mock_flojoy_decorator):
@@ -11,10 +11,9 @@ def test_SECOND_ORDER_SYSTEM(mock_flojoy_decorator):
     )
 
     # TODO: rewrite this test using a mock SmallMemory.
-    x = np.linspace(0, 10, 1000)
-    v = Vector(v=x)
+    x = 0.5
+    c = Scalar(c=x)
 
-    res = SECOND_ORDER_SYSTEM.SECOND_ORDER_SYSTEM(default=v, default_params=defaultP)
+    res = SECOND_ORDER_SYSTEM.SECOND_ORDER_SYSTEM(default=c, default_params=defaultP)
 
-    assert np.array_equal(res.x, x)
-    assert np.allclose(res.y, np.zeros(1000), atol=1e-03)
+    assert np.allclose(res.c, 0.0, atol=1e-03)
