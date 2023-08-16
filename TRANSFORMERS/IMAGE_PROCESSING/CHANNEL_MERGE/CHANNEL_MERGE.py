@@ -56,6 +56,6 @@ def CHANNEL_MERGE(
         ):
             raise ValueError("Alpha input had nonzero values for the other channels.")
 
-        return Image(r=r, b=b, g=g, a=ones)
+        return Image(r=r, b=b, g=g, a=a)
     except Exception as e:
         raise e
