@@ -1,24 +1,24 @@
 import numpy as np
-from flojoy import flojoy, OrderedPair, DefaultParams, SmallMemory
+from flojoy import flojoy, Scalar, DefaultParams, SmallMemory
 
 memory_key = "pid-info"
 
 
 @flojoy(inject_node_metadata=True)
 def PID(
-    default: OrderedPair,
+    single_input: Scalar,
     default_params: DefaultParams,
     Kp: float = 5,
     Ki: float = 0.0143,
     Kd: float = 356.25,
-) -> OrderedPair:
+) -> Scalar:
     """The PID node acts like a PID function.
     The returned value with be modified according to the
     PID parameters Kp, Ki, and Kd.
 
     Inputs
     ------
-    default : OrderedPair
+    default : Scalar
         The data to apply the PID function to.
 
     Parameters
@@ -32,9 +32,8 @@ def PID(
 
     Returns
     -------
-    OrderedPair
-        x: The x axis equal to the input y axis.
-        y: The y axis which is the PID output.
+    Scalar
+        c: The PID function output.
     """
 
     # First let's get the parameters that won't change
@@ -51,11 +50,8 @@ def PID(
         raise TypeError("Issue reading memory from REDIS.")
     integral: int = 0 if initialize else data[0]
     regulation_error_primes = np.zeros((3, 1)) if initialize else data[1:]
-    print(f"Recovered data: {data}")
+    regulation_error = single_input.c
 
-    regulation_error = default.y[
-        -1
-    ]  # constant node makes long list of items; just need the value so take last element
     integral: float = integral + 0.5 * Ki * (
         regulation_error + regulation_error_primes[0]
     )
@@ -78,6 +74,6 @@ def PID(
     SmallMemory().write_to_memory(
         node_id, memory_key, np.append(integral, regulation_error_primes)
     )
-    print(regulation_error, output_signal)
+
     # ... and return the result
-    return OrderedPair(x=default.y, y=np.ones_like(default.y) * output_signal)
+    return Scalar(c=output_signal)
