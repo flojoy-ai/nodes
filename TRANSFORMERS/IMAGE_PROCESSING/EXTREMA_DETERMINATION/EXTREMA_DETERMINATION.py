@@ -40,7 +40,8 @@ def EXTREMA_DETERMINATION(
     algorithm: str = "log",
     prominence: float = 0.0,
     k: float = 1.41,
-    sigma: float = 1.0
+    sigma: float = 1.0,
+    max_power: int = 9
 ) -> EXTREMA_OUTPUT:
 
     """
@@ -48,32 +49,65 @@ def EXTREMA_DETERMINATION(
     an image. The ability to find local peaks ( or thoughs in the case of 
     minimization) will not depend on the extrema being exponentially separated
     from the neighboring values, or some ridiulously restrictive constraint like
-    that. To that aim, we implement two algorithms to find the local max.  
+    that. To that aim, we implement three algorithms to find the local max.  
 
     The first algorithm is with the technique of masked phase cross correlation [1],
     while the second uses the persistence birth/death algorithms [2, 3]. My original
     implementations of these libraries were utilized for the detection of elastic
     scattering peaks in diffraction data, found in the `scikit-ued` library of Python [4].
 
-    I am obliged to mention that the code for the crossed correlation approach was
-    developed by Laurent Rene de Cotret in the `scikit-ued` library, and the 
+    I am obliged to mention that the code for the crossed correlation approach (high symmetry
+    algorithm) was developed by Laurent Rene de Cotret in the `scikit-ued` library, and the 
     functionality for autocentering and cross correlation was developed by him
     for this package. The functionality has been ported here, as the import
     of the entire library is bloating, and unnecessary. 
     
-    Yet, this approach has limitations, the absolutely alrgest of which is that
+    Yet, this approach has limitations, the absolutely largest of which is that
     the algorithm assumes that the extrema are symmetrically distributed around
     some center point. All extrema are determined relative to the center
     position. Also, for closely spaced points, 
-    extremely noisy data, or for data that has very low dynamic range, the 
+    extremely noisy data, or for data that has very high dynamic range, the 
     algorithm fails. This makes this approach suited then only for images with 
-    high degrees of symmetry, as well as high contrast images.
+    high degrees of symmetry, as well as reasonable contrast
 
     To combat these limitations, I present the second algo: the prominence algorithm, where a single
     value is applied locally to determine the relative 'peakiness' of a given pixel,
     inspecting only the neighbors around that given pixel. While computationally
     more intense for images of resolution >4K, it produces extremely accurate 
-    results for the correct value of prominence in potentially low-contrast images
+    results for the correct value of prominence in potentially low-contrast images.
+    By definition, it is a local pixel algorithm, and therefore does not do any flavour
+    of blob detection, unlike the high-symmetry algorithm which creates high contrast in 
+    the image with laplacian filtering, and identifies regions of this high contrast image.
+
+    Yet again, however, the persistence algorithm tends to find many more points that are really there.
+    For images with high frequency components (AKA quickly varying values among the 3rd nearest neighbours)
+    the algorithm will tend to identify each as a 'peak', even the local maxima is elsewhere. This 
+    therefore assumes the image has been properly preprocessed with another image processing node to 
+    provide a sufficient low-frequency image such that the prominence of each pixel is well defined.
+
+    To combat this limitation, we present the most robust of the algorithms, that should work on images
+    of low or high contrast, low or high frequency components, and of low or high dynamic range. It is
+    computationally more expensive, as it involves repeated convolutions of the image, but it is
+    the most reliable of the methods for a general image.
+
+    This routine is known as the Laplacian of Gaussian algorithm [5], which is exactly as it says. The key
+    of this algorithm is to apply a filter specially chosen such that regions around peaks have insane
+    levels of contrast (essentially binarize the image around its peak so that near the peak, the 
+    image is one, and zero otherwise). To achieve such a filter, it turns out that taking the Laplacian 
+    of a Gaussian, namely:
+
+    .. math:: \nabla^2 L \equiv L_{xx} + L_{yy}
+    
+    yields the following filter (for a Gaussian of width sigma, centered at the origin):
+
+    ..math :: LG = -\frac{1}{\pi\sigma^4}\big[1-\frac{x^2+y^2}{2\sigma^2}\big]e^{-\frac{x^2+y^2}{2\sigma^2}}
+
+    The output of this filter will be a maximum where there is an edge from a peak, the maximum response
+    of which is given for a careful choise of 1.41*'blob radius' around the peak. Repeatedly applying
+    this filter with varying degrees of sigma will continue to refine the edges around the peak 
+    until the image is essentially binarized around the peaks. Due to the repeated convolutions, 
+    this algorithm is in general expensive, but there have been tricks implemented using FFT to speed
+    up these calculations.
     
 
     Parameters
@@ -98,6 +132,7 @@ def EXTREMA_DETERMINATION(
     ultrafast electron scattering data, Advanced Structural and Chemical 
     Imaging 4:11 (2018) 
 
+    [5] https://en.wikipedia.org/wiki/Blob_detection#The_Laplacian_of_Gaussian
     """
 
     if isinstance(default, Image):
@@ -219,9 +254,9 @@ def EXTREMA_DETERMINATION(
                 x_filter = np.exp(-(x**2/(2.*sigma*sigma)))
                 return (-(2*sigma**2) + (x*x + y*y) ) *  (x_filter*y_filter) * (1/(2*np.pi*sigma**4))
             # Step 2: perform the convolution with the LOG filters for increasing powers of sigma
-            log_images = np.zeros((9, *image.shape)) #to store responses
+            log_images = np.zeros((max_power, *image.shape)) #to store responses
             with scipy.fft.set_backend(customFFTBackend):
-                for i in range(0,9):
+                for i in range(max_power):
                     log_images[i,...] = np.square(
                         fftconvolve(
                         image, 
