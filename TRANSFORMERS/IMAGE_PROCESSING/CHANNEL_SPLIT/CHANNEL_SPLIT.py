@@ -38,15 +38,15 @@ def CHANNEL_SPLIT(default: Image | Matrix) -> IMAGE_CHANNEL_OUTPUTS:
             r = default.m[...,0]
             g = default.m[...,1]
             b = default.m[...,2]
-            a = np.zeros_like(b) if default.m.shape[-1] == 3 else default.m[...,3]
+            a = np.zeros_like(r) if default.m.shape[-1] == 3 else default.m[...,3]
             
             if default.m.shape[-1] != 3 or default.m.shape[-1] !=4:
                 raise IndexError("Input array is not of sensible size to split channels")
         else:
             raise TypeError("Unexpected type of the input argument.")
         
-        zeros = np.zeros(b.shape, np.uint8)
-        ones = 255*np.ones(b.shape, np.uint8)
+        zeros = np.zeros(r.shape, np.uint8)
+        ones = 255*np.ones(r.shape, np.uint8)
 
         return IMAGE_CHANNEL_OUTPUTS(
             r=Image(
