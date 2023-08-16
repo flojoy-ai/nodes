@@ -11,7 +11,7 @@ import math
 from nodes.VISUALIZERS.template import plot_layout
 from PIL import Image as PILImage
 
-@flojoy(deps={"scikit-image":"0.21.0"})
+@flojoy(deps={"scikit-image":"0.21.0"}, node_type="VISUALIZERS")
 def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> Plotly:
     """
     This image processing node is a stand-alone visualizer for analyzing
