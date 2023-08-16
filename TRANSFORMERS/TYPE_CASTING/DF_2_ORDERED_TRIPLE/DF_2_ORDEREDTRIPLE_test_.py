@@ -6,8 +6,7 @@ import numpy as np
 def test_DF_2_ORDERED_TRIPLE_column_errorMessage(mock_flojoy_decorator):
     import DF_2_ORDERED_TRIPLE
 
-
-    df = pd.DataFrame({'x':[0, 1], 'y':[4, 9]})
+    df = pd.DataFrame({"x": [0, 1], "y": [4, 9]})
 
     np.testing.assert_raises_regex(
         AssertionError,
