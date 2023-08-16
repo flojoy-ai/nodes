@@ -4,10 +4,10 @@
             {
                 "width": 160,
                 "height": 160,
-                "id": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
+                "id": "LOCAL_FILE-e57df946-51ef-4f5a-a12b-d149660a4db3",
                 "type": "LOADERS",
                 "data": {
-                    "id": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
+                    "id": "LOCAL_FILE-e57df946-51ef-4f5a-a12b-d149660a4db3",
                     "label": "LOCAL FILE",
                     "func": "LOCAL_FILE",
                     "type": "LOADERS",
@@ -15,6 +15,7 @@
                         "file_path": {
                             "type": "str",
                             "default": null,
+                            "desc": "path to the file to be loaded",
                             "functionName": "LOCAL_FILE",
                             "param": "file_path",
                             "value": ""
@@ -24,21 +25,25 @@
                             "default": "Image",
                             "options": [
                                 "Image",
+                                "Grayscale",
                                 "JSON",
                                 "CSV",
                                 "Excel",
                                 "XML"
                             ],
+                            "desc": "type of file to load, default = image",
                             "functionName": "LOCAL_FILE",
                             "param": "file_type",
                             "value": "Image"
                         }
                     },
+                    "initCtrls": {},
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Image|DataFrame"
+                            "type": "Image|DataFrame",
+                            "desc": "type 'image' for file_type 'image'\ntype 'dataframe' for file_type 'json', 'csv', 'excel', 'xml'"
                         }
                     ],
                     "pip_dependencies": [
@@ -49,109 +54,80 @@
                         {
                             "name": "lxml",
                             "v": "4.9.2"
+                        },
+                        {
+                            "name": "openpyxl",
+                            "v": "3.0.10"
+                        },
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
                         }
                     ],
                     "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -43.638533851680805,
-                    "y": 270.7904180224233
+                    "x": 16.68335354877854,
+                    "y": 277.18951071721204
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -43.638533851680805,
-                    "y": 270.7904180224233
+                    "x": 16.68335354877854,
+                    "y": 277.18951071721204
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181",
+                "id": "IMAGE-fc2d810d-0555-4dad-a752-c7d1b9f414b6",
                 "type": "VISUALIZERS",
                 "data": {
-                    "id": "IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181",
+                    "id": "IMAGE-fc2d810d-0555-4dad-a752-c7d1b9f414b6",
                     "label": "IMAGE",
                     "func": "IMAGE",
                     "type": "VISUALIZERS",
                     "ctrls": {},
+                    "initCtrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Image",
-                            "multiple": false
+                            "type": "Image|Grayscale",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
                         }
                     ],
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Plotly"
+                            "type": "Plotly",
+                            "desc": null
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1150.5666844208386,
-                    "y": 8.92604441763001
+                    "x": 246.49972372227353,
+                    "y": 611.7121034430841
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1150.5666844208386,
-                    "y": 8.92604441763001
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94c",
-                "type": "VISUALIZERS",
-                "data": {
-                    "id": "IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94c",
-                    "label": "IMAGE 1",
-                    "func": "IMAGE",
-                    "type": "VISUALIZERS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 313.9300709813154,
-                    "y": 607.8641621315779
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 313.9300709813154,
-                    "y": 607.8641621315779
+                    "x": 246.49972372227353,
+                    "y": 611.7121034430841
                 },
                 "dragging": true
             },
             {
                 "width": 160,
                 "height": 160,
-                "id": "CHANNEL_SPLIT-22bb49e5-05c1-41f1-8257-f0e1f5ed4938",
+                "id": "CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdc",
                 "type": "TRANSFORMERS",
                 "data": {
-                    "id": "CHANNEL_SPLIT-22bb49e5-05c1-41f1-8257-f0e1f5ed4938",
+                    "id": "CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdc",
                     "label": "CHANNEL SPLIT",
                     "func": "CHANNEL_SPLIT",
                     "type": "TRANSFORMERS",
@@ -161,7 +137,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Image",
+                            "type": "Image|Matrix",
                             "multiple": false,
                             "desc": null
                         }
@@ -196,23 +172,66 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 466.95642524298876,
-                    "y": 201.23390763200922
+                    "x": 361.80934853210897,
+                    "y": 201.83108462368654
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 466.95642524298876,
-                    "y": 201.23390763200922
+                    "x": 361.80934853210897,
+                    "y": 201.83108462368654
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "IMAGE-633f15dc-068f-4fc9-8023-a12995ad4f61",
+                "id": "IMAGE-f0dd3826-cae0-4b2c-b365-4e03f37c748a",
                 "type": "VISUALIZERS",
                 "data": {
-                    "id": "IMAGE-633f15dc-068f-4fc9-8023-a12995ad4f61",
+                    "id": "IMAGE-f0dd3826-cae0-4b2c-b365-4e03f37c748a",
+                    "label": "IMAGE 1",
+                    "func": "IMAGE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 844.5262434563318,
+                    "y": 569.0483505359973
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 844.5262434563318,
+                    "y": 569.0483505359973
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-739884dd-ab36-4e69-b306-5f158545fe62",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "IMAGE-739884dd-ab36-4e69-b306-5f158545fe62",
                     "label": "IMAGE 2",
                     "func": "IMAGE",
                     "type": "VISUALIZERS",
@@ -222,7 +241,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Image",
+                            "type": "Image|Grayscale",
                             "multiple": false,
                             "desc": "the DataContainer to be visualized"
                         }
@@ -239,23 +258,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1149.4559594832588,
-                    "y": 321.6951889711382
+                    "x": 843.7565114516701,
+                    "y": 300.2645405612044
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1149.4559594832588,
-                    "y": 321.6951889711382
+                    "x": 843.7565114516701,
+                    "y": 300.2645405612044
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "IMAGE-ea93bcf9-2ee6-4c63-8286-d2e1ff313c03",
+                "id": "IMAGE-ffcae6c5-c5c3-42ad-bf7a-33e8210fd0f3",
                 "type": "VISUALIZERS",
                 "data": {
-                    "id": "IMAGE-ea93bcf9-2ee6-4c63-8286-d2e1ff313c03",
+                    "id": "IMAGE-ffcae6c5-c5c3-42ad-bf7a-33e8210fd0f3",
                     "label": "IMAGE 3",
                     "func": "IMAGE",
                     "type": "VISUALIZERS",
@@ -265,7 +284,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Image",
+                            "type": "Image|Grayscale",
                             "multiple": false,
                             "desc": "the DataContainer to be visualized"
                         }
@@ -282,23 +301,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1153.3378341316331,
-                    "y": 633.9337953142108
+                    "x": 837.6675400027223,
+                    "y": 34.62121883456251
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1153.3378341316331,
-                    "y": 633.9337953142108
+                    "x": 837.6675400027223,
+                    "y": 34.62121883456251
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "IMAGE-f8d68e0f-d99f-4c8e-90b8-aca2c19b2eb8",
+                "id": "IMAGE-aef8d04e-578e-489f-a428-1098cbc213a5",
                 "type": "VISUALIZERS",
                 "data": {
-                    "id": "IMAGE-f8d68e0f-d99f-4c8e-90b8-aca2c19b2eb8",
+                    "id": "IMAGE-aef8d04e-578e-489f-a428-1098cbc213a5",
                     "label": "IMAGE 4",
                     "func": "IMAGE",
                     "type": "VISUALIZERS",
@@ -308,7 +327,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Image",
+                            "type": "Image|Grayscale",
                             "multiple": false,
                             "desc": "the DataContainer to be visualized"
                         }
@@ -322,68 +341,68 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 1120.991780064737,
-                    "y": 1018.1754156758818
+                    "x": 835.8892735158713,
+                    "y": -227.72940574007998
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 1120.991780064737,
-                    "y": 1018.1754156758818
+                    "x": 835.8892735158713,
+                    "y": -227.72940574007998
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
+                "source": "LOCAL_FILE-e57df946-51ef-4f5a-a12b-d149660a4db3",
                 "sourceHandle": "default",
-                "target": "IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94c",
+                "target": "IMAGE-fc2d810d-0555-4dad-a752-c7d1b9f414b6",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497default-IMAGE-0b7bb803-8dba-43eb-a9bf-4073b3fda94cdefault"
+                "id": "reactflow__edge-LOCAL_FILE-e57df946-51ef-4f5a-a12b-d149660a4db3default-IMAGE-fc2d810d-0555-4dad-a752-c7d1b9f414b6default"
             },
             {
-                "source": "LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497",
+                "source": "LOCAL_FILE-e57df946-51ef-4f5a-a12b-d149660a4db3",
                 "sourceHandle": "default",
-                "target": "CHANNEL_SPLIT-22bb49e5-05c1-41f1-8257-f0e1f5ed4938",
+                "target": "CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdc",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-e185ad0f-12d9-47ee-ab02-28b06f85f497default-CHANNEL_SPLIT-22bb49e5-05c1-41f1-8257-f0e1f5ed4938default"
+                "id": "reactflow__edge-LOCAL_FILE-e57df946-51ef-4f5a-a12b-d149660a4db3default-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdcdefault"
             },
             {
-                "source": "CHANNEL_SPLIT-22bb49e5-05c1-41f1-8257-f0e1f5ed4938",
+                "source": "CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdc",
                 "sourceHandle": "r",
-                "target": "IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181",
+                "target": "IMAGE-aef8d04e-578e-489f-a428-1098cbc213a5",
                 "targetHandle": "default",
-                "id": "reactflow__edge-CHANNEL_SPLIT-22bb49e5-05c1-41f1-8257-f0e1f5ed4938r-IMAGE-7aacbaca-2652-4c99-babe-5779ba0ce181default"
+                "id": "reactflow__edge-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdcr-IMAGE-aef8d04e-578e-489f-a428-1098cbc213a5default"
             },
             {
-                "source": "CHANNEL_SPLIT-22bb49e5-05c1-41f1-8257-f0e1f5ed4938",
+                "source": "CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdc",
                 "sourceHandle": "g",
-                "target": "IMAGE-633f15dc-068f-4fc9-8023-a12995ad4f61",
+                "target": "IMAGE-ffcae6c5-c5c3-42ad-bf7a-33e8210fd0f3",
                 "targetHandle": "default",
-                "id": "reactflow__edge-CHANNEL_SPLIT-22bb49e5-05c1-41f1-8257-f0e1f5ed4938g-IMAGE-633f15dc-068f-4fc9-8023-a12995ad4f61default"
+                "id": "reactflow__edge-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdcg-IMAGE-ffcae6c5-c5c3-42ad-bf7a-33e8210fd0f3default"
             },
             {
-                "source": "CHANNEL_SPLIT-22bb49e5-05c1-41f1-8257-f0e1f5ed4938",
+                "source": "CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdc",
                 "sourceHandle": "b",
-                "target": "IMAGE-ea93bcf9-2ee6-4c63-8286-d2e1ff313c03",
+                "target": "IMAGE-739884dd-ab36-4e69-b306-5f158545fe62",
                 "targetHandle": "default",
-                "id": "reactflow__edge-CHANNEL_SPLIT-22bb49e5-05c1-41f1-8257-f0e1f5ed4938b-IMAGE-ea93bcf9-2ee6-4c63-8286-d2e1ff313c03default"
+                "id": "reactflow__edge-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdcb-IMAGE-739884dd-ab36-4e69-b306-5f158545fe62default"
             },
             {
-                "source": "CHANNEL_SPLIT-22bb49e5-05c1-41f1-8257-f0e1f5ed4938",
+                "source": "CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdc",
                 "sourceHandle": "a",
-                "target": "IMAGE-f8d68e0f-d99f-4c8e-90b8-aca2c19b2eb8",
+                "target": "IMAGE-f0dd3826-cae0-4b2c-b365-4e03f37c748a",
                 "targetHandle": "default",
-                "id": "reactflow__edge-CHANNEL_SPLIT-22bb49e5-05c1-41f1-8257-f0e1f5ed4938a-IMAGE-f8d68e0f-d99f-4c8e-90b8-aca2c19b2eb8default"
+                "id": "reactflow__edge-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdca-IMAGE-f0dd3826-cae0-4b2c-b365-4e03f37c748adefault"
             }
         ],
         "viewport": {
-            "x": 784.8071744337306,
-            "y": 312.46572680974896,
-            "zoom": 1.2233771386554473
+            "x": 852.7959874736157,
+            "y": 352.53461082817995,
+            "zoom": 0.7476193625116623
         }
     },
     "ctrlsManifest": [
