@@ -4,11 +4,88 @@
             {
                 "width": 160,
                 "height": 160,
-                "id": "LOCAL_FILE-2cc67abc-4c6c-48c1-a2b8-890dfbc06ca9",
+                "id": "LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02",
                 "type": "LOADERS",
                 "data": {
-                    "id": "LOCAL_FILE-2cc67abc-4c6c-48c1-a2b8-890dfbc06ca9",
-                    "label": "LOCAL FILE",
+                    "id": "LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02",
+                    "label": "TIF LOADER",
+                    "func": "LOCAL_FILE",
+                    "type": "LOADERS",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "path to the file to be loaded",
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_path",
+                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/assets/highrange.tif"
+                        },
+                        "file_type": {
+                            "type": "select",
+                            "default": "Image",
+                            "options": [
+                                "Image",
+                                "Grayscale",
+                                "JSON",
+                                "CSV",
+                                "Excel",
+                                "XML"
+                            ],
+                            "desc": "type of file to load, default = image",
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_type",
+                            "value": "Grayscale"
+                        }
+                    },
+                    "initCtrls": {},
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|DataFrame",
+                            "desc": "type 'image' for file_type 'image'\ntype 'dataframe' for file_type 'json', 'csv', 'excel', 'xml'"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "xlrd",
+                            "v": "2.0.1"
+                        },
+                        {
+                            "name": "lxml",
+                            "v": "4.9.2"
+                        },
+                        {
+                            "name": "openpyxl",
+                            "v": "3.0.10"
+                        },
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -447.02406017560725,
+                    "y": -75.13877912006811
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -447.02406017560725,
+                    "y": -75.13877912006811
+                },
+                "dragging": true
+            },
+            {
+                "width": 160,
+                "height": 160,
+                "id": "LOCAL_FILE-a6939cc3-d70e-430f-8021-79e3fd8d18a1",
+                "type": "LOADERS",
+                "data": {
+                    "id": "LOCAL_FILE-a6939cc3-d70e-430f-8021-79e3fd8d18a1",
+                    "label": "PNG LOADER",
                     "func": "LOCAL_FILE",
                     "type": "LOADERS",
                     "ctrls": {
@@ -25,6 +102,7 @@
                             "default": "Image",
                             "options": [
                                 "Image",
+                                "Grayscale",
                                 "JSON",
                                 "CSV",
                                 "Excel",
@@ -57,30 +135,34 @@
                         {
                             "name": "openpyxl",
                             "v": "3.0.10"
+                        },
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
                         }
                     ],
                     "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 324.7148497857372,
-                    "y": 565.9126031585151
+                    "x": -476.3561751592754,
+                    "y": 269.02036584388486
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 324.7148497857372,
-                    "y": 565.9126031585151
+                    "x": -476.3561751592754,
+                    "y": 269.02036584388486
                 },
                 "dragging": true
             },
             {
-                "width": 273,
+                "width": 160,
                 "height": 160,
-                "id": "EXTREMA_DETERMINATION-cf1f557a-a73a-4e29-a343-230dc8bc843c",
+                "id": "EXTREMA_DETERMINATION-97a7783e-e332-4d75-989e-7f69203ef8e9",
                 "type": "TRANSFORMERS",
                 "data": {
-                    "id": "EXTREMA_DETERMINATION-cf1f557a-a73a-4e29-a343-230dc8bc843c",
-                    "label": "EXTREMA DETERMINATION",
+                    "id": "EXTREMA_DETERMINATION-97a7783e-e332-4d75-989e-7f69203ef8e9",
+                    "label": "HDR PEAK FINDER",
                     "func": "EXTREMA_DETERMINATION",
                     "type": "TRANSFORMERS",
                     "ctrls": {
@@ -90,7 +172,7 @@
                             "desc": null,
                             "functionName": "EXTREMA_DETERMINATION",
                             "param": "center",
-                            "value": "125, 125"
+                            "value": ""
                         },
                         "min_dist": {
                             "type": "float",
@@ -100,13 +182,13 @@
                             "param": "min_dist",
                             "value": 0
                         },
-                        "persistence_algorithm": {
-                            "type": "bool",
-                            "default": true,
+                        "algorithm": {
+                            "type": "str",
+                            "default": "log",
                             "desc": null,
                             "functionName": "EXTREMA_DETERMINATION",
-                            "param": "persistence_algorithm",
-                            "value": false
+                            "param": "algorithm",
+                            "value": "persistence"
                         },
                         "prominence": {
                             "type": "float",
@@ -114,7 +196,23 @@
                             "desc": null,
                             "functionName": "EXTREMA_DETERMINATION",
                             "param": "prominence",
-                            "value": 0
+                            "value": "0.1"
+                        },
+                        "k": {
+                            "type": "float",
+                            "default": 1.41,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "k",
+                            "value": 1.41
+                        },
+                        "sigma": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "sigma",
+                            "value": 1
                         }
                     },
                     "initCtrls": {},
@@ -127,8 +225,217 @@
                             "desc": null
                         },
                         {
-                            "name": "mask",
-                            "id": "mask",
+                            "name": "image_mask",
+                            "id": "image_mask",
+                            "type": "Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/EXTREMA_DETERMINATION.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 56.79027734023137,
+                    "y": 21.980692944928307
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 56.79027734023137,
+                    "y": 21.980692944928307
+                },
+                "dragging": true
+            },
+            {
+                "width": 160,
+                "height": 160,
+                "id": "EXTREMA_DETERMINATION-2cb1bdd1-3e03-4cab-ad88-3a5e7b9f3f46",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "EXTREMA_DETERMINATION-2cb1bdd1-3e03-4cab-ad88-3a5e7b9f3f46",
+                    "label": "LDR PEAK FINDER",
+                    "func": "EXTREMA_DETERMINATION",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {
+                        "center": {
+                            "type": "list[int]",
+                            "default": null,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "center",
+                            "value": "125,125"
+                        },
+                        "min_dist": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "min_dist",
+                            "value": 0
+                        },
+                        "algorithm": {
+                            "type": "str",
+                            "default": "log",
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "algorithm",
+                            "value": "high_symmetry"
+                        },
+                        "prominence": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "prominence",
+                            "value": 0
+                        },
+                        "k": {
+                            "type": "float",
+                            "default": 1.41,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "k",
+                            "value": 1.41
+                        },
+                        "sigma": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "sigma",
+                            "value": 1
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": null
+                        },
+                        {
+                            "name": "image_mask",
+                            "id": "image_mask",
+                            "type": "Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/EXTREMA_DETERMINATION.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 83.31433069499367,
+                    "y": 276.68602733453014
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 83.31433069499367,
+                    "y": 276.68602733453014
+                }
+            },
+            {
+                "width": 168,
+                "height": 160,
+                "id": "EXTREMA_DETERMINATION-753cd438-cba8-46f2-b9e5-0ac7363e352c",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "EXTREMA_DETERMINATION-753cd438-cba8-46f2-b9e5-0ac7363e352c",
+                    "label": "LOW CONTRAST PEAK FINDER",
+                    "func": "EXTREMA_DETERMINATION",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {
+                        "center": {
+                            "type": "list[int]",
+                            "default": null,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "center",
+                            "value": ""
+                        },
+                        "min_dist": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "min_dist",
+                            "value": 0
+                        },
+                        "algorithm": {
+                            "type": "str",
+                            "default": "log",
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "algorithm",
+                            "value": "log"
+                        },
+                        "prominence": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "prominence",
+                            "value": "0.1"
+                        },
+                        "k": {
+                            "type": "float",
+                            "default": 1.41,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "k",
+                            "value": 1.41
+                        },
+                        "sigma": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": null,
+                            "functionName": "EXTREMA_DETERMINATION",
+                            "param": "sigma",
+                            "value": 1
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": null
+                        },
+                        {
+                            "name": "image_mask",
+                            "id": "image_mask",
                             "type": "Grayscale|Matrix",
                             "multiple": false,
                             "desc": null
@@ -152,23 +459,115 @@
                     "selected": true
                 },
                 "position": {
-                    "x": 636.0369080265293,
-                    "y": 586.8436346606883
+                    "x": 43.17150994312408,
+                    "y": 636.5222698033331
                 },
                 "selected": true,
                 "positionAbsolute": {
-                    "x": 636.0369080265293,
-                    "y": 586.8436346606883
-                }
+                    "x": 43.17150994312408,
+                    "y": 636.5222698033331
+                },
+                "dragging": true
+            },
+            {
+                "width": 168,
+                "height": 160,
+                "id": "LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9",
+                "type": "LOADERS",
+                "data": {
+                    "id": "LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9",
+                    "label": "LOW CONTRAST TIF",
+                    "func": "LOCAL_FILE",
+                    "type": "LOADERS",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "path to the file to be loaded",
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_path",
+                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/assets/hubble_deep_field.tif"
+                        },
+                        "file_type": {
+                            "type": "select",
+                            "default": "Image",
+                            "options": [
+                                "Image",
+                                "Grayscale",
+                                "JSON",
+                                "CSV",
+                                "Excel",
+                                "XML"
+                            ],
+                            "desc": "type of file to load, default = image",
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_type",
+                            "value": "Grayscale"
+                        }
+                    },
+                    "initCtrls": {},
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|DataFrame",
+                            "desc": "type 'image' for file_type 'image'\ntype 'dataframe' for file_type 'json', 'csv', 'excel', 'xml'"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "xlrd",
+                            "v": "2.0.1"
+                        },
+                        {
+                            "name": "lxml",
+                            "v": "4.9.2"
+                        },
+                        {
+                            "name": "openpyxl",
+                            "v": "3.0.10"
+                        },
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -478.4595983468891,
+                    "y": 591.61683235022
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -478.4595983468891,
+                    "y": 591.61683235022
+                },
+                "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LOCAL_FILE-2cc67abc-4c6c-48c1-a2b8-890dfbc06ca9",
+                "source": "LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02",
                 "sourceHandle": "default",
-                "target": "EXTREMA_DETERMINATION-cf1f557a-a73a-4e29-a343-230dc8bc843c",
+                "target": "EXTREMA_DETERMINATION-97a7783e-e332-4d75-989e-7f69203ef8e9",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-2cc67abc-4c6c-48c1-a2b8-890dfbc06ca9default-EXTREMA_DETERMINATION-cf1f557a-a73a-4e29-a343-230dc8bc843cdefault"
+                "id": "reactflow__edge-LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02default-EXTREMA_DETERMINATION-97a7783e-e332-4d75-989e-7f69203ef8e9default"
+            },
+            {
+                "source": "LOCAL_FILE-a6939cc3-d70e-430f-8021-79e3fd8d18a1",
+                "sourceHandle": "default",
+                "target": "EXTREMA_DETERMINATION-2cb1bdd1-3e03-4cab-ad88-3a5e7b9f3f46",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-a6939cc3-d70e-430f-8021-79e3fd8d18a1default-EXTREMA_DETERMINATION-2cb1bdd1-3e03-4cab-ad88-3a5e7b9f3f46default"
+            },
+            {
+                "source": "LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9",
+                "sourceHandle": "default",
+                "target": "EXTREMA_DETERMINATION-753cd438-cba8-46f2-b9e5-0ac7363e352c",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9default-EXTREMA_DETERMINATION-753cd438-cba8-46f2-b9e5-0ac7363e352cdefault"
             }
         ],
         "viewport": {
