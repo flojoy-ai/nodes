@@ -28,7 +28,7 @@ class EXTREMA_OUTPUT(TypedDict):
     blobs: Grayscale
 
 
-@flojoy(deps={"scikit-image": "0.21.0"})
+@flojoy(deps={"scikit-image": "0.21.0"},node_type="VISUALIZERS")
 def EXTREMA_DETERMINATION(
     default: Image | Grayscale | Matrix,
     image_mask: Optional[Grayscale | Matrix] = None,
