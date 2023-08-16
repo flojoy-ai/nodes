@@ -1,4 +1,4 @@
-from flojoy import flojoy, Image, DataFrame
+from flojoy import flojoy, Image, DataFrame, Grayscale
 from typing import Literal
 import numpy as np
 from PIL import Image as PIL_Image
@@ -13,10 +13,10 @@ def get_file_path(file_path: str, default_path: str | None = None):
     return f_path
 
 
-@flojoy(deps={"xlrd": "2.0.1", "lxml": "4.9.2", "openpyxl": "3.0.10"})
+@flojoy(deps={"xlrd": "2.0.1", "lxml": "4.9.2", "openpyxl": "3.0.10","scikit-image":"0.21.0"})
 def LOCAL_FILE(
     file_path: str,
-    file_type: Literal["Image", "JSON", "CSV", "Excel", "XML"] = "Image",
+    file_type: Literal["Image", "Grayscale", "JSON", "CSV", "Excel", "XML"] = "Image",
 ) -> Image | DataFrame:
     """The LOCAL_FILE node loads a local file of a different type and converts it to a DataContainer class.
 
@@ -56,6 +56,17 @@ def LOCAL_FILE(
                 g=green_channel,
                 b=blue_channel,
                 a=alpha_channel,
+            )
+        case "Grayscale":
+            import skimage.io
+            default_image_path = path.join(
+                path.dirname(path.abspath(__file__)),
+                "assets",
+                "astronaut.png",
+            )
+            file_path = get_file_path(file_path, default_image_path)
+            return Grayscale(
+                img = skimage.io.imread(file_path, as_gray=True)
             )
         case "CSV":
             file_path = get_file_path(file_path)
