@@ -12,8 +12,7 @@ def GSTD(
     axis: int = 0,
     ddof: int = 1,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The GSTD node is based on a numpy or scipy function.
+    """The GSTD node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

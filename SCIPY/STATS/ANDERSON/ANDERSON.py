@@ -14,8 +14,7 @@ def ANDERSON(
         "statistic", "critical_values", "significance_level"
     ] = "statistic",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The ANDERSON node is based on a numpy or scipy function.
+    """The ANDERSON node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

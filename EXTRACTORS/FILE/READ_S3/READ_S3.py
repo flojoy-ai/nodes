@@ -11,8 +11,11 @@ def READ_S3(
     bucket_name: str = "",
     file_name: str = "",
 ) -> DataFrame:
-    """
-    The READ_S3 node takes a S3_key name, S3 bucket name, and file name as input, and extracts the file from the specified bucket using the S3_key that was saved.
+    """The READ_S3 node takes a S3_key name, S3 bucket name, and file name as input, and extracts the file from the specified bucket using the S3_key that was saved.
+
+    Inputs
+    ------
+    default: None
 
     Parameters
     ----------
@@ -26,6 +29,8 @@ def READ_S3(
     Returns
     -------
     DataFrame
+        DataFrame loaded from file in the specfied bucket
+
     """
 
     if s3_name == "":

@@ -10,7 +10,6 @@ def get_file_path(file_path: str, default_path: str | None = None):
     f_path = path.abspath(file_path) if file_path != "" else default_path
     if not f_path:
         raise ValueError("File path is missing for file_path parameter!")
-    print(f"file will be loaded from {f_path}")
     return f_path
 
 
@@ -19,8 +18,7 @@ def LOCAL_FILE(
     file_path: str,
     file_type: Literal["Image", "Grayscale", "JSON", "CSV", "Excel", "XML"] = "Image",
 ) -> Image | DataFrame:
-    """
-    The LOCAL_FILE node loads a local file of a different type and converts it to a DataContainer class.
+    """The LOCAL_FILE node loads a local file of a different type and converts it to a DataContainer class.
 
     Parameters
     ----------
@@ -32,8 +30,8 @@ def LOCAL_FILE(
     Returns
     -------
     Image|DataFrame
-        type 'image' for file_type 'image'
-        type 'dataframe' for file_type 'json', 'csv', 'excel', 'xml'
+        Image for file_type 'image'
+        DataFrame for file_type 'json', 'csv', 'excel', 'xml'
     """
 
     match file_type:

@@ -215,32 +215,34 @@ def process_python_file(input_file_path: str, output_path: str):
                 md_file_path = path.join(
                     output_path, path.basename(input_file_path).replace(".py", ".md")
                 )
-                c = get_content(md_file_path)
-                for line in lines:
-                    if line["new"] not in c:
-                        c = c.replace(line["prev"], line["new"])
-                write_file_recursive(md_file_path, c)
+                if path.exists(md_file_path):
+                    c = get_content(md_file_path)
+                    for line in lines:
+                        if line["new"] not in c:
+                            c = c.replace(line["prev"], line["new"])
+                    write_file_recursive(md_file_path, c)
 
         # examples
         has_example = False
         example_dir_path = path.join(output_path, "examples", "EX1")
         # for f in ["app.txt", "example.md"]:
-        for f in ["app.txt"]:
+        for f in ["app.txt", "example.md"]:
             if path.exists(path.join(input_dir, f)):
-                has_example = True
+                # has_example = True
                 c = get_content(path.join(input_dir, f))
                 if not path.exists(path.join(example_dir_path, f)):
                     write_file_recursive(path.join(example_dir_path, f), c)
                 else:
-                    existing_c = get_content(path.join(example_dir_path, f))
-                    diff = compare_two_str(c, existing_c)
-                    if diff:
-                        write_file_recursive(path.join(example_dir_path, f), c)
+                    if f == "app.txt":
+                        existing_c = get_content(path.join(example_dir_path, f))
+                        diff = compare_two_str(c, existing_c)
+                        if diff:
+                            write_file_recursive(path.join(example_dir_path, f), c)
             else:
                 has_example = False
 
         # write md file with file name
-        # md_file_path = path.join(output_path, f"{node_name}.md")
+        md_file_path = path.join(output_path, f"{node_name}.md")
         # app_jpg = "app.jpeg"
         # output_jpg = "output.jpeg"
         # img_map = {app_jpg: False, output_jpg: False}
@@ -250,19 +252,19 @@ def process_python_file(input_file_path: str, output_path: str):
         #         shutil.copy2(img_path, path.join(example_dir_path, f))
         #         img_map[f] = True
 
-        # example_section = get_example_section(
-        #     node_name,
-        #     has_app_image=img_map[app_jpg],
-        #     has_output_image=img_map[output_jpg],
-        # )
-        # md_file_content = get_md_file_content(
-        #     md_file_path,
-        #     node_name,
-        #     has_example=has_example,
-        #     example_section=example_section,
-        # )
-        # if not path.exists(md_file_path):
-        #     write_file_recursive(md_file_path, md_file_content)
+        example_section = get_example_section(
+            node_name,
+            has_app_image=False,
+            has_output_image=False,
+        )
+        md_file_content = get_md_file_content(
+            md_file_path,
+            node_name,
+            has_example=True,
+            example_section=example_section,
+        )
+        if not path.exists(md_file_path):
+            write_file_recursive(md_file_path, md_file_content)
         # else:
         #     if path.exists(path.join(example_dir_path, "app.txt")) and has_example:
         #         write_file_recursive(md_file_path, md_file_content)

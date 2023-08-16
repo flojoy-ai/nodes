@@ -6,7 +6,7 @@ from typing import Literal
 import scipy.signal
 
 
-@flojoy(node_type="default")
+@flojoy
 def STFT(
     default: OrderedPair | Matrix,
     fs: float = 1.0,
@@ -22,8 +22,7 @@ def STFT(
     scaling: str = "spectrum",
     select_return: Literal["f", "t", "Zxx"] = "f",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The STFT node is based on a numpy or scipy function.
+    """The STFT node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

@@ -2,23 +2,31 @@ from flojoy import flojoy, DataFrame, OrderedTriple
 
 
 @flojoy
-def DF_2_ORDEREDTRIPLE(
+def DF_2_ORDERED_TRIPLE(
     default: DataFrame, x: int = 0, y: int = 1, z: int = 2
 ) -> OrderedTriple:
-    """
-    The DF_2_ORDEREDTRIPLE node converts a dataframe type data into an OrderedTriple type data.
+    """The DF_2_ORDERED_TRIPLE node converts a dataframe type data into an OrderedTriple type data.
 
     It takes one dataframe type data and selects 3 different columns to generate the OrderedTriple type.
 
+    Inputs
+    ------
+    default : DataFrame
+        The input dataframe to which we apply the conversion to.
+
     Parameters
     ----------
-    x : the index of the column that represents the x axis
-    y : the index of the column that represents the y axis
-    z : the index of the column that represents the z axis
+    x : int
+        The index of the column that represents the x-axis.
+    y : int
+        The index of the column that represents the y-axis.
+    z : int
+        The index of the column that represents the z-axis.
 
     Returns
     -------
     OrderedTriple
+        The OrderedTriple result from the conversion of the input.
     """
 
     df = default.m

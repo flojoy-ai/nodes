@@ -14,7 +14,7 @@ def IMAGE(default: Image | Grayscale) -> Plotly:
     default : Image
         the DataContainer to be visualized
 
-    Outputs
+    Returns
     -------
     Plotly
         the DataContainer containing Plotly Image visualization of the input image

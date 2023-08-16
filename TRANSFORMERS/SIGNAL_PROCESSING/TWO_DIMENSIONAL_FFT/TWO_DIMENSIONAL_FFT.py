@@ -16,12 +16,16 @@ def TWO_DIMENSIONAL_FFT(
     real_signal: bool = True,
     color: Literal["red", "green", "blue", "grayscale"] = "red",
 ) -> Matrix | DataFrame | Image:
-    """
-    The TWO_DIMENSIONAL_FFT node performs a two-dimensional fourier transform function on the input matrix.
+    """The TWO_DIMENSIONAL_FFT node performs a two-dimensional fourier transform function on the input matrix.
 
     With the FFT algorithm, the input matrix will undergo a change of basis from the space domain into the frequency domain.
 
     grayscale, dataframe, image, or matrix
+
+    Inputs
+    ------
+    default : Grayscale|DataFrame|Image|Matrix
+        The 2D data to apply 2DFFT to.
 
     Parameters
     ----------
@@ -35,7 +39,7 @@ def TWO_DIMENSIONAL_FFT(
     Matrix if input is Matrix
         m: the matrix after 2DFFT
     DataFrame if input is Dataframe
-        df: the dataframe after 2DFFT
+        m: the dataframe after 2DFFT
     Image
         the frequency spectrum of the color channel
     """
@@ -52,7 +56,7 @@ def TWO_DIMENSIONAL_FFT(
             fourier = fft.rfft2(input) if real_signal else fft.fft2(input)
             fourier = fourier.real
             result = pd.DataFrame(columns=fourier.columns, index=fourier.index)
-            return DataFrame(df=result)
+            return DataFrame(m=result)
         case Image():
             red = default.r
             green = default.g

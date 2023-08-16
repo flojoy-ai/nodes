@@ -2,62 +2,8 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
-                "id": "LINSPACE-69bc9f1e-8cc8-4878-b6a4-d9a06dd33a9a",
-                "type": "default",
-                "data": {
-                    "id": "LINSPACE-69bc9f1e-8cc8-4878-b6a4-d9a06dd33a9a",
-                    "label": "LINSPACE",
-                    "func": "LINSPACE",
-                    "type": "default",
-                    "ctrls": {
-                        "start": {
-                            "type": "float",
-                            "default": 10,
-                            "functionName": "LINSPACE",
-                            "param": "start",
-                            "value": 10
-                        },
-                        "end": {
-                            "type": "float",
-                            "default": 0,
-                            "functionName": "LINSPACE",
-                            "param": "end",
-                            "value": 0
-                        },
-                        "step": {
-                            "type": "int",
-                            "default": 1000,
-                            "functionName": "LINSPACE",
-                            "param": "step",
-                            "value": 1000
-                        }
-                    },
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\GENERATORS\\SIMULATIONS\\LINSPACE\\LINSPACE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": -452.9499886926942,
-                    "y": 298.72664620965077
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -452.9499886926942,
-                    "y": 298.72664620965077
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 150,
+                "width": 96,
+                "height": 96,
                 "id": "LOOP-d294c908-88a7-4f19-8446-9a68061e1f14",
                 "type": "LOGIC_GATES",
                 "data": {
@@ -109,8 +55,8 @@
                 "dragging": true
             },
             {
-                "width": 130,
-                "height": 130,
+                "width": 208,
+                "height": 96,
                 "id": "CONSTANT-b7112c9c-029c-4899-bd7f-ae304c690697",
                 "type": "GENERATORS",
                 "data": {
@@ -157,8 +103,8 @@
                 "dragging": true
             },
             {
-                "width": 130,
-                "height": 130,
+                "width": 208,
+                "height": 96,
                 "id": "FEEDBACK-f81e0c07-98f4-4f31-b5b3-7a32118d139e",
                 "type": "GENERATORS",
                 "data": {
@@ -205,8 +151,8 @@
                 "dragging": true
             },
             {
-                "width": 130,
-                "height": 130,
+                "width": 208,
+                "height": 96,
                 "id": "CONSTANT-2c2b2a67-fa77-41db-9f40-f6bad42c460b",
                 "type": "GENERATORS",
                 "data": {
@@ -253,8 +199,8 @@
                 "dragging": true
             },
             {
-                "width": 99,
-                "height": 130,
+                "width": 72,
+                "height": 72,
                 "id": "MULTIPLY-de5357d2-7121-4297-9f04-d46406df63f0",
                 "type": "ARITHMETIC",
                 "data": {
@@ -370,13 +316,6 @@
         ],
         "edges": [
             {
-                "source": "LINSPACE-69bc9f1e-8cc8-4878-b6a4-d9a06dd33a9a",
-                "sourceHandle": "default",
-                "target": "LOOP-d294c908-88a7-4f19-8446-9a68061e1f14",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINSPACE-69bc9f1e-8cc8-4878-b6a4-d9a06dd33a9adefault-LOOP-d294c908-88a7-4f19-8446-9a68061e1f14default"
-            },
-            {
                 "source": "LOOP-d294c908-88a7-4f19-8446-9a68061e1f14",
                 "sourceHandle": "body",
                 "target": "CONSTANT-b7112c9c-029c-4899-bd7f-ae304c690697",
@@ -420,9 +359,9 @@
             }
         ],
         "viewport": {
-            "x": -296.35399545928726,
-            "y": 66.8470830817738,
-            "zoom": 0.8744723800359967
+            "x": 1023.2191798559372,
+            "y": 457.9822566236754,
+            "zoom": 1.793108730303652
         }
     },
     "ctrlsManifest": [

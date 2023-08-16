@@ -14,8 +14,7 @@ def SVD(
     hermitian: bool = False,
     select_return: Literal["u", "s", "vh"] = "u",
 ) -> Matrix | Scalar:
-    """
-    The SVD node is based on a numpy or scipy function.
+    """The SVD node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

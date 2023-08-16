@@ -11,8 +11,7 @@ def BSPLINE(
     default: OrderedPair | Matrix,
     n: int = 2,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The BSPLINE node is based on a numpy or scipy function.
+    """The BSPLINE node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

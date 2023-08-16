@@ -6,8 +6,11 @@ from numpy import asarray
 
 @flojoy
 def OPEN_IMAGE(file_path: str = "") -> Image:
-    """
-    The OPEN_IMAGE node loads an image file from disk and returns an image type DataContainer object.
+    """The OPEN_IMAGE node loads an image file from disk and returns an image type DataContainer object.
+
+    Inputs
+    ------
+    default: None
 
     Parameters
     ----------
@@ -17,6 +20,7 @@ def OPEN_IMAGE(file_path: str = "") -> Image:
     Returns
     -------
     Image
+        Image loaded from specified file path
     """
 
     if not path.exists(file_path):
