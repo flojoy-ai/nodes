@@ -212,13 +212,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 2240.526243456332,
                     "y": -224.95164946400268
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 2240.526243456332,
                     "y": -224.95164946400268
@@ -355,65 +355,8 @@
                 "dragging": true
             },
             {
-                "id": "CHANNEL_MERGE-47788865-765f-4628-813e-a451e5cf3545",
-                "type": "TRANSFORMERS",
-                "data": {
-                    "id": "CHANNEL_MERGE-47788865-765f-4628-813e-a451e5cf3545",
-                    "label": "CHANNEL MERGE",
-                    "func": "CHANNEL_MERGE",
-                    "type": "TRANSFORMERS",
-                    "ctrls": {},
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "red",
-                            "id": "red",
-                            "type": "Image",
-                            "multiple": false,
-                            "desc": null
-                        },
-                        {
-                            "name": "blue",
-                            "id": "blue",
-                            "type": "Image",
-                            "multiple": false,
-                            "desc": null
-                        },
-                        {
-                            "name": "green",
-                            "id": "green",
-                            "type": "Image",
-                            "multiple": false,
-                            "desc": null
-                        },
-                        {
-                            "name": "alpha",
-                            "id": "alpha",
-                            "type": "Image",
-                            "multiple": false,
-                            "desc": null
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image",
-                            "desc": "The image with each channel given by the appropriate channel \non the respective inputs"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/CHANNEL_MERGE/CHANNEL_MERGE.py"
-                },
-                "position": {
-                    "x": 1418.2163222269462,
-                    "y": 476.13285921314315
-                },
-                "width": 160,
-                "height": 160
-            },
-            {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "IMAGE-822c402e-e101-4c2c-8ec5-f2d38992b7b1",
                 "type": "VISUALIZERS",
                 "data": {
@@ -441,16 +384,80 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
                     "x": 1786.7991321778045,
                     "y": 449.8643668046331
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
                     "x": 1786.7991321778045,
                     "y": 449.8643668046331
+                },
+                "dragging": true
+            },
+            {
+                "width": 160,
+                "height": 160,
+                "id": "CHANNEL_MERGE-e0f9c4ef-1ccf-4e7c-92a6-a6f038994ca3",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "CHANNEL_MERGE-e0f9c4ef-1ccf-4e7c-92a6-a6f038994ca3",
+                    "label": "CHANNEL MERGE",
+                    "func": "CHANNEL_MERGE",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "red",
+                            "id": "red",
+                            "type": "Image",
+                            "multiple": false,
+                            "desc": null
+                        },
+                        {
+                            "name": "green",
+                            "id": "green",
+                            "type": "Image",
+                            "multiple": false,
+                            "desc": null
+                        },
+                        {
+                            "name": "blue",
+                            "id": "blue",
+                            "type": "Image",
+                            "multiple": false,
+                            "desc": null
+                        },
+                        {
+                            "name": "alpha",
+                            "id": "alpha",
+                            "type": "Image",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "desc": "The image with each channel given by the appropriate channel\non the respective inputs"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/CHANNEL_MERGE/CHANNEL_MERGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1375.9294717891762,
+                    "y": 430.71891063733597
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1375.9294717891762,
+                    "y": 430.71891063733597
                 },
                 "dragging": true
             }
@@ -499,39 +506,39 @@
                 "id": "reactflow__edge-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdca-IMAGE-f0dd3826-cae0-4b2c-b365-4e03f37c748adefault"
             },
             {
-                "source": "CHANNEL_MERGE-47788865-765f-4628-813e-a451e5cf3545",
-                "sourceHandle": "default",
-                "target": "IMAGE-822c402e-e101-4c2c-8ec5-f2d38992b7b1",
-                "targetHandle": "default",
-                "id": "reactflow__edge-CHANNEL_MERGE-47788865-765f-4628-813e-a451e5cf3545default-IMAGE-822c402e-e101-4c2c-8ec5-f2d38992b7b1default"
-            },
-            {
                 "source": "CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdc",
                 "sourceHandle": "r",
-                "target": "CHANNEL_MERGE-47788865-765f-4628-813e-a451e5cf3545",
+                "target": "CHANNEL_MERGE-e0f9c4ef-1ccf-4e7c-92a6-a6f038994ca3",
                 "targetHandle": "red",
-                "id": "reactflow__edge-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdcr-CHANNEL_MERGE-47788865-765f-4628-813e-a451e5cf3545red"
+                "id": "reactflow__edge-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdcr-CHANNEL_MERGE-e0f9c4ef-1ccf-4e7c-92a6-a6f038994ca3red"
             },
             {
                 "source": "CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdc",
                 "sourceHandle": "g",
-                "target": "CHANNEL_MERGE-47788865-765f-4628-813e-a451e5cf3545",
-                "targetHandle": "blue",
-                "id": "reactflow__edge-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdcg-CHANNEL_MERGE-47788865-765f-4628-813e-a451e5cf3545blue"
+                "target": "CHANNEL_MERGE-e0f9c4ef-1ccf-4e7c-92a6-a6f038994ca3",
+                "targetHandle": "green",
+                "id": "reactflow__edge-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdcg-CHANNEL_MERGE-e0f9c4ef-1ccf-4e7c-92a6-a6f038994ca3green"
             },
             {
                 "source": "CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdc",
                 "sourceHandle": "b",
-                "target": "CHANNEL_MERGE-47788865-765f-4628-813e-a451e5cf3545",
-                "targetHandle": "green",
-                "id": "reactflow__edge-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdcb-CHANNEL_MERGE-47788865-765f-4628-813e-a451e5cf3545green"
+                "target": "CHANNEL_MERGE-e0f9c4ef-1ccf-4e7c-92a6-a6f038994ca3",
+                "targetHandle": "blue",
+                "id": "reactflow__edge-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdcb-CHANNEL_MERGE-e0f9c4ef-1ccf-4e7c-92a6-a6f038994ca3blue"
             },
             {
                 "source": "CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdc",
                 "sourceHandle": "a",
-                "target": "CHANNEL_MERGE-47788865-765f-4628-813e-a451e5cf3545",
+                "target": "CHANNEL_MERGE-e0f9c4ef-1ccf-4e7c-92a6-a6f038994ca3",
                 "targetHandle": "alpha",
-                "id": "reactflow__edge-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdca-CHANNEL_MERGE-47788865-765f-4628-813e-a451e5cf3545alpha"
+                "id": "reactflow__edge-CHANNEL_SPLIT-b280d160-e345-469d-9fed-2bd4bed3cbdca-CHANNEL_MERGE-e0f9c4ef-1ccf-4e7c-92a6-a6f038994ca3alpha"
+            },
+            {
+                "source": "CHANNEL_MERGE-e0f9c4ef-1ccf-4e7c-92a6-a6f038994ca3",
+                "sourceHandle": "default",
+                "target": "IMAGE-822c402e-e101-4c2c-8ec5-f2d38992b7b1",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CHANNEL_MERGE-e0f9c4ef-1ccf-4e7c-92a6-a6f038994ca3default-IMAGE-822c402e-e101-4c2c-8ec5-f2d38992b7b1default"
             }
         ],
         "viewport": {
