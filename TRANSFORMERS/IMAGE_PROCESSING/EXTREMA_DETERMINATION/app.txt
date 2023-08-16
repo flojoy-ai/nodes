@@ -68,13 +68,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -447.02406017560725,
-                    "y": -75.13877912006811
+                    "x": -435.8305806889495,
+                    "y": -287.8148893665653
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -447.02406017560725,
-                    "y": -75.13877912006811
+                    "x": -435.8305806889495,
+                    "y": -287.8148893665653
                 },
                 "dragging": true
             },
@@ -156,12 +156,89 @@
                 "dragging": true
             },
             {
+                "width": 168,
+                "height": 160,
+                "id": "LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9",
+                "type": "LOADERS",
+                "data": {
+                    "id": "LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9",
+                    "label": "LOW CONTRAST TIF",
+                    "func": "LOCAL_FILE",
+                    "type": "LOADERS",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "path to the file to be loaded",
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_path",
+                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/assets/hubble_deep_field.tif"
+                        },
+                        "file_type": {
+                            "type": "select",
+                            "default": "Image",
+                            "options": [
+                                "Image",
+                                "Grayscale",
+                                "JSON",
+                                "CSV",
+                                "Excel",
+                                "XML"
+                            ],
+                            "desc": "type of file to load, default = image",
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_type",
+                            "value": "Grayscale"
+                        }
+                    },
+                    "initCtrls": {},
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|DataFrame",
+                            "desc": "type 'image' for file_type 'image'\ntype 'dataframe' for file_type 'json', 'csv', 'excel', 'xml'"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "xlrd",
+                            "v": "2.0.1"
+                        },
+                        {
+                            "name": "lxml",
+                            "v": "4.9.2"
+                        },
+                        {
+                            "name": "openpyxl",
+                            "v": "3.0.10"
+                        },
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -554.9483748390503,
+                    "y": 858.3947601155629
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -554.9483748390503,
+                    "y": 858.3947601155629
+                },
+                "dragging": true
+            },
+            {
                 "width": 160,
                 "height": 160,
-                "id": "EXTREMA_DETERMINATION-97a7783e-e332-4d75-989e-7f69203ef8e9",
+                "id": "EXTREMA_DETERMINATION-9f948810-983e-486f-b8da-589d6ec62829",
                 "type": "TRANSFORMERS",
                 "data": {
-                    "id": "EXTREMA_DETERMINATION-97a7783e-e332-4d75-989e-7f69203ef8e9",
+                    "id": "EXTREMA_DETERMINATION-9f948810-983e-486f-b8da-589d6ec62829",
                     "label": "HDR PEAK FINDER",
                     "func": "EXTREMA_DETERMINATION",
                     "type": "TRANSFORMERS",
@@ -234,9 +311,15 @@
                     ],
                     "outputs": [
                         {
-                            "name": "default",
-                            "id": "default",
+                            "name": "fig",
+                            "id": "fig",
                             "type": "Plotly",
+                            "desc": null
+                        },
+                        {
+                            "name": "blobs",
+                            "id": "blobs",
+                            "type": "Grayscale",
                             "desc": null
                         }
                     ],
@@ -250,24 +333,24 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 56.79027734023137,
-                    "y": 21.980692944928307
+                    "x": 18.615066035587972,
+                    "y": -246.09150349998924
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 56.79027734023137,
-                    "y": 21.980692944928307
+                    "x": 18.615066035587972,
+                    "y": -246.09150349998924
                 },
                 "dragging": true
             },
             {
                 "width": 160,
                 "height": 160,
-                "id": "EXTREMA_DETERMINATION-2cb1bdd1-3e03-4cab-ad88-3a5e7b9f3f46",
+                "id": "EXTREMA_DETERMINATION-b19c76ee-5e4f-45ec-97a2-44fdece9d320",
                 "type": "TRANSFORMERS",
                 "data": {
-                    "id": "EXTREMA_DETERMINATION-2cb1bdd1-3e03-4cab-ad88-3a5e7b9f3f46",
-                    "label": "LDR PEAK FINDER",
+                    "id": "EXTREMA_DETERMINATION-b19c76ee-5e4f-45ec-97a2-44fdece9d320",
+                    "label": "HIGH SYM PEAK FINDER",
                     "func": "EXTREMA_DETERMINATION",
                     "type": "TRANSFORMERS",
                     "ctrls": {
@@ -339,9 +422,15 @@
                     ],
                     "outputs": [
                         {
-                            "name": "default",
-                            "id": "default",
+                            "name": "fig",
+                            "id": "fig",
                             "type": "Plotly",
+                            "desc": null
+                        },
+                        {
+                            "name": "blobs",
+                            "id": "blobs",
+                            "type": "Grayscale",
                             "desc": null
                         }
                     ],
@@ -355,23 +444,24 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 83.31433069499367,
-                    "y": 276.68602733453014
+                    "x": 19.82917355671276,
+                    "y": 272.2868375805463
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 83.31433069499367,
-                    "y": 276.68602733453014
-                }
+                    "x": 19.82917355671276,
+                    "y": 272.2868375805463
+                },
+                "dragging": true
             },
             {
-                "width": 168,
+                "width": 160,
                 "height": 160,
-                "id": "EXTREMA_DETERMINATION-753cd438-cba8-46f2-b9e5-0ac7363e352c",
+                "id": "EXTREMA_DETERMINATION-40297cca-13a8-4251-b4c1-0969e2c0cccd",
                 "type": "TRANSFORMERS",
                 "data": {
-                    "id": "EXTREMA_DETERMINATION-753cd438-cba8-46f2-b9e5-0ac7363e352c",
-                    "label": "LOW CONTRAST PEAK FINDER",
+                    "id": "EXTREMA_DETERMINATION-40297cca-13a8-4251-b4c1-0969e2c0cccd",
+                    "label": "LoG PEAK FINDER",
                     "func": "EXTREMA_DETERMINATION",
                     "type": "TRANSFORMERS",
                     "ctrls": {
@@ -443,9 +533,15 @@
                     ],
                     "outputs": [
                         {
-                            "name": "default",
-                            "id": "default",
+                            "name": "fig",
+                            "id": "fig",
                             "type": "Plotly",
+                            "desc": null
+                        },
+                        {
+                            "name": "blobs",
+                            "id": "blobs",
+                            "type": "Grayscale",
                             "desc": null
                         }
                     ],
@@ -456,93 +552,292 @@
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/EXTREMA_DETERMINATION.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": 43.17150994312408,
-                    "y": 636.5222698033331
+                    "x": -130.4928640180596,
+                    "y": 873.2523069404972
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": 43.17150994312408,
-                    "y": 636.5222698033331
+                    "x": -130.4928640180596,
+                    "y": 873.2523069404972
                 },
                 "dragging": true
             },
             {
-                "width": 168,
-                "height": 160,
-                "id": "LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9",
-                "type": "LOADERS",
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-14ee8682-0eae-4089-bb0d-85827cd0b310",
+                "type": "VISUALIZERS",
                 "data": {
-                    "id": "LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9",
-                    "label": "LOW CONTRAST TIF",
-                    "func": "LOCAL_FILE",
-                    "type": "LOADERS",
-                    "ctrls": {
-                        "file_path": {
-                            "type": "str",
-                            "default": null,
-                            "desc": "path to the file to be loaded",
-                            "functionName": "LOCAL_FILE",
-                            "param": "file_path",
-                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/assets/hubble_deep_field.tif"
-                        },
-                        "file_type": {
-                            "type": "select",
-                            "default": "Image",
-                            "options": [
-                                "Image",
-                                "Grayscale",
-                                "JSON",
-                                "CSV",
-                                "Excel",
-                                "XML"
-                            ],
-                            "desc": "type of file to load, default = image",
-                            "functionName": "LOCAL_FILE",
-                            "param": "file_type",
-                            "value": "Grayscale"
-                        }
-                    },
+                    "id": "IMAGE-14ee8682-0eae-4089-bb0d-85827cd0b310",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
                     "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Image|DataFrame",
-                            "desc": "type 'image' for file_type 'image'\ntype 'dataframe' for file_type 'json', 'csv', 'excel', 'xml'"
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 359.4241694293964,
+                    "y": 1121.3047497990997
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 359.4241694293964,
+                    "y": 1121.3047497990997
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-6f9055e3-c0e4-4366-addc-e87115239a49",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "IMAGE-6f9055e3-c0e4-4366-addc-e87115239a49",
+                    "label": "IMAGE 1",
+                    "func": "IMAGE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 352.7151255451992,
+                    "y": 510.787478040099
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 352.7151255451992,
+                    "y": 510.787478040099
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-e7d9dc29-41a1-420c-8147-a085c1032003",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "IMAGE-e7d9dc29-41a1-420c-8147-a085c1032003",
+                    "label": "IMAGE 2",
+                    "func": "IMAGE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 400.9853315092129,
+                    "y": -124.36567806484021
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 400.9853315092129,
+                    "y": -124.36567806484021
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 160,
+                "id": "REGION_PROPERTIES-f67b0fc5-736f-4b54-9829-d8b8a3c27642",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "REGION_PROPERTIES-f67b0fc5-736f-4b54-9829-d8b8a3c27642",
+                    "label": "REGION PROPERTIES",
+                    "func": "REGION_PROPERTIES",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": "The input node to this function. If nothing is supplied, then a demo test\ncase is returned to illustrate the functionality of this node."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "Returns the Plotly superclass of `DataContainer` that has the illustrated\nfeatures as determined by this node."
                         }
                     ],
                     "pip_dependencies": [
-                        {
-                            "name": "xlrd",
-                            "v": "2.0.1"
-                        },
-                        {
-                            "name": "lxml",
-                            "v": "4.9.2"
-                        },
-                        {
-                            "name": "openpyxl",
-                            "v": "3.0.10"
-                        },
                         {
                             "name": "scikit-image",
                             "v": "0.21.0"
                         }
                     ],
-                    "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
+                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/REGION_PROPERTIES/REGION_PROPERTIES.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -478.4595983468891,
-                    "y": 591.61683235022
+                    "x": 435.45927370792685,
+                    "y": 912.4914227979442
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -478.4595983468891,
-                    "y": 591.61683235022
+                    "x": 435.45927370792685,
+                    "y": 912.4914227979442
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 160,
+                "id": "REGION_PROPERTIES-6d5da92b-0095-4e3d-ac73-84e4a5ddecd8",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "REGION_PROPERTIES-6d5da92b-0095-4e3d-ac73-84e4a5ddecd8",
+                    "label": "REGION PROPERTIES 1",
+                    "func": "REGION_PROPERTIES",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": "The input node to this function. If nothing is supplied, then a demo test\ncase is returned to illustrate the functionality of this node."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "Returns the Plotly superclass of `DataContainer` that has the illustrated\nfeatures as determined by this node."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/REGION_PROPERTIES/REGION_PROPERTIES.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 442.23455266352346,
+                    "y": 279.1928198869145
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 442.23455266352346,
+                    "y": 279.1928198869145
+                },
+                "dragging": true
+            },
+            {
+                "width": 210,
+                "height": 160,
+                "id": "REGION_PROPERTIES-06143461-e19b-47ec-a230-9ef6c710ea27",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "REGION_PROPERTIES-06143461-e19b-47ec-a230-9ef6c710ea27",
+                    "label": "REGION PROPERTIES 2",
+                    "func": "REGION_PROPERTIES",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": "The input node to this function. If nothing is supplied, then a demo test\ncase is returned to illustrate the functionality of this node."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "Returns the Plotly superclass of `DataContainer` that has the illustrated\nfeatures as determined by this node."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/REGION_PROPERTIES/REGION_PROPERTIES.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 508.23713917594216,
+                    "y": -343.6046205660557
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 508.23713917594216,
+                    "y": -343.6046205660557
                 },
                 "dragging": true
             }
@@ -551,23 +846,65 @@
             {
                 "source": "LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02",
                 "sourceHandle": "default",
-                "target": "EXTREMA_DETERMINATION-97a7783e-e332-4d75-989e-7f69203ef8e9",
+                "target": "EXTREMA_DETERMINATION-9f948810-983e-486f-b8da-589d6ec62829",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02default-EXTREMA_DETERMINATION-97a7783e-e332-4d75-989e-7f69203ef8e9default"
+                "id": "reactflow__edge-LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02default-EXTREMA_DETERMINATION-9f948810-983e-486f-b8da-589d6ec62829default"
             },
             {
                 "source": "LOCAL_FILE-a6939cc3-d70e-430f-8021-79e3fd8d18a1",
                 "sourceHandle": "default",
-                "target": "EXTREMA_DETERMINATION-2cb1bdd1-3e03-4cab-ad88-3a5e7b9f3f46",
+                "target": "EXTREMA_DETERMINATION-b19c76ee-5e4f-45ec-97a2-44fdece9d320",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-a6939cc3-d70e-430f-8021-79e3fd8d18a1default-EXTREMA_DETERMINATION-2cb1bdd1-3e03-4cab-ad88-3a5e7b9f3f46default"
+                "id": "reactflow__edge-LOCAL_FILE-a6939cc3-d70e-430f-8021-79e3fd8d18a1default-EXTREMA_DETERMINATION-b19c76ee-5e4f-45ec-97a2-44fdece9d320default"
             },
             {
                 "source": "LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9",
                 "sourceHandle": "default",
-                "target": "EXTREMA_DETERMINATION-753cd438-cba8-46f2-b9e5-0ac7363e352c",
+                "target": "EXTREMA_DETERMINATION-40297cca-13a8-4251-b4c1-0969e2c0cccd",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9default-EXTREMA_DETERMINATION-753cd438-cba8-46f2-b9e5-0ac7363e352cdefault"
+                "id": "reactflow__edge-LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9default-EXTREMA_DETERMINATION-40297cca-13a8-4251-b4c1-0969e2c0cccddefault"
+            },
+            {
+                "source": "EXTREMA_DETERMINATION-9f948810-983e-486f-b8da-589d6ec62829",
+                "sourceHandle": "blobs",
+                "target": "IMAGE-e7d9dc29-41a1-420c-8147-a085c1032003",
+                "targetHandle": "default",
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-9f948810-983e-486f-b8da-589d6ec62829blobs-IMAGE-e7d9dc29-41a1-420c-8147-a085c1032003default"
+            },
+            {
+                "source": "EXTREMA_DETERMINATION-b19c76ee-5e4f-45ec-97a2-44fdece9d320",
+                "sourceHandle": "blobs",
+                "target": "IMAGE-6f9055e3-c0e4-4366-addc-e87115239a49",
+                "targetHandle": "default",
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-b19c76ee-5e4f-45ec-97a2-44fdece9d320blobs-IMAGE-6f9055e3-c0e4-4366-addc-e87115239a49default"
+            },
+            {
+                "source": "EXTREMA_DETERMINATION-40297cca-13a8-4251-b4c1-0969e2c0cccd",
+                "sourceHandle": "blobs",
+                "target": "IMAGE-14ee8682-0eae-4089-bb0d-85827cd0b310",
+                "targetHandle": "default",
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-40297cca-13a8-4251-b4c1-0969e2c0cccdblobs-IMAGE-14ee8682-0eae-4089-bb0d-85827cd0b310default"
+            },
+            {
+                "source": "EXTREMA_DETERMINATION-40297cca-13a8-4251-b4c1-0969e2c0cccd",
+                "sourceHandle": "blobs",
+                "target": "REGION_PROPERTIES-f67b0fc5-736f-4b54-9829-d8b8a3c27642",
+                "targetHandle": "default",
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-40297cca-13a8-4251-b4c1-0969e2c0cccdblobs-REGION_PROPERTIES-f67b0fc5-736f-4b54-9829-d8b8a3c27642default"
+            },
+            {
+                "source": "EXTREMA_DETERMINATION-b19c76ee-5e4f-45ec-97a2-44fdece9d320",
+                "sourceHandle": "blobs",
+                "target": "REGION_PROPERTIES-6d5da92b-0095-4e3d-ac73-84e4a5ddecd8",
+                "targetHandle": "default",
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-b19c76ee-5e4f-45ec-97a2-44fdece9d320blobs-REGION_PROPERTIES-6d5da92b-0095-4e3d-ac73-84e4a5ddecd8default"
+            },
+            {
+                "source": "EXTREMA_DETERMINATION-9f948810-983e-486f-b8da-589d6ec62829",
+                "sourceHandle": "blobs",
+                "target": "REGION_PROPERTIES-06143461-e19b-47ec-a230-9ef6c710ea27",
+                "targetHandle": "default",
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-9f948810-983e-486f-b8da-589d6ec62829blobs-REGION_PROPERTIES-06143461-e19b-47ec-a230-9ef6c710ea27default"
             }
         ],
         "viewport": {
