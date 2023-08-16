@@ -68,13 +68,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -435.8305806889495,
-                    "y": -287.8148893665653
+                    "x": 604.1694193110504,
+                    "y": -293.8148893665653
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -435.8305806889495,
-                    "y": -287.8148893665653
+                    "x": 604.1694193110504,
+                    "y": -293.8148893665653
                 },
                 "dragging": true
             },
@@ -145,13 +145,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -476.3561751592754,
-                    "y": 269.02036584388486
+                    "x": -1028.3561751592754,
+                    "y": -306.97963415611514
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -476.3561751592754,
-                    "y": 269.02036584388486
+                    "x": -1028.3561751592754,
+                    "y": -306.97963415611514
                 },
                 "dragging": true
             },
@@ -219,16 +219,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": -554.9483748390503,
-                    "y": 858.3947601155629
+                    "x": -260.9483748390503,
+                    "y": 380.3947601155629
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": -554.9483748390503,
-                    "y": 858.3947601155629
+                    "x": -260.9483748390503,
+                    "y": 380.3947601155629
                 },
                 "dragging": true
             },
@@ -265,13 +265,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 359.4241694293964,
-                    "y": 1121.3047497990997
+                    "x": 663.4241694293964,
+                    "y": 563.3047497990996
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 359.4241694293964,
-                    "y": 1121.3047497990997
+                    "x": 663.4241694293964,
+                    "y": 563.3047497990996
                 },
                 "dragging": true
             },
@@ -308,13 +308,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 352.7151255451992,
-                    "y": 510.787478040099
+                    "x": -249.28487445480079,
+                    "y": -111.21252195990098
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 352.7151255451992,
-                    "y": 510.787478040099
+                    "x": -249.28487445480079,
+                    "y": -111.21252195990098
                 },
                 "dragging": true
             },
@@ -351,13 +351,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 400.9853315092129,
-                    "y": -124.36567806484021
+                    "x": 1398.985331509213,
+                    "y": -132.3656780648402
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 400.9853315092129,
-                    "y": -124.36567806484021
+                    "x": 1398.985331509213,
+                    "y": -132.3656780648402
                 },
                 "dragging": true
             },
@@ -400,13 +400,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 435.45927370792685,
-                    "y": 912.4914227979442
+                    "x": 744.2847910263569,
+                    "y": 304.6903561011768
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 435.45927370792685,
-                    "y": 912.4914227979442
+                    "x": 744.2847910263569,
+                    "y": 304.6903561011768
                 },
                 "dragging": true
             },
@@ -449,13 +449,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 442.23455266352346,
-                    "y": 279.1928198869145
+                    "x": -157.76544733647654,
+                    "y": -356.8071801130855
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 442.23455266352346,
-                    "y": 279.1928198869145
+                    "x": -157.76544733647654,
+                    "y": -356.8071801130855
                 },
                 "dragging": true
             },
@@ -498,24 +498,24 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 508.23713917594216,
-                    "y": -343.6046205660557
+                    "x": 1472.237139175942,
+                    "y": -367.6046205660557
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 508.23713917594216,
-                    "y": -343.6046205660557
+                    "x": 1472.237139175942,
+                    "y": -367.6046205660557
                 },
                 "dragging": true
             },
             {
                 "width": 160,
                 "height": 160,
-                "id": "EXTREMA_DETERMINATION-aea7d3af-7c27-44cc-9080-059174a01883",
+                "id": "EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9",
                 "type": "TRANSFORMERS",
                 "data": {
-                    "id": "EXTREMA_DETERMINATION-aea7d3af-7c27-44cc-9080-059174a01883",
-                    "label": "LOG PEAK FINDER",
+                    "id": "EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9",
+                    "label": "LoG PEAK FINDER",
                     "func": "EXTREMA_DETERMINATION",
                     "type": "TRANSFORMERS",
                     "ctrls": {
@@ -536,8 +536,13 @@
                             "value": 0
                         },
                         "algorithm": {
-                            "type": "str",
+                            "type": "select",
                             "default": "log",
+                            "options": [
+                                "persistence",
+                                "high_symmetry",
+                                "log"
+                            ],
                             "desc": null,
                             "functionName": "EXTREMA_DETERMINATION",
                             "param": "algorithm",
@@ -614,26 +619,26 @@
                         }
                     ],
                     "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/EXTREMA_DETERMINATION.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": -153.76244737604344,
-                    "y": 906.328367439685
+                    "x": 91.81927191966867,
+                    "y": 403.5982303010262
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": -153.76244737604344,
-                    "y": 906.328367439685
+                    "x": 91.81927191966867,
+                    "y": 403.5982303010262
                 },
                 "dragging": true
             },
             {
                 "width": 160,
                 "height": 160,
-                "id": "EXTREMA_DETERMINATION-6ff84f25-c398-4397-85b2-ed18f08ddc83",
+                "id": "EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68f",
                 "type": "TRANSFORMERS",
                 "data": {
-                    "id": "EXTREMA_DETERMINATION-6ff84f25-c398-4397-85b2-ed18f08ddc83",
+                    "id": "EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68f",
                     "label": "LDR PEAK FINDER",
                     "func": "EXTREMA_DETERMINATION",
                     "type": "TRANSFORMERS",
@@ -655,8 +660,13 @@
                             "value": 0
                         },
                         "algorithm": {
-                            "type": "str",
+                            "type": "select",
                             "default": "log",
+                            "options": [
+                                "persistence",
+                                "high_symmetry",
+                                "log"
+                            ],
                             "desc": null,
                             "functionName": "EXTREMA_DETERMINATION",
                             "param": "algorithm",
@@ -736,23 +746,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -90.78267169247567,
-                    "y": 247.93751713239726
+                    "x": -679.3897376208056,
+                    "y": -263.91789445770195
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -90.78267169247567,
-                    "y": 247.93751713239726
+                    "x": -679.3897376208056,
+                    "y": -263.91789445770195
                 },
                 "dragging": true
             },
             {
                 "width": 160,
                 "height": 160,
-                "id": "EXTREMA_DETERMINATION-268bcc3f-c120-4e59-87f4-4a25448f6f65",
+                "id": "EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976",
                 "type": "TRANSFORMERS",
                 "data": {
-                    "id": "EXTREMA_DETERMINATION-268bcc3f-c120-4e59-87f4-4a25448f6f65",
+                    "id": "EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976",
                     "label": "HDR PEAK FINDER",
                     "func": "EXTREMA_DETERMINATION",
                     "type": "TRANSFORMERS",
@@ -774,8 +784,13 @@
                             "value": 0
                         },
                         "algorithm": {
-                            "type": "str",
+                            "type": "select",
                             "default": "log",
+                            "options": [
+                                "persistence",
+                                "high_symmetry",
+                                "log"
+                            ],
                             "desc": null,
                             "functionName": "EXTREMA_DETERMINATION",
                             "param": "algorithm",
@@ -855,13 +870,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -89.04543555307623,
-                    "y": -272.9190236323302
+                    "x": 953.9519684238553,
+                    "y": -251.78539250272144
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -89.04543555307623,
-                    "y": -272.9190236323302
+                    "x": 953.9519684238553,
+                    "y": -251.78539250272144
                 },
                 "dragging": true
             }
@@ -870,65 +885,65 @@
             {
                 "source": "LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02",
                 "sourceHandle": "default",
-                "target": "EXTREMA_DETERMINATION-268bcc3f-c120-4e59-87f4-4a25448f6f65",
+                "target": "EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02default-EXTREMA_DETERMINATION-268bcc3f-c120-4e59-87f4-4a25448f6f65default"
+                "id": "reactflow__edge-LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02default-EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976default"
             },
             {
-                "source": "EXTREMA_DETERMINATION-268bcc3f-c120-4e59-87f4-4a25448f6f65",
+                "source": "EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976",
                 "sourceHandle": "blobs",
                 "target": "IMAGE-e7d9dc29-41a1-420c-8147-a085c1032003",
                 "targetHandle": "default",
-                "id": "reactflow__edge-EXTREMA_DETERMINATION-268bcc3f-c120-4e59-87f4-4a25448f6f65blobs-IMAGE-e7d9dc29-41a1-420c-8147-a085c1032003default"
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976blobs-IMAGE-e7d9dc29-41a1-420c-8147-a085c1032003default"
             },
             {
-                "source": "EXTREMA_DETERMINATION-268bcc3f-c120-4e59-87f4-4a25448f6f65",
+                "source": "EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976",
                 "sourceHandle": "blobs",
                 "target": "REGION_PROPERTIES-06143461-e19b-47ec-a230-9ef6c710ea27",
                 "targetHandle": "default",
-                "id": "reactflow__edge-EXTREMA_DETERMINATION-268bcc3f-c120-4e59-87f4-4a25448f6f65blobs-REGION_PROPERTIES-06143461-e19b-47ec-a230-9ef6c710ea27default"
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976blobs-REGION_PROPERTIES-06143461-e19b-47ec-a230-9ef6c710ea27default"
             },
             {
                 "source": "LOCAL_FILE-a6939cc3-d70e-430f-8021-79e3fd8d18a1",
                 "sourceHandle": "default",
-                "target": "EXTREMA_DETERMINATION-6ff84f25-c398-4397-85b2-ed18f08ddc83",
+                "target": "EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68f",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-a6939cc3-d70e-430f-8021-79e3fd8d18a1default-EXTREMA_DETERMINATION-6ff84f25-c398-4397-85b2-ed18f08ddc83default"
+                "id": "reactflow__edge-LOCAL_FILE-a6939cc3-d70e-430f-8021-79e3fd8d18a1default-EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68fdefault"
             },
             {
-                "source": "EXTREMA_DETERMINATION-6ff84f25-c398-4397-85b2-ed18f08ddc83",
+                "source": "EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68f",
                 "sourceHandle": "blobs",
                 "target": "REGION_PROPERTIES-6d5da92b-0095-4e3d-ac73-84e4a5ddecd8",
                 "targetHandle": "default",
-                "id": "reactflow__edge-EXTREMA_DETERMINATION-6ff84f25-c398-4397-85b2-ed18f08ddc83blobs-REGION_PROPERTIES-6d5da92b-0095-4e3d-ac73-84e4a5ddecd8default"
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68fblobs-REGION_PROPERTIES-6d5da92b-0095-4e3d-ac73-84e4a5ddecd8default"
             },
             {
-                "source": "EXTREMA_DETERMINATION-6ff84f25-c398-4397-85b2-ed18f08ddc83",
+                "source": "EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68f",
                 "sourceHandle": "blobs",
                 "target": "IMAGE-6f9055e3-c0e4-4366-addc-e87115239a49",
                 "targetHandle": "default",
-                "id": "reactflow__edge-EXTREMA_DETERMINATION-6ff84f25-c398-4397-85b2-ed18f08ddc83blobs-IMAGE-6f9055e3-c0e4-4366-addc-e87115239a49default"
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68fblobs-IMAGE-6f9055e3-c0e4-4366-addc-e87115239a49default"
             },
             {
                 "source": "LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9",
                 "sourceHandle": "default",
-                "target": "EXTREMA_DETERMINATION-aea7d3af-7c27-44cc-9080-059174a01883",
+                "target": "EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9default-EXTREMA_DETERMINATION-aea7d3af-7c27-44cc-9080-059174a01883default"
+                "id": "reactflow__edge-LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9default-EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9default"
             },
             {
-                "source": "EXTREMA_DETERMINATION-aea7d3af-7c27-44cc-9080-059174a01883",
+                "source": "EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9",
                 "sourceHandle": "blobs",
                 "target": "IMAGE-14ee8682-0eae-4089-bb0d-85827cd0b310",
                 "targetHandle": "default",
-                "id": "reactflow__edge-EXTREMA_DETERMINATION-aea7d3af-7c27-44cc-9080-059174a01883blobs-IMAGE-14ee8682-0eae-4089-bb0d-85827cd0b310default"
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9blobs-IMAGE-14ee8682-0eae-4089-bb0d-85827cd0b310default"
             },
             {
-                "source": "EXTREMA_DETERMINATION-aea7d3af-7c27-44cc-9080-059174a01883",
+                "source": "EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9",
                 "sourceHandle": "blobs",
                 "target": "REGION_PROPERTIES-f67b0fc5-736f-4b54-9829-d8b8a3c27642",
                 "targetHandle": "default",
-                "id": "reactflow__edge-EXTREMA_DETERMINATION-aea7d3af-7c27-44cc-9080-059174a01883blobs-REGION_PROPERTIES-f67b0fc5-736f-4b54-9829-d8b8a3c27642default"
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9blobs-REGION_PROPERTIES-f67b0fc5-736f-4b54-9829-d8b8a3c27642default"
             }
         ],
         "viewport": {
