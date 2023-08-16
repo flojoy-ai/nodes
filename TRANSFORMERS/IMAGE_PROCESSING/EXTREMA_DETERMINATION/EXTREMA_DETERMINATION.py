@@ -15,7 +15,7 @@ from os import cpu_count
 from warnings import catch_warnings, simplefilter
 
 import numpy as np
-from typing import Optional
+from typing import Optional, TypedDict
 
 from nodes.VISUALIZERS.template import plot_layout
 from PIL import Image as PILImage
@@ -26,7 +26,10 @@ from skimage.draw import ellipse
 import skimage.filters as filters
 from skimage.measure import label, regionprops
 from skimage.morphology import binary_erosion, disk
-from skimage.feature import blob_log
+
+class EXTREMA_OUTPUT(TypedDict):
+    fig: Plotly
+    blobs: Grayscale
 
 @flojoy(deps={"scikit-image":"0.21.0"})
 def EXTREMA_DETERMINATION(
@@ -38,7 +41,7 @@ def EXTREMA_DETERMINATION(
     prominence: float = 0.0,
     k: float = 1.41,
     sigma: float = 1.0
-) -> Plotly:
+) -> EXTREMA_OUTPUT:
 
     """
     This function is concerned with the determination of peak finding in 
@@ -202,7 +205,7 @@ def EXTREMA_DETERMINATION(
             # remove peaks that are within the masked area
             if mask.sum() != mask.shape[0] * mask.shape[1]:
                 peaks = np.array([p for p in candidates if mask[p[1], p[0]]]).reshape(-1,2)
-            
+
         case 'log':
             # This is the most expensive algorithm!! 
             # Use only when dire!
@@ -288,7 +291,7 @@ def EXTREMA_DETERMINATION(
 
     fig.update_xaxes(range=[0, image.shape[0]])
     fig.update_yaxes(range=[0, image.shape[1]])
-    return Plotly(fig=fig)
+    return EXTREMA_OUTPUT(fig=Plotly(fig=fig), blobs=Grayscale(img=blob_mask))
 
 class UnionFind:
 
