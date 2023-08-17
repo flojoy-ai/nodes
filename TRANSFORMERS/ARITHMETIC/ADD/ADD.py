@@ -1,8 +1,12 @@
 import numpy as np
 from flojoy import flojoy, OrderedPair, Scalar, Vector
 from nodes.TRANSFORMERS.ARITHMETIC.utils.arithmetic_utils import get_val
-from functools import reduce
 
+def reduce(func, seq, initial):
+    result = initial
+    for item in seq:
+        result = func(result, item)
+    return result
 
 @flojoy
 def ADD(
@@ -39,10 +43,10 @@ def ADD(
     seq = map(lambda dc: get_val(dc), b)
     y = reduce(lambda u, v: np.add(u, v), seq, initial)
 
-    match a:
-        case OrderedPair():
-            return OrderedPair(x=a.x, y=y)
-        case Vector():
-            return Vector(v=y)
-        case Scalar():
-            return Scalar(c=y)
+    if isinstance(a, OrderedPair):
+        return OrderedPair(x=a.x, y=y)
+    elif isinstance(a, Vector):
+        return Vector(v=y)
+    elif isinstance(a, Scalar):
+        return Scalar(c=y)
+

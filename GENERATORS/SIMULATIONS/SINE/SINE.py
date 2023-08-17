@@ -1,6 +1,5 @@
 import numpy as np
 from flojoy import flojoy, OrderedPair, Vector
-from scipy import signal
 from typing import Literal
 
 
@@ -11,7 +10,7 @@ def SINE(
     frequency: float = 1,
     offset: float = 0,
     phase: float = 0,
-    waveform: Literal["sine", "square", "triangle", "sawtooth"] = "sine",
+    waveform: Literal["sine"] = "sine",
 ) -> OrderedPair:
     """The SINE node generates a waveform function. With the shape being defined
     by the input.
@@ -44,19 +43,13 @@ def SINE(
     F = frequency
     Y0 = offset
 
-    match default:
-        case OrderedPair():
-            x = default.y
-        case _:
-            x = default.v
+    if isinstance(default, OrderedPair):
+        x = default.y
+    else:
+        x = default.v
+
 
     if waveform == "sine":
         y = Y0 + A * np.sin(2 * np.pi * F * x + phase)
-    elif waveform == "square":
-        y = Y0 + A * signal.square(2 * np.pi * F * x / 10 + phase)
-    elif waveform == "triangle":
-        y = Y0 + A * signal.sawtooth(2 * np.pi * F * x / 10 + phase, 0.5)
-    elif waveform == "sawtooth":
-        y = Y0 + A * signal.sawtooth(2 * np.pi * F / 10 * x + phase)
 
     return OrderedPair(x=x, y=y)

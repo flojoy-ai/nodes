@@ -43,17 +43,15 @@ def CONSTANT(
 
     x = np.arange(0, step, 1)
     if default:
-        match default:
-            case OrderedPair():
-                x = default.y
-            case Vector():
-                x = default.v
+        if isinstance(default, OrderedPair):
+            x = default.y
+        elif isinstance(default, Vector):
+            x = default.v
     y = np.full(len(x), constant)
 
-    match dc_type:
-        case "OrderedPair":
-            return OrderedPair(x=x, y=y)
-        case "Vector":
-            return Vector(v=y)
-        case "Scalar":
-            return Scalar(c=constant)
+    if dc_type == "OrderedPair":
+        return OrderedPair(x=x, y=y)
+    elif dc_type == "Vector":
+        return Vector(v=y)
+    elif dc_type == "Scalar":
+        return Scalar(c=constant)
