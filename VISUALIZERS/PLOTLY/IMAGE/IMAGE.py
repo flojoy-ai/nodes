@@ -35,7 +35,9 @@ def IMAGE(default: Image | Grayscale) -> Plotly:
 
     else:
         img = default.m
-        rgb_image = np.zeros((*img.shape, 3), dtype=np.uint8) #only generated for plotting
+        rgb_image = np.zeros(
+            (*img.shape, 3), dtype=np.uint8
+        )  # only generated for plotting
         rgb_image[..., 0] = img * 255  # Red channel
         rgb_image[..., 1] = img * 255  # Green channel
         rgb_image[..., 2] = img * 255  # Blue channel
