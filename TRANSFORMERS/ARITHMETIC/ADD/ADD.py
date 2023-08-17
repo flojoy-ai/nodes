@@ -41,7 +41,7 @@ def ADD(
 
     initial = get_val(a)
     seq = map(lambda dc: get_val(dc), b)
-    y = reduce(lambda u, v: np.add(u, v), seq, initial)
+    y = reduce(lambda u, v: u+v, seq, initial)
 
     if isinstance(a, OrderedPair):
         return OrderedPair(x=a.x, y=y)
