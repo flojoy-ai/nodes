@@ -69,12 +69,12 @@
                 },
                 "position": {
                     "x": 604.1694193110504,
-                    "y": -293.8148893665653
+                    "y": -312.0263517259316
                 },
                 "selected": false,
                 "positionAbsolute": {
                     "x": 604.1694193110504,
-                    "y": -293.8148893665653
+                    "y": -312.0263517259316
                 },
                 "dragging": true
             },
@@ -145,13 +145,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -1028.3561751592754,
-                    "y": -306.97963415611514
+                    "x": -1053.189987467502,
+                    "y": -364.92519620864414
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -1028.3561751592754,
-                    "y": -306.97963415611514
+                    "x": -1053.189987467502,
+                    "y": -364.92519620864414
                 },
                 "dragging": true
             },
@@ -219,16 +219,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
-                    "x": -260.9483748390503,
-                    "y": 380.3947601155629
+                    "x": -217.90310017145737,
+                    "y": 271.1259859593654
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
-                    "x": -260.9483748390503,
-                    "y": 380.3947601155629
+                    "x": -217.90310017145737,
+                    "y": 271.1259859593654
                 },
                 "dragging": true
             },
@@ -265,13 +265,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 663.4241694293964,
-                    "y": 563.3047497990996
+                    "x": 653.4906445061058,
+                    "y": 571.5826872351752
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 663.4241694293964,
-                    "y": 563.3047497990996
+                    "x": 653.4906445061058,
+                    "y": 571.5826872351752
                 },
                 "dragging": true
             },
@@ -351,173 +351,26 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1398.985331509213,
-                    "y": -132.3656780648402
+                    "x": 1389.0518065859221,
+                    "y": -76.07570349952636
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1398.985331509213,
-                    "y": -132.3656780648402
+                    "x": 1389.0518065859221,
+                    "y": -76.07570349952636
                 },
                 "dragging": true
             },
             {
-                "width": 210,
-                "height": 160,
-                "id": "REGION_PROPERTIES-f67b0fc5-736f-4b54-9829-d8b8a3c27642",
-                "type": "TRANSFORMERS",
+                "width": 380,
+                "height": 293,
+                "id": "EXTREMA_DETERMINATION-601e08c6-42d6-4b85-aa87-5e8ea4d4abb5",
+                "type": "VISUALIZERS",
                 "data": {
-                    "id": "REGION_PROPERTIES-f67b0fc5-736f-4b54-9829-d8b8a3c27642",
-                    "label": "REGION PROPERTIES",
-                    "func": "REGION_PROPERTIES",
-                    "type": "TRANSFORMERS",
-                    "ctrls": {},
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image|Grayscale|Matrix",
-                            "multiple": false,
-                            "desc": "The input node to this function. If nothing is supplied, then a demo test\ncase is returned to illustrate the functionality of this node."
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly",
-                            "desc": "Returns the Plotly superclass of `DataContainer` that has the illustrated\nfeatures as determined by this node."
-                        }
-                    ],
-                    "pip_dependencies": [
-                        {
-                            "name": "scikit-image",
-                            "v": "0.21.0"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/REGION_PROPERTIES/REGION_PROPERTIES.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 744.2847910263569,
-                    "y": 304.6903561011768
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 744.2847910263569,
-                    "y": 304.6903561011768
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 160,
-                "id": "REGION_PROPERTIES-6d5da92b-0095-4e3d-ac73-84e4a5ddecd8",
-                "type": "TRANSFORMERS",
-                "data": {
-                    "id": "REGION_PROPERTIES-6d5da92b-0095-4e3d-ac73-84e4a5ddecd8",
-                    "label": "REGION PROPERTIES 1",
-                    "func": "REGION_PROPERTIES",
-                    "type": "TRANSFORMERS",
-                    "ctrls": {},
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image|Grayscale|Matrix",
-                            "multiple": false,
-                            "desc": "The input node to this function. If nothing is supplied, then a demo test\ncase is returned to illustrate the functionality of this node."
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly",
-                            "desc": "Returns the Plotly superclass of `DataContainer` that has the illustrated\nfeatures as determined by this node."
-                        }
-                    ],
-                    "pip_dependencies": [
-                        {
-                            "name": "scikit-image",
-                            "v": "0.21.0"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/REGION_PROPERTIES/REGION_PROPERTIES.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": -157.76544733647654,
-                    "y": -356.8071801130855
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -157.76544733647654,
-                    "y": -356.8071801130855
-                },
-                "dragging": true
-            },
-            {
-                "width": 210,
-                "height": 160,
-                "id": "REGION_PROPERTIES-06143461-e19b-47ec-a230-9ef6c710ea27",
-                "type": "TRANSFORMERS",
-                "data": {
-                    "id": "REGION_PROPERTIES-06143461-e19b-47ec-a230-9ef6c710ea27",
-                    "label": "REGION PROPERTIES 2",
-                    "func": "REGION_PROPERTIES",
-                    "type": "TRANSFORMERS",
-                    "ctrls": {},
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image|Grayscale|Matrix",
-                            "multiple": false,
-                            "desc": "The input node to this function. If nothing is supplied, then a demo test\ncase is returned to illustrate the functionality of this node."
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly",
-                            "desc": "Returns the Plotly superclass of `DataContainer` that has the illustrated\nfeatures as determined by this node."
-                        }
-                    ],
-                    "pip_dependencies": [
-                        {
-                            "name": "scikit-image",
-                            "v": "0.21.0"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/REGION_PROPERTIES/REGION_PROPERTIES.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1472.237139175942,
-                    "y": -367.6046205660557
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1472.237139175942,
-                    "y": -367.6046205660557
-                },
-                "dragging": true
-            },
-            {
-                "width": 160,
-                "height": 160,
-                "id": "EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9",
-                "type": "TRANSFORMERS",
-                "data": {
-                    "id": "EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9",
+                    "id": "EXTREMA_DETERMINATION-601e08c6-42d6-4b85-aa87-5e8ea4d4abb5",
                     "label": "LoG PEAK FINDER",
                     "func": "EXTREMA_DETERMINATION",
-                    "type": "TRANSFORMERS",
+                    "type": "VISUALIZERS",
                     "ctrls": {
                         "center": {
                             "type": "list[int]",
@@ -622,26 +475,26 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 91.81927191966867,
-                    "y": 403.5982303010262
+                    "x": 143.65257646934958,
+                    "y": 376.16518590802207
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 91.81927191966867,
-                    "y": 403.5982303010262
+                    "x": 143.65257646934958,
+                    "y": 376.16518590802207
                 },
                 "dragging": true
             },
             {
-                "width": 160,
-                "height": 160,
-                "id": "EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68f",
-                "type": "TRANSFORMERS",
+                "width": 380,
+                "height": 293,
+                "id": "EXTREMA_DETERMINATION-044a2e60-2992-456e-807d-27a973df9925",
+                "type": "VISUALIZERS",
                 "data": {
-                    "id": "EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68f",
+                    "id": "EXTREMA_DETERMINATION-044a2e60-2992-456e-807d-27a973df9925",
                     "label": "LDR PEAK FINDER",
                     "func": "EXTREMA_DETERMINATION",
-                    "type": "TRANSFORMERS",
+                    "type": "VISUALIZERS",
                     "ctrls": {
                         "center": {
                             "type": "list[int]",
@@ -746,26 +599,173 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -679.3897376208056,
-                    "y": -263.91789445770195
+                    "x": -703.0148109770004,
+                    "y": -305.25396574770286
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -679.3897376208056,
-                    "y": -263.91789445770195
+                    "x": -703.0148109770004,
+                    "y": -305.25396574770286
                 },
                 "dragging": true
             },
             {
-                "width": 160,
-                "height": 160,
-                "id": "EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976",
-                "type": "TRANSFORMERS",
+                "width": 380,
+                "height": 293,
+                "id": "REGION_PROPERTIES-5d3e79fd-90cb-49a9-8cad-30468d046ec8",
+                "type": "VISUALIZERS",
                 "data": {
-                    "id": "EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976",
+                    "id": "REGION_PROPERTIES-5d3e79fd-90cb-49a9-8cad-30468d046ec8",
+                    "label": "REGION PROPERTIES 1",
+                    "func": "REGION_PROPERTIES",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": "The input node to this function. If nothing is supplied, then a demo test\ncase is returned to illustrate the functionality of this node."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "Returns the Plotly superclass of `DataContainer` that has the illustrated\nfeatures as determined by this node."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/REGION_PROPERTIES/REGION_PROPERTIES.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 651.1791076117513,
+                    "y": 290.4051277948064
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 651.1791076117513,
+                    "y": 290.4051277948064
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "REGION_PROPERTIES-373847d3-c96e-4c79-a80e-8d6d1f551945",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "REGION_PROPERTIES-373847d3-c96e-4c79-a80e-8d6d1f551945",
+                    "label": "REGION PROPERTIES 2",
+                    "func": "REGION_PROPERTIES",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": "The input node to this function. If nothing is supplied, then a demo test\ncase is returned to illustrate the functionality of this node."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "Returns the Plotly superclass of `DataContainer` that has the illustrated\nfeatures as determined by this node."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/REGION_PROPERTIES/REGION_PROPERTIES.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1388.9133403687424,
+                    "y": -367.3884904436671
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1388.9133403687424,
+                    "y": -367.3884904436671
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "REGION_PROPERTIES-bd45eb65-94ef-4d5b-a822-ca6653fe7988",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "REGION_PROPERTIES-bd45eb65-94ef-4d5b-a822-ca6653fe7988",
+                    "label": "REGION PROPERTIES 3",
+                    "func": "REGION_PROPERTIES",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale|Matrix",
+                            "multiple": false,
+                            "desc": "The input node to this function. If nothing is supplied, then a demo test\ncase is returned to illustrate the functionality of this node."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "Returns the Plotly superclass of `DataContainer` that has the illustrated\nfeatures as determined by this node."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/REGION_PROPERTIES/REGION_PROPERTIES.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -248.8832667982938,
+                    "y": -407.6080553003739
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -248.8832667982938,
+                    "y": -407.6080553003739
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "EXTREMA_DETERMINATION-31c62e4e-d139-421c-aa63-7029a27dd453",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "EXTREMA_DETERMINATION-31c62e4e-d139-421c-aa63-7029a27dd453",
                     "label": "HDR PEAK FINDER",
                     "func": "EXTREMA_DETERMINATION",
-                    "type": "TRANSFORMERS",
+                    "type": "VISUALIZERS",
                     "ctrls": {
                         "center": {
                             "type": "list[int]",
@@ -870,86 +870,86 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 953.9519684238553,
-                    "y": -251.78539250272144
+                    "x": 957.5869261451514,
+                    "y": -277.95539414559954
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 953.9519684238553,
-                    "y": -251.78539250272144
+                    "x": 957.5869261451514,
+                    "y": -277.95539414559954
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02",
+                "source": "LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9",
                 "sourceHandle": "default",
-                "target": "EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976",
+                "target": "EXTREMA_DETERMINATION-601e08c6-42d6-4b85-aa87-5e8ea4d4abb5",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02default-EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976default"
+                "id": "reactflow__edge-LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9default-EXTREMA_DETERMINATION-601e08c6-42d6-4b85-aa87-5e8ea4d4abb5default"
             },
             {
-                "source": "EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976",
+                "source": "EXTREMA_DETERMINATION-601e08c6-42d6-4b85-aa87-5e8ea4d4abb5",
                 "sourceHandle": "blobs",
-                "target": "IMAGE-e7d9dc29-41a1-420c-8147-a085c1032003",
+                "target": "IMAGE-14ee8682-0eae-4089-bb0d-85827cd0b310",
                 "targetHandle": "default",
-                "id": "reactflow__edge-EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976blobs-IMAGE-e7d9dc29-41a1-420c-8147-a085c1032003default"
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-601e08c6-42d6-4b85-aa87-5e8ea4d4abb5blobs-IMAGE-14ee8682-0eae-4089-bb0d-85827cd0b310default"
             },
             {
-                "source": "EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976",
+                "source": "EXTREMA_DETERMINATION-601e08c6-42d6-4b85-aa87-5e8ea4d4abb5",
                 "sourceHandle": "blobs",
-                "target": "REGION_PROPERTIES-06143461-e19b-47ec-a230-9ef6c710ea27",
+                "target": "REGION_PROPERTIES-5d3e79fd-90cb-49a9-8cad-30468d046ec8",
                 "targetHandle": "default",
-                "id": "reactflow__edge-EXTREMA_DETERMINATION-52719791-c0d8-4cda-b581-703acf69e976blobs-REGION_PROPERTIES-06143461-e19b-47ec-a230-9ef6c710ea27default"
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-601e08c6-42d6-4b85-aa87-5e8ea4d4abb5blobs-REGION_PROPERTIES-5d3e79fd-90cb-49a9-8cad-30468d046ec8default"
             },
             {
                 "source": "LOCAL_FILE-a6939cc3-d70e-430f-8021-79e3fd8d18a1",
                 "sourceHandle": "default",
-                "target": "EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68f",
+                "target": "EXTREMA_DETERMINATION-044a2e60-2992-456e-807d-27a973df9925",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-a6939cc3-d70e-430f-8021-79e3fd8d18a1default-EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68fdefault"
+                "id": "reactflow__edge-LOCAL_FILE-a6939cc3-d70e-430f-8021-79e3fd8d18a1default-EXTREMA_DETERMINATION-044a2e60-2992-456e-807d-27a973df9925default"
             },
             {
-                "source": "EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68f",
-                "sourceHandle": "blobs",
-                "target": "REGION_PROPERTIES-6d5da92b-0095-4e3d-ac73-84e4a5ddecd8",
-                "targetHandle": "default",
-                "id": "reactflow__edge-EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68fblobs-REGION_PROPERTIES-6d5da92b-0095-4e3d-ac73-84e4a5ddecd8default"
-            },
-            {
-                "source": "EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68f",
+                "source": "EXTREMA_DETERMINATION-044a2e60-2992-456e-807d-27a973df9925",
                 "sourceHandle": "blobs",
                 "target": "IMAGE-6f9055e3-c0e4-4366-addc-e87115239a49",
                 "targetHandle": "default",
-                "id": "reactflow__edge-EXTREMA_DETERMINATION-29881664-ac5b-417a-89fe-26454a11b68fblobs-IMAGE-6f9055e3-c0e4-4366-addc-e87115239a49default"
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-044a2e60-2992-456e-807d-27a973df9925blobs-IMAGE-6f9055e3-c0e4-4366-addc-e87115239a49default"
             },
             {
-                "source": "LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9",
+                "source": "EXTREMA_DETERMINATION-044a2e60-2992-456e-807d-27a973df9925",
+                "sourceHandle": "blobs",
+                "target": "REGION_PROPERTIES-bd45eb65-94ef-4d5b-a822-ca6653fe7988",
+                "targetHandle": "default",
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-044a2e60-2992-456e-807d-27a973df9925blobs-REGION_PROPERTIES-bd45eb65-94ef-4d5b-a822-ca6653fe7988default"
+            },
+            {
+                "source": "LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02",
                 "sourceHandle": "default",
-                "target": "EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9",
+                "target": "EXTREMA_DETERMINATION-31c62e4e-d139-421c-aa63-7029a27dd453",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-1f53746a-5679-4ba5-be64-832d97bc41b9default-EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9default"
+                "id": "reactflow__edge-LOCAL_FILE-ddbac494-e150-4ece-b75a-5b2d3f930d02default-EXTREMA_DETERMINATION-31c62e4e-d139-421c-aa63-7029a27dd453default"
             },
             {
-                "source": "EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9",
+                "source": "EXTREMA_DETERMINATION-31c62e4e-d139-421c-aa63-7029a27dd453",
                 "sourceHandle": "blobs",
-                "target": "IMAGE-14ee8682-0eae-4089-bb0d-85827cd0b310",
+                "target": "REGION_PROPERTIES-373847d3-c96e-4c79-a80e-8d6d1f551945",
                 "targetHandle": "default",
-                "id": "reactflow__edge-EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9blobs-IMAGE-14ee8682-0eae-4089-bb0d-85827cd0b310default"
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-31c62e4e-d139-421c-aa63-7029a27dd453blobs-REGION_PROPERTIES-373847d3-c96e-4c79-a80e-8d6d1f551945default"
             },
             {
-                "source": "EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9",
+                "source": "EXTREMA_DETERMINATION-31c62e4e-d139-421c-aa63-7029a27dd453",
                 "sourceHandle": "blobs",
-                "target": "REGION_PROPERTIES-f67b0fc5-736f-4b54-9829-d8b8a3c27642",
+                "target": "IMAGE-e7d9dc29-41a1-420c-8147-a085c1032003",
                 "targetHandle": "default",
-                "id": "reactflow__edge-EXTREMA_DETERMINATION-91c07938-c10b-48a7-99fc-5780c2c332f9blobs-REGION_PROPERTIES-f67b0fc5-736f-4b54-9829-d8b8a3c27642default"
+                "id": "reactflow__edge-EXTREMA_DETERMINATION-31c62e4e-d139-421c-aa63-7029a27dd453blobs-IMAGE-e7d9dc29-41a1-420c-8147-a085c1032003default"
             }
         ],
         "viewport": {
-            "x": 852.7959874736157,
-            "y": 352.53461082817995,
-            "zoom": 0.7476193625116623
+            "x": 801.6629450152791,
+            "y": 408.96803522436426,
+            "zoom": 0.6040151956464187
         }
     },
     "ctrlsManifest": [
