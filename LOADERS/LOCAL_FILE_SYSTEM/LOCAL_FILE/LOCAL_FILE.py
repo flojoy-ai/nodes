@@ -13,7 +13,14 @@ def get_file_path(file_path: str, default_path: str | None = None):
     return f_path
 
 
-@flojoy(deps={"xlrd": "2.0.1", "lxml": "4.9.2", "openpyxl": "3.0.10","scikit-image":"0.21.0"})
+@flojoy(
+    deps={
+        "xlrd": "2.0.1",
+        "lxml": "4.9.2",
+        "openpyxl": "3.0.10",
+        "scikit-image": "0.21.0",
+    }
+)
 def LOCAL_FILE(
     file_path: str,
     file_type: Literal["Image", "Grayscale", "JSON", "CSV", "Excel", "XML"] = "Image",
@@ -59,15 +66,14 @@ def LOCAL_FILE(
             )
         case "Grayscale":
             import skimage.io
+
             default_image_path = path.join(
                 path.dirname(path.abspath(__file__)),
                 "assets",
                 "astronaut.png",
             )
             file_path = get_file_path(file_path, default_image_path)
-            return Grayscale(
-                img = skimage.io.imread(file_path, as_gray=True)
-            )
+            return Grayscale(img=skimage.io.imread(file_path, as_gray=True))
         case "CSV":
             file_path = get_file_path(file_path)
             df = pd.read_csv(file_path)
