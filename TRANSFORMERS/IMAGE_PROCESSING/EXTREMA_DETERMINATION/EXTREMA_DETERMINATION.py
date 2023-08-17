@@ -391,8 +391,8 @@ def EXTREMA_DETERMINATION(
     )
     fig.add_trace(marker_trace)
 
-    fig.update_xaxes(range=[0, image.shape[0]])
-    fig.update_yaxes(range=[0, image.shape[1]])
+    fig.update_xaxes(range=[image.shape[0], 0])
+    fig.update_yaxes(range=[image.shape[1], 0])
     return EXTREMA_OUTPUT(fig=Plotly(fig=fig), blobs=Grayscale(img=blob_mask))
 
 
