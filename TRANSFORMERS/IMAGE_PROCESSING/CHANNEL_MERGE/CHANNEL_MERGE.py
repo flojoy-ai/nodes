@@ -3,12 +3,7 @@ import numpy as np
 
 
 @flojoy
-def CHANNEL_MERGE(
-    red: Image, 
-    green: Image, 
-    blue: Image, 
-    alpha: Image
-) -> Image:
+def CHANNEL_MERGE(red: Image, green: Image, blue: Image, alpha: Image) -> Image:
     """
     The CHANNEL_MERGE node returns the merged rgba channels of an image
 
@@ -41,14 +36,14 @@ def CHANNEL_MERGE(
             and np.array_equal(blue.a, ones)
         ):
             raise ValueError("Blue input had nonzero values for the other channels.")
-        
+
         if not (
             np.array_equal(green.r, zeros)
             and np.array_equal(green.b, zeros)
             and np.array_equal(green.a, ones)
         ):
             raise ValueError("Green input had nonzero values for the other channels.")
-        
+
         if not (
             np.array_equal(alpha.r, zeros)
             and np.array_equal(alpha.b, zeros)
