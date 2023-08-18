@@ -1,6 +1,6 @@
 from flojoy import flojoy, OrderedPair
 from typing import Optional
-import u3  # Import the library from LabJackPython in order to use our U3-LV device
+from labjackpython import u3  # Import the library from LabJackPython in order to use our U3-LV device
 
 
 @flojoy(deps={"labjackpython": "2.1.0"})
