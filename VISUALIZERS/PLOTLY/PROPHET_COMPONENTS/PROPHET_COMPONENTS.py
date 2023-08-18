@@ -1,4 +1,4 @@
-from flojoy import flojoy, run_in_venv, DataFrame, Plotly, DataContainer
+from flojoy import flojoy, run_in_venv, DataFrame, Plotly
 
 
 @flojoy
@@ -7,9 +7,7 @@ from flojoy import flojoy, run_in_venv, DataFrame, Plotly, DataContainer
         "prophet==1.1.4",
     ]
 )
-def PROPHET_COMPONENTS(
-    default: DataFrame, data: DataContainer, periods: int = 365
-) -> Plotly:
+def PROPHET_COMPONENTS(default: DataFrame, periods: int = 365) -> Plotly:
     """The PROPHET_COMPONENTS node plots the components of the prophet model trained in the PROPHET_PREDICT node.
     This is the output plotly graph from the "plot_components_plotly" function from "prophet.plot".
     It expects the trained Prophet model from the PROPHET_PREDICT node as input.
@@ -97,7 +95,7 @@ def PROPHET_COMPONENTS(
 
     _apply_macos_prophet_hotfix()
 
-    extra = data.extra
+    extra = default.extra
     if not extra or "prophet" not in extra:
         raise ValueError(
             "Prophet model must be available in DataContainer 'extra' key to plot"

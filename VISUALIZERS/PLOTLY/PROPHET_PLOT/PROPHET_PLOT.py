@@ -1,4 +1,4 @@
-from flojoy import flojoy, run_in_venv, DataFrame, Plotly, DataContainer
+from flojoy import flojoy, run_in_venv, DataFrame, Plotly
 
 
 @flojoy(deps={"prophet": "1.1.4", "holidays": "0.26", "pystan": "2.19.1.1"})
@@ -7,7 +7,7 @@ from flojoy import flojoy, run_in_venv, DataFrame, Plotly, DataContainer
         "prophet==1.1.4",
     ]
 )
-def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) -> Plotly:
+def PROPHET_PLOT(default: DataFrame, periods: int = 365) -> Plotly:
     """The PROPHET_PLOT node plots the forecasted trend of the time series data that was passed in.
     This is the output plotly graph from the "plot_plotly" function from "prophet.plot".
     It expects as input the trained Prophet model from the PROPHET_PREDICT node.
@@ -96,7 +96,7 @@ def PROPHET_PLOT(default: DataFrame, data: DataContainer, periods: int = 365) ->
 
     _apply_macos_prophet_hotfix()
 
-    extra = data.extra
+    extra = default.extra
     if not extra or "prophet" not in extra:
         raise ValueError(
             "Prophet model must be available in DataContainer 'extra' key to plot"
