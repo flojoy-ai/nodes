@@ -92,8 +92,10 @@ def LOOP(
 
 def load_loop_data(node_id: str, default_num_loops: int) -> LoopData:
     data: dict[str, Any] = SmallMemory().read_memory(node_id, memory_key) or {}
+    new_data = {"num_loops": default_num_loops}
+    new_data.update(data)
     loop_data = LoopData.from_data(
-        node_id=node_id, data={"num_loops": default_num_loops, **data}
+        node_id=node_id, data=new_data
     )
     return loop_data
 
