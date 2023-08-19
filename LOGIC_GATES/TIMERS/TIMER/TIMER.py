@@ -1,7 +1,7 @@
 from flojoy import flojoy, DataContainer
 from flojoy.job_result_builder import JobResultBuilder
 import time
-from typing import Optional, cast
+from typing import Any, Optional, cast
 
 @flojoy
 def TIMER(
