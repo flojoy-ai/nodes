@@ -12,13 +12,13 @@ def test_CHANNEL_SPLIT(mock_flojoy_decorator):
 
     input = Image(r=red, g=green, b=blue, a=alpha)
     res = CHANNEL_SPLIT.CHANNEL_SPLIT(input)
-    r = res[0].r
-    g = res[1].g
-    b = res[2].b
-    a = res[3].a
+    r = res['r'].r
+    g = res['g'].g
+    b = res['b'].b
+    a = res['a'].a
 
     # Assert returns image channels are matching the input channel
-    assert np.isclose(red, r, atol=0.1)
-    assert np.isclose(green, g, atol=0.1)
-    assert np.isclose(blue, b, atol=0.1)
-    assert np.isclose(alpha, a, atol=0.1)
+    assert np.abs(red-r).sum() < 1e-1
+    assert np.abs(green-g).sum() < 1e-1
+    assert np.abs(blue-b).sum() < 1e-1
+    assert np.abs(alpha-a).sum() < 1e-1

@@ -40,7 +40,7 @@ def test_CHANNEL_MERGE(mock_flojoy_decorator):
     merged_image = CHANNEL_MERGE.CHANNEL_MERGE(
         red=INPUT_1, green=INPUT_2, blue=INPUT_3, alpha=INPUT_4
     )
-    assert np.isclose(merged_image.r, r, atol=0.1)
-    assert np.isclose(merged_image.g, g, atol=0.1)
-    assert np.isclose(merged_image.b, b, atol=0.1)
-    assert np.isclose(merged_image.a, a, atol=0.1)
+    assert np.abs(merged_image.r - r).sum() < 0.1
+    assert np.abs(merged_image.g - g).sum() < 0.1
+    assert np.abs(merged_image.b - b).sum() < 0.1
+    assert np.abs(merged_image.a - a).sum() < 0.1
