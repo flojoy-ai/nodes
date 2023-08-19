@@ -75,14 +75,17 @@ def RAND(
 
     return OrderedPair(x=x, y=y) if default else Scalar(c=y)
 
+
 @display
 def OVERLOAD(lower_bound, upper_bound, distribution="uniform") -> None:
     return None
+
 
 @display
 def OVERLOAD(normal_mean, normal_standard_deviation, distribution="normal") -> None:
     return None
 
+
 @display
-def OVERLOAD(poisson_events) -> None:
+def OVERLOAD(poisson_events, distribution="poisson") -> None:
     return None
