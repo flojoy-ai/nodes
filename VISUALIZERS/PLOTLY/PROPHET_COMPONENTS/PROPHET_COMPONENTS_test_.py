@@ -1,7 +1,7 @@
 import pytest
 import os
 import pandas as pd
-from flojoy import DataFrame, DataContainer
+from flojoy import DataFrame
 from plotly.graph_objs import Figure
 
 
@@ -28,12 +28,12 @@ def test_PROPHET_COMPONENTS(
 ):
     import PROPHET_COMPONENTS
 
-    default = DataFrame(df=mock_prophet_output_dataframe)
     for run_forecast in [True, False]:
-        prophet_data = DataContainer(
-            extra={"run_forecast": run_forecast, "prophet": mock_prophet_model_json}
+        default = DataFrame(
+            df=mock_prophet_output_dataframe,
+            extra={"run_forecast": run_forecast, "prophet": mock_prophet_model_json},
         )
-        res = PROPHET_COMPONENTS.PROPHET_COMPONENTS(default=default, data=prophet_data)
+        res = PROPHET_COMPONENTS.PROPHET_COMPONENTS(default=default)
         # Should get back a plotly figure
         assert res.type == "plotly"
         assert isinstance(res.fig, Figure)

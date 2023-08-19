@@ -1,10 +1,4 @@
-from flojoy import flojoy, run_in_venv, DataFrame, DataContainer
-from typing import TypedDict
-
-
-class ProphetPredictOutput(TypedDict):
-    dataframe: DataFrame
-    prophet_data: DataContainer
+from flojoy import flojoy, run_in_venv, DataFrame
 
 
 @flojoy(deps={"prophet": "1.1.4", "holidays": "0.26", "pystan": "2.19.1.1"})
@@ -15,7 +9,7 @@ class ProphetPredictOutput(TypedDict):
 )
 def PROPHET_PREDICT(
     default: DataFrame, run_forecast: bool = True, periods: int = 365
-) -> ProphetPredictOutput:
+) -> DataFrame:
     """The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe.
 
     The DataContainer input type must be a dataframe, and the first column (or index) of dataframe must be of a datetime type.
@@ -134,6 +128,5 @@ def PROPHET_PREDICT(
         forecast = model.predict(future)
         extra["original"] = df
         return_df = forecast
-    return ProphetPredictOutput(
-        dataframe=DataFrame(df=return_df), prophet_data=DataContainer(extra=extra)
-    )
+
+    return DataFrame(df=return_df, extra=extra)

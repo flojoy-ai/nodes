@@ -1,11 +1,13 @@
-from flojoy import flojoy, OrderedPair
+from flojoy import flojoy, OrderedPair, node_initialization, NodeInitContainer
 from typing import Optional
 import u3  # Import the library from LabJackPython in order to use our U3-LV device
 
 
 @flojoy(deps={"labjackpython": "2.1.0"})
 def LABJACKU3(
-    default: Optional[OrderedPair] = None, sensor_number: int = 1
+    init_container: NodeInitContainer,
+    default: Optional[OrderedPair] = None,
+    sensor_number: int = 1,
 ) -> OrderedPair:
     """The LABJACKU3 node allows you to record and returns temperature measurements with a LABJACK U3 device.
 
@@ -20,10 +22,14 @@ def LABJACKU3(
     temperatures_celsius: list[float] = []
     sensor_num: list[int] = []
 
-    # Create an instance of U3 class
-    d = u3.U3()
-    # Config the U3 for daq from temperature sensors
-    d.configIO(FIOAnalog=255, EIOAnalog=0)
+    d = init_container.get()
+    if d is None:
+        raise ValueError("LabJack U3 device not initialized")
+
+    # # Create an instance of U3 class
+    # d = u3.U3()
+    # # Config the U3 for daq from temperature sensors
+    # d.configIO(FIOAnalog=255, EIOAnalog=0)
 
     for i in range(0, sensor_number):
         sensor_num.append(i + 1)
@@ -37,3 +43,11 @@ def LABJACKU3(
         temperatures_celsius.append(temperature_celsius)
 
     return OrderedPair(x=sensor_num, y=temperatures_celsius)
+
+
+@node_initialization(for_node=LABJACKU3)
+def init():
+    d = u3.U3()
+    d.configIO(FIOAnalog=255, EIOAnalog=0)
+
+    return d
