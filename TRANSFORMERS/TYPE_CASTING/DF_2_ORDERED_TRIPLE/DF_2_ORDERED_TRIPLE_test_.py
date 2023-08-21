@@ -1,4 +1,4 @@
-from flojoy import DataFrame, OrderedTriple
+from flojoy import DataFrame
 import pandas as pd
 import numpy as np
 
@@ -6,8 +6,7 @@ import numpy as np
 def test_DF_2_ORDERED_TRIPLE_column_errorMessage(mock_flojoy_decorator):
     import DF_2_ORDERED_TRIPLE
 
-
-    df = pd.DataFrame({'x':[0, 1], 'y':[4, 9]})
+    df = pd.DataFrame({"x": [0, 1], "y": [4, 9]})
 
     np.testing.assert_raises_regex(
         AssertionError,
@@ -19,9 +18,8 @@ def test_DF_2_ORDERED_TRIPLE_column_errorMessage(mock_flojoy_decorator):
 
 def test_DF_2_ORDERED_TRIPLE_columns_switch_and_dtype(mock_flojoy_decorator):
     import DF_2_ORDERED_TRIPLE
-    
 
-    df = pd.DataFrame({'hello':[0, 1, 2], '-':[3, 4, 5], 'world':[6, 7, 8]})
+    df = pd.DataFrame({"hello": [0, 1, 2], "-": [3, 4, 5], "world": [6, 7, 8]})
     out = DF_2_ORDERED_TRIPLE.DF_2_ORDERED_TRIPLE(DataFrame(df=df), 0, 2, 1)
 
     np.testing.assert_array_equal(([0, 1, 2]), out.x)
