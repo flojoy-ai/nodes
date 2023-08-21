@@ -10,6 +10,14 @@ from functools import wraps
 from flojoy.utils import FLOJOY_CACHE_DIR
 
 
+# @pytest.fixture
+# def mock_layout():
+#     template = {}
+#     with patch("VISUALIZERS.template.template") as mock_template:
+#         mock_template.side_effect = template
+#         yield mock_template
+
+
 @pytest.fixture
 def mock_flojoy_decorator():
     """A fixture that mocks the flojoy decorator to a no-op decorator that does not create a Flojoy node"""

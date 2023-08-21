@@ -32,30 +32,32 @@ def HEATMAP(
     text_template = "%{text}"
     match default:
         case Vector():
-            y = default.v
-            if y.ndim < 2:
-                num_columns = len(y) // 2
-                y = np.reshape(y, (2, num_columns))
+            z = default.v
+            if z.ndim < 2:
+                num_columns = len(z) // 2
+                z = np.reshape(z, (2, num_columns))
             fig = go.Figure(
                 data=[
                     go.Heatmap(
-                        z=y,
-                        text=y if show_text else None,
+                        z=z,
+                        text=z if show_text else None,
                         texttemplate=text_template,
                     )
                 ]
             )
 
         case OrderedPair():
-            y = default.y
+            z = default.y
             if default.y.ndim < 2:
                 num_columns = len(default.y) // 2
-                y = np.reshape(default.y, (2, num_columns))
+                z = np.reshape(default.y, (2, num_columns))
             fig = go.Figure(
                 data=[
                     go.Heatmap(
-                        z=y,
-                        text=y if show_text else None,
+                        z=z,
+                        x=default.x,
+                        y=default.y,
+                        text=z if show_text else None,
                         texttemplate=text_template,
                     )
                 ]
@@ -77,6 +79,8 @@ def HEATMAP(
                 data=[
                     go.Heatmap(
                         z=z,
+                        x=x,
+                        y=y,
                         text=z if show_text else None,
                         texttemplate=text_template,
                     )
@@ -87,7 +91,15 @@ def HEATMAP(
             if m.ndim < 2:
                 num_columns = len(m) // 2
                 m = np.reshape(m, (2, num_columns))
-            fig = go.Figure(data=[go.Heatmap(z=m)])
+            fig = go.Figure(
+                data=[
+                    go.Heatmap(
+                        z=m,
+                        text=m if show_text else None,
+                        texttemplate=text_template,
+                    )
+                ]
+            )
         case DataFrame():
             df = default.m
             fig = px.imshow(df, text_auto=show_text)
