@@ -16,6 +16,11 @@ def HEATMAP(
     ------
     default : OrderedPair|OrderedTriple|DataFrame|Vector|Matrix
         the DataContainer to be visualized
+        
+    Parameters
+    ----------
+    show_text : bool
+        whether to show the text inside the heatmap color blocks
 
     Returns
     -------
