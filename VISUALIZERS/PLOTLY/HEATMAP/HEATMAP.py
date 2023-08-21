@@ -16,7 +16,7 @@ def HEATMAP(
     ------
     default : OrderedPair|OrderedTriple|DataFrame|Vector|Matrix
         the DataContainer to be visualized
-        
+
     Parameters
     ----------
     show_text : bool
@@ -29,20 +29,37 @@ def HEATMAP(
 
     """
     layout = plot_layout(title="HEATMAP")
+    text_template = "%{text}"
     match default:
         case Vector():
             y = default.v
             if y.ndim < 2:
                 num_columns = len(y) // 2
                 y = np.reshape(y, (2, num_columns))
-            fig = go.Figure(data=[go.Heatmap(z=y, text=y if show_text else None)])
+            fig = go.Figure(
+                data=[
+                    go.Heatmap(
+                        z=y,
+                        text=y if show_text else None,
+                        texttemplate=text_template,
+                    )
+                ]
+            )
 
         case OrderedPair():
             y = default.y
             if default.y.ndim < 2:
                 num_columns = len(default.y) // 2
                 y = np.reshape(default.y, (2, num_columns))
-            fig = go.Figure(data=[go.Heatmap(z=y, text=y if show_text else None)])
+            fig = go.Figure(
+                data=[
+                    go.Heatmap(
+                        z=y,
+                        text=y if show_text else None,
+                        texttemplate=text_template,
+                    )
+                ]
+            )
         case OrderedTriple():
             x = np.unique(default.x)
             y = np.unique(default.y)
@@ -61,7 +78,7 @@ def HEATMAP(
                     go.Heatmap(
                         z=z,
                         text=z if show_text else None,
-                        texttemplate="%{text}",
+                        texttemplate=text_template,
                     )
                 ]
             )
