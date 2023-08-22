@@ -99,7 +99,7 @@ def test_NP_2_DF_image(mock_flojoy_decorator):
     )
     out_a = NP_2_DF.NP_2_DF(image_a)
     result_a = [[1, 5, 9, 1], [2, 6, 10, 1], [3, 7, 11, 1], [4, 8, 12, 1]]
-    assert out_a.m.equals(pd.DataFrame(result_a))
+    assert out_a.m.equals(pd.DataFrame(np.asarray(result_a)))
 
     # With a None
     image = Image(
@@ -119,7 +119,7 @@ def test_NP_2_DF_image(mock_flojoy_decorator):
         [250, 200, 220],
         [255, 240, 250],
     ]
-    assert out.m.equals(pd.DataFrame(result))
+    assert out.m.equals(pd.DataFrame(np.asarray(result)))
 
 
 # Test case when none and raise an error message.
