@@ -62,7 +62,8 @@ def TRAIN_TEST_SPLIT(
     X, y = arrays.x, arrays.y
 
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y,
+        X,
+        y,
         test_size=test_size,
         train_size=train_size,
         random_state=random_state,
