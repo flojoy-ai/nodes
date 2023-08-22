@@ -1,4 +1,6 @@
-from flojoy import OrderedPair, flojoy, Scalar, ParametricOrderedTriple
+from __future__ import annotations
+
+from flojoy import Array, OrderedPair, ParametricOrderedTriple, flojoy
 from sklearn.model_selection import train_test_split
 
 
@@ -7,11 +9,11 @@ from sklearn.model_selection import train_test_split
 @flojoy(deps={"scikit-learn": "1.2.2"})
 def TRAIN_TEST_SPLIT(
     arrays: OrderedPair,
-    test_size=None,
-    train_size=None,
-    random_state=None,
-    shuffle=True,
-    stratify=None,
+    test_size: float = None,
+    train_size: float = None,
+    random_state: int = None,
+    shuffle: bool = True,
+    stratify: Array = None,
 ) -> ParametricOrderedTriple:
     """Split arrays or matrices into random train and test subsets.
 
