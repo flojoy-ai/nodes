@@ -1,5 +1,5 @@
 import numpy as np
-from flojoy import DCNpArrayType, flojoy, Vector, OrderedPair, Scalar
+from flojoy import flojoy, Vector, OrderedPair, Scalar
 from typing import Optional, Literal
 
 
