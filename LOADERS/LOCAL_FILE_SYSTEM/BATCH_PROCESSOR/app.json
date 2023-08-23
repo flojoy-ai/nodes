@@ -18,7 +18,7 @@
                             "desc": "number of times to iterate through body nodes default is `-1` meaning infinity.",
                             "functionName": "LOOP",
                             "param": "num_loops",
-                            "value": 20
+                            "value": -1
                         }
                     },
                     "inputs": [
@@ -48,116 +48,42 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 78.73748764932837,
-                    "y": 228.63266296801987
+                    "x": -493.50376637744193,
+                    "y": 565.2664034031625
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 78.73748764932837,
-                    "y": 228.63266296801987
+                    "x": -493.50376637744193,
+                    "y": 565.2664034031625
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
-                "id": "BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851",
-                "type": "VISUALIZERS",
+                "width": 208,
+                "height": 96,
+                "id": "FEEDBACK-b4aa39f0-e14a-40d5-92ae-28032dab884e",
+                "type": "GENERATORS",
                 "data": {
-                    "id": "BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851",
-                    "label": "BIG NUMBER",
-                    "func": "BIG_NUMBER",
-                    "type": "VISUALIZERS",
+                    "id": "FEEDBACK-b4aa39f0-e14a-40d5-92ae-28032dab884e",
+                    "label": "FEEDBACK",
+                    "func": "FEEDBACK",
+                    "type": "GENERATORS",
                     "ctrls": {
-                        "suffix": {
-                            "type": "str",
-                            "default": null,
-                            "desc": null,
-                            "functionName": "BIG_NUMBER",
-                            "param": "suffix",
-                            "value": ""
-                        },
-                        "prefix": {
-                            "type": "str",
-                            "default": null,
-                            "desc": null,
-                            "functionName": "BIG_NUMBER",
-                            "param": "prefix",
-                            "value": ""
-                        },
-                        "title": {
-                            "type": "str",
-                            "default": null,
-                            "desc": null,
-                            "functionName": "BIG_NUMBER",
-                            "param": "title",
-                            "value": ""
-                        },
-                        "relative_delta": {
-                            "type": "bool",
-                            "default": true,
-                            "desc": null,
-                            "functionName": "BIG_NUMBER",
-                            "param": "relative_delta",
-                            "value": true
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair|Scalar",
-                            "multiple": false,
-                            "desc": null
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly",
-                            "desc": null
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/BIG_NUMBER/BIG_NUMBER.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 760.3341392680728,
-                    "y": -220.48072215661176
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 760.3341392680728,
-                    "y": -220.48072215661176
-                },
-                "dragging": true
-            },
-            {
-                "width": 150,
-                "height": 180,
-                "id": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
-                "type": "default",
-                "data": {
-                    "id": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
-                    "label": "LOOP INDEX",
-                    "func": "LOOP_INDEX",
-                    "type": "default",
-                    "ctrls": {
-                        "loop_node": {
+                        "referred_node": {
                             "type": "NodeReference",
                             "default": null,
-                            "desc": "The LOOP node to track the loop index from.",
-                            "functionName": "LOOP_INDEX",
-                            "param": "loop_node",
-                            "value": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7"
+                            "desc": "The node ID to capture the result from.",
+                            "functionName": "FEEDBACK",
+                            "param": "referred_node",
+                            "value": "ADD-8c8fd212-01e8-4711-a527-115925df5bba"
                         }
                     },
+                    "initCtrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair|Scalar",
+                            "type": "Any",
                             "multiple": false,
                             "desc": null
                         }
@@ -166,142 +92,81 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Scalar",
-                            "desc": "The loop index in Scalar form."
+                            "type": "Any",
+                            "desc": null
                         }
                     ],
-                    "path": "PYTHON/nodes\\LOGIC_GATES\\LOOP_TOOLS\\LOOP_INDEX\\LOOP_INDEX.py",
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/FEEDBACK/FEEDBACK.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 308.26821362347727,
-                    "y": 19.06817762285897
+                    "x": -220.47431453825283,
+                    "y": 523.7028529718186
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 308.26821362347727,
-                    "y": 19.06817762285897
+                    "x": -220.47431453825283,
+                    "y": 523.7028529718186
                 },
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
-                "id": "IMAGE-b524fded-dfe8-4344-97b0-083fa12a2def",
-                "type": "VISUALIZERS",
+                "width": 72,
+                "height": 72,
+                "id": "ADD-8c8fd212-01e8-4711-a527-115925df5bba",
+                "type": "ARITHMETIC",
                 "data": {
-                    "id": "IMAGE-b524fded-dfe8-4344-97b0-083fa12a2def",
-                    "label": "IMAGE",
-                    "func": "IMAGE",
-                    "type": "VISUALIZERS",
+                    "id": "ADD-8c8fd212-01e8-4711-a527-115925df5bba",
+                    "label": "ADD",
+                    "func": "ADD",
+                    "type": "ARITHMETIC",
                     "ctrls": {},
                     "initCtrls": {},
                     "inputs": [
                         {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image|Grayscale",
+                            "name": "a",
+                            "id": "a",
+                            "type": "OrderedPair|Scalar|Vector",
                             "multiple": false,
-                            "desc": "the DataContainer to be visualized"
+                            "desc": "The input a use to compute the sum of a and b."
+                        },
+                        {
+                            "name": "b",
+                            "id": "b",
+                            "type": "OrderedPair|Scalar|Vector",
+                            "multiple": true,
+                            "desc": "The input b use to compute the sum of a and b."
                         }
                     ],
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Plotly",
-                            "desc": "the DataContainer containing Plotly Image visualization of the input image"
+                            "type": "OrderedPair|Scalar|Vector",
+                            "desc": "OrderedPair if a is an OrderedPair.\nx: the x-axis of input a.\ny: the sum of input a and input b.\n\nScalar if a is a Scalar.\nc: the sum of input a and input b.\n\nVector if a is a Vector.\nv: the sum of input a and input b."
                         }
                     ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "path": "PYTHON/nodes/TRANSFORMERS/ARITHMETIC/ADD/ADD.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1352.4291378454932,
-                    "y": 64.89660660489756
+                    "x": 187.50179000667788,
+                    "y": 490.386989836697
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1352.4291378454932,
-                    "y": 64.89660660489756
-                },
-                "dragging": true
-            },
-            {
-                "width": 189,
-                "height": 160,
-                "id": "BATCH_PROCESSOR-88ce3753-d29e-4d6d-a593-a7b8bb145263",
-                "type": "LOADERS",
-                "data": {
-                    "id": "BATCH_PROCESSOR-88ce3753-d29e-4d6d-a593-a7b8bb145263",
-                    "label": "BATCH PROCESSOR",
-                    "func": "BATCH_PROCESSOR",
-                    "type": "LOADERS",
-                    "ctrls": {
-                        "directory_path": {
-                            "type": "str",
-                            "default": null,
-                            "desc": null,
-                            "functionName": "BATCH_PROCESSOR",
-                            "param": "directory_path",
-                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/BATCH_PROCESSOR/assets"
-                        },
-                        "pattern": {
-                            "type": "str",
-                            "default": "",
-                            "desc": null,
-                            "functionName": "BATCH_PROCESSOR",
-                            "param": "pattern",
-                            "value": "*.tif"
-                        },
-                        "refresh": {
-                            "type": "bool",
-                            "default": true,
-                            "desc": null,
-                            "functionName": "BATCH_PROCESSOR",
-                            "param": "refresh",
-                            "value": true
-                        }
-                    },
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "current_iteration",
-                            "id": "current_iteration",
-                            "type": "Scalar",
-                            "multiple": false,
-                            "desc": null
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "TextBlob",
-                            "desc": null
-                        }
-                    ],
-                    "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/BATCH_PROCESSOR/BATCH_PROCESSOR.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 600.3897532999434,
-                    "y": 116.45616474666684
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 600.3897532999434,
-                    "y": 116.45616474666684
+                    "x": 187.50179000667788,
+                    "y": 490.386989836697
                 },
                 "dragging": true
             },
             {
                 "width": 160,
                 "height": 160,
-                "id": "LOCAL_FILE-700140f9-e023-42ca-92ae-cab81d5e6d0c",
+                "id": "LOCAL_FILE-4acde8ee-1206-4408-8f91-72b1fdd9ac2f",
                 "type": "LOADERS",
                 "data": {
-                    "id": "LOCAL_FILE-700140f9-e023-42ca-92ae-cab81d5e6d0c",
+                    "id": "LOCAL_FILE-4acde8ee-1206-4408-8f91-72b1fdd9ac2f",
                     "label": "LOCAL FILE",
                     "func": "LOCAL_FILE",
                     "type": "LOADERS",
@@ -368,55 +233,569 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1317.706203101946,
+                    "y": 647.0685000756501
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1317.706203101946,
+                    "y": 647.0685000756501
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-067c1e85-7c1e-485a-9228-d0c1a138f492",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "IMAGE-067c1e85-7c1e-485a-9228-d0c1a138f492",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Image visualization of the input image"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1637.537779397734,
+                    "y": 569.694294297562
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1637.537779397734,
+                    "y": 569.694294297562
+                },
+                "dragging": true
+            },
+            {
+                "width": 96,
+                "height": 96,
+                "id": "CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88db",
+                "type": "CONDITIONALS",
+                "data": {
+                    "id": "CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88db",
+                    "label": "CONDITIONAL",
+                    "func": "CONDITIONAL",
+                    "type": "CONDITIONALS",
+                    "ctrls": {
+                        "operator_type": {
+                            "type": "select",
+                            "default": ">=",
+                            "options": [
+                                "<=",
+                                ">",
+                                "<",
+                                ">=",
+                                "!=",
+                                "=="
+                            ],
+                            "desc": "Specifies the type of comparison to be performed between the two inputs. The default value is \">=\".",
+                            "functionName": "CONDITIONAL",
+                            "param": "operator_type",
+                            "value": ">="
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "x",
+                            "id": "x",
+                            "type": "Scalar",
+                            "multiple": false,
+                            "desc": null
+                        },
+                        {
+                            "name": "y",
+                            "id": "y",
+                            "type": "Scalar",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "true",
+                            "id": "true",
+                            "type": "Any",
+                            "desc": null
+                        },
+                        {
+                            "name": "false",
+                            "id": "false",
+                            "type": "Any",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/CONDITIONALS/CONDITIONAL/CONDITIONAL.py",
                     "selected": true
                 },
                 "position": {
-                    "x": 938.4635309814473,
-                    "y": 130.90319199621865
+                    "x": 457.50776141935216,
+                    "y": 415.3884965154285
                 },
                 "selected": true,
                 "positionAbsolute": {
-                    "x": 938.4635309814473,
-                    "y": 130.90319199621865
+                    "x": 457.50776141935216,
+                    "y": 415.3884965154285
+                },
+                "dragging": true
+            },
+            {
+                "width": 189,
+                "height": 160,
+                "id": "BATCH_PROCESSOR-5b2a1548-b6c4-4ad1-80b9-04a07de479ed",
+                "type": "LOADERS",
+                "data": {
+                    "id": "BATCH_PROCESSOR-5b2a1548-b6c4-4ad1-80b9-04a07de479ed",
+                    "label": "BATCH PROCESSOR",
+                    "func": "BATCH_PROCESSOR",
+                    "type": "LOADERS",
+                    "ctrls": {
+                        "directory_path": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The directory in which we should pattern match to find the files",
+                            "functionName": "BATCH_PROCESSOR",
+                            "param": "directory_path",
+                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/BATCH_PROCESSOR/assets"
+                        },
+                        "pattern": {
+                            "type": "str",
+                            "default": "",
+                            "desc": "The glob pattern to match. If not provided, all files in the directory\nare returned. The current implementation supports recursion and double\nwildcard matching.",
+                            "functionName": "BATCH_PROCESSOR",
+                            "param": "pattern",
+                            "value": "*.tif"
+                        },
+                        "refresh": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": "A switching parameter that refreshes the cache of files. If a separate\nprogramme is expected to continuously write new files of interest to the\ndirectory, this flag will enable the update of the new files for processing.",
+                            "functionName": "BATCH_PROCESSOR",
+                            "param": "refresh",
+                            "value": true
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "current_iteration",
+                            "id": "current_iteration",
+                            "type": "Scalar",
+                            "multiple": false,
+                            "desc": "This is the input from the `LOOP_INDEX` node that determines\nif we need to initialize this routine or not."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "fname",
+                            "id": "fname",
+                            "type": "TextBlob",
+                            "desc": null
+                        },
+                        {
+                            "name": "n_files",
+                            "id": "n_files",
+                            "type": "Scalar",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/BATCH_PROCESSOR/BATCH_PROCESSOR.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 130.9497020746344,
+                    "y": 246.7625344074213
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 130.9497020746344,
+                    "y": 246.7625344074213
+                },
+                "dragging": true
+            },
+            {
+                "width": 189,
+                "height": 160,
+                "id": "BATCH_PROCESSOR-1baf4aa2-3007-496a-a72a-e1b90378b0af",
+                "type": "LOADERS",
+                "data": {
+                    "id": "BATCH_PROCESSOR-1baf4aa2-3007-496a-a72a-e1b90378b0af",
+                    "label": "BATCH PROCESSOR 1",
+                    "func": "BATCH_PROCESSOR",
+                    "type": "LOADERS",
+                    "ctrls": {
+                        "directory_path": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The directory in which we should pattern match to find the files",
+                            "functionName": "BATCH_PROCESSOR",
+                            "param": "directory_path",
+                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/BATCH_PROCESSOR/assets"
+                        },
+                        "pattern": {
+                            "type": "str",
+                            "default": "",
+                            "desc": "The glob pattern to match. If not provided, all files in the directory\nare returned. The current implementation supports recursion and double\nwildcard matching.",
+                            "functionName": "BATCH_PROCESSOR",
+                            "param": "pattern",
+                            "value": "*.tif"
+                        },
+                        "refresh": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": "A switching parameter that refreshes the cache of files. If a separate\nprogramme is expected to continuously write new files of interest to the\ndirectory, this flag will enable the update of the new files for processing.",
+                            "functionName": "BATCH_PROCESSOR",
+                            "param": "refresh",
+                            "value": true
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "current_iteration",
+                            "id": "current_iteration",
+                            "type": "Scalar",
+                            "multiple": false,
+                            "desc": "This is the input from the `LOOP_INDEX` node that determines\nif we need to initialize this routine or not."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "fname",
+                            "id": "fname",
+                            "type": "TextBlob",
+                            "desc": null
+                        },
+                        {
+                            "name": "n_files",
+                            "id": "n_files",
+                            "type": "Scalar",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/BATCH_PROCESSOR/BATCH_PROCESSOR.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 978.5812409955453,
+                    "y": 678.9642272175136
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 978.5812409955453,
+                    "y": 678.9642272175136
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "CONSTANT-cc4b8bab-0b63-4242-869f-f6f76855ff77",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "CONSTANT-cc4b8bab-0b63-4242-869f-f6f76855ff77",
+                    "label": "1",
+                    "func": "CONSTANT",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "dc_type": {
+                            "type": "select",
+                            "default": "OrderedPair",
+                            "options": [
+                                "Scalar",
+                                "Vector",
+                                "OrderedPair"
+                            ],
+                            "desc": "The type of DataContainer to return.",
+                            "functionName": "CONSTANT",
+                            "param": "dc_type",
+                            "value": "Scalar"
+                        },
+                        "constant": {
+                            "type": "float",
+                            "default": 3,
+                            "desc": "The value of the y axis output.",
+                            "functionName": "CONSTANT",
+                            "param": "constant",
+                            "value": 1
+                        },
+                        "step": {
+                            "type": "float",
+                            "default": 1000,
+                            "desc": "The size of the y and x axes.",
+                            "functionName": "CONSTANT",
+                            "param": "step",
+                            "value": 1
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector|OrderedPair",
+                            "multiple": false,
+                            "desc": "Optional input that defines the size of the output."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Vector|Scalar",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/CONSTANT/CONSTANT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -215.32267392320392,
+                    "y": 361.3134560076837
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -215.32267392320392,
+                    "y": 361.3134560076837
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "FEEDBACK-e3550853-7cf9-4260-b28c-304433842911",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "FEEDBACK-e3550853-7cf9-4260-b28c-304433842911",
+                    "label": "FEEDBACK 1",
+                    "func": "FEEDBACK",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "referred_node": {
+                            "type": "NodeReference",
+                            "default": null,
+                            "desc": "The node ID to capture the result from.",
+                            "functionName": "FEEDBACK",
+                            "param": "referred_node",
+                            "value": "ADD-8c8fd212-01e8-4711-a527-115925df5bba"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/FEEDBACK/FEEDBACK.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 616.7700287588946,
+                    "y": 586.7837488992603
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 616.7700287588946,
+                    "y": 586.7837488992603
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "BIG_NUMBER-1a5abbd9-6f7f-4699-8d3b-a24c45c60a68",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "BIG_NUMBER-1a5abbd9-6f7f-4699-8d3b-a24c45c60a68",
+                    "label": "BIG NUMBER",
+                    "func": "BIG_NUMBER",
+                    "type": "VISUALIZERS",
+                    "ctrls": {
+                        "suffix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "any suffix to show with big number",
+                            "functionName": "BIG_NUMBER",
+                            "param": "suffix",
+                            "value": ""
+                        },
+                        "prefix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "any prefix to show with big number",
+                            "functionName": "BIG_NUMBER",
+                            "param": "prefix",
+                            "value": ""
+                        },
+                        "title": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "title of the plot, default \"BIG_NUMBER\"",
+                            "functionName": "BIG_NUMBER",
+                            "param": "title",
+                            "value": ""
+                        },
+                        "relative_delta": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": "whether to show relative delta from last run along with big number",
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": true
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly big number visualization"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/BIG_NUMBER/BIG_NUMBER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 943.5906671996222,
+                    "y": 205.67829193407994
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 943.5906671996222,
+                    "y": 205.67829193407994
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
+                "source": "LOCAL_FILE-4acde8ee-1206-4408-8f91-72b1fdd9ac2f",
+                "sourceHandle": "default",
+                "target": "IMAGE-067c1e85-7c1e-485a-9228-d0c1a138f492",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-4acde8ee-1206-4408-8f91-72b1fdd9ac2fdefault-IMAGE-067c1e85-7c1e-485a-9228-d0c1a138f492default"
+            },
+            {
+                "source": "BATCH_PROCESSOR-1baf4aa2-3007-496a-a72a-e1b90378b0af",
+                "sourceHandle": "fname",
+                "target": "LOCAL_FILE-4acde8ee-1206-4408-8f91-72b1fdd9ac2f",
+                "targetHandle": "default",
+                "id": "reactflow__edge-BATCH_PROCESSOR-1baf4aa2-3007-496a-a72a-e1b90378b0affname-LOCAL_FILE-4acde8ee-1206-4408-8f91-72b1fdd9ac2fdefault"
+            },
+            {
                 "source": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7",
                 "sourceHandle": "body",
-                "target": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
+                "target": "CONSTANT-cc4b8bab-0b63-4242-869f-f6f76855ff77",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7body-LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526adefault"
+                "id": "reactflow__edge-LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7body-CONSTANT-cc4b8bab-0b63-4242-869f-f6f76855ff77default"
             },
             {
-                "source": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
+                "source": "CONSTANT-cc4b8bab-0b63-4242-869f-f6f76855ff77",
                 "sourceHandle": "default",
-                "target": "BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526adefault-BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851default"
-            },
-            {
-                "source": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
-                "sourceHandle": "default",
-                "target": "BATCH_PROCESSOR-88ce3753-d29e-4d6d-a593-a7b8bb145263",
+                "target": "BATCH_PROCESSOR-5b2a1548-b6c4-4ad1-80b9-04a07de479ed",
                 "targetHandle": "current_iteration",
-                "id": "reactflow__edge-LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526adefault-BATCH_PROCESSOR-88ce3753-d29e-4d6d-a593-a7b8bb145263current_iteration"
+                "id": "reactflow__edge-CONSTANT-cc4b8bab-0b63-4242-869f-f6f76855ff77default-BATCH_PROCESSOR-5b2a1548-b6c4-4ad1-80b9-04a07de479edcurrent_iteration"
             },
             {
-                "source": "BATCH_PROCESSOR-88ce3753-d29e-4d6d-a593-a7b8bb145263",
-                "sourceHandle": "default",
-                "target": "LOCAL_FILE-700140f9-e023-42ca-92ae-cab81d5e6d0c",
+                "source": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7",
+                "sourceHandle": "body",
+                "target": "FEEDBACK-b4aa39f0-e14a-40d5-92ae-28032dab884e",
                 "targetHandle": "default",
-                "id": "reactflow__edge-BATCH_PROCESSOR-88ce3753-d29e-4d6d-a593-a7b8bb145263default-LOCAL_FILE-700140f9-e023-42ca-92ae-cab81d5e6d0cdefault"
+                "id": "reactflow__edge-LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7body-FEEDBACK-b4aa39f0-e14a-40d5-92ae-28032dab884edefault"
             },
             {
-                "source": "LOCAL_FILE-700140f9-e023-42ca-92ae-cab81d5e6d0c",
+                "source": "CONSTANT-cc4b8bab-0b63-4242-869f-f6f76855ff77",
                 "sourceHandle": "default",
-                "target": "IMAGE-b524fded-dfe8-4344-97b0-083fa12a2def",
+                "target": "ADD-8c8fd212-01e8-4711-a527-115925df5bba",
+                "targetHandle": "a",
+                "id": "reactflow__edge-CONSTANT-cc4b8bab-0b63-4242-869f-f6f76855ff77default-ADD-8c8fd212-01e8-4711-a527-115925df5bbaa"
+            },
+            {
+                "source": "FEEDBACK-b4aa39f0-e14a-40d5-92ae-28032dab884e",
+                "sourceHandle": "default",
+                "target": "ADD-8c8fd212-01e8-4711-a527-115925df5bba",
+                "targetHandle": "b",
+                "id": "reactflow__edge-FEEDBACK-b4aa39f0-e14a-40d5-92ae-28032dab884edefault-ADD-8c8fd212-01e8-4711-a527-115925df5bbab"
+            },
+            {
+                "source": "BATCH_PROCESSOR-5b2a1548-b6c4-4ad1-80b9-04a07de479ed",
+                "sourceHandle": "n_files",
+                "target": "CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88db",
+                "targetHandle": "y",
+                "id": "reactflow__edge-BATCH_PROCESSOR-5b2a1548-b6c4-4ad1-80b9-04a07de479edn_files-CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88dby"
+            },
+            {
+                "source": "ADD-8c8fd212-01e8-4711-a527-115925df5bba",
+                "sourceHandle": "default",
+                "target": "CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88db",
+                "targetHandle": "x",
+                "id": "reactflow__edge-ADD-8c8fd212-01e8-4711-a527-115925df5bbadefault-CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88dbx"
+            },
+            {
+                "source": "FEEDBACK-e3550853-7cf9-4260-b28c-304433842911",
+                "sourceHandle": "default",
+                "target": "BATCH_PROCESSOR-1baf4aa2-3007-496a-a72a-e1b90378b0af",
+                "targetHandle": "current_iteration",
+                "id": "reactflow__edge-FEEDBACK-e3550853-7cf9-4260-b28c-304433842911default-BATCH_PROCESSOR-1baf4aa2-3007-496a-a72a-e1b90378b0afcurrent_iteration"
+            },
+            {
+                "source": "CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88db",
+                "sourceHandle": "false",
+                "target": "FEEDBACK-e3550853-7cf9-4260-b28c-304433842911",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-700140f9-e023-42ca-92ae-cab81d5e6d0cdefault-IMAGE-b524fded-dfe8-4344-97b0-083fa12a2defdefault"
+                "id": "reactflow__edge-CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88dbfalse-FEEDBACK-e3550853-7cf9-4260-b28c-304433842911default"
+            },
+            {
+                "source": "FEEDBACK-e3550853-7cf9-4260-b28c-304433842911",
+                "sourceHandle": "default",
+                "target": "BIG_NUMBER-1a5abbd9-6f7f-4699-8d3b-a24c45c60a68",
+                "targetHandle": "default",
+                "id": "reactflow__edge-FEEDBACK-e3550853-7cf9-4260-b28c-304433842911default-BIG_NUMBER-1a5abbd9-6f7f-4699-8d3b-a24c45c60a68default"
             }
         ],
         "viewport": {

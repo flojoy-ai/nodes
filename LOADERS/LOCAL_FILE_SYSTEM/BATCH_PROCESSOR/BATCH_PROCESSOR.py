@@ -1,9 +1,12 @@
 from flojoy import flojoy, Scalar, SmallMemory, DefaultParams, TextBlob
 import glob
-from typing import Any
+from typing import Any, TypedDict
 
 memory_key = "batch-processor-info"
 
+class BATCH_OUTPUT(TypedDict):
+    fname: TextBlob
+    n_files: Scalar
 
 def get_fnames(d, p):
     return [file for file in glob.glob(d+'/'+p, recursive=True)]
@@ -15,7 +18,7 @@ def BATCH_PROCESSOR(
     directory_path: str,
     pattern: str = "",
     refresh: bool = True, 
-) -> TextBlob:
+) -> BATCH_OUTPUT:
     """
     This node is designed to glob match a pattern in the given input directory.
 
@@ -56,7 +59,10 @@ def BATCH_PROCESSOR(
     node_id = default_params.node_id
     curr_iter = int(current_iteration.c[0])
     # if iteration 1, pattern find, then write to SmallMemory
-    if curr_iter == 1: #loop index starts at 1, sigh
+    if curr_iter < 2:
+        files = get_fnames(directory_path, pattern if pattern else '*')
+        return BATCH_OUTPUT(fname=TextBlob(text_blob=""), n_files=Scalar(c=len(files)))
+    elif curr_iter == 2: #loop index starts at 1, sigh
         files = get_fnames(directory_path, pattern if pattern else '*')
         SmallMemory().write_to_memory(
             node_id, 
@@ -95,5 +101,5 @@ def BATCH_PROCESSOR(
     data['current_iteration'] = curr_iter
     SmallMemory().write_to_memory(node_id,memory_key, data)
     #And return the current fname
-    return TextBlob(text_blob=fname)
+    return BATCH_OUTPUT(fname = TextBlob(text_blob=fname), n_files=Scalar(c=len(data['original_files'])))
 
