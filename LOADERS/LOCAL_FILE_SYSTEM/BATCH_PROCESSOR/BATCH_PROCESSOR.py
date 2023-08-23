@@ -1,4 +1,4 @@
-from flojoy import flojoy, Vector, Scalar, SmallMemory, DefaultParams
+from flojoy import flojoy, Scalar, SmallMemory, DefaultParams, TextBlob
 import numpy as np
 import glob
 from typing import Any
@@ -16,7 +16,7 @@ def BATCH_PROCESSOR(
     directory_path: str,
     pattern: str = "",
     refresh: bool = True, 
-) -> Vector:
+) -> TextBlob:
     #=======================================================
     # At first iteration, we want to identify the initial 
     # sources to iterate over. Also at the first iteration,
@@ -51,7 +51,8 @@ def BATCH_PROCESSOR(
             {
                 'node_id' : node_id,
                 'current_iteration' : curr_iter,
-                'files' : files
+                'files' : files,
+                'original_files' : files
             }
         )
     # if refresh, glob again, read from smallmemory, 
@@ -59,10 +60,9 @@ def BATCH_PROCESSOR(
     if refresh:
         new_files = get_fnames(directory_path, pattern if pattern else '*')
         old_data: dict[str, Any] = SmallMemory().read_memory(node_id, memory_key) or {}
-        old_files = old_data['files']
         if old_data:
-            difference = set(new_files).difference(set(old_files)) #designed to only catch the addition of files
-            if difference:
+            difference = set(new_files).difference(set(old_data['original_files'])) #designed to only catch the addition of files
+            if not all([not d in old_data['original_files'] for d in list(difference)]):
                 # this means there are more new files added to the mix
                 SmallMemory().write_to_memory(
                     node_id, 
@@ -70,9 +70,11 @@ def BATCH_PROCESSOR(
                     {
                         'node_id' : node_id,
                         'current_iteration' : curr_iter,
-                        'files' : files+list(difference)
+                        'files' : old_data['files']+list(difference),
+                        'original_files' : old_data['original_files']
                     }
                 )
+                raise ValueError(list(difference))
     # Now we read from SmallMemory and pop fname
     data: dict[str, Any] = SmallMemory().read_memory(node_id, memory_key) or {}
     fname = data['files'].pop(0)
@@ -80,7 +82,5 @@ def BATCH_PROCESSOR(
     data['current_iteration'] = curr_iter
     SmallMemory().write_to_memory(node_id,memory_key, data)
     #And return the current fname
-    return Vector(
-        v=np.array(fname)[...,np.newaxis]
-    )
+    return TextBlob(text_blob=fname)
 

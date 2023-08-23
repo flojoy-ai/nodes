@@ -185,12 +185,55 @@
                 "dragging": true
             },
             {
+                "width": 380,
+                "height": 293,
+                "id": "IMAGE-b524fded-dfe8-4344-97b0-083fa12a2def",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "IMAGE-b524fded-dfe8-4344-97b0-083fa12a2def",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Image visualization of the input image"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1352.4291378454932,
+                    "y": 64.89660660489756
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1352.4291378454932,
+                    "y": 64.89660660489756
+                },
+                "dragging": true
+            },
+            {
                 "width": 189,
                 "height": 160,
-                "id": "BATCH_PROCESSOR-8a5e2a5b-a5db-4622-bd30-e0fb462d7881",
+                "id": "BATCH_PROCESSOR-88ce3753-d29e-4d6d-a593-a7b8bb145263",
                 "type": "LOADERS",
                 "data": {
-                    "id": "BATCH_PROCESSOR-8a5e2a5b-a5db-4622-bd30-e0fb462d7881",
+                    "id": "BATCH_PROCESSOR-88ce3753-d29e-4d6d-a593-a7b8bb145263",
                     "label": "BATCH PROCESSOR",
                     "func": "BATCH_PROCESSOR",
                     "type": "LOADERS",
@@ -234,7 +277,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Vector",
+                            "type": "TextBlob",
                             "desc": null
                         }
                     ],
@@ -242,66 +285,23 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 645.8038565819638,
-                    "y": 112.34168638151306
+                    "x": 600.3897532999434,
+                    "y": 116.45616474666684
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 645.8038565819638,
-                    "y": 112.34168638151306
-                },
-                "dragging": true
-            },
-            {
-                "width": 225,
-                "height": 226,
-                "id": "IMAGE-b524fded-dfe8-4344-97b0-083fa12a2def",
-                "type": "VISUALIZERS",
-                "data": {
-                    "id": "IMAGE-b524fded-dfe8-4344-97b0-083fa12a2def",
-                    "label": "IMAGE",
-                    "func": "IMAGE",
-                    "type": "VISUALIZERS",
-                    "ctrls": {},
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image|Grayscale",
-                            "multiple": false,
-                            "desc": "the DataContainer to be visualized"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly",
-                            "desc": "the DataContainer containing Plotly Image visualization of the input image"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1352.4291378454932,
-                    "y": 64.89660660489756
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1352.4291378454932,
-                    "y": 64.89660660489756
+                    "x": 600.3897532999434,
+                    "y": 116.45616474666684
                 },
                 "dragging": true
             },
             {
                 "width": 160,
                 "height": 160,
-                "id": "LOCAL_FILE-23fd4b1b-0724-464d-ae14-a3013d7c339f",
+                "id": "LOCAL_FILE-700140f9-e023-42ca-92ae-cab81d5e6d0c",
                 "type": "LOADERS",
                 "data": {
-                    "id": "LOCAL_FILE-23fd4b1b-0724-464d-ae14-a3013d7c339f",
+                    "id": "LOCAL_FILE-700140f9-e023-42ca-92ae-cab81d5e6d0c",
                     "label": "LOCAL FILE",
                     "func": "LOCAL_FILE",
                     "type": "LOADERS",
@@ -336,7 +336,7 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Vector",
+                            "type": "TextBlob",
                             "multiple": false,
                             "desc": "If this input node is connected, the filename will be taken from \nthe output of the connected node. To be used in conjunction with batch processing"
                         }
@@ -371,13 +371,13 @@
                     "selected": true
                 },
                 "position": {
-                    "x": 994.6363481273536,
-                    "y": 137.40226925702052
+                    "x": 938.4635309814473,
+                    "y": 130.90319199621865
                 },
                 "selected": true,
                 "positionAbsolute": {
-                    "x": 994.6363481273536,
-                    "y": 137.40226925702052
+                    "x": 938.4635309814473,
+                    "y": 130.90319199621865
                 },
                 "dragging": true
             }
@@ -400,23 +400,23 @@
             {
                 "source": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
                 "sourceHandle": "default",
-                "target": "BATCH_PROCESSOR-8a5e2a5b-a5db-4622-bd30-e0fb462d7881",
+                "target": "BATCH_PROCESSOR-88ce3753-d29e-4d6d-a593-a7b8bb145263",
                 "targetHandle": "current_iteration",
-                "id": "reactflow__edge-LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526adefault-BATCH_PROCESSOR-8a5e2a5b-a5db-4622-bd30-e0fb462d7881current_iteration"
+                "id": "reactflow__edge-LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526adefault-BATCH_PROCESSOR-88ce3753-d29e-4d6d-a593-a7b8bb145263current_iteration"
             },
             {
-                "source": "BATCH_PROCESSOR-8a5e2a5b-a5db-4622-bd30-e0fb462d7881",
+                "source": "BATCH_PROCESSOR-88ce3753-d29e-4d6d-a593-a7b8bb145263",
                 "sourceHandle": "default",
-                "target": "LOCAL_FILE-23fd4b1b-0724-464d-ae14-a3013d7c339f",
+                "target": "LOCAL_FILE-700140f9-e023-42ca-92ae-cab81d5e6d0c",
                 "targetHandle": "default",
-                "id": "reactflow__edge-BATCH_PROCESSOR-8a5e2a5b-a5db-4622-bd30-e0fb462d7881default-LOCAL_FILE-23fd4b1b-0724-464d-ae14-a3013d7c339fdefault"
+                "id": "reactflow__edge-BATCH_PROCESSOR-88ce3753-d29e-4d6d-a593-a7b8bb145263default-LOCAL_FILE-700140f9-e023-42ca-92ae-cab81d5e6d0cdefault"
             },
             {
-                "source": "LOCAL_FILE-23fd4b1b-0724-464d-ae14-a3013d7c339f",
+                "source": "LOCAL_FILE-700140f9-e023-42ca-92ae-cab81d5e6d0c",
                 "sourceHandle": "default",
                 "target": "IMAGE-b524fded-dfe8-4344-97b0-083fa12a2def",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-23fd4b1b-0724-464d-ae14-a3013d7c339fdefault-IMAGE-b524fded-dfe8-4344-97b0-083fa12a2defdefault"
+                "id": "reactflow__edge-LOCAL_FILE-700140f9-e023-42ca-92ae-cab81d5e6d0cdefault-IMAGE-b524fded-dfe8-4344-97b0-083fa12a2defdefault"
             }
         ],
         "viewport": {

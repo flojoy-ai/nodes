@@ -1,4 +1,4 @@
-from flojoy import flojoy, Image, DataFrame, Grayscale, Vector
+from flojoy import flojoy, Image, DataFrame, Grayscale, TextBlob
 from typing import Literal, Optional
 import numpy as np
 from PIL import Image as PIL_Image
@@ -23,7 +23,7 @@ def get_file_path(file_path: str, default_path: str | None = None):
 )
 def LOCAL_FILE(
     file_path: str,
-    default: Optional[Vector] = None,
+    default: Optional[TextBlob] = None,
     file_type: Literal["Image", "Grayscale", "JSON", "CSV", "Excel", "XML"] = "Image",
 ) -> Image | DataFrame:
     """The LOCAL_FILE node loads a local file of a different type and converts it to a DataContainer class.
@@ -32,7 +32,7 @@ def LOCAL_FILE(
     ----------
     file_type : str
         type of file to load, default = image
-    default   : Optional[Vector]
+    default   : Optional[TextBlob]
         If this input node is connected, the filename will be taken from 
         the output of the connected node. To be used in conjunction with batch processing
     file_path : str
@@ -53,7 +53,7 @@ def LOCAL_FILE(
     match file_type:
         case "Image":
             file_path = get_file_path(file_path, default_image_path)
-            f = PIL_Image.open(default.v[0] if default else file_path)
+            f = PIL_Image.open(default.text_blob if default else file_path)
             img_array = np.array(f.convert("RGBA"))
             red_channel = img_array[:, :, 0]
             green_channel = img_array[:, :, 1]
@@ -71,20 +71,20 @@ def LOCAL_FILE(
         case "Grayscale":
             import skimage.io
             file_path = get_file_path(file_path, default_image_path)
-            return Grayscale(img=skimage.io.imread(default.v[0] if default else file_path, as_gray=True))
+            return Grayscale(img=skimage.io.imread(default.text_blob if default else file_path, as_gray=True))
         case "CSV":
             file_path = get_file_path(file_path)
-            df = pd.read_csv(default.v[0] if default else file_path)
+            df = pd.read_csv(default.text_blob if default else file_path)
             return DataFrame(df=df)
         case "JSON":
             file_path = get_file_path(file_path)
-            df = pd.read_json(default.v[0] if default else file_path)
+            df = pd.read_json(default.text_blob if default else file_path)
             return DataFrame(df=df)
         case "XML":
             file_path = get_file_path(file_path)
-            df = pd.read_xml(default.v[0] if default else file_path)
+            df = pd.read_xml(default.text_blob if default else file_path)
             return DataFrame(df=df)
         case "Excel":
             file_path = get_file_path(file_path)
-            df = pd.read_excel(default.v[0] if default else file_path)
+            df = pd.read_excel(default.text_blob if default else file_path)
             return DataFrame(df=df)
