@@ -1,0 +1,447 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 96,
+                "height": 96,
+                "id": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7",
+                "type": "LOGIC_GATES",
+                "data": {
+                    "id": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7",
+                    "label": "LOOP",
+                    "func": "LOOP",
+                    "type": "LOGIC_GATES",
+                    "ctrls": {
+                        "num_loops": {
+                            "type": "int",
+                            "default": -1,
+                            "desc": "number of times to iterate through body nodes default is `-1` meaning infinity.",
+                            "functionName": "LOOP",
+                            "param": "num_loops",
+                            "value": 20
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "body",
+                            "id": "body",
+                            "type": "Any",
+                            "desc": null
+                        },
+                        {
+                            "name": "end",
+                            "id": "end",
+                            "type": "Any",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/LOOPS/LOOP/LOOP.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 78.73748764932837,
+                    "y": 228.63266296801987
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 78.73748764932837,
+                    "y": 228.63266296801987
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851",
+                    "label": "BIG NUMBER",
+                    "func": "BIG_NUMBER",
+                    "type": "VISUALIZERS",
+                    "ctrls": {
+                        "suffix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "suffix",
+                            "value": ""
+                        },
+                        "prefix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "prefix",
+                            "value": ""
+                        },
+                        "title": {
+                            "type": "str",
+                            "default": null,
+                            "desc": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "title",
+                            "value": ""
+                        },
+                        "relative_delta": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": true
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/BIG_NUMBER/BIG_NUMBER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 760.3341392680728,
+                    "y": -220.48072215661176
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 760.3341392680728,
+                    "y": -220.48072215661176
+                },
+                "dragging": true
+            },
+            {
+                "width": 150,
+                "height": 180,
+                "id": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
+                "type": "default",
+                "data": {
+                    "id": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
+                    "label": "LOOP INDEX",
+                    "func": "LOOP_INDEX",
+                    "type": "default",
+                    "ctrls": {
+                        "loop_node": {
+                            "type": "NodeReference",
+                            "default": null,
+                            "desc": "The LOOP node to track the loop index from.",
+                            "functionName": "LOOP_INDEX",
+                            "param": "loop_node",
+                            "value": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Scalar",
+                            "desc": "The loop index in Scalar form."
+                        }
+                    ],
+                    "path": "PYTHON/nodes\\LOGIC_GATES\\LOOP_TOOLS\\LOOP_INDEX\\LOOP_INDEX.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 308.26821362347727,
+                    "y": 19.06817762285897
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 308.26821362347727,
+                    "y": 19.06817762285897
+                },
+                "dragging": true
+            },
+            {
+                "width": 189,
+                "height": 160,
+                "id": "BATCH_PROCESSOR-8a5e2a5b-a5db-4622-bd30-e0fb462d7881",
+                "type": "LOADERS",
+                "data": {
+                    "id": "BATCH_PROCESSOR-8a5e2a5b-a5db-4622-bd30-e0fb462d7881",
+                    "label": "BATCH PROCESSOR",
+                    "func": "BATCH_PROCESSOR",
+                    "type": "LOADERS",
+                    "ctrls": {
+                        "directory_path": {
+                            "type": "str",
+                            "default": null,
+                            "desc": null,
+                            "functionName": "BATCH_PROCESSOR",
+                            "param": "directory_path",
+                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/BATCH_PROCESSOR/assets"
+                        },
+                        "pattern": {
+                            "type": "str",
+                            "default": "",
+                            "desc": null,
+                            "functionName": "BATCH_PROCESSOR",
+                            "param": "pattern",
+                            "value": "*.tif"
+                        },
+                        "refresh": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": null,
+                            "functionName": "BATCH_PROCESSOR",
+                            "param": "refresh",
+                            "value": true
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "current_iteration",
+                            "id": "current_iteration",
+                            "type": "Scalar",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/BATCH_PROCESSOR/BATCH_PROCESSOR.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 645.8038565819638,
+                    "y": 112.34168638151306
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 645.8038565819638,
+                    "y": 112.34168638151306
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-b524fded-dfe8-4344-97b0-083fa12a2def",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "IMAGE-b524fded-dfe8-4344-97b0-083fa12a2def",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|Grayscale",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Image visualization of the input image"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 1352.4291378454932,
+                    "y": 64.89660660489756
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1352.4291378454932,
+                    "y": 64.89660660489756
+                },
+                "dragging": true
+            },
+            {
+                "width": 160,
+                "height": 160,
+                "id": "LOCAL_FILE-23fd4b1b-0724-464d-ae14-a3013d7c339f",
+                "type": "LOADERS",
+                "data": {
+                    "id": "LOCAL_FILE-23fd4b1b-0724-464d-ae14-a3013d7c339f",
+                    "label": "LOCAL FILE",
+                    "func": "LOCAL_FILE",
+                    "type": "LOADERS",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "path to the file to be loaded",
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_path",
+                            "value": ""
+                        },
+                        "file_type": {
+                            "type": "select",
+                            "default": "Image",
+                            "options": [
+                                "Image",
+                                "Grayscale",
+                                "JSON",
+                                "CSV",
+                                "Excel",
+                                "XML"
+                            ],
+                            "desc": "type of file to load, default = image",
+                            "functionName": "LOCAL_FILE",
+                            "param": "file_type",
+                            "value": "Grayscale"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "multiple": false,
+                            "desc": "If this input node is connected, the filename will be taken from \nthe output of the connected node. To be used in conjunction with batch processing"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image|DataFrame",
+                            "desc": "Image for file_type 'image'\nDataFrame for file_type 'json', 'csv', 'excel', 'xml'"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "xlrd",
+                            "v": "2.0.1"
+                        },
+                        {
+                            "name": "lxml",
+                            "v": "4.9.2"
+                        },
+                        {
+                            "name": "openpyxl",
+                            "v": "3.0.10"
+                        },
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 994.6363481273536,
+                    "y": 137.40226925702052
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 994.6363481273536,
+                    "y": 137.40226925702052
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7",
+                "sourceHandle": "body",
+                "target": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7body-LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526adefault"
+            },
+            {
+                "source": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
+                "sourceHandle": "default",
+                "target": "BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526adefault-BIG_NUMBER-ca0dc263-0e3f-4c7e-9a71-50dd014ec851default"
+            },
+            {
+                "source": "LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526a",
+                "sourceHandle": "default",
+                "target": "BATCH_PROCESSOR-8a5e2a5b-a5db-4622-bd30-e0fb462d7881",
+                "targetHandle": "current_iteration",
+                "id": "reactflow__edge-LOOP_INDEX-908a6860-ae5a-4be7-bff4-bb92070f526adefault-BATCH_PROCESSOR-8a5e2a5b-a5db-4622-bd30-e0fb462d7881current_iteration"
+            },
+            {
+                "source": "BATCH_PROCESSOR-8a5e2a5b-a5db-4622-bd30-e0fb462d7881",
+                "sourceHandle": "default",
+                "target": "LOCAL_FILE-23fd4b1b-0724-464d-ae14-a3013d7c339f",
+                "targetHandle": "default",
+                "id": "reactflow__edge-BATCH_PROCESSOR-8a5e2a5b-a5db-4622-bd30-e0fb462d7881default-LOCAL_FILE-23fd4b1b-0724-464d-ae14-a3013d7c339fdefault"
+            },
+            {
+                "source": "LOCAL_FILE-23fd4b1b-0724-464d-ae14-a3013d7c339f",
+                "sourceHandle": "default",
+                "target": "IMAGE-b524fded-dfe8-4344-97b0-083fa12a2def",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOCAL_FILE-23fd4b1b-0724-464d-ae14-a3013d7c339fdefault-IMAGE-b524fded-dfe8-4344-97b0-083fa12a2defdefault"
+            }
+        ],
+        "viewport": {
+            "x": 852.7959874736157,
+            "y": 352.53461082817995,
+            "zoom": 0.7476193625116623
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
