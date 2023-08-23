@@ -65,13 +65,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": -213.9948763994475,
                     "y": -687.1796942660033
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": -213.9948763994475,
                     "y": -687.1796942660033
@@ -103,7 +103,7 @@
                             "desc": "whether or not to render a histogram of the image next to the render",
                             "functionName": "HEATMAP",
                             "param": "histogram",
-                            "value": false
+                            "value": true
                         }
                     },
                     "initCtrls": {},
@@ -125,13 +125,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/HEATMAP/HEATMAP.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
                     "x": 85.83831612566095,
                     "y": -425.01691469133516
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
                     "x": 85.83831612566095,
                     "y": -425.01691469133516

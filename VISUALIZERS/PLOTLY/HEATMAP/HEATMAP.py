@@ -46,7 +46,7 @@ def HEATMAP(
         ]
     text_template = "%{text}"
 
-    fig = go.Figure() if not histogram else make_subplots(rows=1, cols=2, column_widths=[0.95, 0.05],specs = [[{}, {}]],horizontal_spacing = 0.05)
+    fig = go.Figure() if not histogram else make_subplots(rows=1, cols=2, column_widths=[0.9, 0.1],specs = [[{}, {}]],horizontal_spacing = 0.05)
     match default:
         case Vector():
             z = default.v
@@ -158,11 +158,10 @@ def HEATMAP(
                 fig.add_trace(histogram_trace, row=1, col=2)
         case Grayscale():
             m = default.m
-            data = 255*np.random.rand(100, 100)
 
             fig.add_trace(
                 go.Heatmap(
-                    z=data,
+                    z=m,
                     text=m if show_text else None,
                     texttemplate=text_template,
                 ),
@@ -173,8 +172,8 @@ def HEATMAP(
                 histogram = np.histogram(m, bins='auto')
                 x_values = histogram[1][:-1] + 0.05  # Center bars on bin edges
                 histogram_trace = go.Bar(
-                    x=x_values,
-                    y=histogram[0],
+                    y=x_values,
+                    x=histogram[0],
                     orientation='h',
                     showlegend=False
                 )
@@ -183,7 +182,18 @@ def HEATMAP(
             df = default.m
             fig = px.imshow(df, text_auto=show_text)
 
-    fig = fig.update_layout(layout)
+    if histogram:
+        layout.xaxis2 = dict(
+            tickmode = 'array',
+            tickvals = [0, histogram[0].max()],
+            ticktext = [f'0', f'{histogram[0].max():.0f}']
+        )
+        layout.yaxis2 = dict(
+            tickmode = 'array',
+            tickvals = [x_values.min(), x_values.max()],
+            ticktext = ['','']
+        )
+    fig.update_layout(layout)
     return Plotly(
         fig=fig,
     )
