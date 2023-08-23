@@ -44,7 +44,7 @@
                 "dragging": true
             },
             {
-                "width": 208,
+                "width": 210,
                 "height": 96,
                 "id": "WAVEPACKET-ee6f2fc1-8cef-400a-895c-abe0564b1261",
                 "type": "GENERATORS",
@@ -143,7 +143,7 @@
                             "desc": "number of times to iterate through body nodes default is `-1` meaning infinity.",
                             "functionName": "LOOP",
                             "param": "num_loops",
-                            "value": "20"
+                            "value": 20
                         }
                     },
                     "inputs": [
@@ -201,9 +201,9 @@
             }
         ],
         "viewport": {
-            "x": 606.4472645567363,
-            "y": 234.63130388602087,
-            "zoom": 0.9186369849831518
+            "x": 688.7902964004815,
+            "y": 260.4768364001233,
+            "zoom": 0.5523926457065711
         }
     },
     "ctrlsManifest": [
