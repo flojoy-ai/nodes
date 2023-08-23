@@ -1,5 +1,4 @@
 from flojoy import flojoy, Scalar, SmallMemory, DefaultParams, TextBlob
-import numpy as np
 import glob
 from typing import Any
 
@@ -17,29 +16,43 @@ def BATCH_PROCESSOR(
     pattern: str = "",
     refresh: bool = True, 
 ) -> TextBlob:
-    #=======================================================
-    # At first iteration, we want to identify the initial 
-    # sources to iterate over. Also at the first iteration,
-    # we want to write the initial list of files to SmallMemory.
-    # What we'll do after is to then load the list from
-    # SmallMemory, pop front the next item, and rewrite the 
-    # popped list to SmallMemory. If the refresh parameter
-    # is toggled, we will re-search the glob pattern, find new
-    # entries, and append them to the array in SmallMemory.
-    #
-    # if iteration #1: 
-    #      Pattern find
-    #      Write to Small Memory
-    # if refresh:
-    #      glob again
-    #      Read from SmallMemory
-    #      Find difference between
-    #      Append to array to write to SmallMemory
-    # Read from Small memory
-    # Pop array
-    # Write to SmallMemory
-    # return popped string as Vec<str>
-    #=======================================================
+    """
+    This node is designed to glob match a pattern in the given input directory.
+
+    From here, in conjunction with a loop, we iterate
+    over all the files found, and return each one by
+    file path as a TextBlob. The TextBlob can be recognized as 
+    an optional input to the `LOCAL_FILE` node, which can
+    then load the file at that path and return the appropriate
+    datatype.
+
+    Parameters
+    ----------
+    current_iteration       :       Scalar
+        This is the input from the `LOOP_INDEX` node that determines
+        if we need to initialize this routine or not.
+    default_params          :       DefaultParams
+        This provides the node_id so that we can identify which
+        object in SmallMemory to pull (for example, unique identification
+        of this node if there are multiple BATCH_PROCESSOR nodes)
+    directory_path          :       str
+        The directory in which we should pattern match to find the files
+    pattern                 :       str
+        The glob pattern to match. If not provided, all files in the directory
+        are returned. The current implementation supports recursion and double
+        wildcard matching.
+    refresh                 :       bool
+        A switching parameter that refreshes the cache of files. If a separate
+        programme is expected to continuously write new files of interest to the
+        directory, this flag will enable the update of the new files for processing.
+
+    Returns
+    -------
+    retval                  :       TextBlob
+        A `TextBlob` data container to pass to other nodes for processing
+
+    """
+    
     node_id = default_params.node_id
     curr_iter = int(current_iteration.c[0])
     # if iteration 1, pattern find, then write to SmallMemory
