@@ -56,7 +56,7 @@ def BIG_NUMBER(
         case OrderedPair():
             big_num = default.y[-1]
         case Scalar():
-            big_num = default.c
+            big_num = default.c[-1]
         case Vector():
             big_num = default.v[-1]
     val_format = ".1%" if relative_delta is True else ".1f"
