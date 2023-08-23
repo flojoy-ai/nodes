@@ -65,7 +65,7 @@
                 "type": "GENERATORS",
                 "data": {
                     "id": "FEEDBACK-b4aa39f0-e14a-40d5-92ae-28032dab884e",
-                    "label": "FEEDBACK",
+                    "label": "ITERATOR",
                     "func": "FEEDBACK",
                     "type": "GENERATORS",
                     "ctrls": {
@@ -236,13 +236,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1317.706203101946,
-                    "y": 647.0685000756501
+                    "x": 1400.8756074868638,
+                    "y": 407.59797365700706
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1317.706203101946,
-                    "y": 647.0685000756501
+                    "x": 1400.8756074868638,
+                    "y": 407.59797365700706
                 },
                 "dragging": true
             },
@@ -276,16 +276,16 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
-                    "x": 1637.537779397734,
-                    "y": 569.694294297562
+                    "x": 1681.9903920862248,
+                    "y": 333.09167837495056
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": 1637.537779397734,
-                    "y": 569.694294297562
+                    "x": 1681.9903920862248,
+                    "y": 333.09167837495056
                 },
                 "dragging": true
             },
@@ -314,7 +314,7 @@
                             "desc": "Specifies the type of comparison to be performed between the two inputs. The default value is \">=\".",
                             "functionName": "CONDITIONAL",
                             "param": "operator_type",
-                            "value": ">="
+                            "value": "<="
                         }
                     },
                     "initCtrls": {},
@@ -349,13 +349,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOGIC_GATES/CONDITIONALS/CONDITIONAL/CONDITIONAL.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 457.50776141935216,
                     "y": 415.3884965154285
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 457.50776141935216,
                     "y": 415.3884965154285
@@ -363,13 +363,13 @@
                 "dragging": true
             },
             {
-                "width": 189,
+                "width": 210,
                 "height": 160,
                 "id": "BATCH_PROCESSOR-5b2a1548-b6c4-4ad1-80b9-04a07de479ed",
                 "type": "LOADERS",
                 "data": {
                     "id": "BATCH_PROCESSOR-5b2a1548-b6c4-4ad1-80b9-04a07de479ed",
-                    "label": "BATCH PROCESSOR",
+                    "label": "#FILES IDENTIFIER",
                     "func": "BATCH_PROCESSOR",
                     "type": "LOADERS",
                     "ctrls": {
@@ -443,7 +443,7 @@
                 "type": "LOADERS",
                 "data": {
                     "id": "BATCH_PROCESSOR-1baf4aa2-3007-496a-a72a-e1b90378b0af",
-                    "label": "BATCH PROCESSOR 1",
+                    "label": "BATCH PROCESSOR",
                     "func": "BATCH_PROCESSOR",
                     "type": "LOADERS",
                     "ctrls": {
@@ -500,13 +500,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 978.5812409955453,
-                    "y": 678.9642272175136
+                    "x": 1081.8260188526847,
+                    "y": 433.7578798068072
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 978.5812409955453,
-                    "y": 678.9642272175136
+                    "x": 1081.8260188526847,
+                    "y": 433.7578798068072
                 },
                 "dragging": true
             },
@@ -585,12 +585,12 @@
             },
             {
                 "width": 208,
-                "height": 96,
+                "height": 116,
                 "id": "FEEDBACK-e3550853-7cf9-4260-b28c-304433842911",
                 "type": "GENERATORS",
                 "data": {
                     "id": "FEEDBACK-e3550853-7cf9-4260-b28c-304433842911",
-                    "label": "FEEDBACK 1",
+                    "label": "CURRENT ITERATOR VALUE",
                     "func": "FEEDBACK",
                     "type": "GENERATORS",
                     "ctrls": {
@@ -625,13 +625,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 616.7700287588946,
-                    "y": 586.7837488992603
+                    "x": 621.0718945029421,
+                    "y": 288.5210573119683
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 616.7700287588946,
-                    "y": 586.7837488992603
+                    "x": 621.0718945029421,
+                    "y": 288.5210573119683
                 },
                 "dragging": true
             },
@@ -701,13 +701,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 943.5906671996222,
-                    "y": 205.67829193407994
+                    "x": 985.1753693920814,
+                    "y": 72.32045386860801
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 943.5906671996222,
-                    "y": 205.67829193407994
+                    "x": 985.1753693920814,
+                    "y": 72.32045386860801
                 },
                 "dragging": true
             }
@@ -784,18 +784,18 @@
                 "id": "reactflow__edge-FEEDBACK-e3550853-7cf9-4260-b28c-304433842911default-BATCH_PROCESSOR-1baf4aa2-3007-496a-a72a-e1b90378b0afcurrent_iteration"
             },
             {
-                "source": "CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88db",
-                "sourceHandle": "false",
-                "target": "FEEDBACK-e3550853-7cf9-4260-b28c-304433842911",
-                "targetHandle": "default",
-                "id": "reactflow__edge-CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88dbfalse-FEEDBACK-e3550853-7cf9-4260-b28c-304433842911default"
-            },
-            {
                 "source": "FEEDBACK-e3550853-7cf9-4260-b28c-304433842911",
                 "sourceHandle": "default",
                 "target": "BIG_NUMBER-1a5abbd9-6f7f-4699-8d3b-a24c45c60a68",
                 "targetHandle": "default",
                 "id": "reactflow__edge-FEEDBACK-e3550853-7cf9-4260-b28c-304433842911default-BIG_NUMBER-1a5abbd9-6f7f-4699-8d3b-a24c45c60a68default"
+            },
+            {
+                "source": "CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88db",
+                "sourceHandle": "true",
+                "target": "FEEDBACK-e3550853-7cf9-4260-b28c-304433842911",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88dbtrue-FEEDBACK-e3550853-7cf9-4260-b28c-304433842911default"
             }
         ],
         "viewport": {

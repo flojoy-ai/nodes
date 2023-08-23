@@ -61,7 +61,7 @@ def BATCH_PROCESSOR(
     # if iteration 1, pattern find, then write to SmallMemory
     if curr_iter < 2:
         files = get_fnames(directory_path, pattern if pattern else '*')
-        return BATCH_OUTPUT(fname=TextBlob(text_blob=""), n_files=Scalar(c=len(files)))
+        return BATCH_OUTPUT(fname=TextBlob(text_blob=""), n_files=Scalar(c=len(files)+2))
     elif curr_iter == 2: #loop index starts at 1, sigh
         files = get_fnames(directory_path, pattern if pattern else '*')
         SmallMemory().write_to_memory(
@@ -93,7 +93,7 @@ def BATCH_PROCESSOR(
                         'original_files' : old_data['original_files']
                     }
                 )
-                raise ValueError(list(difference))
+                
     # Now we read from SmallMemory and pop fname
     data: dict[str, Any] = SmallMemory().read_memory(node_id, memory_key) or {}
     fname = data['files'].pop(0)
