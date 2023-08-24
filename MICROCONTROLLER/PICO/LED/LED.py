@@ -5,7 +5,7 @@ from flojoy import DataContainer, JobResultBuilder, flojoy
 @flojoy
 def LED(
     default: Optional[DataContainer] = None,
-    mode: Literal["on", "off", "toggle", "mock"] = "on",
+    mode: str = 'on', 
 ) -> DataContainer:
     """The LED node toggles the LED on a Rasbperry Pico"
 
