@@ -69,15 +69,15 @@ import PythonSource from '!!raw-loader!./a1-[autogen]/python_code.txt';
 
 [//]: # (Appendix)
 
-import Notes from '!!raw-loader!./appendix/notes.md';
-import Hardware from '!!raw-loader!./appendix/hardware.md';
-import Media from '!!raw-loader!./appendix/media.md';
+import Notes from './appendix/notes.md';
+import Hardware from './appendix/hardware.md';
+import Media from './appendix/media.md';
 
 ## Appendix
 
-<AppendixSection index={{0}} folderPath='{appendix_folder_path}'>{{Notes}}</AppendixSection>
-<AppendixSection index={{1}} folderPath='{appendix_folder_path}'>{{Hardware}}</AppendixSection>
-<AppendixSection index={{2}} folderPath='{appendix_folder_path}'>{{Media}}</AppendixSection>
+<AppendixSection index={{0}} folderPath='{appendix_folder_path}'><Notes /></AppendixSection>
+<AppendixSection index={{1}} folderPath='{appendix_folder_path}'><Hardware /></AppendixSection>
+<AppendixSection index={{2}} folderPath='{appendix_folder_path}'><Media /></AppendixSection>
 
 
 """.format(
@@ -192,35 +192,12 @@ def process_python_file(input_file_path: str, output_path: str):
             if diff:
                 write_file_recursive(function_code_file_path, function_code)
 
+        md_file_path = path.join(output_path, f"{node_name}.md")
         # appendix
         appendix_dir_path = path.join(output_path, "appendix")
         for f in ["hardware.md", "media.md", "notes.md"]:
             if not path.exists(path.join(appendix_dir_path, f)):
                 write_file_recursive(path.join(appendix_dir_path, f), "")
-            else:
-                lines = [
-                    {
-                        "prev": "./appendix/notes.md",
-                        "new": "!!raw-loader!./appendix/notes.md",
-                    },
-                    {
-                        "prev": "./appendix/hardware.md",
-                        "new": "!!raw-loader!./appendix/hardware.md",
-                    },
-                    {
-                        "prev": "./appendix/media.md",
-                        "new": "!!raw-loader!./appendix/media.md",
-                    },
-                ]
-                md_file_path = path.join(
-                    output_path, path.basename(input_file_path).replace(".py", ".md")
-                )
-                if path.exists(md_file_path):
-                    c = get_content(md_file_path)
-                    for line in lines:
-                        if line["new"] not in c:
-                            c = c.replace(line["prev"], line["new"])
-                    write_file_recursive(md_file_path, c)
 
         # examples
         has_example = False
@@ -242,7 +219,7 @@ def process_python_file(input_file_path: str, output_path: str):
                 has_example = False
 
         # write md file with file name
-        md_file_path = path.join(output_path, f"{node_name}.md")
+
         # app_jpg = "app.jpeg"
         # output_jpg = "output.jpeg"
         # img_map = {app_jpg: False, output_jpg: False}
