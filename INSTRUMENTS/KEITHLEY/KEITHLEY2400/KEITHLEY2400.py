@@ -4,7 +4,8 @@ import serial
 
 @flojoy(deps={"pyserial": "3.5"})
 def KEITHLEY2400(
-    init_container: NodeInitContainer, default: OrderedPair | Vector, comport: str = "/dev/ttyUSB0", baudrate: float = 9600
+    init_container: NodeInitContainer,
+    default: OrderedPair | Vector, comport: str = "/dev/ttyUSB0", baudrate: float = 9600
 ) -> OrderedPair:
     """The KEITHLEY2400 node takes a IV curve measurement with a Keithley 2400 source meter, send voltages, and measures currents.
 
@@ -57,7 +58,7 @@ def KEITHLEY2400(
     return OrderedPair(x=voltages, y=currents_neg)
 
 @node_initialization(for_node=KEITHLEY2400)
-def init(comport, baudrate):
+def init(comport: str = "/dev/ttyUSB0", baudrate: float = 9600):
     ser: serial = serial.Serial()
 
      # Specific parameters
