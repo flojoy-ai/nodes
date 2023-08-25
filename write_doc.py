@@ -7,6 +7,11 @@ import textwrap
 path = os.path
 
 N_PATH = "nodes/"
+boilar_plates = {
+    "notes.md":"No theory or technical notes have been contributed for this node yet.",
+    "media.md":"No supporting screenshots, photos, or videos have been added to the media.md file for this node.",
+    "hardware.md": "This node does not require any peripheral hardware to operate. Please see INSTRUMENTS for nodes that interact with the physical world through connected hardware." 
+}
 
 
 def get_md_file_content(
@@ -197,20 +202,25 @@ def process_python_file(input_file_path: str, output_path: str):
         appendix_dir_path = path.join(output_path, "appendix")
         for f in ["hardware.md", "media.md", "notes.md"]:
             if not path.exists(path.join(appendix_dir_path, f)):
-                write_file_recursive(path.join(appendix_dir_path, f), "")
+                write_file_recursive(path.join(appendix_dir_path, f), boilar_plates[f])
+            else:
+                c = get_content(path.join(appendix_dir_path, f))
+                if c.strip() == "":
+                    c = boilar_plates[f]
+                write_file_recursive(path.join(appendix_dir_path, f), c)
 
         # examples
         has_example = False
         example_dir_path = path.join(output_path, "examples", "EX1")
         # for f in ["app.txt", "example.md"]:
-        for f in ["app.txt", "example.md"]:
+        for f in ["app.json", "example.md"]:
             if path.exists(path.join(input_dir, f)):
                 # has_example = True
                 c = get_content(path.join(input_dir, f))
                 if not path.exists(path.join(example_dir_path, f)):
                     write_file_recursive(path.join(example_dir_path, f), c)
                 else:
-                    if f == "app.txt":
+                    if f == "app.json":
                         existing_c = get_content(path.join(example_dir_path, f))
                         diff = compare_two_str(c, existing_c)
                         if diff:
