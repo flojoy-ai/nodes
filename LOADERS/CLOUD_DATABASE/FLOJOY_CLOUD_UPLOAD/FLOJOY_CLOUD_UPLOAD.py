@@ -1,9 +1,7 @@
-import json
 import os
 from typing import Optional
-import requests
 from flojoy import DataContainer, flojoy, get_env_var, node_preflight
-from flojoy.utils import PlotlyJSONEncoder
+from flojoy.flojoy_cloud import FlojoyCloud
 
 
 FLOJOY_CLOUD_URI: str = os.environ.get("FLOJOY_CLOUD_URI") or "https://cloud.flojoy.ai"
@@ -43,29 +41,11 @@ def FLOJOY_CLOUD_UPLOAD(
             "Flojoy Cloud key is not found! You can set it under Settings -> Environment Variables."
         )
 
+    cloud = FlojoyCloud(apikey=api_key)
+
     if default:
         # This will stream the data to the cloud
-        resp: requests.Response
-        if measurement_id is None:
-            resp = requests.post(
-                f"{FLOJOY_CLOUD_URI}/api/v1/measurements/{measurement_id}",
-                headers={"api_key": api_key},
-                json={
-                    "data": json.dumps(default, cls=PlotlyJSONEncoder),
-                },
-            )
 
-        else:
-            resp = requests.post(
-                f"{FLOJOY_CLOUD_URI}/api/v1/dcs",
-                headers={"api_key": api_key},
-                json={
-                    "measurement_id": measurement_id,
-                    "data": json.dumps(default, cls=PlotlyJSONEncoder),
-                },
-            )
-
-        if not (resp.status_code >= 200 and resp.status_code < 300):
-            raise Exception(str(resp.json()["error"]))
+        cloud.store_dc(default, default.type, measurement_id)
 
     return default
