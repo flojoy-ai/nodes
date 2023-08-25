@@ -100,6 +100,8 @@ def BATCH_PROCESSOR(
     # Now write to SmallMemory for the next iteration
     data['current_iteration'] = curr_iter
     SmallMemory().write_to_memory(node_id,memory_key, data)
+    if curr_iter + 1 > len(data['original_files']):
+        SmallMemory().delete_object(node_id, memory_key)
     #And return the current fname
     return BATCH_OUTPUT(fname = TextBlob(text_blob=fname), n_files=Scalar(c=len(data['original_files'])))
 

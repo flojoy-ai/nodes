@@ -247,8 +247,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "IMAGE-067c1e85-7c1e-485a-9228-d0c1a138f492",
                 "type": "VISUALIZERS",
                 "data": {
@@ -276,13 +276,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 1681.9903920862248,
                     "y": 333.09167837495056
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 1681.9903920862248,
                     "y": 333.09167837495056
@@ -314,7 +314,7 @@
                             "desc": "Specifies the type of comparison to be performed between the two inputs. The default value is \">=\".",
                             "functionName": "CONDITIONAL",
                             "param": "operator_type",
-                            "value": "<="
+                            "value": ">="
                         }
                     },
                     "initCtrls": {},
@@ -622,13 +622,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/FEEDBACK/FEEDBACK.py",
-                    "selected": false
+                    "selected": true
                 },
                 "position": {
                     "x": 621.0718945029421,
                     "y": 288.5210573119683
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
                     "x": 621.0718945029421,
                     "y": 288.5210573119683
@@ -636,8 +636,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "BIG_NUMBER-1a5abbd9-6f7f-4699-8d3b-a24c45c60a68",
                 "type": "VISUALIZERS",
                 "data": {
