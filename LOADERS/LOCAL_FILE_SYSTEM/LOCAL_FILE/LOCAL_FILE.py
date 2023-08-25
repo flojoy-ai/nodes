@@ -33,7 +33,7 @@ def LOCAL_FILE(
     file_type : str
         type of file to load, default = image
     default   : Optional[TextBlob]
-        If this input node is connected, the filename will be taken from 
+        If this input node is connected, the filename will be taken from
         the output of the connected node. To be used in conjunction with batch processing
     file_path : str
         path to the file to be loaded
@@ -70,8 +70,13 @@ def LOCAL_FILE(
             )
         case "Grayscale":
             import skimage.io
+
             file_path = get_file_path(file_path, default_image_path)
-            return Grayscale(img=skimage.io.imread(default.text_blob if default else file_path, as_gray=True))
+            return Grayscale(
+                img=skimage.io.imread(
+                    default.text_blob if default else file_path, as_gray=True
+                )
+            )
         case "CSV":
             file_path = get_file_path(file_path)
             df = pd.read_csv(default.text_blob if default else file_path)

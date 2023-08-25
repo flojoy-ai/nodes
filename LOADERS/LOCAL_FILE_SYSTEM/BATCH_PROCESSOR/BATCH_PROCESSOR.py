@@ -4,12 +4,15 @@ from typing import Any, TypedDict
 
 memory_key = "batch-processor-info"
 
+
 class BATCH_OUTPUT(TypedDict):
     fname: TextBlob
     n_files: Scalar
 
+
 def get_fnames(d, p):
-    return [file for file in glob.glob(d+'/'+p, recursive=True)]
+    return [file for file in glob.glob(d + "/" + p, recursive=True)]
+
 
 @flojoy(inject_node_metadata=True)
 def BATCH_PROCESSOR(
@@ -17,14 +20,14 @@ def BATCH_PROCESSOR(
     default_params: DefaultParams,
     directory_path: str,
     pattern: str = "",
-    refresh: bool = True, 
+    refresh: bool = True,
 ) -> BATCH_OUTPUT:
     """
     This node is designed to glob match a pattern in the given input directory.
 
     From here, in conjunction with a loop, we iterate
     over all the files found, and return each one by
-    file path as a TextBlob. The TextBlob can be recognized as 
+    file path as a TextBlob. The TextBlob can be recognized as
     an optional input to the `LOCAL_FILE` node, which can
     then load the file at that path and return the appropriate
     datatype.
@@ -55,55 +58,60 @@ def BATCH_PROCESSOR(
         A `TextBlob` data container to pass to other nodes for processing
 
     """
-    
+
     node_id = default_params.node_id
     curr_iter = int(current_iteration.c[0])
     # if iteration 1, pattern find, then write to SmallMemory
     if curr_iter == 1:
-        files = get_fnames(directory_path, pattern if pattern else '*')
-        return BATCH_OUTPUT(fname=TextBlob(text_blob=""), n_files=Scalar(c=len(files)+1))
-    elif curr_iter == 2: #loop index starts at 1, sigh
-        files = get_fnames(directory_path, pattern if pattern else '*')
-        SmallMemory().write_to_memory(
-            node_id, 
-            memory_key, 
-            {
-                'node_id' : node_id,
-                'current_iteration' : curr_iter,
-                'files' : files,
-                'original_files' : files,
-                'n_files' : int(len(files))
-            }
+        files = get_fnames(directory_path, pattern if pattern else "*")
+        return BATCH_OUTPUT(
+            fname=TextBlob(text_blob=""), n_files=Scalar(c=len(files) + 1)
         )
-    # if refresh, glob again, read from smallmemory, 
+    elif curr_iter == 2:  # loop index starts at 1, sigh
+        files = get_fnames(directory_path, pattern if pattern else "*")
+        SmallMemory().write_to_memory(
+            node_id,
+            memory_key,
+            {
+                "node_id": node_id,
+                "current_iteration": curr_iter,
+                "files": files,
+                "original_files": files,
+                "n_files": int(len(files)),
+            },
+        )
+    # if refresh, glob again, read from smallmemory,
     # find difference, append difference to files in SmallMemory
     if refresh:
-        new_files = get_fnames(directory_path, pattern if pattern else '*')
+        new_files = get_fnames(directory_path, pattern if pattern else "*")
         old_data: dict[str, Any] = SmallMemory().read_memory(node_id, memory_key) or {}
         if old_data:
-            difference = set(new_files).difference(set(old_data['original_files'])) #designed to only catch the addition of files
-            if not all([not d in old_data['original_files'] for d in list(difference)]):
+            difference = set(new_files).difference(
+                set(old_data["original_files"])
+            )  # designed to only catch the addition of files
+            if not all([not d in old_data["original_files"] for d in list(difference)]):
                 # this means there are more new files added to the mix
                 SmallMemory().write_to_memory(
-                    node_id, 
-                    memory_key, 
+                    node_id,
+                    memory_key,
                     {
-                        'node_id' : node_id,
-                        'current_iteration' : curr_iter,
-                        'files' : old_data['files']+list(difference),
-                        'original_files' : old_data['original_files'],
-                        'n_files' : int(len(old_data['original_files']))
-                    }
+                        "node_id": node_id,
+                        "current_iteration": curr_iter,
+                        "files": old_data["files"] + list(difference),
+                        "original_files": old_data["original_files"],
+                        "n_files": int(len(old_data["original_files"])),
+                    },
                 )
-                
+
     # Now we read from SmallMemory and pop fname
     data: dict[str, Any] = SmallMemory().read_memory(node_id, memory_key) or {}
-    fname = data['files'].pop(0)
+    fname = data["files"].pop(0)
     # Now write to SmallMemory for the next iteration
-    data['current_iteration'] = curr_iter
-    SmallMemory().write_to_memory(node_id,memory_key, data)
-    if curr_iter > data['n_files']:
+    data["current_iteration"] = curr_iter
+    SmallMemory().write_to_memory(node_id, memory_key, data)
+    if curr_iter > data["n_files"]:
         SmallMemory().delete_object(node_id, memory_key)
-    #And return the current fname
-    return BATCH_OUTPUT(fname = TextBlob(text_blob=fname), n_files=Scalar(c=len(data['original_files'])))
-
+    # And return the current fname
+    return BATCH_OUTPUT(
+        fname=TextBlob(text_blob=fname), n_files=Scalar(c=len(data["original_files"]))
+    )

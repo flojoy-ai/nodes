@@ -1,4 +1,13 @@
-from flojoy import Plotly, OrderedPair, flojoy, Matrix, Grayscale, DataFrame, Vector, OrderedTriple
+from flojoy import (
+    Plotly,
+    OrderedPair,
+    flojoy,
+    Matrix,
+    Grayscale,
+    DataFrame,
+    Vector,
+    OrderedTriple,
+)
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
@@ -11,7 +20,7 @@ from nodes.VISUALIZERS.template import plot_layout
 def HEATMAP(
     default: OrderedPair | Matrix | Grayscale | DataFrame | Vector | OrderedTriple,
     show_text: bool = False,
-    histogram: bool = False
+    histogram: bool = False,
 ) -> Plotly:
     """The HEATMAP node creates a Plotly Heatmap visualization for a given input data container.
 
@@ -35,18 +44,32 @@ def HEATMAP(
     """
     layout = plot_layout(title="HEATMAP")
     if histogram:
-        layout.sliders=[
+        layout.sliders = [
             {
                 "steps": [
-                    {"label": str(v), "method": "restyle", "args": [{"zmin": 0, "zmax": v}]}
+                    {
+                        "label": str(v),
+                        "method": "restyle",
+                        "args": [{"zmin": 0, "zmax": v}],
+                    }
                     for v in range(1, 255, 1)
                 ],
-                "name" : "zmax"
+                "name": "zmax",
             },
         ]
     text_template = "%{text}"
 
-    fig = go.Figure() if not histogram else make_subplots(rows=1, cols=2, column_widths=[0.9, 0.1],specs = [[{}, {}]],horizontal_spacing = 0.05)
+    fig = (
+        go.Figure()
+        if not histogram
+        else make_subplots(
+            rows=1,
+            cols=2,
+            column_widths=[0.9, 0.1],
+            specs=[[{}, {}]],
+            horizontal_spacing=0.05,
+        )
+    )
     match default:
         case Vector():
             z = default.v
@@ -60,16 +83,13 @@ def HEATMAP(
                     texttemplate=text_template,
                 ),
                 row=None if not histogram else 1,
-                col=None if not histogram else 1
+                col=None if not histogram else 1,
             )
             if histogram:
-                histogram = np.histogram(z, bins='auto')
+                histogram = np.histogram(z, bins="auto")
                 x_values = histogram[1][:-1] + 0.05  # Center bars on bin edges
                 histogram_trace = go.Bar(
-                    x=x_values,
-                    y=histogram[0],
-                    orientation='h',
-                    showlegend=False
+                    x=x_values, y=histogram[0], orientation="h", showlegend=False
                 )
                 fig.add_trace(histogram_trace, row=1, col=2)
         case OrderedPair():
@@ -86,16 +106,13 @@ def HEATMAP(
                     texttemplate=text_template,
                 ),
                 row=None if not histogram else 1,
-                col=None if not histogram else 1
+                col=None if not histogram else 1,
             )
             if histogram:
-                histogram = np.histogram(z, bins='auto')
+                histogram = np.histogram(z, bins="auto")
                 x_values = histogram[1][:-1] + 0.05  # Center bars on bin edges
                 histogram_trace = go.Bar(
-                    x=x_values,
-                    y=histogram[0],
-                    orientation='h',
-                    showlegend=False
+                    x=x_values, y=histogram[0], orientation="h", showlegend=False
                 )
                 fig.add_trace(histogram_trace, row=1, col=2)
         case OrderedTriple():
@@ -120,16 +137,13 @@ def HEATMAP(
                     texttemplate=text_template,
                 ),
                 row=None if not histogram else 1,
-                col=None if not histogram else 1
+                col=None if not histogram else 1,
             )
             if histogram:
-                histogram = np.histogram(z, bins='auto')
+                histogram = np.histogram(z, bins="auto")
                 x_values = histogram[1][:-1] + 0.05  # Center bars on bin edges
                 histogram_trace = go.Bar(
-                    x=x_values,
-                    y=histogram[0],
-                    orientation='h',
-                    showlegend=False
+                    x=x_values, y=histogram[0], orientation="h", showlegend=False
                 )
                 fig.add_trace(histogram_trace, row=1, col=2)
         case Matrix():
@@ -144,16 +158,13 @@ def HEATMAP(
                     texttemplate=text_template,
                 ),
                 row=None if not histogram else 1,
-                col=None if not histogram else 1
+                col=None if not histogram else 1,
             )
             if histogram:
-                histogram = np.histogram(m, bins='auto')
+                histogram = np.histogram(m, bins="auto")
                 x_values = histogram[1][:-1] + 0.05  # Center bars on bin edges
                 histogram_trace = go.Bar(
-                    x=x_values,
-                    y=histogram[0],
-                    orientation='h',
-                    showlegend=False
+                    x=x_values, y=histogram[0], orientation="h", showlegend=False
                 )
                 fig.add_trace(histogram_trace, row=1, col=2)
         case Grayscale():
@@ -166,16 +177,13 @@ def HEATMAP(
                     texttemplate=text_template,
                 ),
                 row=None if not histogram else 1,
-                col=None if not histogram else 1
+                col=None if not histogram else 1,
             )
             if histogram:
-                histogram = np.histogram(m, bins='auto')
+                histogram = np.histogram(m, bins="auto")
                 x_values = histogram[1][:-1] + 0.05  # Center bars on bin edges
                 histogram_trace = go.Bar(
-                    y=x_values,
-                    x=histogram[0],
-                    orientation='h',
-                    showlegend=False
+                    y=x_values, x=histogram[0], orientation="h", showlegend=False
                 )
                 fig.add_trace(histogram_trace, row=1, col=2)
         case DataFrame():
@@ -184,14 +192,14 @@ def HEATMAP(
 
     if histogram:
         layout.xaxis2 = dict(
-            tickmode = 'array',
-            tickvals = [0, histogram[0].max()],
-            ticktext = [f'0', f'{histogram[0].max():.0f}']
+            tickmode="array",
+            tickvals=[0, histogram[0].max()],
+            ticktext=[f"0", f"{histogram[0].max():.0f}"],
         )
         layout.yaxis2 = dict(
-            tickmode = 'array',
-            tickvals = [x_values.min(), x_values.max()],
-            ticktext = ['','']
+            tickmode="array",
+            tickvals=[x_values.min(), x_values.max()],
+            ticktext=["", ""],
         )
     fig.update_layout(layout)
     return Plotly(
