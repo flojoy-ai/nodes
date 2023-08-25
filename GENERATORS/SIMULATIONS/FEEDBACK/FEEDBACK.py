@@ -1,5 +1,11 @@
 from typing import Optional, Any
-from flojoy import flojoy, DataContainer, get_job_result, NodeReference, JobResultBuilder
+from flojoy import (
+    flojoy,
+    DataContainer,
+    get_job_result,
+    NodeReference,
+    JobResultBuilder,
+)
 
 
 @flojoy
@@ -20,4 +26,9 @@ def FEEDBACK(
     if result:
         return result
     else:
-        return JobResultBuilder().from_inputs([default] if default else []).flow_to_directions(["default"]).build()
+        return (
+            JobResultBuilder()
+            .from_inputs([default] if default else [])
+            .flow_to_directions(["default"])
+            .build()
+        )
