@@ -21,6 +21,8 @@ def KEITHLEY2400(
     #ser: serial = serial.Serial()
     
     ser=init_container.get()
+    if ser is None:
+        raise ValueError("Serial communication is not open")
 
     # Keithley 2400 Configuration
     ser.write(b"*RST\n")  # reinitialisation of the instrument
