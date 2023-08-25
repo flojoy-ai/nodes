@@ -18,19 +18,8 @@ def KEITHLEY2400(
 
     # Start serial communication with the instrument
     #ser: serial = serial.Serial()
+    
     ser=init_container.get()
-
-    # Specific parameters
-    ser.port = comport  # Specify serial port for com
-    ser.baudrate = baudrate  # Specify Baudrate
-
-    # General parameters
-    ser.bytesize = serial.EIGHTBITS  # Specify Bites number
-    ser.parity = serial.PARITY_NONE  # Specify Parity
-    ser.stopbits = serial.STOPBITS_ONE  # Specify Stop bites
-    ser.timeout = 1
-    # Open Serial Com
-    ser.open()
 
     # Keithley 2400 Configuration
     ser.write(b"*RST\n")  # reinitialisation of the instrument
@@ -68,6 +57,19 @@ def KEITHLEY2400(
     return OrderedPair(x=voltages, y=currents_neg)
 
 @node_initialization(for_node=KEITHLEY2400)
-def init():
+def init(comport, baudrate):
     ser: serial = serial.Serial()
+
+     # Specific parameters
+    ser.port = comport  # Specify serial port for com
+    ser.baudrate = baudrate  # Specify Baudrate
+
+    # General parameters
+    ser.bytesize = serial.EIGHTBITS  # Specify Bites number
+    ser.parity = serial.PARITY_NONE  # Specify Parity
+    ser.stopbits = serial.STOPBITS_ONE  # Specify Stop bites
+    ser.timeout = 1
+    # Open Serial Com
+    ser.open()
+
     return ser
