@@ -8,9 +8,9 @@ path = os.path
 
 N_PATH = "nodes/"
 boilar_plates = {
-    "notes.md":"No theory or technical notes have been contributed for this node yet.",
-    "media.md":"No supporting screenshots, photos, or videos have been added to the media.md file for this node.",
-    "hardware.md": "This node does not require any peripheral hardware to operate. Please see INSTRUMENTS for nodes that interact with the physical world through connected hardware." 
+    "notes.md": "No theory or technical notes have been contributed for this node yet.",
+    "media.md": "No supporting screenshots, photos, or videos have been added to the media.md file for this node.",
+    "hardware.md": "This node does not require any peripheral hardware to operate. Please see INSTRUMENTS for nodes that interact with the physical world through connected hardware.",
 }
 
 
