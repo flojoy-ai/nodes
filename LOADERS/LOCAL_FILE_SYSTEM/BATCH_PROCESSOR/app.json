@@ -48,13 +48,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -493.50376637744193,
-                    "y": 565.2664034031625
+                    "x": -910.4114750056295,
+                    "y": 564.2002867383391
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -493.50376637744193,
-                    "y": 565.2664034031625
+                    "x": -910.4114750056295,
+                    "y": 564.2002867383391
                 },
                 "dragging": true
             },
@@ -276,13 +276,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": 1681.9903920862248,
                     "y": 333.09167837495056
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 1681.9903920862248,
                     "y": 333.09167837495056
@@ -500,13 +500,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1081.8260188526847,
-                    "y": 433.7578798068072
+                    "x": 990.2052712129305,
+                    "y": 431.8085021974507
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1081.8260188526847,
-                    "y": 433.7578798068072
+                    "x": 990.2052712129305,
+                    "y": 431.8085021974507
                 },
                 "dragging": true
             },
@@ -573,13 +573,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -215.32267392320392,
-                    "y": 361.3134560076837
+                    "x": -439.05914350481044,
+                    "y": 329.08023581372356
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -215.32267392320392,
-                    "y": 361.3134560076837
+                    "x": -439.05914350481044,
+                    "y": 329.08023581372356
                 },
                 "dragging": true
             },
@@ -710,6 +710,392 @@
                     "y": 72.32045386860801
                 },
                 "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "CONSTANT-36d7140c-61c2-47d4-9402-8117848618ee",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "CONSTANT-36d7140c-61c2-47d4-9402-8117848618ee",
+                    "label": "1",
+                    "func": "CONSTANT",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "dc_type": {
+                            "type": "select",
+                            "default": "OrderedPair",
+                            "options": [
+                                "Scalar",
+                                "Vector",
+                                "OrderedPair"
+                            ],
+                            "desc": "The type of DataContainer to return.",
+                            "functionName": "CONSTANT",
+                            "param": "dc_type",
+                            "value": "Scalar"
+                        },
+                        "constant": {
+                            "type": "float",
+                            "default": 3,
+                            "desc": "The value of the y axis output.",
+                            "functionName": "CONSTANT",
+                            "param": "constant",
+                            "value": 1
+                        },
+                        "step": {
+                            "type": "float",
+                            "default": 1000,
+                            "desc": "The size of the y and x axes.",
+                            "functionName": "CONSTANT",
+                            "param": "step",
+                            "value": 1
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector|OrderedPair",
+                            "multiple": false,
+                            "desc": "Optional input that defines the size of the output."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Vector|Scalar",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/CONSTANT/CONSTANT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -567.6583167765039,
+                    "y": 522.192119160618
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -567.6583167765039,
+                    "y": 522.192119160618
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "TEXT-8470c512-64a7-4ab2-8060-cdd7ac0d6bae",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "TEXT-8470c512-64a7-4ab2-8060-cdd7ac0d6bae",
+                    "label": "TEXT",
+                    "func": "TEXT",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "value": {
+                            "type": "str",
+                            "default": "Hello World!",
+                            "desc": "The value set in Parameters",
+                            "functionName": "TEXT",
+                            "param": "value",
+                            "value": "This is the increment value for the accumulator through the iterations"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "_",
+                            "id": "_",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "desc": "text_blob: return the value being set in Parameters"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/TEXT/TEXT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -128.68785737395325,
+                    "y": 51.644561393358515
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -128.68785737395325,
+                    "y": 51.644561393358515
+                },
+                "dragging": true
+            },
+            {
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-ab09cb8b-eb71-41c6-a0fc-08ced4e45ec1",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-ab09cb8b-eb71-41c6-a0fc-08ced4e45ec1",
+                    "label": "TEXT VIEW 1",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 220.1791386130829,
+                    "y": -84.9003707494893
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 220.1791386130829,
+                    "y": -84.9003707494893
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "TEXT-3cda3971-dc37-440f-a7e0-eab975e91795",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "TEXT-3cda3971-dc37-440f-a7e0-eab975e91795",
+                    "label": "TEXT 1",
+                    "func": "TEXT",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "value": {
+                            "type": "str",
+                            "default": "Hello World!",
+                            "desc": "The value set in Parameters",
+                            "functionName": "TEXT",
+                            "param": "value",
+                            "value": "This is the initialized value for the accumulator"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "_",
+                            "id": "_",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "desc": "text_blob: return the value being set in Parameters"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/TEXT/TEXT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -259.5786395459139,
+                    "y": 759.2986357060222
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -259.5786395459139,
+                    "y": 759.2986357060222
+                },
+                "dragging": true
+            },
+            {
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-056ee500-dd05-4c5a-b9cf-ccfadbacaa32",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-056ee500-dd05-4c5a-b9cf-ccfadbacaa32",
+                    "label": "TEXT VIEW 2",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 195.4134552101561,
+                    "y": 678.5696346046993
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 195.4134552101561,
+                    "y": 678.5696346046993
+                },
+                "dragging": true
+            },
+            {
+                "width": 96,
+                "height": 96,
+                "id": "BREAK-44cecb5b-a35d-4ce1-a970-f54c63a9a3ea",
+                "type": "LOGIC_GATES",
+                "data": {
+                    "id": "BREAK-44cecb5b-a35d-4ce1-a970-f54c63a9a3ea",
+                    "label": "BREAK",
+                    "func": "BREAK",
+                    "type": "LOGIC_GATES",
+                    "ctrls": {
+                        "referred_node": {
+                            "type": "NodeReference",
+                            "default": null,
+                            "desc": null,
+                            "functionName": "BREAK",
+                            "param": "referred_node",
+                            "value": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/LOGIC_GATES/LOOP_TOOLS/BREAK/BREAK.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 640.6835628870527,
+                    "y": 558.4788508942843
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 640.6835628870527,
+                    "y": 558.4788508942843
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "TEXT-d13ef2d5-e409-45a0-b159-7f604dbff8dd",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "TEXT-d13ef2d5-e409-45a0-b159-7f604dbff8dd",
+                    "label": "TEXT 2",
+                    "func": "TEXT",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "value": {
+                            "type": "str",
+                            "default": "Hello World!",
+                            "desc": "The value set in Parameters",
+                            "functionName": "TEXT",
+                            "param": "value",
+                            "value": "Congrats. We broke the loop!"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "_",
+                            "id": "_",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "desc": "text_blob: return the value being set in Parameters"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/TEXT/TEXT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -810.5850171521366,
+                    "y": 961.1749804035522
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -810.5850171521366,
+                    "y": 961.1749804035522
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "TEXT_VIEW-5fd772e1-0e33-4440-8a73-cb1e5071dfa6",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-5fd772e1-0e33-4440-8a73-cb1e5071dfa6",
+                    "label": "TEXT VIEW 2",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -416.37377454273644,
+                    "y": 1031.255139329911
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -416.37377454273644,
+                    "y": 1031.255139329911
+                },
+                "dragging": true
             }
         ],
         "edges": [
@@ -740,13 +1126,6 @@
                 "target": "BATCH_PROCESSOR-5b2a1548-b6c4-4ad1-80b9-04a07de479ed",
                 "targetHandle": "current_iteration",
                 "id": "reactflow__edge-CONSTANT-cc4b8bab-0b63-4242-869f-f6f76855ff77default-BATCH_PROCESSOR-5b2a1548-b6c4-4ad1-80b9-04a07de479edcurrent_iteration"
-            },
-            {
-                "source": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7",
-                "sourceHandle": "body",
-                "target": "FEEDBACK-b4aa39f0-e14a-40d5-92ae-28032dab884e",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7body-FEEDBACK-b4aa39f0-e14a-40d5-92ae-28032dab884edefault"
             },
             {
                 "source": "CONSTANT-cc4b8bab-0b63-4242-869f-f6f76855ff77",
@@ -796,6 +1175,69 @@
                 "target": "FEEDBACK-e3550853-7cf9-4260-b28c-304433842911",
                 "targetHandle": "default",
                 "id": "reactflow__edge-CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88dbtrue-FEEDBACK-e3550853-7cf9-4260-b28c-304433842911default"
+            },
+            {
+                "source": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7",
+                "sourceHandle": "body",
+                "target": "CONSTANT-36d7140c-61c2-47d4-9402-8117848618ee",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7body-CONSTANT-36d7140c-61c2-47d4-9402-8117848618eedefault"
+            },
+            {
+                "source": "CONSTANT-36d7140c-61c2-47d4-9402-8117848618ee",
+                "sourceHandle": "default",
+                "target": "FEEDBACK-b4aa39f0-e14a-40d5-92ae-28032dab884e",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CONSTANT-36d7140c-61c2-47d4-9402-8117848618eedefault-FEEDBACK-b4aa39f0-e14a-40d5-92ae-28032dab884edefault"
+            },
+            {
+                "source": "CONSTANT-cc4b8bab-0b63-4242-869f-f6f76855ff77",
+                "sourceHandle": "default",
+                "target": "TEXT-8470c512-64a7-4ab2-8060-cdd7ac0d6bae",
+                "targetHandle": "_",
+                "id": "reactflow__edge-CONSTANT-cc4b8bab-0b63-4242-869f-f6f76855ff77default-TEXT-8470c512-64a7-4ab2-8060-cdd7ac0d6bae_"
+            },
+            {
+                "source": "TEXT-8470c512-64a7-4ab2-8060-cdd7ac0d6bae",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-ab09cb8b-eb71-41c6-a0fc-08ced4e45ec1",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TEXT-8470c512-64a7-4ab2-8060-cdd7ac0d6baedefault-TEXT_VIEW-ab09cb8b-eb71-41c6-a0fc-08ced4e45ec1default"
+            },
+            {
+                "source": "CONSTANT-36d7140c-61c2-47d4-9402-8117848618ee",
+                "sourceHandle": "default",
+                "target": "TEXT-3cda3971-dc37-440f-a7e0-eab975e91795",
+                "targetHandle": "_",
+                "id": "reactflow__edge-CONSTANT-36d7140c-61c2-47d4-9402-8117848618eedefault-TEXT-3cda3971-dc37-440f-a7e0-eab975e91795_"
+            },
+            {
+                "source": "TEXT-3cda3971-dc37-440f-a7e0-eab975e91795",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-056ee500-dd05-4c5a-b9cf-ccfadbacaa32",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TEXT-3cda3971-dc37-440f-a7e0-eab975e91795default-TEXT_VIEW-056ee500-dd05-4c5a-b9cf-ccfadbacaa32default"
+            },
+            {
+                "source": "CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88db",
+                "sourceHandle": "false",
+                "target": "BREAK-44cecb5b-a35d-4ce1-a970-f54c63a9a3ea",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CONDITIONAL-2e79a304-2caf-4a37-b9f3-ea43da5c88dbfalse-BREAK-44cecb5b-a35d-4ce1-a970-f54c63a9a3eadefault"
+            },
+            {
+                "source": "LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7",
+                "sourceHandle": "end",
+                "target": "TEXT-d13ef2d5-e409-45a0-b159-7f604dbff8dd",
+                "targetHandle": "_",
+                "id": "reactflow__edge-LOOP-e209afec-0fe8-41e1-a665-d055e0179cc7end-TEXT-d13ef2d5-e409-45a0-b159-7f604dbff8dd_"
+            },
+            {
+                "source": "TEXT-d13ef2d5-e409-45a0-b159-7f604dbff8dd",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-5fd772e1-0e33-4440-8a73-cb1e5071dfa6",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TEXT-d13ef2d5-e409-45a0-b159-7f604dbff8dddefault-TEXT_VIEW-5fd772e1-0e33-4440-8a73-cb1e5071dfa6default"
             }
         ],
         "viewport": {

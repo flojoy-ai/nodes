@@ -59,7 +59,7 @@ def BATCH_PROCESSOR(
     node_id = default_params.node_id
     curr_iter = int(current_iteration.c[0])
     # if iteration 1, pattern find, then write to SmallMemory
-    if curr_iter < 2:
+    if curr_iter == 1:
         files = get_fnames(directory_path, pattern if pattern else '*')
         return BATCH_OUTPUT(fname=TextBlob(text_blob=""), n_files=Scalar(c=len(files)+1))
     elif curr_iter == 2: #loop index starts at 1, sigh
@@ -71,7 +71,8 @@ def BATCH_PROCESSOR(
                 'node_id' : node_id,
                 'current_iteration' : curr_iter,
                 'files' : files,
-                'original_files' : files
+                'original_files' : files,
+                'n_files' : int(len(files))
             }
         )
     # if refresh, glob again, read from smallmemory, 
@@ -90,7 +91,8 @@ def BATCH_PROCESSOR(
                         'node_id' : node_id,
                         'current_iteration' : curr_iter,
                         'files' : old_data['files']+list(difference),
-                        'original_files' : old_data['original_files']
+                        'original_files' : old_data['original_files'],
+                        'n_files' : int(len(old_data['original_files']))
                     }
                 )
                 
@@ -100,6 +102,8 @@ def BATCH_PROCESSOR(
     # Now write to SmallMemory for the next iteration
     data['current_iteration'] = curr_iter
     SmallMemory().write_to_memory(node_id,memory_key, data)
+    if curr_iter > data['n_files']:
+        SmallMemory().delete_object(node_id, memory_key)
     #And return the current fname
     return BATCH_OUTPUT(fname = TextBlob(text_blob=fname), n_files=Scalar(c=len(data['original_files'])))
 
