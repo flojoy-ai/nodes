@@ -79,8 +79,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "HEATMAP-2fcfddb7-fa77-4593-82c3-22fe9d6beee0",
                 "type": "VISUALIZERS",
                 "data": {
@@ -139,8 +139,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "IMAGE-a79fa1e7-a7af-435d-960b-8d5e6ec628f8",
                 "type": "VISUALIZERS",
                 "data": {
