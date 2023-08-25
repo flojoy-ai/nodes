@@ -69,12 +69,13 @@ def LOOP(
     """
 
     node_id = default_params.node_id
+    loop_data: LoopData = load_loop_data(node_id, num_loops)
+    store_loop_data(node_id, loop_data)
 
     # infinite loop
     if num_loops == -1:
         return build_result(inputs=[default] if default else [], is_loop_finished=False)
 
-    loop_data: LoopData = load_loop_data(node_id, num_loops)
 
     # loop was previously finished, but now re-executing, so restart
     if loop_data.is_finished:
