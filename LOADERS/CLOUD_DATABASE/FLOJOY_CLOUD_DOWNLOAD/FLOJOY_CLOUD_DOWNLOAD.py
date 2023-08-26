@@ -39,6 +39,11 @@ def FLOJOY_CLOUD_DOWNLOAD(
             "Flojoy Cloud key is not found! You can set it under Settings -> Environment Variables."
         )
 
+    if data_container_id is None or not data_container_id.startswith("dc_"):
+        raise KeyError(
+            "You must provide a valid data container id in order to download from Flojoy Cloud!"
+        )
+
     cloud = FlojoyCloud(apikey=api_key)
 
     return cloud.to_dc(cloud.fetch_dc(data_container_id))

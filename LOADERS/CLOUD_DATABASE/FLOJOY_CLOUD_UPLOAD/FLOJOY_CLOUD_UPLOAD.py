@@ -40,6 +40,11 @@ def FLOJOY_CLOUD_UPLOAD(
             "Flojoy Cloud key is not found! You can set it under Settings -> Environment Variables."
         )
 
+    if measurement_id is None or not measurement_id.startswith("meas_"):
+        raise KeyError(
+            "You must provide a valid measurement id in order to upload to Flojoy Cloud!"
+        )
+
     cloud = FlojoyCloud(apikey=api_key)
 
     if default:
