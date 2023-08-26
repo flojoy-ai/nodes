@@ -78,7 +78,7 @@ def LOOP(
     if loop_data.get_data().get("is_finished"):
         # ensure that the node can be restarted after
         # breaking, like in a nested loop
-        loop_data.is_finished = False 
+        loop_data.is_finished = False
         store_loop_data(node_id, loop_data)
         return build_result([default] if default else [], True)
 
