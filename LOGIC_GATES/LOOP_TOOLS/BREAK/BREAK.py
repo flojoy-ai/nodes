@@ -8,7 +8,7 @@ memory_key = "loop-info"
 def BREAK(
     referred_node: NodeReference,
     default: Optional[DataContainer] = None,
-) -> DataContainer:
+) -> None:
     """
     The BREAK node is designed to end the iteration of loop. It can, and should, be used
     in conjunction with conditionals to determine when to break the loop. It is needed to
