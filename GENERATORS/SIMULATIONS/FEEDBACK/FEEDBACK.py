@@ -12,7 +12,7 @@ from flojoy import (
 def FEEDBACK(
     referred_node: NodeReference,
     default: Optional[DataContainer] = None,
-) -> Optional[DataContainer]:
+) -> Any:
     """
     The FEEDBACK node captures the result of the specified node ID. If the result is not found, it passes the result of the parent node.
 
