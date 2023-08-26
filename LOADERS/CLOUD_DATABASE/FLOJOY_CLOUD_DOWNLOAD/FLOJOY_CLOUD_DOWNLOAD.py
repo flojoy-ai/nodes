@@ -17,20 +17,19 @@ def preflight():
 
 
 @flojoy
-def FLOJOY_CLOUD_UPLOAD(
-    default: DataContainer,
-    measurement_id: str,
+def FLOJOY_CLOUD_DOWNLOAD(
+    data_container_id: str,
 ) -> DataContainer:
-    """The FLOJOY_CLOUD_UPLOAD node takes a DataContainer as input and uploads that to Flojoy Cloud.
+    """The FLOJOY_CLOUD_DOWNLOAD node downloads a DataContainer from Flojoy Cloud.
 
     Parameters
     ----------
-    measurement_id: The measurement id of the data to be uploaded to Flojoy Cloud.
+    data_container_id: The data container id of the data to be downloaded from Flojoy Cloud.
 
     Returns
     -------
     DataContainer
-        The input DataContainer will be returned as it is
+        The downloaded DataContainer will be returned as it is
     """
 
     api_key = get_env_var("FLOJOY_CLOUD_KEY")
@@ -42,9 +41,4 @@ def FLOJOY_CLOUD_UPLOAD(
 
     cloud = FlojoyCloud(apikey=api_key)
 
-    if default:
-        # This will stream the data to the cloud
-
-        cloud.store_dc(default, default.type, measurement_id)
-
-    return default
+    return cloud.to_dc(cloud.fetch_dc(data_container_id))
