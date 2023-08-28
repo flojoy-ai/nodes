@@ -1,6 +1,5 @@
 import os
-from flojoy import DataContainer, flojoy, get_env_var, node_preflight
-from flojoy.flojoy_cloud import FlojoyCloud
+from flojoy import DataContainer, flojoy, get_env_var, node_preflight, FlojoyCloud
 
 
 FLOJOY_CLOUD_URI: str = os.environ.get("FLOJOY_CLOUD_URI") or "https://cloud.flojoy.ai"
@@ -44,6 +43,6 @@ def FLOJOY_CLOUD_DOWNLOAD(
             "You must provide a valid data container id in order to download from Flojoy Cloud!"
         )
 
-    cloud = FlojoyCloud(apikey=api_key)
+    cloud = FlojoyCloud(api_key=api_key)
 
     return cloud.to_dc(cloud.fetch_dc(data_container_id))
