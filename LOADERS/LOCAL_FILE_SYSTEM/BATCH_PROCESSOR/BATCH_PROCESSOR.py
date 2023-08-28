@@ -60,7 +60,7 @@ def BATCH_PROCESSOR(
     """
 
     node_id = default_params.node_id
-    curr_iter = current_iteration.c[0]
+    curr_iter = current_iteration.c
     # if iteration 1, pattern find, then write to SmallMemory
     if curr_iter == 1:
         files = get_fnames(directory_path, pattern if pattern else "*")
