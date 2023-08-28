@@ -70,11 +70,26 @@ def LOOP(
 
     node_id = default_params.node_id
 
+    loop_data: LoopData = load_loop_data(node_id, num_loops)
+
+    # given the addition of the break node, it is possible that
+    # another node can write to the data of this loop. we have to
+    # now check if that's the case, and if so, return
+    if loop_data.get_data().get("is_finished"):
+        # ensure that the node can be restarted after
+        # breaking, like in a nested loop
+        loop_data.is_finished = False
+        store_loop_data(node_id, loop_data)
+        return build_result([default] if default else [], True)
+
+    # again owing to the addition of the break node, we
+    # need to write the data to memory first before
+    # processing logic so other nodes can always see the data
+    store_loop_data(node_id, loop_data)
+
     # infinite loop
     if num_loops == -1:
         return build_result(inputs=[default] if default else [], is_loop_finished=False)
-
-    loop_data: LoopData = load_loop_data(node_id, num_loops)
 
     # loop was previously finished, but now re-executing, so restart
     if loop_data.is_finished:

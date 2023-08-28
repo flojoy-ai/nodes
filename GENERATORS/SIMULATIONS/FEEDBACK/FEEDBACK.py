@@ -1,12 +1,18 @@
-from typing import Optional
-from flojoy import flojoy, DataContainer, get_job_result, NodeReference
+from typing import Optional, Any
+from flojoy import (
+    flojoy,
+    DataContainer,
+    get_job_result,
+    NodeReference,
+    JobResultBuilder,
+)
 
 
 @flojoy
 def FEEDBACK(
     referred_node: NodeReference,
     default: Optional[DataContainer] = None,
-) -> Optional[DataContainer]:
+) -> Any:
     """
     The FEEDBACK node captures the result of the specified node ID. If the result is not found, it passes the result of the parent node.
 
@@ -20,4 +26,9 @@ def FEEDBACK(
     if result:
         return result
     else:
-        return default
+        return (
+            JobResultBuilder()
+            .from_inputs([default] if default else [])
+            .flow_to_directions(["default"])
+            .build()
+        )
