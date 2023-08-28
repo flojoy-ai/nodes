@@ -30,7 +30,6 @@ def CONDITIONAL(
     # y_of_y = y.y
 
     bool_ = compare_values(x.c, y.c, operator_type)
-
     data = None
     if bool_:
         data = x
