@@ -4,7 +4,7 @@ from typing import Literal
 
 
 @flojoy(deps={"scikit-image": "0.21.0"})
-def SKLEARNIMAGE(
+def SKIMAGE(
     img_key: Literal[
         "astronaut",
         "binary_blobs",
@@ -51,7 +51,7 @@ def SKLEARNIMAGE(
         "vortex",
     ] = "astronaut"
 ) -> Image:
-    """The SKLEARNIMAGE node is designed to load example images from scikit-image.
+    """The SKIMAGE node is designed to load example images from scikit-image.
 
     Examples can be found here:
     https://scikit-image.org/docs/stable/auto_examples/index.html
