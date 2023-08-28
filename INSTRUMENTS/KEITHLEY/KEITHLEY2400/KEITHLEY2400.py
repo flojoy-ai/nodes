@@ -4,8 +4,7 @@ import serial
 
 @flojoy(deps={"pyserial": "3.5"})
 def KEITHLEY2400(
-    init_container: NodeInitContainer,
-    default: OrderedPair | Vector
+    init_container: NodeInitContainer, default: OrderedPair | Vector
 ) -> OrderedPair:
     """The KEITHLEY2400 node takes a IV curve measurement with a Keithley 2400 source meter, send voltages, and measures currents.
 
@@ -18,9 +17,9 @@ def KEITHLEY2400(
     """
 
     # Start serial communication with the instrument
-    #ser: serial = serial.Serial()
-    
-    ser=init_container.get()
+    # ser: serial = serial.Serial()
+
+    ser = init_container.get()
     if ser is None:
         raise ValueError("Serial communication is not open")
 
@@ -59,11 +58,12 @@ def KEITHLEY2400(
 
     return OrderedPair(x=voltages, y=currents_neg)
 
+
 @node_initialization(for_node=KEITHLEY2400)
 def init(comport: str = "/dev/ttyUSB0", baudrate: float = 9600):
     ser: serial = serial.Serial()
 
-     # Specific parameters
+    # Specific parameters
     ser.port = comport  # Specify serial port for com
     ser.baudrate = baudrate  # Specify Baudrate
 
