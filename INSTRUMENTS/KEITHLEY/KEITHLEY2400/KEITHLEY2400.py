@@ -1,10 +1,10 @@
-from flojoy import flojoy, OrderedPair, Vector
+from flojoy import flojoy, OrderedPair, Vector, node_initialization, NodeInitContainer
 import serial
 
 
 @flojoy(deps={"pyserial": "3.5"})
 def KEITHLEY2400(
-    default: OrderedPair | Vector, comport: str = "/dev/ttyUSB0", baudrate: float = 9600
+    init_container: NodeInitContainer, default: OrderedPair | Vector
 ) -> OrderedPair:
     """The KEITHLEY2400 node takes a IV curve measurement with a Keithley 2400 source meter, send voltages, and measures currents.
 
@@ -17,19 +17,11 @@ def KEITHLEY2400(
     """
 
     # Start serial communication with the instrument
-    ser: serial = serial.Serial()
+    # ser: serial = serial.Serial()
 
-    # Specific parameters
-    ser.port = comport  # Specify serial port for com
-    ser.baudrate = baudrate  # Specify Baudrate
-
-    # General parameters
-    ser.bytesize = serial.EIGHTBITS  # Specify Bites number
-    ser.parity = serial.PARITY_NONE  # Specify Parity
-    ser.stopbits = serial.STOPBITS_ONE  # Specify Stop bites
-    ser.timeout = 1
-    # Open Serial Com
-    ser.open()
+    ser = init_container.get()
+    if ser is None:
+        raise ValueError("Serial communication is not open")
 
     # Keithley 2400 Configuration
     ser.write(b"*RST\n")  # reinitialisation of the instrument
@@ -65,3 +57,22 @@ def KEITHLEY2400(
     ser.close()
 
     return OrderedPair(x=voltages, y=currents_neg)
+
+
+@node_initialization(for_node=KEITHLEY2400)
+def init(comport: str = "/dev/ttyUSB0", baudrate: float = 9600):
+    ser: serial = serial.Serial()
+
+    # Specific parameters
+    ser.port = comport  # Specify serial port for com
+    ser.baudrate = baudrate  # Specify Baudrate
+
+    # General parameters
+    ser.bytesize = serial.EIGHTBITS  # Specify Bites number
+    ser.parity = serial.PARITY_NONE  # Specify Parity
+    ser.stopbits = serial.STOPBITS_ONE  # Specify Stop bites
+    ser.timeout = 1
+    # Open Serial Com
+    ser.open()
+
+    return ser

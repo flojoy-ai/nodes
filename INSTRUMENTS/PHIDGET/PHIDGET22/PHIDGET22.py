@@ -41,7 +41,6 @@ def PHIDGET22(
         voltage_ratio_input.setOnVoltageRatioChangeHandler(onVoltageRatioChange)
         # Open the Channel after event handler is set :
         voltage_ratio_input.openWaitForAttachment(5000)
-
         volt_i: float = (
             voltage_ratio_input.getVoltageRatio()
         )  # Measure Voltage from the sensor
