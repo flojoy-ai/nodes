@@ -6,6 +6,7 @@ import numpy as np
 
 from flojoy import Image, DataFrame
 
+
 @pytest.fixture
 def ada_lovelace_array_rgb():
     _image_path = os.path.join(
