@@ -7,7 +7,7 @@ import requests
 from utils.object_detection.object_detection import detect_object
 
 
-@flojoy(deps={"opencv-python-headless": "4.7.0.72"})
+@flojoy(deps={"opencv-python": "4.8.0.76"})
 def OBJECT_DETECTION(default: Image) -> Image:
     """The OBJECT_DETECTION node detects objects in the input image, and returns an 'image' DataContainer with those objects highlighted.
 
