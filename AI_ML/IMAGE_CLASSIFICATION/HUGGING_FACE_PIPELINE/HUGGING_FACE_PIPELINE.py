@@ -4,12 +4,13 @@ from flojoy import flojoy, run_in_venv, Image, DataFrame
 @flojoy
 @run_in_venv(
     pip_dependencies=[
-        "transformers==4.32.0",
-        "torch==2.0.1",
-        "Pillow==10.0.0",
-        "numpy==1.25.2",
-        "pandas==2.0.3",
-    ]
+        "transformers",
+        "torch",
+        "Pillow",
+        "numpy",
+        "pandas",
+    ],
+    verbose=True,
 )
 def HUGGING_FACE_PIPELINE(
     default: Image,
