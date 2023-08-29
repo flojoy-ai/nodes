@@ -145,12 +145,12 @@
             {
                 "width": 150,
                 "height": 180,
-                "id": "SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
+                "id": "SKIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
                 "type": "default",
                 "data": {
-                    "id": "SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
-                    "label": "SKLEARNIMAGE",
-                    "func": "SKLEARNIMAGE",
+                    "id": "SKIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
+                    "label": "SKIMAGE",
+                    "func": "SKIMAGE",
                     "type": "default",
                     "ctrls": {
                         "img_key": {
@@ -202,7 +202,7 @@
                                 "vortex"
                             ],
                             "desc": null,
-                            "functionName": "SKLEARNIMAGE",
+                            "functionName": "SKIMAGE",
                             "param": "img_key",
                             "value": "astronaut"
                         }
@@ -221,7 +221,7 @@
                             "v": "0.21.0"
                         }
                     ],
-                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_IMAGES\\SKLEARNIMAGE\\SKLEARNIMAGE.py",
+                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_IMAGES\\SKIMAGE\\SKIMAGE.py",
                     "selected": false
                 },
                 "position": {
@@ -245,18 +245,18 @@
                 "id": "reactflow__edge-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default-IMAGE-455a09f6-8f20-4087-ab60-9f01c1b2427cdefault"
             },
             {
-                "source": "SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
+                "source": "SKIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
                 "sourceHandle": "default",
                 "target": "TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76",
                 "targetHandle": "default",
-                "id": "reactflow__edge-SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426cdefault-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default"
+                "id": "reactflow__edge-SKIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426cdefault-TWO_DIMENSIONAL_FFT-373b4021-dbb6-4c59-8884-b146b6d2bb76default"
             },
             {
-                "source": "SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
+                "source": "SKIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426c",
                 "sourceHandle": "default",
                 "target": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
                 "targetHandle": "default",
-                "id": "reactflow__edge-SKLEARNIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426cdefault-IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406default"
+                "id": "reactflow__edge-SKIMAGE-1fe5199d-c1cf-40c3-8a55-2445b6a2426cdefault-IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406default"
             }
         ],
         "viewport": {

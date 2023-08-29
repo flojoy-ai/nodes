@@ -4,10 +4,10 @@
             {
                 "width": 160,
                 "height": 160,
-                "id": "LOCAL_FILE-6c5165f8-abe1-4d41-854b-c662b5d2a987",
+                "id": "LOCAL_FILE-715b53d4-a2d0-4437-a175-8c70372a2b87",
                 "type": "LOADERS",
                 "data": {
-                    "id": "LOCAL_FILE-6c5165f8-abe1-4d41-854b-c662b5d2a987",
+                    "id": "LOCAL_FILE-715b53d4-a2d0-4437-a175-8c70372a2b87",
                     "label": "LOCAL FILE",
                     "func": "LOCAL_FILE",
                     "type": "LOADERS",
@@ -15,33 +15,35 @@
                         "file_path": {
                             "type": "str",
                             "default": null,
-                            "desc": "path to the file to be loaded.",
+                            "desc": "path to the file to be loaded",
                             "functionName": "LOCAL_FILE",
                             "param": "file_path",
-                            "value": "PYTHON/nodes/AI_ML/SEGMENTATION/DEEPLAB_V3/assets/obama_image.jpg"
+                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/VISUALIZERS/PLOTLY/HEATMAP/assets/heatmap.tif"
                         },
                         "file_type": {
                             "type": "select",
                             "default": "Image",
                             "options": [
                                 "Image",
+                                "Grayscale",
                                 "JSON",
                                 "CSV",
                                 "Excel",
                                 "XML"
                             ],
-                            "desc": "type of file to load, default: image.",
+                            "desc": "type of file to load, default = image",
                             "functionName": "LOCAL_FILE",
                             "param": "file_type",
-                            "value": "Image"
+                            "value": "Grayscale"
                         }
                     },
+                    "initCtrls": {},
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
                             "type": "Image|DataFrame",
-                            "desc": null
+                            "desc": "Image for file_type 'image'\nDataFrame for file_type 'json', 'csv', 'excel', 'xml'"
                         }
                     ],
                     "pip_dependencies": [
@@ -52,40 +54,109 @@
                         {
                             "name": "lxml",
                             "v": "4.9.2"
+                        },
+                        {
+                            "name": "openpyxl",
+                            "v": "3.0.10"
+                        },
+                        {
+                            "name": "scikit-image",
+                            "v": "0.21.0"
                         }
                     ],
                     "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 24.809619940370197,
-                    "y": -128.2164625572575
+                    "x": -213.9948763994475,
+                    "y": -687.1796942660033
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 24.809619940370197,
-                    "y": -128.2164625572575
+                    "x": -213.9948763994475,
+                    "y": -687.1796942660033
                 },
                 "dragging": true
             },
             {
                 "width": 225,
                 "height": 226,
-                "id": "IMAGE-769c4e27-7d34-45ac-a2b3-b74dbf96dd4f",
+                "id": "HEATMAP-2fcfddb7-fa77-4593-82c3-22fe9d6beee0",
                 "type": "VISUALIZERS",
                 "data": {
-                    "id": "IMAGE-769c4e27-7d34-45ac-a2b3-b74dbf96dd4f",
+                    "id": "HEATMAP-2fcfddb7-fa77-4593-82c3-22fe9d6beee0",
+                    "label": "HEATMAP",
+                    "func": "HEATMAP",
+                    "type": "VISUALIZERS",
+                    "ctrls": {
+                        "show_text": {
+                            "type": "bool",
+                            "default": false,
+                            "desc": "whether to show the text inside the heatmap color blocks",
+                            "functionName": "HEATMAP",
+                            "param": "show_text",
+                            "value": false
+                        },
+                        "histogram": {
+                            "type": "bool",
+                            "default": false,
+                            "desc": "whether or not to render a histogram of the image next to the render",
+                            "functionName": "HEATMAP",
+                            "param": "histogram",
+                            "value": true
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Matrix|Grayscale|DataFrame|Vector|OrderedTriple",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly heatmap visualization"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/HEATMAP/HEATMAP.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 85.83831612566095,
+                    "y": -425.01691469133516
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 85.83831612566095,
+                    "y": -425.01691469133516
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-a79fa1e7-a7af-435d-960b-8d5e6ec628f8",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "IMAGE-a79fa1e7-a7af-435d-960b-8d5e6ec628f8",
                     "label": "IMAGE",
                     "func": "IMAGE",
                     "type": "VISUALIZERS",
                     "ctrls": {},
+                    "initCtrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Image",
+                            "type": "Image|Grayscale",
                             "multiple": false,
-                            "desc": null
+                            "desc": "the DataContainer to be visualized"
                         }
                     ],
                     "outputs": [
@@ -93,135 +164,44 @@
                             "name": "default",
                             "id": "default",
                             "type": "Plotly",
-                            "desc": null
+                            "desc": "the DataContainer containing Plotly Image visualization of the input image"
                         }
                     ],
                     "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 572.2067448111293,
-                    "y": -166.80421635329245
+                    "x": 115.3713799337333,
+                    "y": -834.399558047481
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 572.2067448111293,
-                    "y": -166.80421635329245
-                },
-                "dragging": true
-            },
-            {
-                "width": 225,
-                "height": 226,
-                "id": "IMAGE-f28f6f34-e3dd-4840-a48e-28efc7b1ae45",
-                "type": "VISUALIZERS",
-                "data": {
-                    "id": "IMAGE-f28f6f34-e3dd-4840-a48e-28efc7b1ae45",
-                    "label": "IMAGE 1",
-                    "func": "IMAGE",
-                    "type": "VISUALIZERS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image",
-                            "multiple": false,
-                            "desc": null
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly",
-                            "desc": null
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 272.1848200697342,
-                    "y": -363.6544609307003
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 272.1848200697342,
-                    "y": -363.6544609307003
-                },
-                "dragging": true
-            },
-            {
-                "width": 208,
-                "height": 96,
-                "id": "OBJECT_DETECTION-3ce0a6ee-8056-40f6-b99d-19e8358e54f5",
-                "type": "AI_ML",
-                "data": {
-                    "id": "OBJECT_DETECTION-3ce0a6ee-8056-40f6-b99d-19e8358e54f5",
-                    "label": "OBJECT DETECTION",
-                    "func": "OBJECT_DETECTION",
-                    "type": "AI_ML",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image",
-                            "multiple": false,
-                            "desc": null
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Image",
-                            "desc": null
-                        }
-                    ],
-                    "path": "PYTHON/nodes/AI_ML/OBJECT_DETECTION/OBJECT_DETECTION/OBJECT_DETECTION.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 260.3471692016421,
-                    "y": -89.58575634203677
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 260.3471692016421,
-                    "y": -89.58575634203677
+                    "x": 115.3713799337333,
+                    "y": -834.399558047481
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LOCAL_FILE-6c5165f8-abe1-4d41-854b-c662b5d2a987",
+                "source": "LOCAL_FILE-715b53d4-a2d0-4437-a175-8c70372a2b87",
                 "sourceHandle": "default",
-                "target": "OBJECT_DETECTION-3ce0a6ee-8056-40f6-b99d-19e8358e54f5",
+                "target": "IMAGE-a79fa1e7-a7af-435d-960b-8d5e6ec628f8",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-6c5165f8-abe1-4d41-854b-c662b5d2a987default-OBJECT_DETECTION-3ce0a6ee-8056-40f6-b99d-19e8358e54f5default"
+                "id": "reactflow__edge-LOCAL_FILE-715b53d4-a2d0-4437-a175-8c70372a2b87default-IMAGE-a79fa1e7-a7af-435d-960b-8d5e6ec628f8default"
             },
             {
-                "source": "OBJECT_DETECTION-3ce0a6ee-8056-40f6-b99d-19e8358e54f5",
+                "source": "LOCAL_FILE-715b53d4-a2d0-4437-a175-8c70372a2b87",
                 "sourceHandle": "default",
-                "target": "IMAGE-769c4e27-7d34-45ac-a2b3-b74dbf96dd4f",
+                "target": "HEATMAP-2fcfddb7-fa77-4593-82c3-22fe9d6beee0",
                 "targetHandle": "default",
-                "id": "reactflow__edge-OBJECT_DETECTION-3ce0a6ee-8056-40f6-b99d-19e8358e54f5default-IMAGE-769c4e27-7d34-45ac-a2b3-b74dbf96dd4fdefault"
-            },
-            {
-                "source": "LOCAL_FILE-6c5165f8-abe1-4d41-854b-c662b5d2a987",
-                "sourceHandle": "default",
-                "target": "IMAGE-f28f6f34-e3dd-4840-a48e-28efc7b1ae45",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LOCAL_FILE-6c5165f8-abe1-4d41-854b-c662b5d2a987default-IMAGE-f28f6f34-e3dd-4840-a48e-28efc7b1ae45default"
+                "id": "reactflow__edge-LOCAL_FILE-715b53d4-a2d0-4437-a175-8c70372a2b87default-HEATMAP-2fcfddb7-fa77-4593-82c3-22fe9d6beee0default"
             }
         ],
         "viewport": {
-            "x": 606.4472645567363,
-            "y": 234.63130388602087,
-            "zoom": 0.9186369849831518
+            "x": 459.5722592074368,
+            "y": 801.7614323394131,
+            "zoom": 0.5608869937101538
         }
     },
     "ctrlsManifest": [

@@ -1,5 +1,5 @@
-from flojoy import flojoy, Image, DataFrame, Grayscale
-from typing import Literal
+from flojoy import flojoy, Image, DataFrame, Grayscale, TextBlob
+from typing import Literal, Optional
 import numpy as np
 from PIL import Image as PIL_Image
 from os import path
@@ -23,6 +23,7 @@ def get_file_path(file_path: str, default_path: str | None = None):
 )
 def LOCAL_FILE(
     file_path: str,
+    default: Optional[TextBlob] = None,
     file_type: Literal["Image", "Grayscale", "JSON", "CSV", "Excel", "XML"] = "Image",
 ) -> Image | DataFrame:
     """The LOCAL_FILE node loads a local file of a different type and converts it to a DataContainer class.
@@ -31,6 +32,9 @@ def LOCAL_FILE(
     ----------
     file_type : str
         type of file to load, default = image
+    default   : Optional[TextBlob]
+        If this input node is connected, the filename will be taken from
+        the output of the connected node. To be used in conjunction with batch processing
     file_path : str
         path to the file to be loaded
 
@@ -40,16 +44,16 @@ def LOCAL_FILE(
         Image for file_type 'image'
         DataFrame for file_type 'json', 'csv', 'excel', 'xml'
     """
+    default_image_path = path.join(
+        path.dirname(path.abspath(__file__)),
+        "assets",
+        "astronaut.png",
+    )
 
     match file_type:
         case "Image":
-            default_image_path = path.join(
-                path.dirname(path.abspath(__file__)),
-                "assets",
-                "astronaut.png",
-            )
             file_path = get_file_path(file_path, default_image_path)
-            f = PIL_Image.open(file_path)
+            f = PIL_Image.open(default.text_blob if default else file_path)
             img_array = np.array(f.convert("RGBA"))
             red_channel = img_array[:, :, 0]
             green_channel = img_array[:, :, 1]
@@ -67,26 +71,25 @@ def LOCAL_FILE(
         case "Grayscale":
             import skimage.io
 
-            default_image_path = path.join(
-                path.dirname(path.abspath(__file__)),
-                "assets",
-                "astronaut.png",
-            )
             file_path = get_file_path(file_path, default_image_path)
-            return Grayscale(img=skimage.io.imread(file_path, as_gray=True))
+            return Grayscale(
+                img=skimage.io.imread(
+                    default.text_blob if default else file_path, as_gray=True
+                )
+            )
         case "CSV":
             file_path = get_file_path(file_path)
-            df = pd.read_csv(file_path)
+            df = pd.read_csv(default.text_blob if default else file_path)
             return DataFrame(df=df)
         case "JSON":
             file_path = get_file_path(file_path)
-            df = pd.read_json(file_path)
+            df = pd.read_json(default.text_blob if default else file_path)
             return DataFrame(df=df)
         case "XML":
             file_path = get_file_path(file_path)
-            df = pd.read_xml(file_path)
+            df = pd.read_xml(default.text_blob if default else file_path)
             return DataFrame(df=df)
         case "Excel":
             file_path = get_file_path(file_path)
-            df = pd.read_excel(file_path)
+            df = pd.read_excel(default.text_blob if default else file_path)
             return DataFrame(df=df)

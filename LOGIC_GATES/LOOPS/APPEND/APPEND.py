@@ -64,14 +64,14 @@ def APPEND(
         v0 = primary_dp.v
         v1 = secondary_dp.c
 
-        v = np.append(v0, v1, axis=0)
+        v = np.append(v0, [v1], axis=0)
         return Vector(v=v)
 
     elif isinstance(primary_dp, Scalar) and isinstance(secondary_dp, Scalar):
         c0 = primary_dp.c
         c1 = secondary_dp.c
 
-        v = np.append(c0, c1, axis=0)
+        v = np.append([c0], [c1], axis=0)
         return Vector(v=v)
 
     else:

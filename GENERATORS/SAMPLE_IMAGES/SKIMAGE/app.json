@@ -4,12 +4,12 @@
             {
                 "width": 150,
                 "height": 180,
-                "id": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
+                "id": "SKIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
                 "type": "default",
                 "data": {
-                    "id": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
-                    "label": "SKLEARNIMAGE",
-                    "func": "SKLEARNIMAGE",
+                    "id": "SKIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
+                    "label": "SKIMAGE",
+                    "func": "SKIMAGE",
                     "type": "default",
                     "ctrls": {
                         "img_key": {
@@ -60,7 +60,7 @@
                                 "text",
                                 "vortex"
                             ],
-                            "functionName": "SKLEARNIMAGE",
+                            "functionName": "SKIMAGE",
                             "param": "img_key",
                             "value": "astronaut"
                         }
@@ -72,7 +72,7 @@
                             "type": "Image"
                         }
                     ],
-                    "path": "PYTHON/nodes/GENERATORS/SAMPLE_IMAGES/SKLEARNIMAGE/SKLEARNIMAGE.py",
+                    "path": "PYTHON/nodes/GENERATORS/SAMPLE_IMAGES/SKIMAGE/SKIMAGE.py",
                     "selected": false
                 },
                 "position": {
@@ -217,18 +217,18 @@
         ],
         "edges": [
             {
-                "source": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
+                "source": "SKIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
                 "sourceHandle": "default",
                 "target": "IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406",
                 "targetHandle": "default",
-                "id": "reactflow__edge-SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406default"
+                "id": "reactflow__edge-SKIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-IMAGE-135a920b-87fa-4759-bfca-0b6ad739b406default"
             },
             {
-                "source": "SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
+                "source": "SKIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8",
                 "sourceHandle": "default",
                 "target": "OBJECT_DETECTION-3951b332-4786-4fa9-a456-2aaf2051e727",
                 "targetHandle": "default",
-                "id": "reactflow__edge-SKLEARNIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-OBJECT_DETECTION-3951b332-4786-4fa9-a456-2aaf2051e727default"
+                "id": "reactflow__edge-SKIMAGE-874fdd2b-fea5-4dc6-8898-2905d070aca8default-OBJECT_DETECTION-3951b332-4786-4fa9-a456-2aaf2051e727default"
             },
             {
                 "source": "OBJECT_DETECTION-3951b332-4786-4fa9-a456-2aaf2051e727",
