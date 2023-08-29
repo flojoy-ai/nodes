@@ -50,7 +50,6 @@ def PID(
         raise TypeError("Issue reading memory from REDIS.")
     integral: int = 0 if initialize else data[0]
     regulation_error_primes = np.zeros(3) if initialize else data[1:]
-    print("DATA: ", data, flush=True)
     regulation_error = single_input.c
 
     integral: float = integral + 0.5 * Ki * (
