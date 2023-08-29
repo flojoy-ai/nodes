@@ -9,21 +9,21 @@ def BREAK(
     referred_node: NodeReference,
     default: Optional[DataContainer] = None,
 ) -> None:
-    """
-    The BREAK node is designed to end the iteration of loop. It can, and should, be used
-    in conjunction with conditionals to determine when to break the loop. It is needed to
-    be able to generate while loops in Flojoy (combined with an infinite loop).
+    """The BREAK node is designed to end the iteration of a loop. 
+    It should be used in conjunction with conditionals to determine when to break the loop. 
+    It is needed to be able to generate 'while loops' in Flojoy (combined with an 'infinite loop').
 
     Parameters
     ----------
-    referred_node       :       NodeReference
+    referred_node : NodeReference
         This is the specific instance of a LOOP node that you want to break.
         It is required to differentiate between multiple LOOPs if they exist
-        in the same application
-    default             :       Optional[DataContainer]
-        This can be whatever, this node simply requires an input (most likely from
-        the return of a CONDITIONAL node) so that it is executed
+        in the same application.
+    default : Optional [DataContainer]
+        This node simply requires an input (most likely from
+        the return of a CONDITIONAL node) so that it is executed.
     """
+
     # this is the loop ID we want to break
     original_data: dict[str, Any] = SmallMemory().read_memory(
         referred_node.ref, memory_key

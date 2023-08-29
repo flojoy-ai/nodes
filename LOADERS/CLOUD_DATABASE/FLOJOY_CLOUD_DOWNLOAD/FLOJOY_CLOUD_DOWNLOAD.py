@@ -23,12 +23,13 @@ def FLOJOY_CLOUD_DOWNLOAD(
 
     Parameters
     ----------
-    data_container_id: The data container id of the data to be downloaded from Flojoy Cloud.
+    data_container_id : str
+        The data container id of the data to be downloaded from Flojoy Cloud.
 
     Returns
     -------
     DataContainer
-        The downloaded DataContainer will be returned as it is
+        The downloaded DataContainer will be returned as it is.
     """
 
     api_key = get_env_var("FLOJOY_CLOUD_KEY")

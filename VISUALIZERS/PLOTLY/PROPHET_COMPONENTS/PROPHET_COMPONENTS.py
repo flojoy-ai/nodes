@@ -12,10 +12,10 @@ def PROPHET_COMPONENTS(default: DataFrame, periods: int = 365) -> Plotly:
     This is the output plotly graph from the "plot_components_plotly" function from "prophet.plot".
     It expects the trained Prophet model from the PROPHET_PREDICT node as input.
 
-    If "run_forecast" was True in that node, the forecasted dataframe will be available in "m" attribute of default input.
-    Otherwise, this will make the predictions on the raw dataframe (in which case it will be the "m" attribute of default input).
+    If "run_forecast" was True in that node, the forecasted dataframe will be available as the "m" attribute of the default input.
+    Otherwise, this will make the predictions on the raw dataframe (in which case it will be the "m" attribute of the default input).
 
-    You can tell if that forecasted dataframe is available via the "extra" field of data input - "run_forecast", (data.extra["run_forecast"]).
+    You can tell if that forecasted dataframe is available via the "extra" field of data input, "run_forecast" (data.extra["run_forecast"]).
 
     Inputs
     ------
@@ -31,7 +31,9 @@ def PROPHET_COMPONENTS(default: DataFrame, periods: int = 365) -> Plotly:
     periods : int
         The number of periods out to predict.
         Only used if the node passed into this node (i.e. PROPHET_PREDICT) did NOT return the forecast.
-        If the forecast was included in the DataContainer, this parameter will be ignored. default is 365
+        If the forecast was included in the DataContainer, this parameter will be ignored. 
+        
+        Default = 365
 
     Returns
     -------

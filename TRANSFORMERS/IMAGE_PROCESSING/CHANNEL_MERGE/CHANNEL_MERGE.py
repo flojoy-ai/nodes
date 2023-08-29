@@ -4,14 +4,13 @@ import numpy as np
 
 @flojoy
 def CHANNEL_MERGE(red: Image, green: Image, blue: Image, alpha: Image) -> Image:
-    """
-    The CHANNEL_MERGE node returns the merged rgba channels of an image
+    """The CHANNEL_MERGE node returns the merged rgba channels of an image.
 
     Returns
     -------
     Image
         The image with each channel given by the appropriate channel
-        on the respective inputs
+        on the respective inputs.
     """
 
     try:
