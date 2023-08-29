@@ -149,10 +149,10 @@
       {
         "width": 208,
         "height": 96,
-        "id": "OBJECT_DETECTION-62b780b5-a86a-45b5-9091-13b92e9f5f6b",
+        "id": "OBJECT_DETECTION-90a6c050-8d84-443f-a900-d8e45afcac34",
         "type": "AI_ML",
         "data": {
-          "id": "OBJECT_DETECTION-62b780b5-a86a-45b5-9091-13b92e9f5f6b",
+          "id": "OBJECT_DETECTION-90a6c050-8d84-443f-a900-d8e45afcac34",
           "label": "OBJECT DETECTION",
           "func": "OBJECT_DETECTION",
           "type": "AI_ML",
@@ -177,21 +177,21 @@
           ],
           "pip_dependencies": [
             {
-              "name": "opencv-python-headless",
-              "v": "4.7.0.72"
+              "name": "opencv-python",
+              "v": "4.8.0.72"
             }
           ],
           "path": "PYTHON/nodes/AI_ML/OBJECT_DETECTION/OBJECT_DETECTION/OBJECT_DETECTION.py",
           "selected": false
         },
         "position": {
-          "x": -551.4668740298133,
-          "y": -29.083542699911334
+          "x": -603.4320152572054,
+          "y": -36.080992227066815
         },
         "selected": false,
         "positionAbsolute": {
-          "x": -551.4668740298133,
-          "y": -29.083542699911334
+          "x": -603.4320152572054,
+          "y": -36.080992227066815
         },
         "dragging": true
       }
@@ -205,18 +205,18 @@
         "id": "reactflow__edge-LOCAL_FILE-ad2faae4-ec8a-4831-b032-f9e7463aa6e8default-IMAGE-9591ea14-23d2-4d24-b104-1335600c0f25default"
       },
       {
-        "source": "OBJECT_DETECTION-62b780b5-a86a-45b5-9091-13b92e9f5f6b",
+        "source": "LOCAL_FILE-ad2faae4-ec8a-4831-b032-f9e7463aa6e8",
+        "sourceHandle": "default",
+        "target": "OBJECT_DETECTION-90a6c050-8d84-443f-a900-d8e45afcac34",
+        "targetHandle": "default",
+        "id": "reactflow__edge-LOCAL_FILE-ad2faae4-ec8a-4831-b032-f9e7463aa6e8default-OBJECT_DETECTION-90a6c050-8d84-443f-a900-d8e45afcac34default"
+      },
+      {
+        "source": "OBJECT_DETECTION-90a6c050-8d84-443f-a900-d8e45afcac34",
         "sourceHandle": "default",
         "target": "IMAGE-19594356-4c51-4ce0-9213-765b382ad903",
         "targetHandle": "default",
-        "id": "reactflow__edge-OBJECT_DETECTION-62b780b5-a86a-45b5-9091-13b92e9f5f6bdefault-IMAGE-19594356-4c51-4ce0-9213-765b382ad903default"
-      },
-      {
-        "source": "LOCAL_FILE-ad2faae4-ec8a-4831-b032-f9e7463aa6e8",
-        "sourceHandle": "default",
-        "target": "OBJECT_DETECTION-62b780b5-a86a-45b5-9091-13b92e9f5f6b",
-        "targetHandle": "default",
-        "id": "reactflow__edge-LOCAL_FILE-ad2faae4-ec8a-4831-b032-f9e7463aa6e8default-OBJECT_DETECTION-62b780b5-a86a-45b5-9091-13b92e9f5f6bdefault"
+        "id": "reactflow__edge-OBJECT_DETECTION-90a6c050-8d84-443f-a900-d8e45afcac34default-IMAGE-19594356-4c51-4ce0-9213-765b382ad903default"
       }
     ],
     "viewport": {
