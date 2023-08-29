@@ -1,4 +1,4 @@
-from flojoy import flojoy, Vector, Scalar
+from flojoy import flojoy, Scalar
 from qcodes.instrument_drivers.weinschel import Weinschel8320
 from typing import Optional
 
