@@ -1,0 +1,214 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 192,
+                "height": 192,
+                "id": "MOCK_WEINSCHEL8320-e911e4a9-f243-4d9f-897e-6d1daccd43c8",
+                "type": "INSTRUMENTS",
+                "data": {
+                    "id": "MOCK_WEINSCHEL8320-e911e4a9-f243-4d9f-897e-6d1daccd43c8",
+                    "label": "MOCK WEINSCHEL8320",
+                    "func": "MOCK_WEINSCHEL8320",
+                    "type": "INSTRUMENTS",
+                    "ctrls": {
+                        "attenuation": {
+                            "type": "int",
+                            "default": 10,
+                            "desc": "Value that the instrument would attenuate the input signal (mocked).",
+                            "functionName": "MOCK_WEINSCHEL8320",
+                            "param": "attenuation",
+                            "value": 10
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Scalar",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Scalar",
+                            "desc": "c: attenuation value"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        },
+                        {
+                            "name": "pyvisa-sim",
+                            "v": "0.5.1"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/INSTRUMENTS/MOCK/MOCK_WEINSCHEL8320/MOCK_WEINSCHEL8320.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -41.116360435642804,
+                    "y": -6.40137677558107
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -41.116360435642804,
+                    "y": -6.40137677558107
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "BIG_NUMBER-b00b664d-8fc1-4ad5-bb24-c45fc49db01d",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "BIG_NUMBER-b00b664d-8fc1-4ad5-bb24-c45fc49db01d",
+                    "label": "BIG NUMBER",
+                    "func": "BIG_NUMBER",
+                    "type": "VISUALIZERS",
+                    "ctrls": {
+                        "suffix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "any suffix to show with big number",
+                            "functionName": "BIG_NUMBER",
+                            "param": "suffix",
+                            "value": ""
+                        },
+                        "prefix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "any prefix to show with big number",
+                            "functionName": "BIG_NUMBER",
+                            "param": "prefix",
+                            "value": ""
+                        },
+                        "title": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "title of the plot, default \"BIG_NUMBER\"",
+                            "functionName": "BIG_NUMBER",
+                            "param": "title",
+                            "value": ""
+                        },
+                        "relative_delta": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": "whether to show relative delta from last run along with big number",
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": true
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly big number visualization"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/BIG_NUMBER/BIG_NUMBER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 297.5557009059977,
+                    "y": -60.78098364763936
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 297.5557009059977,
+                    "y": -60.78098364763936
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "CLOSE_ALL-b8097938-6108-4509-bbaa-0375d2b76555",
+                "type": "INSTRUMENTS",
+                "data": {
+                    "id": "CLOSE_ALL-b8097938-6108-4509-bbaa-0375d2b76555",
+                    "label": "CLOSE ALL",
+                    "func": "CLOSE_ALL",
+                    "type": "INSTRUMENTS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": null
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/INSTRUMENTS/QCODES/CLOSE_ALL/CLOSE_ALL.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 881.5105030615465,
+                    "y": 8.43267490744222
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 881.5105030615465,
+                    "y": 8.43267490744222
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "MOCK_WEINSCHEL8320-e911e4a9-f243-4d9f-897e-6d1daccd43c8",
+                "sourceHandle": "default",
+                "target": "BIG_NUMBER-b00b664d-8fc1-4ad5-bb24-c45fc49db01d",
+                "targetHandle": "default",
+                "id": "reactflow__edge-MOCK_WEINSCHEL8320-e911e4a9-f243-4d9f-897e-6d1daccd43c8default-BIG_NUMBER-b00b664d-8fc1-4ad5-bb24-c45fc49db01ddefault"
+            },
+            {
+                "source": "BIG_NUMBER-b00b664d-8fc1-4ad5-bb24-c45fc49db01d",
+                "sourceHandle": "default",
+                "target": "CLOSE_ALL-b8097938-6108-4509-bbaa-0375d2b76555",
+                "targetHandle": "default",
+                "id": "reactflow__edge-BIG_NUMBER-b00b664d-8fc1-4ad5-bb24-c45fc49db01ddefault-CLOSE_ALL-b8097938-6108-4509-bbaa-0375d2b76555default"
+            }
+        ],
+        "viewport": {
+            "x": 1102.229688012807,
+            "y": 584.5880790869217,
+            "zoom": 1.2397346348267997
+        }
+    }
+}
