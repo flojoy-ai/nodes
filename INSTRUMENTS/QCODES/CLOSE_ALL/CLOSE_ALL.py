@@ -9,6 +9,11 @@ def CLOSE_ALL(
 ) -> Optional[DataContainer]:
     """The CLOSE_ALL node closes all qcodes instruments and should be ran at
     the beginning and end of each Flojoy app that uses qcodes.
+
+    Returns
+    -------
+    Scalar
+        c: placeholder for testing purposes.
     """
 
     Instrument.close_all()
