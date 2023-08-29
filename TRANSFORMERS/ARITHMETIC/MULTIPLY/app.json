@@ -2,12 +2,167 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 130,
-                "height": 130,
-                "id": "SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15d",
+                "width": 231,
+                "height": 96,
+                "id": "TEXT-94ed615d-0b9d-44cc-b18c-2ba85f408ff9",
                 "type": "GENERATORS",
                 "data": {
-                    "id": "SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15d",
+                    "id": "TEXT-94ed615d-0b9d-44cc-b18c-2ba85f408ff9",
+                    "label": "DESCRIPTION",
+                    "func": "TEXT",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "value": {
+                            "type": "str",
+                            "default": "Hello World!",
+                            "desc": "The value set in Parameters",
+                            "functionName": "TEXT",
+                            "param": "value",
+                            "value": "This app shows how the MULTIPLY node works. First we generate a sine function and a constant with the LINSPACE, SINE and CONSTANT nodes. Then we multiply the sine function by the constant 2 and we visualize the result in the SCATTER node. "
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "_",
+                            "id": "_",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "desc": "text_blob: return the value being set in Parameters"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/TEXT/TEXT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -224.52225960153442,
+                    "y": -658.4363899075782
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -224.52225960153442,
+                    "y": -658.4363899075782
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "TEXT_VIEW-f074b0aa-8e4a-4549-9720-a6ac60b9e3d7",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-f074b0aa-8e4a-4549-9720-a6ac60b9e3d7",
+                    "label": "TEXT VIEW",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 47.466997619019224,
+                    "y": -724.7242485979443
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 47.466997619019224,
+                    "y": -724.7242485979443
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "LINSPACE-8b7ba1ed-44a9-4899-ac2e-17d27b459dcb",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "LINSPACE-8b7ba1ed-44a9-4899-ac2e-17d27b459dcb",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "start": {
+                            "type": "float",
+                            "default": 10,
+                            "desc": "The start point of the data.",
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": 10
+                        },
+                        "end": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "The end point of the data.",
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": 0
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "desc": "The number of points in the vector.",
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": 1000
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector|OrderedPair",
+                            "multiple": false,
+                            "desc": "Optional input in case LINSPACE is used in a loop. Not used."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "desc": "v: the vector between start and end with step number of points."
+                        }
+                    ],
+                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -800.8348337607682,
+                    "y": -476.31871771488414
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -800.8348337607682,
+                    "y": -476.31871771488414
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "SINE-19b534f5-38d2-4b02-9a6a-9f8f13fa2cfa",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "SINE-19b534f5-38d2-4b02-9a6a-9f8f13fa2cfa",
                     "label": "SINE",
                     "func": "SINE",
                     "type": "GENERATORS",
@@ -15,6 +170,7 @@
                         "amplitude": {
                             "type": "float",
                             "default": 1,
+                            "desc": "The amplitude of the wave.",
                             "functionName": "SINE",
                             "param": "amplitude",
                             "value": 1
@@ -22,6 +178,7 @@
                         "frequency": {
                             "type": "float",
                             "default": 1,
+                            "desc": "The wave frequency in radians/2pi.",
                             "functionName": "SINE",
                             "param": "frequency",
                             "value": 1
@@ -29,6 +186,7 @@
                         "offset": {
                             "type": "float",
                             "default": 0,
+                            "desc": "The y axis offset of the function.",
                             "functionName": "SINE",
                             "param": "offset",
                             "value": 0
@@ -36,6 +194,7 @@
                         "phase": {
                             "type": "float",
                             "default": 0,
+                            "desc": "The x axis offset of the function.",
                             "functionName": "SINE",
                             "param": "phase",
                             "value": 0
@@ -49,289 +208,253 @@
                                 "triangle",
                                 "sawtooth"
                             ],
+                            "desc": "The waveform type of the wave.",
                             "functionName": "SINE",
                             "param": "waveform",
                             "value": "sine"
                         }
                     },
+                    "initCtrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair",
-                            "multiple": false
+                            "type": "OrderedPair|Vector",
+                            "multiple": false,
+                            "desc": "Input that defines the x axis values of the function and output."
                         }
                     ],
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair"
+                            "type": "OrderedPair",
+                            "desc": "x: the input v or x values\ny: the resulting sine function"
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/SINE/SINE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1247.3407184321943,
-                    "y": 354.64573297681466
+                    "x": -549.6606244809619,
+                    "y": -565.1227351276019
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1247.3407184321943,
-                    "y": 354.64573297681466
+                    "x": -549.6606244809619,
+                    "y": -565.1227351276019
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
-                "id": "SCATTER-9927419b-29bb-4d10-bf5a-79ea28add9a9",
-                "type": "VISUALIZERS",
-                "data": {
-                    "id": "SCATTER-9927419b-29bb-4d10-bf5a-79ea28add9a9",
-                    "label": "SCATTER",
-                    "func": "SCATTER",
-                    "type": "VISUALIZERS",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair|DataFrame|Matrix",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/SCATTER/SCATTER.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1837.687746366354,
-                    "y": 421.041374298705
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1837.687746366354,
-                    "y": 421.041374298705
-                },
-                "dragging": true
-            },
-            {
-                "width": 99,
-                "height": 130,
-                "id": "MULTIPLY-cf3c6079-3f31-4c33-b280-5ab1187e33fb",
-                "type": "ARITHMETIC",
-                "data": {
-                    "id": "MULTIPLY-cf3c6079-3f31-4c33-b280-5ab1187e33fb",
-                    "label": "MULTIPLY",
-                    "func": "MULTIPLY",
-                    "type": "ARITHMETIC",
-                    "ctrls": {},
-                    "inputs": [
-                        {
-                            "name": "a",
-                            "id": "a",
-                            "type": "OrderedPair",
-                            "multiple": false
-                        },
-                        {
-                            "name": "b",
-                            "id": "b",
-                            "type": "OrderedPair",
-                            "multiple": true
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/TRANSFORMERS/ARITHMETIC/MULTIPLY/MULTIPLY.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 1582.866634724288,
-                    "y": 470.91201134788423
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1582.866634724288,
-                    "y": 470.91201134788423
-                },
-                "dragging": true
-            },
-            {
-                "width": 130,
-                "height": 130,
-                "id": "CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9c",
+                "width": 208,
+                "height": 96,
+                "id": "CONSTANT-107a89ca-b5a6-4029-83aa-47d524ddee0f",
                 "type": "GENERATORS",
                 "data": {
-                    "id": "CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9c",
-                    "label": "2.0",
+                    "id": "CONSTANT-107a89ca-b5a6-4029-83aa-47d524ddee0f",
+                    "label": "2",
                     "func": "CONSTANT",
                     "type": "GENERATORS",
                     "ctrls": {
                         "constant": {
                             "type": "float",
                             "default": 3,
+                            "desc": "The value of the y axis output",
                             "functionName": "CONSTANT",
                             "param": "constant",
-                            "value": "2.0"
+                            "value": 2
+                        },
+                        "step": {
+                            "type": "float",
+                            "default": 1000,
+                            "desc": "The size of the y and x axes.",
+                            "functionName": "CONSTANT",
+                            "param": "step",
+                            "value": 1000
                         }
                     },
+                    "initCtrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair",
-                            "multiple": false
+                            "type": "Vector|OrderedPair",
+                            "multiple": false,
+                            "desc": "Optional input that defines the size of the output."
                         }
                     ],
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair"
+                            "type": "OrderedPair",
+                            "desc": "x: the x axis generated with size 'step'\ny: the resulting constant with size 'step'"
                         }
                     ],
                     "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/CONSTANT/CONSTANT.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 1248.4862978844392,
-                    "y": 624.8962996676939
+                    "x": -540.5222425710353,
+                    "y": -379.5317334943485
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1248.4862978844392,
-                    "y": 624.8962996676939
+                    "x": -540.5222425710353,
+                    "y": -379.5317334943485
                 },
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
-                "id": "LINSPACE-772fbaa3-2429-47d3-8c07-a44b0c1eb1d8",
-                "type": "default",
+                "width": 72,
+                "height": 72,
+                "id": "MULTIPLY-5e74a646-1d89-4a79-978a-2ba86e9a8179",
+                "type": "ARITHMETIC",
                 "data": {
-                    "id": "LINSPACE-772fbaa3-2429-47d3-8c07-a44b0c1eb1d8",
-                    "label": "LINSPACE",
-                    "func": "LINSPACE",
-                    "type": "default",
-                    "ctrls": {
-                        "start": {
-                            "type": "float",
-                            "default": 10,
-                            "functionName": "LINSPACE",
-                            "param": "start",
-                            "value": 10
+                    "id": "MULTIPLY-5e74a646-1d89-4a79-978a-2ba86e9a8179",
+                    "label": "MULTIPLY",
+                    "func": "MULTIPLY",
+                    "type": "ARITHMETIC",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "a",
+                            "id": "a",
+                            "type": "OrderedPair|Scalar|Vector",
+                            "multiple": false,
+                            "desc": "The input a use to compute the product of a and b."
                         },
-                        "end": {
-                            "type": "float",
-                            "default": 0,
-                            "functionName": "LINSPACE",
-                            "param": "end",
-                            "value": 0
-                        },
-                        "step": {
-                            "type": "int",
-                            "default": 1000,
-                            "functionName": "LINSPACE",
-                            "param": "step",
-                            "value": 1000
+                        {
+                            "name": "b",
+                            "id": "b",
+                            "type": "OrderedPair|Scalar|Vector",
+                            "multiple": true,
+                            "desc": "The input b use to compute the product of a and b."
                         }
-                    },
+                    ],
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedPair"
+                            "type": "OrderedPair|Scalar|Vector",
+                            "desc": "OrderedPair if a is an OrderedPair.\nx: the x-axis of input a.\ny: the result of the product of input a and input b.\n\nScalar if a is a Scalar.\nc: the result of the product of input a and input b.\n\nVector if a is a Vector.\nv: the result of the product of input a and input b."
                         }
                     ],
-                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
+                    "path": "PYTHON/nodes/TRANSFORMERS/ARITHMETIC/MULTIPLY/MULTIPLY.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 970.118927622176,
-                    "y": 474.2206729930675
+                    "x": -276.09420155504745,
+                    "y": -465.5012269848113
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 970.118927622176,
-                    "y": 474.2206729930675
+                    "x": -276.09420155504745,
+                    "y": -465.5012269848113
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "SCATTER-f5ac29d6-11a4-4fdc-aa13-280876c58dd2",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "SCATTER-f5ac29d6-11a4-4fdc-aa13-280876c58dd2",
+                    "label": "SCATTER",
+                    "func": "SCATTER",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Scatter visualization"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/SCATTER/SCATTER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -85.64527915898697,
+                    "y": -422.46399367580983
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -85.64527915898697,
+                    "y": -422.46399367580983
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15d",
+                "source": "LINSPACE-8b7ba1ed-44a9-4899-ac2e-17d27b459dcb",
                 "sourceHandle": "default",
-                "target": "MULTIPLY-cf3c6079-3f31-4c33-b280-5ab1187e33fb",
+                "target": "SINE-19b534f5-38d2-4b02-9a6a-9f8f13fa2cfa",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-8b7ba1ed-44a9-4899-ac2e-17d27b459dcbdefault-SINE-19b534f5-38d2-4b02-9a6a-9f8f13fa2cfadefault"
+            },
+            {
+                "source": "LINSPACE-8b7ba1ed-44a9-4899-ac2e-17d27b459dcb",
+                "sourceHandle": "default",
+                "target": "CONSTANT-107a89ca-b5a6-4029-83aa-47d524ddee0f",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-8b7ba1ed-44a9-4899-ac2e-17d27b459dcbdefault-CONSTANT-107a89ca-b5a6-4029-83aa-47d524ddee0fdefault"
+            },
+            {
+                "source": "SINE-19b534f5-38d2-4b02-9a6a-9f8f13fa2cfa",
+                "sourceHandle": "default",
+                "target": "MULTIPLY-5e74a646-1d89-4a79-978a-2ba86e9a8179",
                 "targetHandle": "a",
-                "id": "reactflow__edge-SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15ddefault-MULTIPLY-cf3c6079-3f31-4c33-b280-5ab1187e33fba"
+                "id": "reactflow__edge-SINE-19b534f5-38d2-4b02-9a6a-9f8f13fa2cfadefault-MULTIPLY-5e74a646-1d89-4a79-978a-2ba86e9a8179a"
             },
             {
-                "source": "MULTIPLY-cf3c6079-3f31-4c33-b280-5ab1187e33fb",
+                "source": "CONSTANT-107a89ca-b5a6-4029-83aa-47d524ddee0f",
                 "sourceHandle": "default",
-                "target": "SCATTER-9927419b-29bb-4d10-bf5a-79ea28add9a9",
-                "targetHandle": "default",
-                "id": "reactflow__edge-MULTIPLY-cf3c6079-3f31-4c33-b280-5ab1187e33fbdefault-SCATTER-9927419b-29bb-4d10-bf5a-79ea28add9a9default"
-            },
-            {
-                "source": "CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9c",
-                "sourceHandle": "default",
-                "target": "MULTIPLY-cf3c6079-3f31-4c33-b280-5ab1187e33fb",
+                "target": "MULTIPLY-5e74a646-1d89-4a79-978a-2ba86e9a8179",
                 "targetHandle": "b",
-                "id": "reactflow__edge-CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9cdefault-MULTIPLY-cf3c6079-3f31-4c33-b280-5ab1187e33fbb"
+                "id": "reactflow__edge-CONSTANT-107a89ca-b5a6-4029-83aa-47d524ddee0fdefault-MULTIPLY-5e74a646-1d89-4a79-978a-2ba86e9a8179b"
             },
             {
-                "source": "LINSPACE-772fbaa3-2429-47d3-8c07-a44b0c1eb1d8",
+                "source": "MULTIPLY-5e74a646-1d89-4a79-978a-2ba86e9a8179",
                 "sourceHandle": "default",
-                "target": "SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15d",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINSPACE-772fbaa3-2429-47d3-8c07-a44b0c1eb1d8default-SINE-2cc933b2-9d01-45bb-96a3-a8dceee7a15ddefault"
+                "target": "TEXT-94ed615d-0b9d-44cc-b18c-2ba85f408ff9",
+                "targetHandle": "_",
+                "id": "reactflow__edge-MULTIPLY-5e74a646-1d89-4a79-978a-2ba86e9a8179default-TEXT-94ed615d-0b9d-44cc-b18c-2ba85f408ff9_"
             },
             {
-                "source": "LINSPACE-772fbaa3-2429-47d3-8c07-a44b0c1eb1d8",
+                "source": "MULTIPLY-5e74a646-1d89-4a79-978a-2ba86e9a8179",
                 "sourceHandle": "default",
-                "target": "CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9c",
+                "target": "SCATTER-f5ac29d6-11a4-4fdc-aa13-280876c58dd2",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LINSPACE-772fbaa3-2429-47d3-8c07-a44b0c1eb1d8default-CONSTANT-352d5c77-f4c3-4b53-93b9-bdc31d39ad9cdefault"
+                "id": "reactflow__edge-MULTIPLY-5e74a646-1d89-4a79-978a-2ba86e9a8179default-SCATTER-f5ac29d6-11a4-4fdc-aa13-280876c58dd2default"
+            },
+            {
+                "source": "TEXT-94ed615d-0b9d-44cc-b18c-2ba85f408ff9",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-f074b0aa-8e4a-4549-9720-a6ac60b9e3d7",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TEXT-94ed615d-0b9d-44cc-b18c-2ba85f408ff9default-TEXT_VIEW-f074b0aa-8e4a-4549-9720-a6ac60b9e3d7default"
             }
         ],
         "viewport": {
-            "x": 0,
-            "y": 0,
-            "zoom": 1
+            "x": 328.30307914563144,
+            "y": 226.88940714410813,
+            "zoom": 0.5
         }
-    },
-    "ctrlsManifest": [
-        {
-            "type": "input",
-            "name": "Slider",
-            "id": "INPUT_PLACEHOLDER",
-            "hidden": false,
-            "minHeight": 1,
-            "minWidth": 2,
-            "layout": {
-                "x": 0,
-                "y": 0,
-                "h": 2,
-                "w": 2,
-                "minH": 1,
-                "minW": 2,
-                "i": "INPUT_PLACEHOLDER"
-            }
-        }
-    ]
+    }
 }
