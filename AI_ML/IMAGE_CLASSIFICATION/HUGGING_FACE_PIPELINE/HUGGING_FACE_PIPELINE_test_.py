@@ -50,6 +50,7 @@ def test_HUGGING_FACE_PIPELINE_default(
     assert first_class_confidence_scores["label"] == "overskirt"
     assert first_class_confidence_scores["score"] > 0.725
 
+
 # Skip this test on Windows
 @pytest.mark.skipif(sys.platform == "win32", reason="does not run on windows")
 @pytest.mark.parametrize(
