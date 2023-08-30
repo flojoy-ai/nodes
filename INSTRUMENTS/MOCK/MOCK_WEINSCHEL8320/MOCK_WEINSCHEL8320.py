@@ -1,11 +1,11 @@
-from flojoy import flojoy, Scalar
+from flojoy import flojoy, Scalar, DataContainer
 from qcodes.instrument_drivers.weinschel import Weinschel8320
 from typing import Optional
 
 
 @flojoy(deps={"qcodes": "0.39.1", "pyvisa-sim": "0.5.1"})
 def MOCK_WEINSCHEL8320(
-    default: Optional[Scalar] = None,
+    default: Optional[DataContainer] = None,
     attenuation: int = 10,
 ) -> Scalar:
     """Note this node is for testing purposes only.
