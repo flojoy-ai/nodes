@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, Scalar
+from flojoy import flojoy, DataContainer
 from qcodes.instrument import Instrument
 from typing import Optional
 
@@ -8,18 +8,14 @@ def CLOSE_ALL(
     default: Optional[DataContainer] = None,
 ) -> Optional[DataContainer]:
     """The CLOSE_ALL node closes all qcodes instruments and should be ran at
-    the beginning and end of each Flojoy app that uses qcodes.
+    the end of each Flojoy app that uses qcodes (and possibly the beginning).
 
     Returns
     -------
-    Scalar
-        c: placeholder for testing purposes.
+    DataContainer
+        optional: The input DataContainer is returned.
     """
 
     Instrument.close_all()
 
-    match default:
-        case None:
-            return Scalar(c=0.0)
-        case _:
-            return default
+    return default
