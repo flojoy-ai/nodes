@@ -1,13 +1,11 @@
 from flojoy import flojoy, OrderedPair
-from ticlib import ticUSB
+from ticlib import TicUSB
 
-tic = ticUSB()
+tic = TicUSB()
 
 
 @flojoy(deps={"ticlib": "0.2.2", "pyusb": "1.2.1"})
-def POLOLU_TIC(
-    initial_position: int = 0, target_position: int = 0
-) -> OrderedPair:
+def POLOLU_TIC(initial_position: int = 0, target_position: int = 0) -> OrderedPair:
     """
     The POLOLU_TIC node allows you to set starting and target positions of a stepper
     motor compatible with the Pololu Tic T500, T249, T825, T834 or T36v4 stepper drivers.
