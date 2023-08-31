@@ -1,9 +1,14 @@
 import numpy as np
 import pandas as pd
+import pytest
 from flojoy import DataFrame
 
 
 def test_PROPHET_PREDICT(mock_flojoy_decorator, mock_flojoy_venv_cache_directory):
+    pytest.importorskip(
+        "fastparquet",
+        reason="A suitable version of pyarrow or fastparquet is required for parquet support used by PROPHET_PREDICT.",
+    )
     import PROPHET_PREDICT
 
     # Generate random time series data
