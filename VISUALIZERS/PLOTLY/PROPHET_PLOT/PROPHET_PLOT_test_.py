@@ -15,6 +15,10 @@ def mock_prophet_model_json():
 
 @pytest.fixture
 def mock_prophet_output_dataframe():
+    pytest.importorskip(
+        "fastparquet",
+        reason="A suitable version of pyarrow or fastparquet is required for parquet support used by PROPHET_PLOT.",
+    )
     return pd.read_parquet(
         os.path.join(os.path.dirname(__file__), "mock_prophet_output_dataframe.parquet")
     )
@@ -26,6 +30,10 @@ def test_PROPHET_PLOT(
     mock_prophet_output_dataframe,
     mock_prophet_model_json,
 ):
+    pytest.importorskip(
+        "fastparquet",
+        reason="A suitable version of pyarrow or fastparquet is required for parquet support used by PROPHET_PLOT.",
+    )
     import PROPHET_PLOT
 
     for run_forecast in [True, False]:
