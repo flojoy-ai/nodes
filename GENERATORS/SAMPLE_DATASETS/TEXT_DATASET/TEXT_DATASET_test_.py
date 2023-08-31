@@ -3,6 +3,7 @@ import pytest
 
 
 # Tests that the function loads the training set by default
+@pytest.mark.xfail(strict=False, reason="Sporadic errors might be raised by scikit-learn. Fixed by scikit-learn#27251")
 def test_load_training_set_by_default(mock_flojoy_decorator):
     from TEXT_DATASET import TEXT_DATASET
 
@@ -37,6 +38,7 @@ def test_load_training_set_by_default(mock_flojoy_decorator):
 
 
 # Tests that the function loads specific categories
+@pytest.mark.xfail(strict=False, reason="Sporadic errors might be raised by scikit-learn. Fixed by scikit-learn#27251")
 def test_load_specific_categories(mock_flojoy_decorator):
     from TEXT_DATASET import TEXT_DATASET
 
@@ -52,6 +54,7 @@ def test_load_specific_categories(mock_flojoy_decorator):
 
 
 # Tests that an error is raised when a non-existent category is passed
+@pytest.mark.xfail(strict=False, reason="Sporadic errors might be raised by scikit-learn. Fixed by scikit-learn#27251")
 def test_non_existent_category(mock_flojoy_decorator):
     from TEXT_DATASET import TEXT_DATASET
 
