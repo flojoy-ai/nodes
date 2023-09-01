@@ -48,6 +48,6 @@ xlrd==2.0.1
 pytest==7.4.0
 pytest-test-groups==1.0.3
 pytest-xdist==3.3.1
-flojoy==0.1.9
+flojoy==0.1.10
 qcodes==0.39.1
 pyvisa-sim==0.5.1
