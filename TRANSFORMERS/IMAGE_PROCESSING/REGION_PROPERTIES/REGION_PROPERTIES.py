@@ -41,7 +41,7 @@ def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> P
 
     Parameters
     ----------
-    default : Optional [Image | Grayscale]
+    default : Image | Grayscale
         The input node to this function. 
         If nothing is supplied, a demo test case is returned to illustrate the functionality of this node.
 

@@ -19,7 +19,7 @@ def BREAK(
         This is the specific instance of a LOOP node that you want to break.
         It is required to differentiate between multiple LOOPs if they exist
         in the same application.
-    default : Optional [DataContainer]
+    default : DataContainer
         This node simply requires an input (most likely from
         the return of a CONDITIONAL node) so that it is executed.
     """

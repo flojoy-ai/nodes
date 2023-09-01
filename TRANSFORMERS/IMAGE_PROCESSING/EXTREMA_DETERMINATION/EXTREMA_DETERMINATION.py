@@ -45,9 +45,9 @@ def EXTREMA_DETERMINATION(
     exponentially separated from the neighboring values, or some other restrictive constraint. 
     
     We implement three algorithms to find the local max. The first algorithm uses a masked phase 
-    cross correlation technique, while the second uses the persistence birth/death algorithms. 
+    cross correlation technique [1], while the second uses the persistence birth/death algorithms [2, 3]. 
     The original implementations of these libraries were utilized for the detection of elastic
-    scattering peaks in diffraction data, found in the 'scikit-ued' library of Python.
+    scattering peaks in diffraction data, found in the 'scikit-ued' library of Python [4].
 
     Note that the algorithm assumes that the extrema are symmetrically distributed around
     a center point. All extrema are determined relative to the center position. 
@@ -75,7 +75,7 @@ def EXTREMA_DETERMINATION(
     computationally more expensive, as it involves repeated convolutions of the image, but it is
     the most reliable of the methods for a general image.
 
-    This routine is known as the Laplacian of Gaussian algorithm. 
+    This routine is known as the Laplacian of Gaussian algorithm [5]. 
     The key to this algorithm is to apply a filter specially chosen such that regions around peaks have high
     levels of contrast (essentially binarize the image around its peak so that near the peak, the
     image is one, and zero otherwise). To achieve such a filter, the Laplacian of a Gaussian is used:
@@ -101,7 +101,7 @@ def EXTREMA_DETERMINATION(
         The input DataContainer that contains the image to be processed.
         Can either be RGBA, greyscale, or a matrix type. 
         In the case of RGB(A), the image is flattened to grayscale for the peak detection.
-    image_mask : Optional [Grayscale | Matrix], None
+    image_mask : Grayscale | Matrix, None
         This object provides a mask to apply to the peak finding routines. 
         Peaks found by any algorithm inside this mask are ignored. 
         Should be of a datatype that can be static cast to booleans.
@@ -143,6 +143,26 @@ def EXTREMA_DETERMINATION(
         It is only valid for the high_symmetry and log routines. 
         As the persistence algorithm is by definition hyperlocal, it has no notion of blobs 
         throughout the detection process, and as such returns a unity mask.
+    
+    References
+    ----------
+    [1] Liu, Lai Chung. Chemistry in Action: Making Molecular Movies with Ultrafast
+    Electron Diffraction and Data Science, Chapter 2. Springer Nature, 2020.
+
+    [2] Huber, S. (2021). Persistent Homology in Data Science. In: Haber, P.,
+    Lampoltshammer, T., Mayr, M., Plankensteiner, K. (eds) Data Science - Analytics
+    and Applications. Springer Vieweg, Wiesbaden.
+    https://doi.org/10.1007/978-3-658-32182-6_13
+
+    [3] Edelsbrunner, H. and John L Harer (2010). Computational Topology. In: American
+    Mathematical Society.
+
+    [4] L. P. René de Cotret, M. R. Otto, M. J. Stern. and B. J. Siwick.
+    An open-source software ecosystem for the interactive exploration of
+    ultrafast electron scattering data, Advanced Structural and Chemical
+    Imaging 4:11 (2018)
+    
+    [5] https://en.wikipedia.org/wiki/Blob_detection#The_Laplacian_of_Gaussian
     """
 
     if isinstance(default, Image):

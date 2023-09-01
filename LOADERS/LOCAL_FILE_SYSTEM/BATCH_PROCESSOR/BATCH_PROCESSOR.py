@@ -53,8 +53,10 @@ def BATCH_PROCESSOR(
 
     Returns
     -------
-    retval : TextBlob
+    fname : TextBlob
         A 'TextBlob' DataContainer to pass to other nodes for processing.
+    n_files : Scalar
+        A 'Scalar' DataContainer to pass to other nodes for processing.
     """
 
     node_id = default_params.node_id
