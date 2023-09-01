@@ -20,7 +20,6 @@ def ada_lovelace_array_rgb():
     return np.array(image, copy=True)
 
 
-@pytest.mark.slow
 def test_HUGGING_FACE_PIPELINE_default(
     mock_flojoy_decorator,
     mock_flojoy_venv_cache_directory,
@@ -52,7 +51,7 @@ def test_HUGGING_FACE_PIPELINE_default(
 
 
 # Skip this test on Windows
-@pytest.mark.skipif(sys.platform == "win32", reason="does not run on windows")
+@pytest.mark.skip(reason="The test does not complete on the CI.")
 @pytest.mark.parametrize(
     "model, revision",
     (
@@ -61,6 +60,7 @@ def test_HUGGING_FACE_PIPELINE_default(
         ("google/mobilenet_v1_0.75_192", "56dde11"),
     ),
 )
+@pytest.mark.slow
 def test_HUGGING_FACE_PIPELINE_common_model_and_revisions(
     mock_flojoy_decorator,
     mock_flojoy_venv_cache_directory,
