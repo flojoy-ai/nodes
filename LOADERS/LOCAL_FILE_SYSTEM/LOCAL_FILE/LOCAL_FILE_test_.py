@@ -200,6 +200,7 @@ def test_LOCAL_FILE_xlsx(mock_flojoy_decorator, insurance_excel):
     )
     assert output.m.equals(output_from_textblob.m)
 
+
 @pytest.mark.parametrize("file_type", ("CSV", "XML", "JSON", "Excel"))
 def test_LOCAL_FILE_no_file_path(mock_flojoy_decorator, file_type):
     import LOCAL_FILE
