@@ -23,7 +23,6 @@ packaging==23.1
 pandas[parquet]
 pathspec==0.11.1
 Phidget22==1.15.20230608
-Pillow==9.5.0
 platformdirs==3.5.3
 PyMeeus==0.5.12
 pyparsing==3.0.9
@@ -48,6 +47,6 @@ xlrd==2.0.1
 pytest==7.4.0
 pytest-test-groups==1.0.3
 pytest-xdist==3.3.1
-flojoy==0.1.9
+flojoy==0.1.10
 qcodes==0.39.1
 pyvisa-sim==0.5.1
