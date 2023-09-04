@@ -1,4 +1,4 @@
-from flojoy import flojoy, OrderedPair, Matrix, Plotly, DCNpArrayType
+from flojoy import flojoy, OrderedPair, Matrix, Plotly, DCNpArrayType, Vector
 import plotly.graph_objects as go
 import numpy as np
 
@@ -83,6 +83,9 @@ def MATRIX_VIEW(default: OrderedPair | Matrix) -> Plotly:
 
     if isinstance(default, Matrix):
         np_arr = default.m
+        cell_values = numpy_array_as_table(np_arr)
+    elif isinstance(default, Vector):
+        np_arr = default.v
         cell_values = numpy_array_as_table(np_arr)
     else:
         np_arr = default.y
