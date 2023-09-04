@@ -26,8 +26,8 @@ def VECTOR_INDEXING(
         The scalar index of the input vector.
     """
     assert (
-        len(default.v) >= index
-    ), "The index parameter must be less than or equal to the length of the Vector."
+        len(default.v) > index
+    ), "The index parameter must be less than the length of the Vector."
     assert index >= 0, "The index parameter greater than zero."
     c = default.v[index]
 

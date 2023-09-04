@@ -1,5 +1,6 @@
 import numpy as np
 from flojoy import Vector, Scalar
+from unittest import TestCase
 
 
 def test_VECTOR_INDEXING(mock_flojoy_decorator):
@@ -12,3 +13,7 @@ def test_VECTOR_INDEXING(mock_flojoy_decorator):
     res = VECTOR_INDEXING.VECTOR_INDEXING(element)
 
     assert np.array_equal(res.c, 5)
+
+    # TestCase.assertRaises(
+    #     AssertionError, VECTOR_INDEXING.VECTOR_INDEXING(element, index=6)
+    # )
