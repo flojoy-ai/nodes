@@ -54,9 +54,9 @@ def BATCH_PROCESSOR(
     Returns
     -------
     fname : TextBlob
-        A 'TextBlob' DataContainer to pass to other nodes for processing.
+        The file name on the current iteration.
     n_files : Scalar
-        A 'Scalar' DataContainer to pass to other nodes for processing.
+        The total number of files matched by the pattern in the given directory.
     """
 
     node_id = default_params.node_id

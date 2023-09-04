@@ -28,8 +28,8 @@ def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> P
     - First, the regions of the INTEGER image are identified and labelled.
     - Second, the regions are analysed.
     
-    The first step is provided by the morphology library label function of the 'scikit-image',
-    while the second is provided by the regionprops function of the 'scikit-image'.
+    The first step is provided by the morphology library of scikit-image's label function,
+    while the second is provided by scikit-image's regionprops function.
 
     After processing, the results of this node are visualized in the main UI,
     where the user can see:
@@ -48,8 +48,7 @@ def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> P
     Returns
     -------
     fig : Plotly
-        Returns the Plotly superclass of 'DataContainer' that has the illustrated
-        features as determined by this node.
+        A Plotly figure containing the illustrated features as determined by this node.
     """
 
     if default:

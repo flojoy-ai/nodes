@@ -101,12 +101,12 @@ def EXTREMA_DETERMINATION(
         The input DataContainer that contains the image to be processed.
         Can either be RGBA, greyscale, or a matrix type. 
         In the case of RGB(A), the image is flattened to grayscale for the peak detection.
-    image_mask : Grayscale | Matrix, None
+    image_mask : Grayscale | Matrix
         This object provides a mask to apply to the peak finding routines. 
         Peaks found by any algorithm inside this mask are ignored. 
         Should be of a datatype that can be static cast to booleans.
         If none, it is assumed that the entire image is valid for peak detection.
-    center : list[int], None
+    center : list[int]
         For the high symmetry algorithm, this provides the center of symmetry
         to pass to the cross correlation routines.
         If none is provided, an autocenter routine is run to attempt to find the center of symmetry.
@@ -136,10 +136,10 @@ def EXTREMA_DETERMINATION(
 
     Returns
     -------
-    EXTREMA_OUTPUT : TypedDict
-        A custom class that returns two objects: 
-        (i) the Plotly figure so that the image can be visualized with its found peaks.
-        (ii) a blob mask that returns the regions around the found peaks. 
+    fig : Plotly
+        The Plotly figure so that the image can be visualized with its found peaks.
+    blobs : Grayscale
+        A blob mask that returns the regions around the found peaks. 
         It is only valid for the high_symmetry and log routines. 
         As the persistence algorithm is by definition hyperlocal, it has no notion of blobs 
         throughout the detection process, and as such returns a unity mask.
