@@ -50,7 +50,7 @@ def NP_2_DF(default: DataContainer) -> DataFrame:
             df = pd.DataFrame(np_array)
             return DataFrame(df=df)
         case Grayscale() | ParametricGrayscale():
-            np_array = np.asarray(default.img)
+            np_array = np.asarray(default.m)
             df = pd.DataFrame(np_array)
             return DataFrame(df=df)
 
@@ -59,7 +59,7 @@ def NP_2_DF(default: DataContainer) -> DataFrame:
             green = default.g
             blue = default.b
 
-            if default.a == None:
+            if default.a is None:
                 merge = np.stack((red, green, blue), axis=2)
                 merge = merge.reshape(-1, merge.shape[-1])
                 df = pd.DataFrame(merge)

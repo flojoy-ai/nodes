@@ -25,7 +25,6 @@ def SECOND_ORDER_SYSTEM(
         The first time constant.
     d2 : float
         The second time constant.
-
     Returns
     -------
     Scalar
