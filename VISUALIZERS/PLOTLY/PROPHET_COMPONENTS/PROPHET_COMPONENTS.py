@@ -31,8 +31,8 @@ def PROPHET_COMPONENTS(default: DataFrame, periods: int = 365) -> Plotly:
     periods : int
         The number of periods out to predict.
         Only used if the node passed into this node (i.e. PROPHET_PREDICT) did NOT return the forecast.
-        If the forecast was included in the DataContainer, this parameter will be ignored. 
-        
+        If the forecast was included in the DataContainer, this parameter will be ignored.
+
         Default = 365
 
     Returns

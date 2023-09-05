@@ -27,7 +27,7 @@ def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> P
 
     - First, the regions of the INTEGER image are identified and labelled.
     - Second, the regions are analysed.
-    
+
     The first step is provided by the morphology library of scikit-image's label function,
     while the second is provided by scikit-image's regionprops function.
 
@@ -42,7 +42,7 @@ def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> P
     Parameters
     ----------
     default : Image | Grayscale
-        The input node to this function. 
+        The input node to this function.
         If nothing is supplied, a demo test case is returned to illustrate the functionality of this node.
 
     Returns

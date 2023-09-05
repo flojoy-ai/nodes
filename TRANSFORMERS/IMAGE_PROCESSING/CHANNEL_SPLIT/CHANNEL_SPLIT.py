@@ -28,7 +28,7 @@ def CHANNEL_SPLIT(default: Image | Matrix) -> IMAGE_CHANNEL_OUTPUTS:
         The images, each channel itself is rendered with alpha=1, except
         the alpha channel itself.
     """
-    
+
     try:
         if isinstance(default, Image):
             r = default.r

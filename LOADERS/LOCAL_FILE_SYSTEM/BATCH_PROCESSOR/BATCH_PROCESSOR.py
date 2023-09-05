@@ -43,8 +43,8 @@ def BATCH_PROCESSOR(
     directory_path : str
         The directory in which we should match the pattern to find the files.
     pattern : str
-        The glob pattern to match. 
-        If not provided, all files in the directory are returned. 
+        The glob pattern to match.
+        If not provided, all files in the directory are returned.
         The current implementation supports recursion and double wildcard matching.
     refresh : bool
         A switching parameter that refreshes the cache of files. If a separate

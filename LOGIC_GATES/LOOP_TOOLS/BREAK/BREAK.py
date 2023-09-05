@@ -9,8 +9,8 @@ def BREAK(
     referred_node: NodeReference,
     default: Optional[DataContainer] = None,
 ) -> None:
-    """The BREAK node is designed to end the iteration of a loop. 
-    It should be used in conjunction with conditionals to determine when to break the loop. 
+    """The BREAK node is designed to end the iteration of a loop.
+    It should be used in conjunction with conditionals to determine when to break the loop.
     It is needed to be able to generate 'while loops' in Flojoy (combined with an 'infinite loop').
 
     Parameters

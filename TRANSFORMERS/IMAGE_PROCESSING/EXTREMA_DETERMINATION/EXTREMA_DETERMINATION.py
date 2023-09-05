@@ -41,16 +41,16 @@ def EXTREMA_DETERMINATION(
     max_power: int = 9,
 ) -> EXTREMA_OUTPUT:
     """The EXTREMA_DETERMINATION node is used to determine the peak in an image.
-    The ability to find local peaks will not depend on the extrema being 
-    exponentially separated from the neighboring values, or some other restrictive constraint. 
-    
-    We implement three algorithms to find the local max. The first algorithm uses a masked phase 
-    cross correlation technique [1], while the second uses the persistence birth/death algorithms [2, 3]. 
+    The ability to find local peaks will not depend on the extrema being
+    exponentially separated from the neighboring values, or some other restrictive constraint.
+
+    We implement three algorithms to find the local max. The first algorithm uses a masked phase
+    cross correlation technique [1], while the second uses the persistence birth/death algorithms [2, 3].
     The original implementations of these libraries were utilized for the detection of elastic
     scattering peaks in diffraction data, found in the 'scikit-ued' library of Python [4].
 
     Note that the algorithm assumes that the extrema are symmetrically distributed around
-    a center point. All extrema are determined relative to the center position. 
+    a center point. All extrema are determined relative to the center position.
     Also, for closely spaced points, noisy data, or data that has a very high dynamic range, the
     algorithm fails. Therefore, this approach is suited only for images with
     high degrees of symmetry and reasonable contrast.
@@ -60,7 +60,7 @@ def EXTREMA_DETERMINATION(
     inspecting only the neighbors around that given pixel. While computationally
     more intense for images with a resolution of >4K, it produces extremely accurate
     results for the correct value of prominence in potentially low-contrast images.
-    By definition, it is a local pixel algorithm, and therefore does not perform any blob detection, 
+    By definition, it is a local pixel algorithm, and therefore does not perform any blob detection,
     unlike the high-symmetry algorithm which creates high contrast in
     the image with laplacian filtering, and identifies regions of this high contrast image.
 
@@ -75,7 +75,7 @@ def EXTREMA_DETERMINATION(
     computationally more expensive, as it involves repeated convolutions of the image, but it is
     the most reliable of the methods for a general image.
 
-    This routine is known as the Laplacian of Gaussian algorithm [5]. 
+    This routine is known as the Laplacian of Gaussian algorithm [5].
     The key to this algorithm is to apply a filter specially chosen such that regions around peaks have high
     levels of contrast (essentially binarize the image around its peak so that near the peak, the
     image is one, and zero otherwise). To achieve such a filter, the Laplacian of a Gaussian is used:
@@ -87,8 +87,8 @@ def EXTREMA_DETERMINATION(
     ..math :: LG = -\frac{1}{\pi\sigma^4}\big[1-\frac{x^2+y^2}{2\sigma^2}\big]e^{-\frac{x^2+y^2}{2\sigma^2}}
 
     The output of this filter will be a maximum where there is an edge from a peak, the maximum response
-    of which is given for 1.41*'blob radius' around the peak. 
-    Applying this filter repeatedly with varying degrees of sigma, will continue to refine the edges around 
+    of which is given for 1.41*'blob radius' around the peak.
+    Applying this filter repeatedly with varying degrees of sigma, will continue to refine the edges around
     the peak until the image is essentially binarized around the peaks. Due to the repeated convolutions,
     this algorithm is generally expensive, but specific methods have been implemented using FFT to speed
     up these calculations.
@@ -99,11 +99,11 @@ def EXTREMA_DETERMINATION(
 
     default : Image | Grayscale | Matrix
         The input DataContainer that contains the image to be processed.
-        Can either be RGBA, greyscale, or a matrix type. 
+        Can either be RGBA, greyscale, or a matrix type.
         In the case of RGB(A), the image is flattened to grayscale for the peak detection.
     image_mask : Grayscale | Matrix
-        This object provides a mask to apply to the peak finding routines. 
-        Peaks found by any algorithm inside this mask are ignored. 
+        This object provides a mask to apply to the peak finding routines.
+        Peaks found by any algorithm inside this mask are ignored.
         Should be of a datatype that can be static cast to booleans.
         If none, it is assumed that the entire image is valid for peak detection.
     center : list[int]
@@ -111,9 +111,9 @@ def EXTREMA_DETERMINATION(
         to pass to the cross correlation routines.
         If none is provided, an autocenter routine is run to attempt to find the center of symmetry.
     min_dist : float
-        The minimum distance between peaks. 
-        If the L2 distance (in pixels) of any pair of peaks is less than min_dist, 
-        they are considered to be the same, and one is discarded. 
+        The minimum distance between peaks.
+        If the L2 distance (in pixels) of any pair of peaks is less than min_dist,
+        they are considered to be the same, and one is discarded.
         This parameter applies to all algorithms.
     algorithm : str
         The name of the algorithm to use.
@@ -123,12 +123,12 @@ def EXTREMA_DETERMINATION(
         Does not apply to the high_symmetry algorithm.
     k : float
         This specifies the scaling of Gaussian filters between successive applications
-        of Gaussian filters of increasing sigma. 
+        of Gaussian filters of increasing sigma.
         Default is chosen for ideal spherically symmetric peaks.
         Can be tuned for more bizarre looking peak structures.
         Applies only to the Laplacian of Gaussian algorithm.
     sigma : float
-        The baseline standard deviation of the Gaussian filters, 
+        The baseline standard deviation of the Gaussian filters,
         only for the Laplacian of Gaussian algorithm.
     max_power : int
         Describes the upper limit of the degree of exponentiation for the successive
@@ -139,11 +139,11 @@ def EXTREMA_DETERMINATION(
     fig : Plotly
         The Plotly figure so that the image can be visualized with its found peaks.
     blobs : Grayscale
-        A blob mask that returns the regions around the found peaks. 
-        It is only valid for the high_symmetry and log routines. 
-        As the persistence algorithm is by definition hyperlocal, it has no notion of blobs 
+        A blob mask that returns the regions around the found peaks.
+        It is only valid for the high_symmetry and log routines.
+        As the persistence algorithm is by definition hyperlocal, it has no notion of blobs
         throughout the detection process, and as such returns a unity mask.
-    
+
     References
     ----------
     [1] Liu, Lai Chung. Chemistry in Action: Making Molecular Movies with Ultrafast
@@ -161,7 +161,7 @@ def EXTREMA_DETERMINATION(
     An open-source software ecosystem for the interactive exploration of
     ultrafast electron scattering data, Advanced Structural and Chemical
     Imaging 4:11 (2018)
-    
+
     [5] https://en.wikipedia.org/wiki/Blob_detection#The_Laplacian_of_Gaussian
     """
 
