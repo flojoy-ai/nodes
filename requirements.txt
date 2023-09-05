@@ -14,18 +14,15 @@ keyring==24.2.0
 LabJackPython==2.1.0
 lazy_loader==0.2
 lxml==4.9.2
-matplotlib==3.7.1
 mypy-extensions==1.0.0
-networkx==3.1
-numpy==1.24.3
+numpy
 opencv-python-headless==4.7.0.72
 openpyxl==3.0.10
 moto==4.1.13
 packaging==23.1
-pandas[parquet]==2.0.2
+pandas[parquet]
 pathspec==0.11.1
 Phidget22==1.15.20230608
-Pillow==9.5.0
 platformdirs==3.5.3
 PyMeeus==0.5.12
 pyparsing==3.0.9
@@ -37,7 +34,7 @@ PyYAML==6.0
 rdatasets==0.1.0
 scikit-image==0.21.0
 scikit-learn==1.2.2
-scipy==1.10.1
+scipy
 sympy==1.12
 six==1.16.0
 threadpoolctl==3.1.0
@@ -50,4 +47,6 @@ xlrd==2.0.1
 pytest==7.4.0
 pytest-test-groups==1.0.3
 pytest-xdist==3.3.1
-flojoy==0.1.9
+flojoy==0.1.10
+qcodes==0.39.1
+pyvisa-sim==0.5.1
