@@ -40,122 +40,109 @@ def EXTREMA_DETERMINATION(
     sigma: float = 1.0,
     max_power: int = 9,
 ) -> EXTREMA_OUTPUT:
-    """
-    This function is concerned with the determination of peak finding in
-    an image. The ability to find local peaks ( or thoughs in the case of
-    minimization) will not depend on the extrema being exponentially separated
-    from the neighboring values, or some ridiulously restrictive constraint like
-    that. To that aim, we implement three algorithms to find the local max.
+    """The EXTREMA_DETERMINATION node is used to determine the peak in an image.
+    The ability to find local peaks will not depend on the extrema being
+    exponentially separated from the neighboring values, or some other restrictive constraint.
 
-    The first algorithm is with the technique of masked phase cross correlation [1],
-    while the second uses the persistence birth/death algorithms [2, 3]. My original
-    implementations of these libraries were utilized for the detection of elastic
-    scattering peaks in diffraction data, found in the `scikit-ued` library of Python [4].
+    We implement three algorithms to find the local max. The first algorithm uses a masked phase
+    cross correlation technique [1], while the second uses the persistence birth/death algorithms [2, 3].
+    The original implementations of these libraries were utilized for the detection of elastic
+    scattering peaks in diffraction data, found in the 'scikit-ued' library of Python [4].
 
-    I am obliged to mention that the code for the crossed correlation approach (high symmetry
-    algorithm) was developed by Laurent Rene de Cotret in the `scikit-ued` library, and the
-    functionality for autocentering and cross correlation was developed by him
-    for this package. The functionality has been ported here, as the import
-    of the entire library is bloating, and unnecessary.
+    Note that the algorithm assumes that the extrema are symmetrically distributed around
+    a center point. All extrema are determined relative to the center position.
+    Also, for closely spaced points, noisy data, or data that has a very high dynamic range, the
+    algorithm fails. Therefore, this approach is suited only for images with
+    high degrees of symmetry and reasonable contrast.
 
-    Yet, this approach has limitations, the absolutely largest of which is that
-    the algorithm assumes that the extrema are symmetrically distributed around
-    some center point. All extrema are determined relative to the center
-    position. Also, for closely spaced points,
-    extremely noisy data, or for data that has very high dynamic range, the
-    algorithm fails. This makes this approach suited then only for images with
-    high degrees of symmetry, as well as reasonable contrast
-
-    To combat these limitations, I present the second algo: the prominence algorithm, where a single
+    Therefore, we also use the second prominence algorithm, where a single
     value is applied locally to determine the relative 'peakiness' of a given pixel,
     inspecting only the neighbors around that given pixel. While computationally
-    more intense for images of resolution >4K, it produces extremely accurate
+    more intense for images with a resolution of >4K, it produces extremely accurate
     results for the correct value of prominence in potentially low-contrast images.
-    By definition, it is a local pixel algorithm, and therefore does not do any flavour
-    of blob detection, unlike the high-symmetry algorithm which creates high contrast in
+    By definition, it is a local pixel algorithm, and therefore does not perform any blob detection,
+    unlike the high-symmetry algorithm which creates high contrast in
     the image with laplacian filtering, and identifies regions of this high contrast image.
 
-    Yet again, however, the persistence algorithm tends to find many more points that are really there.
-    For images with high frequency components (AKA quickly varying values among the 3rd nearest neighbours)
-    the algorithm will tend to identify each as a 'peak', even the local maxima is elsewhere. This
-    therefore assumes the image has been properly preprocessed with another image processing node to
+    Note, however, that the persistence algorithm tends to find more points than what are actually there.
+    For images with high frequency components (i.e. quickly varying values among the third nearest neighbours),
+    the algorithm will tend to identify each as a 'peak', even though the local maxima is elsewhere. This
+    therefore assumes that the image has been properly preprocessed with another image processing node to
     provide a sufficient low-frequency image such that the prominence of each pixel is well defined.
 
-    To combat this limitation, we present the most robust of the algorithms, that should work on images
+    To combat this limitation, we present the most robust of the algorithms that should work on images
     of low or high contrast, low or high frequency components, and of low or high dynamic range. It is
     computationally more expensive, as it involves repeated convolutions of the image, but it is
     the most reliable of the methods for a general image.
 
-    This routine is known as the Laplacian of Gaussian algorithm [5], which is exactly as it says. The key
-    of this algorithm is to apply a filter specially chosen such that regions around peaks have insane
+    This routine is known as the Laplacian of Gaussian algorithm [5].
+    The key to this algorithm is to apply a filter specially chosen such that regions around peaks have high
     levels of contrast (essentially binarize the image around its peak so that near the peak, the
-    image is one, and zero otherwise). To achieve such a filter, it turns out that taking the Laplacian
-    of a Gaussian, namely:
+    image is one, and zero otherwise). To achieve such a filter, the Laplacian of a Gaussian is used:
 
     .. math:: \nabla^2 L \equiv L_{xx} + L_{yy}
 
-    yields the following filter (for a Gaussian of width sigma, centered at the origin):
+    which yields the following filter (for a Gaussian of width sigma, centered at the origin):
 
     ..math :: LG = -\frac{1}{\pi\sigma^4}\big[1-\frac{x^2+y^2}{2\sigma^2}\big]e^{-\frac{x^2+y^2}{2\sigma^2}}
 
     The output of this filter will be a maximum where there is an edge from a peak, the maximum response
-    of which is given for a careful choise of 1.41*'blob radius' around the peak. Repeatedly applying
-    this filter with varying degrees of sigma will continue to refine the edges around the peak
-    until the image is essentially binarized around the peaks. Due to the repeated convolutions,
-    this algorithm is in general expensive, but there have been tricks implemented using FFT to speed
+    of which is given for 1.41*'blob radius' around the peak.
+    Applying this filter repeatedly with varying degrees of sigma, will continue to refine the edges around
+    the peak until the image is essentially binarized around the peaks. Due to the repeated convolutions,
+    this algorithm is generally expensive, but specific methods have been implemented using FFT to speed
     up these calculations.
 
 
     Parameters
     ----------
 
-    default         :       Image | Grayscale | Matrix
-        The input `DataContainer` that holds the image we wish to process.
-        Can either be RGBA, greyscale, or a matrix type. In the RGB(A) case,
-        the image is flattened to grayscale for the peak detection.
-    image_mask      :       Optional[Grayscale | Matrix] , None
-        This object provides a mask to apply to the peak finding routines. Peaks
-        found by any algorithm inside this mask are ignored. Should be of a
-        datatype that can be static cast to booleans. If none, it is assumed
-        that the entire image is valid for peak detection.
-    center          :       list[int] , None
+    default : Image | Grayscale | Matrix
+        The input DataContainer that contains the image to be processed.
+        Can either be RGBA, greyscale, or a matrix type.
+        In the case of RGB(A), the image is flattened to grayscale for the peak detection.
+    image_mask : Grayscale | Matrix
+        This object provides a mask to apply to the peak finding routines.
+        Peaks found by any algorithm inside this mask are ignored.
+        Should be of a datatype that can be static cast to booleans.
+        If none, it is assumed that the entire image is valid for peak detection.
+    center : list[int]
         For the high symmetry algorithm, this provides the center of symmetry
-        to pass to the cross correlation routines. If none is provided, and autocenter
-        routine is run to attempt to find the center of symmetry
-    min_dist        :       float
-        The minimum distance between peaks. When considering any pair of peaks,
-        if their L2 distance (in pixels) is less than min_dist, they are considered
-        the same peak, and one is discarded. This parameter applies to all algorithms.
-    algorithm       :       str
+        to pass to the cross correlation routines.
+        If none is provided, an autocenter routine is run to attempt to find the center of symmetry.
+    min_dist : float
+        The minimum distance between peaks.
+        If the L2 distance (in pixels) of any pair of peaks is less than min_dist,
+        they are considered to be the same, and one is discarded.
+        This parameter applies to all algorithms.
+    algorithm : str
         The name of the algorithm to use.
-    prominence      :       float
+    prominence : float
         In the prominence and Laplacian of Gaussian algorithms, this defines the threshold
         above or below which objects must pass in order to be considered a peak.
-        Does not apply to the high_symmetry algorithm
-    k               :       float
+        Does not apply to the high_symmetry algorithm.
+    k : float
         This specifies the scaling of Gaussian filters between successive applications
-        of Gaussian filters of increasing sigma. Default is chosen for ideal spherically
-        symmetric peaks. Can be tuned for more bizarre looking peak structures.
+        of Gaussian filters of increasing sigma.
+        Default is chosen for ideal spherically symmetric peaks.
+        Can be tuned for more bizarre looking peak structures.
         Applies only to the Laplacian of Gaussian algorithm.
-    sigma           :       float
-        The baseline standard deviation of the Gaussian filters for the
-        Laplacian of Gaussian algorithm. Applies only to the Laplacian of Gaussian algorithm.
-
-    max_power       :       int
+    sigma : float
+        The baseline standard deviation of the Gaussian filters,
+        only for the Laplacian of Gaussian algorithm.
+    max_power : int
         Describes the upper limit of the degree of exponentiation for the successive
-        application of filters in the Laplacian of Gaussian algorithm. Applies only to
-        the Laplacian of Gaussian algorithm.
-
+        application of filters, only in the Laplacian of Gaussian algorithm.
 
     Returns
     -------
-    EXTREMA_OUTPUT  :       TypedDict
-        A custom class that returns two objects: (i) the Plotly figure so that the
-        image can be visualized with its found peaks, and (ii) a blob mask that
-        returns the regions around the found peaks. It is only valid for the
-        high_symmetry and log routines. As the persistence algorithm is by definition
-        hyperlocal, it has no notion of blobs throughout the detection process, and as such
-        returns a unity mask.
+    fig : Plotly
+        The Plotly figure so that the image can be visualized with its found peaks.
+    blobs : Grayscale
+        A blob mask that returns the regions around the found peaks.
+        It is only valid for the high_symmetry and log routines.
+        As the persistence algorithm is by definition hyperlocal, it has no notion of blobs
+        throughout the detection process, and as such returns a unity mask.
 
     References
     ----------

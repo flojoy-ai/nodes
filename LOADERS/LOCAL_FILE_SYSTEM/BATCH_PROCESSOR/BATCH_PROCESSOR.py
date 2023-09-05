@@ -22,41 +22,41 @@ def BATCH_PROCESSOR(
     pattern: str = "",
     refresh: bool = True,
 ) -> BATCH_OUTPUT:
-    """
-    This node is designed to glob match a pattern in the given input directory.
+    """The BATCH_PROCESSOR node is designed to glob match a pattern in the given input directory.
 
     From here, in conjunction with a loop, we iterate
     over all the files found, and return each one by
     file path as a TextBlob. The TextBlob can be recognized as
-    an optional input to the `LOCAL_FILE` node, which can
+    an optional input to the LOCAL_FILE node, which can
     then load the file at that path and return the appropriate
     datatype.
 
     Parameters
     ----------
-    current_iteration       :       Scalar
-        This is the input from the `LOOP_INDEX` node that determines
-        if we need to initialize this routine or not.
-    default_params          :       DefaultParams
+    current_iteration : Scalar
+        This is the input from the LOOP_INDEX node that determines
+        whether we need to initialize this routine or not.
+    default_params : DefaultParams
         This provides the node_id so that we can identify which
         object in SmallMemory to pull (for example, unique identification
-        of this node if there are multiple BATCH_PROCESSOR nodes)
-    directory_path          :       str
-        The directory in which we should pattern match to find the files
-    pattern                 :       str
-        The glob pattern to match. If not provided, all files in the directory
-        are returned. The current implementation supports recursion and double
-        wildcard matching.
-    refresh                 :       bool
+        of this node if there are multiple BATCH_PROCESSOR nodes).
+    directory_path : str
+        The directory in which we should match the pattern to find the files.
+    pattern : str
+        The glob pattern to match.
+        If not provided, all files in the directory are returned.
+        The current implementation supports recursion and double wildcard matching.
+    refresh : bool
         A switching parameter that refreshes the cache of files. If a separate
         programme is expected to continuously write new files of interest to the
         directory, this flag will enable the update of the new files for processing.
 
     Returns
     -------
-    retval                  :       TextBlob
-        A `TextBlob` data container to pass to other nodes for processing
-
+    fname : TextBlob
+        The file name on the current iteration.
+    n_files : Scalar
+        The total number of files matched by the pattern in the given directory.
     """
 
     node_id = default_params.node_id

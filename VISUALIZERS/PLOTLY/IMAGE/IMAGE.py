@@ -6,8 +6,7 @@ from nodes.VISUALIZERS.template import plot_layout
 
 @flojoy
 def IMAGE(default: Image | Grayscale) -> Plotly:
-    """
-    The IMAGE node creates a Plotly Image visualization for a given input data container type of image.
+    """The IMAGE node creates a Plotly Image visualization for a given input data container type of image.
 
     Inputs
     ------
@@ -19,6 +18,7 @@ def IMAGE(default: Image | Grayscale) -> Plotly:
     Plotly
         the DataContainer containing Plotly Image visualization of the input image
     """
+
     layout = plot_layout(title="IMAGE")
 
     if isinstance(default, Image):
