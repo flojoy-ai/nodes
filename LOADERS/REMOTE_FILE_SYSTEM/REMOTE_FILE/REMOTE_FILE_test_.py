@@ -26,4 +26,3 @@ def test_REMOTE_FILE_not_valid(file_url):
 
     with pytest.raises(ValueError):
         REMOTE_FILE.REMOTE_FILE(file_url=file_url, file_type="Image")
-
