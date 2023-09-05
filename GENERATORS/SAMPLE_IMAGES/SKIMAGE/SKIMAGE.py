@@ -59,12 +59,12 @@ def SKIMAGE(
     Parameters
     ----------
     img_key : str
-        The name of the image to be loader from scikit-image.
+        The name of the image to be loaded from scikit-image.
 
-    Outputs
+    Returns
     -------
     Image
-        DataContainer containing image loaded from scikit-image.
+        DataContainer containing the image loaded from scikit-image.
     """
 
     img_array = getattr(data, img_key)()
