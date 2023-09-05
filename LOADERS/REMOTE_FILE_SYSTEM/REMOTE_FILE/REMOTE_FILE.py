@@ -9,6 +9,7 @@ import pandas as pd
 import requests
 from io import BytesIO
 
+
 def get_file_url(url: str):
     parse_result = urlparse(url)
     if not all([parse_result.scheme, parse_result.netloc]):
