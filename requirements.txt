@@ -23,7 +23,6 @@ packaging==23.1
 pandas[parquet]
 pathspec==0.11.1
 Phidget22==1.15.20230608
-Pillow==9.5.0
 platformdirs==3.5.3
 PyMeeus==0.5.12
 pyparsing==3.0.9
