@@ -11,8 +11,7 @@ def SHAPIRO(
     default: OrderedPair | Matrix,
     select_return: Literal["statistic", "p-value"] = "statistic",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The SHAPIRO node is based on a numpy or scipy function.
+    """The SHAPIRO node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

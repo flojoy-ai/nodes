@@ -13,8 +13,7 @@ def SINE(
     phase: float = 0,
     waveform: Literal["sine", "square", "triangle", "sawtooth"] = "sine",
 ) -> OrderedPair:
-    """
-    The SINE node generates a waveform function. With the shape being defined
+    """The SINE node generates a waveform function. With the shape being defined
     by the input.
 
     Inputs

@@ -13,8 +13,7 @@ def SIGMACLIP(
     high: float = 4.0,
     select_return: Literal["clipped", "lower", "upper"] = "clipped",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The SIGMACLIP node is based on a numpy or scipy function.
+    """The SIGMACLIP node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

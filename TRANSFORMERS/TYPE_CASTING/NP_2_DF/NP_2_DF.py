@@ -20,13 +20,17 @@ from flojoy import (
 
 @flojoy
 def NP_2_DF(default: DataContainer) -> DataFrame:
-    """
-    The NP_2_DF node converts numpy array data into dataframe type data.
+    """The NP_2_DF node converts numpy array data into dataframe type data.
+
+    Inputs
+    ------
+    default : DataContainer
+        The input numpy array to which we apply the conversion to.
 
     Returns
     -------
-    dataframe
-        Converted numpy array value from the input.
+    DataFrame
+        The dataframe result from the conversion of the input.
     """
 
     match default:
@@ -46,7 +50,7 @@ def NP_2_DF(default: DataContainer) -> DataFrame:
             df = pd.DataFrame(np_array)
             return DataFrame(df=df)
         case Grayscale() | ParametricGrayscale():
-            np_array = np.asarray(default.img)
+            np_array = np.asarray(default.m)
             df = pd.DataFrame(np_array)
             return DataFrame(df=df)
 
@@ -55,7 +59,7 @@ def NP_2_DF(default: DataContainer) -> DataFrame:
             green = default.g
             blue = default.b
 
-            if default.a == None:
+            if default.a is None:
                 merge = np.stack((red, green, blue), axis=2)
                 merge = merge.reshape(-1, merge.shape[-1])
                 df = pd.DataFrame(merge)

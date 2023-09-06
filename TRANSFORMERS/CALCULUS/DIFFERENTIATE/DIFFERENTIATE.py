@@ -4,15 +4,20 @@ import numpy as np
 
 @flojoy
 def DIFFERENTIATE(default: OrderedPair | Vector) -> OrderedPair:
-    """
-    The DIFFERENTIATE node takes two lists, x and y, as input.
+    """The DIFFERENTIATE node takes two lists, x and y, as input.
 
     It then computes the derivative of the array, y, with respect to x.
 
+    Inputs
+    ------
+    default : OrderedPair|Vector
+        Input from which we get the x and y lists use in the derivative.
+
     Returns
     -------
-    numpy array
-        Derivative of the array.
+    OrderedPair
+        x: the x-axis of the input.
+        y: the result of the derivative.
     """
 
     match default:

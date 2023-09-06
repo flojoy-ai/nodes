@@ -12,8 +12,7 @@ def EIGH(
     UPLO: str = "L",
     select_return: Literal["w", "v"] = "w",
 ) -> Matrix | Scalar:
-    """
-    The EIGH node is based on a numpy or scipy function.
+    """The EIGH node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

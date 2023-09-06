@@ -12,8 +12,7 @@ def SUPPORT_VECTOR_MACHINE(
     input_data: DataFrame | Matrix,
     kernel: Literal["linear", "poly", "rbf", "sigmoid", "precomputed"] = "linear",
 ) -> DataFrame:
-    """
-    The SUPPORT_VECTOR_MACHINE node is used to train a support vector machine model for classification tasks.
+    """The SUPPORT_VECTOR_MACHINE node is used to train a support vector machine model for classification tasks.
     It takes two dataframes of label and feature from labelled training data and a dataframe of unlabelled input data.
 
     Parameters

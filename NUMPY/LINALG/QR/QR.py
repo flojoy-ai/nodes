@@ -12,8 +12,7 @@ def QR(
     mode: str = "reduced",
     select_return: Literal["q", "r", "(h, tau)"] = "q",
 ) -> Matrix | Scalar:
-    """
-    The QR node is based on a numpy or scipy function.
+    """The QR node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

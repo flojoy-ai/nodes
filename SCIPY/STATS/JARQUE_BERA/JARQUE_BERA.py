@@ -11,8 +11,7 @@ def JARQUE_BERA(
     default: OrderedPair | Matrix,
     select_return: Literal["jb_value", "p"] = "jb_value",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The JARQUE_BERA node is based on a numpy or scipy function.
+    """The JARQUE_BERA node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

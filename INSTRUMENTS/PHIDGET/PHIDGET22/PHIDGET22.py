@@ -15,8 +15,7 @@ def PHIDGET22(
     calibration1: float = 0.015,
     calibration2: float = 0.06,
 ) -> OrderedPair:
-    """
-    The PHIDGET22 node allows you to record pressures from Flexiforce sensors using a Phidget InterfaceKit.
+    """The PHIDGET22 node allows you to record pressures from Flexiforce sensors using a Phidget InterfaceKit.
 
     Parameters
     ----------
@@ -42,7 +41,6 @@ def PHIDGET22(
         voltage_ratio_input.setOnVoltageRatioChangeHandler(onVoltageRatioChange)
         # Open the Channel after event handler is set :
         voltage_ratio_input.openWaitForAttachment(5000)
-
         volt_i: float = (
             voltage_ratio_input.getVoltageRatio()
         )  # Measure Voltage from the sensor

@@ -7,8 +7,7 @@ from flojoy import flojoy, OrderedPair, Matrix
 def LEAST_SQUARES(
     a: OrderedPair | Matrix, b: Optional[OrderedPair | Matrix] = None
 ) -> Matrix | OrderedPair:
-    """
-    The LEAST_SQUARE node computes the coefficients that minimizes the distance between the inputs 'Matrix' or 'OrderedPair' class and the regression.
+    """The LEAST_SQUARE node computes the coefficients that minimizes the distance between the inputs 'Matrix' or 'OrderedPair' class and the regression.
 
     Returns
     -------

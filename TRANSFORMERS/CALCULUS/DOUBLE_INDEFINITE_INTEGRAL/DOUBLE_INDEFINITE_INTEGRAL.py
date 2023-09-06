@@ -14,12 +14,16 @@ def contains_only_numbers(column, colName):
 def DOUBLE_INDEFINITE_INTEGRAL(
     default: OrderedTriple, width: int = 3, height: int = 3
 ) -> Matrix:
-    """
-    The DOUBLE_INDEFINITE_INTEGRAL node takes an OrderedTriple (x,y,z) and have the width and height parameter.
+    """The DOUBLE_INDEFINITE_INTEGRAL node takes an OrderedTriple (x,y,z) and have the width and height parameters.
 
     The width and height represent the number of columns and rows, respectively, that the x, y, and z reshape matrices will have. Here it is important to note that the length of x, y, and z is the same and that the width times the height needs to be equal to the length of x, y, and z.
 
     It computes the double integral approximation according to given dimensions of the matrices, and it returns a matrix where each cell represents the volume up to the given point.
+
+    Inputs
+    ------
+    default : OrderedTriple
+        Input from which we use x, y, and z to compute the integral.
 
     Parameters
     ----------
@@ -30,8 +34,8 @@ def DOUBLE_INDEFINITE_INTEGRAL(
 
     Returns
     -------
-    m: Matrix
-        matrix that contains the volume up to that point in each cell.
+    Matrix
+        The matrix that contains the volume up to that point in each cell.
     """
 
     if np.divide(len(default.x), width) == height:

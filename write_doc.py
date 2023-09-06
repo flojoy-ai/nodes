@@ -7,6 +7,11 @@ import textwrap
 path = os.path
 
 N_PATH = "nodes/"
+boilar_plates = {
+    "notes.md": "No theory or technical notes have been contributed for this node yet.",
+    "media.md": "No supporting screenshots, photos, or videos have been added to the media.md file for this node.",
+    "hardware.md": "This node does not require any peripheral hardware to operate. Please see INSTRUMENTS for nodes that interact with the physical world through connected hardware.",
+}
 
 
 def get_md_file_content(
@@ -69,15 +74,15 @@ import PythonSource from '!!raw-loader!./a1-[autogen]/python_code.txt';
 
 [//]: # (Appendix)
 
-import Notes from '!!raw-loader!./appendix/notes.md';
-import Hardware from '!!raw-loader!./appendix/hardware.md';
-import Media from '!!raw-loader!./appendix/media.md';
+import Notes from './appendix/notes.md';
+import Hardware from './appendix/hardware.md';
+import Media from './appendix/media.md';
 
 ## Appendix
 
-<AppendixSection index={{0}} folderPath='{appendix_folder_path}'>{{Notes}}</AppendixSection>
-<AppendixSection index={{1}} folderPath='{appendix_folder_path}'>{{Hardware}}</AppendixSection>
-<AppendixSection index={{2}} folderPath='{appendix_folder_path}'>{{Media}}</AppendixSection>
+<AppendixSection index={{0}} folderPath='{appendix_folder_path}'><Notes /></AppendixSection>
+<AppendixSection index={{1}} folderPath='{appendix_folder_path}'><Hardware /></AppendixSection>
+<AppendixSection index={{2}} folderPath='{appendix_folder_path}'><Media /></AppendixSection>
 
 
 """.format(
@@ -192,55 +197,39 @@ def process_python_file(input_file_path: str, output_path: str):
             if diff:
                 write_file_recursive(function_code_file_path, function_code)
 
+        md_file_path = path.join(output_path, f"{node_name}.md")
         # appendix
         appendix_dir_path = path.join(output_path, "appendix")
         for f in ["hardware.md", "media.md", "notes.md"]:
             if not path.exists(path.join(appendix_dir_path, f)):
-                write_file_recursive(path.join(appendix_dir_path, f), "")
+                write_file_recursive(path.join(appendix_dir_path, f), boilar_plates[f])
             else:
-                lines = [
-                    {
-                        "prev": "./appendix/notes.md",
-                        "new": "!!raw-loader!./appendix/notes.md",
-                    },
-                    {
-                        "prev": "./appendix/hardware.md",
-                        "new": "!!raw-loader!./appendix/hardware.md",
-                    },
-                    {
-                        "prev": "./appendix/media.md",
-                        "new": "!!raw-loader!./appendix/media.md",
-                    },
-                ]
-                md_file_path = path.join(
-                    output_path, path.basename(input_file_path).replace(".py", ".md")
-                )
-                c = get_content(md_file_path)
-                for line in lines:
-                    if line["new"] not in c:
-                        c = c.replace(line["prev"], line["new"])
-                write_file_recursive(md_file_path, c)
+                c = get_content(path.join(appendix_dir_path, f))
+                if c.strip() == "":
+                    c = boilar_plates[f]
+                write_file_recursive(path.join(appendix_dir_path, f), c)
 
         # examples
         has_example = False
         example_dir_path = path.join(output_path, "examples", "EX1")
         # for f in ["app.txt", "example.md"]:
-        for f in ["app.txt"]:
+        for f in ["app.json", "example.md"]:
             if path.exists(path.join(input_dir, f)):
-                has_example = True
+                # has_example = True
                 c = get_content(path.join(input_dir, f))
                 if not path.exists(path.join(example_dir_path, f)):
                     write_file_recursive(path.join(example_dir_path, f), c)
                 else:
-                    existing_c = get_content(path.join(example_dir_path, f))
-                    diff = compare_two_str(c, existing_c)
-                    if diff:
-                        write_file_recursive(path.join(example_dir_path, f), c)
+                    if f == "app.json":
+                        existing_c = get_content(path.join(example_dir_path, f))
+                        diff = compare_two_str(c, existing_c)
+                        if diff:
+                            write_file_recursive(path.join(example_dir_path, f), c)
             else:
                 has_example = False
 
         # write md file with file name
-        # md_file_path = path.join(output_path, f"{node_name}.md")
+
         # app_jpg = "app.jpeg"
         # output_jpg = "output.jpeg"
         # img_map = {app_jpg: False, output_jpg: False}
@@ -250,19 +239,19 @@ def process_python_file(input_file_path: str, output_path: str):
         #         shutil.copy2(img_path, path.join(example_dir_path, f))
         #         img_map[f] = True
 
-        # example_section = get_example_section(
-        #     node_name,
-        #     has_app_image=img_map[app_jpg],
-        #     has_output_image=img_map[output_jpg],
-        # )
-        # md_file_content = get_md_file_content(
-        #     md_file_path,
-        #     node_name,
-        #     has_example=has_example,
-        #     example_section=example_section,
-        # )
-        # if not path.exists(md_file_path):
-        #     write_file_recursive(md_file_path, md_file_content)
+        example_section = get_example_section(
+            node_name,
+            has_app_image=False,
+            has_output_image=False,
+        )
+        md_file_content = get_md_file_content(
+            md_file_path,
+            node_name,
+            has_example=True,
+            example_section=example_section,
+        )
+        if not path.exists(md_file_path):
+            write_file_recursive(md_file_path, md_file_content)
         # else:
         #     if path.exists(path.join(example_dir_path, "app.txt")) and has_example:
         #         write_file_recursive(md_file_path, md_file_content)
