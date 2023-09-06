@@ -1,10 +1,10 @@
-from flojoy import flojoy, Scalar, DataContainer
+from flojoy import flojoy, OrderedPair, DataContainer
 from typing import Optional
 from qcodes.instrument.visa import VisaInstrument
 from qcodes.instrument_drivers.tektronix.Keithley_2400 import Keithley2400
 
 @flojoy(deps={"qcodes": "3.5"})
-def KEITHLEY2400(default: Optional[DataContainer] = None, Voltage_range :int =10) -> OrderedPair:
+def KEITHLEY2400CMD(default: Optional[DataContainer] = None, Voltage_range :int =10) -> OrderedPair:
 
 # Create an instance of the Keithley2400 instrument
 keithley = Keithley2400("keithley", "ASRL/dev/ttyUSB0::INSTR")
