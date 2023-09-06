@@ -1,13 +1,13 @@
+from flojoy import flojoy, Scalar, DataContainer
+from typing import Optional
 from qcodes.instrument.visa import VisaInstrument
 from qcodes.instrument_drivers.tektronix.Keithley_2400 import Keithley2400
 
 @flojoy(deps={"qcodes": "3.5"})
-def KEITHLEY2400(
-    init_container: NodeInitContainer, default: OrderedPair | Vector
-) -> OrderedPair:
+def KEITHLEY2400(default: Optional[DataContainer] = None, Voltage_range :int =10) -> OrderedPair:
 
 # Create an instance of the Keithley2400 instrument
-keithley = Keithley2400("keithley", "TCPIP0::192.168.1.1::INSTR")
+keithley = Keithley2400("keithley", "ASRL/dev/ttyUSB0::INSTR")
 
 # Connect to the instrument
 keithley.connect()
@@ -49,4 +49,8 @@ keithley.output("off")  # Turn off the output
 # Disconnect from the instrument
 keithley.disconnect()
 
-return OrderedPair(x=voltages, y=currents_neg)
+x= [5]
+y= [4] 
+
+
+return OrderedPair(x,y)
