@@ -1,7 +1,7 @@
 from flojoy import flojoy, run_in_venv, DataFrame
 
 
-@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26", "pystan": "2.19.1.1"})
+@flojoy
 @run_in_venv(
     pip_dependencies=[
         "prophet==1.1.4",
