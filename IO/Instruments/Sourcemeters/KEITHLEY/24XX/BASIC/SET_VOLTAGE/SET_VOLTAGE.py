@@ -5,7 +5,7 @@ from qcodes.instrument_drivers.Keithley.Keithley_2400 import Keithley2400
 
 
 @flojoy(deps={"qcodes": "0.39.1", "pyvisa-py": "0.6.3", "pyserial": "3.5"})
-def KEITHLEY2400CMD(default: Optional[DataContainer] = None, Voltage_range: int = 10, Current_range: int = 1) -> OrderedPair:
+def SET_VOLTAGE(default: Optional[DataContainer] = None, voltage: int = 2, voltage_range: int = 10, current_range: int = 1, ) -> OrderedPair:
 
     # Create an instance of the Keithley2400 instrument
     keithley = Keithley2400("keithley", "ASRL/dev/ttyUSB1::INSTR")
@@ -16,17 +16,17 @@ def KEITHLEY2400CMD(default: Optional[DataContainer] = None, Voltage_range: int 
     # Now you can use the instrument to perform measurements and control the power supply
     # For example, you can set the voltage range
     # keithley.ask(":SOUR:FUNC:MODE VOLT\n")
-    keithley.rangev(Voltage_range)  # Set the voltage range to 10V
+    keithley.rangev(voltage_range)  # Set the voltage range to 10V
 
     # You can also set the current range
 
-    keithley.rangei(1)  # Set the current range to 1A
+    keithley.rangei(current_range)  # Set the current range to 1A
 
     # Set the voltage compliance
-    keithley.compliancev(5)  # Set the voltage compliance to 5V
+    # keithley.compliancev(5)  # Set the voltage compliance to 5V
 
     # Set the current compliance
-    keithley.compliancei(0.1)  # Set the current compliance to 0.1A
+    # keithley.compliancei(0.1)  # Set the current compliance to 0.1A
 
     # Set the output mode to voltage
     keithley.mode("VOLT")  # Set the mode to voltage
@@ -35,7 +35,7 @@ def KEITHLEY2400CMD(default: Optional[DataContainer] = None, Voltage_range: int 
     keithley.sense("VOLT")  # Set the sense mode to voltage
 
     # Set the voltage level
-    keithley.volt(2)  # Set the voltage level to 2V
+    keithley.volt(voltage)  # Set the voltage level to 2V
 
     # Imprimer le statut de la sortie de l'instrument
     output_status = keithley.output()  # Lire le statut de la sortie
@@ -57,7 +57,4 @@ def KEITHLEY2400CMD(default: Optional[DataContainer] = None, Voltage_range: int 
     # Disconnect from the instrument
     keithley.disconnect()
 
-    x = [5]
-    y = [4]
-
-    return OrderedPair(x, y)
+    return OrderedPair(voltages_values, y)
