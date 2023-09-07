@@ -6,8 +6,8 @@ from flojoy import flojoy, run_in_venv, Image
     pip_dependencies=[
         "torch==2.0.1",
         "torchvision==0.15.2",
-        "Pillow==9.5.0",
-        "numpy==1.24.3",
+        "Pillow",
+        "numpy",
     ]
 )
 def DEEPLAB_V3(default: Image) -> Image:
