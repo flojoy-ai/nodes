@@ -1,7 +1,7 @@
 import pytest
 import os
 import pandas as pd
-from flojoy import DataFrame, DataContainer
+from flojoy import DataFrame
 from plotly.graph_objs import Figure
 
 
@@ -15,6 +15,10 @@ def mock_prophet_model_json():
 
 @pytest.fixture
 def mock_prophet_output_dataframe():
+    pytest.importorskip(
+        "fastparquet",
+        reason="A suitable version of pyarrow or fastparquet is required for parquet support used by PROPHET_PLOT.",
+    )
     return pd.read_parquet(
         os.path.join(os.path.dirname(__file__), "mock_prophet_output_dataframe.parquet")
     )
@@ -26,14 +30,18 @@ def test_PROPHET_PLOT(
     mock_prophet_output_dataframe,
     mock_prophet_model_json,
 ):
+    pytest.importorskip(
+        "fastparquet",
+        reason="A suitable version of pyarrow or fastparquet is required for parquet support used by PROPHET_PLOT.",
+    )
     import PROPHET_PLOT
 
-    default = DataFrame(df=mock_prophet_output_dataframe)
     for run_forecast in [True, False]:
-        prophet_data = DataContainer(
-            extra={"run_forecast": run_forecast, "prophet": mock_prophet_model_json}
+        default = DataFrame(
+            df=mock_prophet_output_dataframe,
+            extra={"run_forecast": run_forecast, "prophet": mock_prophet_model_json},
         )
-        res = PROPHET_PLOT.PROPHET_PLOT(default=default, data=prophet_data)
+        res = PROPHET_PLOT.PROPHET_PLOT(default=default)
         # Should get back a plotly figure
         assert res.type == "plotly"
         assert isinstance(res.fig, Figure)

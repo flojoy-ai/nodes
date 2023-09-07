@@ -12,8 +12,7 @@ def TRIM_MEAN(
     proportiontocut: float = 0.1,
     axis: int = 0,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The TRIM_MEAN node is based on a numpy or scipy function.
+    """The TRIM_MEAN node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

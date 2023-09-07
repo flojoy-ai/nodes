@@ -10,8 +10,7 @@ import numpy.linalg
 def INV(
     default: Matrix,
 ) -> Matrix | Scalar:
-    """
-    The INV node is based on a numpy or scipy function.
+    """The INV node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

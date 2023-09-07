@@ -1,4 +1,4 @@
-from flojoy import flojoy, OrderedPair, Matrix, Plotly, DCNpArrayType
+from flojoy import flojoy, OrderedPair, Matrix, Plotly, DCNpArrayType, Vector
 import plotly.graph_objects as go
 import numpy as np
 
@@ -67,15 +67,15 @@ def numpy_array_as_table(arr: DCNpArrayType):
 
 @flojoy
 def MATRIX_VIEW(default: OrderedPair | Matrix) -> Plotly:
-    """
-    The MATRIX_VIEW node takes a Matrix or OrderedPair object of DataContainer class as input and
+    """The MATRIX_VIEW node takes a Matrix or OrderedPair object of DataContainer class as input and
     displays its visualization using a Plotly table in matrix format.
 
     Inputs
     -------
     default : OrderedPair | Matrix
         the DataContainer to be visualized in matrix format.
-    Outputs
+
+    Returns
     -------
     Plotly
         the DataContainer containing visualization of the input in matrix format
@@ -83,6 +83,9 @@ def MATRIX_VIEW(default: OrderedPair | Matrix) -> Plotly:
 
     if isinstance(default, Matrix):
         np_arr = default.m
+        cell_values = numpy_array_as_table(np_arr)
+    elif isinstance(default, Vector):
+        np_arr = default.v
         cell_values = numpy_array_as_table(np_arr)
     else:
         np_arr = default.y

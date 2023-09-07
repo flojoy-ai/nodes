@@ -6,8 +6,7 @@ import pandas as pd
 def READ_CSV(
     file_path: str = "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv",
 ) -> DataFrame:
-    """
-    The READ_CSV node reads a .csv file from disk or a URL, and then returns a dataframe.
+    """The READ_CSV node reads a .csv file from disk or a URL, and then returns a dataframe.
 
     Parameters
     ----------

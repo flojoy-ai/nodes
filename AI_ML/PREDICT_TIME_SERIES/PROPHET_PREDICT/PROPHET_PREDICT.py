@@ -1,13 +1,7 @@
-from flojoy import flojoy, run_in_venv, DataFrame, DataContainer
-from typing import TypedDict
+from flojoy import flojoy, run_in_venv, DataFrame
 
 
-class ProphetPredictOutput(TypedDict):
-    dataframe: DataFrame
-    prophet_data: DataContainer
-
-
-@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26", "pystan": "2.19.1.1"})
+@flojoy
 @run_in_venv(
     pip_dependencies=[
         "prophet==1.1.4",
@@ -15,14 +9,14 @@ class ProphetPredictOutput(TypedDict):
 )
 def PROPHET_PREDICT(
     default: DataFrame, run_forecast: bool = True, periods: int = 365
-) -> ProphetPredictOutput:
-    """
-    The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe.
+) -> DataFrame:
+    """The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe.
 
     The DataContainer input type must be a dataframe, and the first column (or index) of dataframe must be of a datetime type.
 
     This node always returns a DataContainer of a dataframe type. It will also always return an "extra" field with a key "prophet" of which the value is the JSONified Prophet model.
     This model can be loaded as follows:
+
         ```python
         from prophet.serialize import model_from_json
 
@@ -135,6 +129,5 @@ def PROPHET_PREDICT(
         forecast = model.predict(future)
         extra["original"] = df
         return_df = forecast
-    return ProphetPredictOutput(
-        dataframe=DataFrame(df=return_df), prophet_data=DataContainer(extra=extra)
-    )
+
+    return DataFrame(df=return_df, extra=extra)

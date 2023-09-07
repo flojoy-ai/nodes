@@ -1,6 +1,6 @@
 import random
 import numpy as np
-from flojoy import flojoy, OrderedPair, Scalar, Vector
+from flojoy import flojoy, OrderedPair, Scalar, Vector, display
 from typing import Literal, Optional
 
 
@@ -14,8 +14,7 @@ def RAND(
     normal_standard_deviation: float = 1,
     poisson_events: float = 1,
 ) -> OrderedPair | Scalar:
-    """
-    The RAND node generates a random number or a list of random numbers, depending on the distribution selected.
+    """The RAND node generates a random number or a list of random numbers, depending on the distribution selected.
 
     Inputs
     ------
@@ -75,3 +74,18 @@ def RAND(
             y = my_generator.poisson(lam=poisson_events, size=size)
 
     return OrderedPair(x=x, y=y) if default else Scalar(c=y)
+
+
+@display
+def OVERLOAD(lower_bound, upper_bound, distribution="uniform") -> None:
+    return None
+
+
+@display
+def OVERLOAD(normal_mean, normal_standard_deviation, distribution="normal") -> None:
+    return None
+
+
+@display
+def OVERLOAD(poisson_events, distribution="poisson") -> None:
+    return None
