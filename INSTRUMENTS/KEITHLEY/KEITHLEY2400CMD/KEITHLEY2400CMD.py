@@ -1,23 +1,25 @@
 from flojoy import flojoy, OrderedPair, DataContainer
 from typing import Optional
 from qcodes.instrument.visa import VisaInstrument
-from qcodes.instrument_drivers.tektronix.Keithley_2400 import Keithley2400
+from qcodes.instrument_drivers.Keithley.Keithley_2400 import Keithley2400
 
 
-@flojoy(deps={"qcodes": "0.39.1"})
-def KEITHLEY2400CMD(default: Optional[DataContainer] = None, Voltage_range: int = 10) -> OrderedPair:
+@flojoy(deps={"qcodes": "0.39.1", "pyvisa-py": "0.6.3", "pyserial": "3.5"})
+def KEITHLEY2400CMD(default: Optional[DataContainer] = None, Voltage_range: int = 10, Current_range: int = 1) -> OrderedPair:
 
     # Create an instance of the Keithley2400 instrument
-    keithley = Keithley2400("keithley", "ASRL/dev/ttyUSB0::INSTR")
+    keithley = Keithley2400("keithley", "ASRL/dev/ttyUSB1::INSTR")
 
     # Connect to the instrument
-    keithley.connect()
+    # keithley.reset()
 
     # Now you can use the instrument to perform measurements and control the power supply
     # For example, you can set the voltage range
-    keithley.rangev(10)  # Set the voltage range to 10V
+    # keithley.ask(":SOUR:FUNC:MODE VOLT\n")
+    keithley.rangev(Voltage_range)  # Set the voltage range to 10V
 
     # You can also set the current range
+
     keithley.rangei(1)  # Set the current range to 1A
 
     # Set the voltage compliance
@@ -32,13 +34,18 @@ def KEITHLEY2400CMD(default: Optional[DataContainer] = None, Voltage_range: int 
     # Set the sense mode to voltage
     keithley.sense("VOLT")  # Set the sense mode to voltage
 
-    # Enable the output
-    keithley.output("on")  # Turn on the output
-
     # Set the voltage level
     keithley.volt(2)  # Set the voltage level to 2V
 
-    # Read the current
+    # Imprimer le statut de la sortie de l'instrument
+    output_status = keithley.output()  # Lire le statut de la sortie
+    print(f"Statut de la sortie : {output_status}")
+
+    # Activer la sortie de l'instrument si nécessaire
+    if output_status != "on":
+        keithley.output("on")
+
+    # Lire le courant
     current = keithley.curr()  # Read the current
 
     # Read the resistance
