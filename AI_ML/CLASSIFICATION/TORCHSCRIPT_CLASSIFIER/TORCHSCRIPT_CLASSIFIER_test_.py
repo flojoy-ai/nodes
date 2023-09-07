@@ -1,6 +1,5 @@
 import pytest
 import os
-import json
 import pandas as pd
 import numpy as np
 import PIL
@@ -18,12 +17,10 @@ def torchscript_model_path():
 
 @pytest.fixture
 def class_names():
-    json_path = os.path.join(
-        os.path.dirname(os.path.realpath(__file__)), "assets", "class_names.json"
+    csv_path = os.path.join(
+        os.path.dirname(os.path.realpath(__file__)), "assets", "class_names.csv"
     )
-    with open(json_path, "r") as f:
-        class_names_json = json.load(f)
-    return DataFrame(df=pd.Series(class_names_json).to_frame())
+    return DataFrame(df=pd.read_csv(csv_path))
 
 
 @pytest.fixture
