@@ -7,7 +7,7 @@ from time import sleep
 
 
 @flojoy(deps={"ticlib": "0.2.2"})
-def STEPPER_DRIVER_TIC(
+def TIC(
     default: Optional[OrderedPair] = None,
     current_limit: int = 30,
     sleep_time: int = 2,

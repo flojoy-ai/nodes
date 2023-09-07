@@ -5,7 +5,7 @@ import numpy as np
 
 
 @flojoy(deps={"pyserial": "3.5"})
-def SERIAL_SINGLE_MEASUREMENT(
+def SINGLE_MEASUREMENT(
     default: Optional[OrderedPair] = None,
     comport: str = "/dev/ttyUSB0",
     baudrate: int = 9600,

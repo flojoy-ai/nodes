@@ -7,7 +7,7 @@ from datetime import datetime
 
 
 @flojoy(deps={"pyserial": "3.5"})
-def SERIAL_TIMESERIES(
+def TIMESERIES1(
     default: Optional[OrderedPair] = None,
     comport: str = "/dev/ttyUSB0",
     baudrate: int = 9600,

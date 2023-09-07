@@ -3,7 +3,7 @@ import serial
 
 
 @flojoy(deps={"pyserial": "3.5"})
-def KEITHLEY2400(
+def IV_SWEEP(
     init_container: NodeInitContainer, default: OrderedPair | Vector
 ) -> OrderedPair:
     """The KEITHLEY2400 node takes a IV curve measurement with a Keithley 2400 source meter, send voltages, and measures currents.
@@ -48,7 +48,8 @@ def KEITHLEY2400(
         current_str: str = (
             ser.readline().decode("ascii").strip()
         )  # Save answers in a string
-        voltage_current_values: str = current_str.split(",")  # Split the string
+        voltage_current_values: str = current_str.split(
+            ",")  # Split the string
         currents_neg.append(-float(voltage_current_values[1]))
 
         ser.write(b":OUTP OFF\n")  # Close output from Instrument

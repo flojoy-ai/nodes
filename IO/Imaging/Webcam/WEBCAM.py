@@ -7,7 +7,7 @@ import numpy as np
 
 
 @flojoy(deps={"opencv-python-headless": "4.7.0.72"})
-def CAMERA(
+def WEBCAM(
     default: Optional[DataContainer] = None,
     camera_ind: int = -1,
     resolution: Literal[
