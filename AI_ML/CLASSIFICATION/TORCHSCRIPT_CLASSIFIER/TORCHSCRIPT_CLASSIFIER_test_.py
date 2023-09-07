@@ -28,7 +28,11 @@ def class_names():
 
 @pytest.fixture
 def obama_image():
-    _image_path = f"{os.path.dirname(os.path.realpath(__file__))}/assets/President_Barack_Obama.jpg"
+    _image_path = os.path.join(
+        os.path.dirname(os.path.realpath(__file__)),
+        "assets",
+        "President_Barack_Obama.jpg",
+    )
     image = np.array(PIL.Image.open(_image_path).convert("RGB"))
     return Image(r=image[:, :, 0], g=image[:, :, 1], b=image[:, :, 2], a=None)
 
