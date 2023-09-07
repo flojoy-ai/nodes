@@ -12,7 +12,7 @@ def ONE_HOT_ENCODING(
     The ONE_HOT_ENCODING node creates a one hot encoding from a dataframe containing categorical features.
 
     Inputs
-    -------
+    ------
     data : DataFrame
         The input dataframe containing the categorical features.
 
