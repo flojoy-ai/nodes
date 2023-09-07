@@ -4,7 +4,7 @@ from typing import Optional
 
 
 @flojoy(deps={"qcodes": "0.39.1", "pyvisa-sim": "0.5.1"})
-def MOCK_WEINSCHEL8320(
+def WEINSCHEL8320(
     default: Optional[DataContainer] = None,
     attenuation: int = 10,
 ) -> Scalar:
