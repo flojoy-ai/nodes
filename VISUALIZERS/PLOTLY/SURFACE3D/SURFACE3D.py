@@ -6,15 +6,14 @@ import numpy as np
 
 @flojoy
 def SURFACE3D(default: OrderedTriple | DataFrame | Surface | Matrix) -> Plotly:
-    """
-    The SURFACE3D node creates a Plotly 3D Surface visualization for a given input data container.
+    """The SURFACE3D node creates a Plotly 3D Surface visualization for a given input data container.
 
     Inputs
     ------
     default : OrderedTriple|DataFrame|Surface|Matrix
         the DataContainer to be visualized
 
-    Outputs
+    Returns
     -------
     Plotly
         the DataContainer containing Plotly 3D Surface visualization

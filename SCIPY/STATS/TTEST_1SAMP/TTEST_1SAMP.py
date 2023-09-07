@@ -15,8 +15,7 @@ def TTEST_1SAMP(
     alternative: str = "two-sided",
     select_return: Literal["statistic", "pvalue"] = "statistic",
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The TTEST_1SAMP node is based on a numpy or scipy function.
+    """The TTEST_1SAMP node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

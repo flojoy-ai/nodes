@@ -14,8 +14,7 @@ def VARIATION(
     ddof: int = 0,
     keepdims: bool = False,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The VARIATION node is based on a numpy or scipy function.
+    """The VARIATION node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

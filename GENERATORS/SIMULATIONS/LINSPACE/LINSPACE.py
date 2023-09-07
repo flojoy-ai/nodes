@@ -3,15 +3,14 @@ from flojoy import flojoy, Vector, OrderedPair
 from typing import Optional
 
 
-@flojoy(node_type="default")
+@flojoy
 def LINSPACE(
     default: Optional[OrderedPair | Vector] = None,
     start: float = 10,
     end: float = 0,
     step: int = 1000,
 ) -> Vector:
-    """
-    The LINSPACE node generates data spaced evenly between two points.
+    """The LINSPACE node generates data spaced evenly between two points.
 
     It uses the numpy function linspace. It is useful for generating an x axis for the ordered pair data type.
 

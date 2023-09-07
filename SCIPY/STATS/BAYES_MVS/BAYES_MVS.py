@@ -11,8 +11,7 @@ def BAYES_MVS(
     default: OrderedPair | Matrix,
     alpha: float = 0.9,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The BAYES_MVS node is based on a numpy or scipy function.
+    """The BAYES_MVS node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

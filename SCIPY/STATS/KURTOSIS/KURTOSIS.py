@@ -15,8 +15,7 @@ def KURTOSIS(
     nan_policy: str = "propagate",
     keepdims: bool = False,
 ) -> OrderedPair | Matrix | Scalar:
-    """
-    The KURTOSIS node is based on a numpy or scipy function.
+    """The KURTOSIS node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 

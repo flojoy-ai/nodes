@@ -4,10 +4,9 @@ import numpy as np
 from PIL import ImageFilter, Image as PILImage
 
 
-@flojoy
+@flojoy(deps={"opencv-python": "4.8.0"})
 def EDGE_DETECTION(default: Image) -> Image:
-    """
-    The EDGE_DETECTION node detects edges in the image that was passed to it.
+    """The EDGE_DETECTION node detects edges in the image that was passed to it.
 
     This is done through the Pillow image filter, FIND_EDGES.
 

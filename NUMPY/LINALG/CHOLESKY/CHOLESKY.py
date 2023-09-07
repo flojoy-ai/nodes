@@ -10,8 +10,7 @@ import numpy.linalg
 def CHOLESKY(
     default: Matrix,
 ) -> Matrix | Scalar:
-    """
-    The CHOLESKY node is based on a numpy or scipy function.
+    """The CHOLESKY node is based on a numpy or scipy function.
 
     The description of that function is as follows:
 
