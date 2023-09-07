@@ -4,8 +4,8 @@ from flojoy import flojoy, run_in_venv, Image, DataFrame
 @flojoy
 @run_in_venv(
     pip_dependencies=[
-        "transformers",
-        "torch",
+        "transformers==4.30.2",
+        "torch==2.0.1",
         "Pillow",
         "numpy",
         "pandas",
