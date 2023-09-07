@@ -23,10 +23,12 @@ def torchscript_model_path():
                     "pytorch/vision:v0.15.2",
                     "mobilenet_v3_small",
                     pretrained=True,
-                    skip_validation=True, # This will save us from github rate limiting, https://github.com/pytorch/vision/issues/4156#issuecomment-939680999
+                    skip_validation=True,  # This will save us from github rate limiting, https://github.com/pytorch/vision/issues/4156#issuecomment-939680999
                 )
                 self.model.eval()
-                self.transforms = torchvision.models.MobileNet_V3_Small_Weights.DEFAULT.transforms()
+                self.transforms = (
+                    torchvision.models.MobileNet_V3_Small_Weights.DEFAULT.transforms()
+                )
 
             def forward(self, x):
                 return self.model(self.transforms(x))
@@ -34,7 +36,7 @@ def torchscript_model_path():
         model = ModelWithTransform()
         scripted = torch.jit.script(model)
         torch.jit.save(scripted, path)
-    
+
     with tempfile.TemporaryDirectory() as tempdir:
         model_path = os.path.join(tempdir, "mbnet_v3_small.torchscript")
         _download_test_model(model_path)
