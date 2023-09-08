@@ -4,12 +4,12 @@
             {
                 "width": 150,
                 "height": 180,
-                "id": "FLEXIFORCE_25LB-6833dfdd-3730-4483-a8aa-3c094280f07e",
+                "id": "ESP32-c1c6c4da-d40b-4275-891b-fd36ca0514a5",
                 "type": "IO",
                 "data": {
-                    "id": "FLEXIFORCE_25LB-6833dfdd-3730-4483-a8aa-3c094280f07e",
-                    "label": "FLEXIFORCE 25LB",
-                    "func": "FLEXIFORCE_25LB",
+                    "id": "ESP32-c1c6c4da-d40b-4275-891b-fd36ca0514a5",
+                    "label": "ESP32",
+                    "func": "ESP32",
                     "type": "IO",
                     "ctrls": {},
                     "initCtrls": {},
@@ -30,23 +30,17 @@
                             "desc": null
                         }
                     ],
-                    "pip_dependencies": [
-                        {
-                            "name": "pyserial",
-                            "v": "3.5"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/IO/ANALOG_SENSORS/PRESSURE_SENSORS/FLEXIFORCE_25LB/FLEXIFORCE_25LB.py",
-                    "selected": false
+                    "path": "PYTHON/nodes/IO/MICROCONTROLLERS/ESP32/ESP32.py",
+                    "selected": true
                 },
                 "position": {
-                    "x": -128.77937355641933,
-                    "y": -298.2480293081669
+                    "x": -127.70872621740149,
+                    "y": -281.42740663867414
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": -128.77937355641933,
-                    "y": -298.2480293081669
+                    "x": -127.70872621740149,
+                    "y": -281.42740663867414
                 },
                 "dragging": true
             }

@@ -4,12 +4,12 @@
             {
                 "width": 150,
                 "height": 180,
-                "id": "FLEXIFORCE_25LB-6833dfdd-3730-4483-a8aa-3c094280f07e",
+                "id": "LM34-a4fabeea-988a-4de9-9c47-218f4575717e",
                 "type": "IO",
                 "data": {
-                    "id": "FLEXIFORCE_25LB-6833dfdd-3730-4483-a8aa-3c094280f07e",
-                    "label": "FLEXIFORCE 25LB",
-                    "func": "FLEXIFORCE_25LB",
+                    "id": "LM34-a4fabeea-988a-4de9-9c47-218f4575717e",
+                    "label": "LM34",
+                    "func": "LM34",
                     "type": "IO",
                     "ctrls": {},
                     "initCtrls": {},
@@ -30,23 +30,17 @@
                             "desc": null
                         }
                     ],
-                    "pip_dependencies": [
-                        {
-                            "name": "pyserial",
-                            "v": "3.5"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/IO/ANALOG_SENSORS/PRESSURE_SENSORS/FLEXIFORCE_25LB/FLEXIFORCE_25LB.py",
-                    "selected": false
+                    "path": "PYTHON/nodes/IO/ANALOG_SENSORS/THERMOCOUPLES/LM34/LM34.py",
+                    "selected": true
                 },
                 "position": {
-                    "x": -128.77937355641933,
-                    "y": -298.2480293081669
+                    "x": -140.33430403903543,
+                    "y": -274.5727434927463
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": -128.77937355641933,
-                    "y": -298.2480293081669
+                    "x": -140.33430403903543,
+                    "y": -274.5727434927463
                 },
                 "dragging": true
             }

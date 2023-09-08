@@ -4,12 +4,12 @@
             {
                 "width": 150,
                 "height": 180,
-                "id": "FLEXIFORCE_25LB-6833dfdd-3730-4483-a8aa-3c094280f07e",
+                "id": "TINYMOVR-543fc021-97b9-444e-9fc7-2d30f22b6495",
                 "type": "IO",
                 "data": {
-                    "id": "FLEXIFORCE_25LB-6833dfdd-3730-4483-a8aa-3c094280f07e",
-                    "label": "FLEXIFORCE 25LB",
-                    "func": "FLEXIFORCE_25LB",
+                    "id": "TINYMOVR-543fc021-97b9-444e-9fc7-2d30f22b6495",
+                    "label": "TINYMOVR",
+                    "func": "TINYMOVR",
                     "type": "IO",
                     "ctrls": {},
                     "initCtrls": {},
@@ -30,23 +30,17 @@
                             "desc": null
                         }
                     ],
-                    "pip_dependencies": [
-                        {
-                            "name": "pyserial",
-                            "v": "3.5"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/IO/ANALOG_SENSORS/PRESSURE_SENSORS/FLEXIFORCE_25LB/FLEXIFORCE_25LB.py",
-                    "selected": false
+                    "path": "PYTHON/nodes/IO/MOTION/MOTOR_DRIVER/BLDC/TINYMOVR/TINYMOVR.py",
+                    "selected": true
                 },
                 "position": {
-                    "x": -128.77937355641933,
-                    "y": -298.2480293081669
+                    "x": -117.98677750455002,
+                    "y": -279.1904826359713
                 },
-                "selected": false,
+                "selected": true,
                 "positionAbsolute": {
-                    "x": -128.77937355641933,
-                    "y": -298.2480293081669
+                    "x": -117.98677750455002,
+                    "y": -279.1904826359713
                 },
                 "dragging": true
             }
