@@ -1,4 +1,5 @@
-import os, shutil
+import os
+import shutil
 import traceback
 import sys
 import textwrap
@@ -110,7 +111,7 @@ def get_example_section(node_label: str, has_app_image: bool, has_output_image: 
 ## Examples
 
 import Example1 from './examples/EX1/example.md';
-import App1 from '!!raw-loader!./examples/EX1/app.txt';
+import App1 from '!!raw-loader!./examples/EX1/app.json';
 {app_image}
 {output_image}
 
@@ -176,14 +177,17 @@ def process_python_file(input_file_path: str, output_path: str):
         function_code = extract_function_code(content)
         autogen_dir_name = "a1-[autogen]"
         # Write docstring to a file
-        docstring_file_path = path.join(output_path, autogen_dir_name, "docstring.txt")
+        docstring_file_path = path.join(
+            output_path, autogen_dir_name, "docstring.txt")
         if not path.exists(docstring_file_path):
-            write_file_recursive(docstring_file_path, textwrap.dedent(docstring))
+            write_file_recursive(docstring_file_path,
+                                 textwrap.dedent(docstring))
         else:
             doc_str = get_content(docstring_file_path)
             diff = compare_two_str(docstring, doc_str)
             if diff:
-                write_file_recursive(docstring_file_path, textwrap.dedent(docstring))
+                write_file_recursive(docstring_file_path,
+                                     textwrap.dedent(docstring))
 
         # Write function code to a file
         function_code_file_path = path.join(
@@ -202,7 +206,8 @@ def process_python_file(input_file_path: str, output_path: str):
         appendix_dir_path = path.join(output_path, "appendix")
         for f in ["hardware.md", "media.md", "notes.md"]:
             if not path.exists(path.join(appendix_dir_path, f)):
-                write_file_recursive(path.join(appendix_dir_path, f), boilar_plates[f])
+                write_file_recursive(
+                    path.join(appendix_dir_path, f), boilar_plates[f])
             else:
                 c = get_content(path.join(appendix_dir_path, f))
                 if c.strip() == "":
@@ -221,10 +226,12 @@ def process_python_file(input_file_path: str, output_path: str):
                     write_file_recursive(path.join(example_dir_path, f), c)
                 else:
                     if f == "app.json":
-                        existing_c = get_content(path.join(example_dir_path, f))
+                        existing_c = get_content(
+                            path.join(example_dir_path, f))
                         diff = compare_two_str(c, existing_c)
                         if diff:
-                            write_file_recursive(path.join(example_dir_path, f), c)
+                            write_file_recursive(
+                                path.join(example_dir_path, f), c)
             else:
                 has_example = False
 
@@ -270,7 +277,7 @@ def extract_docstring(content: str):
         docstring_end = content.find('"""', docstring_start + 3)
 
         # Extract the docstring
-        docstring = content[docstring_start + 3 : docstring_end]
+        docstring = content[docstring_start + 3: docstring_end]
 
         return docstring
     elif "'''" in content:
@@ -278,7 +285,7 @@ def extract_docstring(content: str):
         docstring_end = content.find("'''", docstring_start + 3)
 
         # Extract the docstring
-        docstring = content[docstring_start + 3 : docstring_end]
+        docstring = content[docstring_start + 3: docstring_end]
 
         return docstring
     return ""
