@@ -32,18 +32,18 @@ def BIG_NUMBER(
     Parameters
     ----------
     relative_delta : bool
-        whether to show relative delta from last run along with big number
+        whether or not to show the relative delta from the last run along with big number
     suffix : str
         any suffix to show with big number
     prefix : str
         any prefix to show with big number
     title : str
-        title of the plot, default "BIG_NUMBER"
+        title of the plot, default = "BIG_NUMBER"
 
     Returns
     -------
     Plotly
-        the DataContainer containing Plotly big number visualization
+        the DataContainer containing the Plotly big number visualization
     """
 
     job_id = default_params.job_id

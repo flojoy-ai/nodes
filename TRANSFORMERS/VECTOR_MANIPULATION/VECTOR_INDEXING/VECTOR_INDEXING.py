@@ -7,12 +7,12 @@ def VECTOR_INDEXING(
     default: Vector,
     index: int = 0,
 ) -> Scalar:
-    """The VECTOR_INDEXING node returns the value of the Vector at the
+    """The VECTOR_INDEXING node returns the value of the vector at the
     requested index.
 
     Inputs
     ------
-    v : Vector
+    v : vector
         The input vector to index.
 
     Parameters
@@ -25,6 +25,7 @@ def VECTOR_INDEXING(
     Scalar
         The scalar index of the input vector.
     """
+    
     assert (
         len(default.v) > index
     ), "The index parameter must be less than the length of the Vector."

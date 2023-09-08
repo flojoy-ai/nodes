@@ -13,7 +13,7 @@ def STEPPER_DRIVER_TIC(
     sleep_time: int = 2,
     speed: int = 100000,
 ) -> OrderedPair:
-    """The STEPPER_DRIVER_TIC node controls a stepper motor movement with a TIC driver.
+    """The STEPPER_DRIVER_TIC node controls a stepper motor's movement with a TIC driver.
 
     The user defines the speed and the sleep time between movements.
 

@@ -26,7 +26,7 @@ def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> P
     is entirely provided by this node in a two-step process:
 
     - First, the regions of the INTEGER image are identified and labelled.
-    - Second, the regions are analysed.
+    - Second, the regions are analyzed.
 
     The first step is provided by the morphology library of scikit-image's label function,
     while the second is provided by scikit-image's regionprops function.
@@ -47,7 +47,7 @@ def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> P
 
     Returns
     -------
-    fig : Plotly
+    fig: Plotly
         A Plotly figure containing the illustrated features as determined by this node.
     """
 

@@ -18,15 +18,15 @@ def DETREND(
 
     The description of that function is as follows:
 
-        Remove linear trend along axis from data.
+        Remove a linear trend along an axis from data.
 
     Parameters
     ----------
     data : array_like
         The input data.
     axis : int, optional
-        The axis along which to detrend the data. By default this is the
-        last axis (-1).
+        The axis along which to detrend the data. 
+        By default this is the last axis (-1).
     type : {'linear', 'constant'}, optional
         The type of detrending. If type == 'linear' (default),
         the result of a linear least-squares fit to 'data' is subtracted from 'data'.
@@ -34,10 +34,11 @@ def DETREND(
     bp : array_like of ints, optional
         A sequence of break points. If given, an individual linear fit is
         performed for each part of 'data' between two break points.
-        Break points are specified as indices into 'data'. This parameter
-        only has an effect when type == 'linear'.
+        Break points are specified as indices into 'data'. 
+        This parameter only has an effect when type == 'linear'.
     overwrite_data : bool, optional
-        If True, perform in place detrending and avoid a copy. Default is False.
+        If True, perform in place detrending and avoid a copy. 
+        Default is False.
 
     Returns
     -------

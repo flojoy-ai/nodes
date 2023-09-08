@@ -8,7 +8,7 @@ def DOT_PRODUCT(a: Matrix | Vector, b: Matrix | Vector) -> Matrix | Vector | Sca
     """The DOT_PRODUCT node takes two input matrices, multiplies them
     (by dot product), and returns the result.
 
-    When multiplying a scalar use the MULTIPLY node.
+    To multiply a scalar, use the MULTIPLY node.
 
     Inputs
     ------

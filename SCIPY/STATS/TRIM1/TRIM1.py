@@ -32,7 +32,9 @@ def TRIM1(
     tail : {'left', 'right'}, optional
         Defaults to 'right'.
     axis : int or None, optional
-        Axis along which to trim data. Default is 0. If None, compute over the whole array 'a'.
+        Axis along which to trim data.
+        Default is 0.
+        If None, compute over the whole array 'a'.
 
     Returns
     -------

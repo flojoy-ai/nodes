@@ -13,12 +13,12 @@ def PID(
     Kd: float = 356.25,
 ) -> Scalar:
     """The PID node acts like a PID function.
-    The returned value with be modified according to the
+    The returned value will be modified according to the
     PID parameters Kp, Ki, and Kd.
 
     Inputs
     ------
-    default : Scalar
+    single_input : Scalar
         The data to apply the PID function to.
 
     Parameters

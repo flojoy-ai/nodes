@@ -28,8 +28,6 @@ def CONSTANT(
 
     Returns
     -------
-    OrderedPair
-
     OrderedPair|Vector|Scalar
         OrderedPair if selected
         x: the x axis generated with size 'step'

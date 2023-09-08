@@ -18,7 +18,7 @@ def SKEW(
 
     The description of that function is as follows:
 
-        Compute the sample skewness of a data set.
+        Compute the sample skewness of a dataset.
 
         For normally distributed data, the skewness should be about zero. 
         For unimodal continuous distributions, a skewness value greater than zero means that there is more weight in the right tail of the distribution. \
@@ -28,7 +28,8 @@ def SKEW(
     ----------
     a : ndarray
         Input array.
-    axis : int or None, default: 0
+    axis : int 
+        Default = 0.
         If an int, the axis of the input along which to compute the statistic.
         The statistic of each axis-slice (e.g. row) of the input will appear in a
         corresponding element of the output.

@@ -7,13 +7,13 @@ from typing import Optional
 def CLOSE_ALL(
     default: Optional[DataContainer] = None,
 ) -> Optional[DataContainer]:
-    """The CLOSE_ALL node closes all qcodes instruments and should be ran at
-    the end of each Flojoy app that uses qcodes (and possibly the beginning).
+    """The CLOSE_ALL node closes all QCoDeS instruments and should be run at
+    the start and end of each Flojoy app that uses QCoDeS.
 
     Returns
     -------
     DataContainer
-        optional: The input DataContainer is returned.
+        optional: The input DataContainer that is returned.
     """
 
     Instrument.close_all()

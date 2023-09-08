@@ -23,8 +23,8 @@ def SLOGDET(
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects []'sign', 'logdet'].
-        Select the desired one to return.
+    select_return : 'sign', 'logdet'
+        Select the desired object to return.
         See the respective function documents for descriptors.
     a : (..., M, M) array_like
         Input array, has to be a square 2-D array.

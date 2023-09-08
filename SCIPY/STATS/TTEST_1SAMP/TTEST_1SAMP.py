@@ -25,8 +25,8 @@ def TTEST_1SAMP(
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['statistic', 'pvalue'].
-        Select the desired one to return.
+    select_return : 'statistic', 'pvalue'
+        Select the desired object to return.
         See the respective function docs for descriptors.
     a : array_like
         Sample observation.
@@ -34,12 +34,14 @@ def TTEST_1SAMP(
         Expected value in null hypothesis.
         If array_like, then it must have the same shape as 'a' excluding the axis dimension.
     axis : int or None, optional
-        Axis along which to compute test; default is 0. If None, compute over the whole array 'a'.
+        Axis along which to compute test.
+        Default is 0.
+        If None, compute over the whole array 'a'.
     nan_policy : {'propagate', 'raise', 'omit'}, optional
         Defines how to handle when input contains nan.
         The following options are available (default is 'propagate'):
         'propagate' : returns nan
-        'raise' : throws an error
+        'raise' : raises an error
         'omit' : performs the calculations ignoring nan values
     alternative : {'two-sided', 'less', 'greater'}, optional
         Defines the alternative hypothesis.

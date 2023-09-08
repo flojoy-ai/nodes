@@ -7,17 +7,17 @@ import numpy as np
 
 @flojoy
 def BAR(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
-    """The BAR node creates a Plotly Bar visualization for a given input data container.
+    """The BAR node creates a Plotly Bar visualization for a given input DataContainer.
 
     Inputs
     ------
     default : OrderedPair|DataFrame|Matrix|Vector
-        the DataContainer to be visualized in bar chart
+        the DataContainer to be visualized in a bar chart
 
     Returns
     -------
     Plotly
-        the DataContainer containing Plotly Bar chart visualization
+        the DataContainer containing the Plotly Bar chart visualization
     """
 
     layout = plot_layout(title="BAR")

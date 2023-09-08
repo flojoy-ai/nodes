@@ -9,12 +9,12 @@ def LABJACKU3(
     default: Optional[OrderedPair] = None,
     sensor_number: int = 1,
 ) -> OrderedPair:
-    """The LABJACKU3 node allows you to record and returns temperature measurements with a LABJACK U3 device.
+    """The LABJACKU3 node allows you to record and return temperature measurements with a LabJack U3 device.
 
     Parameters
     ----------
     number : int
-         Defines the number of temperature sensors connected to the LabJack U3 device.
+        Defines the number of temperature sensors connected to the LabJack U3 device.
     """
 
     voltages: list[float] = []

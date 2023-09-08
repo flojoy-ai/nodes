@@ -12,7 +12,7 @@ def LINSPACE(
 ) -> Vector:
     """The LINSPACE node generates data spaced evenly between two points.
 
-    It uses the numpy function linspace. It is useful for generating an x axis for the ordered pair data type.
+    It uses the 'linspace' numpy function. It is useful for generating an x-axis for the OrderedPair data type.
 
     Inputs
     ------
@@ -31,7 +31,7 @@ def LINSPACE(
     Returns
     -------
     Vector
-        v: the vector between start and end with step number of points.
+        v: the vector between 'start' and 'end' with a 'step' number of points.
     """
 
     v = np.linspace(start, end, step)

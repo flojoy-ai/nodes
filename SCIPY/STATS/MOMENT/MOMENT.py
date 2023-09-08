@@ -28,7 +28,8 @@ def MOMENT(
     a : array_like
         Input array.
     moment : int or array_like of ints, optional
-        Order of central moment that is returned. Default is 1.
+        Order of central moment that is returned.
+        Default is 1.
     axis : int or None, default: 0
         If an int, the axis of the input along which to compute the statistic.
         The statistic of each axis-slice (e.g. row) of the input will appear in a
@@ -37,7 +38,7 @@ def MOMENT(
     nan_policy : {'propagate', 'omit', 'raise'}
         Defines how to handle input NaNs.
         - propagate : if a NaN is present in the axis slice (e.g. row) along
-        which the  statistic is computed, the corresponding entry of the output will be NaN.
+        which the statistic is computed, the corresponding entry of the output will be NaN.
         - omit : NaNs will be omitted when performing the calculation.
         If insufficient data remains in the axis slice along which the
         statistic is computed, the corresponding entry of the output will be NaN.

@@ -18,20 +18,21 @@ def SKEWTEST(
 
     The description of that function is as follows:
 
-        Test whether the skew is different from the normal distribution.
+        Test whether the skewness is different from the normal distribution.
 
         This function tests the null hypothesis that the skewness of the population that the sample was drawn from is the same as that of a corresponding normal distribution.
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['statistic', 'pvalue'].
-        Select the desired one to return.
+    select_return : 'statistic', 'pvalue'
+        Select the desired object to return.
         See the respective function docs for descriptors.
     a : array
         The data to be tested.
     axis : int or None, optional
-        Axis along which statistics are calculated. Default is 0.
-        If None, compute over the whole array `a`.
+        Axis along which statistics are calculated.
+        Default is 0.
+        If None, compute over the whole array 'a'.
     nan_policy : {'propagate', 'raise', 'omit'}, optional
         Defines how to handle when input contains nan.
         The following options are available (default is 'propagate'):
@@ -39,7 +40,8 @@ def SKEWTEST(
         'raise' : throws an error
         'omit' : performs the calculations ignoring nan values
     alternative : {'two-sided', 'less', 'greater'}, optional
-        Defines the alternative hypothesis. Default is 'two-sided'.
+        Defines the alternative hypothesis.
+        Default is 'two-sided'.
         The following options are available:
         'two-sided' : the skewness of the distribution underlying the sample
         is different from that of the normal distribution (i.e. 0)

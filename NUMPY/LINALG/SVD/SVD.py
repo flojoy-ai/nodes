@@ -27,8 +27,8 @@ def SVD(
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['u', 's', 'vh'].
-        Select the desired one to return.
+    select_return : 'u', 's', 'vh'
+        Select the desired object to return.
         See the respective function docs for descriptors.
     a : (..., M, N) array_like
         A real or complex array with "a.ndim >= 2".
