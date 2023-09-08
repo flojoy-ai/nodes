@@ -7,7 +7,7 @@ from flojoy import flojoy, run_in_venv, DataFrame
         "transformers==4.30.2",
         "torch==2.0.1",
         "torchvision==0.15.2",
-        "pandas==1.5.3",
+        "pandas",
     ]
 )
 def BART_LARGE_CNN(default: DataFrame) -> DataFrame:
