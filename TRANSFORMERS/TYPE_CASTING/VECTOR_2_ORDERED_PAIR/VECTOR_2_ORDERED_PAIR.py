@@ -2,11 +2,8 @@ from flojoy import flojoy, Vector, OrderedPair
 
 
 @flojoy
-def VECTOR_2_ORDERED_PAIR(
-    default: Vector,
-    y: Vector
-) -> OrderedPair:
-    """The VECTOR_2_ORDERED_PAIR node returns the OrderedPair 
+def VECTOR_2_ORDERED_PAIR(default: Vector, y: Vector) -> OrderedPair:
+    """The VECTOR_2_ORDERED_PAIR node returns the OrderedPair
     where x and y axes are the input nodes
 
     Inputs

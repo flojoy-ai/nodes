@@ -1,6 +1,7 @@
 import numpy as np
 from flojoy import Vector, OrderedPair
 
+
 def test_VECTOR_2_ORDERED_PAIR(mock_flojoy_decorator):
     import ORDERED_PAIR_XY_INVERT
 
