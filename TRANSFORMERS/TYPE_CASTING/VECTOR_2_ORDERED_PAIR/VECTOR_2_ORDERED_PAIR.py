@@ -7,7 +7,7 @@ def VECTOR_2_ORDERED_PAIR(
     y: Vector
 ) -> OrderedPair:
     """The VECTOR_2_ORDERED_PAIR node returns the OrderedPair 
-    where x and y axis are the input nodes
+    where x and y axes are the input nodes
 
     Inputs
     ------
