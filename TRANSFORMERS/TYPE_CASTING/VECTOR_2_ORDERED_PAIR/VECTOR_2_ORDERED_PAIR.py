@@ -6,12 +6,12 @@ def VECTOR_2_ORDERED_PAIR(
     default: Vector,
     y: Vector
 ) -> OrderedPair:
-    """The VECTOR_INDEXING node returns the value of the Vector at the
-    requested index.
+    """The VECTOR_2_ORDERED_PAIR node returns the OrderedPair 
+    where x and y axis are the input nodes
 
     Inputs
     ------
-    x : Vector
+    default : Vector
         The input vector that will be the x axis of OrderedPair.
     y : Vector
         The input vector that will be the y axis of OrderedPair.
@@ -19,7 +19,7 @@ def VECTOR_2_ORDERED_PAIR(
     Returns
     -------
     OrderedPair
-        The ordered pair that is generated from the input vectors
+        The OrderedPair that is generated from the input vectors
     """
 
     return OrderedPair(x=default.v, y=y.v)
