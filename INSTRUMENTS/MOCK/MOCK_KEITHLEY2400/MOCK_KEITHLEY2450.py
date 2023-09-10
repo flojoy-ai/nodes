@@ -1,34 +1,35 @@
 from flojoy import flojoy, Scalar, DataContainer
-from qcodes.instrument_drivers.Keithley import Keithley2400
+from qcodes.instrument_drivers.Keithley import Keithley2450
 from typing import Optional
 
 @flojoy(deps={"qcodes": "0.39.1", "pyvisa-sim": "0.5.1"})
-def MOCK_KEITHLEY2400(
+def MOCK_KEITHLEY2450(
     default: Optional[DataContainer] = None,
-    voltage: int = 0.0,
+    voltage: float = 0.0,
 ) -> Scalar:
     """Note this node is for testing purposes only.
 
-    The KEYTHLEY2400 node mocks the instrument KEYTHLEY 2400.
-    The KEYTHLEY 2400 is the voltage source.
+    The KEYTHLEY2450 node mocks the instrument KEYTHLEY 2450.
+    The KEYTHLEY 2450 is the voltage source.
 
     Parameters
     ----------
-    voltage : int
+    voltage : float
         
-
     Returns
     -------
     Scalar
         
     """
-    keith_sim = Keithley2400(
+    keith_sim = Keithley2450(
         "keith_sim",
         address="GPIB::1::INSTR",
-        pyvisa_sim_file="Keithley_2400.yaml",
+        pyvisa_sim_file="Keithley_2450.yaml",
     )
 
-    idn_dict = keith_sim.IDN()
+    idn_dict = keith_sim.get_idn()
     print(f"Connected to mock instrument: {idn_dict}")
 
-    keith_sim._volt_parser("9.0")
+    print(f"Current voltage: {idn_dict} dB")
+
+    return Scalar(c=keith_sim.VOLT)
