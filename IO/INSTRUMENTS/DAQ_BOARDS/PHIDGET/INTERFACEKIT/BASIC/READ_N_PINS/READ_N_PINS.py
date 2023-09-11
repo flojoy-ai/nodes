@@ -13,19 +13,13 @@ def onVoltageRatioChange(self, voltageRatio):
 def READ_N_PINS(
     default: Optional[OrderedPair] = None,
     n_sensors: int = 1,
-    calibration1: float = 0.015,
-    calibration2: float = 0.06,
 ) -> OrderedPair:
-    """The PHIDGET22 node allows you to record pressures from Flexiforce sensors using a Phidget InterfaceKit.
+    """The READ_N_PINS node allows you to measure and output voltages from Flexiforce sensors using a Phidget InterfaceKit.
 
     Parameters
     ----------
     n_sensors : int
         Defines the number of pressure sensors connected to the Phidget InterfaceKit.
-    calibration1 : float
-        Calibration parameters to convert voltage into pressure.
-    calibration2 : float
-        Calibration parameters to convert voltage into pressure.
     """
 
     voltage: list[float] = []
@@ -52,4 +46,4 @@ def READ_N_PINS(
         pression_i: float = (volt_i - calibration1) / calibration2
         pressions.append(pression_i)
 
-    return OrderedPair(x=sensor_num, y=pressions)
+    return OrderedPair(x=sensor_num, y=voltage)
