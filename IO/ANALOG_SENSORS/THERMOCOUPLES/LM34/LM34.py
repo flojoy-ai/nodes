@@ -3,7 +3,7 @@ from typing import Optional
 
 
 @flojoy()
-def LM34(default: [OrderedPair],
+def LM34(default: OrderedPair,
          calibration1: float = 100.0,
          calibration2: float = 32.0,
          calibration3: float = 1.8,
@@ -16,6 +16,7 @@ def LM34(default: [OrderedPair],
 
     temperatures_celsius: list[float] = []
     voltages = default.y
+    sensor_num = default.x
     sensors_number = len(default.x)
 
     # Convert Voltage into temperature in Celsius :
@@ -25,4 +26,4 @@ def LM34(default: [OrderedPair],
             temperature - calibration2) / calibration3
         temperatures_celsius.append(temperature_celsius)
 
-    return OrderedPair(default.x, temperatures_celsius)
+    return OrderedPair(sensor_num, temperatures_celsius)
