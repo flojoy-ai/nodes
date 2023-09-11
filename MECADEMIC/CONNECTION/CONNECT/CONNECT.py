@@ -1,5 +1,4 @@
 from enum import Enum
-import time
 from typing import Union
 
 from flojoy import flojoy
@@ -13,9 +12,9 @@ class IMecademicConnState(Enum):
 
 
 @flojoy
-def Connection() -> Union[IMecademicConnState, mdr.Robot]:
+def CONNECT(ip_address: str = '192.168.0.100') -> Union[IMecademicConnState, mdr.Robot]:
     """
-    The Connection node establishes a connection to the Mecademic robot arm via its API.
+    The CONNECT node establishes a connection to the Mecademic robot arm via its API.
     
     Outputs
     -------
@@ -26,29 +25,15 @@ def Connection() -> Union[IMecademicConnState, mdr.Robot]:
         A handle to the robot arm object.
         
     """
-    
-    # Initialize connection state as LOADING
     connection_state = IMecademicConnState.LOADING
-    
-    # Initialize robot handle
     ConnHandle = mdr.Robot()
-    
-    # Try to connect to the robot
     try:
-        ConnHandle.Connect(address='192.168.0.100')
-        
-        # Allow time for the connection to be established
-        # TODO: This delay is arbitrary. Ideally, a callback or event should signal when the connection is established.
-        time.sleep(2)  # Wait for 2 seconds as an example
-        
-        # Check if connected
+        ConnHandle.Connect(address=ip_address)
         if ConnHandle.IsConnected():
             connection_state = IMecademicConnState.CONNECTED
         else:
             connection_state = IMecademicConnState.ERROR
-            
     except Exception as e:
-        # An exception occurred, set state to ERROR
+        print(f"Connection error: {e}")
         connection_state = IMecademicConnState.ERROR
-    
     return connection_state, ConnHandle

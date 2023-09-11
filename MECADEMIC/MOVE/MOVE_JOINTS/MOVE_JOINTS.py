@@ -3,9 +3,9 @@ import mecademicpy.robot as mdr
 
 
 @flojoy
-def MoveJoints(ConnHandle: mdr.Robot, joint_angles: Array) -> mdr.Robot:
+def MOVE_JOINTS(ConnHandle: mdr.Robot, joint_angles: Array) -> mdr.Robot:
     """
-    The MoveJoints node moves the robot arm joints to the specified angles.
+    The MOVE_JOINTS node moves the robot arm joints to the specified angles.
     
     Inputs
     ------

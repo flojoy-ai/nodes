@@ -4,7 +4,7 @@ import mecademicpy.robot as mdr
 
 
 @flojoy
-def MovePose(
+def MOVE_LIN(
     ConnHandle: mdr.Robot, 
     x: float, 
     y: float, 
@@ -14,7 +14,7 @@ def MovePose(
     gamma: Optional[float] = None
 ) -> mdr.Robot:
     """
-    The MovePose node moves the robot's tool to an absolute Cartesian position in a non-linear move.
+    The MOVE_LIN node linearly moves the robot's tool to an absolute Cartesian position.
     
     Inputs
     ------
@@ -33,5 +33,5 @@ def MovePose(
         A handle to the robot arm object after it has been moved.
         
     """
-    ConnHandle.MovePose(x, y, z, alpha, beta, gamma)
+    ConnHandle.MoveLin(x, y, z, alpha, beta, gamma)
     return ConnHandle
