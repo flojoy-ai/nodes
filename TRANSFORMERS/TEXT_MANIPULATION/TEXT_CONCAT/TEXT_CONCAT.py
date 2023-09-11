@@ -10,7 +10,7 @@ def TEXT_CONCAT(
         "space", "comma", "semicolon", "colon", "new line", "none"
     ] = "space",
 ) -> TextBlob:
-    """The TEXT_CONCAT node takes in two TextBlob DataContainer type and cancatenates the text string.
+    """The TEXT_CONCAT node takes in two TextBlob DataContainer type and concatenates the text string.
 
     Inputs
     ------
