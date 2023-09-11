@@ -9,7 +9,8 @@ def READ_A0_PINS(
     default: Optional[OrderedPair] = None,
     sensor_number: int = 1,
 ) -> OrderedPair:
-    """The LABJACKU3 node allows you to record and returns temperature measurements with a LABJACK U3 device.
+    """The READ_A0_PINS node allows you to record and return voltages from a sensor connected to a LABJACK U3 device. eturns temperature measurements with a
+    Use the sensor node to convert voltage into temperature measurements
 
     Parameters
     ----------
@@ -18,8 +19,7 @@ def READ_A0_PINS(
     """
 
     voltages: list[float] = []
-    temperatures: list[float] = []
-    temperatures_celsius: list[float] = []
+
     sensor_num: list[int] = []
 
     d = init_container.get()
@@ -30,14 +30,9 @@ def READ_A0_PINS(
         sensor_num.append(i + 1)
         # Loop on the LabJack pins
         voltage: float = d.getAIN(i)
-        # Convert Voltage into temperature in Celsius :
-        temperature: float = voltage * 100.0
-        temperature_celsius: float = (temperature - 32) / 1.8
         voltages.append(voltage)
-        temperatures.append(temperature)
-        temperatures_celsius.append(temperature_celsius)
 
-    return OrderedPair(x=sensor_num, y=temperatures_celsius)
+    return OrderedPair(x=sensor_num, y=voltages)
 
 
 @node_initialization(for_node=READ_A0_PINS)
