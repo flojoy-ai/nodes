@@ -17,6 +17,7 @@ def get_file_url(url: str):
     return url
 
 
+# TODO: Consolidate remote files (S3, HTTP, etc...) and perhaps even merge REMOTE_FILE AND LOCAL_FILE in a single node.
 @flojoy(
     deps={
         "xlrd": "2.0.1",
@@ -30,7 +31,7 @@ def REMOTE_FILE(
     default: Optional[TextBlob] = None,
     file_type: Literal["Image", "Grayscale", "JSON", "CSV", "Excel", "XML"] = "Image",
 ) -> Image | DataFrame:
-    """The REMOTE_FILE node loads a remote file of a different type and converts it to a DataContainer class.
+    """The REMOTE_FILE node loads a remote file using an HTTP URL and converts it to a DataContainer class.
 
     Parameters
     ----------
@@ -45,6 +46,9 @@ def REMOTE_FILE(
     Notes
     -----
     If both file_url and default are not specified when `file_type="Image"`, a default image will be loaded.
+
+    REMOTE_FILE for now only supports HTTP file URLs, in particular GCP URL (starting with `gcp://`),
+    S3 URL (starting with `s3://`)  and other bucket-like URLs are not supported.
 
     Raises
     ------
