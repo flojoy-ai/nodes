@@ -19,4 +19,5 @@ def ActivateRobot(ConnHandle: mdr.Robot) -> mdr.Robot:
         
     """
     ConnHandle.Activate()
+    # Add verification step here
     return ConnHandle

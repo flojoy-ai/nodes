@@ -19,4 +19,5 @@ def Home(ConnHandle: mdr.Robot) -> mdr.Robot:
         
     """
     ConnHandle.Home()
+    # Add verification step here
     return ConnHandle
