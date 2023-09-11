@@ -6,7 +6,9 @@ from typing import Literal
 def TEXT_CONCAT(
     a: TextBlob,
     b: TextBlob,
-    delimiter: Literal["space", "comma", "semicolon", "colon", "new line"] = "space",
+    delimiter: Literal[
+        "space", "comma", "semicolon", "colon", "new line", "none"
+    ] = "space",
 ) -> TextBlob:
     """The TEXT_CONCAT node takes in two TextBlob DataContainer type and cancatenates the text string.
 
@@ -20,7 +22,7 @@ def TEXT_CONCAT(
 
     Parameters
     ----------
-    delimiter: "space" | "comma" | "semicolon" | "colon" | "new line", default="space"
+    delimiter: "space" | "comma" | "semicolon" | "colon" | "new line" | "none", default="space"
         Select the delimiter to place between two text.
 
     Returns
@@ -29,7 +31,7 @@ def TEXT_CONCAT(
        The text result from concatenation.
     """
 
-    delim: str = ""
+    delim: str = None
     match delimiter:
         case "space":
             delim = " "
@@ -41,5 +43,7 @@ def TEXT_CONCAT(
             delim = ":"
         case "new line":
             delim = "\n"
+        case "none":
+            delim = ""
 
     return TextBlob(text_blob=delim.join([a.text_blob, b.text_blob]))
