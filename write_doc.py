@@ -1,4 +1,5 @@
-import os, shutil
+import os
+import shutil
 import traceback
 import sys
 import textwrap
@@ -110,7 +111,7 @@ def get_example_section(node_label: str, has_app_image: bool, has_output_image: 
 ## Examples
 
 import Example1 from './examples/EX1/example.md';
-import App1 from '!!raw-loader!./examples/EX1/app.txt';
+import App1 from '!!raw-loader!./examples/EX1/app.json';
 {app_image}
 {output_image}
 
