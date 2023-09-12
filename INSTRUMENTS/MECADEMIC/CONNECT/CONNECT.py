@@ -1,39 +1,41 @@
-from enum import Enum
-from typing import Union
-
-from flojoy import flojoy
+from flojoy import flojoy, node_initialization, NodeInitContainer
 import mecademicpy.robot as mdr
 
 
-class IMecademicConnState(Enum):
-    CONNECTED = "connected"
-    LOADING = "loading"
-    ERROR = "error"
-
-
-@flojoy
-def CONNECT(ip_address: str = '192.168.0.100') -> Union[IMecademicConnState, mdr.Robot]:
+@flojoy(deps={"mecademicpy": "1.4.0"})
+def CONNECT(init_container: NodeInitContainer) -> mdr.Robot:
     """
     The CONNECT node establishes a connection to the Mecademic robot arm via its API.
-    
-    Outputs
-    -------
-    IMecademicConnState : Enum
-        An enumerated type that represents the connection state. Possible states are 'connected', 'loading', and 'error'.
-        
-    ConnHandle : mdr.Robot
-        A handle to the robot arm object.
-        
     """
-    connection_state = IMecademicConnState.LOADING
-    ConnHandle = mdr.Robot()
-    try:
-        ConnHandle.Connect(address=ip_address)
-        if ConnHandle.IsConnected():
-            connection_state = IMecademicConnState.CONNECTED
-        else:
-            connection_state = IMecademicConnState.ERROR
-    except Exception as e:
-        print(f"Connection error: {e}")
-        connection_state = IMecademicConnState.ERROR
-    return connection_state, ConnHandle
+    ConnState = init_container.get()
+    if ConnState is None:
+        raise ValueError("Robot communication is not open.")
+
+    if not ConnState.IsConnected():
+        raise ValueError("Robot connection failed.")
+    
+    return ConnState
+
+
+@node_initialization(for_node=CONNECT)
+def init(
+    address: str = '192.168.0.100', # MX_DEFAULT_ROBOT_IP
+    enable_synchronous_mode: bool = False,
+    disconnect_on_exception: bool = True,
+    monitor_mode: bool = False,
+    offline_mode: bool = False,
+    timeout: float = 1
+) -> mdr.Robot:
+    robot: mdr.Robot = mdr.Robot()
+
+    # Open Robot Com
+    robot.Connect(
+        address=address,
+        enable_synchronous_mode=enable_synchronous_mode,
+        disconnect_on_exception=disconnect_on_exception,
+        monitor_mode=monitor_mode,
+        offline_mode=offline_mode,
+        timeout=timeout,
+    )
+
+    return robot

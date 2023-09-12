@@ -18,6 +18,8 @@ def Home(ConnHandle: mdr.Robot) -> mdr.Robot:
         A handle to the robot arm object after it has been moved to the home position.
         
     """
+    if not ConnHandle.IsConnected():
+        raise ValueError("Robot connection failed.")
+
     ConnHandle.Home()
-    # Add verification step here
     return ConnHandle

@@ -33,5 +33,8 @@ def MOVE_LIN(
         A handle to the robot arm object after it has been moved.
         
     """
+    if not ConnHandle.IsConnected():
+        raise ValueError("Robot connection failed.")
+
     ConnHandle.MoveLin(x, y, z, alpha, beta, gamma)
     return ConnHandle
