@@ -5,11 +5,11 @@ from qcodes.instrument_drivers.Keithley.Keithley_2400 import Keithley2400
 
 
 @flojoy(deps={"qcodes": "0.39.1", "pyvisa-py": "0.6.3", "pyserial": "3.5"})
-def SET_VOLTAGE(
+def SET_CURRENT(
     default: Optional[DataContainer] = None,
-    voltage: int = 2,
+    current: int = 2,
     voltage_range: int = 10,
-    current_range: int = 1,
+    current_range: int = 4,
 ) -> OrderedPair:
     # Create an instance of the Keithley2400 instrument
     keithley = Keithley2400("keithley", "ASRL/dev/ttyUSB1::INSTR")
@@ -30,16 +30,16 @@ def SET_VOLTAGE(
     keithley.compliancev(5)  # Set the voltage compliance to 5V
 
     # Set the current compliance
-    keithley.compliancei(0.1)  # Set the current compliance to 0.1A
+    keithley.compliancei(5)  # Set the current compliance to 5A
 
     # Set the output mode to voltage
-    keithley.mode("VOLT")  # Set the mode to voltage
+    keithley.mode("CURR")  # Set the mode to voltage
 
     # Set the sense mode to voltage
-    keithley.sense("CURR")  # Set the sense mode to voltage
+    keithley.sense("VOLT")  # Set the sense mode to voltage
 
     # Set the voltage level
-    keithley.volt(voltage)  # Set the voltage level to 2V
+    keithley.curr(current)  # Set the voltage level to 2V
 
     # Imprimer le statut de la sortie de l'instrument
     output_status = keithley.output()  # Lire le statut de la sortie
@@ -50,7 +50,7 @@ def SET_VOLTAGE(
         keithley.output("on")
 
     # Lire le courant
-    current = keithley.curr()  # Read the current
+    voltage_measured = keithley.volt()  # Read the current
 
     # Read the resistance
     resistance = keithley.resistance()  # Read the resistance
@@ -61,4 +61,4 @@ def SET_VOLTAGE(
     # Disconnect from the instrument
     keithley.disconnect()
 
-    return OrderedPair(voltage, current)
+    return OrderedPair(resistance, voltage_measured)
