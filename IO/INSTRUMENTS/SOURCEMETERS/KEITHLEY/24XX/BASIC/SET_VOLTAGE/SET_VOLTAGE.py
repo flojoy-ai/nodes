@@ -5,8 +5,12 @@ from qcodes.instrument_drivers.Keithley.Keithley_2400 import Keithley2400
 
 
 @flojoy(deps={"qcodes": "0.39.1", "pyvisa-py": "0.6.3", "pyserial": "3.5"})
-def SET_VOLTAGE(default: Optional[DataContainer] = None, voltage: int = 2, voltage_range: int = 10, current_range: int = 1, ) -> OrderedPair:
-
+def SET_VOLTAGE(
+    default: Optional[DataContainer] = None,
+    voltage: int = 2,
+    voltage_range: int = 10,
+    current_range: int = 1,
+) -> OrderedPair:
     # Create an instance of the Keithley2400 instrument
     keithley = Keithley2400("keithley", "ASRL/dev/ttyUSB1::INSTR")
 

@@ -5,8 +5,7 @@ from Phidget22.Devices.VoltageRatioInput import VoltageRatioInput
 
 def onVoltageRatioChange(self, voltageRatio):
     # Declaration of the Event handler, print Voltage variation for a channel.
-    print("VoltageRatio [" + str(self.getChannel()) +
-          "]: " + str(voltageRatio))
+    print("VoltageRatio [" + str(self.getChannel()) + "]: " + str(voltageRatio))
 
 
 @flojoy(deps={"Phidget22": "1.14.20230331"})
@@ -34,8 +33,7 @@ def READ_N_PINS(
         # Set Channel for Communication with the Phidget Interface Kit :
         voltage_ratio_input.setChannel(i)
         # Assign the handler that will be called when the event occurs :
-        voltage_ratio_input.setOnVoltageRatioChangeHandler(
-            onVoltageRatioChange)
+        voltage_ratio_input.setOnVoltageRatioChangeHandler(onVoltageRatioChange)
         # Open the Channel after event handler is set :
         voltage_ratio_input.openWaitForAttachment(5000)
         volt_i: float = (
