@@ -1,10 +1,5 @@
-from flojoy import flojoy, node_initialization, NodeInitContainer, DataContainer, Surface, Image
-from typing import Optional, TypedDict
-
-
-class SurfaceAndImageReturnOutput(TypedDict):
-    surface: Surface
-    image: Image
+from flojoy import flojoy, node_initialization, NodeInitContainer, DataContainer, Surface, Image, OrderedPair
+from typing import Optional
 
 
 @flojoy
@@ -26,13 +21,13 @@ def MOVE_LIN(
         A handle to the robot arm object after it has been moved.
         
     """
-    surface_and_image = init_container.get()
-    a, b = surface_and_image.surface, surface_and_image.image
+    input = init_container.get()
+    s, i = input.x, input.y
 
     if not ConnHandle.extra.IsConnected():
         raise ValueError("Robot connection failed.")
 
-    ConnHandle.extra.MoveLin(x=a.x, y=a.y, z=a.z, alpha=b.a, beta=b.b, gamma=b.g)
+    ConnHandle.extra.MoveLin(x=s.x, y=s.y, z=s.z, alpha=i.a, beta=i.b, gamma=i.g)
     return ConnHandle
 
 
@@ -44,8 +39,8 @@ def init(
     a: Optional[float],
     b: Optional[float],
     g: Optional[float],
-) -> SurfaceAndImageReturnOutput:
-    return SurfaceAndImageReturnOutput(
-        surface=Surface(x=x, y=y, z=z),
-        image=Image(a=a, b=b, g=g)
+) -> OrderedPair:
+    return OrderedPair(
+        x=Surface(x=x, y=y, z=z),
+        y=Image(a=a, b=b, g=g)
     )
