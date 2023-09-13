@@ -1,25 +1,19 @@
-from flojoy import flojoy
-import mecademicpy.robot as mdr
+from flojoy import flojoy, DataContainer
 
 
-@flojoy
-def Home(ConnHandle: mdr.Robot) -> mdr.Robot:
+@flojoy(deps={"mecademicpy": "1.4.0"})
+def HOME(ConnHandle: DataContainer) -> DataContainer:
     """
-    The Home node moves the robot arm to its home position.
-    
-    Inputs
-    ------
-    ConnHandle : mdr.Robot
-        A handle to the robot arm object.
-        
+    The HOME node homes the robot arm.
+            
     Returns
     -------
-    mdr.Robot
-        A handle to the robot arm object after it has been moved to the home position.
+    DataContainer
+        Extra: A handle to the activated robot arm object.
         
     """
-    if not ConnHandle.IsConnected():
+    if not ConnHandle.extra.IsConnected():
         raise ValueError("Robot connection failed.")
-
-    ConnHandle.Home()
+    
+    ConnHandle.extra.Activate()
     return ConnHandle

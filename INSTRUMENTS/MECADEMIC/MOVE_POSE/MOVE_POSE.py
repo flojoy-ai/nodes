@@ -1,40 +1,34 @@
-from flojoy import flojoy
-from typing import Optional
-import mecademicpy.robot as mdr
+from flojoy import flojoy, DataContainer, Surface, Image
 
 
 @flojoy
 def MOVE_POSE(
-    ConnHandle: mdr.Robot, 
-    x: float, 
-    y: float, 
-    z: float, 
-    alpha: Optional[float] = None, 
-    beta: Optional[float] = None, 
-    gamma: Optional[float] = None
-) -> mdr.Robot:
+    ConnHandle: DataContainer,
+    a: Surface,
+    b: Image
+) -> DataContainer:
     """
-    The MOVE_POSE node moves the robot's tool to an absolute Cartesian position in a non-linear move.
+    The MOVE_POSE node linearly moves the robot's tool to an absolute Cartesian position.
     
     Inputs
     ------
     ConnHandle : mdr.Robot
         A handle to the robot arm object.
         
-    x, y, z : float
+    surface : Surface
         Desired end effector coordinates in mm.
         
-    alpha, beta, gamma : Optional[float]
-        Desired end effector orientation in degrees. Optional and may be omitted for 4-axes robots.
+    image : Image
+        Desired end effector orientation in degrees.
         
     Returns
     -------
-    mdr.Robot
+    ConnHandle
         A handle to the robot arm object after it has been moved.
         
     """
-    if not ConnHandle.IsConnected():
+    if not ConnHandle.extra.IsConnected():
         raise ValueError("Robot connection failed.")
 
-    ConnHandle.MovePose(x, y, z, alpha, beta, gamma)
+    ConnHandle.extra.MovePose(x=a.x, y=a.y, z=a.z, alpha=b.a, beta=b.b, gamma=b.g)
     return ConnHandle
