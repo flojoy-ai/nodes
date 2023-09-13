@@ -7,14 +7,14 @@ def CONNECT(init_container: NodeInitContainer) -> DataContainer:
     """
     The CONNECT node establishes a connection to the Mecademic robot arm via its API.
     """
-    ConnState = init_container.get()
-    if ConnState is None:
+    robot_container = init_container.get()
+    if robot_container.extra is None:
         raise ValueError("Robot communication is not open.")
 
-    if not ConnState.IsConnected():
+    if not robot_container.extra.IsConnected():
         raise ValueError("Robot connection failed.")
     
-    return DataContainer(type='Bytes', extra=ConnState)
+    return DataContainer(type='Bytes', extra=robot_container.extra)
 
 
 @node_initialization(for_node=CONNECT)
@@ -25,7 +25,7 @@ def init(
     monitor_mode: bool = False,
     offline_mode: bool = False,
     timeout: float = 1
-) -> mdr.Robot:
+) -> DataContainer:
     ConnState: mdr.Robot = mdr.Robot()
 
     # Open Robot Com
@@ -38,4 +38,4 @@ def init(
         timeout=timeout,
     )
 
-    return ConnState
+    return DataContainer(type='Bytes', extra=ConnState)
