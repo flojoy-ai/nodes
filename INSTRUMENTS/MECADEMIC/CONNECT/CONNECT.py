@@ -14,7 +14,7 @@ def CONNECT(init_container: NodeInitContainer) -> DataContainer:
     if not ConnState.IsConnected():
         raise ValueError("Robot connection failed.")
     
-    return DataContainer(type='extra', extra=ConnState)
+    return DataContainer(type='Bytes', extra=ConnState)
 
 
 @node_initialization(for_node=CONNECT)
