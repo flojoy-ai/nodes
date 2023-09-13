@@ -1,0 +1,544 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 192,
+                "height": 192,
+                "id": "TRIGGER_SETTINGS_MDO3xxx-27df0227-9b2a-4132-bc69-3522d543215b",
+                "type": "IO",
+                "data": {
+                    "id": "TRIGGER_SETTINGS_MDO3xxx-27df0227-9b2a-4132-bc69-3522d543215b",
+                    "label": "TRIGGER SETTINGS MDO3xxx",
+                    "func": "TRIGGER_SETTINGS_MDO3xxx",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "TRIGGER_SETTINGS_MDO3xxx",
+                            "param": "VISA_address",
+                            "value": "USB0::1689::1032::C012101::0::INSTR"
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "TRIGGER_SETTINGS_MDO3xxx",
+                            "param": "VISA_index",
+                            "value": 0
+                        },
+                        "num_channels": {
+                            "type": "int",
+                            "default": 4,
+                            "desc": "The number of channels on the instrument that are currently in use.",
+                            "overload": null,
+                            "functionName": "TRIGGER_SETTINGS_MDO3xxx",
+                            "param": "num_channels",
+                            "value": 2
+                        },
+                        "query_set": {
+                            "type": "select",
+                            "options": [
+                                "query",
+                                "set"
+                            ],
+                            "default": "query",
+                            "desc": "Whether to query or set the triggering channel.",
+                            "overload": null,
+                            "functionName": "TRIGGER_SETTINGS_MDO3xxx",
+                            "param": "query_set",
+                            "value": "set"
+                        },
+                        "edge_couplings": {
+                            "type": "select",
+                            "options": [
+                                "unchanged",
+                                "ac",
+                                "dc",
+                                "hfrej",
+                                "lfrej",
+                                "noiserej"
+                            ],
+                            "default": "unchanged",
+                            "desc": "Set the trigger edge coupling type.",
+                            "overload": null,
+                            "functionName": "TRIGGER_SETTINGS_MDO3xxx",
+                            "param": "edge_couplings",
+                            "value": "ac"
+                        },
+                        "trigger_types": {
+                            "type": "select",
+                            "options": [
+                                "unchanged",
+                                "edge",
+                                "logic",
+                                "pulse"
+                            ],
+                            "default": "unchanged",
+                            "desc": "Set to trigger on edge, logic, or pulses.",
+                            "overload": null,
+                            "functionName": "TRIGGER_SETTINGS_MDO3xxx",
+                            "param": "trigger_types",
+                            "value": "edge"
+                        },
+                        "edge_slope": {
+                            "type": "select",
+                            "options": [
+                                "unchanged",
+                                "rise",
+                                "fall",
+                                "either"
+                            ],
+                            "default": "unchanged",
+                            "desc": "Set to trigger on positive, negative, or either slopes.",
+                            "overload": null,
+                            "functionName": "TRIGGER_SETTINGS_MDO3xxx",
+                            "param": "edge_slope",
+                            "value": "rise"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "TextBlob: Summary of trigger settings."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/OSCILLOSCOPES/TEKTRONIX/MDO3xxx/ADVANCED/TRIGGER_SETTINGS_MDO3xxx/TRIGGER_SETTINGS_MDO3xxx.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 548.9361334388789,
+                    "y": 4.503296195828
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 548.9361334388789,
+                    "y": 4.503296195828
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "TRIGGER_CHANNEL_MDO3xxx-479912ed-9ee5-4deb-a846-4c873a2ce3ba",
+                "type": "IO",
+                "data": {
+                    "id": "TRIGGER_CHANNEL_MDO3xxx-479912ed-9ee5-4deb-a846-4c873a2ce3ba",
+                    "label": "TRIGGER CHANNEL MDO3xxx",
+                    "func": "TRIGGER_CHANNEL_MDO3xxx",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "TRIGGER_CHANNEL_MDO3xxx",
+                            "param": "VISA_address",
+                            "value": "USB0::1689::1032::C012101::0::INSTR"
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "TRIGGER_CHANNEL_MDO3xxx",
+                            "param": "VISA_index",
+                            "value": 0
+                        },
+                        "num_channels": {
+                            "type": "int",
+                            "default": 4,
+                            "desc": "The number of channels on the instrument that are currently in use.",
+                            "overload": null,
+                            "functionName": "TRIGGER_CHANNEL_MDO3xxx",
+                            "param": "num_channels",
+                            "value": 2
+                        },
+                        "channel": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The channel to set as the triggering channel (used if setting).",
+                            "overload": null,
+                            "functionName": "TRIGGER_CHANNEL_MDO3xxx",
+                            "param": "channel",
+                            "value": 1
+                        },
+                        "query_set": {
+                            "type": "select",
+                            "options": [
+                                "query",
+                                "set"
+                            ],
+                            "default": "query",
+                            "desc": "Whether to query or set the triggering channel.",
+                            "overload": null,
+                            "functionName": "TRIGGER_CHANNEL_MDO3xxx",
+                            "param": "query_set",
+                            "value": "set"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "TextBlob: The triggering channel (e.g. CH1)."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/OSCILLOSCOPES/TEKTRONIX/MDO3xxx/BASIC/TRIGGER_CHANNEL_MDO3xxx/TRIGGER_CHANNEL_MDO3xxx.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -333.19502014401803,
+                    "y": 4.5596734231639005
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -333.19502014401803,
+                    "y": 4.5596734231639005
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "TRIGGER_LEVEL_MDO3xxx-15623ef2-65cb-4d0e-a238-20af3ff065c3",
+                "type": "IO",
+                "data": {
+                    "id": "TRIGGER_LEVEL_MDO3xxx-15623ef2-65cb-4d0e-a238-20af3ff065c3",
+                    "label": "TRIGGER LEVEL MDO3xxx",
+                    "func": "TRIGGER_LEVEL_MDO3xxx",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "TRIGGER_LEVEL_MDO3xxx",
+                            "param": "VISA_address",
+                            "value": "USB0::1689::1032::C012101::0::INSTR"
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "TRIGGER_LEVEL_MDO3xxx",
+                            "param": "VISA_index",
+                            "value": 0
+                        },
+                        "num_channels": {
+                            "type": "int",
+                            "default": 4,
+                            "desc": "The number of channels on the instrument that are currently in use.",
+                            "overload": null,
+                            "functionName": "TRIGGER_LEVEL_MDO3xxx",
+                            "param": "num_channels",
+                            "value": 2
+                        },
+                        "trigger_volts": {
+                            "type": "float",
+                            "default": 0.1,
+                            "desc": "The voltage to set the triggering level to.",
+                            "overload": null,
+                            "functionName": "TRIGGER_LEVEL_MDO3xxx",
+                            "param": "trigger_volts",
+                            "value": 0.05
+                        },
+                        "query_set": {
+                            "type": "select",
+                            "options": [
+                                "query",
+                                "set"
+                            ],
+                            "default": "query",
+                            "desc": "Whether to query or set the triggering voltage.",
+                            "overload": null,
+                            "functionName": "TRIGGER_LEVEL_MDO3xxx",
+                            "param": "query_set",
+                            "value": "set"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "Scalar: The triggering voltage."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/OSCILLOSCOPES/TEKTRONIX/MDO3xxx/BASIC/TRIGGER_LEVEL_MDO3xxx/TRIGGER_LEVEL_MDO3xxx.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 130.12284142919947,
+                    "y": -0.0042271661209838385
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 130.12284142919947,
+                    "y": -0.0042271661209838385
+                },
+                "dragging": true
+            },
+            {
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-c807e381-2130-4944-b8b7-f46f4b0a8d40",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-c807e381-2130-4944-b8b7-f46f4b0a8d40",
+                    "label": "TEXT VIEW",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 942.5982011541996,
+                    "y": -45.01637229744068
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 942.5982011541996,
+                    "y": -45.01637229744068
+                },
+                "dragging": true
+            },
+            {
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-656bfc70-ea18-4fcd-9263-0205afaba0fe",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-656bfc70-ea18-4fcd-9263-0205afaba0fe",
+                    "label": "TEXT VIEW 1",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 102.63900384280683,
+                    "y": -269.7519096052588
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 102.63900384280683,
+                    "y": -269.7519096052588
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-c8942fe3-268d-46e7-8a9b-be02d64720da",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TABLE-c8942fe3-268d-46e7-8a9b-be02d64720da",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Vector|Scalar",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Table visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 538.5213471606752,
+                    "y": -269.79286044112655
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 538.5213471606752,
+                    "y": -269.79286044112655
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "TRIGGER_CHANNEL_MDO3xxx-479912ed-9ee5-4deb-a846-4c873a2ce3ba",
+                "sourceHandle": "default",
+                "target": "TRIGGER_LEVEL_MDO3xxx-15623ef2-65cb-4d0e-a238-20af3ff065c3",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TRIGGER_CHANNEL_MDO3xxx-479912ed-9ee5-4deb-a846-4c873a2ce3badefault-TRIGGER_LEVEL_MDO3xxx-15623ef2-65cb-4d0e-a238-20af3ff065c3default"
+            },
+            {
+                "source": "TRIGGER_CHANNEL_MDO3xxx-479912ed-9ee5-4deb-a846-4c873a2ce3ba",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-656bfc70-ea18-4fcd-9263-0205afaba0fe",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TRIGGER_CHANNEL_MDO3xxx-479912ed-9ee5-4deb-a846-4c873a2ce3badefault-TEXT_VIEW-656bfc70-ea18-4fcd-9263-0205afaba0fedefault"
+            },
+            {
+                "source": "TRIGGER_LEVEL_MDO3xxx-15623ef2-65cb-4d0e-a238-20af3ff065c3",
+                "sourceHandle": "default",
+                "target": "TRIGGER_SETTINGS_MDO3xxx-27df0227-9b2a-4132-bc69-3522d543215b",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TRIGGER_LEVEL_MDO3xxx-15623ef2-65cb-4d0e-a238-20af3ff065c3default-TRIGGER_SETTINGS_MDO3xxx-27df0227-9b2a-4132-bc69-3522d543215bdefault"
+            },
+            {
+                "source": "TRIGGER_LEVEL_MDO3xxx-15623ef2-65cb-4d0e-a238-20af3ff065c3",
+                "sourceHandle": "default",
+                "target": "TABLE-c8942fe3-268d-46e7-8a9b-be02d64720da",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TRIGGER_LEVEL_MDO3xxx-15623ef2-65cb-4d0e-a238-20af3ff065c3default-TABLE-c8942fe3-268d-46e7-8a9b-be02d64720dadefault"
+            },
+            {
+                "source": "TRIGGER_SETTINGS_MDO3xxx-27df0227-9b2a-4132-bc69-3522d543215b",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-c807e381-2130-4944-b8b7-f46f4b0a8d40",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TRIGGER_SETTINGS_MDO3xxx-27df0227-9b2a-4132-bc69-3522d543215bdefault-TEXT_VIEW-c807e381-2130-4944-b8b7-f46f4b0a8d40default"
+            }
+        ],
+        "viewport": {
+            "x": 1104.261946392206,
+            "y": 573.1338859553202,
+            "zoom": 1.2154437530123414
+        }
+    }
+}
