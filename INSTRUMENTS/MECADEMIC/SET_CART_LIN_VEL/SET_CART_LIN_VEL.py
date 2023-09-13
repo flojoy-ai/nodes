@@ -1,5 +1,4 @@
 from flojoy import flojoy, DataContainer, Scalar
-import mecademicpy.robot as mdr
 
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
