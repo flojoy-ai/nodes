@@ -67,8 +67,7 @@ def BIG_NUMBER(
 
     delta_val_format = ".1%" if relative_delta is True else ".1f"
     val_format = "%g" if scientific_notation is False else ".4e"
-    # if scientific_notation:
-    #     val_format = ".1e"
+    
     fig.add_trace(
         go.Indicator(
             mode="number+delta",
