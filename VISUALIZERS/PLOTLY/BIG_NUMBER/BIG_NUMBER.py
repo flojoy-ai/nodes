@@ -61,13 +61,11 @@ def BIG_NUMBER(
         case Vector():
             big_num = default.v[-1]
         case _:
-            raise ValueError(
-                f"Invalid input type {type(default)} for node {node_name}"
-            )
+            raise ValueError(f"Invalid input type {type(default)} for node {node_name}")
 
     delta_val_format = ".1%" if relative_delta is True else ".1f"
     val_format = "%g" if scientific_notation is False else ".4e"
-    
+
     fig.add_trace(
         go.Indicator(
             mode="number+delta",
