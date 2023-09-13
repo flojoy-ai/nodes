@@ -2,7 +2,7 @@ from flojoy import flojoy
 import mecademicpy.robot as mdr
 
 
-@flojoy
+@flojoy(deps={"mecademicpy": "1.4.0"})
 def ActivateRobot(ConnHandle: mdr.Robot) -> mdr.Robot:
     """
     The ActivateRobot node activates the robot arm.
@@ -18,6 +18,8 @@ def ActivateRobot(ConnHandle: mdr.Robot) -> mdr.Robot:
         A handle to the activated robot arm object.
         
     """
+    if not ConnHandle.IsConnected():
+        raise ValueError("Robot connection failed.")
+    
     ConnHandle.Activate()
-    # Add verification step here
     return ConnHandle

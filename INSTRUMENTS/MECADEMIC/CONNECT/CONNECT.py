@@ -1,9 +1,9 @@
-from flojoy import flojoy, node_initialization, NodeInitContainer
+from flojoy import flojoy, node_initialization, NodeInitContainer, DataContainer
 import mecademicpy.robot as mdr
 
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
-def CONNECT(init_container: NodeInitContainer) -> mdr.Robot:
+def CONNECT(init_container: NodeInitContainer) -> DataContainer:
     """
     The CONNECT node establishes a connection to the Mecademic robot arm via its API.
     """
@@ -14,22 +14,22 @@ def CONNECT(init_container: NodeInitContainer) -> mdr.Robot:
     if not ConnState.IsConnected():
         raise ValueError("Robot connection failed.")
     
-    return ConnState
+    return DataContainer(type='extra', extra=ConnState)
 
 
 @node_initialization(for_node=CONNECT)
 def init(
-    address: str = '192.168.0.100', # MX_DEFAULT_ROBOT_IP
+    address: str = '192.168.0.100',
     enable_synchronous_mode: bool = False,
     disconnect_on_exception: bool = True,
     monitor_mode: bool = False,
     offline_mode: bool = False,
     timeout: float = 1
 ) -> mdr.Robot:
-    robot: mdr.Robot = mdr.Robot()
+    ConnState: mdr.Robot = mdr.Robot()
 
     # Open Robot Com
-    robot.Connect(
+    ConnState.Connect(
         address=address,
         enable_synchronous_mode=enable_synchronous_mode,
         disconnect_on_exception=disconnect_on_exception,
@@ -38,4 +38,4 @@ def init(
         timeout=timeout,
     )
 
-    return robot
+    return ConnState
