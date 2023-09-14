@@ -5,15 +5,20 @@ from flojoy import flojoy, DataContainer
 def ACTIVATE(ConnHandle: DataContainer) -> DataContainer:
     """
     The ACTIVATE node activates the robot arm.
-            
+
+    Inputs
+    ------
+    ConnHandle
+        A handle to the robot arm object.
+
     Returns
     -------
     DataContainer
-        Extra: A handle to the activated robot arm object.
-        
+        Containing a handle to the activated robot arm object.
+
     """
     if not ConnHandle.extra.IsConnected():
         raise ValueError("Robot connection failed.")
-    
+
     ConnHandle.extra.Activate()
     return ConnHandle

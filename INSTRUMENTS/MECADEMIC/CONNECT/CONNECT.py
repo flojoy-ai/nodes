@@ -6,6 +6,10 @@ import mecademicpy.robot as mdr
 def CONNECT(init_container: NodeInitContainer) -> DataContainer:
     """
     The CONNECT node establishes a connection to the Mecademic robot arm via its API.
+    Returns
+    -------
+    DataContainer
+        Containing a handle to the robot arm object, which is connected, but not activated or homed.
     """
     ConnHandle = init_container.get()
     if ConnHandle.extra is None:
@@ -13,7 +17,7 @@ def CONNECT(init_container: NodeInitContainer) -> DataContainer:
 
     if not ConnHandle.extra.IsConnected():
         raise ValueError("Robot connection failed.")
-    
+
     return DataContainer(type='Bytes', extra=ConnHandle.extra)
 
 
