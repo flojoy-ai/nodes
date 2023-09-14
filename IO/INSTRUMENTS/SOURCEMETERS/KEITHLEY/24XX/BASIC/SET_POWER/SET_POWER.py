@@ -22,7 +22,7 @@ def SET_POWER(
     mode : string
          Specifies the sourcing mode for the Keithley2400
     current : float
-         Specifies the voltage sourced by the Keithley2400
+         Specifies the current sourced by the Keithley2400
     voltage : float
          Specifies the voltage sourced by the Keithley2400
     """
