@@ -1,23 +1,24 @@
-from flojoy import flojoy, Bytes
+from flojoy import flojoy, MecademicConnHandle
 from typing import Optional
+from PYTHON.utils.mecademic_utils import check_connection
 
 
-@flojoy
+@flojoy(deps={"mecademicpy": "1.4.0"})
 def MOVE_LIN(
-    ConnHandle: Bytes,
+    conn_handle: MecademicConnHandle,
     x: float,
     y: float,
     z: float,
     alpha: Optional[float] = 0,
     beta: Optional[float] = 0,
     gamma: Optional[float] = 0,
-) -> Bytes:
+) -> MecademicConnHandle:
     """
     The MOVE_LIN node linearly moves the robot's tool to an absolute Cartesian position.
 
     Inputs
     ------
-    ConnHandle
+    conn_handle
         A handle to the robot arm object.
 
     Parameters
@@ -37,13 +38,10 @@ def MOVE_LIN(
 
     Returns
     -------
-    ConnHandle
+    conn_handle
         A handle to the robot arm object after it has been moved.
 
     """
-
-    if not ConnHandle.robot.IsConnected():
-        raise ValueError("Robot connection failed.")
-
-    ConnHandle.robot.MoveLin(x=x, y=y, z=z, alpha=alpha, beta=beta, gamma=gamma)
-    return ConnHandle
+    check_connection(conn_handle.robot)
+    conn_handle.robot.MoveLin(x=x, y=y, z=z, alpha=alpha, beta=beta, gamma=gamma)
+    return conn_handle
