@@ -5,11 +5,12 @@ from typing import Optional
 
 @flojoy(deps={"pyserial": "3.5"})
 def SET_I_MEAS_V(
-    init_container: NodeInitContainer, default: Optional[OrderedPair] = None,
+    init_container: NodeInitContainer,
+    default: Optional[OrderedPair] = None,
     current: float = 0.1,
 ) -> OrderedPair:
-    """The SET_I_MEAS_V allows you to control the Keithley 2400 source meter using Serial communication (Rs232-USB cable). 
-    Users will set a current, and measure the voltage coming from the device under test. 
+    """The SET_I_MEAS_V allows you to control the Keithley 2400 source meter using Serial communication (Rs232-USB cable).
+    Users will set a current, and measure the voltage coming from the device under test.
 
     Parameters
     -----------
@@ -17,7 +18,7 @@ def SET_I_MEAS_V(
          defines the serial communication port for the Keithley2400 sourcemeter.
     baudrate : float
          specifies the baud rate for the serial communication between the Keithley2400 and the computer
-    current : float 
+    current : float
          Specifies the voltage sourced by the Keithley2400
     """
 
@@ -40,8 +41,9 @@ def SET_I_MEAS_V(
     ser.write(b":INIT\n")  # Start measuring
     ser.write(b":FETC?\n")  # Retrieve the measured values
 
-    voltage_str: str = (ser.readline().decode(
-        "ascii").strip())  # Save answers in a string
+    voltage_str: str = (
+        ser.readline().decode("ascii").strip()
+    )  # Save answers in a string
     voltage_current_values: str = voltage_str.split(",")  # Split the string
     voltage = float(voltage_current_values[0])
 

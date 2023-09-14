@@ -5,13 +5,14 @@ from typing import Optional
 
 @flojoy(deps={"pyserial": "3.5"})
 def SET_POWER(
-    init_container: NodeInitContainer, mode: Literal["tension", "intensity"],
+    init_container: NodeInitContainer,
+    mode: Literal["tension", "intensity"],
     default: Optional[OrderedPair] = None,
     current: float = 0.1,
     voltage: float = 2,
 ) -> OrderedPair:
     """The SET_POWER node allows you to control the Keithley 2400 source meter by Serial Communication (RS232-USB Cable).
-        Users will select the sourcing mode of the sourcemeter with the parameter "mode". 
+        Users will select the sourcing mode of the sourcemeter with the parameter "mode".
     Parameters
     -----------
     comport : string
@@ -20,9 +21,9 @@ def SET_POWER(
          specifies the baud rate for the serial communication between the Keithley2400 and the computer
     mode : string
          Specifies the sourcing mode for the Keithley2400
-    current : float 
+    current : float
          Specifies the voltage sourced by the Keithley2400
-    voltage : float 
+    voltage : float
          Specifies the voltage sourced by the Keithley2400
     """
 
