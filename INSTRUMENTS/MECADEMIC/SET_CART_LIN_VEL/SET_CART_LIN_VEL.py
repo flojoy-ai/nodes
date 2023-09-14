@@ -1,8 +1,8 @@
-from flojoy import flojoy, Bytes, Scalar
+from flojoy import flojoy, Bytes
 
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
-def SET_CART_LIN_VEL(ConnHandle: Bytes, v: Scalar) -> Bytes:
+def SET_CART_LIN_VEL(ConnHandle: Bytes, v: float) -> Bytes:
     """
     The SET_CART_LIN_VEL node sets the robot arm's linear velocity in Cartesian coordinates.
 
@@ -13,7 +13,7 @@ def SET_CART_LIN_VEL(ConnHandle: Bytes, v: Scalar) -> Bytes:
 
     Parameters
     ------
-    v : Scalar
+    v : float
         The linear velocity to be set.
 
     Returns
@@ -25,5 +25,5 @@ def SET_CART_LIN_VEL(ConnHandle: Bytes, v: Scalar) -> Bytes:
     if not ConnHandle.robot.IsConnected():
         raise ValueError("Robot connection failed.")
     
-    ConnHandle.robot.SetCartLinVel(v.c)
+    ConnHandle.robot.SetCartLinVel(v)
     return ConnHandle

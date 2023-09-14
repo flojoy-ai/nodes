@@ -1,8 +1,8 @@
-from flojoy import flojoy, Bytes, Scalar
+from flojoy import flojoy, Bytes
 
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
-def SET_JOINT_VEL(ConnHandle: Bytes, v: Scalar) -> Bytes:
+def SET_JOINT_VEL(ConnHandle: Bytes, v: float) -> Bytes:
     """
     The SET_JOINT_VEL node sets the robot arm's angular velocity for its joints.
 
@@ -13,7 +13,7 @@ def SET_JOINT_VEL(ConnHandle: Bytes, v: Scalar) -> Bytes:
 
     Parameters
     ------
-    v : Scalar
+    v : float
         The angular velocity to be set for each joint.
 
     Returns
@@ -25,5 +25,5 @@ def SET_JOINT_VEL(ConnHandle: Bytes, v: Scalar) -> Bytes:
     if not ConnHandle.robot.IsConnected():
         raise ValueError("Robot connection failed.")
     
-    ConnHandle.robot.SetJointVel(v.c)
+    ConnHandle.robot.SetJointVel(v)
     return ConnHandle
