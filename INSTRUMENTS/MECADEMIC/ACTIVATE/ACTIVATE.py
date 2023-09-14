@@ -1,8 +1,8 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, Bytes
 
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
-def ACTIVATE(ConnHandle: DataContainer) -> DataContainer:
+def ACTIVATE(ConnHandle: Bytes) -> Bytes:
     """
     The ACTIVATE node activates the robot arm.
 
@@ -13,12 +13,12 @@ def ACTIVATE(ConnHandle: DataContainer) -> DataContainer:
 
     Returns
     -------
-    DataContainer
+    Bytes
         Containing a handle to the activated robot arm object.
 
     """
-    if not ConnHandle.extra.IsConnected():
+    if not ConnHandle.robot.IsConnected():
         raise ValueError("Robot connection failed.")
 
-    ConnHandle.extra.Activate()
+    ConnHandle.robot.Activate()
     return ConnHandle

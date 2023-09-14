@@ -1,17 +1,17 @@
-from flojoy import flojoy, node_initialization, NodeInitContainer, DataContainer, Surface, Image, OrderedPair
+from flojoy import flojoy, Bytes
 from typing import Optional
 
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
 def MOVE_POSE(
-    ConnHandle: DataContainer, # TODO: use explicit generic type for robot in the DataContainer IE DataContainer[MecademicRobotHandle]
+    ConnHandle: Bytes, # TODO: use explicit generic type for robot in the Bytes IE Bytes[MecademicRobotHandle]
     x: float,
     y: float,
     z: float,
     a: Optional[float] = 0,
     b: Optional[float] = 0,
     g: Optional[float] = 0,
-) -> DataContainer:
+) -> Bytes:
     """
     The MOVE_POSE node linearly moves the robot's tool to an absolute Cartesian position.
 
@@ -41,8 +41,8 @@ def MOVE_POSE(
         A handle to the robot arm object after it has been moved.
 
     """
-    if not ConnHandle.extra.IsConnected():
+    if not ConnHandle.robot.IsConnected():
         raise ValueError("Robot connection failed.")
 
-    ConnHandle.extra.MovePose(x=x, y=y, z=z, alpha=a, beta=b, gamma=g)
+    ConnHandle.robot.MovePose(x=x, y=y, z=z, alpha=a, beta=b, gamma=g)
     return ConnHandle

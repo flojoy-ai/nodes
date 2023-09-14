@@ -1,17 +1,17 @@
-from flojoy import flojoy, node_initialization, NodeInitContainer, DataContainer, Surface, Image, OrderedPair
+from flojoy import flojoy, Bytes
 from typing import Optional
 
 
 @flojoy
 def MOVE_LIN(
-    ConnHandle: DataContainer,
+    ConnHandle: Bytes,
     x: float,
     y: float,
     z: float,
     a: Optional[float] = 0,
     b: Optional[float] = 0,
     g: Optional[float] = 0,
-) -> DataContainer:
+) -> Bytes:
     """
     The MOVE_LIN node linearly moves the robot's tool to an absolute Cartesian position.
 
@@ -44,8 +44,8 @@ def MOVE_LIN(
 
     """
 
-    if not ConnHandle.extra.IsConnected():
+    if not ConnHandle.robot.IsConnected():
         raise ValueError("Robot connection failed.")
 
-    ConnHandle.extra.MoveLin(x=x, y=y, z=z, alpha=a, beta=b, gamma=g)
+    ConnHandle.robot.MoveLin(x=x, y=y, z=z, alpha=a, beta=b, gamma=g)
     return ConnHandle
