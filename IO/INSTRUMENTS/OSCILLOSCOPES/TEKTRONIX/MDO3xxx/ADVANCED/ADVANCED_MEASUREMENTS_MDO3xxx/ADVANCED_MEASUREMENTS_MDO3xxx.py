@@ -64,14 +64,59 @@ def ADVANCED_MEASUREMENTS_MDO3xxx(
 
     assert channel < num_channels, "Channel must be less than num_channels."
 
-    measures = str(
-        "amplitude, area, burst, carea, cmean, crms, delay, distduty, "
-        "extinctdb, extinctpct, extinctratio, eyeheight, eyewidth, fall, "
-        "frequency, high, hits, low, maximum, mean, median, minimum, ncross, "
-        "nduty, novershoot, nwidth, pbase, pcross, pctcross, pduty, peakhits, "
-        "period, phase, pk2pk, pkpkjitter, pkpknoise, povershoot, ptop, "
-        "pwidth, qfactor, rise, rms, rmsjitter, rmsnoise, sigma1, sigma2, "
-        "sigma3, sixsigmajit, snratio, stddev, undefined, waveforms"
+    measures = set(
+        "amplitude",
+        "area",
+        "burst",
+        "carea",
+        "cmean",
+        "crms",
+        "delay",
+        "distduty",
+        "extinctdb",
+        "extinctpct",
+        "extinctratio",
+        "eyeheight",
+        "eyewidth",
+        "fall",
+        "frequency",
+        "high",
+        "hits",
+        "low",
+        "maximum",
+        "mean",
+        "median",
+        "minimum",
+        "ncross",
+        "nduty",
+        "novershoot",
+        "nwidth",
+        "pbase",
+        "pcross",
+        "pctcross",
+        "pduty",
+        "peakhits",
+        "period",
+        "phase",
+        "pk2pk",
+        "pkpkjitter",
+        "pkpknoise",
+        "povershoot",
+        "ptop",
+        "pwidth",
+        "qfactor",
+        "rise",
+        "rms",
+        "rmsjitter",
+        "rmsnoise",
+        "sigma1",
+        "sigma2",
+        "sigma3",
+        "sixsigmajit",
+        "snratio",
+        "stddev",
+        "undefined",
+        "waveforms",
     )
 
     assert (
