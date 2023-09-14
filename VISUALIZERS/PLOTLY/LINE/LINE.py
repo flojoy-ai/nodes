@@ -1,7 +1,7 @@
 from flojoy import flojoy, Plotly, OrderedPair, DataFrame, Matrix, Vector
 from numpy import arange
 import plotly.graph_objects as go
-from pd.api.types import is_datetime64_any_dtype
+from pandas.api.types import is_datetime64_any_dtype
 from nodes.VISUALIZERS.template import plot_layout
 
 
