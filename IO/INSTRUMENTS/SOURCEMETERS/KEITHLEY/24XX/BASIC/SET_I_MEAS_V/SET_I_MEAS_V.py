@@ -26,15 +26,15 @@ def SET_I_MEAS_V(
 
     # Keithley 2400 Configuration
     ser.write(b"*RST\n")  # reinitialisation of the instrument
-    ser.write(b":SOUR:FUNC:MODE CURR\n")  # Sourcing tension
-    ser.write(b':SENS:FUNC "VOLT"\n')  # Measuring current
+    ser.write(b":SOUR:FUNC:MODE CURR\n")  # Sourcing current
+    ser.write(b':SENS:FUNC "VOLT"\n')  # Sensing tension
     ser.write(
         b":SENS:CURR:PROT 1.05\n"
     )  # Current protection set at 1.05A (Keithley 2400)
 
     voltage: list[float] = []  # measured currents
 
-    ser.write(b":SOUR:CURR %f\n" % current)  # Source Tension (V)
+    ser.write(b":SOUR:CURR %f\n" % current)  # Source Current (A)
     ser.write(b":OUTP ON\n")  # Instrument output open
     ser.write(b":INIT\n")  # Start measuring
     ser.write(b":FETC?\n")  # Retrieve the measured values

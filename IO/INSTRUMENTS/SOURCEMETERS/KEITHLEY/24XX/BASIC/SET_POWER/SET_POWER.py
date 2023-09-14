@@ -1,12 +1,14 @@
-from flojoy import flojoy, OrderedPair, Vector, node_initialization, NodeInitContainer
+from flojoy import flojoy, OrderedPair, node_initialization, NodeInitContainer, Literal
 import serial
 from typing import Optional
 
 
 @flojoy(deps={"pyserial": "3.5"})
 def SET_POWER(
-    init_container: NodeInitContainer, default: Optional[OrderedPair] = None,
+    init_container: NodeInitContainer, mode: Literal["tension", "intensity"],
+    default: Optional[OrderedPair] = None,
     current: float = 0.1,
+    voltage: float = 2,
 ) -> OrderedPair:
     """The SET_POWER allows you to control the Keithley 2400 source meter. Set a current, and measure the voltage coming from the device under test. 
 
@@ -26,18 +28,29 @@ def SET_POWER(
 
     # Keithley 2400 Configuration
     ser.write(b"*RST\n")  # reinitialisation of the instrument
-    ser.write(b":SOUR:FUNC:MODE CURR\n")  # Sourcing tension
-    ser.write(b':SENS:FUNC "VOLT"\n')  # Measuring current
-    ser.write(
-        b":SENS:CURR:PROT 1.05\n"
-    )  # Current protection set at 1.05A (Keithley 2400)
+
+    if mode == "intensity":
+        ser.write(b":SOUR:FUNC:MODE CURR\n")  # Sourcing Current
+        ser.write(b':SENS:FUNC "VOLT"\n')  # Sensing Tension
+        ser.write(
+            b":SENS:CURR:PROT 1.05\n"
+        )  # Current protection set at 1.05A (Keithley 2400)
+        output = current
+    else:
+        ser.write(b":SOUR:FUNC:MODE VOLT\n")  # Sourcing tension
+        ser.write(b':SENS:FUNC "CURR"\n')  # Sensing current
+        ser.write(
+            b":SENS:CURR:PROT 1.05\n"
+        )  # Current protection set at 1.05A (Keithley 2400)
+
+        output = voltage
 
     ser.write(b":OUTP OFF\n")  # Close output from Instrument
 
     # Close Serial Communication
     ser.close()
 
-    return OrderedPair(x=voltage, y=current)
+    return OrderedPair(x=mode, y=output)
 
 
 @node_initialization(for_node=SET_POWER)
