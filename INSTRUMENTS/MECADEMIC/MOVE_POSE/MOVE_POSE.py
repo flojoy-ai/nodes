@@ -8,9 +8,9 @@ def MOVE_POSE(
     x: float,
     y: float,
     z: float,
-    a: Optional[float],
-    b: Optional[float],
-    g: Optional[float],
+    a: Optional[float] = 0,
+    b: Optional[float] = 0,
+    g: Optional[float] = 0,
 ) -> DataContainer:
     """
     The MOVE_POSE node linearly moves the robot's tool to an absolute Cartesian position.
