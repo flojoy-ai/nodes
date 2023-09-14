@@ -9,7 +9,7 @@ def SET_V_MEAS_I(
     voltage: float = 1,
 ) -> OrderedPair:
     """The SET_V_MEAS_I allows you to control the Keithley 2400 source meter using Serial communication (Rs232-USB cable). 
-    Set a voltage, and measure the current coming from the device under test. 
+    Users will set a voltage, and measure the current coming from the device under test. 
 
     Parameters
     -----------

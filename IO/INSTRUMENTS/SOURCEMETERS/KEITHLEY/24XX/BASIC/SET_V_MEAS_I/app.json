@@ -1,0 +1,139 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 225,
+                "height": 226,
+                "id": "TABLE-9ca0c4fa-e923-43f3-ad13-9815aca694e1",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TABLE-9ca0c4fa-e923-43f3-ad13-9815aca694e1",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Table visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 198.17518191476125,
+                    "y": -174.0341398681049
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 198.17518191476125,
+                    "y": -174.0341398681049
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "SET_V_MEAS_I-a1a7fb51-3ff1-4340-95d7-a98e498d6023",
+                "type": "IO",
+                "data": {
+                    "id": "SET_V_MEAS_I-a1a7fb51-3ff1-4340-95d7-a98e498d6023",
+                    "label": "SET V MEAS I",
+                    "func": "SET_V_MEAS_I",
+                    "type": "IO",
+                    "ctrls": {
+                        "voltage": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "SET_V_MEAS_I",
+                            "param": "voltage",
+                            "value": 1
+                        }
+                    },
+                    "initCtrls": {
+                        "comport": {
+                            "type": "str",
+                            "default": "/dev/ttyUSB0",
+                            "desc": null,
+                            "functionName": "SET_V_MEAS_I",
+                            "param": "comport",
+                            "value": "/dev/ttyUSB0"
+                        },
+                        "baudrate": {
+                            "type": "float",
+                            "default": 9600,
+                            "desc": null,
+                            "functionName": "SET_V_MEAS_I",
+                            "param": "baudrate",
+                            "value": 9600
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "desc": null
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyserial",
+                            "v": "3.5"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/SOURCEMETERS/KEITHLEY/24XX/BASIC/SET_V_MEAS_I/SET_V_MEAS_I.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": -128.61064275974198,
+                    "y": -159.1766031650634
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": -128.61064275974198,
+                    "y": -159.1766031650634
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "SET_V_MEAS_I-a1a7fb51-3ff1-4340-95d7-a98e498d6023",
+                "sourceHandle": "default",
+                "target": "TABLE-9ca0c4fa-e923-43f3-ad13-9815aca694e1",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SET_V_MEAS_I-a1a7fb51-3ff1-4340-95d7-a98e498d6023default-TABLE-9ca0c4fa-e923-43f3-ad13-9815aca694e1default"
+            }
+        ],
+        "viewport": {
+            "x": 819.7643144890276,
+            "y": 420.4113108673,
+            "zoom": 0.8915653288195635
+        }
+    }
+}

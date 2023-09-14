@@ -1,0 +1,139 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 192,
+                "height": 192,
+                "id": "SET_I_MEAS_V-5b3969a0-3367-4bf4-90c8-b69277e19f4c",
+                "type": "IO",
+                "data": {
+                    "id": "SET_I_MEAS_V-5b3969a0-3367-4bf4-90c8-b69277e19f4c",
+                    "label": "SET I MEAS V",
+                    "func": "SET_I_MEAS_V",
+                    "type": "IO",
+                    "ctrls": {
+                        "current": {
+                            "type": "float",
+                            "default": 0.1,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "SET_I_MEAS_V",
+                            "param": "current",
+                            "value": 0.1
+                        }
+                    },
+                    "initCtrls": {
+                        "comport": {
+                            "type": "str",
+                            "default": "/dev/ttyUSB0",
+                            "desc": null,
+                            "functionName": "SET_I_MEAS_V",
+                            "param": "comport",
+                            "value": "/dev/ttyUSB0"
+                        },
+                        "baudrate": {
+                            "type": "float",
+                            "default": 9600,
+                            "desc": null,
+                            "functionName": "SET_I_MEAS_V",
+                            "param": "baudrate",
+                            "value": 9600
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "desc": null
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyserial",
+                            "v": "3.5"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/SOURCEMETERS/KEITHLEY/24XX/BASIC/SET_I_MEAS_V/SET_I_MEAS_V.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -133.751843598319,
+                    "y": -157.75431049317683
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -133.751843598319,
+                    "y": -157.75431049317683
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "TABLE-9ca0c4fa-e923-43f3-ad13-9815aca694e1",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TABLE-9ca0c4fa-e923-43f3-ad13-9815aca694e1",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Table visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 198.17518191476125,
+                    "y": -174.0341398681049
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 198.17518191476125,
+                    "y": -174.0341398681049
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "SET_I_MEAS_V-5b3969a0-3367-4bf4-90c8-b69277e19f4c",
+                "sourceHandle": "default",
+                "target": "TABLE-9ca0c4fa-e923-43f3-ad13-9815aca694e1",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SET_I_MEAS_V-5b3969a0-3367-4bf4-90c8-b69277e19f4cdefault-TABLE-9ca0c4fa-e923-43f3-ad13-9815aca694e1default"
+            }
+        ],
+        "viewport": {
+            "x": 819.7643144890276,
+            "y": 420.4113108673,
+            "zoom": 0.8915653288195635
+        }
+    }
+}

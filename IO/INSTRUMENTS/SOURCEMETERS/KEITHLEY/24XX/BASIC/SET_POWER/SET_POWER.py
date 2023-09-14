@@ -11,7 +11,7 @@ def SET_POWER(
     voltage: float = 2,
 ) -> OrderedPair:
     """The SET_POWER node allows you to control the Keithley 2400 source meter by Serial Communication (RS232-USB Cable).
-        Select the sourcing mode of the sourcemeter with the parameter "mode". 
+        Users will select the sourcing mode of the sourcemeter with the parameter "mode". 
     Parameters
     -----------
     comport : string

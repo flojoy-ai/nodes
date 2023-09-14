@@ -1,0 +1,161 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 225,
+                "height": 226,
+                "id": "TABLE-9ca0c4fa-e923-43f3-ad13-9815aca694e1",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TABLE-9ca0c4fa-e923-43f3-ad13-9815aca694e1",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Table visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 198.17518191476125,
+                    "y": -174.0341398681049
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 198.17518191476125,
+                    "y": -174.0341398681049
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "SET_POWER-e8747f0a-6a81-4a74-9e87-1b07aa5e372b",
+                "type": "IO",
+                "data": {
+                    "id": "SET_POWER-e8747f0a-6a81-4a74-9e87-1b07aa5e372b",
+                    "label": "SET POWER",
+                    "func": "SET_POWER",
+                    "type": "IO",
+                    "ctrls": {
+                        "mode": {
+                            "type": "select",
+                            "options": [
+                                "tension",
+                                "intensity"
+                            ],
+                            "default": null,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "SET_POWER",
+                            "param": "mode",
+                            "value": ""
+                        },
+                        "current": {
+                            "type": "float",
+                            "default": 0.1,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "SET_POWER",
+                            "param": "current",
+                            "value": 0.1
+                        },
+                        "voltage": {
+                            "type": "float",
+                            "default": 2,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "SET_POWER",
+                            "param": "voltage",
+                            "value": 2
+                        }
+                    },
+                    "initCtrls": {
+                        "comport": {
+                            "type": "str",
+                            "default": "/dev/ttyUSB0",
+                            "desc": null,
+                            "functionName": "SET_POWER",
+                            "param": "comport",
+                            "value": "/dev/ttyUSB0"
+                        },
+                        "baudrate": {
+                            "type": "float",
+                            "default": 9600,
+                            "desc": null,
+                            "functionName": "SET_POWER",
+                            "param": "baudrate",
+                            "value": 9600
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "desc": null
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyserial",
+                            "v": "3.5"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/SOURCEMETERS/KEITHLEY/24XX/BASIC/SET_POWER/SET_POWER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -131.53145718844868,
+                    "y": -155.59824627047635
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -131.53145718844868,
+                    "y": -155.59824627047635
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "SET_POWER-e8747f0a-6a81-4a74-9e87-1b07aa5e372b",
+                "sourceHandle": "default",
+                "target": "TABLE-9ca0c4fa-e923-43f3-ad13-9815aca694e1",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SET_POWER-e8747f0a-6a81-4a74-9e87-1b07aa5e372bdefault-TABLE-9ca0c4fa-e923-43f3-ad13-9815aca694e1default"
+            }
+        ],
+        "viewport": {
+            "x": 819.7643144890276,
+            "y": 420.4113108673,
+            "zoom": 0.8915653288195635
+        }
+    }
+}
