@@ -2,6 +2,7 @@ from flojoy import flojoy, DataContainer, Scalar
 import pyvisa
 from typing import Optional, Literal
 from flojoy.instruments.tektronix.MDO30xx import TektronixMDO30xx
+from usb.core import USBError
 
 
 @flojoy(
@@ -56,13 +57,18 @@ def MEASURE_PHASE_MDO3xxx(
         VISA_addresses = rm.list_resources()
         VISA_address = VISA_addresses[int(VISA_index)]
 
-    tek = TektronixMDO30xx(
-        "MDO30xx",
-        VISA_address,
-        visalib="@py",
-        device_clear=False,
-        number_of_channels=num_channels,
-    )
+    try:
+        tek = TektronixMDO30xx(
+            "MDO30xx",
+            VISA_address,
+            visalib="@py",
+            device_clear=False,
+            number_of_channels=num_channels,
+        )
+    except USBError as err:
+        raise Exception(
+            "USB port error. Trying unplugging+replugging the port."
+        ) from err
 
     tek.measurement[0].source1(f"CH{int(channel1 + 1)}")
     tek.measurement[0].source2(f"CH{int(channel2 + 1)}")
