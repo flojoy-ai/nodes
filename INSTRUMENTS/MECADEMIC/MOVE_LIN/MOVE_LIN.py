@@ -8,9 +8,9 @@ def MOVE_LIN(
     x: float,
     y: float,
     z: float,
-    a: Optional[float] = 0,
-    b: Optional[float] = 0,
-    g: Optional[float] = 0,
+    alpha: Optional[float] = 0,
+    beta: Optional[float] = 0,
+    gamma: Optional[float] = 0,
 ) -> Bytes:
     """
     The MOVE_LIN node linearly moves the robot's tool to an absolute Cartesian position.
@@ -28,14 +28,12 @@ def MOVE_LIN(
         The y coordinate of the position to move to
     z : float
         The z coordinate of the position to move to
-    a : float, optional
+    alpha : float, optional
         The alpha coordinate (rotation in radians about the x axis) of the position to move to.
-    b : float, optional
+    beta : float, optional
         The beta coordinate   (rotation in radians about the y axis) of the position to move to.
-    g : float, optional
+    gamma : float, optional
         The gamma coordinate (rotation in radians about the z axis) of the position to move to.
-
-
 
     Returns
     -------
@@ -47,5 +45,5 @@ def MOVE_LIN(
     if not ConnHandle.robot.IsConnected():
         raise ValueError("Robot connection failed.")
 
-    ConnHandle.robot.MoveLin(x=x, y=y, z=z, alpha=a, beta=b, gamma=g)
+    ConnHandle.robot.MoveLin(x=x, y=y, z=z, alpha=alpha, beta=beta, gamma=gamma)
     return ConnHandle
