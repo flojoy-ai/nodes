@@ -14,10 +14,6 @@ def CONNECT(init_container: NodeInitContainer) -> MecademicConnHandle:
     """
     conn_handle: MecademicConnHandle = init_container.get()
     check_connection(conn_handle.robot)
-
-    if not conn_handle.robot.IsConnected():
-        raise ValueError("Robot connection failed.")
-
     return conn_handle
 
 
