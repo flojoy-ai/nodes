@@ -8,7 +8,8 @@ def SET_I_MEAS_V(
     init_container: NodeInitContainer, default: Optional[OrderedPair] = None,
     current: float = 0.1,
 ) -> OrderedPair:
-    """The SET_I_MEAS_V allows you to control the Keithley 2400 source meter. Set a current, and measure the voltage coming from the device under test. 
+    """The SET_I_MEAS_V allows you to control the Keithley 2400 source meter using Serial communication (Rs232-USB cable). 
+    Set a current, and measure the voltage coming from the device under test. 
 
     Parameters
     -----------
@@ -16,7 +17,7 @@ def SET_I_MEAS_V(
          defines the serial communication port for the Keithley2400 sourcemeter.
     baudrate : float
          specifies the baud rate for the serial communication between the Keithley2400 and the computer
-    current : int 
+    current : float 
          Specifies the voltage sourced by the Keithley2400
     """
 
