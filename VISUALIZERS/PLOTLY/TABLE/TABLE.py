@@ -1,16 +1,16 @@
-from flojoy import flojoy, OrderedPair, OrderedTriple, DataFrame, Vector, Plotly
+from flojoy import flojoy, OrderedPair, OrderedTriple, DataFrame, Vector, Scalar, Plotly
 import plotly.graph_objects as go
 import pandas as pd
 from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
-def TABLE(default: OrderedTriple | OrderedPair | DataFrame | Vector) -> Plotly:
+def TABLE(default: OrderedTriple | OrderedPair | DataFrame | Vector | Scalar) -> Plotly:
     """The TABLE node creates a Plotly Table visualization for a given input data container.
 
     Inputs
     ------
-    default : OrderedTriple|OrderedPair|DataFrame|Vector
+    default : OrderedTriple|OrderedPair|DataFrame|Vector|Scalar
         the DataContainer to be visualized
 
     Returns
@@ -51,12 +51,32 @@ def TABLE(default: OrderedTriple | OrderedPair | DataFrame | Vector) -> Plotly:
                     cells=dict(values=[v], align="center"),
                 )
             )
+        case Scalar():
+            c = default.c
+            fig.add_trace(
+                go.Table(
+                    header=dict(
+                        values=["Scalar"],
+                        align="center",
+                        font=dict(size=1),
+                        height=0,
+                    ),
+                    cells=dict(
+                        values=[[c]],
+                        align="center",
+                        font=dict(size=25),
+                    ),
+                )
+            )
         case DataFrame():
             df = pd.DataFrame(default.m)
             fig.add_trace(
                 go.Table(
                     header=dict(values=list(df.columns), align="center"),
-                    cells=dict(values=[df[col] for col in df.columns], align="center"),
+                    cells=dict(
+                        values=[df[col] for col in df.columns],
+                        align="center",
+                    ),
                 )
             )
     return Plotly(fig=fig)

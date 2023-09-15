@@ -7,6 +7,7 @@ from flojoy import (
     Scalar,
     Vector,
 )
+from typing import cast
 import plotly.graph_objects as go
 from nodes.VISUALIZERS.template import plot_layout
 
@@ -52,7 +53,7 @@ def BIG_NUMBER(
     layout = plot_layout(title=title if title else node_name)
     fig = go.Figure(layout=layout)
 
-    prev_num = SmallMemory().read_memory(job_id, MEMORY_KEY)
+    prev_num = cast(str, SmallMemory().read_memory(job_id, MEMORY_KEY))
     match default:
         case OrderedPair():
             big_num = default.y[-1]
@@ -75,7 +76,7 @@ def BIG_NUMBER(
             delta=None
             if prev_num is None
             else {
-                "reference": prev_num,
+                "reference": float(prev_num),
                 "relative": relative_delta,
                 "valueformat": delta_val_format,
             },
