@@ -29,7 +29,11 @@ def BURST_MODE_33510B(
     burst_polarity: Literal["NORM", "INV"] = "NORM",
     default: Optional[DataContainer] = None,
 ) -> Optional[DataContainer]:
-    """The BURST_MODE_33510B node is used
+    """The BURST_MODE_33510B node is used to turn the Burst mode on or off.
+
+    You can set various settings for the triggering of the bursts as well.
+    The burst mode is way to have signals come in "bursts" that are triggered
+    externally or with a timer for instance.
 
     If the "VISA_address" parameter is not specified the VISA_index will be
     used to find the address. The LIST_VISA node can be used to show the
@@ -44,7 +48,24 @@ def BURST_MODE_33510B(
         The VISA address to query.
     VISA_index: int
         The address will be found from LIST_VISA node list with this index.
-
+    on_off: str
+        Turn the burst mode on or off.
+    channel: str
+        The channel to modify the burst mode for.
+    trigger_source: str
+        Set the trigger_source (e.g. externally or timed).
+    trigger_delay: float
+        Delay the burst by this number of seconds after a trigger.
+    trigger_slope: str
+        If triggering is external, trigger on a positive or negative slope.
+    burst_mode: str
+        Set the burst mode for the WFG.
+    burst_ncycles: int
+        How many cycles to have in one burst.
+    burst_phase: float
+        What phase to start the burst with, in degrees.
+    burst_polarity: str
+        The polarity of the burst in Gated mode, normal or inverted.
 
     Returns
     -------
