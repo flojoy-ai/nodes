@@ -14,7 +14,7 @@ from usb.core import USBError
         "qcodes": "0.39.1",
     }
 )
-def MEASUREMENTS_MDO3xxx(
+def MEASUREMENTS_MDO3XXX(
     VISA_address: Optional[str],
     VISA_index: Optional[int] = 0,
     num_channels: int = 4,
@@ -23,7 +23,7 @@ def MEASUREMENTS_MDO3xxx(
     statistic: Literal["instant", "mean", "max", "min", "stdev"] = "instant",
     default: Optional[DataContainer] = None,
 ) -> Optional[DataContainer]:
-    """The MEASUREMENTS_MDO3xxx node extracts waveform measurements from an MDO3xxx oscilloscope.
+    """The MEASUREMENTS_MDO3XXX node extracts waveform measurements from an MDO3XXX oscilloscope.
 
     This node can select from three different waveform measurements:
     frequency, period, and amplitude. Also available are 5 statistic modes:

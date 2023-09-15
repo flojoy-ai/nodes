@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, TextBlob
+from flojoy import flojoy, DataContainer, Scalar
 import pyvisa
 from typing import Optional, Literal
 from flojoy.instruments.tektronix.MDO30xx import TektronixMDO30xx
@@ -14,15 +14,15 @@ from usb.core import USBError
         "qcodes": "0.39.1",
     }
 )
-def TRIGGER_CHANNEL_MDO3xxx(
+def MEASURE_PHASE_MDO3XXX(
     VISA_address: Optional[str],
     VISA_index: Optional[int] = 0,
     num_channels: int = 4,
-    channel: int = 0,
-    query_set: Literal["query", "set"] = "query",
+    channel1: int = 0,
+    channel2: int = 1,
     default: Optional[DataContainer] = None,
 ) -> Optional[DataContainer]:
-    """The TRIGGER_CHANNEL_MDO3xxx node sets the triggering channel (or queries it).
+    """The MEASURE_PHASE_MDO3XXX node measures the phase between two channels.
 
     If the "VISA_address" parameter is not specified the VISA_index will be
     used to find the address. The LIST_VISA node can be used to show the
@@ -39,18 +39,18 @@ def TRIGGER_CHANNEL_MDO3xxx(
         The address will be found from LIST_VISA node list with this index.
     num_channels: int
         The number of channels on the instrument that are currently in use.
-    channel: int
-        The channel to set as the triggering channel (used if setting).
-    query_set: str
-        Whether to query or set the triggering channel.
+    channel1: int
+        The first channel.
+    channel2: int
+        The second channel.
 
     Returns
     -------
     DataContainer
-        TextBlob: The triggering channel (e.g. CH1).
+        Scalar: The phase between the two channels.
     """
 
-    assert channel < num_channels, "Channel must be less than num_channels."
+    assert channel1 != channel2, "The channels must not the same."
 
     rm = pyvisa.ResourceManager("@py")
     if VISA_address == "":
@@ -70,13 +70,10 @@ def TRIGGER_CHANNEL_MDO3xxx(
             "USB port error. Trying unplugging+replugging the port."
         ) from err
 
-    match query_set:
-        case "query":
-            s = tek.trigger.source()
-        case "set":
-            tek.trigger.source(f"CH{1 + channel}")
-            s = f"CH{1 + channel}"
+    tek.measurement[0].source1(f"CH{int(channel1 + 1)}")
+    tek.measurement[0].source2(f"CH{int(channel2 + 1)}")
+    value = tek.measurement[0].phase()
 
     tek.close()
 
-    return TextBlob(text_blob=s)
+    return Scalar(c=value)

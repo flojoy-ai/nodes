@@ -14,15 +14,18 @@ from usb.core import USBError
         "qcodes": "0.39.1",
     }
 )
-def MEASURE_PHASE_MDO3xxx(
+def TRIGGER_LEVEL_MDO3XXX(
     VISA_address: Optional[str],
     VISA_index: Optional[int] = 0,
     num_channels: int = 4,
-    channel1: int = 0,
-    channel2: int = 1,
+    trigger_volts: float = 0.1,
+    query_set: Literal["query", "set"] = "query",
     default: Optional[DataContainer] = None,
 ) -> Optional[DataContainer]:
-    """The MEASURE_PHASE_MDO3xxx node measures the phase between two channels.
+    """The TRIGGER_LEVEL_MDO3XXX node sets the trigger voltage (or queries it).
+
+    The trigger voltage is the level at which an oscilloscope will find the
+    start of a signal.
 
     If the "VISA_address" parameter is not specified the VISA_index will be
     used to find the address. The LIST_VISA node can be used to show the
@@ -39,18 +42,16 @@ def MEASURE_PHASE_MDO3xxx(
         The address will be found from LIST_VISA node list with this index.
     num_channels: int
         The number of channels on the instrument that are currently in use.
-    channel1: int
-        The first channel.
-    channel2: int
-        The second channel.
+    trigger_volts: float
+        The voltage to set the triggering level to.
+    query_set: str
+        Whether to query or set the triggering voltage.
 
     Returns
     -------
     DataContainer
-        Scalar: The phase between the two channels.
+        Scalar: The triggering voltage.
     """
-
-    assert channel1 != channel2, "The channels must not the same."
 
     rm = pyvisa.ResourceManager("@py")
     if VISA_address == "":
@@ -70,10 +71,14 @@ def MEASURE_PHASE_MDO3xxx(
             "USB port error. Trying unplugging+replugging the port."
         ) from err
 
-    tek.measurement[0].source1(f"CH{int(channel1 + 1)}")
-    tek.measurement[0].source2(f"CH{int(channel2 + 1)}")
-    value = tek.measurement[0].phase()
+    match query_set:
+        case "query":
+            volts = tek.trigger.level()
+            c = volts
+        case "set":
+            tek.trigger.level(trigger_volts)
+            c = trigger_volts
 
     tek.close()
 
-    return Scalar(c=value)
+    return Scalar(c=c)
