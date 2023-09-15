@@ -1,4 +1,4 @@
-from flojoy import flojoy, Image, DataFrame, Grayscale, TextBlob
+from flojoy import flojoy, Image, DataFrame, TextBlob
 from typing import Literal, Optional
 import numpy as np
 from PIL import Image as PIL_Image
@@ -104,3 +104,8 @@ def LOCAL_FILE(
             file_path = get_file_path(file_path)
             df = pd.read_excel(file_path)
             return DataFrame(df=df)
+        case "mp3" | "wav":
+            file_path = get_file_path(file_path)
+            with open(file_path, "rb") as inp:
+                audio_bytes_stream = inp.read()
+            return Bytes(b=audio_bytes_stream)

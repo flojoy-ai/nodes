@@ -1,0 +1,139 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 208,
+                "height": 96,
+                "id": "DALLE_IMAGE_GENERATOR-73998810-4081-4630-adf6-8097b610118b",
+                "type": "AI_ML",
+                "data": {
+                    "id": "DALLE_IMAGE_GENERATOR-73998810-4081-4630-adf6-8097b610118b",
+                    "label": "DALLE IMAGE GENERATOR",
+                    "func": "DALLE_IMAGE_GENERATOR",
+                    "type": "AI_ML",
+                    "ctrls": {
+                        "prompt": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "A sentence describing the image you want to generate.",
+                            "functionName": "DALLE_IMAGE_GENERATOR",
+                            "param": "prompt",
+                            "value": "A painting of a cat"
+                        },
+                        "width": {
+                            "type": "int",
+                            "default": 1024,
+                            "desc": "The width of the generated image.",
+                            "functionName": "DALLE_IMAGE_GENERATOR",
+                            "param": "width",
+                            "value": 1024
+                        },
+                        "height": {
+                            "type": "int",
+                            "default": 1024,
+                            "desc": "The height of the generated image.",
+                            "functionName": "DALLE_IMAGE_GENERATOR",
+                            "param": "height",
+                            "value": 1024
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/OPENAI/DALLE_IMAGE_GENERATOR/DALLE_IMAGE_GENERATOR.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -155.761959015441,
+                    "y": 338.9736881910637
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -155.761959015441,
+                    "y": 338.9736881910637
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "IMAGE-6886e358-8587-4e15-9486-910e911e79b5",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "IMAGE-6886e358-8587-4e15-9486-910e911e79b5",
+                    "label": "IMAGE",
+                    "func": "IMAGE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Image",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/IMAGE/IMAGE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 455.6504364167843,
+                    "y": 307.93171338391926
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 455.6504364167843,
+                    "y": 307.93171338391926
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "DALLE_IMAGE_GENERATOR-73998810-4081-4630-adf6-8097b610118b",
+                "sourceHandle": "default",
+                "target": "IMAGE-6886e358-8587-4e15-9486-910e911e79b5",
+                "targetHandle": "default",
+                "id": "reactflow__edge-DALLE_IMAGE_GENERATOR-73998810-4081-4630-adf6-8097b610118bdefault-IMAGE-6886e358-8587-4e15-9486-910e911e79b5default"
+            }
+        ],
+        "viewport": {
+            "x": 716.6989575195756,
+            "y": 316.2258438592044,
+            "zoom": 1.2380988852096646
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

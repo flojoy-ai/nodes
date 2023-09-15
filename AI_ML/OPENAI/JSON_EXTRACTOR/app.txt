@@ -1,0 +1,131 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 208,
+                "height": 96,
+                "id": "JSON_EXTRACTOR-00c4327c-3b49-42fe-a168-e90af66ca306",
+                "type": "AI_ML",
+                "data": {
+                    "id": "JSON_EXTRACTOR-00c4327c-3b49-42fe-a168-e90af66ca306",
+                    "label": "JSON EXTRACTOR",
+                    "func": "JSON_EXTRACTOR",
+                    "type": "AI_ML",
+                    "ctrls": {
+                        "properties": {
+                            "type": "list[str]",
+                            "default": null,
+                            "desc": "Comma separated list of properties to extract. Example: \"name,age,location\"",
+                            "functionName": "JSON_EXTRACTOR",
+                            "param": "properties",
+                            "value": "price,name"
+                        },
+                        "prompt": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "Text to extract information from. Example: \"I'm John, I am 30 years old and I live in New York.\"",
+                            "functionName": "JSON_EXTRACTOR",
+                            "param": "prompt",
+                            "value": "Headset Gamer Bluetooth MJ23 - $100  Extract the price, name and model from the above text."
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/OPENAI/JSON_EXTRACTOR/JSON_EXTRACTOR.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -316.44081536568854,
+                    "y": 186.94318548140365
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -316.44081536568854,
+                    "y": 186.94318548140365
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-b8b4054c-03ee-4e54-8cea-484de0f28f0d",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TABLE-b8b4054c-03ee-4e54-8cea-484de0f28f0d",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 296.61168239817283,
+                    "y": 154.25519617853098
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 296.61168239817283,
+                    "y": 154.25519617853098
+                },
+                "dragging": false
+            }
+        ],
+        "edges": [
+            {
+                "source": "JSON_EXTRACTOR-00c4327c-3b49-42fe-a168-e90af66ca306",
+                "sourceHandle": "default",
+                "target": "TABLE-b8b4054c-03ee-4e54-8cea-484de0f28f0d",
+                "targetHandle": "default",
+                "id": "reactflow__edge-JSON_EXTRACTOR-00c4327c-3b49-42fe-a168-e90af66ca306default-TABLE-b8b4054c-03ee-4e54-8cea-484de0f28f0ddefault"
+            }
+        ],
+        "viewport": {
+            "x": 716.6989575195756,
+            "y": 316.2258438592044,
+            "zoom": 1.2380988852096646
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}

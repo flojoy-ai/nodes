@@ -1,0 +1,124 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 208,
+                "height": 96,
+                "id": "WHISPER_SPEECH_TO_TEXT-e2b2fe60-8406-4531-8f50-8e1168a3fa8e",
+                "type": "AI_ML",
+                "data": {
+                    "id": "WHISPER_SPEECH_TO_TEXT-e2b2fe60-8406-4531-8f50-8e1168a3fa8e",
+                    "label": "WHISPER SPEECH TO TEXT",
+                    "func": "WHISPER_SPEECH_TO_TEXT",
+                    "type": "AI_ML",
+                    "ctrls": {
+                        "file_path": {
+                            "type": "str",
+                            "default": null,
+                            "desc": null,
+                            "functionName": "WHISPER_SPEECH_TO_TEXT",
+                            "param": "file_path",
+                            "value": ""
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Bytes",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/AI_ML/OPENAI/WHISPER_SPEECH_TO_TEXT/WHISPER_SPEECH_TO_TEXT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -63.88174782719637,
+                    "y": -11.724629890439985
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -63.88174782719637,
+                    "y": -11.724629890439985
+                },
+                "dragging": true
+            },
+            {
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-2ac256b5-133f-4748-bb78-20ccbf68d8e7",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-2ac256b5-133f-4748-bb78-20ccbf68d8e7",
+                    "label": "TEXT VIEW",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "path": "PYTHON/nodes/VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 367.7165338335171,
+                    "y": -110.92191345173526
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 367.7165338335171,
+                    "y": -110.92191345173526
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "WHISPER_SPEECH_TO_TEXT-e2b2fe60-8406-4531-8f50-8e1168a3fa8e",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-2ac256b5-133f-4748-bb78-20ccbf68d8e7",
+                "targetHandle": "default",
+                "id": "reactflow__edge-WHISPER_SPEECH_TO_TEXT-e2b2fe60-8406-4531-8f50-8e1168a3fa8edefault-TEXT_VIEW-2ac256b5-133f-4748-bb78-20ccbf68d8e7default"
+            }
+        ],
+        "viewport": {
+            "x": 716.6989575195756,
+            "y": 316.2258438592044,
+            "zoom": 1.2380988852096646
+        }
+    },
+    "ctrlsManifest": [
+        {
+            "type": "input",
+            "name": "Slider",
+            "id": "INPUT_PLACEHOLDER",
+            "hidden": false,
+            "minHeight": 1,
+            "minWidth": 2,
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "h": 2,
+                "w": 2,
+                "minH": 1,
+                "minW": 2,
+                "i": "INPUT_PLACEHOLDER"
+            }
+        }
+    ]
+}
