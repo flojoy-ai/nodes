@@ -28,7 +28,7 @@ def EXTRACT_TRACE_MDO3xxx(
     The number of points in the x axis is defined by x_length and length_type
     parameters. A length_type of pixels and a x_length of 5000 will result in
     a trace with 5000 points. A length_type of nanoseconds instead results in
-    a trace with a length of defined by the number of (nano)seconds.
+    a trace with a length of defined by the number of nanoseconds.
 
     If the "VISA_address" parameter is not specified the VISA_index will be
     used to find the address. The LIST_VISA node can be used to show the
