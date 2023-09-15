@@ -1,0 +1,540 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-819c7e1c-0ff5-4c09-8a13-b65b1e1bab0e",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-819c7e1c-0ff5-4c09-8a13-b65b1e1bab0e",
+                    "label": "TEXT VIEW",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 126.63251436934425,
+                    "y": -126.35743104815421
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 126.63251436934425,
+                    "y": -126.35743104815421
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "SET_WAVEFORM_33510B-5d984289-23fd-4a07-8581-9e67f458275a",
+                "type": "IO",
+                "data": {
+                    "id": "SET_WAVEFORM_33510B-5d984289-23fd-4a07-8581-9e67f458275a",
+                    "label": "QUERY WAVEFORM 33510B",
+                    "func": "SET_WAVEFORM_33510B",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "VISA_address",
+                            "value": "USB0::2391::9735::MY59003244::0::INSTR"
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "VISA_index",
+                            "value": 0
+                        },
+                        "on_off": {
+                            "type": "select",
+                            "options": [
+                                "ON",
+                                "OFF"
+                            ],
+                            "default": "OFF",
+                            "desc": "Whether to turn the waveform generation to on or off.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "on_off",
+                            "value": "ON"
+                        },
+                        "query_set": {
+                            "type": "select",
+                            "options": [
+                                "query",
+                                "set"
+                            ],
+                            "default": "query",
+                            "desc": "Whether to query or set the waveform.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "query_set",
+                            "value": "query"
+                        },
+                        "channel": {
+                            "type": "select",
+                            "options": [
+                                "ch1",
+                                "ch2"
+                            ],
+                            "default": "ch1",
+                            "desc": "The channel to set or query.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "channel",
+                            "value": "ch1"
+                        },
+                        "waveform": {
+                            "type": "select",
+                            "options": [
+                                "SIN",
+                                "SQU",
+                                "TRI",
+                                "RAMP",
+                                "PULS",
+                                "PRBS",
+                                "NOIS",
+                                "ARB",
+                                "DC"
+                            ],
+                            "default": "SIN",
+                            "desc": "The type of waveform to use.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "waveform",
+                            "value": "SIN"
+                        },
+                        "frequency": {
+                            "type": "float",
+                            "default": 1000000,
+                            "desc": "The voltage of the waveform to set, in Hz.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "frequency",
+                            "value": 1000000
+                        },
+                        "amplitude": {
+                            "type": "float",
+                            "default": 0.1,
+                            "desc": "The voltage of the waveform to set.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "amplitude",
+                            "value": 0.1
+                        },
+                        "amplitude_unit": {
+                            "type": "select",
+                            "options": [
+                                "VPP",
+                                "VRMS",
+                                "DBM"
+                            ],
+                            "default": "VPP",
+                            "desc": "The voltage unit to set the waveform to.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "amplitude_unit",
+                            "value": "VPP"
+                        },
+                        "phase": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "The phase to set the waveform to, in degrees.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "phase",
+                            "value": 0
+                        },
+                        "offset": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "The voltage offset to set the waveform to, in volts.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "offset",
+                            "value": 0
+                        },
+                        "ramp_symmetry": {
+                            "type": "float",
+                            "default": 50,
+                            "desc": "The ramp symmetry if the RAMP waveform is used, in percent.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "ramp_symmetry",
+                            "value": 50
+                        },
+                        "pulse_width": {
+                            "type": "float",
+                            "default": 20,
+                            "desc": "The pulse width in nanoseconds if the PULS waveform is used.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "pulse_width",
+                            "value": 20
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "Scalar: The waveform measurement in the selected statistic mode."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/FUNCTION_GENERATORS/KEYSIGHT/33XXX/BASIC/SET_WAVEFORM_33510B/SET_WAVEFORM_33510B.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -235.3146615647039,
+                    "y": -80.09846489697861
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -235.3146615647039,
+                    "y": -80.09846489697861
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "SET_WAVEFORM_33510B-cff57b5b-40b6-48a6-bce1-b72039d971a5",
+                "type": "IO",
+                "data": {
+                    "id": "SET_WAVEFORM_33510B-cff57b5b-40b6-48a6-bce1-b72039d971a5",
+                    "label": "SET WAVEFORM 33510B 1",
+                    "func": "SET_WAVEFORM_33510B",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "VISA_address",
+                            "value": "USB0::2391::9735::MY59003244::0::INSTR"
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "VISA_index",
+                            "value": 0
+                        },
+                        "on_off": {
+                            "type": "select",
+                            "options": [
+                                "ON",
+                                "OFF"
+                            ],
+                            "default": "OFF",
+                            "desc": "Whether to turn the waveform generation to on or off.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "on_off",
+                            "value": "OFF"
+                        },
+                        "query_set": {
+                            "type": "select",
+                            "options": [
+                                "query",
+                                "set"
+                            ],
+                            "default": "query",
+                            "desc": "Whether to query or set the waveform.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "query_set",
+                            "value": "set"
+                        },
+                        "channel": {
+                            "type": "select",
+                            "options": [
+                                "ch1",
+                                "ch2"
+                            ],
+                            "default": "ch1",
+                            "desc": "The channel to set or query.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "channel",
+                            "value": "ch1"
+                        },
+                        "waveform": {
+                            "type": "select",
+                            "options": [
+                                "SIN",
+                                "SQU",
+                                "TRI",
+                                "RAMP",
+                                "PULS",
+                                "PRBS",
+                                "NOIS",
+                                "ARB",
+                                "DC"
+                            ],
+                            "default": "SIN",
+                            "desc": "The type of waveform to use.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "waveform",
+                            "value": "SIN"
+                        },
+                        "frequency": {
+                            "type": "float",
+                            "default": 1000000,
+                            "desc": "The voltage of the waveform to set, in Hz.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "frequency",
+                            "value": 1000000
+                        },
+                        "amplitude": {
+                            "type": "float",
+                            "default": 0.1,
+                            "desc": "The voltage of the waveform to set.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "amplitude",
+                            "value": 0.2
+                        },
+                        "amplitude_unit": {
+                            "type": "select",
+                            "options": [
+                                "VPP",
+                                "VRMS",
+                                "DBM"
+                            ],
+                            "default": "VPP",
+                            "desc": "The voltage unit to set the waveform to.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "amplitude_unit",
+                            "value": "VPP"
+                        },
+                        "phase": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "The phase to set the waveform to, in degrees.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "phase",
+                            "value": 0
+                        },
+                        "offset": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "The voltage offset to set the waveform to, in volts.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "offset",
+                            "value": 0
+                        },
+                        "ramp_symmetry": {
+                            "type": "float",
+                            "default": 50,
+                            "desc": "The ramp symmetry if the RAMP waveform is used, in percent.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "ramp_symmetry",
+                            "value": 50
+                        },
+                        "pulse_width": {
+                            "type": "float",
+                            "default": 20,
+                            "desc": "The pulse width in nanoseconds if the PULS waveform is used.",
+                            "overload": null,
+                            "functionName": "SET_WAVEFORM_33510B",
+                            "param": "pulse_width",
+                            "value": 20
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "Scalar: The waveform measurement in the selected statistic mode."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/FUNCTION_GENERATORS/KEYSIGHT/33XXX/BASIC/SET_WAVEFORM_33510B/SET_WAVEFORM_33510B.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -587.0980217998496,
+                    "y": -74.46641189574345
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -587.0980217998496,
+                    "y": -74.46641189574345
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7",
+                "type": "IO",
+                "data": {
+                    "id": "CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7",
+                    "label": "CLOSE ALL",
+                    "func": "CLOSE_ALL",
+                    "type": "IO",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "optional: The input DataContainer is returned."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/QCODES/CLOSE_ALL/CLOSE_ALL.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -919.3821328184661,
+                    "y": -74.54262269929615
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -919.3821328184661,
+                    "y": -74.54262269929615
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "SET_WAVEFORM_33510B-5d984289-23fd-4a07-8581-9e67f458275a",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-819c7e1c-0ff5-4c09-8a13-b65b1e1bab0e",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SET_WAVEFORM_33510B-5d984289-23fd-4a07-8581-9e67f458275adefault-TEXT_VIEW-819c7e1c-0ff5-4c09-8a13-b65b1e1bab0edefault"
+            },
+            {
+                "source": "SET_WAVEFORM_33510B-cff57b5b-40b6-48a6-bce1-b72039d971a5",
+                "sourceHandle": "default",
+                "target": "SET_WAVEFORM_33510B-5d984289-23fd-4a07-8581-9e67f458275a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SET_WAVEFORM_33510B-cff57b5b-40b6-48a6-bce1-b72039d971a5default-SET_WAVEFORM_33510B-5d984289-23fd-4a07-8581-9e67f458275adefault"
+            },
+            {
+                "source": "CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7",
+                "sourceHandle": "default",
+                "target": "SET_WAVEFORM_33510B-cff57b5b-40b6-48a6-bce1-b72039d971a5",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7default-SET_WAVEFORM_33510B-cff57b5b-40b6-48a6-bce1-b72039d971a5default"
+            }
+        ],
+        "viewport": {
+            "x": 1104.261946392206,
+            "y": 573.1338859553202,
+            "zoom": 1.2154437530123414
+        }
+    }
+}
