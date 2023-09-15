@@ -1,18 +1,18 @@
-from flojoy import flojoy, MecademicConnHandle
+from flojoy import flojoy, Bytes
 from typing import Optional
 from PYTHON.utils.mecademic_utils import check_connection
 
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
 def MOVE_POSE(
-    conn_handle: MecademicConnHandle,
+    conn_handle: Bytes,
     x: float,
     y: float,
     z: float,
     alpha: Optional[float] = 0,
     beta: Optional[float] = 0,
     gamma: Optional[float] = 0,
-) -> MecademicConnHandle:
+) -> Bytes:
     """
     The MOVE_POSE node linearly moves the robot's tool to an absolute Cartesian position.
 
@@ -42,6 +42,6 @@ def MOVE_POSE(
         A handle to the robot arm object after it has been moved.
 
     """
-    check_connection(conn_handle.robot)
-    conn_handle.robot.MovePose(x=x, y=y, z=z, alpha=alpha, beta=beta, gamma=gamma)
+    check_connection(conn_handle.b)
+    conn_handle.b.MovePose(x=x, y=y, z=z, alpha=alpha, beta=beta, gamma=gamma)
     return conn_handle
