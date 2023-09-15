@@ -24,12 +24,9 @@ def BATCH_PROCESSOR(
 ) -> BATCH_OUTPUT:
     """The BATCH_PROCESSOR node is designed to glob match a pattern in the given input directory.
 
-    From here, in conjunction with a loop, we iterate
-    over all the files found, and return each one by
-    file path as a TextBlob. The TextBlob can be recognized as
-    an optional input to the LOCAL_FILE node, which can
-    then load the file at that path and return the appropriate
-    datatype.
+    From here, in conjunction with a loop, we iterate over all the files found, and return each one by file path as a TextBlob.
+    
+    The TextBlob can be recognized as an optional input to the LOCAL_FILE node, which can then load the file at that path and return the appropriate datatype.
 
     Parameters
     ----------

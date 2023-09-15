@@ -7,8 +7,7 @@ def VECTOR_INDEXING(
     default: Vector,
     index: int = 0,
 ) -> Scalar:
-    """The VECTOR_INDEXING node returns the value of the vector at the
-    requested index.
+    """The VECTOR_INDEXING node returns the value of the vector at the requested index.
 
     Inputs
     ------

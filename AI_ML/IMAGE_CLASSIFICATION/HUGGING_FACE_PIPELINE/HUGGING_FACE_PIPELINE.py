@@ -17,8 +17,7 @@ def HUGGING_FACE_PIPELINE(
     model: str = "google/vit-base-patch16-224",
     revision: str = "main",
 ) -> DataFrame:
-    """The HUGGING_FACE_PIPELINE node uses a classification pipeline 
-    to process and classify an image.
+    """The HUGGING_FACE_PIPELINE node uses a classification pipeline to process and classify an image.
 
     For more information about Vision Transformers, 
     see: https://huggingface.co/google/vit-base-patch16-224

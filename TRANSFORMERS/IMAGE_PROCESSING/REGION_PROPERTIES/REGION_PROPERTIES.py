@@ -14,8 +14,9 @@ from PIL import Image as PILImage
 
 @flojoy(deps={"scikit-image": "0.21.0"}, node_type="VISUALIZERS")
 def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> Plotly:
-    """The image processing REGION_PROPERTIES node is a stand-alone visualizer for analyzing
-    an input array of data. There are multiple input 'DataContainer' types for which
+    """The image processing REGION_PROPERTIES node is a stand-alone visualizer for analyzing an input array of data. 
+    
+    There are multiple input 'DataContainer' types for which
     this function is applicable: 'Image', 'Grayscale', or 'Matrix'.
 
     Often in image analysis, it is necessary to determine subvolumes / subregions

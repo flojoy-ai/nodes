@@ -9,6 +9,7 @@ from flojoy import flojoy, run_in_venv, DataFrame, Plotly
 )
 def PROPHET_PLOT(default: DataFrame, periods: int = 365) -> Plotly:
     """The PROPHET_PLOT node plots the forecasted trend of the time series data that was passed in.
+    
     This is the output plotly graph from the 'plot_plotly' function from 'prophet.plot'.
     It expects the trained Prophet model from the PROPHET_PREDICT node as input.
 

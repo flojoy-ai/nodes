@@ -9,6 +9,7 @@ from flojoy import flojoy, run_in_venv, DataFrame, Plotly
 )
 def PROPHET_COMPONENTS(default: DataFrame, periods: int = 365) -> Plotly:
     """The PROPHET_COMPONENTS node plots the components of the prophet model trained in the PROPHET_PREDICT node.
+    
     This is the output plotly graph from the 'plot_components_plotly' function from 'prophet.plot'.
     It expects the trained Prophet model from the PROPHET_PREDICT node as input.
 
