@@ -22,7 +22,7 @@ def MOCK_KEITHLEY2450(
     """
     keith_sim = Keithley2450(
         "keith_sim",
-        address="GPIB::1::INSTR",
+        address="GPIB::2::INSTR",
         pyvisa_sim_file="Keithley_2450.yaml",
     )
 
@@ -33,4 +33,4 @@ def MOCK_KEITHLEY2450(
     
     print(f"Current source function: {keith_sim.source}")
 
-    return Scalar(c=5)
+    return Scalar(c=keith_sim.source)
