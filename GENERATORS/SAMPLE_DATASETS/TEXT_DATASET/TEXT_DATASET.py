@@ -15,14 +15,14 @@ def TEXT_DATASET(
     remove_quotes: bool = False,
 ) -> DataFrame:
     """The TEXT_DATASET node loads the 20 newsgroups dataset from scikit-learn.
-    The data is returned as a dataframe with one column containing the text
-    and the other containing the category.
+
+    The data is returned as a dataframe with one column containing the text and the other containing the category.
 
     Parameters
     ----------
-    subset: "train" | "test" | "all", default="train"
+    subset : "train" | "test" | "all", default="train"
         Select the dataset to load: "train" for the training set, "test" for the test set, "all" for both.
-    categories: list of str, optional
+    categories : list of str, optional
         Select the categories to load. By default, all categories are loaded.
         The list of all categories is:
         'alt.atheism',
@@ -45,11 +45,11 @@ def TEXT_DATASET(
         'talk.politics.mideast',
         'talk.politics.misc',
         'talk.religion.misc'
-    remove_headers: boolean, default=false
+    remove_headers : boolean, default=false
         Remove the headers from the data.
-    remove_footers: boolean, default=false
+    remove_footers : boolean, default=false
         Remove the footers from the data.
-    remove_quotes: boolean, default=false
+    remove_quotes : boolean, default=false
         Remove the quotes from the data.
     """
 

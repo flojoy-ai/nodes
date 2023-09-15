@@ -33,23 +33,28 @@ def FFT(
     display: bool = True,
 ) -> OrderedPair | DataFrame:
     """The FFT node performs a Discrete Fourier Transform on the input vector.
-    Through the FFT algorithm, the input vector will be transformed
-    from the time domain into the frequency domain which will be an ordered pair of arrays.
+
+    Through the FFT algorithm, the input vector will be transformed from a time domain into a frequency domain, which will be an ordered pair of arrays.
+
+    Inputs
+    ------
+    default : OrderedPair
+        The data to apply FFT to.
 
     Parameters
-    ---------
-    window: Selection of window types
+    ----------
+    window : select
         the node will apply a window to the signal to avoid spectral leakage
-    real_signal: boolean
+    real_signal : boolean
         whether the input signal is real or complex
-    sample_rate: int
+    sample_rate : int
         the sample rate of the signal, defaults to 1
-    display: boolean
-        whether the output would be graphed, set to false for pure data, true for data that's more suitable to be graphed
+    display : boolean
+        whether the output would be graphed, set to false for pure data and true for data that is more suitable to be graphed
 
     Returns
     -------
-    Ordered_pair if display is true
+    OrderedPair if display is true
         x: frequency
         y: spectrum of the signal
     DataFrame if display is false
@@ -57,8 +62,8 @@ def FFT(
         frequency: frequency domain
         real: real section of the signal
         imag: imaginary section of the signal
-
     """
+
     if sample_rate <= 0:
         raise ValueError(f"Sample rate must be greater than 0")
 

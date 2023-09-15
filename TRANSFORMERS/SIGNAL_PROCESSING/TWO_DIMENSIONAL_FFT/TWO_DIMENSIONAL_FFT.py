@@ -16,27 +16,34 @@ def TWO_DIMENSIONAL_FFT(
     real_signal: bool = True,
     color: Literal["red", "green", "blue", "grayscale"] = "red",
 ) -> Matrix | DataFrame | Image:
-    """The TWO_DIMENSIONAL_FFT node performs a two-dimensional fourier transform on the input matrix.
-    With the FFT algorithm, the input matrix will undergo a change of basis
-    from the space domain into the frequency domain.
-    grayscale, dataframe, image or matrix
+    """The TWO_DIMENSIONAL_FFT node performs a two-dimensional fourier transform function on the input matrix.
+
+    With the FFT algorithm, the input matrix will undergo a change of basis from the space domain into the frequency domain.
+
+    grayscale, dataframe, image, or matrix
+
+    Inputs
+    ------
+    default : Grayscale|DataFrame|Image|Matrix
+        The 2D data to apply 2DFFT to.
 
     Parameters
     ----------
-    real_input: boolean
-        true if the input matrix is consists of only real numbers, false otherwise
-    color: select
-        If the input is an RGBA or RGB image, this parameter selects the color channel to perform fft on
+    real_input : boolean
+        true if the input matrix consists of only real numbers, false otherwise
+    color : select
+        if the input is an RGBA or RGB image, this parameter selects the color channel to perform the FFT on
 
     Returns
     -------
     Matrix if input is Matrix
-        m: The matrix after 2DFFT
+        m: the matrix after 2DFFT
     DataFrame if input is Dataframe
-        df: the dataframe after 2DFFT
+        m: the dataframe after 2DFFT
     Image
-        The frequency spectrum of the color channel
+        the frequency spectrum of the color channel
     """
+
     match default:
         case Grayscale() | Matrix():
             input = default.m
@@ -49,7 +56,7 @@ def TWO_DIMENSIONAL_FFT(
             fourier = fft.rfft2(input) if real_signal else fft.fft2(input)
             fourier = fourier.real
             result = pd.DataFrame(columns=fourier.columns, index=fourier.index)
-            return DataFrame(df=result)
+            return DataFrame(m=result)
         case Image():
             red = default.r
             green = default.g

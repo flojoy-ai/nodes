@@ -13,16 +13,15 @@ def EIGH(
     select_return: Literal["w", "v"] = "w",
 ) -> Matrix | Scalar:
     """The EIGH node is based on a numpy or scipy function.
+
     The description of that function is as follows:
 
-
-            Return the eigenvalues and eigenvectors of a complex Hermitian
-            (conjugate symmetric) or a real symmetric matrix.
+        Return the eigenvalues and eigenvectors of a complex Hermitian (conjugate symmetric) or a real symmetric matrix.
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = numpy.linalg.eigh(

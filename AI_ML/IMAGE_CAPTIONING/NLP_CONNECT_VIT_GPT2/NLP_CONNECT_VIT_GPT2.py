@@ -5,22 +5,18 @@ from flojoy import flojoy, run_in_venv, DataFrame, Image
 @run_in_venv(
     pip_dependencies=[
         "transformers==4.30.2",
-        "torch==1.13.0",
-        "torchvision==0.14.0",
-    ]
+        "torch~=2.0.1",
+        "torchvision~=0.15.2",
+    ],
+    verbose=True,
 )
 def NLP_CONNECT_VIT_GPT2(default: Image) -> DataFrame:
-    """The NLP_CONNECT_VIT_GPT2 node captions an input image and produces an output string wrapped
-    in a dataframe.
+    """The NLP_CONNECT_VIT_GPT2 node captions an input image and produces an output string wrapped in a dataframe.
 
-    Parameters
-    ----------
-    None
-
-    Returns:
-    --------
-    DataFrame:
-        DataFrame containing the caption column, and a single row.
+    Returns
+    -------
+    DataFrame
+        DataFrame containing the caption column and a single row.
     """
 
     import numpy as np

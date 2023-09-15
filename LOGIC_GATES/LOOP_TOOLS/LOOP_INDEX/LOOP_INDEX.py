@@ -11,17 +11,18 @@ from typing import Optional
 memory_key = "LOOP_INDEX"
 
 
-@flojoy(node_type="default")
+@flojoy
 def LOOP_INDEX(
     loop_node: NodeReference,
     default: Optional[OrderedPair | Scalar] = None,
 ) -> Scalar:
     """The LOOP_INDEX node loads the loop index from the LOOP node.
+
     A loop index in Flojoy starts at 1 and increases by 1 for each loop.
 
     Parameters
     ----------
-    loop_node: str
+    loop_node : str
         The LOOP node to track the loop index from.
 
     Returns

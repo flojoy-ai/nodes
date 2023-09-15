@@ -9,20 +9,21 @@ def ACCURACY(
     true_label: Optional[str] = None,
     predicted_label: Optional[str] = None,
 ) -> DataFrame:
-    """The ACCURACY node takes two dataframes with the true and predicted labels from a classification task,
-    and indicates whether the prediction was correct or not. These dataframes should both be single columns.
+    """The ACCURACY node takes two dataframes with the true and predicted labels from a classification task, and indicates whether the prediction was correct or not.
+
+    These dataframes should both be single columns.
 
     Parameters
     ----------
-    true_label: optional str
+    true_label : optional str
         true label users can select from original data
-    predicted_label: optional str
+    predicted_label : optional str
         resulting predicted label users can select
+
     Returns
     -------
-    dataframe
+    DataFrame
         The input predictions dataframe, with an extra boolean column "prediction_correct".
-
     """
 
     true_df = true_data.m

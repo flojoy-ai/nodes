@@ -1,5 +1,5 @@
-import numpy as np
-from flojoy import flojoy, OrderedPair, DefaultParams, SmallMemory, Vector
+from numpy import exp, ndarray, insert, zeros
+from flojoy import flojoy, OrderedPair, DefaultParams, SmallMemory, Vector, Scalar
 
 
 memory_key = "SECOND_ORDER_SYSTEM"
@@ -7,41 +7,39 @@ memory_key = "SECOND_ORDER_SYSTEM"
 
 @flojoy(inject_node_metadata=True)
 def SECOND_ORDER_SYSTEM(
-    default: OrderedPair | Vector,
+    default: OrderedPair | Vector | Scalar,
     default_params: DefaultParams,
     d1: float = 250,
     d2: float = 100,
 ) -> OrderedPair:
-    """The SECOND_ORDER_SYSTEM has a second order exponential function.
-    This node is designed to be used in a loop.
-    The data is appended as the loop progress and written to memory.
+    """The SECOND_ORDER_SYSTEM has a second order exponential function. This node is designed to be used in a loop. The data is appended as the loop progress and written to memory.
+
+    Inputs
+    ------
+    default : Scalar
+        PID node output
 
     Parameters
     ----------
-    d1: float
+    d1 : float
         The first time constant.
-    d2: float
+    d2 : float
         The second time constant.
-
     Returns
     -------
-    OrderedPair
+    Scalar
         The most recent value of the second order function.
     """
 
     # Let's first define things that won't change over
     # each iteration: time constants, etc ...
-    match default:
-        case OrderedPair():
-            def_key = default.y
-        case Vector():
-            def_key = default.v
+    def_key = default.c
 
     node_id = default_params.node_id
 
     # ... and now some helper functions
-    x1 = np.exp(-1.0 / d1) if d1 > 0 else 0.0
-    x2 = np.exp(-1.0 / d2) if d2 > 0 else 0.0
+    x1 = exp(-1.0 / d1) if d1 > 0 else 0.0
+    x2 = exp(-1.0 / d2) if d2 > 0 else 0.0
     ac = (1.0 - x1) * (1.0 - x2)
     bpd = x1 + x2
     bd = x1 * x2
@@ -51,7 +49,7 @@ def SECOND_ORDER_SYSTEM(
     data = SmallMemory().read_memory(node_id, memory_key)
     if data is None:
         initialize = True
-    elif type(data) == np.ndarray:
+    elif type(data) == ndarray:
         initialize = False
     else:
         raise TypeError(f"Error loading object from REDIS. Type: {type(data)}")
@@ -62,17 +60,15 @@ def SECOND_ORDER_SYSTEM(
     # index. However, for visualization and external access,
     # it makes the most sense to have the first time step
     # as the first index!
-    y_primes = np.zeros((2, 1)) if initialize else data[::-1]
+    y_primes = zeros((2, 1)) if initialize else data[::-1]
 
     # Using input from controller as v[0].y ...
-    response = ac * def_key[-1] + bpd * y_primes[0] - bd * y_primes[1]
+    response = ac * def_key + bpd * y_primes[0] - bd * y_primes[1]
     y_primes[1] = y_primes[0]
 
     # prepend the most recent result to the front of the histrory
-    y_primes = np.insert(y_primes, 0, response)
+    y_primes = insert(y_primes, 0, response)
     # We now write to memory, reversing the order ...
     SmallMemory().write_to_memory(node_id, memory_key, y_primes[::-1])
     # ... and return the result!
-    return OrderedPair(
-        x=def_key, y=np.ones_like(def_key) * float(y_primes[0])
-    )  # returns input output pair
+    return Scalar(float(y_primes[0]))  # returns input output pair

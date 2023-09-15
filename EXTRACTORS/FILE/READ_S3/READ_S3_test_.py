@@ -16,6 +16,10 @@ def test_dataframe():
 # This creates a fake bucket under s3://test_bucket with a file under s3://test_bucket/test_df.parquet
 @pytest.fixture
 def mock_bucket(test_dataframe):
+    pytest.importorskip(
+        "fastparquet",
+        reason="A suitable version of pyarrow or fastparquet is required for parquet support used by READ_S3.",
+    )
     with moto.mock_s3() as moto_fake:
         conn = boto3.resource("s3")
         conn.create_bucket(Bucket="test_bucket")
@@ -41,6 +45,10 @@ def test_READ_S3(
     mock_keyring_get_password,
     test_dataframe,
 ):
+    pytest.importorskip(
+        "fastparquet",
+        reason="A suitable version of pyarrow or fastparquet is required for parquet support used by READ_S3.",
+    )
     import READ_S3
 
     output = READ_S3.READ_S3("test", "test_bucket", "test_df.parquet")

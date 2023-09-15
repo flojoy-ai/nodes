@@ -11,20 +11,20 @@ def DET(
     default: Matrix,
 ) -> Matrix | Scalar:
     """The DET node is based on a numpy or scipy function.
+
     The description of that function is as follows:
 
-
-            Compute the determinant of an array.
+        Compute the determinant of an array.
 
     Parameters
     ----------
     a : (..., M, M) array_like
-            Input array to compute determinants for.
+        Input array to compute determinants.
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = numpy.linalg.det(

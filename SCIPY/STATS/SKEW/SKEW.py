@@ -15,50 +15,44 @@ def SKEW(
     keepdims: bool = False,
 ) -> OrderedPair | Matrix | Scalar:
     """The SKEW node is based on a numpy or scipy function.
+
     The description of that function is as follows:
 
+        Compute the sample skewness of a data set.
 
-
-
-            Compute the sample skewness of a data set.
-
-            For normally distributed data, the skewness should be about zero. For
-            unimodal continuous distributions, a skewness value greater than zero means
-            that there is more weight in the right tail of the distribution. The
-            function `skewtest` can be used to determine if the skewness value
-            is close enough to zero, statistically speaking.
+        For normally distributed data, the skewness should be about zero. 
+        For unimodal continuous distributions, a skewness value greater than zero means that there is more weight in the right tail of the distribution. \
+        The function 'skewtest' can be used to determine if the skewness value is close enough to zero, statistically speaking.
 
     Parameters
     ----------
     a : ndarray
-            Input array.
+        Input array.
     axis : int or None, default: 0
-            If an int, the axis of the input along which to compute the statistic.
-            The statistic of each axis-slice (e.g. row) of the input will appear in a
-            corresponding element of the output.
-            If ``None``, the input will be raveled before computing the statistic.
+        If an int, the axis of the input along which to compute the statistic.
+        The statistic of each axis-slice (e.g. row) of the input will appear in a
+        corresponding element of the output.
+        If None, the input will be raveled before computing the statistic.
     bias : bool, optional
-            If False, then the calculations are corrected for statistical bias.
+        If False, then the calculations are corrected for statistical bias.
     nan_policy : {'propagate', 'omit', 'raise'}
-            Defines how to handle input NaNs.
-
-    - ``propagate``: if a NaN is present in the axis slice (e.g. row) along
-            which the  statistic is computed, the corresponding entry of the output
-            will be NaN.
-    - ``omit``: NaNs will be omitted when performing the calculation.
-            If insufficient data remains in the axis slice along which the
-            statistic is computed, the corresponding entry of the output will be
-            NaN.
-    - ``raise``: if a NaN is present, a ``ValueError`` will be raised.
+        Defines how to handle input NaNs.
+        - propagate : if a NaN is present in the axis slice (e.g. row) along
+        which the statistic is computed, the corresponding entry of the output
+        will be NaN.
+        - omit : NaNs will be omitted when performing the calculation.
+        If insufficient data remains in the axis slice along which the
+        statistic is computed, the corresponding entry of the output will be NaN.
+        - raise : if a NaN is present, a ValueError will be raised.
     keepdims : bool, default: False
-            If this is set to True, the axes which are reduced are left
-            in the result as dimensions with size one. With this option,
-            the result will broadcast correctly against the input array.
+        If this is set to True, the axes which are reduced are left
+        in the result as dimensions with size one. With this option,
+        the result will broadcast correctly against the input array.
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = scipy.stats.skew(

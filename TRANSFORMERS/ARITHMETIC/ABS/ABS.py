@@ -4,7 +4,20 @@ from flojoy import flojoy, OrderedPair, Vector, Scalar
 
 @flojoy
 def ABS(default: OrderedPair | Vector | Scalar) -> OrderedPair:
-    """Returns abolute value"""
+    """The ABS node take a numeric array, a vector, or a scalar as input and returns its absolute value.
+
+    Inputs
+    ------
+    default : OrderedPair|Vector|Scalar
+        The input to apply the absolute value to.
+
+    Returns
+    -------
+    OrderedPair
+        x: the x-axis of the input.
+        y: the absolute value of the input.
+    """
+
     match default:
         case OrderedPair():
             x = default.x

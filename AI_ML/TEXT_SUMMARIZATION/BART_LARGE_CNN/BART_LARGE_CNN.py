@@ -7,23 +7,18 @@ from flojoy import flojoy, run_in_venv, DataFrame
         "transformers==4.30.2",
         "torch==2.0.1",
         "torchvision==0.15.2",
-        "pandas==1.5.3",
+        "pandas",
     ]
 )
 def BART_LARGE_CNN(default: DataFrame) -> DataFrame:
-    """The BART_LARGE_CNN node takes an input dataframe with multiple rows and a single column,
-    and produces a dataframe with a single "summary_text" column. The "summary_text" column contains a summary
-    of the text in the corresponding row of the input dataframe.
+    """The BART_LARGE_CNN node takes an input dataframe with multiple rows and a single column, and produces a dataframe with a single "summary_text" column.
 
-    Parameters
-    ----------
-    None
+    The "summary_text" column contains a summary of the text in the corresponding row of the input dataframe.
 
-    Returns:
-    --------
+    Returns
+    -------
     DataFrame
-        dataframe containing the summary text in the "summary_text" column.
-
+        dataframe containing the summary text in the "summary_text" column
     """
 
     import torch

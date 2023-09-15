@@ -21,23 +21,30 @@ def BIG_NUMBER(
     prefix: str,
     title: str,
     relative_delta: bool = True,
+    scientific_notation: bool = False,
 ) -> Plotly:
-    """The BIG_NUMBER node generates a plotly figure displaying a big number with optional prefix and suffix.
+    """The BIG_NUMBER node generates a Plotly figure, displaying a big number with an optional prefix and suffix.
 
-    Parameters:
-    -----------
-    relative_delta: bool
+    Inputs
+    ------
+    default : OrderedPair|Scalar|Vector
+        the DataContainer to be visualized
+
+    Parameters
+    ----------
+    relative_delta : bool
         whether to show relative delta from last run along with big number
-    suffix: str
+    suffix : str
         any suffix to show with big number
-    prefix: str
+    prefix : str
         any prefix to show with big number
-    title: str
-        title of the plot. default `BIG_NUMBER`
+    title : str
+        title of the plot, default "BIG_NUMBER"
 
-    Supported DC types:
-    -------------------
-    `ordered_pair` or `scalar`
+    Returns
+    -------
+    Plotly
+        the DataContainer containing Plotly big number visualization
     """
 
     job_id = default_params.job_id
@@ -53,19 +60,24 @@ def BIG_NUMBER(
             big_num = default.c
         case Vector():
             big_num = default.v[-1]
-    val_format = ".1%" if relative_delta is True else ".1f"
+        case _:
+            raise ValueError(f"Invalid input type {type(default)} for node {node_name}")
+
+    delta_val_format = ".1%" if relative_delta is True else ".1f"
+    val_format = "%g" if scientific_notation is False else ".4e"
+
     fig.add_trace(
         go.Indicator(
             mode="number+delta",
-            value=int(float(big_num)),
+            value=big_num,
             domain={"y": [0, 1], "x": [0, 1]},
-            number={"prefix": prefix, "suffix": suffix},
+            number={"prefix": prefix, "suffix": suffix, "valueformat": val_format},
             delta=None
             if prev_num is None
             else {
-                "reference": int(float(prev_num)),
+                "reference": prev_num,
                 "relative": relative_delta,
-                "valueformat": val_format,
+                "valueformat": delta_val_format,
             },
         )
     )

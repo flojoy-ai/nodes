@@ -2307,7 +2307,7 @@
                 ],
                 "surface": [
                   {
-                    "type": "surface",
+                    "type": "Surface",
                     "colorbar": {
                       "outlinewidth": 0,
                       "ticks": ""
@@ -2875,7 +2875,7 @@
           }
         },
         "data": {
-          "type": "ordered_pair",
+          "type": "OrderedPair",
           "x": [
             10,
             9.98998998998999,
@@ -7190,7 +7190,7 @@
                 ],
                 "surface": [
                   {
-                    "type": "surface",
+                    "type": "Surface",
                     "colorbar": {
                       "outlinewidth": 0,
                       "ticks": ""
@@ -7758,7 +7758,7 @@
           }
         },
         "data": {
-          "type": "ordered_pair",
+          "type": "OrderedPair",
           "x": [
             10,
             9.98998998998999,
@@ -12073,7 +12073,7 @@
                 ],
                 "surface": [
                   {
-                    "type": "surface",
+                    "type": "Surface",
                     "colorbar": {
                       "outlinewidth": 0,
                       "ticks": ""
@@ -12641,7 +12641,7 @@
           }
         },
         "data": {
-          "type": "ordered_pair",
+          "type": "OrderedPair",
           "x": [
             10,
             9.98998998998999,
@@ -16956,7 +16956,7 @@
                 ],
                 "surface": [
                   {
-                    "type": "surface",
+                    "type": "Surface",
                     "colorbar": {
                       "outlinewidth": 0,
                       "ticks": ""
@@ -17524,7 +17524,7 @@
           }
         },
         "data": {
-          "type": "ordered_pair",
+          "type": "OrderedPair",
           "x": [
             10,
             9.98998998998999,
@@ -21839,7 +21839,7 @@
                 ],
                 "surface": [
                   {
-                    "type": "surface",
+                    "type": "Surface",
                     "colorbar": {
                       "outlinewidth": 0,
                       "ticks": ""
@@ -22407,7 +22407,7 @@
           }
         },
         "data": {
-          "type": "ordered_pair",
+          "type": "OrderedPair",
           "x": [
             10,
             9.98998998998999,

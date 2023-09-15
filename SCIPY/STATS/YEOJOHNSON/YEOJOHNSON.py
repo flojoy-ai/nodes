@@ -12,23 +12,24 @@ def YEOJOHNSON(
     lmbda: float = 0.1,
 ) -> OrderedPair | Matrix | Scalar:
     """The YEOJOHNSON node is based on a numpy or scipy function.
+
     The description of that function is as follows:
 
-            Return a dataset transformed by a Yeo-Johnson power transformation.
+        Return a dataset transformed by a Yeo-Johnson power transformation.
 
     Parameters
     ----------
     x : ndarray
-            Input array.  Should be 1-dimensional.
+        Input array.  Should be 1-dimensional.
     lmbda : float, optional
-            If ``lmbda`` is ``None``, find the lambda that maximizes the
-            log-likelihood function and return it as the second output argument.
-            Otherwise the transformation is done for the given value.
+        If 'lmbda' is 'None', find the lambda that maximizes the
+        log-likelihood function and return it as the second output argument.
+        Otherwise the transformation is done for the given value.
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = scipy.stats.yeojohnson(

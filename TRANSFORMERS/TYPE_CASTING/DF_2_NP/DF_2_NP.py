@@ -4,18 +4,17 @@ from flojoy import flojoy, DataFrame, Matrix
 
 @flojoy
 def DF_2_NP(default: DataFrame) -> Matrix:
-    """
-    Node to convert dataframe type data into matrix type data.
-    It takes one dataframe type data and converts it to matrix type data.
+    """The DF_2_NP node takes one dataframe type data and converts it to a matrix type data.
 
-    Parameters
-    ----------
-    None
+    Inputs
+    ------
+    default : DataFrame
+        The input dataframe to which we apply the conversion to.
 
     Returns
     -------
-    numpy array
-        Converted dataframe value from the input
+    Matrix
+        The matrix result from the conversion of the input.
     """
 
     df = default.m

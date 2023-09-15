@@ -12,29 +12,27 @@ def JARQUE_BERA(
     select_return: Literal["jb_value", "p"] = "jb_value",
 ) -> OrderedPair | Matrix | Scalar:
     """The JARQUE_BERA node is based on a numpy or scipy function.
+
     The description of that function is as follows:
 
-            Perform the Jarque-Bera goodness of fit test on sample data.
+        Perform the Jarque-Bera goodness of fit test on sample data.
 
-            The Jarque-Bera test tests whether the sample data has the skewness and
-            kurtosis matching a normal distribution.
+        The Jarque-Bera test tests whether the sample data has the skewness and kurtosis matching a normal distribution.
 
-            Note that this test only works for a large enough number of data samples
-            (>2000) as the test statistic asymptotically has a Chi-squared distribution
-            with 2 degrees of freedom.
+        Note that this test only works for a large enough number of data samples (>2000) as the test statistic asymptotically has a Chi-squared distribution with 2 degrees of freedom.
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects:
-            ['jb_value', 'p']. Select the desired one to return.
-            See the respective function docs for descriptors.
+    select_return : This function has returns multiple objects ['jb_value', 'p'].
+        Select the desired one to return.
+        See the respective function docs for descriptors.
     x : array_like
-            Observations of a random variable.
+        Observations of a random variable.
 
     Returns
-    ----------
-    DataContainer:
-            type 'ordered pair', 'scalar', or 'matrix'
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
 
     result = scipy.stats.jarque_bera(

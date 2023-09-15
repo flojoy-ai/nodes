@@ -16,18 +16,20 @@ def trapz(x: np.ndarray, y: np.ndarray):
 
 @flojoy
 def INTEGRATE(default: OrderedPair | Vector) -> OrderedPair:
-    """
-    The INTEGRATE node takes two lists as input and integrates it using the composite
-    trapezoidal rule.
+    """The INTEGRATE node takes a numpy array, a vector, or a matrix as input and integrates it using the composite trapezoidal rule.
 
-    Parameters
-    ----------
-    None
+    Inputs
+    ------
+    default : OrderedPair|Vector
+        Input from which we get the two lists we use in the integration.
 
     Returns
     -------
-    OrderedPair, x, y
+    OrderedPair
+        x: the x-axis of the input.
+        y: the result of the integral.
     """
+
     match default:
         case OrderedPair():
             input_x = default.x

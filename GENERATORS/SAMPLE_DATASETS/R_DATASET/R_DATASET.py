@@ -93,12 +93,14 @@ def R_DATASET(
 ) -> DataFrame:
     """The R_DATASET node retrieves a pandas DataFrame from rdatasets using the provided dataset_key parameter and returns it wrapped in a DataContainer.
 
-    Parameters:
-    -----------
-    dataset_key: str
+    Parameters
+    ----------
+    dataset_key : str
 
-    Returns:
-        DataFrame: A DataContainer object containing the retrieved pandas DataFrame.
+    Returns
+    -------
+    DataFrame
+        A DataContainer object containing the retrieved pandas DataFrame.
     """
 
     df = data(dataset_key)
