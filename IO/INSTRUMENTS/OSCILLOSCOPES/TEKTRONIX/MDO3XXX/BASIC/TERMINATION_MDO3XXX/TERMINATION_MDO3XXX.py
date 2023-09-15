@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, TextBlob
+from flojoy import flojoy, DataContainer, Scalar
 import pyvisa
 from typing import Optional, Literal
 from flojoy.instruments.tektronix.MDO30xx import TektronixMDO30xx
@@ -14,21 +14,23 @@ from usb.core import USBError
         "qcodes": "0.39.1",
     }
 )
-def TRIGGER_SETTINGS_MDO3xxx(
+def TERMINATION_MDO3XXX(
     VISA_address: Optional[str],
     VISA_index: Optional[int] = 0,
     num_channels: int = 4,
+    channel: int = 0,
+    termination: Literal["50 ohm", "75 ohm", "1M ohm"] = "50 ohm",
     query_set: Literal["query", "set"] = "query",
-    edge_couplings: Literal[
-        "unchanged", "ac", "dc", "hfrej", "lfrej", "noiserej"
-    ] = "unchanged",
-    trigger_types: Literal["unchanged", "edge", "logic", "pulse"] = "unchanged",
-    edge_slope: Literal["unchanged", "rise", "fall", "either"] = "unchanged",
     default: Optional[DataContainer] = None,
 ) -> Optional[DataContainer]:
-    """The TRIGGER_SETTINGS_MDO3xxx node sets advanced trigger settings.
+    """The TERMINATION_MDO3XXX node sets the termination ohms (or queries it).
 
-    Note that "unchanged" will leave the settings unchanged.
+    The termination is set by the output, and the set termination
+    in the oscilloscope must match that value.
+
+    Note that the termination is often called the "electrical impedance".
+
+    Note that the 75 Ohm option is not compatible with all model numbers.
 
     If the "VISA_address" parameter is not specified the VISA_index will be
     used to find the address. The LIST_VISA node can be used to show the
@@ -45,19 +47,17 @@ def TRIGGER_SETTINGS_MDO3xxx(
         The address will be found from LIST_VISA node list with this index.
     num_channels: int
         The number of channels on the instrument that are currently in use.
+    channel: int
+        The channel to query or set the impedance/termination.
+    termination: str
+        The ohm to which the termination impedance is set to.
     query_set: str
-        Whether to query or set the triggering channel.
-    edge_couplings: str
-        Set the trigger edge coupling type.
-    trigger_types: str
-        Set to trigger on edge, logic, or pulses.
-    edge_slope: str
-        Set to trigger on positive, negative, or either slopes.
+        Whether to query or set the triggering voltage.
 
     Returns
     -------
     DataContainer
-        TextBlob: Summary of trigger settings.
+        Scalar: The triggering voltage.
     """
 
     rm = pyvisa.ResourceManager("@py")
@@ -78,33 +78,21 @@ def TRIGGER_SETTINGS_MDO3xxx(
             "USB port error. Trying unplugging+replugging the port."
         ) from err
 
-    if edge_couplings != "unchanged":
-        match query_set:
-            case "query":
-                edge_couplings = tek.trigger.edge_coupling()
-            case "set":
-                tek.trigger.edge_coupling(edge_couplings)
+    match termination:
+        case "50 ohm":
+            termination = 50
+        case "75 ohm":
+            termination = 75  # Not compatible with all instruments.
+        case "1M ohm":
+            termination = 1e6
 
-    if trigger_types != "unchanged":
-        match query_set:
-            case "query":
-                trigger_types = tek.trigger.type()
-            case "set":
-                tek.trigger.type(trigger_types)
-
-    if edge_slope != "unchanged":
-        match query_set:
-            case "query":
-                edge_slope = tek.trigger.edge_slope()
-            case "set":
-                tek.trigger.edge_slope(edge_slope)
-
-    s = str(
-        f"Edge coupling: {edge_couplings},\n"
-        f"Trigger type: {trigger_types},\n"
-        f"Edge slope: {edge_slope}"
-    )
+    match query_set:
+        case "query":
+            c = tek.channel[int(channel)].termination()
+        case "set":
+            tek.channel[int(channel)].termination(termination)
+            c = termination
 
     tek.close()
 
-    return TextBlob(text_blob=s)
+    return Scalar(c=c)

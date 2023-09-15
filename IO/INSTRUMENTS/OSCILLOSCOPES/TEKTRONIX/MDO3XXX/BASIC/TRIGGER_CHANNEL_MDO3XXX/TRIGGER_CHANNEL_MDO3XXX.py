@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, OrderedPair
+from flojoy import flojoy, DataContainer, TextBlob
 import pyvisa
 from typing import Optional, Literal
 from flojoy.instruments.tektronix.MDO30xx import TektronixMDO30xx
@@ -14,21 +14,15 @@ from usb.core import USBError
         "qcodes": "0.39.1",
     }
 )
-def EXTRACT_TRACE_MDO3xxx(
+def TRIGGER_CHANNEL_MDO3XXX(
     VISA_address: Optional[str],
     VISA_index: Optional[int] = 0,
     num_channels: int = 4,
     channel: int = 0,
-    x_length: int = 5000,
-    length_type: Literal["pixels", "nanoseconds"] = "pixels",
+    query_set: Literal["query", "set"] = "query",
     default: Optional[DataContainer] = None,
 ) -> Optional[DataContainer]:
-    """The EXTRACT_TRACE_MDO3xxx node extracts the trace from an MDO3xxx oscilloscope.
-
-    The number of points in the x axis is defined by x_length and length_type
-    parameters. A length_type of pixels and a x_length of 5000 will result in
-    a trace with 5000 points. A length_type of nanoseconds instead results in
-    a trace with a length of defined by the number of (nano)seconds.
+    """The TRIGGER_CHANNEL_MDO3XXX node sets the triggering channel (or queries it).
 
     If the "VISA_address" parameter is not specified the VISA_index will be
     used to find the address. The LIST_VISA node can be used to show the
@@ -45,15 +39,15 @@ def EXTRACT_TRACE_MDO3xxx(
         The address will be found from LIST_VISA node list with this index.
     num_channels: int
         The number of channels on the instrument that are currently in use.
-    x_length: int
-        The length of the trace to extract.
-    length_type: select
-        The units of the length specified in x_length: nanoseconds or pixels.
+    channel: int
+        The channel to set as the triggering channel (used if setting).
+    query_set: str
+        Whether to query or set the triggering channel.
 
     Returns
     -------
     DataContainer
-        OrderedPair: The trace of the oscilloscope is returned.
+        TextBlob: The triggering channel (e.g. CH1).
     """
 
     assert channel < num_channels, "Channel must be less than num_channels."
@@ -76,15 +70,13 @@ def EXTRACT_TRACE_MDO3xxx(
             "USB port error. Trying unplugging+replugging the port."
         ) from err
 
-    match length_type:
-        case "pixels":
-            tek.channel[0].set_trace_length(x_length)
-        case "nanoseconds":
-            tek.channel[0].set_trace_time(x_length / 1e9)
-
-    x = tek.channel[channel].waveform.trace_axis()
-    y = tek.channel[channel].waveform.trace()
+    match query_set:
+        case "query":
+            s = tek.trigger.source()
+        case "set":
+            tek.trigger.source(f"CH{1 + channel}")
+            s = f"CH{1 + channel}"
 
     tek.close()
 
-    return OrderedPair(x=x, y=y)
+    return TextBlob(text_blob=s)

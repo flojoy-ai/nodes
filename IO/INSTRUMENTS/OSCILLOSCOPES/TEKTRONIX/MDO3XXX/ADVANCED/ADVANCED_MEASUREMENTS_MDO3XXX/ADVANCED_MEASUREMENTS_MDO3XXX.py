@@ -14,7 +14,7 @@ from usb.core import USBError
         "qcodes": "0.39.1",
     }
 )
-def ADVANCED_MEASUREMENTS_MDO3xxx(
+def ADVANCED_MEASUREMENTS_MDO3XXX(
     VISA_address: Optional[str],
     VISA_index: Optional[int] = 0,
     num_channels: int = 4,
@@ -23,9 +23,9 @@ def ADVANCED_MEASUREMENTS_MDO3xxx(
     statistic: Literal["instant", "mean", "max", "min", "stdev"] = "instant",
     default: Optional[DataContainer] = None,
 ) -> Optional[DataContainer]:
-    """The ADVANCED_MEASUREMENTS_MDO3xxx node extracts waveform measurements from an MDO3xxx oscilloscope.
+    """The ADVANCED_MEASUREMENTS_MDO3XXX node extracts waveform measurements from an MDO3xxx oscilloscope.
 
-    This node is similar to MEASUREMENTS_MDO3xxx node but more measurements
+    This node is similar to MEASUREMENTS_MDO3XXX node but more measurements
     are availble. The available measurements are as follows:
 
     amplitude, area, burst, carea, cmean, crms, delay, distduty, extinctdb,

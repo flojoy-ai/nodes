@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer, Scalar
+from flojoy import flojoy, DataContainer, TextBlob
 import pyvisa
 from typing import Optional, Literal
 from flojoy.instruments.tektronix.MDO30xx import TektronixMDO30xx
@@ -14,18 +14,21 @@ from usb.core import USBError
         "qcodes": "0.39.1",
     }
 )
-def TRIGGER_LEVEL_MDO3xxx(
+def TRIGGER_SETTINGS_MDO3XXX(
     VISA_address: Optional[str],
     VISA_index: Optional[int] = 0,
     num_channels: int = 4,
-    trigger_volts: float = 0.1,
     query_set: Literal["query", "set"] = "query",
+    edge_couplings: Literal[
+        "unchanged", "ac", "dc", "hfrej", "lfrej", "noiserej"
+    ] = "unchanged",
+    trigger_types: Literal["unchanged", "edge", "logic", "pulse"] = "unchanged",
+    edge_slope: Literal["unchanged", "rise", "fall", "either"] = "unchanged",
     default: Optional[DataContainer] = None,
 ) -> Optional[DataContainer]:
-    """The TRIGGER_LEVEL_MDO3xxx node sets the trigger voltage (or queries it).
+    """The TRIGGER_SETTINGS_MDO3XXX node sets advanced trigger settings.
 
-    The trigger voltage is the level at which an oscilloscope will find the
-    start of a signal.
+    Note that "unchanged" will leave the settings unchanged.
 
     If the "VISA_address" parameter is not specified the VISA_index will be
     used to find the address. The LIST_VISA node can be used to show the
@@ -42,15 +45,19 @@ def TRIGGER_LEVEL_MDO3xxx(
         The address will be found from LIST_VISA node list with this index.
     num_channels: int
         The number of channels on the instrument that are currently in use.
-    trigger_volts: float
-        The voltage to set the triggering level to.
     query_set: str
-        Whether to query or set the triggering voltage.
+        Whether to query or set the triggering channel.
+    edge_couplings: str
+        Set the trigger edge coupling type.
+    trigger_types: str
+        Set to trigger on edge, logic, or pulses.
+    edge_slope: str
+        Set to trigger on positive, negative, or either slopes.
 
     Returns
     -------
     DataContainer
-        Scalar: The triggering voltage.
+        TextBlob: Summary of trigger settings.
     """
 
     rm = pyvisa.ResourceManager("@py")
@@ -71,14 +78,33 @@ def TRIGGER_LEVEL_MDO3xxx(
             "USB port error. Trying unplugging+replugging the port."
         ) from err
 
-    match query_set:
-        case "query":
-            volts = tek.trigger.level()
-            c = volts
-        case "set":
-            tek.trigger.level(trigger_volts)
-            c = trigger_volts
+    if edge_couplings != "unchanged":
+        match query_set:
+            case "query":
+                edge_couplings = tek.trigger.edge_coupling()
+            case "set":
+                tek.trigger.edge_coupling(edge_couplings)
+
+    if trigger_types != "unchanged":
+        match query_set:
+            case "query":
+                trigger_types = tek.trigger.type()
+            case "set":
+                tek.trigger.type(trigger_types)
+
+    if edge_slope != "unchanged":
+        match query_set:
+            case "query":
+                edge_slope = tek.trigger.edge_slope()
+            case "set":
+                tek.trigger.edge_slope(edge_slope)
+
+    s = str(
+        f"Edge coupling: {edge_couplings},\n"
+        f"Trigger type: {trigger_types},\n"
+        f"Edge slope: {edge_slope}"
+    )
 
     tek.close()
 
-    return Scalar(c=c)
+    return TextBlob(text_blob=s)
