@@ -5,16 +5,15 @@ from typing import Optional
 @flojoy(deps={"qcodes": "0.39.1", "pyvisa-sim": "0.5.1"})
 def MOCK_KEITHLEY2450(
     default: Optional[DataContainer] = None,
-    voltage: float = 0.0,
+    value: str = "1",
 ) -> Scalar:
     """Note this node is for testing purposes only.
 
     The KEYTHLEY2450 node mocks the instrument KEYTHLEY 2450.
-    The KEYTHLEY 2450 is the voltage source.
 
     Parameters
     ----------
-    voltage : float
+    value : str
         
     Returns
     -------
@@ -30,6 +29,8 @@ def MOCK_KEITHLEY2450(
     idn_dict = keith_sim.get_idn()
     print(f"Connected to mock instrument: {idn_dict}")
 
-    print(f"Current voltage: {idn_dict} dB")
+    keith_sim._set_source_function(value)
+    
+    print(f"Current source function: {keith_sim.source}")
 
-    return Scalar(c=keith_sim.VOLT)
+    return Scalar(c=5)
