@@ -2,12 +2,98 @@
     "rfInstance": {
         "nodes": [
             {
+                "width": 225,
+                "height": 226,
+                "id": "SCATTER-7f4fe283-a146-485b-8793-e5a07ae339ff",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "SCATTER-7f4fe283-a146-485b-8793-e5a07ae339ff",
+                    "label": "SCATTER",
+                    "func": "SCATTER",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Scatter visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/SCATTER/SCATTER.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 289.4898933887987,
+                    "y": -161.67635175269595
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 289.4898933887987,
+                    "y": -161.67635175269595
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "SCATTER-f2735caa-777c-4364-b261-bca394ce4fb9",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "SCATTER-f2735caa-777c-4364-b261-bca394ce4fb9",
+                    "label": "SCATTER 1",
+                    "func": "SCATTER",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Scatter visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/SCATTER/SCATTER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -20.152067256387554,
+                    "y": -431.7368995199853
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -20.152067256387554,
+                    "y": -431.7368995199853
+                },
+                "dragging": true
+            },
+            {
                 "width": 208,
                 "height": 96,
-                "id": "LINSPACE-2ed49441-b754-466d-83ed-a67759f7f6c0",
+                "id": "LINSPACE-03ef9f1a-dbb3-4082-8835-ebf2845f914f",
                 "type": "GENERATORS",
                 "data": {
-                    "id": "LINSPACE-2ed49441-b754-466d-83ed-a67759f7f6c0",
+                    "id": "LINSPACE-03ef9f1a-dbb3-4082-8835-ebf2845f914f",
                     "label": "LINSPACE",
                     "func": "LINSPACE",
                     "type": "GENERATORS",
@@ -58,27 +144,27 @@
                             "desc": "v: the vector between start and end with step number of points."
                         }
                     ],
-                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
+                    "path": "GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -446.6779449770943,
-                    "y": 76.62739294025627
+                    "x": -361.6088100911893,
+                    "y": -221.27586586241438
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -446.6779449770943,
-                    "y": 76.62739294025627
+                    "x": -361.6088100911893,
+                    "y": -221.27586586241438
                 },
                 "dragging": true
             },
             {
                 "width": 160,
                 "height": 160,
-                "id": "SORT_VECTOR-79d7eaaa-312f-4f0b-8c02-f9a6c2d3666c",
+                "id": "SORT_VECTOR-8a748763-ae9d-421f-b07a-8fc5a8eae218",
                 "type": "TRANSFORMERS",
                 "data": {
-                    "id": "SORT_VECTOR-79d7eaaa-312f-4f0b-8c02-f9a6c2d3666c",
+                    "id": "SORT_VECTOR-8a748763-ae9d-421f-b07a-8fc5a8eae218",
                     "label": "SORT VECTOR",
                     "func": "SORT_VECTOR",
                     "type": "TRANSFORMERS",
@@ -105,124 +191,38 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -94.38535903176495,
-                    "y": 92.63663539560753
+                    "x": -13.410053874852196,
+                    "y": -120.88090981304643
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -94.38535903176495,
-                    "y": 92.63663539560753
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "SCATTER-5b57987c-0f81-4711-b2ea-f40f8e523bfc",
-                "type": "VISUALIZERS",
-                "data": {
-                    "id": "SCATTER-5b57987c-0f81-4711-b2ea-f40f8e523bfc",
-                    "label": "SCATTER",
-                    "func": "SCATTER",
-                    "type": "VISUALIZERS",
-                    "ctrls": {},
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair|DataFrame|Matrix|Vector",
-                            "multiple": false,
-                            "desc": "the DataContainer to be visualized"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly",
-                            "desc": "the DataContainer containing Plotly Scatter visualization"
-                        }
-                    ],
-                    "path": "VISUALIZERS/PLOTLY/SCATTER/SCATTER.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 243.68600113758072,
-                    "y": 50.701018687274654
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 243.68600113758072,
-                    "y": 50.701018687274654
-                },
-                "dragging": true
-            },
-            {
-                "width": 380,
-                "height": 293,
-                "id": "SCATTER-35fd681a-375b-4728-8a86-13c92faecc63",
-                "type": "VISUALIZERS",
-                "data": {
-                    "id": "SCATTER-35fd681a-375b-4728-8a86-13c92faecc63",
-                    "label": "SCATTER 1",
-                    "func": "SCATTER",
-                    "type": "VISUALIZERS",
-                    "ctrls": {},
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair|DataFrame|Matrix|Vector",
-                            "multiple": false,
-                            "desc": "the DataContainer to be visualized"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly",
-                            "desc": "the DataContainer containing Plotly Scatter visualization"
-                        }
-                    ],
-                    "path": "VISUALIZERS/PLOTLY/SCATTER/SCATTER.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 26.36252396388518,
-                    "y": -240.97549204377654
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 26.36252396388518,
-                    "y": -240.97549204377654
+                    "x": -13.410053874852196,
+                    "y": -120.88090981304643
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LINSPACE-2ed49441-b754-466d-83ed-a67759f7f6c0",
+                "source": "LINSPACE-03ef9f1a-dbb3-4082-8835-ebf2845f914f",
                 "sourceHandle": "default",
-                "target": "SORT_VECTOR-79d7eaaa-312f-4f0b-8c02-f9a6c2d3666c",
+                "target": "SCATTER-f2735caa-777c-4364-b261-bca394ce4fb9",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LINSPACE-2ed49441-b754-466d-83ed-a67759f7f6c0default-SORT_VECTOR-79d7eaaa-312f-4f0b-8c02-f9a6c2d3666cdefault"
+                "id": "reactflow__edge-LINSPACE-03ef9f1a-dbb3-4082-8835-ebf2845f914fdefault-SCATTER-f2735caa-777c-4364-b261-bca394ce4fb9default"
             },
             {
-                "source": "SORT_VECTOR-79d7eaaa-312f-4f0b-8c02-f9a6c2d3666c",
+                "source": "SORT_VECTOR-8a748763-ae9d-421f-b07a-8fc5a8eae218",
                 "sourceHandle": "default",
-                "target": "SCATTER-5b57987c-0f81-4711-b2ea-f40f8e523bfc",
+                "target": "SCATTER-7f4fe283-a146-485b-8793-e5a07ae339ff",
                 "targetHandle": "default",
-                "id": "reactflow__edge-SORT_VECTOR-79d7eaaa-312f-4f0b-8c02-f9a6c2d3666cdefault-SCATTER-5b57987c-0f81-4711-b2ea-f40f8e523bfcdefault"
+                "id": "reactflow__edge-SORT_VECTOR-8a748763-ae9d-421f-b07a-8fc5a8eae218default-SCATTER-7f4fe283-a146-485b-8793-e5a07ae339ffdefault"
             },
             {
-                "source": "LINSPACE-2ed49441-b754-466d-83ed-a67759f7f6c0",
+                "source": "LINSPACE-03ef9f1a-dbb3-4082-8835-ebf2845f914f",
                 "sourceHandle": "default",
-                "target": "SCATTER-35fd681a-375b-4728-8a86-13c92faecc63",
+                "target": "SORT_VECTOR-8a748763-ae9d-421f-b07a-8fc5a8eae218",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LINSPACE-2ed49441-b754-466d-83ed-a67759f7f6c0default-SCATTER-35fd681a-375b-4728-8a86-13c92faecc63default"
+                "id": "reactflow__edge-LINSPACE-03ef9f1a-dbb3-4082-8835-ebf2845f914fdefault-SORT_VECTOR-8a748763-ae9d-421f-b07a-8fc5a8eae218default"
             }
         ],
         "viewport": {

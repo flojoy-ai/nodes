@@ -17,4 +17,4 @@ def SORT_VECTOR(
         Sorted input vector
     """
 
-    return Vector(sorted(default.v))
+    return Vector(v=sorted(default.v))
