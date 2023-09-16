@@ -13,6 +13,8 @@ def test_SHUFFLE_VECTOR(mock_flojoy_decorator):
 
     result = np.random.permutation(x)
 
+    np.random.seed(42)
+
     shuffledX = SHUFFLE_VECTOR.SHUFFLE_VECTOR(inputVector)
 
     assert np.array_equal(shuffledX.v, result)

@@ -8,7 +8,7 @@ def SORT_VECTOR(
 
     Inputs
     ------
-    v : Vector
+    default : Vector
         The input vector
 
     Returns

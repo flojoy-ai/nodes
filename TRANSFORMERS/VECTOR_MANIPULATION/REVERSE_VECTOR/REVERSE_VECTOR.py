@@ -10,7 +10,7 @@ def REVERSE_VECTOR(
 
     Inputs
     ------
-    v : Vector
+    default : Vector
         The input vector
 
     Returns

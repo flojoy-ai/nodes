@@ -19,7 +19,7 @@ def SORT_MATRIX(a: Matrix, axis: int = -1) -> Matrix:
     Returns
     -------
     Matrix
-        The matrix result from the matrix multiplication.
+        The matrix result from sorting.
     """
     inputMatrix = a.m
     sortedMatrix = np.sort(inputMatrix, axis=axis)
