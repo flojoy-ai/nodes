@@ -1,6 +1,7 @@
 import numpy as np
 from flojoy import flojoy, Vector
 
+
 @flojoy
 def SHUFFLE_VECTOR(
     default: Vector,

@@ -1,6 +1,7 @@
 import numpy as np
 from flojoy import flojoy, Matrix
 
+
 @flojoy
 def SHUFFLE_MATRIX(
     default: Matrix,

@@ -7,7 +7,7 @@ def test_SHUFFLE_VECTOR(mock_flojoy_decorator):
 
     np.random.seed(42)
 
-    x = np.array([3,5,1,6])
+    x = np.array([3, 5, 1, 6])
 
     inputVector = Vector(v=x)
 
