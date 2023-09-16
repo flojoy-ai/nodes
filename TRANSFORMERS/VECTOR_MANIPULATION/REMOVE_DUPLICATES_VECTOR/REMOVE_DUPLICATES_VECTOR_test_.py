@@ -10,6 +10,6 @@ def test_REMOVE_DUPLICATES_VECTOR(mock_flojoy_decorator):
 
     result = np.array([1,3,5,6])
 
-    sortedX = REMOVE_DUPLICATES_VECTOR.REMOVE_DUPLICATES_VECTOR(inputVector)
+    removeDuplicatesX = REMOVE_DUPLICATES_VECTOR.REMOVE_DUPLICATES_VECTOR(inputVector)
 
-    assert np.array_equal(sortedX.v, result)
+    assert np.array_equal(removeDuplicatesX.v, result)

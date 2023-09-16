@@ -10,6 +10,6 @@ def test_REVERSE_VECTOR(mock_flojoy_decorator):
 
     result = np.array([6,1,5,3])
 
-    sortedX = REVERSE_VECTOR.REVERSE_VECTOR(inputVector)
+    reverseX = REVERSE_VECTOR.REVERSE_VECTOR(inputVector)
 
-    assert np.array_equal(sortedX.v, result)
+    assert np.array_equal(reverseX.v, result)
