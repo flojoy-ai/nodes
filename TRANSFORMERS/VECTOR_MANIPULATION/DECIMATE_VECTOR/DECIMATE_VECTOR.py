@@ -1,5 +1,4 @@
 import numpy as np
-from scipy import signal
 from flojoy import flojoy, Vector
 
 
