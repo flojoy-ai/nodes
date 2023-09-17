@@ -4,7 +4,7 @@ from typing import Literal
 
 
 @flojoy
-def VECTOR_MIN_MAX(default: Vector, option: Literal["min", "max"] = "max") -> Scalar:
+def VECTOR_MIN_MAX(default: Vector, operation: Literal["min", "max"] = "max") -> Scalar:
     """The VECTOR_MIN_MAX node returns the maximum or minimum value from the Vector
 
     Inputs
@@ -14,16 +14,16 @@ def VECTOR_MIN_MAX(default: Vector, option: Literal["min", "max"] = "max") -> Sc
 
     Parameters
     ----------
-    option: "min" | "max", default="max"
-        Select whether to find the maximum or minimum element in input vector 
+    operation: "min" | "max", default="max"
+        Select whether to find the maximum or minimum element in input vector
 
     Returns
     -------
     Scalar
         The maximum or minimum value found based on the operation performed
     """
-    
-    match option:
+
+    match operation:
         case "min":
             c = np.min(default.v)
         case "max":

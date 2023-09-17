@@ -1,0 +1,1 @@
+In this example, we generate a vector starting from 8 and ending at 50 by using a `LINSPACE` node. Then, a pair of `VECTOR_MIN_MAX` nodes are connected to the example vector where one will find the maximum value and the other will find the minimum value. The value is visualized with `BIG_NUMBER` node.

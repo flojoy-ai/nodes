@@ -1,0 +1,514 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 160,
+                "height": 160,
+                "id": "VECTOR_MIN_MAX-5463a34e-99db-42f9-a365-495ad2f39163",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "VECTOR_MIN_MAX-5463a34e-99db-42f9-a365-495ad2f39163",
+                    "label": "VECTOR MIN MAX",
+                    "func": "VECTOR_MIN_MAX",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {
+                        "operation": {
+                            "type": "select",
+                            "options": [
+                                "min",
+                                "max"
+                            ],
+                            "default": "max",
+                            "desc": "Select whether to find the maximum or minimum element in input vector",
+                            "overload": null,
+                            "functionName": "VECTOR_MIN_MAX",
+                            "param": "operation",
+                            "value": "max"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Scalar",
+                            "desc": "The maximum or minimum value found based on the operation performed"
+                        }
+                    ],
+                    "path": "TRANSFORMERS/VECTOR_MANIPULATION/VECTOR_MIN_MAX/VECTOR_MIN_MAX.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 73.01758628424314,
+                    "y": -133.2742876268928
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 73.01758628424314,
+                    "y": -133.2742876268928
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "LINSPACE-6c02bd38-133e-4947-8b41-bb202db125bd",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "LINSPACE-6c02bd38-133e-4947-8b41-bb202db125bd",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "start": {
+                            "type": "float",
+                            "default": 10,
+                            "desc": "The start point of the data.",
+                            "overload": null,
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": 8
+                        },
+                        "end": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "The end point of the data.",
+                            "overload": null,
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": 50
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "desc": "The number of points in the vector.",
+                            "overload": null,
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": 200
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector|OrderedPair",
+                            "multiple": false,
+                            "desc": "Optional input in case LINSPACE is used in a loop. Not used."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "desc": "v: the vector between start and end with step number of points."
+                        }
+                    ],
+                    "path": "GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -219.2389174690399,
+                    "y": 15.92299670970931
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -219.2389174690399,
+                    "y": 15.92299670970931
+                },
+                "dragging": true
+            },
+            {
+                "width": 160,
+                "height": 160,
+                "id": "VECTOR_MIN_MAX-3a5ffdba-4aab-4124-9f28-1b72807d3b1f",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "VECTOR_MIN_MAX-3a5ffdba-4aab-4124-9f28-1b72807d3b1f",
+                    "label": "VECTOR MIN MAX 1",
+                    "func": "VECTOR_MIN_MAX",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {
+                        "operation": {
+                            "type": "select",
+                            "options": [
+                                "min",
+                                "max"
+                            ],
+                            "default": "max",
+                            "desc": "Select whether to find the maximum or minimum element in input vector",
+                            "overload": null,
+                            "functionName": "VECTOR_MIN_MAX",
+                            "param": "operation",
+                            "value": "min"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Scalar",
+                            "desc": "The maximum or minimum value found based on the operation performed"
+                        }
+                    ],
+                    "path": "TRANSFORMERS/VECTOR_MANIPULATION/VECTOR_MIN_MAX/VECTOR_MIN_MAX.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 79.39222656802858,
+                    "y": 87.94899099306656
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 79.39222656802858,
+                    "y": 87.94899099306656
+                },
+                "dragging": true
+            },
+            {
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-0debf03c-525b-4b9b-847e-5edc6241ef42",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-0debf03c-525b-4b9b-847e-5edc6241ef42",
+                    "label": "TEXT VIEW",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 980.4359312358549,
+                    "y": -67.2526913489113
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 980.4359312358549,
+                    "y": -67.2526913489113
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "BIG_NUMBER-0fbae051-9584-40e2-a03a-8161aa723741",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "BIG_NUMBER-0fbae051-9584-40e2-a03a-8161aa723741",
+                    "label": "BIG NUMBER",
+                    "func": "BIG_NUMBER",
+                    "type": "VISUALIZERS",
+                    "ctrls": {
+                        "suffix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "any suffix to show with big number",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "suffix",
+                            "value": ""
+                        },
+                        "prefix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "any prefix to show with big number",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "prefix",
+                            "value": ""
+                        },
+                        "title": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "title of the plot, default \"BIG_NUMBER\"",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "title",
+                            "value": ""
+                        },
+                        "relative_delta": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": "whether to show relative delta from last run along with big number",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": true
+                        },
+                        "scientific_notation": {
+                            "type": "bool",
+                            "default": false,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "scientific_notation",
+                            "value": false
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly big number visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/BIG_NUMBER/BIG_NUMBER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 317.619279233553,
+                    "y": -168.3357947583299
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 317.619279233553,
+                    "y": -168.3357947583299
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "BIG_NUMBER-beffa775-85b1-4446-9316-e087104be757",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "BIG_NUMBER-beffa775-85b1-4446-9316-e087104be757",
+                    "label": "BIG NUMBER 1",
+                    "func": "BIG_NUMBER",
+                    "type": "VISUALIZERS",
+                    "ctrls": {
+                        "suffix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "any suffix to show with big number",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "suffix",
+                            "value": ""
+                        },
+                        "prefix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "any prefix to show with big number",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "prefix",
+                            "value": ""
+                        },
+                        "title": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "title of the plot, default \"BIG_NUMBER\"",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "title",
+                            "value": ""
+                        },
+                        "relative_delta": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": "whether to show relative delta from last run along with big number",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": true
+                        },
+                        "scientific_notation": {
+                            "type": "bool",
+                            "default": false,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "scientific_notation",
+                            "value": false
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly big number visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/BIG_NUMBER/BIG_NUMBER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 319.7009201050409,
+                    "y": 73.12463291966452
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 319.7009201050409,
+                    "y": 73.12463291966452
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "TEXT-ac68dc72-1651-47b9-ab36-2399c51e5261",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "TEXT-ac68dc72-1651-47b9-ab36-2399c51e5261",
+                    "label": "TEXT",
+                    "func": "TEXT",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "value": {
+                            "type": "str",
+                            "default": "Hello World!",
+                            "desc": "The value set in Parameters",
+                            "overload": null,
+                            "functionName": "TEXT",
+                            "param": "value",
+                            "value": "This app shows the VECTOR MIN MAX node can be used to extract minimum/maximum values from the input vector. The top VECTOR MIN MAX node has been set to find the maximum and the one below has been set to find the minimum."
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "_",
+                            "id": "_",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "desc": "text_blob: return the value being set in Parameters"
+                        }
+                    ],
+                    "path": "GENERATORS/SIMULATIONS/TEXT/TEXT.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 737.888915926534,
+                    "y": 20.500470242949575
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 737.888915926534,
+                    "y": 20.500470242949575
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LINSPACE-6c02bd38-133e-4947-8b41-bb202db125bd",
+                "sourceHandle": "default",
+                "target": "VECTOR_MIN_MAX-5463a34e-99db-42f9-a365-495ad2f39163",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-6c02bd38-133e-4947-8b41-bb202db125bddefault-VECTOR_MIN_MAX-5463a34e-99db-42f9-a365-495ad2f39163default"
+            },
+            {
+                "source": "LINSPACE-6c02bd38-133e-4947-8b41-bb202db125bd",
+                "sourceHandle": "default",
+                "target": "VECTOR_MIN_MAX-3a5ffdba-4aab-4124-9f28-1b72807d3b1f",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-6c02bd38-133e-4947-8b41-bb202db125bddefault-VECTOR_MIN_MAX-3a5ffdba-4aab-4124-9f28-1b72807d3b1fdefault"
+            },
+            {
+                "source": "VECTOR_MIN_MAX-5463a34e-99db-42f9-a365-495ad2f39163",
+                "sourceHandle": "default",
+                "target": "BIG_NUMBER-0fbae051-9584-40e2-a03a-8161aa723741",
+                "targetHandle": "default",
+                "id": "reactflow__edge-VECTOR_MIN_MAX-5463a34e-99db-42f9-a365-495ad2f39163default-BIG_NUMBER-0fbae051-9584-40e2-a03a-8161aa723741default"
+            },
+            {
+                "source": "VECTOR_MIN_MAX-3a5ffdba-4aab-4124-9f28-1b72807d3b1f",
+                "sourceHandle": "default",
+                "target": "BIG_NUMBER-beffa775-85b1-4446-9316-e087104be757",
+                "targetHandle": "default",
+                "id": "reactflow__edge-VECTOR_MIN_MAX-3a5ffdba-4aab-4124-9f28-1b72807d3b1fdefault-BIG_NUMBER-beffa775-85b1-4446-9316-e087104be757default"
+            },
+            {
+                "source": "BIG_NUMBER-0fbae051-9584-40e2-a03a-8161aa723741",
+                "sourceHandle": "default",
+                "target": "TEXT-ac68dc72-1651-47b9-ab36-2399c51e5261",
+                "targetHandle": "_",
+                "id": "reactflow__edge-BIG_NUMBER-0fbae051-9584-40e2-a03a-8161aa723741default-TEXT-ac68dc72-1651-47b9-ab36-2399c51e5261_",
+                "selected": false
+            },
+            {
+                "source": "BIG_NUMBER-beffa775-85b1-4446-9316-e087104be757",
+                "sourceHandle": "default",
+                "target": "TEXT-ac68dc72-1651-47b9-ab36-2399c51e5261",
+                "targetHandle": "_",
+                "id": "reactflow__edge-BIG_NUMBER-beffa775-85b1-4446-9316-e087104be757default-TEXT-ac68dc72-1651-47b9-ab36-2399c51e5261_"
+            },
+            {
+                "source": "TEXT-ac68dc72-1651-47b9-ab36-2399c51e5261",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-0debf03c-525b-4b9b-847e-5edc6241ef42",
+                "targetHandle": "default",
+                "id": "reactflow__edge-TEXT-ac68dc72-1651-47b9-ab36-2399c51e5261default-TEXT_VIEW-0debf03c-525b-4b9b-847e-5edc6241ef42default"
+            }
+        ],
+        "viewport": {
+            "x": 637.654905587641,
+            "y": 370.10612546109087,
+            "zoom": 0.7111497425822767
+        }
+    }
+}
