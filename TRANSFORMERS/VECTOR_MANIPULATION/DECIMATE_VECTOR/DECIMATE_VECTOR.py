@@ -18,7 +18,7 @@ def DECIMATE_VECTOR(
     Parameters
     ----------
     factor : int
-        Decimate factor which determines how many elements will be skipped 
+        Decimate factor which determines how many elements will be skipped
         between each selected element in the output vector
 
     Returns
@@ -26,5 +26,5 @@ def DECIMATE_VECTOR(
     Vector
         Decimated vector
     """
-    
+
     return Vector(v=default.v[::factor])
