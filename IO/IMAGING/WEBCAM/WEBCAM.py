@@ -1,5 +1,5 @@
 import cv2
-from flojoy import Camera, flojoy, DataContainer, Image
+from flojoy import flojoy, DataContainer, Camera, Image
 from typing import Optional, Literal
 
 
@@ -29,10 +29,8 @@ def WEBCAM(
     if not camera:
         raise ValueError("No camera selected")
 
-    camera_id = camera.get_id()
-
     try:
-        cam = cv2.VideoCapture(camera_id)
+        cam = cv2.VideoCapture(camera.get_id())
         if resolution != "default":
             resolution = resolution.split("x")
             try:
