@@ -1,25 +1,28 @@
 from flojoy import flojoy, Bytes
 from typing import Optional
+
+from PYTHON.utils.mecademic_state.mecademic_state import query_for_handle
 from PYTHON.utils.mecademic_utils import check_connection
+import mecademicpy.robot as mdr
 
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
 def MOVE_POSE(
-    conn_handle: Bytes,
+    ip_address: str,
     x: float,
     y: float,
     z: float,
     alpha: Optional[float] = 0,
     beta: Optional[float] = 0,
     gamma: Optional[float] = 0,
-) -> Bytes:
+) -> str:
     """
     The MOVE_POSE node linearly moves the robot's tool to an absolute Cartesian position.
 
     Inputs
     ------
-    conn_handle
-        A handle to the robot arm object.
+    ip_address
+        The IP address of the robot arm.
 
     Parameters
     ------
@@ -38,10 +41,12 @@ def MOVE_POSE(
 
     Returns
     -------
-    conn_handle
-        A handle to the robot arm object after it has been moved.
+    ip_address
+        The IP address of the robot arm.
 
     """
-    check_connection(conn_handle.b)
-    conn_handle.b.MovePose(x=x, y=y, z=z, alpha=alpha, beta=beta, gamma=gamma)
-    return conn_handle
+    robot: mdr.Robot = query_for_handle(ip_address)
+    check_connection(robot)
+    robot.MovePose(x=x, y=y, z=z, alpha=alpha, beta=beta, gamma=gamma)
+    return ip_address
+
