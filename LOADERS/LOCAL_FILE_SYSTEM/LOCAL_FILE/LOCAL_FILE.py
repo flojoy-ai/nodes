@@ -37,13 +37,13 @@ def LOCAL_FILE(
         Path to the file to be loaded.
     default : Optional[TextBlob]
         If this input node is connected, the file name will be taken from
-        the output of the connected node. 
+        the output of the connected node.
         To be used in conjunction with batch processing.
     file_type : str
         Type of file to load, default = image.
         If both 'file_path' and 'default' are not specified when 'file_type="Image"',
         a default image will be loaded.
-        If the file path is not specified and the default input is not connected, 
+        If the file path is not specified and the default input is not connected,
         a ValueError is raised.
 
     Returns

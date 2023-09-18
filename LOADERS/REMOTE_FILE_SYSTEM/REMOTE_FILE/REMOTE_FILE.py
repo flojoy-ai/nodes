@@ -45,7 +45,7 @@ def REMOTE_FILE(
         URL of the file to be loaded.
     default : Optional[TextBlob]
         If this input node is connected, the file URL will be taken from
-        the output of the connected node. 
+        the output of the connected node.
         To be used in conjunction with batch processing.
     file_type : str
         Type of file to load, default = image.
@@ -56,7 +56,7 @@ def REMOTE_FILE(
         Image for file_type 'image'.
         DataFrame for file_type 'json', 'csv', 'excel', 'xml'.
     """
-    
+
     file_url = default.text_blob if default else file_url
     file_url = "" if file_url is None else file_url
 

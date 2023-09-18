@@ -50,7 +50,7 @@ def SAVGOL_FILTER(
     mode : str, optional
         Must be 'mirror', 'constant', 'nearest', 'wrap' or 'interp'.
         This determines the type of extension to use for the padded signal to
-        which the filter is applied. 
+        which the filter is applied.
         When 'mode' is 'constant', the padding value is given by 'cval'.
         See the Notes for more details on 'mirror', 'constant', 'wrap', and 'nearest'.
         When the 'interp' mode is selected (the default), no extension is used.

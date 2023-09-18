@@ -13,7 +13,7 @@ class IMAGE_CHANNEL_OUTPUTS(TypedDict):
 @flojoy
 def CHANNEL_SPLIT(default: Image | Matrix) -> IMAGE_CHANNEL_OUTPUTS:
     """The CHANNEL_SPLIT node returns the rgba channels of an image into 4 separate images for direct visualization.
-    
+
     While the notion of "splitting an image into RGBA channels" is inherently tied to coloured pictures, this function will attempt to make sense of multiple input types.
 
     Should the input be of type 'Image', then the function will return the RGBA channels.

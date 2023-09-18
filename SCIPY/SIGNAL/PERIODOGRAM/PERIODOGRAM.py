@@ -32,10 +32,10 @@ def PERIODOGRAM(
     x : array_like
         Time series of measurement values.
     fs : float, optional
-        Sampling frequency of the 'x' time series. 
+        Sampling frequency of the 'x' time series.
         Defaults to 1.0.
     window : str or tuple or array_like, optional
-        Desired window to use. 
+        Desired window to use.
         If 'window' is a string or tuple, it is passed to 'get_window' to
         generate the window values, which are DFT-even by default.
         See 'get_window' for a list of windows and required parameters.
@@ -47,7 +47,7 @@ def PERIODOGRAM(
         If 'None', the length of 'x' will be used.
     detrend : str or function or 'False', optional
         Specifies how to detrend each segment.
-        If 'detrend' is a string, it is passed as the 'type' argument 
+        If 'detrend' is a string, it is passed as the 'type' argument
         to the 'detrend' function.
         If it is a function, it takes a segment and returns a detrended segment.
         If 'detrend' is 'False', no detrending is done.

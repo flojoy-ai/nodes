@@ -41,7 +41,7 @@ def EXTREMA_DETERMINATION(
     max_power: int = 9,
 ) -> EXTREMA_OUTPUT:
     """The EXTREMA_DETERMINATION node is used to determine the peak in an image.
-    
+
     The ability to find local peaks will not depend on the extrema being
     exponentially separated from the neighboring values, or some other restrictive constraint.
 

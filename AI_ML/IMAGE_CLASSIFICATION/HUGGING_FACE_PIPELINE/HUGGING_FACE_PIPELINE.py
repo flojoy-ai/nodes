@@ -19,19 +19,19 @@ def HUGGING_FACE_PIPELINE(
 ) -> DataFrame:
     """The HUGGING_FACE_PIPELINE node uses a classification pipeline to process and classify an image.
 
-    For more information about Vision Transformers, 
+    For more information about Vision Transformers,
     see: https://huggingface.co/google/vit-base-patch16-224
-    
-    For a complete list of models, see: 
+
+    For a complete list of models, see:
     https://huggingface.co/models?pipeline_tag=image-classification
-    
-    For examples of how revision parameters (such as 'main') is used, 
+
+    For examples of how revision parameters (such as 'main') is used,
     see: https://huggingface.co/google/vit-base-patch16-224/commits/main
 
     Parameters
     ----------
     default : Image
-        The input image to be classified. 
+        The input image to be classified.
         The image must be a PIL.Image object, wrapped in a Flojoy Image object.
     model : str
         The model to be used for classification.
@@ -43,7 +43,7 @@ def HUGGING_FACE_PIPELINE(
     Returns
     -------
     DataFrame:
-        A DataFrame containing the columns 'label' (as classification label) 
+        A DataFrame containing the columns 'label' (as classification label)
         and 'score' (as the confidence score).
         All scores are between 0 and 1, and sum to 1.
     """

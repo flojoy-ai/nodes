@@ -14,7 +14,7 @@ def IV_SWEEP(
         Defines the serial communication port for the Keithley2400 source meter.
     baudrate : float
         Specifies the baud rate for the serial communication between the Keithley2400 and the computer.
-    
+
     Returns
     -------
     OrderedPair
