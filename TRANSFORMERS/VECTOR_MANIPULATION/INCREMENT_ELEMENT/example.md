@@ -1,1 +1,1 @@
-In this example, we generate a vector by using a `LINSPACE` node. Then specify the value to increment for each element in the vector. The resulting vector is visualized with `LINE` node. 
+In this example, we generate a vector by using a `LINSPACE` node. Then specify the value to increment for each element in the vector with `INCREMENT_ELEMENT` node. The resulting vector is visualized with `LINE` node. 
