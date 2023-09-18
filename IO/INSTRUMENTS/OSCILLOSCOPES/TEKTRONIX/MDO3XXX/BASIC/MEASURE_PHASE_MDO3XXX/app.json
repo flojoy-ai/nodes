@@ -1,0 +1,587 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 192,
+                "height": 192,
+                "id": "MEASURE_PHASE_MDO3xxx-3be6aedd-2269-4b55-adcc-87cf297cfdc4",
+                "type": "IO",
+                "data": {
+                    "id": "MEASURE_PHASE_MDO3xxx-3be6aedd-2269-4b55-adcc-87cf297cfdc4",
+                    "label": "MEASURE PHASE MDO3xxx",
+                    "func": "MEASURE_PHASE_MDO3xxx",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "MEASURE_PHASE_MDO3xxx",
+                            "param": "VISA_address",
+                            "value": "USB0::1689::1032::C012101::0::INSTR"
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "MEASURE_PHASE_MDO3xxx",
+                            "param": "VISA_index",
+                            "value": 0
+                        },
+                        "num_channels": {
+                            "type": "int",
+                            "default": 4,
+                            "desc": "The number of channels on the instrument that are currently in use.",
+                            "overload": null,
+                            "functionName": "MEASURE_PHASE_MDO3xxx",
+                            "param": "num_channels",
+                            "value": 2
+                        },
+                        "channel1": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The first channel.",
+                            "overload": null,
+                            "functionName": "MEASURE_PHASE_MDO3xxx",
+                            "param": "channel1",
+                            "value": 0
+                        },
+                        "channel2": {
+                            "type": "int",
+                            "default": 1,
+                            "desc": "The second channel.",
+                            "overload": null,
+                            "functionName": "MEASURE_PHASE_MDO3xxx",
+                            "param": "channel2",
+                            "value": 1
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "Scalar: The phase between the two channels."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/OSCILLOSCOPES/TEKTRONIX/MDO3xxx/BASIC/MEASURE_PHASE_MDO3xxx/MEASURE_PHASE_MDO3xxx.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -146.94504189289654,
+                    "y": -138.10351810131488
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -146.94504189289654,
+                    "y": -138.10351810131488
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-710f7624-23ea-4cb3-b7df-63cd5fae8344",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TABLE-710f7624-23ea-4cb3-b7df-63cd5fae8344",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Vector|Scalar",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Table visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 222.50359203679318,
+                    "y": -182.86020845531098
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 222.50359203679318,
+                    "y": -182.86020845531098
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "EXTRACT_TRACE_MDO3xxx-7cb94424-b410-48fe-8801-16875e59ab33",
+                "type": "IO",
+                "data": {
+                    "id": "EXTRACT_TRACE_MDO3xxx-7cb94424-b410-48fe-8801-16875e59ab33",
+                    "label": "EXTRACT TRACE MDO3xxx",
+                    "func": "EXTRACT_TRACE_MDO3xxx",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3xxx",
+                            "param": "VISA_address",
+                            "value": "USB0::1689::1032::C012101::0::INSTR"
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3xxx",
+                            "param": "VISA_index",
+                            "value": 0
+                        },
+                        "num_channels": {
+                            "type": "int",
+                            "default": 4,
+                            "desc": "The number of channels on the instrument that are currently in use.",
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3xxx",
+                            "param": "num_channels",
+                            "value": 2
+                        },
+                        "channel": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3xxx",
+                            "param": "channel",
+                            "value": 0
+                        },
+                        "x_length": {
+                            "type": "int",
+                            "default": 5000,
+                            "desc": "The length of the trace to extract.",
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3xxx",
+                            "param": "x_length",
+                            "value": 1000
+                        },
+                        "length_type": {
+                            "type": "select",
+                            "options": [
+                                "pixels",
+                                "nanoseconds"
+                            ],
+                            "default": "pixels",
+                            "desc": "The units of the length specified in x_length: nanoseconds or pixels.",
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3xxx",
+                            "param": "length_type",
+                            "value": "nanoseconds"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "OrderedPair: The trace of the oscilloscope is returned."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/OSCILLOSCOPES/TEKTRONIX/MDO3xxx/BASIC/EXTRACT_TRACE_MDO3xxx/EXTRACT_TRACE_MDO3xxx.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -544.9773918631628,
+                    "y": -495.41393710471084
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -544.9773918631628,
+                    "y": -495.41393710471084
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "EXTRACT_TRACE_MDO3xxx-f06cac58-5342-4720-9a19-4daecc6ef496",
+                "type": "IO",
+                "data": {
+                    "id": "EXTRACT_TRACE_MDO3xxx-f06cac58-5342-4720-9a19-4daecc6ef496",
+                    "label": "EXTRACT TRACE MDO3xxx 1",
+                    "func": "EXTRACT_TRACE_MDO3xxx",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3xxx",
+                            "param": "VISA_address",
+                            "value": "USB0::1689::1032::C012101::0::INSTR"
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3xxx",
+                            "param": "VISA_index",
+                            "value": 0
+                        },
+                        "num_channels": {
+                            "type": "int",
+                            "default": 4,
+                            "desc": "The number of channels on the instrument that are currently in use.",
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3xxx",
+                            "param": "num_channels",
+                            "value": 2
+                        },
+                        "channel": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3xxx",
+                            "param": "channel",
+                            "value": 1
+                        },
+                        "x_length": {
+                            "type": "int",
+                            "default": 5000,
+                            "desc": "The length of the trace to extract.",
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3xxx",
+                            "param": "x_length",
+                            "value": 1000
+                        },
+                        "length_type": {
+                            "type": "select",
+                            "options": [
+                                "pixels",
+                                "nanoseconds"
+                            ],
+                            "default": "pixels",
+                            "desc": "The units of the length specified in x_length: nanoseconds or pixels.",
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3xxx",
+                            "param": "length_type",
+                            "value": "nanoseconds"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "OrderedPair: The trace of the oscilloscope is returned."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/OSCILLOSCOPES/TEKTRONIX/MDO3xxx/BASIC/EXTRACT_TRACE_MDO3xxx/EXTRACT_TRACE_MDO3xxx.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -540.3639098715225,
+                    "y": -142.35021160957592
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -540.3639098715225,
+                    "y": -142.35021160957592
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "CLOSE_ALL-7334967e-96fc-4dfd-ad5b-7056d23c5a0e",
+                "type": "IO",
+                "data": {
+                    "id": "CLOSE_ALL-7334967e-96fc-4dfd-ad5b-7056d23c5a0e",
+                    "label": "CLOSE ALL",
+                    "func": "CLOSE_ALL",
+                    "type": "IO",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "optional: The input DataContainer is returned."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/QCODES/CLOSE_ALL/CLOSE_ALL.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -946.3627341334177,
+                    "y": -245.60062718347706
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -946.3627341334177,
+                    "y": -245.60062718347706
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "COMPOSITE-706a3e88-dedb-4f32-8307-46c5aaddc8c0",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "COMPOSITE-706a3e88-dedb-4f32-8307-46c5aaddc8c0",
+                    "label": "COMPOSITE",
+                    "func": "COMPOSITE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {
+                        "first_figure": {
+                            "type": "select",
+                            "options": [
+                                "bar",
+                                "line",
+                                "histogram",
+                                "scatter"
+                            ],
+                            "default": "scatter",
+                            "desc": "plotly type to display as the first figure, default is 'scatter'",
+                            "overload": null,
+                            "functionName": "COMPOSITE",
+                            "param": "first_figure",
+                            "value": "line"
+                        },
+                        "second_figure": {
+                            "type": "select",
+                            "options": [
+                                "bar",
+                                "line",
+                                "histogram",
+                                "scatter"
+                            ],
+                            "default": "line",
+                            "desc": "plotly type to display as the second figure, default is 'line'",
+                            "overload": null,
+                            "functionName": "COMPOSITE",
+                            "param": "second_figure",
+                            "value": "line"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "primary_trace",
+                            "id": "primary_trace",
+                            "type": "OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized as the first figure"
+                        },
+                        {
+                            "name": "secondary_trace",
+                            "id": "secondary_trace",
+                            "type": "OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized as the second figure"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly visualization of both figures"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/COMPOSITE/COMPOSITE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -135.13323675148646,
+                    "y": -514.9178936918959
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -135.13323675148646,
+                    "y": -514.9178936918959
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "MEASURE_PHASE_MDO3xxx-3be6aedd-2269-4b55-adcc-87cf297cfdc4",
+                "sourceHandle": "default",
+                "target": "TABLE-710f7624-23ea-4cb3-b7df-63cd5fae8344",
+                "targetHandle": "default",
+                "id": "reactflow__edge-MEASURE_PHASE_MDO3xxx-3be6aedd-2269-4b55-adcc-87cf297cfdc4default-TABLE-710f7624-23ea-4cb3-b7df-63cd5fae8344default"
+            },
+            {
+                "source": "CLOSE_ALL-7334967e-96fc-4dfd-ad5b-7056d23c5a0e",
+                "sourceHandle": "default",
+                "target": "EXTRACT_TRACE_MDO3xxx-7cb94424-b410-48fe-8801-16875e59ab33",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CLOSE_ALL-7334967e-96fc-4dfd-ad5b-7056d23c5a0edefault-EXTRACT_TRACE_MDO3xxx-7cb94424-b410-48fe-8801-16875e59ab33default"
+            },
+            {
+                "source": "CLOSE_ALL-7334967e-96fc-4dfd-ad5b-7056d23c5a0e",
+                "sourceHandle": "default",
+                "target": "EXTRACT_TRACE_MDO3xxx-f06cac58-5342-4720-9a19-4daecc6ef496",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CLOSE_ALL-7334967e-96fc-4dfd-ad5b-7056d23c5a0edefault-EXTRACT_TRACE_MDO3xxx-f06cac58-5342-4720-9a19-4daecc6ef496default"
+            },
+            {
+                "source": "EXTRACT_TRACE_MDO3xxx-f06cac58-5342-4720-9a19-4daecc6ef496",
+                "sourceHandle": "default",
+                "target": "MEASURE_PHASE_MDO3xxx-3be6aedd-2269-4b55-adcc-87cf297cfdc4",
+                "targetHandle": "default",
+                "id": "reactflow__edge-EXTRACT_TRACE_MDO3xxx-f06cac58-5342-4720-9a19-4daecc6ef496default-MEASURE_PHASE_MDO3xxx-3be6aedd-2269-4b55-adcc-87cf297cfdc4default"
+            },
+            {
+                "source": "EXTRACT_TRACE_MDO3xxx-7cb94424-b410-48fe-8801-16875e59ab33",
+                "sourceHandle": "default",
+                "target": "COMPOSITE-706a3e88-dedb-4f32-8307-46c5aaddc8c0",
+                "targetHandle": "primary_trace",
+                "id": "reactflow__edge-EXTRACT_TRACE_MDO3xxx-7cb94424-b410-48fe-8801-16875e59ab33default-COMPOSITE-706a3e88-dedb-4f32-8307-46c5aaddc8c0primary_trace"
+            },
+            {
+                "source": "EXTRACT_TRACE_MDO3xxx-f06cac58-5342-4720-9a19-4daecc6ef496",
+                "sourceHandle": "default",
+                "target": "COMPOSITE-706a3e88-dedb-4f32-8307-46c5aaddc8c0",
+                "targetHandle": "secondary_trace",
+                "id": "reactflow__edge-EXTRACT_TRACE_MDO3xxx-f06cac58-5342-4720-9a19-4daecc6ef496default-COMPOSITE-706a3e88-dedb-4f32-8307-46c5aaddc8c0secondary_trace"
+            }
+        ],
+        "viewport": {
+            "x": 1104.261946392206,
+            "y": 573.1338859553202,
+            "zoom": 1.2154437530123414
+        }
+    }
+}

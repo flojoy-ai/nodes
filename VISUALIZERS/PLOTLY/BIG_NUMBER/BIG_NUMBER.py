@@ -7,6 +7,7 @@ from flojoy import (
     Scalar,
     Vector,
 )
+from typing import cast
 import plotly.graph_objects as go
 from nodes.VISUALIZERS.template import plot_layout
 
@@ -21,6 +22,7 @@ def BIG_NUMBER(
     prefix: str,
     title: str,
     relative_delta: bool = True,
+    scientific_notation: bool = False,
 ) -> Plotly:
     """The BIG_NUMBER node generates a Plotly figure, displaying a big number with an optional prefix and suffix.
 
@@ -51,7 +53,7 @@ def BIG_NUMBER(
     layout = plot_layout(title=title if title else node_name)
     fig = go.Figure(layout=layout)
 
-    prev_num = SmallMemory().read_memory(job_id, MEMORY_KEY)
+    prev_num = cast(str, SmallMemory().read_memory(job_id, MEMORY_KEY))
     match default:
         case OrderedPair():
             big_num = default.y[-1]
@@ -59,19 +61,24 @@ def BIG_NUMBER(
             big_num = default.c
         case Vector():
             big_num = default.v[-1]
-    val_format = ".1%" if relative_delta is True else ".1f"
+        case _:
+            raise ValueError(f"Invalid input type {type(default)} for node {node_name}")
+
+    delta_val_format = ".1%" if relative_delta is True else ".1f"
+    val_format = "%g" if scientific_notation is False else ".4e"
+
     fig.add_trace(
         go.Indicator(
             mode="number+delta",
-            value=int(float(big_num)),
+            value=big_num,
             domain={"y": [0, 1], "x": [0, 1]},
-            number={"prefix": prefix, "suffix": suffix},
+            number={"prefix": prefix, "suffix": suffix, "valueformat": val_format},
             delta=None
             if prev_num is None
             else {
-                "reference": int(float(prev_num)),
+                "reference": float(prev_num),
                 "relative": relative_delta,
-                "valueformat": val_format,
+                "valueformat": delta_val_format,
             },
         )
     )
