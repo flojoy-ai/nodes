@@ -32,7 +32,8 @@ def ANDERSON(
     x : array_like
         Array of sample data.
     dist : {'norm', 'expon', 'logistic', 'gumbel', 'gumbel_l', 'gumbel_r', 'extreme1'}, optional
-        The type of distribution to test against.  The default is 'norm'.
+        The type of distribution to test against.
+        The default is 'norm'.
         The names 'extreme1', 'gumbel_l' and 'gumbel' are synonyms for the same distribution.
 
     Returns

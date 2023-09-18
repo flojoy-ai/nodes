@@ -18,7 +18,7 @@ def PINV(
 
         Compute the (Moore-Penrose) pseudo-inverse of a matrix.
 
-        Calculate the generalized inverse of a matrix using its singular-value decomposition (SVD) and including all *large* singular values.
+        Calculate the generalized inverse of a matrix using its singular-value decomposition (SVD) and including all **large** singular values.
 
     .. versionchanged:: 1.14
         Can now operate on stacks of matrices

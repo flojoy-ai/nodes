@@ -6,14 +6,18 @@ import serial
 def IV_SWEEP(
     init_container: NodeInitContainer, default: OrderedPair | Vector
 ) -> OrderedPair:
-    """The KEITHLEY2400 node takes a IV curve measurement with a Keithley 2400 source meter, send voltages, and measures currents.
+    """The KEITHLEY2400 node takes an I-V curve measurement with a Keithley 2400 source meter, send voltages, and measures currents.
 
     Parameters
-    -----------
-    comport : string
-         defines the serial communication port for the Keithley2400 source meter.
+    ----------
+    comport : str
+        Defines the serial communication port for the Keithley2400 source meter.
     baudrate : float
-         specifies the baud rate for the serial communication between the Keithley2400 and the computer
+        Specifies the baud rate for the serial communication between the Keithley2400 and the computer.
+
+    Returns
+    -------
+    OrderedPair
     """
 
     # Start serial communication with the instrument

@@ -6,7 +6,7 @@ from nodes.VISUALIZERS.template import plot_layout
 
 @flojoy
 def SCATTER3D(default: OrderedTriple | DataFrame) -> Plotly:
-    """The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input data container.
+    """The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input DataContainer.
 
     Inputs
     ------
@@ -16,7 +16,7 @@ def SCATTER3D(default: OrderedTriple | DataFrame) -> Plotly:
     Returns
     -------
     Plotly
-        the DataContainer containing Plotly 3D Scatter visualization
+        the DataContainer containing the Plotly 3D Scatter visualization
     """
 
     layout = plot_layout(title="SCATTER3D")

@@ -23,8 +23,8 @@ def JARQUE_BERA(
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['jb_value', 'p'].
-        Select the desired one to return.
+    select_return : 'jb_value', 'p'
+        Select the desired object to return.
         See the respective function docs for descriptors.
     x : array_like
         Observations of a random variable.

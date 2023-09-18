@@ -7,7 +7,7 @@ from nodes.VISUALIZERS.template import plot_layout
 
 @flojoy
 def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
-    """The LINE node creates a Plotly Line visualization for a given input data container.
+    """The LINE node creates a Plotly Line visualization for a given input DataContainer.
 
     Inputs
     ------
@@ -17,7 +17,7 @@ def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     Returns
     -------
     Plotly
-        the DataContainer containing Plotly Line visualization of the input data
+        the DataContainer containing the Plotly Line visualization of the input data
     """
 
     layout = plot_layout(title="LINE")
