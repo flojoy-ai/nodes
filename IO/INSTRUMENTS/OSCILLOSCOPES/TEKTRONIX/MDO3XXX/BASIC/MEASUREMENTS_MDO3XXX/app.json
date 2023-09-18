@@ -1,0 +1,683 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-8502d02c-02db-48a3-9f1c-0b4cf4dbbb60",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TABLE-8502d02c-02db-48a3-9f1c-0b4cf4dbbb60",
+                    "label": "TABLE",
+                    "func": "TABLE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Vector|Scalar",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Table visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 347.54588720662605,
+                    "y": 123.25364834836444
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 347.54588720662605,
+                    "y": 123.25364834836444
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "MEASUREMENTS-013785cf-849c-4ab2-b49c-13bc537b6358",
+                "type": "IO",
+                "data": {
+                    "id": "MEASUREMENTS-013785cf-849c-4ab2-b49c-13bc537b6358",
+                    "label": "Period (s)",
+                    "func": "MEASUREMENTS",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "VISA_address",
+                            "value": "USB0::1689::1032::C012101::0::INSTR"
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "VISA_index",
+                            "value": 2
+                        },
+                        "num_channels": {
+                            "type": "int",
+                            "default": 4,
+                            "desc": "The number of channels on the instrument that are currently in use.",
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "num_channels",
+                            "value": 2
+                        },
+                        "channel": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "channel",
+                            "value": 0
+                        },
+                        "measurement": {
+                            "type": "select",
+                            "options": [
+                                "period",
+                                "frequency",
+                                "amplitude"
+                            ],
+                            "default": "period",
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "measurement",
+                            "value": "period"
+                        },
+                        "statistic": {
+                            "type": "select",
+                            "options": [
+                                "instant",
+                                "mean",
+                                "max",
+                                "min",
+                                "stdev"
+                            ],
+                            "default": "instant",
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "statistic",
+                            "value": "instant"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "OrderedPair: The trace of the oscilloscope is"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/OSCILLOSCOPES/TEKTRONIX/MDO3xxx/ADVANCED/MEASUREMENTS/MEASUREMENTS.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -109.46719746069327,
+                    "y": 174.47386316824287
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -109.46719746069327,
+                    "y": 174.47386316824287
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60",
+                "type": "IO",
+                "data": {
+                    "id": "LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60",
+                    "label": "LIST VISA",
+                    "func": "LIST_VISA",
+                    "type": "IO",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "optional: The input DataContainer is returned."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/QCODES/LIST_VISA/LIST_VISA.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -723.0785771711177,
+                    "y": 525.3171553398978
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -723.0785771711177,
+                    "y": 525.3171553398978
+                },
+                "dragging": true
+            },
+            {
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-9ba0951f-eb88-420e-9389-7145697c1f54",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-9ba0951f-eb88-420e-9389-7145697c1f54",
+                    "label": "TEXT VIEW",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -491.60761989584813,
+                    "y": 84.43176657303763
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -491.60761989584813,
+                    "y": 84.43176657303763
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "MEASUREMENTS-5ad9069c-b442-4a09-9abe-8ac3dcec5257",
+                "type": "IO",
+                "data": {
+                    "id": "MEASUREMENTS-5ad9069c-b442-4a09-9abe-8ac3dcec5257",
+                    "label": "Frequency (Hz)",
+                    "func": "MEASUREMENTS",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "VISA_address",
+                            "value": "USB0::1689::1032::C012101::0::INSTR"
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "VISA_index",
+                            "value": 2
+                        },
+                        "num_channels": {
+                            "type": "int",
+                            "default": 4,
+                            "desc": "The number of channels on the instrument that are currently in use.",
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "num_channels",
+                            "value": 2
+                        },
+                        "channel": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "channel",
+                            "value": 0
+                        },
+                        "measurement": {
+                            "type": "select",
+                            "options": [
+                                "period",
+                                "frequency",
+                                "amplitude"
+                            ],
+                            "default": "period",
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "measurement",
+                            "value": "frequency"
+                        },
+                        "statistic": {
+                            "type": "select",
+                            "options": [
+                                "instant",
+                                "mean",
+                                "max",
+                                "min",
+                                "stdev"
+                            ],
+                            "default": "instant",
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "statistic",
+                            "value": "instant"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "OrderedPair: The trace of the oscilloscope is"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/OSCILLOSCOPES/TEKTRONIX/MDO3xxx/ADVANCED/MEASUREMENTS/MEASUREMENTS.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -107.02353009775844,
+                    "y": 521.6491370830611
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -107.02353009775844,
+                    "y": 521.6491370830611
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "MEASUREMENTS-3964efd7-ca85-4764-af76-12a1c653a66a",
+                "type": "IO",
+                "data": {
+                    "id": "MEASUREMENTS-3964efd7-ca85-4764-af76-12a1c653a66a",
+                    "label": "Amplitude (V)",
+                    "func": "MEASUREMENTS",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "VISA_address",
+                            "value": "USB0::1689::1032::C012101::0::INSTR"
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "VISA_index",
+                            "value": 2
+                        },
+                        "num_channels": {
+                            "type": "int",
+                            "default": 4,
+                            "desc": "The number of channels on the instrument that are currently in use.",
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "num_channels",
+                            "value": 2
+                        },
+                        "channel": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "channel",
+                            "value": 0
+                        },
+                        "measurement": {
+                            "type": "select",
+                            "options": [
+                                "period",
+                                "frequency",
+                                "amplitude"
+                            ],
+                            "default": "period",
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "measurement",
+                            "value": "amplitude"
+                        },
+                        "statistic": {
+                            "type": "select",
+                            "options": [
+                                "instant",
+                                "mean",
+                                "max",
+                                "min",
+                                "stdev"
+                            ],
+                            "default": "instant",
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "MEASUREMENTS",
+                            "param": "statistic",
+                            "value": "instant"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "OrderedPair: The trace of the oscilloscope is"
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/OSCILLOSCOPES/TEKTRONIX/MDO3xxx/ADVANCED/MEASUREMENTS/MEASUREMENTS.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -105.29299884901738,
+                    "y": 841.8596668182389
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -105.29299884901738,
+                    "y": 841.8596668182389
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-a633b933-f81f-47fd-9a4f-2fd5b91457ed",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TABLE-a633b933-f81f-47fd-9a4f-2fd5b91457ed",
+                    "label": "TABLE 1",
+                    "func": "TABLE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Vector|Scalar",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Table visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 364.79429784050353,
+                    "y": 794.2463242591917
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 364.79429784050353,
+                    "y": 794.2463242591917
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "TABLE-eefc79f6-ada6-4b36-ab8c-38c5b61cd053",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TABLE-eefc79f6-ada6-4b36-ab8c-38c5b61cd053",
+                    "label": "TABLE 2",
+                    "func": "TABLE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedTriple|OrderedPair|DataFrame|Vector|Scalar",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing Plotly Table visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 350.9143300314926,
+                    "y": 473.05392404199927
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 350.9143300314926,
+                    "y": 473.05392404199927
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "MEASUREMENTS-013785cf-849c-4ab2-b49c-13bc537b6358",
+                "sourceHandle": "default",
+                "target": "TABLE-8502d02c-02db-48a3-9f1c-0b4cf4dbbb60",
+                "targetHandle": "default",
+                "id": "reactflow__edge-MEASUREMENTS-013785cf-849c-4ab2-b49c-13bc537b6358default-TABLE-8502d02c-02db-48a3-9f1c-0b4cf4dbbb60default"
+            },
+            {
+                "source": "LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-9ba0951f-eb88-420e-9389-7145697c1f54",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60default-TEXT_VIEW-9ba0951f-eb88-420e-9389-7145697c1f54default"
+            },
+            {
+                "source": "LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60",
+                "sourceHandle": "default",
+                "target": "MEASUREMENTS-013785cf-849c-4ab2-b49c-13bc537b6358",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60default-MEASUREMENTS-013785cf-849c-4ab2-b49c-13bc537b6358default"
+            },
+            {
+                "source": "LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60",
+                "sourceHandle": "default",
+                "target": "MEASUREMENTS-5ad9069c-b442-4a09-9abe-8ac3dcec5257",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60default-MEASUREMENTS-5ad9069c-b442-4a09-9abe-8ac3dcec5257default"
+            },
+            {
+                "source": "LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60",
+                "sourceHandle": "default",
+                "target": "MEASUREMENTS-3964efd7-ca85-4764-af76-12a1c653a66a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60default-MEASUREMENTS-3964efd7-ca85-4764-af76-12a1c653a66adefault"
+            },
+            {
+                "source": "MEASUREMENTS-3964efd7-ca85-4764-af76-12a1c653a66a",
+                "sourceHandle": "default",
+                "target": "TABLE-a633b933-f81f-47fd-9a4f-2fd5b91457ed",
+                "targetHandle": "default",
+                "id": "reactflow__edge-MEASUREMENTS-3964efd7-ca85-4764-af76-12a1c653a66adefault-TABLE-a633b933-f81f-47fd-9a4f-2fd5b91457eddefault"
+            },
+            {
+                "source": "MEASUREMENTS-5ad9069c-b442-4a09-9abe-8ac3dcec5257",
+                "sourceHandle": "default",
+                "target": "TABLE-eefc79f6-ada6-4b36-ab8c-38c5b61cd053",
+                "targetHandle": "default",
+                "id": "reactflow__edge-MEASUREMENTS-5ad9069c-b442-4a09-9abe-8ac3dcec5257default-TABLE-eefc79f6-ada6-4b36-ab8c-38c5b61cd053default"
+            }
+        ],
+        "viewport": {
+            "x": 855.945537953298,
+            "y": 287.6844024349923,
+            "zoom": 2
+        }
+    }
+}
