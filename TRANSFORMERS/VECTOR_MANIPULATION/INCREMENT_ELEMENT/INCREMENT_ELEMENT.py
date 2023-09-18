@@ -1,5 +1,3 @@
-
-from numpy import array
 from flojoy import flojoy, Vector
 
 
