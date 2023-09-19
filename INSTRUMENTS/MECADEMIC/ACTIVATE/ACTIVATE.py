@@ -1,8 +1,6 @@
 from flojoy import flojoy, Bytes, TextBlob
-import mecademicpy.robot as mdr
 
-from PYTHON.utils.mecademic_state.state_mocktest import query_for_handle
-from PYTHON.utils.mecademic_utils import check_connection
+from PYTHON.utils.mecademic_state.mecademic_state import query_for_handle
 
 
 @flojoy(deps={"mecademicpy": "1.4.0"})

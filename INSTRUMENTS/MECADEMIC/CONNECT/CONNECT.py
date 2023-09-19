@@ -1,6 +1,6 @@
 from flojoy import flojoy, TextBlob
 
-from PYTHON.utils.mecademic_state.state_mocktest import add_handle, init_handle_map
+from PYTHON.utils.mecademic_state.mecademic_state import add_handle, init_handle_map
 
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
