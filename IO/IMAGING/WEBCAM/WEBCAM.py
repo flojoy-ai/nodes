@@ -1,11 +1,11 @@
 import cv2
-from flojoy import flojoy, DataContainer, Camera, Image
+from flojoy import flojoy, DataContainer, CameraConnection, Image
 from typing import Optional, Literal
 
 
-@flojoy(deps={"opencv-python-headless": "4.7.0.72"})
+@flojoy(deps={"opencv-python-headless": "4.7.0.72"}, inject_connection=True)
 def WEBCAM(
-    camera: Camera,
+    connection: CameraConnection,
     default: Optional[DataContainer] = None,
     resolution: Literal[
         "default", "640x360", "640x480", "1280x720", "1920x1080"
@@ -17,8 +17,8 @@ def WEBCAM(
 
     Parameters
     ----------
-    camera_ind : int
-        Camera index (i.e. camera identifier).
+    camera : Camera
+        The camera to use.
     resolution : select
         Camera resolution. Choose from a few options.
 
@@ -26,11 +26,9 @@ def WEBCAM(
     -------
     Image
     """
-    if not camera:
-        raise ValueError("No camera selected")
+    cam = connection.get_handle()
 
     try:
-        cam = cv2.VideoCapture(camera.get_id())
         if resolution != "default":
             resolution = resolution.split("x")
             try:
@@ -47,8 +45,8 @@ def WEBCAM(
 
         if not result:
             raise cv2.error("Failed to capture image")
-        cam.release()
-        del cam
+        # cam.release()
+        # del cam
 
         RGB_img = cv2.cvtColor(BGR_img, cv2.COLOR_BGR2RGB)
 
