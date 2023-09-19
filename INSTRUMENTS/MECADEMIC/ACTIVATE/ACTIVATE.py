@@ -1,18 +1,18 @@
-from flojoy import flojoy, Bytes
+from flojoy import flojoy, Bytes, TextBlob
 import mecademicpy.robot as mdr
 
-from PYTHON.utils.mecademic_state.mecademic_state import query_for_handle
+from PYTHON.utils.mecademic_state.state_mocktest import query_for_handle
 from PYTHON.utils.mecademic_utils import check_connection
 
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
-def ACTIVATE(ip_address: str, simulator: bool = False) -> str:
+def ACTIVATE(ip: TextBlob, simulator: bool = False) -> TextBlob:
     """
     The ACTIVATE node activates the robot arm.
 
     Inputs
     ------
-    ip_address
+    ip
         The IP address of the robot arm.
 
     Parameters
@@ -22,15 +22,16 @@ def ACTIVATE(ip_address: str, simulator: bool = False) -> str:
 
     Returns
     -------
-    ip_address
+    ip
         The IP address of the robot arm.
 
     """
-    handle: mdr.Robot = query_for_handle(ip_address)
-    check_connection(handle)
+    # handle: mdr.Robot = query_for_handle(ip)
+    handle = query_for_handle(ip)
+    # check_connection(handle)
     if simulator:
         handle.ActivateSim()
     else:
         handle.ActivateRobot()
     handle.WaitActivated()
-    return ip_address
+    return ip
