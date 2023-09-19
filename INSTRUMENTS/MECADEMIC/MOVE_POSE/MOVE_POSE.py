@@ -46,5 +46,6 @@ def MOVE_POSE(
     # check_connection(robot)
     robot = query_for_handle(ip_address)
     robot.MovePose(x=x, y=y, z=z, alpha=alpha, beta=beta, gamma=gamma)
+    robot.WaitIdle()
     return ip_address
 

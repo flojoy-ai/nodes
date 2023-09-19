@@ -10,6 +10,7 @@ def DISCONNECT(ip: TextBlob) -> None:
     ------
     ip
         The IP address of the robot arm.
+
     """
 
     robot = query_for_handle(ip.text_blob)

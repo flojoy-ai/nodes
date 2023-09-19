@@ -12,6 +12,6 @@ def CONNECT(ip_address: str) -> TextBlob:
     String
        The IP address of the robot arm.
     """
-    init_handle_map()
+    init_handle_map(allow_reinit=True)
     add_handle(ip_address)
     return TextBlob(text_blob=ip_address)

@@ -4,17 +4,12 @@ from PYTHON.utils.mecademic_state.mecademic_state import query_for_handle
 
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
-def MOVE_LIN(
+def DELAY(
     ip_address: TextBlob,
-    x: float,
-    y: float,
-    z: float,
-    alpha: Optional[float] = 0,
-    beta: Optional[float] = 0,
-    gamma: Optional[float] = 0,
+    time : float,
 ) -> TextBlob:
     """
-    The MOVE_LIN node linearly moves the robot's tool to an absolute Cartesian position.
+    The MOVE_JOINT node linearly moves the robot's tool to an absolute Cartesian position.
 
     Inputs
     ------
@@ -43,6 +38,6 @@ def MOVE_LIN(
 
     """
     robot = query_for_handle(ip_address)
-    robot.MoveLin(x=x, y=y, z=z, alpha=alpha, beta=beta, gamma=gamma)
+    robot.Delay(time)
     robot.WaitIdle()
     return ip_address
