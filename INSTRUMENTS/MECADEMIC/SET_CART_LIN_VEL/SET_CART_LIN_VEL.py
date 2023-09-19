@@ -1,16 +1,15 @@
-from flojoy import flojoy, Bytes
-from PYTHON.utils.mecademic_utils import check_connection
+from flojoy import flojoy, TextBlob
+from PYTHON.utils.mecademic_state.mecademic_state import query_for_handle
 
-#TODO
 @flojoy(deps={"mecademicpy": "1.4.0"})
-def SET_CART_LIN_VEL(conn_handle: Bytes, v: float) -> Bytes:
+def SET_CART_LIN_VEL(ip_address: TextBlob, v: float) -> TextBlob:
     """
     The SET_CART_LIN_VEL node sets the robot arm's linear velocity in Cartesian coordinates.
 
     Inputs
     ------
-    conn_handle : Bytes
-        A handle to the robot arm object.
+    ip_address: TextBlob
+        The IP address of the robot arm.
 
     Parameters
     ------
@@ -19,10 +18,10 @@ def SET_CART_LIN_VEL(conn_handle: Bytes, v: float) -> Bytes:
 
     Returns
     -------
-    conn_handle
-        A handle to the robot arm object after its linear velocity has been set.
-
+    ip_address
+        The IP address of the robot arm.
     """
-    check_connection(conn_handle.b)
-    conn_handle.b.SetCartLinVel(v)
-    return conn_handle
+
+    robot = query_for_handle(ip_address)
+    robot.SetCartLinVel(v)
+    return ip_address

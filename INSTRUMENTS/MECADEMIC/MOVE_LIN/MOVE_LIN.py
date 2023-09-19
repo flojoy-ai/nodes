@@ -1,26 +1,25 @@
-from flojoy import flojoy, Bytes
+from flojoy import flojoy, TextBlob
 from typing import Optional
-from PYTHON.utils.mecademic_utils import check_connection
+from PYTHON.utils.mecademic_state.mecademic_state import query_for_handle
 
-#TODO
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
 def MOVE_LIN(
-    conn_handle: Bytes,
+    ip_address: TextBlob,
     x: float,
     y: float,
     z: float,
     alpha: Optional[float] = 0,
     beta: Optional[float] = 0,
     gamma: Optional[float] = 0,
-) -> Bytes:
+) -> TextBlob:
     """
     The MOVE_LIN node linearly moves the robot's tool to an absolute Cartesian position.
 
     Inputs
     ------
-    conn_handle
-        A handle to the robot arm object.
+    ip_address: TextBlob
+        The IP address of the robot arm.
 
     Parameters
     ------
@@ -39,10 +38,10 @@ def MOVE_LIN(
 
     Returns
     -------
-    conn_handle
-        A handle to the robot arm object after it has been moved.
+    ip_address
+        The IP address of the robot arm.
 
     """
-    check_connection(conn_handle.b)
-    conn_handle.b.MoveLin(x=x, y=y, z=z, alpha=alpha, beta=beta, gamma=gamma)
-    return conn_handle
+    robot = query_for_handle(ip_address)
+    robot.MoveLin(x=x, y=y, z=z, alpha=alpha, beta=beta, gamma=gamma)
+    return ip_address

@@ -1,29 +1,28 @@
-from flojoy import flojoy, Bytes
-from PYTHON.utils.mecademic_utils import check_connection
-
-# TODO
+from flojoy import flojoy, TextBlob
+from typing import Optional
+from PYTHON.utils.mecademic_state.mecademic_state import query_for_handle
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
-def SET_JOINT_VEL(conn_handle: Bytes, v: float) -> Bytes:
+def SET_JOINT_VEL(ip_address: TextBlob, v: float) -> TextBlob:
     """
     The SET_JOINT_VEL node sets the robot arm's angular velocity for its joints.
 
     Inputs
     ------
-    conn_handle : Bytes
-        A handle to the robot arm object.
+    ip_address
+        The IP address of the robot arm.
 
     Parameters
     ------
     v : float
         The angular velocity to be set for each joint.
 
-    Returns
+   Returns
     -------
-    conn_handle
-        A handle to the robot arm object after its joint velocity has been set.
+    ip_address
+        The IP address of the robot arm.
 
     """
-    check_connection(conn_handle.b)
-    conn_handle.b.SetJointVel(v)
-    return conn_handle
+    robot = query_for_handle(ip_address)
+    robot.SetJointVel(v)
+    return ip_address
