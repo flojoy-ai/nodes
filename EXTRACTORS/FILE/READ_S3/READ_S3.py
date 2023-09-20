@@ -20,9 +20,9 @@ def READ_S3(
     Parameters
     ----------
     s3_name : str
-        name of the key that the user used to save access and secret access key
+        name of the key that the user used to save the access and secret access keys
     bucket_name : str
-        AWS S3 bucket name that they are trying to access
+        Amazon S3 bucket name that they are trying to access
     file_name : str
         name of the file that they want to extract
 

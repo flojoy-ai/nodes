@@ -25,7 +25,7 @@ def NP_2_DF(default: DataContainer) -> DataFrame:
     Inputs
     ------
     default : DataContainer
-        The input numpy array to which we apply the conversion to.
+        The input numpy array which we apply the conversion to.
 
     Returns
     -------

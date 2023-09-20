@@ -17,26 +17,35 @@ def HUGGING_FACE_PIPELINE(
     model: str = "google/vit-base-patch16-224",
     revision: str = "main",
 ) -> DataFrame:
-    """Hugging Face Pipeline for Image Classification.
+    """The HUGGING_FACE_PIPELINE node uses a classification pipeline to process and classify an image.
+
+    For more information about Vision Transformers,
+    see: https://huggingface.co/google/vit-base-patch16-224
+
+    For a complete list of models, see:
+    https://huggingface.co/models?pipeline_tag=image-classification
+
+    For examples of how revision parameters (such as 'main') is used,
+    see: https://huggingface.co/google/vit-base-patch16-224/commits/main
 
     Parameters
     ----------
-    default: Image
-        The input image to be classified. The image must be a PIL.Image object wrapped in a flojoy Image object.
-    model: str
+    default : Image
+        The input image to be classified.
+        The image must be a PIL.Image object, wrapped in a Flojoy Image object.
+    model : str
         The model to be used for classification.
-        If not specified, Vision Transformers (i.e. `google/vit-base-patch16-224`) are used.
-        For more information about Vision Transformers, see: https://huggingface.co/google/vit-base-patch16-224
-        For a complete list of models see: https://huggingface.co/models?pipeline_tag=image-classification
-    revision: str
+        If not specified, Vision Transformers (i.e. 'google/vit-base-patch16-224') are used.
+    revision : str
         The revision of the model to be used for classification.
-        If not specified, main is `used`. For instance see: https://huggingface.co/google/vit-base-patch16-224/commits/main
+        If not specified, 'main' is used.
 
     Returns
     -------
     DataFrame:
-        A DataFrame containing as columns the `label` classification label and `score`, its confidence score.
-        All scores are between 0 and 1 and sum to 1.
+        A DataFrame containing the columns 'label' (as classification label)
+        and 'score' (as the confidence score).
+        All scores are between 0 and 1, and sum to 1.
     """
 
     import os

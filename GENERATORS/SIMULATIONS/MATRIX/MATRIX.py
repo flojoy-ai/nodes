@@ -4,7 +4,7 @@ from flojoy import flojoy, Matrix
 
 @flojoy
 def MATRIX(row: int = 2, column: int = 2) -> Matrix:
-    """The MATRIX node takes two arguments, row and col, as input.
+    """The MATRIX node takes two arguments, 'row' and 'col', as input.
 
     Based on these inputs, it generates a random matrix where the integers inside the matrix are between 0 and 19.
 
