@@ -88,7 +88,7 @@ def ONNX_MODEL(
     onnx.checker.check_model(model)
 
     # Using ONNX runtime for the ONNX model to make predictions.
-    sess = rt.InferenceSession(file_path)
+    sess = rt.InferenceSession(file_path, providers=["CPUExecutionProvider"])
 
     # TODO(jjerphan): Assuming a single input and a single output for now.
     input_name = sess.get_inputs()[0].name
