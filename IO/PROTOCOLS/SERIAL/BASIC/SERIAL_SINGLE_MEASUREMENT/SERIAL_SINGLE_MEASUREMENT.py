@@ -5,12 +5,12 @@ import numpy as np
 
 
 @flojoy(deps={"pyserial": "3.5"})
-def SINGLE_MEASUREMENT(
+def SERIAL_SINGLE_MEASUREMENT(
     default: Optional[OrderedPair] = None,
     comport: str = "/dev/ttyUSB0",
     baudrate: int = 9600,
 ) -> OrderedPair:
-    """The SERIAL_SINGLE_MEASUREMENT node takes a single reading of data from an Ardunio or a similar serial device.
+    """The SERIAL_SINGLE_MEASUREMENT node takes a single reading of data from an Arduino or a similar serial device.
 
     Parameters
     ----------

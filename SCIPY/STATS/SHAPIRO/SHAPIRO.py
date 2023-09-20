@@ -21,8 +21,8 @@ def SHAPIRO(
 
     Parameters
     ----------
-    select_return : This function has returns multiple objects ['statistic', 'p-value'].
-        Select the desired one to return.
+    select_return : 'statistic', 'p-value'
+        Select the desired object to return.
         See the respective function docs for descriptors.
     x : array_like
         Array of sample data.

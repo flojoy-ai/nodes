@@ -7,14 +7,14 @@ from datetime import datetime
 
 
 @flojoy(deps={"pyserial": "3.5"})
-def TIMESERIES1(
+def SERIAL_TIMESERIES(
     default: Optional[OrderedPair] = None,
     comport: str = "/dev/ttyUSB0",
     baudrate: int = 9600,
     num_readings: int = 100,
     record_period: int = 1,
 ) -> OrderedPair:
-    """The SERIAL_TIMESERIES node extracts simple time-dependent 1D data from an Ardunio or a similar serial device.
+    """The SERIAL_TIMESERIES node extracts simple time-dependent 1D data from an Arduino or a similar serial device.
 
     Parameters
     ----------

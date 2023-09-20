@@ -34,28 +34,25 @@ def LOCAL_FILE(
     Parameters
     ----------
     file_path : str
-        path to the file to be loaded
-    default   : Optional[TextBlob]
-        If this input node is connected, the filename will be taken from
-        the output of the connected node. To be used in conjunction with batch processing
+        Path to the file to be loaded.
+    default : Optional[TextBlob]
+        If this input node is connected, the file name will be taken from
+        the output of the connected node.
+        To be used in conjunction with batch processing.
     file_type : str
-        type of file to load, default = image
-
-    Notes
-    -----
-    If both file_path and default are not specified when `file_type="Image"`, a default image will be loaded.
-
-    Raises
-    ------
-    ValueError
-        If the file path is not specified and the default input is not connected, a ValueError is raised.
+        Type of file to load, default = image.
+        If both 'file_path' and 'default' are not specified when 'file_type="Image"',
+        a default image will be loaded.
+        If the file path is not specified and the default input is not connected,
+        a ValueError is raised.
 
     Returns
     -------
-    Image|DataFrame
-        Image for file_type 'image'
-        DataFrame for file_type 'json', 'csv', 'excel', 'xml'
+    Image | DataFrame
+        Image for file_type 'image'.
+        DataFrame for file_type 'json', 'csv', 'excel', and 'xml'.
     """
+
     default_image_path = path.join(
         path.dirname(path.abspath(__file__)),
         "assets",

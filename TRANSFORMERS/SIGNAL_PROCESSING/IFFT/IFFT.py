@@ -7,7 +7,7 @@ import pandas as pd
 def IFFT(default: DataFrame, real_signal: bool = True) -> OrderedPair:
     """The IFFT node performs the Inverse Discrete Fourier Transform on the input signal.
 
-    With the IFFT algorith, the input signal will be transformed from the frequency domain back into the time domain.
+    With the IFFT algorithm, the input signal will be transformed from the frequency domain back into the time domain.
 
     Inputs
     ------
