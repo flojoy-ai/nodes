@@ -47,7 +47,7 @@ def test_ONNX_MODEL_local_file_path(
 
 @pytest.mark.skipif(
     sys.platform.startswith("win32"),
-    reason="This test might fail on Windows when run using pytest-xdist."
+    reason="This test might fail on Windows when run using pytest-xdist.",
 )
 def test_ONNX_MODEL_remote_file_path(
     mock_flojoy_decorator,
@@ -69,7 +69,7 @@ def test_ONNX_MODEL_remote_file_path(
 
 @pytest.mark.skipif(
     sys.platform.startswith("win32"),
-    reason="This test might fail on Windows when run using pytest-xdist."
+    reason="This test might fail on Windows when run using pytest-xdist.",
 )
 def test_ONNX_MODEL_wrong_usages(
     mock_flojoy_decorator,
