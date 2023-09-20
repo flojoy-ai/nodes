@@ -1,4 +1,5 @@
 import os
+import sys
 import pytest
 
 import urllib.request
@@ -67,27 +68,29 @@ def test_ONNX_MODEL_wrong_usages(
     mock_flojoy_venv_cache_directory,
     cleanup_flojoy_cache_fixture,
 ):
-    # TODO(jjerphan): assert the Exception being wrapped by `ChildProcessError`.
     from ONNX_MODEL import ONNX_MODEL
 
     input_tensor = Vector(v=np.random.random((1, 3, 224, 224)))
 
+    # TODO(jjerphan): assert the type of the `Exception` being wrapped by `ChildProcessError`.
+    is_windows = sys.platform.startswith("win32")
+
     # Wrong file path
-    with pytest.raises(ChildProcessError):
+    with pytest.raises(FileNotFoundError if is_windows else ChildProcessError):
         ONNX_MODEL(
             default=input_tensor,
             file_path="wrong_file_path",
         )
 
     # Wrong input tensor
-    with pytest.raises(ChildProcessError):
+    with pytest.raises(ValueError if is_windows else ChildProcessError):
         ONNX_MODEL(
             default=1,
             file_path=ALEX_NET_MODEL,
         )
 
     # Wrong file path
-    with pytest.raises(ChildProcessError):
+    with pytest.raises(TypeError if is_windows else ChildProcessError):
         ONNX_MODEL(
             default=input_tensor,
             file_path=1,
