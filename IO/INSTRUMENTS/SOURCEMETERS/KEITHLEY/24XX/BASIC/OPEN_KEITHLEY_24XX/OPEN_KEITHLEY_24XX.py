@@ -8,6 +8,18 @@ from flojoy.connection_manager import DeviceConnectionManager
 def OPEN_KEITHLEY_24XX(
     device: SerialDevice, baudrate: int = 9600
 ) -> Optional[DataContainer]:
+    """The OPEN_KEITHLEY_24XX node opens a connection with the Keithley 2400 source meter.
+
+    Parameters
+    ----------
+    device: Serial
+        The connected serial device corresponding to the Keithley 2400 source meter.
+
+    Returns
+    -------
+    None
+    """
+
     ser = serial.Serial(
         port=device.get_port(),
         baudrate=baudrate,

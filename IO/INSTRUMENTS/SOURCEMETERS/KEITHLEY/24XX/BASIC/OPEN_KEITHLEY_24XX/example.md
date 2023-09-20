@@ -1,5 +1,5 @@
 ---
-title: IV_SWEEP 
+title: OPEN_KEITHLEY_24XX
 description: In this example, we demonstrate how to record an I"-"V curve using Flojoy, a Keithley 2400 source meter, and a computer.
 keyword: [Python, Instrument, Keithley 2400 control, Python instrument integration, Measurement and analysis, Python"-"based instrument control, Keithley instrument control, Enhance measurements with Python, Python"-"based measurement techniques, Streamline instrument usage, Accurate data analysis,Python integration with Keithley 2400]
 image: https://raw.githubusercontent.com/flojoy-ai/docs/main/docs/nodes/INSTRUMENTS/KEITHLEY/KEITHLEY2/examples/EX1/output.jpeg
