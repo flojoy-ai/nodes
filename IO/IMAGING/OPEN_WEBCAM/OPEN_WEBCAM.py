@@ -9,6 +9,20 @@ def OPEN_WEBCAM(
     camera: CameraDevice,
     default: Optional[DataContainer] = None,
 ) -> Optional[DataContainer]:
+    """The OPEN_WEBCAM node opens a connection with the selected camera.
+
+    Parameters
+    ----------
+    camera : Camera
+        The camera to use.
+    resolution : select
+        Camera resolution. Choose from a few options.
+
+    Returns
+    -------
+    None
+    """
+
     if not camera:
         raise ValueError("No camera selected")
 

@@ -13,12 +13,12 @@ def WEBCAM(
 ) -> Image:
     """The CAMERA node acquires an image using the selected camera.
 
-    If no camera is detected, an error would be shown.
+    The selected camera must be opened already using the OPEN_WEBCAM node.
 
     Parameters
     ----------
-    camera : Camera
-        The camera to use.
+    connection : Camera
+        The opened camera connection to use.
     resolution : select
         Camera resolution. Choose from a few options.
 
