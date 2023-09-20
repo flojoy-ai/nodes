@@ -9,7 +9,7 @@ def OPEN_KEITHLEY_24XX(
     device: SerialDevice, baudrate: int = 9600
 ) -> Optional[DataContainer]:
     ser = serial.Serial(
-        port=str(device.get_id()),
+        port=device.get_port(),
         baudrate=baudrate,
         bytesize=serial.EIGHTBITS,
         parity=serial.PARITY_NONE,
