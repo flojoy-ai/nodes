@@ -4,6 +4,7 @@ from flojoy import SerialDevice, flojoy, DataContainer
 from flojoy.connection_manager import DeviceConnectionManager
 
 
+@flojoy(deps={"pyserial": "3.5"})
 def OPEN_KEITHLEY_24XX(
     device: SerialDevice, baudrate: int = 9600
 ) -> Optional[DataContainer]:

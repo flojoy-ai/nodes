@@ -4,7 +4,7 @@ from flojoy import SerialConnection, flojoy, OrderedPair, Vector
 from typing import cast
 
 
-@flojoy(inject_connection=True)
+@flojoy(deps={"pyserial": "3.5"}, inject_connection=True)
 def IV_SWEEP(
     connection: SerialConnection, default: OrderedPair | Vector
 ) -> OrderedPair:
