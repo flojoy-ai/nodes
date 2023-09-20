@@ -20,6 +20,7 @@ ONNX_MODEL_ZOO_BASE_URL = (
 ALEX_NET_MODEL = f"{ONNX_MODEL_ZOO_BASE_URL}/vision/classification/alexnet/model/bvlcalexnet-12-int8.onnx"
 
 
+@pytest.mark.slow
 def test_ONNX_MODEL_local_file_path(
     mock_flojoy_decorator,
     mock_flojoy_venv_cache_directory,
@@ -45,6 +46,7 @@ def test_ONNX_MODEL_local_file_path(
     assert isinstance(image_vector, Vector)
 
 
+@pytest.mark.slow
 @pytest.mark.skipif(
     sys.platform.startswith("win32"),
     reason="This test might fail on Windows when run using pytest-xdist.",
@@ -67,6 +69,7 @@ def test_ONNX_MODEL_remote_file_path(
     assert isinstance(image_vector, Vector)
 
 
+@pytest.mark.slow
 @pytest.mark.skipif(
     sys.platform.startswith("win32"),
     reason="This test might fail on Windows when run using pytest-xdist.",
