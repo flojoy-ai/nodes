@@ -42,8 +42,6 @@ def MOVE_POSE(
         The IP address of the robot arm.
 
     """
-    # robot: mdr.Robot = query_for_handle(ip_address)
-    # check_connection(robot)
     robot = query_for_handle(ip_address)
     robot.MovePose(x=x, y=y, z=z, alpha=alpha, beta=beta, gamma=gamma)
     robot.WaitIdle()

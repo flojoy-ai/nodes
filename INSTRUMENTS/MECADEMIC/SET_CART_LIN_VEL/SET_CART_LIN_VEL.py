@@ -14,7 +14,7 @@ def SET_CART_LIN_VEL(ip_address: TextBlob, v: float) -> TextBlob:
     Parameters
     ------
     v : float
-        The linear velocity to be set.
+        The velocity to be set.
 
     Returns
     -------
