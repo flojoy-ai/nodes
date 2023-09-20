@@ -70,7 +70,7 @@ def BURST_MODE_33510B(
     Returns
     -------
     DataContainer
-        TextBlob: ON or OFF depending on on_off value.
+        TextBlob: summary of burst mode settings.
     """
 
     rm = pyvisa.ResourceManager("@py")
@@ -120,7 +120,7 @@ def BURST_MODE_33510B(
         channel.burst_ncycles(burst_ncycles)
 
     if burst_mode == "Gated":
-        channel.burst_polarity(burst_polarity)  # Can be 'NORM' or 'INV'
+        channel.burst_polarity(burst_polarity)
 
     if on_off == "ON":
         channel.burst_state(on_off)
