@@ -64,7 +64,7 @@ def ADVANCED_MEASUREMENTS_MDO3XXX(
 
     assert channel < num_channels, "Channel must be less than num_channels."
 
-    measures = set(
+    measures = {
         "amplitude",
         "area",
         "burst",
@@ -117,7 +117,7 @@ def ADVANCED_MEASUREMENTS_MDO3XXX(
         "stddev",
         "undefined",
         "waveforms",
-    )
+    }
 
     assert (
         measurement in measures
