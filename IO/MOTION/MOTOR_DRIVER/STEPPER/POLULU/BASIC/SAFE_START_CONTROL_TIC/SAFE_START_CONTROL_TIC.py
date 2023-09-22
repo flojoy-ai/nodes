@@ -1,12 +1,12 @@
 from flojoy import flojoy, DataContainer
-from typing import Literal
+from typing import Literal, Optional
 from ticlib import TicUSB
 
 tic = TicUSB()
 
 @flojoy(deps={"ticlib": "0.2.2", "pyusb": "1.2.1"})
 def SAFE_START_CONTROL_TIC(
-    default: DataContainer,
+    default: Optional[DataContainer] = None,
     safe_start_control: Literal[
         "enter_safe_start", "exit_safe_start"
     ] = "exit_safe_start",
