@@ -58,41 +58,6 @@ def enforce_range(input_value: int, min_value: int, max_value: int):
 #     """
 #     parsed_settings = parse_settings(tic.settings.get_control_mode())
 #     parsed_settings["product"]
- 
-
-def enforce_step_mode(step_mode_dict, *step_modes):
-    """
-    Enforce step mode values against the step_mode_dict.
-
-    Parameters:
-    ----------
-    step_mode_dict : dict
-        A dictionary mapping step mode strings to their corresponding values.
-
-    *step_modes : str
-        Variable-length argument tuple of step mode values (e.g., step_mode_t500, step_mode_t825, etc.).
-
-    Returns:
-    -------
-    list
-        A list of values corresponding to the step mode values in the same order as provided.
-
-    Raises:
-    -------
-    ValueError:
-        If any of the step mode values are not found in the step_mode_dict.
-    """
-    values = []
-    for step_mode in step_modes:
-        value = step_mode_dict.get(step_mode)
-        if value is None:
-            raise ValueError(f"Step mode value '{step_mode}' not found in the step_mode_dict.")
-        values.append(value)
-    if not values:
-        raise ValueError("Select step mode.")
-    return values[0]
-
-
 
 @flojoy(deps={"ticlib": "0.2.2", "pyusb": "1.2.1"})
 def MOTOR_SETTINGS_TIC(
@@ -179,6 +144,7 @@ def MOTOR_SETTINGS_TIC(
     DataContainer
         Returns empty DataContainer.
     """
+    step_modes = [step_mode_t500, step_mode_t825, step_mode_t834, step_mode_t249, step_mode_36v4]
 
     step_mode_dict = {
         "Full": 0,
@@ -193,7 +159,11 @@ def MOTOR_SETTINGS_TIC(
         "1/256": 9,
         "default": None
     }
-    tic.set_step_mode(enforce_step_mode(step_mode_t500, step_mode_t825, step_mode_t834, step_mode_t249, step_mode_36v4, step_mode_dict=step_mode_dict))
+
+    for step_mode in step_modes:
+        if step_mode != "default":
+            value = step_mode_dict.get(step_mode)
+            tic.set_step_mode(value)
 
     return DataContainer
 
