@@ -60,12 +60,11 @@ def enforce_limit_switches(go_home: str):
     Exception:
         Limit switches not available for the selected homing direction.
     """
-
+    errors = []
     switch_types = ["scl", "sda", "tx", "rx", "rc"]
 
     for switch_type in switch_types:
         setting_name = f"get_{switch_type}_limit_switch_{go_home}"
-        errors = []
 
         try:
             if getattr(tic.settings, setting_name)() != 1:
