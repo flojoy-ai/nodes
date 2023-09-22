@@ -1,4 +1,4 @@
-from flojoy import flojoy, OrderedPair
+from flojoy import SerialDevice, flojoy, OrderedPair
 from typing import Optional
 import serial
 import numpy as np
@@ -6,11 +6,11 @@ import numpy as np
 
 @flojoy(deps={"pyserial": "3.5"})
 def SERIAL_SINGLE_MEASUREMENT(
+    device: SerialDevice,
     default: Optional[OrderedPair] = None,
-    comport: str = "/dev/ttyUSB0",
     baudrate: int = 9600,
 ) -> OrderedPair:
-    """The SERIAL_SINGLE_MEASUREMENT node takes a single reading of data from an Ardunio or a similar serial device.
+    """The SERIAL_SINGLE_MEASUREMENT node takes a single reading of data from an Arduino or a similar serial device.
 
     Parameters
     ----------
@@ -20,7 +20,7 @@ def SERIAL_SINGLE_MEASUREMENT(
         Defines the comunication port on which the serial device is connected.
     """
 
-    ser = serial.Serial(comport, timeout=1, baudrate=baudrate)
+    ser = serial.Serial(device.port, timeout=1, baudrate=baudrate)
     s = ""
     while s == "":
         s = ser.readline().decode()

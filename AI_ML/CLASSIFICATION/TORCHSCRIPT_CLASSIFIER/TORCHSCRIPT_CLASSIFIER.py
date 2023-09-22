@@ -13,8 +13,7 @@ from flojoy import flojoy, run_in_venv, Image, DataFrame
 def TORCHSCRIPT_CLASSIFIER(
     input_image: Image, class_names: DataFrame, model_path: str
 ) -> DataFrame:
-    """
-    Execute a torchscript classifier against an input image.
+    """Execute a torchscript classifier against an input image.
 
     Inputs
     ----------

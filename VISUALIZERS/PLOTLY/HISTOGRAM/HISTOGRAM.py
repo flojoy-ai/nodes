@@ -6,7 +6,7 @@ from nodes.VISUALIZERS.template import plot_layout
 
 @flojoy
 def HISTOGRAM(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
-    """The HISTOGRAM node creates a Plotly Histogram visualization for a given input data container.
+    """The HISTOGRAM node creates a Plotly Histogram visualization for a given input DataContainer.
 
     Inputs
     ------
@@ -16,7 +16,7 @@ def HISTOGRAM(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     Returns
     -------
     Plotly
-        the DataContainer containing Plotly Histogram visualization
+        the DataContainer containing the Plotly Histogram visualization
     """
 
     layout = plot_layout(title="HISTOGRAM")

@@ -19,8 +19,8 @@ def EIG(
 
     Parameters
     ----------
-    select_return : This function has returns for multiple objects ['w', 'v'].
-        Select the desired one to return.
+    select_return : 'w', 'v'
+        Select the desired object to return.
         See the respective function docs for descriptors.
     a : (..., M, M) array
         Matrices for which the eigenvalues and right eigenvectors will be computed.

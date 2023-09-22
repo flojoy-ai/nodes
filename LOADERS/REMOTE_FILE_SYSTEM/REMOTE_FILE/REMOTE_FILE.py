@@ -33,35 +33,30 @@ def REMOTE_FILE(
 ) -> Image | DataFrame:
     """The REMOTE_FILE node loads a remote file using an HTTP URL and converts it to a DataContainer class.
 
+    Note: If both the file_url and default are not specified when file_type="Image", a default image will be loaded.
+
+    For now, REMOTE_FILE only supports HTTP file URLs, in particular GCP URL (starting with gcp://). S3 URL (starting with s3://) and other bucket-like URLs are not supported.
+
+    If the file url is not specified and the default input is not connected, or if the file url is not a valid URL, a ValueError is raised.
+
     Parameters
     ----------
     file_url : str
-        URL  the file to be loaded
-    default   : Optional[TextBlob]
+        URL of the file to be loaded.
+    default : Optional[TextBlob]
         If this input node is connected, the file URL will be taken from
-        the output of the connected node. To be used in conjunction with batch processing
+        the output of the connected node.
+        To be used in conjunction with batch processing.
     file_type : str
-        type of file to load, default = image
-
-    Notes
-    -----
-    If both file_url and default are not specified when `file_type="Image"`, a default image will be loaded.
-
-    REMOTE_FILE for now only supports HTTP file URLs, in particular GCP URL (starting with `gcp://`),
-    S3 URL (starting with `s3://`)  and other bucket-like URLs are not supported.
-
-    Raises
-    ------
-    ValueError
-        If the file url is not specified and the default input is not connected, a ValueError is raised.
-        If the file url is not a valid URL, a ValueError is raised.
+        Type of file to load, default = image.
 
     Returns
     -------
     Image|DataFrame
-        Image for file_type 'image'
-        DataFrame for file_type 'json', 'csv', 'excel', 'xml'
+        Image for file_type 'image'.
+        DataFrame for file_type 'json', 'csv', 'excel', 'xml'.
     """
+
     file_url = default.text_blob if default else file_url
     file_url = "" if file_url is None else file_url
 

@@ -13,8 +13,7 @@ def READ_N_PINS(
     default: Optional[OrderedPair] = None,
     n_sensors: int = 1,
 ) -> OrderedPair:
-    """
-    The READ_N_PINS node allows you to measure and output voltages from Flexiforce sensors using a Phidget InterfaceKit.
+    """The READ_N_PINS node allows you to measure and output voltages from Flexiforce sensors using a Phidget InterfaceKit.
 
     Parameters
     ----------

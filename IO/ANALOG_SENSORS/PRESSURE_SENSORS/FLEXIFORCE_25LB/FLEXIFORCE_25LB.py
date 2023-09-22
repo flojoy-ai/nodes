@@ -8,8 +8,10 @@ def FLEXIFORCE_25LB(
     calibration1: float = 0.015,
     calibration2: float = 0.06,
 ) -> OrderedPair:
-    """
-    The Flexiforce node allows you to convert voltages measured with the Phidget Interface Kit into pressures.
+    """The Flexiforce node allows you to convert voltages measured with the Phidget Interface Kit into pressures.
+
+    Parameters
+    ----------
     Calibration1 : float
         Calibration parameters to convert voltage into pressure.
     calibration2 : float

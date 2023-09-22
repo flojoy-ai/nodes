@@ -20,7 +20,8 @@ def YEOJOHNSON(
     Parameters
     ----------
     x : ndarray
-        Input array.  Should be 1-dimensional.
+        Input array.
+        Should be 1-dimensional.
     lmbda : float, optional
         If 'lmbda' is 'None', find the lambda that maximizes the
         log-likelihood function and return it as the second output argument.
