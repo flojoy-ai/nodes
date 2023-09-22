@@ -1,28 +1,15 @@
-from flojoy import flojoy, DataContainer, Scalar
-import pyvisa
+from flojoy import flojoy, DataContainer, Scalar, VisaConnection
 from typing import Optional, Literal
-from flojoy.instruments.tektronix.MDO30xx import TektronixMDO30xx
-from usb.core import USBError
 
 
-@flojoy(
-    deps={
-        "pyvisa": "1.13.0",
-        "pyusb": "1.2.1",
-        "zeroconf": "0.102.0",
-        "pyvisa_py": "0.7.0",
-        "qcodes": "0.39.1",
-    }
-)
+@flojoy(inject_connection=True)
 def ADVANCED_MEASUREMENTS_MDO3XXX(
-    VISA_address: Optional[str],
-    VISA_index: Optional[int] = 0,
-    num_channels: int = 4,
+    connection: VisaConnection,
     channel: int = 0,
     measurement: str = "period",
     statistic: Literal["instant", "mean", "max", "min", "stdev"] = "instant",
     default: Optional[DataContainer] = None,
-) -> Optional[DataContainer]:
+) -> Scalar:
     """The ADVANCED_MEASUREMENTS_MDO3XXX node extracts waveform measurements from an MDO3xxx oscilloscope.
 
     This node is similar to MEASUREMENTS_MDO3XXX node but more measurements
@@ -40,29 +27,29 @@ def ADVANCED_MEASUREMENTS_MDO3XXX(
     instant, mean, max, min, and stdev where instant is a single measurement
     and stdev is the standard deviation of the mean.
 
-    If the "VISA_address" parameter is not specified the VISA_index will be
-    used to find the address. The LIST_VISA node can be used to show the
-    indicies of all available VISA instruments.
+    Requires a CONNECTION_MDO3XXX node at the start of the app to connect with
+    the instrument. The VISA address will then be listed under 'connection'.
 
     This node should also work with compatible Tektronix scopes (untested):
-    MDO4xxx, MSO4xxx, and DPO4xxx.
+    MDO4xxx, MSO4xxx, and DPO4xxx. Many of the advanced measurements are likely
+    to not function with different model numbers.
 
     Parameters
     ----------
-    VISA_address: str
-        The VISA address to query.
-    VISA_index: int
-        The address will be found from LIST_VISA node list with this index.
-    num_channels: int
-        The number of channels on the instrument that are currently in use.
+    connection: VisaConnection
+        The VISA address (requires the CONNECTION_MDO3XXX node).
+    channel: int
+        The channel with which to create a measurement for.
+    measurement: str
+        The measurement to make.
+    statistic: str
+        The type of statistic to take for the measurement.
 
     Returns
     -------
     DataContainer
-        OrderedPair: The trace of the oscilloscope is
+        Scalar: The measurement from the oscilloscope channel.
     """
-
-    assert channel < num_channels, "Channel must be less than num_channels."
 
     measures = {
         "amplitude",
@@ -123,23 +110,7 @@ def ADVANCED_MEASUREMENTS_MDO3XXX(
         measurement in measures
     ), f"The select measurement ({measurement}) is not availble."
 
-    rm = pyvisa.ResourceManager("@py")
-    if VISA_address == "":
-        VISA_addresses = rm.list_resources()
-        VISA_address = VISA_addresses[int(VISA_index)]
-
-    try:
-        tek = TektronixMDO30xx(
-            "MDO30xx",
-            VISA_address,
-            visalib="@py",
-            device_clear=False,
-            number_of_channels=num_channels,
-        )
-    except USBError as err:
-        raise Exception(
-            "USB port error. Trying unplugging+replugging the port."
-        ) from err
+    tek = connection.get_handle()
 
     tek.measurement[0].source1(f"CH{int(channel + 1)}")
 
@@ -150,7 +121,5 @@ def ADVANCED_MEASUREMENTS_MDO3XXX(
     else:
         measurement = getattr(measurement, statistic)
         value = measurement()
-
-    tek.close()
 
     return Scalar(c=value)
