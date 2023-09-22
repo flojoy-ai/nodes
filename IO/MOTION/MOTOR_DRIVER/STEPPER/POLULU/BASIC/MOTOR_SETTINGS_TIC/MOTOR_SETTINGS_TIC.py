@@ -5,69 +5,69 @@ from ticlib import TicUSB
 tic = TicUSB()
 
 current_limit_t500_dict = {
-    "0": 0,
-    "1": 1,
-    "174": 2,
-    "343": 3,
-    "495": 4,
-    "634": 5,
-    "762": 6,
-    "880": 7,
-    "990": 8,
-    "1092": 9,
-    "1189": 10,
-    "1281": 11,
-    "1368": 12,
-    "1452": 13,
-    "1532": 14,
-    "1611": 15,
-    "1687": 16,
-    "1762": 17,
-    "1835": 18,
-    "1909": 19,
-    "1982": 20,
-    "2056": 21,
-    "2131": 22,
-    "2207": 23,
-    "2285": 24,
-    "2366": 25,
-    "2451": 26,
-    "2540": 27,
-    "2634": 28,
-    "2734": 29,
-    "2843": 30,
-    "2962": 31,
-    "3093": 32
+    "0": "0",
+    "1": "1",
+    "174": "2",
+    "343": "3",
+    "495": "4",
+    "634": "5",
+    "762": "6",
+    "880": "7",
+    "990": "8",
+    "1092": "9",
+    "1189": "10",
+    "1281": "11",
+    "1368": "12",
+    "1452": "13",
+    "1532": "14",
+    "1611": "15",
+    "1687": "16",
+    "1762": "17",
+    "1835": "18",
+    "1909": "19",
+    "1982": "20",
+    "2056": "21",
+    "2131": "22",
+    "2207": "23",
+    "2285": "24",
+    "2366": "25",
+    "2451": "26",
+    "2540": "27",
+    "2634": "28",
+    "2734": "29",
+    "2843": "30",
+    "2962": "31",
+    "3093": "32"
 }
 
 continuous_current_limit_dict = {
-    "T500": 1500, 
-    "T825": 1500, 
-    "T834": 1500, 
-    "T249": 1800, 
-    "36v4": 4000
+    "T500": "1500", 
+    "T825": "1500", 
+    "T834": "1500", 
+    "T249": "1800", 
+    "36v4": "4000"
 }
 
 unrestricted_current_limit_dict = {
-    "T500": 3093, 
-    "T825": 3456, 
-    "T834": 3968, 
-    "T249": 4480, 
-    "36v4": 9095
+    "T500": "3093", 
+    "T825": "3456", 
+    "T834": "3968", 
+    "T249": "4480", 
+    "36v4": "9095"
 }
 
 current_code_range_dict = {
-    "T825": 125, 
-    "T834": 125, 
-    "T249": 125, 
-    "36v4": 128
+    "T825": "125", 
+    "T834": "125", 
+    "T249": "125", 
+    "36v4": "128"
 }
 
 current_increment_dict = {
-    "T825": 32, 
-    "T834": 32, 
-    "T249": 40,
-    "36v4": 71.615
+    "T825": "32", 
+    "T834": "32", 
+    "T249": "40",
+    "36v4": "71.615"
 }
 def parse_settings(settings_text: str):
     """
@@ -252,9 +252,9 @@ def MOTOR_SETTINGS_TIC(
         current_limit_dict = unrestricted_current_limit_dict
 
     # Define increment, current_code_range, and max_current_value.
-    increment = current_increment_dict[parsed_settings]
-    current_code_range = current_code_range_dict[parsed_settings]
-    max_current_value = current_limit_dict[parsed_settings]
+    increment = int(current_increment_dict[parsed_settings])
+    current_code_range = int(current_code_range_dict[parsed_settings])
+    max_current_value = int(current_limit_dict[parsed_settings])
 
     # Create the value_dict
     value_dict = create_current_dict(
