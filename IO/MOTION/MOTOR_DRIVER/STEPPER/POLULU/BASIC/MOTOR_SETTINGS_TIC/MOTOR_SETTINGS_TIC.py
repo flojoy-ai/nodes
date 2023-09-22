@@ -96,22 +96,22 @@ def enforce_step_mode(*step_modes, step_mode_dict):
 @flojoy(deps={"ticlib": "0.2.2", "pyusb": "1.2.1"})
 def MOTOR_SETTINGS_TIC(
     default: Optional[DataContainer] = None,
-    # model: Literal["T500", "T825", "T834", "T249", "36v4", "T825"] = "T825",
-    # current_limit_t500: int = 0,
-    # current_limit_t825: int = 0,
-    # current_limit_t834: int = 0,
-    # current_limit_t249: int = 0,
-    # current_limit_36v4: int = 0,
-    # max_speed: int = 2000000,
-    # starting_speed: int = 1000000,
-    # acceleration: int = 40000,
-    # deceleration: int = 0,
+    model: Literal["T500", "T825", "T834", "T249", "36v4", "T825"] = "T825",
+    current_limit_t500: int = 0,
+    current_limit_t825: int = 0,
+    current_limit_t834: int = 0,
+    current_limit_t249: int = 0,
+    current_limit_36v4: int = 0,
+    max_speed: int = 2000000,
+    starting_speed: int = 1000000,
+    acceleration: int = 40000,
+    deceleration: int = 0,
     step_mode_t500: Literal["Full", "1/2", "1/4", "1/8", "default"] = "default",
     step_mode_t825: Literal["Full", "1/2", "1/4", "1/8", "1/16", "1/32", "default"] = "default",
     step_mode_t834: Literal["Full", "1/2", "1/4", "1/8", "1/16", "1/32", "default"] = "default",
     step_mode_t249: Literal["Full", "1/2", "1/4", "1/8", "1/16", "1/32", "1/2 100%", "default"] = "default",
     step_mode_36v4: Literal["Full", "1/2", "1/4", "1/8", "1/16", "1/32", "1/64", "1/128", "1/256", "default"] = "default",
-    # decay_mode: int = 0,
+    decay_mode: int = 0,
 ) -> DataContainer:
     
     """
@@ -197,22 +197,22 @@ def MOTOR_SETTINGS_TIC(
 
     return DataContainer
 
-# @display
-# def OVERLOAD(current_limit_t500, max_speed, starting_speed, acceleration, deceleration, step_mode_t500, model="T500") -> None:
-#     return None
+@display
+def OVERLOAD(current_limit_t500, max_speed, starting_speed, acceleration, deceleration, step_mode_t500, model="T500") -> None:
+    return None
 
-# @display
-# def OVERLOAD(current_limit_t825, max_speed, starting_speed, acceleration, deceleration, step_mode_t825, model="T825") -> None:
-#     return None
+@display
+def OVERLOAD(current_limit_t825, max_speed, starting_speed, acceleration, deceleration, step_mode_t825, model="T825") -> None:
+    return None
 
-# @display
-# def OVERLOAD(current_limit_t834, max_speed, starting_speed, acceleration, deceleration, step_mode_t834, model="T834") -> None:
-#     return None
+@display
+def OVERLOAD(current_limit_t834, max_speed, starting_speed, acceleration, deceleration, step_mode_t834, model="T834") -> None:
+    return None
 
-# @display
-# def OVERLOAD(current_limit_t249, max_speed, starting_speed, acceleration, deceleration, step_mode_t249, model="T249") -> None:
-#     return None
+@display
+def OVERLOAD(current_limit_t249, max_speed, starting_speed, acceleration, deceleration, step_mode_t249, model="T249") -> None:
+    return None
 
-# @display
-# def OVERLOAD(current_limit_36v4, max_speed, starting_speed, acceleration, deceleration, step_mode_36v4, model="36v4") -> None:
-#     return None
+@display
+def OVERLOAD(current_limit_36v4, max_speed, starting_speed, acceleration, deceleration, step_mode_36v4, model="36v4") -> None:
+    return None
