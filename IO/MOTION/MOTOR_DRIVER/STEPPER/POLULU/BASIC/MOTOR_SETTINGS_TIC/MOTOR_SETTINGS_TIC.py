@@ -83,7 +83,7 @@ def parse_settings(settings_text: str):
     dict
         A dictionary containing the parsed key-value pairs.
     """
-    return dict(line.split(": ", 1) for line in settings_text.strip().split("\n"))
+    return dict(line.strip().split(": ", 1) for line in settings_text.strip().split("\n"))
 
 def enforce_range(input_value: int, min_value: int, max_value: int):
     """
