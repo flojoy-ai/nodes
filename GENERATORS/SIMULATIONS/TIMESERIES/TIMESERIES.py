@@ -13,9 +13,9 @@ def TIMESERIES(
     Parameters
     ----------
     start_date : str
-        The start date of the timeseries in the format YYYY:MM:DD.
+        The start date of the timeseries in the format 'YYYY:MM:DD'.
     end_date : str
-        The end date of the timeseries in the format YYYY:MM:DD.
+        The end date of the timeseries in the format 'YYYY:MM:DD'.
 
     Returns
     -------

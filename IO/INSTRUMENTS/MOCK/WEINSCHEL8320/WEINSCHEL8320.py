@@ -8,15 +8,14 @@ def WEINSCHEL8320(
     default: Optional[DataContainer] = None,
     attenuation: int = 10,
 ) -> Scalar:
-    """Note this node is for testing purposes only.
+    """The WEINSCHEL8320 node mocks the WEINSCHEL 8320 instrument, which attenuates the input signal.
 
-    The WEINSCHEL8320 node mocks the instrument WEINSCHEL 8320.
-    The Weinschel 8320 attenuates the input signal.
+    Note: This node is for testing purposes only.
 
     Parameters
     ----------
     attenuation : int
-        Value that the instrument would attenuate the input signal (mocked).
+        Value at which the instrument would attenuate the input signal (mocked).
 
     Returns
     -------

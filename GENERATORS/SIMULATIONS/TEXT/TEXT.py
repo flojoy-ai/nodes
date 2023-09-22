@@ -11,13 +11,13 @@ def TEXT(
 
     Parameters
     ----------
-    value: str
-        The value set in Parameters
+    value : str
+        The value set in Parameters.
 
     Returns
     -------
     TextBlob
-        text_blob: return the value being set in Parameters
+        Return the value being set in Parameters.
     """
 
     return TextBlob(text_blob=value)

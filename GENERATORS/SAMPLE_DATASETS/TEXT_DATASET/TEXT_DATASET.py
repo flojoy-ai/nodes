@@ -51,6 +51,10 @@ def TEXT_DATASET(
         Remove the footers from the data.
     remove_quotes : boolean, default=false
         Remove the quotes from the data.
+
+    Returns
+    -------
+    DataFrame
     """
 
     to_remove = tuple(
