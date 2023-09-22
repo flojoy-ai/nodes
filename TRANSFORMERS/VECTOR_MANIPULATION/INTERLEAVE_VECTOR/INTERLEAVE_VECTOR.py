@@ -23,7 +23,7 @@ def INTERLEAVE_VECTOR(
     interleavedVectors = [default.v]
 
     for i in range(len(a)):
-        interleavedVectors = interleavedVectors + [a[i].v] 
+        interleavedVectors = interleavedVectors + [a[i].v]
 
     interleavedVector = np.stack(interleavedVectors)
     interleavedVector = interleavedVector.T.flatten()
