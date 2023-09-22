@@ -191,7 +191,7 @@ def MOTOR_SETTINGS_TIC(
         "1/64": 7,
         "1/128": 8,
         "1/256": 9,
-        "default": "default"
+        "default": None
     }
     tic.set_step_mode(enforce_step_mode(step_mode_t500, step_mode_t825, step_mode_t834, step_mode_t249, step_mode_36v4, step_mode_dict=step_mode_dict))
 
