@@ -135,19 +135,19 @@ def test_LOCAL_FILE_csv(mock_flojoy_decorator, iris_csv):
     assert output.m.equals(output_from_textblob.m)
 
 
-# def test_LOCAL_FILE_xml(mock_flojoy_decorator, menu_xml):
-#     import LOCAL_FILE
+def test_LOCAL_FILE_xml(mock_flojoy_decorator, menu_xml):
+    import LOCAL_FILE
 
-#     output = LOCAL_FILE.LOCAL_FILE(file_path=menu_xml, file_type="XML")
-#     assert isinstance(output, DataFrame)
-#     assert output.m.shape == (5, 4)
-#     assert output.m.columns.to_list() == ["name", "price", "description", "calories"]
-#     assert output.m["calories"].tolist() == [650, 900, 900, 600, 950]
+    output = LOCAL_FILE.LOCAL_FILE(file_path=menu_xml, file_type="XML")
+    assert isinstance(output, DataFrame)
+    assert output.m.shape == (5, 4)
+    assert output.m.columns.to_list() == ["name", "price", "description", "calories"]
+    assert output.m["calories"].tolist() == [650, 900, 900, 600, 950]
 
-#     output_from_textblob = LOCAL_FILE.LOCAL_FILE(
-#         default=TextBlob(text_blob=menu_xml), file_type="XML"
-#     )
-#     assert output.m.equals(output_from_textblob.m)
+    output_from_textblob = LOCAL_FILE.LOCAL_FILE(
+        default=TextBlob(text_blob=menu_xml), file_type="XML"
+    )
+    assert output.m.equals(output_from_textblob.m)
 
 
 def test_LOCAL_FILE_json(mock_flojoy_decorator, employees_json):
@@ -176,29 +176,29 @@ def test_LOCAL_FILE_json(mock_flojoy_decorator, employees_json):
     assert output.m.equals(output_from_textblob.m)
 
 
-# def test_LOCAL_FILE_xlsx(mock_flojoy_decorator, insurance_excel):
-#     import LOCAL_FILE
+def test_LOCAL_FILE_xlsx(mock_flojoy_decorator, insurance_excel):
+    import LOCAL_FILE
 
-#     output = LOCAL_FILE.LOCAL_FILE(file_path=insurance_excel, file_type="Excel")
-#     assert isinstance(output, DataFrame)
-#     assert output.m.shape == (500, 10)
-#     assert output.m.columns.to_list() == [
-#         "Policy",
-#         "Expiry",
-#         "Location",
-#         "State",
-#         "Region",
-#         "InsuredValue",
-#         "Construction",
-#         "BusinessType",
-#         "Earthquake",
-#         "Flood",
-#     ]
+    output = LOCAL_FILE.LOCAL_FILE(file_path=insurance_excel, file_type="Excel")
+    assert isinstance(output, DataFrame)
+    assert output.m.shape == (500, 10)
+    assert output.m.columns.to_list() == [
+        "Policy",
+        "Expiry",
+        "Location",
+        "State",
+        "Region",
+        "InsuredValue",
+        "Construction",
+        "BusinessType",
+        "Earthquake",
+        "Flood",
+    ]
 
-#     output_from_textblob = LOCAL_FILE.LOCAL_FILE(
-#         default=TextBlob(text_blob=insurance_excel), file_type="Excel"
-#     )
-#     assert output.m.equals(output_from_textblob.m)
+    output_from_textblob = LOCAL_FILE.LOCAL_FILE(
+        default=TextBlob(text_blob=insurance_excel), file_type="Excel"
+    )
+    assert output.m.equals(output_from_textblob.m)
 
 
 @pytest.mark.parametrize("file_type", ("CSV", "XML", "JSON", "Excel"))
