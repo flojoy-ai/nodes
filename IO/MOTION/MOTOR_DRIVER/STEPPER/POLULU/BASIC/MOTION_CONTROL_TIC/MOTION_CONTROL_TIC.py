@@ -91,7 +91,7 @@ def MOTION_CONTROL_TIC(
     """
     Controls motion for a Pololu Tic T-series stepper driver.
 
-    This function allows you to control the motion of a stepper motor using a Pololu Tic T-series stepper driver. It provides options for powering the motor, setting positions and velocities, and performing actions like halting and homing.
+    This function allows you to control the motion of a stepper motor using a Pololu Tic T-series stepper driver. It provides options for powering the motor, setting positions and velocities, halting and homing.
 
     Compatible with the Pololu Tic T500, T249, T825, T834, and T36v4 stepper drivers.
 
