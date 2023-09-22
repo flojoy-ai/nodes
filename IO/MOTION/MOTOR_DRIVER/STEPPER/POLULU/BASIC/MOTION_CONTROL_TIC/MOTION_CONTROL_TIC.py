@@ -7,29 +7,29 @@ tic = TicUSB()
 tic.get_current_position()
 
 def enforce_range(input_value: int, min_value: int, max_value: int):
-    # """
-    # Enforce that the input value falls within the specified range.
+    """
+    Enforce that the input value falls within the specified range.
 
-    # Parameters
-    # ----------
-    #     input_value, int:
-    #         The value to be checked.
+    Parameters
+    ----------
+        input_value, int:
+            The value to be checked.
 
-    #     min_value, int:
-    #         The minimum allowed value.
+        min_value, int:
+            The minimum allowed value.
 
-    #     max_value, int:
-    #         The maximum allowed value.
+        max_value, int:
+            The maximum allowed value.
 
-    # Returns
-    # -------
-    #     int:
-    #         The input_value if it is within the specified range.
+    Returns
+    -------
+        int:
+            The input_value if it is within the specified range.
 
-    # Raises
-    # ------
-    #     ValueError: If the value is outside the specified range.
-    # """
+    Raises
+    ------
+        ValueError: If the value is outside the specified range.
+    """
     if min_value <= input_value <= max_value:
         return input_value
     raise ValueError(
@@ -38,28 +38,28 @@ def enforce_range(input_value: int, min_value: int, max_value: int):
 
 
 def enforce_limit_switches(go_home: str):
-    # """
-    # Check the availability of limit switches for the selected homing direction.
+    """
+    Check the availability of limit switches for the selected homing direction.
 
-    # Parameters
-    # ----------
-    # go_home : str
-    #     Specifies the homing direction.
+    Parameters
+    ----------
+    go_home : str
+        Specifies the homing direction.
 
-    #     Options:
-    #     - "forward"
-    #     - "reverse"
+        Options:
+        - "forward"
+        - "reverse"
 
-    # Returns
-    # -------
-    # int
-    #     1 if compatible limit switches are properly set.
+    Returns
+    -------
+    int
+        1 if compatible limit switches are properly set.
 
-    # Raises
-    # ------
-    # Exception:
-    #     Limit switches not available for the selected homing direction.
-    # """
+    Raises
+    ------
+    Exception:
+        Limit switches not available for the selected homing direction.
+    """
 
     switch_types = ["scl", "sda", "tx", "rx", "rc"]
 
