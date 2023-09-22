@@ -6,8 +6,8 @@ def DECIMATE_VECTOR(
     default: Vector,
     factor: int = 1,
 ) -> Vector:
-    """The DECIMATE_VECTOR node returns the input vector where
-    the elements are in the reverse order
+    """The DECIMATE_VECTOR node returns the input vector by reducing the
+    number of points by given factor
 
     Inputs
     ------
