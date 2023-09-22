@@ -71,9 +71,10 @@ def enforce_limit_switches(go_home: str):
 
         # Check if the limit switch does not return the expected value of 1.
         if getattr(tic.settings, setting_name)() != 1:
-            raise ValueError(
-                f"Limit switch {switch_type} is not properly set for {go_home} homing direction."
-            )
+            for switch_type in switch_types:
+                raise ValueError(
+                    f"Limit switch {switch_type} is not properly set for {go_home} homing direction."
+                )
 
     return 1
 
