@@ -95,7 +95,7 @@ def enforce_step_mode(*step_modes, step_mode_dict):
 
 @flojoy(deps={"ticlib": "0.2.2", "pyusb": "1.2.1"})
 def MOTOR_SETTINGS_TIC(
-    default: Optional[DataContainer],
+    default: Optional[DataContainer] = None,
     # model: Literal["T500", "T825", "T834", "T249", "36v4", "T825"] = "T825",
     # current_limit_t500: int = 0,
     # current_limit_t825: int = 0,
