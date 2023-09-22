@@ -1,10 +1,10 @@
-import numpy as np
+from numpy import sort
 from flojoy import flojoy, Matrix
 
 
 @flojoy
 def SORT_MATRIX(a: Matrix, axis: int = -1) -> Matrix:
-    """The SORT_MATRIX node takes a input matrix and sort it by the axis.
+    """The SORT_MATRIX node takes a input matrix and sort it along the chosen axis.
 
     Inputs
     ------
@@ -22,6 +22,6 @@ def SORT_MATRIX(a: Matrix, axis: int = -1) -> Matrix:
         The matrix result from sorting.
     """
     inputMatrix = a.m
-    sortedMatrix = np.sort(inputMatrix, axis=axis)
+    sortedMatrix = sort(inputMatrix, axis=axis)
 
     return Matrix(m=sortedMatrix)

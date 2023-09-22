@@ -1,4 +1,4 @@
-import numpy as np
+from numpy.random import permutation
 from flojoy import flojoy, Vector
 
 
@@ -19,6 +19,6 @@ def SHUFFLE_VECTOR(
         Shuffled input vector
     """
 
-    shuffledVector = np.random.permutation(default.v)
+    shuffledVector = permutation(default.v)
 
     return Vector(v=shuffledVector)

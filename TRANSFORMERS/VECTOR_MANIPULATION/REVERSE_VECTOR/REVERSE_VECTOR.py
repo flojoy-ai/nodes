@@ -1,4 +1,4 @@
-import numpy as np
+from numpy import flip
 from flojoy import flojoy, Vector
 
 
@@ -20,4 +20,4 @@ def REVERSE_VECTOR(
         Reversed input vector
     """
 
-    return Vector(v=np.flip(default.v))
+    return Vector(v=flip(default.v))

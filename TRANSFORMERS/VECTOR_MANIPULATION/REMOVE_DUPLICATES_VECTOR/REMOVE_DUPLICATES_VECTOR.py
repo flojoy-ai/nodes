@@ -1,4 +1,4 @@
-import numpy as np
+from numpy import unique
 from flojoy import flojoy, Vector
 
 
@@ -19,4 +19,4 @@ def REMOVE_DUPLICATES_VECTOR(
         Unique input vector
     """
 
-    return Vector(v=np.unique(default.v))
+    return Vector(v=unique(default.v))
