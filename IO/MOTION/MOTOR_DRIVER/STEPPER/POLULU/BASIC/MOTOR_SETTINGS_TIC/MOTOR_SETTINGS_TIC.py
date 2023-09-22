@@ -37,38 +37,30 @@ current_limit_t500_dict = {
     "2734": "29",
     "2843": "30",
     "2962": "31",
-    "3093": "32"
+    "3093": "32",
 }
 
 continuous_current_limit_dict = {
-    "T500": "1500", 
-    "T825": "1500", 
-    "T834": "1500", 
-    "T249": "1800", 
-    "36v4": "4000"
+    "T500": "1500",
+    "T825": "1500",
+    "T834": "1500",
+    "T249": "1800",
+    "36v4": "4000",
 }
 
 unrestricted_current_limit_dict = {
-    "T500": "3093", 
-    "T825": "3456", 
-    "T834": "3968", 
-    "T249": "4480", 
-    "36v4": "9095"
+    "T500": "3093",
+    "T825": "3456",
+    "T834": "3968",
+    "T249": "4480",
+    "36v4": "9095",
 }
 
-current_code_range_dict = {
-    "T825": "125", 
-    "T834": "125", 
-    "T249": "125", 
-    "36v4": "128"
-}
+current_code_range_dict = {"T825": "125", "T834": "125", "T249": "125", "36v4": "128"}
 
-current_increment_dict = {
-    "T825": "32", 
-    "T834": "32", 
-    "T249": "40",
-    "36v4": "71.615"
-}
+current_increment_dict = {"T825": "32", "T834": "32", "T249": "40", "36v4": "71.615"}
+
+
 def parse_settings(settings_text: str):
     """
     Parse settings from the provided settings text.
@@ -83,7 +75,10 @@ def parse_settings(settings_text: str):
     dict
         A dictionary containing the parsed key-value pairs.
     """
-    return dict(line.strip().split(": ", 1) for line in settings_text.strip().split("\n"))
+    return dict(
+        line.strip().split(": ", 1) for line in settings_text.strip().split("\n")
+    )
+
 
 def enforce_range(input_value: int, min_value: int, max_value: int):
     """
@@ -136,11 +131,14 @@ def create_current_dict(max_current_value, increment, code_range):
     dict
         A dictionary mapping current values to their corresponding keys.
     """
-    current_dict = {str(i): i for i in range(0, max_current_value + increment, increment)}
+    current_dict = {
+        str(i): i for i in range(0, max_current_value + increment, increment)
+    }
     if str(max_current_value) in current_dict and int(code_range) < max_current_value:
         del current_dict[str(max_current_value)]
         current_dict[str(max_current_value)] = code_range
     return current_dict
+
 
 def closest_value(compare_value, value_dict):
     closest_key = min(value_dict, key=lambda key: abs(value_dict[key] - compare_value))
@@ -151,31 +149,39 @@ def closest_value(compare_value, value_dict):
 def MOTOR_SETTINGS_TIC(
     default: Optional[DataContainer] = None,
     model: Literal["T500", "T825", "T834", "T249", "36v4", "T825"] = "T825",
-    current_limit_mode: Literal["continuous_current_limit", "unrestricted_current_limit"] = "continuous_current_limit",
+    current_limit_mode: Literal[
+        "continuous_current_limit", "unrestricted_current_limit"
+    ] = "continuous_current_limit",
     current_limit_t500: int = 174,
     current_limit_t825: int = 192,
     current_limit_t834: int = 192,
     current_limit_t249: int = 200,
     current_limit_36v4: int = 215,
     step_mode_t500: Literal["Full", "1/2", "1/4", "1/8", "default"] = "default",
-    step_mode_t825: Literal["Full", "1/2", "1/4", "1/8", "1/16", "1/32", "default"] = "default",
-    step_mode_t834: Literal["Full", "1/2", "1/4", "1/8", "1/16", "1/32", "default"] = "default",
-    step_mode_t249: Literal["Full", "1/2", "1/4", "1/8", "1/16", "1/32", "1/2 100%", "default"] = "default",
-    step_mode_36v4: Literal["Full", "1/2", "1/4", "1/8", "1/16", "1/32", "1/64", "1/128", "1/256", "default"] = "default",
-    decay_mode: int = 0,
+    step_mode_t825: Literal[
+        "Full", "1/2", "1/4", "1/8", "1/16", "1/32", "default"
+    ] = "default",
+    step_mode_t834: Literal[
+        "Full", "1/2", "1/4", "1/8", "1/16", "1/32", "default"
+    ] = "default",
+    step_mode_t249: Literal[
+        "Full", "1/2", "1/4", "1/8", "1/16", "1/32", "1/2 100%", "default"
+    ] = "default",
+    step_mode_36v4: Literal[
+        "Full", "1/2", "1/4", "1/8", "1/16", "1/32", "1/64", "1/128", "1/256", "default"
+    ] = "default",
+    set_decay_mode: int = 0,
     set_max_speed: int = 0,
     set_starting_speed: int = 0,
     set_max_acceleration: int = 0,
     set_max_deceleration: int = 0,
-
 ) -> DataContainer:
-    
     """
     Configure settings for a Tic T-series stepper driver.
 
     This function allows you to configure various settings for a Pololu Tic T-series stepper driver, including model selection, current limits,
     speed settings, step modes, and more.
-    
+
     Parameters
     ----------
     default : DataContainer
@@ -226,8 +232,26 @@ def MOTOR_SETTINGS_TIC(
     step_mode_36v4 : Literal["Full", "1/2", "1/4", "1/8", "1/16", "1/32", "1/64", "1/128", "1/256", "default"], optional
         The step mode for the Tic 36v4 model. Defaults to "default".
 
-    decay_mode : int, optional
+    set_decay_mode : int, optional
         The decay mode setting. Defaults to 0.
+
+        Tic T500:
+            0: Automatic
+
+        Tic T249:
+            0: ADMD
+
+        Tic T825:
+            0: Mixed
+            1: Slow
+            2: Fast
+
+        Tic T834:
+            0: Mixed 50%
+            1: Slow
+            2: Fast
+            3: Mixed 25%
+            4: Mixed 75%
 
     Returns
     -------
@@ -236,15 +260,15 @@ def MOTOR_SETTINGS_TIC(
     """
 
     current_limit_model_dict = {
-    "T500": current_limit_t500,
-    "T825": current_limit_t825,
-    "T834": current_limit_t834,
-    "T249": current_limit_t249,
-    "36v4": current_limit_36v4,
-}   
+        "T500": current_limit_t500,
+        "T825": current_limit_t825,
+        "T834": current_limit_t834,
+        "T249": current_limit_t249,
+        "36v4": current_limit_36v4,
+    }
     # Get product (model) name from settings
     parsed_settings = parse_settings(tic.settings.get_control_mode())["product"]
-    
+
     # Define current_limit_dict
     if current_limit_mode == "continuous_current_limit":
         current_limit_dict = continuous_current_limit_dict
@@ -257,14 +281,23 @@ def MOTOR_SETTINGS_TIC(
     max_current_value = int(current_limit_dict[parsed_settings])
 
     # Create the value_dict
-    value_dict = create_current_dict(
-        max_current_value=max_current_value,
-        increment=increment,
-        code_range=current_code_range,
-    ) if parsed_settings != "T500" else current_limit_t500_dict
+    value_dict = (
+        create_current_dict(
+            max_current_value=max_current_value,
+            increment=increment,
+            code_range=current_code_range,
+        )
+        if parsed_settings != "T500"
+        else current_limit_t500_dict
+    )
 
     # Set the current limit using closest_value.
-    tic.set_current_limit(closest_value(compare_value=current_limit_model_dict[parsed_settings], value_dict=value_dict))
+    tic.set_current_limit(
+        closest_value(
+            compare_value=current_limit_model_dict[parsed_settings],
+            value_dict=value_dict,
+        )
+    )
 
     # Get current limit
     current_limit = current_limit_dict.get(model)
@@ -283,39 +316,100 @@ def MOTOR_SETTINGS_TIC(
         "1/64": 7,
         "1/128": 8,
         "1/256": 9,
-        "default": None
+        "default": None,
     }
 
     # Set step mode
-    for step_mode in [step_mode_t500, step_mode_t825, step_mode_t834, step_mode_t249, step_mode_36v4]:
+    for step_mode in [
+        step_mode_t500,
+        step_mode_t825,
+        step_mode_t834,
+        step_mode_t249,
+        step_mode_36v4,
+    ]:
         value = step_mode_dict.get(step_mode)
         if value is not None:
             tic.set_step_mode(value)
-    
+
     tic.set_max_speed(enforce_range(set_max_speed, 0, 500000000))
     tic.set_starting_speed(enforce_range(set_starting_speed, 0, 500000000))
     tic.set_max_acceleration(enforce_range(set_max_acceleration, 100, 2147483647))
     tic.set_max_deceleration(enforce_range(set_max_deceleration, 100, 2147483647))
-
+    tic.set_decay_mode(set_decay_mode, 0, 4)
 
     return DataContainer
 
-@display
-def OVERLOAD(current_limit_t500, current_limit_mode, max_speed, starting_speed, acceleration, deceleration, decay_mode, step_mode_t500, model="T500") -> None:
-    return None
 
 @display
-def OVERLOAD(current_limit_t825, current_limit_mode, max_speed, starting_speed, acceleration, deceleration, decay_mode, step_mode_t825, model="T825") -> None:
+def OVERLOAD(
+    current_limit_t500,
+    current_limit_mode,
+    max_speed,
+    starting_speed,
+    acceleration,
+    deceleration,
+    decay_mode,
+    step_mode_t500,
+    model="T500",
+) -> None:
     return None
 
-@display
-def OVERLOAD(current_limit_t834, current_limit_mode, max_speed, starting_speed, acceleration, deceleration, decay_mode, step_mode_t834, model="T834") -> None:
-    return None
 
 @display
-def OVERLOAD(current_limit_t249, current_limit_mode, max_speed, starting_speed, acceleration, deceleration, decay_mode, step_mode_t249, model="T249") -> None:
+def OVERLOAD(
+    current_limit_t825,
+    current_limit_mode,
+    max_speed,
+    starting_speed,
+    acceleration,
+    deceleration,
+    decay_mode,
+    step_mode_t825,
+    model="T825",
+) -> None:
     return None
 
+
 @display
-def OVERLOAD(current_limit_36v4, current_limit_mode, max_speed, starting_speed, acceleration, deceleration, decay_mode, step_mode_36v4, model="36v4") -> None:
+def OVERLOAD(
+    current_limit_t834,
+    current_limit_mode,
+    max_speed,
+    starting_speed,
+    acceleration,
+    deceleration,
+    decay_mode,
+    step_mode_t834,
+    model="T834",
+) -> None:
+    return None
+
+
+@display
+def OVERLOAD(
+    current_limit_t249,
+    current_limit_mode,
+    max_speed,
+    starting_speed,
+    acceleration,
+    deceleration,
+    decay_mode,
+    step_mode_t249,
+    model="T249",
+) -> None:
+    return None
+
+
+@display
+def OVERLOAD(
+    current_limit_36v4,
+    current_limit_mode,
+    max_speed,
+    starting_speed,
+    acceleration,
+    deceleration,
+    decay_mode,
+    step_mode_36v4,
+    model="36v4",
+) -> None:
     return None
