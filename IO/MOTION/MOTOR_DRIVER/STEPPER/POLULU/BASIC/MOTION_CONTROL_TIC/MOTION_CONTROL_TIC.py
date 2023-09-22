@@ -53,28 +53,28 @@ def enforce_limit_switches(go_home: str):
     # Returns
     # -------
     # int
-    #     1 if all limit switches are properly set.
+    #     1 if compatible limit switches are properly set.
 
     # Raises
     # ------
-    # ValueError:
+    # Exception:
     #     Limit switches not available for the selected homing direction.
     # """
 
-    # Define the types of limit switches to check
     switch_types = ["scl", "sda", "tx", "rx", "rc"]
 
-    # Iterate through each limit switch type
     for switch_type in switch_types:
-        # Construct the setting name dynamically based on the direction of homing
         setting_name = f"get_{switch_type}_limit_switch_{go_home}"
+        errors = []
 
-        # Check if the limit switch does not return the expected value of 1.
-        if getattr(tic.settings, setting_name)() != 1:
-            for switch_type in switch_types:
-                raise ValueError(
-                    f"Limit switch {switch_type} is not properly set for {go_home} homing direction."
-                )
+        try:
+            if getattr(tic.settings, setting_name)() != 1:
+                errors.append(Exception(f"Limit switch {switch_type} is not properly set for {go_home} homing direction."))
+        except Exception as e:
+            errors.append(e)
+
+    for error in errors:
+        raise error
 
     return 1
 
