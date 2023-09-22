@@ -11,13 +11,11 @@ def test_SHUFFLE_MATRIX(mock_flojoy_decorator):
 
     inputMatrix = Matrix(m=x)
 
-    result = np.random.permutation(x)
+    indices_2 = np.random.permutation(x.shape[1])
+    result = x[:, indices_2]
 
     np.random.seed(40)
 
-    shuffledX = SHUFFLE_MATRIX.SHUFFLE_MATRIX(inputMatrix)
+    shuffledX = SHUFFLE_MATRIX.SHUFFLE_MATRIX(inputMatrix, 0)
 
-    print(shuffledX)
-
-    # assert np.array_equal(shuffledX.m, result)
-    return True
+    assert np.array_equal(shuffledX.m, result)

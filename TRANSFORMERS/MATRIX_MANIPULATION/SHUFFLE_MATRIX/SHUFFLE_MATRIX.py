@@ -1,11 +1,6 @@
-from numpy.random import shuffle
-from numpy import apply_along_axis
+from numpy.random import permutation
 from flojoy import flojoy, Matrix
 
-
-def shuffle_row(row):
-    shuffle(row)
-    return row
 
 @flojoy
 def SHUFFLE_MATRIX(
@@ -22,7 +17,7 @@ def SHUFFLE_MATRIX(
     Parameters
     ----------
     axis : int
-        Axis along which to sort. Default is -1, which means sort along the last axis.
+        Axis along the matrix is shuffled. If axis is 0, shuffled by row and if it is 1, shuffled by column.
 
     Returns
     -------
@@ -30,6 +25,13 @@ def SHUFFLE_MATRIX(
         Shuffled input Matrix
     """
 
-    shuffledVector = apply_along_axis(shuffle_row, axis, default.m)
+    if axis == 1:
+        indices_1 = permutation(default.m.shape[0])
+        shuffledMatrix = default.m[indices_1, :]
+    elif axis == 0:
+        indices_2 = permutation(default.m.shape[1])
+        shuffledMatrix = default.m[:, indices_2]
+    else:
+        raise AssertionError("Axis must be either 0 or 1, but provided {axis}")
 
-    return Matrix(m=shuffledVector)
+    return Matrix(m=shuffledMatrix)
