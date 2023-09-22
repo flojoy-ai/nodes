@@ -32,6 +32,6 @@ def SHUFFLE_MATRIX(
         indices_2 = permutation(default.m.shape[1])
         shuffledMatrix = default.m[:, indices_2]
     else:
-        raise AssertionError("Axis must be either 0 or 1, but provided {axis}")
+        raise AssertionError(f"Axis must be either 0 or 1, but provided {axis}")
 
     return Matrix(m=shuffledMatrix)
