@@ -33,9 +33,9 @@ def SAFE_START_CONTROL_TIC(
 
         Options:
         
-        - "enter_safe_start" to enable the "safe start violation" error and halt the motor.
+        "enter_safe_start" to enable the "safe start violation" error and halt the motor.
 
-        - "exit_safe_start" to clear the "safe start violation" error and allow the motor to start up.
+        "exit_safe_start" to clear the "safe start violation" error and allow the motor to start up.
 
     Returns
     -------
