@@ -111,7 +111,7 @@ def enforce_range(input_value: int, min_value: int, max_value: int):
     )
 
 
-def create_current_dict(max_current_value, increment, code_range):
+def create_current_dict(max_current_value: int, increment: int, code_range: int):
     """
     Create a dictionary of current values with corresponding keys.
 
@@ -140,7 +140,7 @@ def create_current_dict(max_current_value, increment, code_range):
     return current_dict
 
 
-def closest_value(compare_value, value_dict):
+def closest_value(compare_value: int, value_dict: dict):
     closest_key = min(value_dict, key=lambda key: abs(value_dict[key] - compare_value))
     return value_dict[closest_key]
 
@@ -260,11 +260,11 @@ def MOTOR_SETTINGS_TIC(
     """
 
     current_limit_model_dict = {
-        "T500": current_limit_t500,
-        "T825": current_limit_t825,
-        "T834": current_limit_t834,
-        "T249": current_limit_t249,
-        "36v4": current_limit_36v4,
+        "T500": str(current_limit_t500),
+        "T825": str(current_limit_t825),
+        "T834": str(current_limit_t834),
+        "T249": str(current_limit_t249),
+        "36v4": str(current_limit_36v4),
     }
     # Get product (model) name from settings
     parsed_settings = parse_settings(tic.settings.get_control_mode())["product"]
@@ -276,35 +276,49 @@ def MOTOR_SETTINGS_TIC(
         current_limit_dict = unrestricted_current_limit_dict
 
     # Define increment, current_code_range, and max_current_value.
-    increment = int(current_increment_dict[parsed_settings])
-    current_code_range = int(current_code_range_dict[parsed_settings])
-    max_current_value = int(current_limit_dict[parsed_settings])
+    increment = current_increment_dict[parsed_settings]
+    current_code_range = current_code_range_dict[parsed_settings]
+    max_current_value = current_limit_dict[parsed_settings]
 
     # Create the value_dict
     value_dict = (
         create_current_dict(
-            max_current_value=max_current_value,
-            increment=increment,
-            code_range=current_code_range,
+            max_current_value=int(max_current_value),
+            increment=int(increment),
+            code_range=int(current_code_range),
         )
         if parsed_settings != "T500"
         else current_limit_t500_dict
     )
+    
+    # Mapping of step modes
+    step_mode_mapping = {
+        "T500": step_mode_t500,
+        "T825": step_mode_t825,
+        "T834": step_mode_t834,
+        "T249": step_mode_t249,
+        "36v4": step_mode_36v4,
+    }
 
     # Set the current limit using closest_value.
     tic.set_current_limit(
         closest_value(
-            compare_value=current_limit_model_dict[parsed_settings],
+            compare_value=int(current_limit_model_dict[parsed_settings]),
             value_dict=value_dict,
         )
     )
 
+    # Set step modes
+    for model, step_mode in step_mode_mapping.items():
+        value = step_mode_dict.get(step_mode, None)
+        if value is not None:
+            tic.set_step_mode(value)
+
     # Get current limit
     current_limit = current_limit_dict.get(model)
     if model == parsed_settings and current_limit is not None:
-        tic.set_current_limit(enforce_range(current_limit))
+        tic.set_current_limit(enforce_range(int(current_limit)))
 
-    # Step modes mapping
     step_mode_dict = {
         "Full": 0,
         "1/2": 1,
@@ -319,18 +333,6 @@ def MOTOR_SETTINGS_TIC(
         "default": None,
     }
 
-    # Set step mode
-    for step_mode in [
-        step_mode_t500,
-        step_mode_t825,
-        step_mode_t834,
-        step_mode_t249,
-        step_mode_36v4,
-    ]:
-        value = step_mode_dict.get(step_mode)
-        if value is not None:
-            tic.set_step_mode(value)
-
     tic.set_max_speed(enforce_range(set_max_speed, 0, 500000000))
     tic.set_starting_speed(enforce_range(set_starting_speed, 0, 500000000))
     tic.set_max_acceleration(enforce_range(set_max_acceleration, 100, 2147483647))
@@ -342,14 +344,14 @@ def MOTOR_SETTINGS_TIC(
 
 @display
 def OVERLOAD(
+    step_mode_t500,
     current_limit_t500,
     current_limit_mode,
-    max_speed,
-    starting_speed,
-    acceleration,
-    deceleration,
-    decay_mode,
-    step_mode_t500,
+    set_max_speed,
+    set_starting_speed,
+    set_max_acceleration,
+    set_max_deceleration,
+    set_decay_mode,
     model="T500",
 ) -> None:
     return None
@@ -357,14 +359,14 @@ def OVERLOAD(
 
 @display
 def OVERLOAD(
+    step_mode_t825,
     current_limit_t825,
     current_limit_mode,
-    max_speed,
-    starting_speed,
-    acceleration,
-    deceleration,
-    decay_mode,
-    step_mode_t825,
+    set_max_speed,
+    set_starting_speed,
+    set_max_acceleration,
+    set_max_deceleration,
+    set_decay_mode,
     model="T825",
 ) -> None:
     return None
@@ -372,14 +374,14 @@ def OVERLOAD(
 
 @display
 def OVERLOAD(
+    step_mode_t834,
     current_limit_t834,
     current_limit_mode,
-    max_speed,
-    starting_speed,
-    acceleration,
-    deceleration,
-    decay_mode,
-    step_mode_t834,
+    set_max_speed,
+    set_starting_speed,
+    set_max_acceleration,
+    set_max_deceleration,
+    set_decay_mode,
     model="T834",
 ) -> None:
     return None
@@ -387,14 +389,14 @@ def OVERLOAD(
 
 @display
 def OVERLOAD(
+    step_mode_t249,
     current_limit_t249,
     current_limit_mode,
-    max_speed,
-    starting_speed,
-    acceleration,
-    deceleration,
-    decay_mode,
-    step_mode_t249,
+    set_max_speed,
+    set_starting_speed,
+    set_max_acceleration,
+    set_max_deceleration,
+    set_decay_mode,
     model="T249",
 ) -> None:
     return None
@@ -402,14 +404,14 @@ def OVERLOAD(
 
 @display
 def OVERLOAD(
+    step_mode_36v4,
     current_limit_36v4,
     current_limit_mode,
-    max_speed,
-    starting_speed,
-    acceleration,
-    deceleration,
-    decay_mode,
-    step_mode_36v4,
+    set_max_speed,
+    set_starting_speed,
+    set_max_acceleration,
+    set_max_deceleration,
+    set_decay_mode,
     model="36v4",
 ) -> None:
     return None
