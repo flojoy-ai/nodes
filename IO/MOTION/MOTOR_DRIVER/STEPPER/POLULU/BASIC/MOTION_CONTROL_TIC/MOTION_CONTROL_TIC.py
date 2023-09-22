@@ -72,8 +72,8 @@ def enforce_limit_switches(go_home: str):
         except Exception as e:
             errors.append(e)
 
-    for error in errors:
-        raise error
+    if errors:
+            raise Exception(errors)
 
     return 1
 
