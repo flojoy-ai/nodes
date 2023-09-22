@@ -68,7 +68,7 @@ def enforce_limit_switches(go_home: str):
 
         try:
             if getattr(tic.settings, setting_name)() != 1:
-                errors.append(Exception(f"Limit switch {switch_type} is not properly set for {go_home} homing direction."))
+                errors.append(Exception(f"Limit switch {switch_type} is not properly set for {go_home} homing direction.\n"))
         except Exception as e:
             errors.append(e)
 
