@@ -1,34 +1,30 @@
-from numpy import arange, array_equal, put
+from numpy import arange, array_equal, take
 from flojoy import Vector, Array
 from pytest import raises
 
 
-def test_REPLACE_SUBSET(mock_flojoy_decorator):
-    import REPLACE_SUBSET
+def test_VECTOR_SUBSET(mock_flojoy_decorator):
+    import VECTOR_SUBSET
 
     v = arange(1, 11)
-    v_len = len(v)
     v = Vector(v=v)
     ex = v.copy()
 
     # when only one index is specified
-    res = REPLACE_SUBSET.REPLACE_SUBSET(v, indices=Array(ref=[0]), values=Array(ref=[22, -44, 22]), length=3)
-    
-    # check if the arrays are equal
-    tmp = put(ex.v, [0, 1, 2], [22, -44, 22])
-    assert array_equal(res.v, tmp)
+    res = VECTOR_SUBSET.VECTOR_SUBSET(v, indices=Array(ref=[0]), length=3)
 
+    # check if the arrays are equal
+    tmp = take(ex.v, [0, 1, 2])
+    assert array_equal(len(tmp), len(res.v))
+    assert array_equal(res.v, tmp)
 
     # # # when multiple indices at different locations are specified
-    res = REPLACE_SUBSET.REPLACE_SUBSET(v, indices=Array(ref=[1, 4, 5, 6]), values=Array(ref=[10, 100, -12, 800]))
+    res = VECTOR_SUBSET.VECTOR_SUBSET(v, indices=Array(ref=[1, 4, 5, 6]))
 
     # # check if the arrays are equal
-    tmp = put(ex.v, [1, 4, 5, 6], [10, 100, -12, 800])
+    tmp = take(ex.v, [1, 4, 5, 6])
+    assert array_equal(len(tmp), len(res.v))
     assert array_equal(res.v, tmp)
 
     with raises(AssertionError):
-        REPLACE_SUBSET.REPLACE_SUBSET(v, indices=Array(ref=[11]), values=Array(ref=[-11]))
-
-    # when the length parameter and number of elements to replace does not match
-    with raises(AssertionError):
-        REPLACE_SUBSET.REPLACE_SUBSET(v, indices=Array(ref=[0]), values=Array(ref=[22, -44, 22]), length=5)
+        VECTOR_SUBSET.VECTOR_SUBSET(v, indices=Array(ref=[11]))

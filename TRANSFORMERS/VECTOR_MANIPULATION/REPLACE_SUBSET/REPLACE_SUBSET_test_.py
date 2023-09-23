@@ -7,7 +7,6 @@ def test_REPLACE_SUBSET(mock_flojoy_decorator):
     import REPLACE_SUBSET
 
     v = arange(1, 11)
-    v_len = len(v)
     v = Vector(v=v)
     ex = v.copy()
 
