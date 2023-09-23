@@ -16,7 +16,7 @@ def SORT_VECTOR(
     Parameters
     ----------
     reverse : int
-        If it's given 0, sort in ascending order. 
+        If it's given 0, sort in ascending order.
         If it's given 1, sort in descending order.
 
     Returns
@@ -29,4 +29,6 @@ def SORT_VECTOR(
     elif reverse == 1:
         return Vector(v=sorted(default.v, reverse=True))
     else:
-        raise AssertionError(f"Invalid reverse value! It should be either 0 or 1 but given {reverse}")
+        raise AssertionError(
+            f"Invalid reverse value! It should be either 0 or 1 but given {reverse}"
+        )
