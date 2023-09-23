@@ -3,7 +3,7 @@ from flojoy import Vector, Array
 from pytest import raises
 
 
-def test_VECTOR_INSERT(mock_flojoy_decorator):
+def test_VECTOR_DELETE(mock_flojoy_decorator):
     import VECTOR_DELETE
 
     v = arange(1, 11)

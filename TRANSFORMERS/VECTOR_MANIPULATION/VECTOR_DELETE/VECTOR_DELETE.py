@@ -1,4 +1,3 @@
-
 from numpy import any, array, delete, arange
 from flojoy import flojoy, Vector, Array
 
