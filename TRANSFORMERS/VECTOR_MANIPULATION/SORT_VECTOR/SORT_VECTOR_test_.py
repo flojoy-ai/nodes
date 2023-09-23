@@ -10,6 +10,6 @@ def test_SORT_MATRIX(mock_flojoy_decorator):
 
     result = np.array([1, 2, 3])
 
-    sortedX = SORT_VECTOR.SORT_VECTOR(inputVector)
+    sortedX = SORT_VECTOR.SORT_VECTOR(inputVector, 0)
 
     assert np.array_equal(sortedX.v, result)
