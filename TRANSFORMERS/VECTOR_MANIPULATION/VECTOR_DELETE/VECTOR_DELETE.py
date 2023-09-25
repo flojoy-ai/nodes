@@ -26,14 +26,18 @@ def VECTOR_DELETE(default: Vector, indices: Array, length: int = 1) -> Vector:
     """
     # unwrap the indices first
     indices = array(indices.unwrap(), dtype=int)
-    
-    assert(len(default.v) > len(indices)),  "The length of indices parameter must be less than the length of the Vector."
-    assert(any(indices >= 0)), "The indices must be greater than zero."
-    
-    if (len(indices) == 1):
-        assert((indices[0] + (length - 1)) < len(default.v)), "The length of items to delete starting from index parameter must not exceed the length of the Vector."
 
-    if (len(indices) > 1):
+    assert len(default.v) > len(
+        indices
+    ), "The length of indices parameter must be less than the length of the Vector."
+    assert any(indices >= 0), "The indices must be greater than zero."
+
+    if len(indices) == 1:
+        assert (indices[0] + (length - 1)) < len(
+            default.v
+        ), "The length of items to delete starting from index parameter must not exceed the length of the Vector."
+
+    if len(indices) > 1:
         v = delete(default.v, indices, None)
     else:
         indices = arange(indices[0], length)

@@ -2,6 +2,7 @@ from numpy import ones, array_equal
 from flojoy import Vector
 from pytest import raises
 
+
 def test_VECTOR_INSERT(mock_flojoy_decorator):
     import VECTOR_INSERT
 
@@ -18,5 +19,3 @@ def test_VECTOR_INSERT(mock_flojoy_decorator):
 
     with raises(AssertionError):
         VECTOR_INSERT.VECTOR_INSERT(v, index=10)
-
-

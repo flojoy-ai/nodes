@@ -1,6 +1,7 @@
 from numpy import arange, array_equal
 from flojoy import Vector
 
+
 def test_VECTOR_MIN(mock_flojoy_decorator):
     import VECTOR_MIN
 
