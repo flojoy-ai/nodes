@@ -55,6 +55,4 @@ def REPLACE_SUBSET(
         ), "The number of indices and the number of correpsonding elements must be equal."
         indices = arange(indices[0], length)
         put(default.v, indices, values)
-
-    print(f"This is the value for replaced subset =============", default.v)
     return Vector(v=default.v)
