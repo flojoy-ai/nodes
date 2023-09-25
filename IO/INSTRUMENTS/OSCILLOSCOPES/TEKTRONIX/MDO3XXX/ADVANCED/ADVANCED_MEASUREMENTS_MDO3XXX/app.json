@@ -4,14 +4,33 @@
             {
                 "width": 192,
                 "height": 192,
-                "id": "LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60",
+                "id": "CONNECTION_MDO3XXX-9ce85b60-e790-43df-bb20-2d71fda6c1b3",
                 "type": "IO",
                 "data": {
-                    "id": "LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60",
-                    "label": "LIST VISA",
-                    "func": "LIST_VISA",
+                    "id": "CONNECTION_MDO3XXX-9ce85b60-e790-43df-bb20-2d71fda6c1b3",
+                    "label": "CONNECTION MDO3XXX",
+                    "func": "CONNECTION_MDO3XXX",
                     "type": "IO",
-                    "ctrls": {},
+                    "ctrls": {
+                        "device": {
+                            "type": "VisaDevice",
+                            "default": null,
+                            "desc": "The VISA address to connect to.",
+                            "overload": null,
+                            "functionName": "CONNECTION_MDO3XXX",
+                            "param": "device",
+                            "value": "USB0::1689::1032::C012101::0::INSTR"
+                        },
+                        "num_channels": {
+                            "type": "int",
+                            "default": 4,
+                            "desc": "The number of channels on the instrument that are currently in use.",
+                            "overload": null,
+                            "functionName": "CONNECTION_MDO3XXX",
+                            "param": "num_channels",
+                            "value": 2
+                        }
+                    },
                     "initCtrls": {},
                     "inputs": [
                         {
@@ -27,93 +46,170 @@
                             "name": "default",
                             "id": "default",
                             "type": "Any",
-                            "desc": "optional: The input DataContainer is returned."
+                            "desc": "Optional: None"
                         }
                     ],
-                    "pip_dependencies": [
-                        {
-                            "name": "pyvisa",
-                            "v": "1.13.0"
-                        },
-                        {
-                            "name": "pyusb",
-                            "v": "1.2.1"
-                        },
-                        {
-                            "name": "zeroconf",
-                            "v": "0.102.0"
-                        },
-                        {
-                            "name": "pyvisa_py",
-                            "v": "0.7.0"
-                        }
-                    ],
-                    "path": "IO/INSTRUMENTS/QCODES/LIST_VISA/LIST_VISA.py",
+                    "path": "IO/INSTRUMENTS/OSCILLOSCOPES/TEKTRONIX/MDO3XXX/BASIC/CONNECTION_MDO3XXX/CONNECTION_MDO3XXX.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -723.0785771711177,
-                    "y": 525.3171553398978
+                    "x": -255.44879430712533,
+                    "y": -98.564770643341
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -723.0785771711177,
-                    "y": 525.3171553398978
+                    "x": -255.44879430712533,
+                    "y": -98.564770643341
                 },
                 "dragging": true
             },
             {
-                "width": 384,
-                "height": 288,
-                "id": "TEXT_VIEW-9ba0951f-eb88-420e-9389-7145697c1f54",
-                "type": "VISUALIZERS",
+                "width": 192,
+                "height": 192,
+                "id": "EXTRACT_TRACE_MDO3XXX-c47a35fb-de9e-404b-84e6-223f569e975f",
+                "type": "IO",
                 "data": {
-                    "id": "TEXT_VIEW-9ba0951f-eb88-420e-9389-7145697c1f54",
-                    "label": "TEXT VIEW",
-                    "func": "TEXT_VIEW",
-                    "type": "VISUALIZERS",
-                    "ctrls": {},
+                    "id": "EXTRACT_TRACE_MDO3XXX-c47a35fb-de9e-404b-84e6-223f569e975f",
+                    "label": "EXTRACT TRACE CH1",
+                    "func": "EXTRACT_TRACE_MDO3XXX",
+                    "type": "IO",
+                    "ctrls": {
+                        "connection": {
+                            "type": "VisaConnection",
+                            "default": null,
+                            "desc": "The VISA address (requires the CONNECTION_MDO3XXX node).",
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3XXX",
+                            "param": "connection",
+                            "value": "USB0::1689::1032::C012101::0::INSTR"
+                        },
+                        "channel": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3XXX",
+                            "param": "channel",
+                            "value": 0
+                        },
+                        "x_length": {
+                            "type": "int",
+                            "default": 5000,
+                            "desc": "The length of the trace to extract.",
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3XXX",
+                            "param": "x_length",
+                            "value": 500
+                        },
+                        "length_type": {
+                            "type": "select",
+                            "options": [
+                                "pixels",
+                                "nanoseconds"
+                            ],
+                            "default": "pixels",
+                            "desc": "The units of the length specified in x_length: nanoseconds or pixels.",
+                            "overload": null,
+                            "functionName": "EXTRACT_TRACE_MDO3XXX",
+                            "param": "length_type",
+                            "value": "nanoseconds"
+                        }
+                    },
                     "initCtrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "TextBlob",
+                            "type": "Any",
                             "multiple": false,
-                            "desc": "the DataContainer to be visualized in text format"
+                            "desc": null
                         }
                     ],
-                    "path": "VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "desc": "OrderedPair: The trace of the oscilloscope is returned."
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/OSCILLOSCOPES/TEKTRONIX/MDO3XXX/BASIC/EXTRACT_TRACE_MDO3XXX/EXTRACT_TRACE_MDO3XXX.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -251.19193841906153,
-                    "y": 343.48432258290853
+                    "x": 130.0358104923503,
+                    "y": -284.8055974025993
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -251.19193841906153,
-                    "y": 343.48432258290853
+                    "x": 130.0358104923503,
+                    "y": -284.8055974025993
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "TABLE-eefc79f6-ada6-4b36-ab8c-38c5b61cd053",
+                "id": "BIG_NUMBER-cc9b6db5-08dd-4f8a-8256-6fcb30a02b35",
                 "type": "VISUALIZERS",
                 "data": {
-                    "id": "TABLE-eefc79f6-ada6-4b36-ab8c-38c5b61cd053",
-                    "label": "TABLE 2",
-                    "func": "TABLE",
+                    "id": "BIG_NUMBER-cc9b6db5-08dd-4f8a-8256-6fcb30a02b35",
+                    "label": "BIG NUMBER",
+                    "func": "BIG_NUMBER",
                     "type": "VISUALIZERS",
-                    "ctrls": {},
+                    "ctrls": {
+                        "suffix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "any suffix to show with big number",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "suffix",
+                            "value": ""
+                        },
+                        "prefix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "any prefix to show with big number",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "prefix",
+                            "value": ""
+                        },
+                        "title": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "title of the plot, default = \"BIG_NUMBER\"",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "title",
+                            "value": ""
+                        },
+                        "relative_delta": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": "whether or not to show the relative delta from the last run along with big number",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": true
+                        },
+                        "scientific_notation": {
+                            "type": "bool",
+                            "default": false,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "scientific_notation",
+                            "value": true
+                        }
+                    },
                     "initCtrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "OrderedTriple|OrderedPair|DataFrame|Vector|Scalar",
+                            "type": "OrderedPair|Scalar|Vector",
                             "multiple": false,
                             "desc": "the DataContainer to be visualized"
                         }
@@ -123,78 +219,60 @@
                             "name": "default",
                             "id": "default",
                             "type": "Plotly",
-                            "desc": "the DataContainer containing Plotly Table visualization"
+                            "desc": "the DataContainer containing the Plotly big number visualization"
                         }
                     ],
-                    "path": "VISUALIZERS/PLOTLY/TABLE/TABLE.py",
+                    "path": "VISUALIZERS/PLOTLY/BIG_NUMBER/BIG_NUMBER.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 47.079250672949854,
-                    "y": 474.0590654431728
+                    "x": 518.5383675018643,
+                    "y": 18.73411176197044
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 47.079250672949854,
-                    "y": 474.0590654431728
+                    "x": 518.5383675018643,
+                    "y": 18.73411176197044
                 },
                 "dragging": true
             },
             {
                 "width": 192,
                 "height": 192,
-                "id": "ADVANCED_MEASUREMENTS_MDO3xxx-ad5e2759-b98b-46f4-b215-5f7fe1fbb793",
+                "id": "ADVANCED_MEASUREMENTS_MDO3XXX-aeaf88a6-543f-4405-9697-456be37da742",
                 "type": "IO",
                 "data": {
-                    "id": "ADVANCED_MEASUREMENTS_MDO3xxx-ad5e2759-b98b-46f4-b215-5f7fe1fbb793",
-                    "label": "ADVANCED MEASUREMENTS MDO3xxx",
-                    "func": "ADVANCED_MEASUREMENTS_MDO3xxx",
+                    "id": "ADVANCED_MEASUREMENTS_MDO3XXX-aeaf88a6-543f-4405-9697-456be37da742",
+                    "label": "ADVANCED MEASUREMENTS Rise Time (s)",
+                    "func": "ADVANCED_MEASUREMENTS_MDO3XXX",
                     "type": "IO",
                     "ctrls": {
-                        "VISA_address": {
-                            "type": "str",
+                        "connection": {
+                            "type": "VisaConnection",
                             "default": null,
-                            "desc": "The VISA address to query.",
+                            "desc": "The VISA address (requires the CONNECTION_MDO3XXX node).",
                             "overload": null,
-                            "functionName": "ADVANCED_MEASUREMENTS_MDO3xxx",
-                            "param": "VISA_address",
+                            "functionName": "ADVANCED_MEASUREMENTS_MDO3XXX",
+                            "param": "connection",
                             "value": "USB0::1689::1032::C012101::0::INSTR"
-                        },
-                        "VISA_index": {
-                            "type": "int",
-                            "default": 0,
-                            "desc": "The address will be found from LIST_VISA node list with this index.",
-                            "overload": null,
-                            "functionName": "ADVANCED_MEASUREMENTS_MDO3xxx",
-                            "param": "VISA_index",
-                            "value": 0
-                        },
-                        "num_channels": {
-                            "type": "int",
-                            "default": 4,
-                            "desc": "The number of channels on the instrument that are currently in use.",
-                            "overload": null,
-                            "functionName": "ADVANCED_MEASUREMENTS_MDO3xxx",
-                            "param": "num_channels",
-                            "value": 2
                         },
                         "channel": {
                             "type": "int",
                             "default": 0,
-                            "desc": null,
+                            "desc": "The channel with which to create a measurement for.",
                             "overload": null,
-                            "functionName": "ADVANCED_MEASUREMENTS_MDO3xxx",
+                            "functionName": "ADVANCED_MEASUREMENTS_MDO3XXX",
                             "param": "channel",
                             "value": 0
                         },
                         "measurement": {
                             "type": "str",
                             "default": "period",
-                            "desc": null,
+                            "desc": "The measurement to make.",
                             "overload": null,
-                            "functionName": "ADVANCED_MEASUREMENTS_MDO3xxx",
+                            "functionName": "ADVANCED_MEASUREMENTS_MDO3XXX",
                             "param": "measurement",
-                            "value": "fall"
+                            "value": "rise"
                         },
                         "statistic": {
                             "type": "select",
@@ -206,9 +284,9 @@
                                 "stdev"
                             ],
                             "default": "instant",
-                            "desc": null,
+                            "desc": "The type of statistic to take for the measurement.",
                             "overload": null,
-                            "functionName": "ADVANCED_MEASUREMENTS_MDO3xxx",
+                            "functionName": "ADVANCED_MEASUREMENTS_MDO3XXX",
                             "param": "statistic",
                             "value": "instant"
                         }
@@ -227,74 +305,102 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Any",
-                            "desc": "OrderedPair: The trace of the oscilloscope is"
+                            "type": "Scalar",
+                            "desc": "Scalar: The measurement from the oscilloscope channel."
                         }
                     ],
-                    "pip_dependencies": [
+                    "path": "IO/INSTRUMENTS/OSCILLOSCOPES/TEKTRONIX/MDO3XXX/ADVANCED/ADVANCED_MEASUREMENTS_MDO3XXX/ADVANCED_MEASUREMENTS_MDO3XXX.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 124.57314459031954,
+                    "y": 66.47911682859728
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 124.57314459031954,
+                    "y": 66.47911682859728
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-b72c0154-74fc-44e5-ba43-8a3bd91d6ef1",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "LINE-b72c0154-74fc-44e5-ba43-8a3bd91d6ef1",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
                         {
-                            "name": "pyvisa",
-                            "v": "1.13.0"
-                        },
-                        {
-                            "name": "pyusb",
-                            "v": "1.2.1"
-                        },
-                        {
-                            "name": "zeroconf",
-                            "v": "0.102.0"
-                        },
-                        {
-                            "name": "pyvisa_py",
-                            "v": "0.7.0"
-                        },
-                        {
-                            "name": "qcodes",
-                            "v": "0.39.1"
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
                         }
                     ],
-                    "path": "IO/INSTRUMENTS/OSCILLOSCOPES/TEKTRONIX/MDO3xxx/ADVANCED/ADVANCED_MEASUREMENTS_MDO3xxx/ADVANCED_MEASUREMENTS_MDO3xxx.py",
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing the Plotly Line visualization of the input data"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/LINE/LINE.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -355.5227196324611,
-                    "y": 524.0106443603165
+                    "x": 530.2324516876912,
+                    "y": -305.24892486085355
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -355.5227196324611,
-                    "y": 524.0106443603165
+                    "x": 530.2324516876912,
+                    "y": -305.24892486085355
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60",
+                "source": "CONNECTION_MDO3XXX-9ce85b60-e790-43df-bb20-2d71fda6c1b3",
                 "sourceHandle": "default",
-                "target": "TEXT_VIEW-9ba0951f-eb88-420e-9389-7145697c1f54",
+                "target": "EXTRACT_TRACE_MDO3XXX-c47a35fb-de9e-404b-84e6-223f569e975f",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60default-TEXT_VIEW-9ba0951f-eb88-420e-9389-7145697c1f54default"
+                "id": "reactflow__edge-CONNECTION_MDO3XXX-9ce85b60-e790-43df-bb20-2d71fda6c1b3default-EXTRACT_TRACE_MDO3XXX-c47a35fb-de9e-404b-84e6-223f569e975fdefault"
             },
             {
-                "source": "LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60",
+                "source": "CONNECTION_MDO3XXX-9ce85b60-e790-43df-bb20-2d71fda6c1b3",
                 "sourceHandle": "default",
-                "target": "ADVANCED_MEASUREMENTS_MDO3xxx-ad5e2759-b98b-46f4-b215-5f7fe1fbb793",
+                "target": "ADVANCED_MEASUREMENTS_MDO3XXX-aeaf88a6-543f-4405-9697-456be37da742",
                 "targetHandle": "default",
-                "id": "reactflow__edge-LIST_VISA-789bdf25-9c0d-45e4-ab76-bda6e68fec60default-ADVANCED_MEASUREMENTS_MDO3xxx-ad5e2759-b98b-46f4-b215-5f7fe1fbb793default"
+                "id": "reactflow__edge-CONNECTION_MDO3XXX-9ce85b60-e790-43df-bb20-2d71fda6c1b3default-ADVANCED_MEASUREMENTS_MDO3XXX-aeaf88a6-543f-4405-9697-456be37da742default"
             },
             {
-                "source": "ADVANCED_MEASUREMENTS_MDO3xxx-ad5e2759-b98b-46f4-b215-5f7fe1fbb793",
+                "source": "ADVANCED_MEASUREMENTS_MDO3XXX-aeaf88a6-543f-4405-9697-456be37da742",
                 "sourceHandle": "default",
-                "target": "TABLE-eefc79f6-ada6-4b36-ab8c-38c5b61cd053",
+                "target": "BIG_NUMBER-cc9b6db5-08dd-4f8a-8256-6fcb30a02b35",
                 "targetHandle": "default",
-                "id": "reactflow__edge-ADVANCED_MEASUREMENTS_MDO3xxx-ad5e2759-b98b-46f4-b215-5f7fe1fbb793default-TABLE-eefc79f6-ada6-4b36-ab8c-38c5b61cd053default"
+                "id": "reactflow__edge-ADVANCED_MEASUREMENTS_MDO3XXX-aeaf88a6-543f-4405-9697-456be37da742default-BIG_NUMBER-cc9b6db5-08dd-4f8a-8256-6fcb30a02b35default"
+            },
+            {
+                "source": "EXTRACT_TRACE_MDO3XXX-c47a35fb-de9e-404b-84e6-223f569e975f",
+                "sourceHandle": "default",
+                "target": "LINE-b72c0154-74fc-44e5-ba43-8a3bd91d6ef1",
+                "targetHandle": "default",
+                "id": "reactflow__edge-EXTRACT_TRACE_MDO3XXX-c47a35fb-de9e-404b-84e6-223f569e975fdefault-LINE-b72c0154-74fc-44e5-ba43-8a3bd91d6ef1default"
             }
         ],
         "viewport": {
-            "x": 855.945537953298,
-            "y": 287.6844024349923,
-            "zoom": 2
+            "x": 1136.4492687849445,
+            "y": 584.5880790869217,
+            "zoom": 1.2397346348267997
         }
     }
 }

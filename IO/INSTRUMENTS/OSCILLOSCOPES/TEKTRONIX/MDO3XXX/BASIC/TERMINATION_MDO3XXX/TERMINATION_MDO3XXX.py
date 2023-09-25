@@ -1,35 +1,21 @@
-from flojoy import flojoy, DataContainer, Scalar
-import pyvisa
+from flojoy import flojoy, DataContainer, Scalar, VisaConnection
 from typing import Optional, Literal
-from flojoy.instruments.tektronix.MDO30xx import TektronixMDO30xx
-from usb.core import USBError
 
 
-@flojoy(
-    deps={
-        "pyvisa": "1.13.0",
-        "pyusb": "1.2.1",
-        "zeroconf": "0.102.0",
-        "pyvisa_py": "0.7.0",
-        "qcodes": "0.39.1",
-    }
-)
+@flojoy(inject_connection=True)
 def TERMINATION_MDO3XXX(
-    VISA_address: Optional[str],
-    VISA_index: Optional[int] = 0,
-    num_channels: int = 4,
+    connection: VisaConnection,
     channel: int = 0,
     termination: Literal["50 ohm", "75 ohm", "1M ohm"] = "50 ohm",
     query_set: Literal["query", "set"] = "query",
     default: Optional[DataContainer] = None,
-) -> Optional[DataContainer]:
+) -> Scalar:
     """The TERMINATION_MDO3XXX node sets the termination ohms (or queries it).
 
     The termination is set by the output, and the set termination
     in the oscilloscope must match that value.
 
     Note that the termination is often called the "electrical impedance".
-
     Note that the 75 Ohm option is not compatible with all model numbers.
 
     If the "VISA_address" parameter is not specified the VISA_index will be
@@ -41,12 +27,8 @@ def TERMINATION_MDO3XXX(
 
     Parameters
     ----------
-    VISA_address: str
-        The VISA address to query.
-    VISA_index: int
-        The address will be found from LIST_VISA node list with this index.
-    num_channels: int
-        The number of channels on the instrument that are currently in use.
+    connection: VisaConnection
+        The VISA address (requires the CONNECTION_MDO3XXX node).
     channel: int
         The channel to query or set the impedance/termination.
     termination: str
@@ -57,26 +39,10 @@ def TERMINATION_MDO3XXX(
     Returns
     -------
     DataContainer
-        Scalar: The triggering voltage.
+        Scalar: The termination value for the chosen channel.
     """
 
-    rm = pyvisa.ResourceManager("@py")
-    if VISA_address == "":
-        VISA_addresses = rm.list_resources()
-        VISA_address = VISA_addresses[int(VISA_index)]
-
-    try:
-        tek = TektronixMDO30xx(
-            "MDO30xx",
-            VISA_address,
-            visalib="@py",
-            device_clear=False,
-            number_of_channels=num_channels,
-        )
-    except USBError as err:
-        raise Exception(
-            "USB port error. Trying unplugging+replugging the port."
-        ) from err
+    tek = connection.get_handle()
 
     match termination:
         case "50 ohm":
@@ -92,7 +58,5 @@ def TERMINATION_MDO3XXX(
         case "set":
             tek.channel[int(channel)].termination(termination)
             c = termination
-
-    tek.close()
 
     return Scalar(c=c)
