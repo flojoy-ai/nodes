@@ -91,7 +91,7 @@ def R_DATASET(
         "WWWusage",
     ] = "iris"
 ) -> DataFrame:
-    """The R_DATASET node retrieves a pandas DataFrame from rdatasets using the provided dataset_key parameter and returns it wrapped in a DataContainer.
+    """The R_DATASET node retrieves a pandas DataFrame from 'rdatasets', using the provided dataset_key parameter, and returns it wrapped in a DataContainer.
 
     Parameters
     ----------

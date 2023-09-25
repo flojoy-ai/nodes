@@ -33,8 +33,7 @@ def FIR(
 ) -> OrderedPair:
     """The FIR node applies a low-pass FIR filter to an input vector. The filter is designed with the window method.
 
-    This filter takes a few inputs:
-    the sample_rate (will be passed as a parameter if the target node is not connected), the window type of the filter, the cutoff frequency, and the number of taps (or length) of the filter.
+    This filter takes a few inputs: the sample_rate (will be passed as a parameter if the target node is not connected), the window type of the filter, the cutoff frequency, and the number of taps (or length) of the filter.
 
     Inputs
     ------

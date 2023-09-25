@@ -30,7 +30,9 @@ def TRIMBOTH(
     proportiontocut : float
         Proportion (in range 0-1) of total data set to trim of each end.
     axis : int or None, optional
-        Axis along which to trim data. Default is 0. If None, compute over the whole array 'a'.
+        Axis along which to trim data.
+        Default is 0.
+        If None, compute over the whole array 'a'.
 
     Returns
     -------

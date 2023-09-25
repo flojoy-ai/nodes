@@ -16,7 +16,8 @@ def ARGRELMAX(
     """The ARGRELMAX node is based on a numpy or scipy function.
 
     The description of that function is as follows:
-        Calculate the relative maxima of `data`.
+
+        Calculate the relative maxima of 'data'.
 
     Parameters
     ----------

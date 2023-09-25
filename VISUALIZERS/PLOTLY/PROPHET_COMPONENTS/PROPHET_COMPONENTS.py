@@ -9,13 +9,14 @@ from flojoy import flojoy, run_in_venv, DataFrame, Plotly
 )
 def PROPHET_COMPONENTS(default: DataFrame, periods: int = 365) -> Plotly:
     """The PROPHET_COMPONENTS node plots the components of the prophet model trained in the PROPHET_PREDICT node.
-    This is the output plotly graph from the "plot_components_plotly" function from "prophet.plot".
+
+    This is the output plotly graph from the 'plot_components_plotly' function from 'prophet.plot'.
     It expects the trained Prophet model from the PROPHET_PREDICT node as input.
 
-    If "run_forecast" was True in that node, the forecasted dataframe will be available as the "m" attribute of the default input.
-    Otherwise, this will make the predictions on the raw dataframe (in which case it will be the "m" attribute of the default input).
+    If 'run_forecast' was True in that node, the forecasted dataframe will be available as the 'm' attribute of the default input.
+    Otherwise, this will make the predictions on the raw dataframe (in which case it will be the 'm' attribute of the default input).
 
-    You can tell if that forecasted dataframe is available via the "extra" field of data input, "run_forecast" (data.extra["run_forecast"]).
+    You can tell if that forecasted dataframe is available via the 'extra' field of data input, 'run_forecast' (data.extra["run_forecast"]).
 
     Inputs
     ------
@@ -23,7 +24,7 @@ def PROPHET_COMPONENTS(default: DataFrame, periods: int = 365) -> Plotly:
         the DataContainer to be visualized
 
     data : DataContainer
-        the DataContainer that holds prophet model and forecast data in the `extra` field
+        the DataContainer that holds prophet model and forecast data in the 'extra' field
 
 
     Parameters
@@ -38,7 +39,7 @@ def PROPHET_COMPONENTS(default: DataFrame, periods: int = 365) -> Plotly:
     Returns
     -------
     Plotly
-        the DataContainer containing Plotly visualization of the prophet model
+        the DataContainer containing the Plotly visualization of the prophet model
     """
 
     import os
