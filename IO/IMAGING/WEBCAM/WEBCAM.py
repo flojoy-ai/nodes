@@ -1,27 +1,24 @@
 import cv2
-import os
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataContainer, CameraConnection, Image
 from typing import Optional, Literal
-from PIL import Image
-import numpy as np
 
 
-@flojoy(deps={"opencv-python-headless": "4.7.0.72"})
+@flojoy(deps={"opencv-python-headless": "4.7.0.72"}, inject_connection=True)
 def WEBCAM(
+    connection: CameraConnection,
     default: Optional[DataContainer] = None,
-    camera_ind: int = -1,
     resolution: Literal[
         "default", "640x360", "640x480", "1280x720", "1920x1080"
     ] = "default",
-) -> DataContainer:
+) -> Image:
     """The CAMERA node acquires an image using the selected camera.
 
-    If no camera is detected, an error would be shown.
+    The selected camera must be opened already using the OPEN_WEBCAM node.
 
     Parameters
     ----------
-    camera_ind : int
-        Camera index (i.e. camera identifier).
+    connection : Camera
+        The opened camera connection to use.
     resolution : select
         Camera resolution. Choose from a few options.
 
@@ -29,27 +26,27 @@ def WEBCAM(
     -------
     Image
     """
+    cam = connection.get_handle()
 
     try:
-        camera = cv2.VideoCapture(camera_ind)
         if resolution != "default":
             resolution = resolution.split("x")
             try:
-                camera.set(cv2.CAP_PROP_FRAME_WIDTH, int(resolution[0]))
-                camera.set(cv2.CAP_PROP_FRAME_HEIGHT, int(resolution[1]))
+                cam.set(cv2.CAP_PROP_FRAME_WIDTH, int(resolution[0]))
+                cam.set(cv2.CAP_PROP_FRAME_HEIGHT, int(resolution[1]))
             except cv2.error as camera_error:
                 print(f"Invalid resolution ({resolution}). Try a lower value.")
                 raise camera_error
 
-        if not camera.isOpened():
+        if not cam.isOpened():
             raise cv2.error("Failed to open camera")
 
-        result, BGR_img = camera.read()
+        result, BGR_img = cam.read()
 
         if not result:
             raise cv2.error("Failed to capture image")
-        camera.release()
-        del camera
+        # cam.release()
+        # del cam
 
         RGB_img = cv2.cvtColor(BGR_img, cv2.COLOR_BGR2RGB)
 
@@ -63,8 +60,7 @@ def WEBCAM(
         else:
             alpha_channel = None
 
-        camera_image = DataContainer(
-            type="Image",
+        camera_image = Image(
             r=red_channel,
             g=green_channel,
             b=blue_channel,

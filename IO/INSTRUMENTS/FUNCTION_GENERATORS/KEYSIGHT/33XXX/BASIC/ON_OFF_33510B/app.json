@@ -1,0 +1,380 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-819c7e1c-0ff5-4c09-8a13-b65b1e1bab0e",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-819c7e1c-0ff5-4c09-8a13-b65b1e1bab0e",
+                    "label": "TEXT VIEW",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -104.31280346396179,
+                    "y": -275.1195051479864
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -104.31280346396179,
+                    "y": -275.1195051479864
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7",
+                "type": "IO",
+                "data": {
+                    "id": "CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7",
+                    "label": "CLOSE ALL",
+                    "func": "CLOSE_ALL",
+                    "type": "IO",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "optional: The input DataContainer is returned."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/QCODES/CLOSE_ALL/CLOSE_ALL.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -919.3821328184661,
+                    "y": -74.54262269929615
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -919.3821328184661,
+                    "y": -74.54262269929615
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "ON_OFF_33510B-40f04122-9a47-4ecd-8181-7b42d087a126",
+                "type": "IO",
+                "data": {
+                    "id": "ON_OFF_33510B-40f04122-9a47-4ecd-8181-7b42d087a126",
+                    "label": "ON OFF 33510B",
+                    "func": "ON_OFF_33510B",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "ON_OFF_33510B",
+                            "param": "VISA_address",
+                            "value": "USB0::2391::9735::MY59003244::0::INSTR"
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "ON_OFF_33510B",
+                            "param": "VISA_index",
+                            "value": 0
+                        },
+                        "on_off": {
+                            "type": "select",
+                            "options": [
+                                "ON",
+                                "OFF"
+                            ],
+                            "default": "OFF",
+                            "desc": "Whether to turn the waveform generation to on or off.",
+                            "overload": null,
+                            "functionName": "ON_OFF_33510B",
+                            "param": "on_off",
+                            "value": "ON"
+                        },
+                        "channel": {
+                            "type": "select",
+                            "options": [
+                                "ch1",
+                                "ch2"
+                            ],
+                            "default": "ch1",
+                            "desc": "The channel to turn on or off.",
+                            "overload": null,
+                            "functionName": "ON_OFF_33510B",
+                            "param": "channel",
+                            "value": "ch1"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "TextBlob: ON or OFF depending on on_off value."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/FUNCTION_GENERATORS/KEYSIGHT/33XXX/BASIC/ON_OFF_33510B/ON_OFF_33510B.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -518.9542744208309,
+                    "y": -225.7992199828376
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -518.9542744208309,
+                    "y": -225.7992199828376
+                },
+                "dragging": true
+            },
+            {
+                "width": 192,
+                "height": 192,
+                "id": "ON_OFF_33510B-c5638b61-e10d-48a1-b59d-835c2dfd2290",
+                "type": "IO",
+                "data": {
+                    "id": "ON_OFF_33510B-c5638b61-e10d-48a1-b59d-835c2dfd2290",
+                    "label": "ON OFF 33510B 1",
+                    "func": "ON_OFF_33510B",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "ON_OFF_33510B",
+                            "param": "VISA_address",
+                            "value": "USB0::2391::9735::MY59003244::0::INSTR"
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "ON_OFF_33510B",
+                            "param": "VISA_index",
+                            "value": 0
+                        },
+                        "on_off": {
+                            "type": "select",
+                            "options": [
+                                "ON",
+                                "OFF"
+                            ],
+                            "default": "OFF",
+                            "desc": "Whether to turn the waveform generation to on or off.",
+                            "overload": null,
+                            "functionName": "ON_OFF_33510B",
+                            "param": "on_off",
+                            "value": "OFF"
+                        },
+                        "channel": {
+                            "type": "select",
+                            "options": [
+                                "ch1",
+                                "ch2"
+                            ],
+                            "default": "ch1",
+                            "desc": "The channel to turn on or off.",
+                            "overload": null,
+                            "functionName": "ON_OFF_33510B",
+                            "param": "channel",
+                            "value": "ch2"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "TextBlob: ON or OFF depending on on_off value."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/FUNCTION_GENERATORS/KEYSIGHT/33XXX/BASIC/ON_OFF_33510B/ON_OFF_33510B.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -527.5335653145921,
+                    "y": 123.28418767124424
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -527.5335653145921,
+                    "y": 123.28418767124424
+                },
+                "dragging": true
+            },
+            {
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-9b57ca0b-54cb-46c2-a71a-69bdc48fa993",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-9b57ca0b-54cb-46c2-a71a-69bdc48fa993",
+                    "label": "TEXT VIEW 1",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -120.86745747230276,
+                    "y": 75.58695985795885
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -120.86745747230276,
+                    "y": 75.58695985795885
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7",
+                "sourceHandle": "default",
+                "target": "ON_OFF_33510B-40f04122-9a47-4ecd-8181-7b42d087a126",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7default-ON_OFF_33510B-40f04122-9a47-4ecd-8181-7b42d087a126default"
+            },
+            {
+                "source": "ON_OFF_33510B-40f04122-9a47-4ecd-8181-7b42d087a126",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-819c7e1c-0ff5-4c09-8a13-b65b1e1bab0e",
+                "targetHandle": "default",
+                "id": "reactflow__edge-ON_OFF_33510B-40f04122-9a47-4ecd-8181-7b42d087a126default-TEXT_VIEW-819c7e1c-0ff5-4c09-8a13-b65b1e1bab0edefault"
+            },
+            {
+                "source": "ON_OFF_33510B-c5638b61-e10d-48a1-b59d-835c2dfd2290",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-9b57ca0b-54cb-46c2-a71a-69bdc48fa993",
+                "targetHandle": "default",
+                "id": "reactflow__edge-ON_OFF_33510B-c5638b61-e10d-48a1-b59d-835c2dfd2290default-TEXT_VIEW-9b57ca0b-54cb-46c2-a71a-69bdc48fa993default"
+            },
+            {
+                "source": "CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7",
+                "sourceHandle": "default",
+                "target": "ON_OFF_33510B-c5638b61-e10d-48a1-b59d-835c2dfd2290",
+                "targetHandle": "default",
+                "id": "reactflow__edge-CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7default-ON_OFF_33510B-c5638b61-e10d-48a1-b59d-835c2dfd2290default"
+            }
+        ],
+        "viewport": {
+            "x": 1104.261946392206,
+            "y": 573.1338859553202,
+            "zoom": 1.2154437530123414
+        }
+    }
+}

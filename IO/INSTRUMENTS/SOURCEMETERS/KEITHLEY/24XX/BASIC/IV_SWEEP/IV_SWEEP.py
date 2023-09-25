@@ -1,19 +1,24 @@
-from flojoy import flojoy, OrderedPair, Vector, node_initialization, NodeInitContainer
 import serial
+import numpy as np
+from flojoy import SerialConnection, flojoy, OrderedPair, Vector
+from typing import cast
 
 
-@flojoy(deps={"pyserial": "3.5"})
+@flojoy(deps={"pyserial": "3.5"}, inject_connection=True)
 def IV_SWEEP(
-    init_container: NodeInitContainer, default: OrderedPair | Vector
+    connection: SerialConnection, default: OrderedPair | Vector
 ) -> OrderedPair:
-    """The KEITHLEY2400 node takes an I-V curve measurement with a Keithley 2400 source meter, send voltages, and measures currents.
+    """The IV_SWEEP node takes an I-V curve measurement with a Keithley 2400 source meter, send voltages, and measures currents.
+
+    Inputs
+    ------
+    default: OrderedPair | Vector
+        The voltages to send to the Keithley 2400 source meter.
 
     Parameters
     ----------
-    comport : str
-        Defines the serial communication port for the Keithley2400 source meter.
-    baudrate : float
-        Specifies the baud rate for the serial communication between the Keithley2400 and the computer.
+    connection: Serial
+        The open connection with the Keithley2400 source meter.
 
     Returns
     -------
@@ -21,16 +26,16 @@ def IV_SWEEP(
     """
 
     # Start serial communication with the instrument
-    # ser: serial = serial.Serial()
+    ser = cast(serial.Serial, connection.get_handle())
 
-    ser = init_container.get()
     if ser is None:
         raise ValueError("Serial communication is not open")
 
     # Keithley 2400 Configuration
     ser.write(b"*RST\n")  # reinitialisation of the instrument
-    ser.write(b":SOUR:FUNC:MODE VOLT\n")  # Sourcing tension
-    ser.write(b':SENS:FUNC "CURR"\n')  # Measuring current
+    ser.write(
+        b":SOUR:FUNC:MODE VOLT\n"
+    )  # Sourcing tension ser.write(b':SENS:FUNC "CURR"\n')  # Measuring current
     ser.write(
         b":SENS:CURR:PROT 1.05\n"
     )  # Current protection set at 1.05A (Keithley 2400)
@@ -49,10 +54,8 @@ def IV_SWEEP(
         ser.write(b":INIT\n")  # Start measuring
         ser.write(b":FETC?\n")  # Retrieve the measured values
 
-        current_str: str = (
-            ser.readline().decode("ascii").strip()
-        )  # Save answers in a string
-        voltage_current_values: str = current_str.split(",")  # Split the string
+        current_str = ser.readline().decode("ascii").strip()  # Save answers in a string
+        voltage_current_values = current_str.split(",")  # Split the string
         currents_neg.append(-float(voltage_current_values[1]))
 
         ser.write(b":OUTP OFF\n")  # Close output from Instrument
@@ -60,23 +63,4 @@ def IV_SWEEP(
     # Close Serial Communication
     ser.close()
 
-    return OrderedPair(x=voltages, y=currents_neg)
-
-
-@node_initialization(for_node=IV_SWEEP)
-def init(comport: str = "/dev/ttyUSB0", baudrate: float = 9600):
-    ser: serial = serial.Serial()
-
-    # Specific parameters
-    ser.port = comport  # Specify serial port for com
-    ser.baudrate = baudrate  # Specify Baudrate
-
-    # General parameters
-    ser.bytesize = serial.EIGHTBITS  # Specify Bites number
-    ser.parity = serial.PARITY_NONE  # Specify Parity
-    ser.stopbits = serial.STOPBITS_ONE  # Specify Stop bites
-    ser.timeout = 1
-    # Open Serial Com
-    ser.open()
-
-    return ser
+    return OrderedPair(x=voltages, y=np.array(currents_neg))

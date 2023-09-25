@@ -2,39 +2,41 @@ from flojoy import flojoy, Image, DataFrame, Grayscale, TextBlob
 from typing import Literal, Optional
 import numpy as np
 from PIL import Image as PIL_Image
-from os import path
+import os
 import pandas as pd
 
 
 def get_file_path(file_path: str, default_path: str | None = None):
-    f_path = path.abspath(file_path) if file_path != "" else default_path
+    f_path = file_path if file_path != "" else default_path
     if not f_path:
         raise ValueError(
             "The file path of the input file is missing. "
             "Please provide a input TextBlob or a provide `file_path` with a value!"
         )
+    if not os.path.isabs(f_path):
+        path_to_nodes = __file__[: __file__.rfind("nodes") + 5]
+        return os.path.abspath(os.path.join(path_to_nodes, f_path))
     return f_path
 
 
 @flojoy(
     deps={
-        "xlrd": "2.0.1",
-        "lxml": "4.9.2",
-        "openpyxl": "3.0.10",
         "scikit-image": "0.21.0",
     }
 )
 def LOCAL_FILE(
-    file_path: str = None,
+    file_path: str | None = None,
     default: Optional[TextBlob] = None,
-    file_type: Literal["Image", "Grayscale", "JSON", "CSV", "Excel", "XML"] = "Image",
-) -> Image | DataFrame:
+    file_type: Literal["Image", "Grayscale", "JSON", "CSV"] = "Image",
+) -> Image | DataFrame | Grayscale:
     """The LOCAL_FILE node loads a local file of a different type and converts it to a DataContainer class.
 
     Parameters
     ----------
     file_path : str
-        Path to the file to be loaded.
+        The path to the file to be loaded. This can be either an absolute path or
+        a path relative to the "nodes" directory.
+
     default : Optional[TextBlob]
         If this input node is connected, the file name will be taken from
         the output of the connected node.
@@ -50,11 +52,12 @@ def LOCAL_FILE(
     -------
     Image | DataFrame
         Image for file_type 'image'.
-        DataFrame for file_type 'json', 'csv', 'excel', and 'xml'.
+        Grayscale from file_type 'Grayscale'.
+        DataFrame for file_type 'json', 'csv'.
     """
 
-    default_image_path = path.join(
-        path.dirname(path.abspath(__file__)),
+    default_image_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
         "assets",
         "astronaut.png",
     )
@@ -93,11 +96,12 @@ def LOCAL_FILE(
             file_path = get_file_path(file_path)
             df = pd.read_json(file_path)
             return DataFrame(df=df)
-        case "XML":
-            file_path = get_file_path(file_path)
-            df = pd.read_xml(file_path)
-            return DataFrame(df=df)
-        case "Excel":
-            file_path = get_file_path(file_path)
-            df = pd.read_excel(file_path)
-            return DataFrame(df=df)
+        # TODO: we might add support for following file types later
+        # case "XML":
+        #     file_path = get_file_path(file_path)
+        #     df = pd.read_xml(file_path)
+        #     return DataFrame(df=df)
+        # case "Excel":
+        #     file_path = get_file_path(file_path)
+        #     df = pd.read_excel(file_path)
+        #     return DataFrame(df=df)
