@@ -27,4 +27,4 @@ jobs:
       - name: pytest
         run: |
           python -m pytest -s -vv -m "slow" .
-        timeout-minutes: 20
+        timeout-minutes: 30
