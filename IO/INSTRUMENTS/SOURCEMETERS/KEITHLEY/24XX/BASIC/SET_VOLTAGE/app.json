@@ -1,0 +1,97 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 150,
+                "height": 180,
+                "id": "SET_VOLTAGE-12c8036a-06c1-412e-8bf6-2734a57c448e",
+                "type": "IO",
+                "data": {
+                    "id": "SET_VOLTAGE-12c8036a-06c1-412e-8bf6-2734a57c448e",
+                    "label": "SET VOLTAGE",
+                    "func": "SET_VOLTAGE",
+                    "type": "IO",
+                    "ctrls": {
+                        "voltage": {
+                            "type": "int",
+                            "default": 2,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "SET_VOLTAGE",
+                            "param": "voltage",
+                            "value": 2
+                        },
+                        "voltage_range": {
+                            "type": "int",
+                            "default": 10,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "SET_VOLTAGE",
+                            "param": "voltage_range",
+                            "value": 10
+                        },
+                        "current_range": {
+                            "type": "int",
+                            "default": 1,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "SET_VOLTAGE",
+                            "param": "current_range",
+                            "value": 1
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "desc": null
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        },
+                        {
+                            "name": "pyvisa-py",
+                            "v": "0.6.3"
+                        },
+                        {
+                            "name": "pyserial",
+                            "v": "3.5"
+                        }
+                    ],
+                    "path": "PYTHON/nodes/IO/INSTRUMENTS/SOURCEMETERS/KEITHLEY/24XX/BASIC/SET_VOLTAGE/SET_VOLTAGE.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": -156.9124813518792,
+                    "y": -297.17831907410823
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": -156.9124813518792,
+                    "y": -297.17831907410823
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [],
+        "viewport": {
+            "x": 819.7643144890276,
+            "y": 420.4113108673,
+            "zoom": 0.8915653288195635
+        }
+    }
+}

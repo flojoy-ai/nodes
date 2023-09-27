@@ -1,13 +1,13 @@
 from flojoy import flojoy, Plotly, OrderedPair, DataFrame, Matrix, Vector
-import numpy as np
+from numpy import arange
 import plotly.graph_objects as go
-import pandas as pd
+from pandas.api.types import is_datetime64_any_dtype
 from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
 def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
-    """The LINE node creates a Plotly Line visualization for a given input data container.
+    """The LINE node creates a Plotly Line visualization for a given input DataContainer.
 
     Inputs
     ------
@@ -17,7 +17,7 @@ def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
     Returns
     -------
     Plotly
-        the DataContainer containing Plotly Line visualization of the input data
+        the DataContainer containing the Plotly Line visualization of the input data
     """
 
     layout = plot_layout(title="LINE")
@@ -35,7 +35,7 @@ def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
             df = default.m
             first_col = df.iloc[:, 0]
             is_timeseries = False
-            if pd.api.types.is_datetime64_any_dtype(first_col):
+            if is_datetime64_any_dtype(first_col):
                 is_timeseries = True
             if is_timeseries:
                 for col in df.columns:
@@ -64,7 +64,7 @@ def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
 
             num_rows, num_cols = m.shape
 
-            x_ticks = np.arange(num_cols)
+            x_ticks = arange(num_cols)
 
             for i in range(num_rows):
                 fig.add_trace(
@@ -74,7 +74,7 @@ def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
             fig.update_layout(xaxis_title="Column", yaxis_title="Value")
         case Vector():
             y = default.v
-            x = np.arange(len(y))
+            x = arange(len(y))
             fig.add_trace(go.Scatter(x=x, y=y, mode="lines"))
 
     return Plotly(fig=fig)

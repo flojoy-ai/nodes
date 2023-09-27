@@ -20,16 +20,17 @@ def FLOJOY_CLOUD_UPLOAD(
     default: DataContainer,
     measurement_id: str,
 ) -> DataContainer:
-    """The FLOJOY_CLOUD_UPLOAD node takes a DataContainer as input and uploads that to Flojoy Cloud.
+    """The FLOJOY_CLOUD_UPLOAD node takes a DataContainer as input and uploads it to Flojoy Cloud.
 
     Parameters
     ----------
-    measurement_id: The measurement id of the data to be uploaded to Flojoy Cloud.
+    measurement_id : str
+        The measurement id of the data to be uploaded to Flojoy Cloud.
 
     Returns
     -------
     DataContainer
-        The input DataContainer will be returned as it is
+        The input DataContainer will be returned as it is.
     """
 
     api_key = get_env_var("FLOJOY_CLOUD_KEY")

@@ -1,7 +1,7 @@
 from flojoy import flojoy, run_in_venv, DataFrame
 
 
-@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26", "pystan": "2.19.1.1"})
+@flojoy
 @run_in_venv(
     pip_dependencies=[
         "prophet==1.1.4",
@@ -10,12 +10,13 @@ from flojoy import flojoy, run_in_venv, DataFrame
 def PROPHET_PREDICT(
     default: DataFrame, run_forecast: bool = True, periods: int = 365
 ) -> DataFrame:
-    """The PROPHET_PREDICT node rains a Prophet model on the incoming dataframe.
+    """The PROPHET_PREDICT node runs a Prophet model on the incoming dataframe.
 
-    The DataContainer input type must be a dataframe, and the first column (or index) of dataframe must be of a datetime type.
+    The DataContainer input type must be a dataframe, and the first column (or index) of the dataframe must be of a datetime type.
 
-    This node always returns a DataContainer of a dataframe type. It will also always return an "extra" field with a key "prophet" of which the value is the JSONified Prophet model.
+    This node always returns a DataContainer of a dataframe type. It will also always return an 'extra' field with a key 'prophet' of which the value is the JSONified Prophet model.
     This model can be loaded as follows:
+
         ```python
         from prophet.serialize import model_from_json
 
@@ -26,13 +27,13 @@ def PROPHET_PREDICT(
     ----------
     run_forecast : bool
         If True (default case), the dataframe of the returning DataContainer
-        ("m" parameter of the DataContainer) will be the forecasted dataframe.
-        It will also have an "extra" field with the key "original", which is
+        ('m' parameter of the DataContainer) will be the forecasted dataframe.
+        It will also have an 'extra' field with the key 'original', which is
         the original dataframe passed in.
 
         If False, the returning dataframe will be the original data.
 
-        This node will also always have an "extra" field, run_forecast, which
+        This node will also always have an 'extra' field, run_forecast, which
         matches that of the parameters passed in. This is for future nodes
         to know if a forecast has already been run.
 
@@ -50,9 +51,9 @@ def PROPHET_PREDICT(
         (depending on if run_forecast is True).
 
     DataContainer
-        With parameter as "extra".
+        With parameter as 'extra'.
         Contains keys run_forecast which correspond to the input parameter,
-        and potentially "original" in the event that run_forecast is True.
+        and potentially 'original' in the event that run_forecast is True.
     """
 
     import os

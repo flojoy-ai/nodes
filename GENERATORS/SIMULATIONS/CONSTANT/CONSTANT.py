@@ -1,4 +1,4 @@
-import numpy as np
+from numpy import arange, full
 from flojoy import flojoy, Vector, OrderedPair, Scalar
 from typing import Optional, Literal
 
@@ -10,8 +10,7 @@ def CONSTANT(
     constant: float = 3.0,
     step: float = 1000,
 ) -> OrderedPair | Vector | Scalar:
-    """
-    The CONSTANT node generates a single x-y vector of numeric (floating point) constants.
+    """The CONSTANT node generates a single x-y vector of numeric (floating point) constants.
 
     Inputs
     ------
@@ -29,8 +28,6 @@ def CONSTANT(
 
     Returns
     -------
-    OrderedPair
-
     OrderedPair|Vector|Scalar
         OrderedPair if selected
         x: the x axis generated with size 'step'
@@ -41,14 +38,14 @@ def CONSTANT(
         c: the resulting constant
     """
 
-    x = np.arange(0, step, 1)
+    x = arange(0, step, 1)
     if default:
         match default:
             case OrderedPair():
                 x = default.y
             case Vector():
                 x = default.v
-    y = np.full(len(x), constant)
+    y = full(len(x), constant)
 
     match dc_type:
         case "OrderedPair":

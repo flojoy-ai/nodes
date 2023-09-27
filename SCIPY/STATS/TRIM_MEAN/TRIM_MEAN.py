@@ -16,7 +16,7 @@ def TRIM_MEAN(
 
     The description of that function is as follows:
 
-        Return mean of array after trimming distribution from both tails.
+        Return the mean of an array after trimming distribution from both tails.
 
         If `proportiontocut` = 0.1, slices off 'leftmost' and 'rightmost' 10% of scores.
         The input is sorted before slicing.
@@ -28,9 +28,10 @@ def TRIM_MEAN(
         Input array.
     proportiontocut : float
         Fraction to cut off of both tails of the distribution.
-    axis : int or None, optional
-        Axis along which the trimmed means are computed. Default is 0.
-        If None, compute over the whole array `a`.
+    axis : int, optional
+        Axis along which the trimmed means are computed.
+        Default is 0.
+        If None, compute over the whole array 'a'.
 
     Returns
     -------

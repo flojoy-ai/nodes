@@ -21,7 +21,7 @@ def BASIC_OSCILLATOR(
     Parameters
     ----------
     sample_rate : float
-        How many samples are taken in a second.
+        The number of samples that are taken in a second.
     time : float
         The total amount of time of the signal.
     waveform : select

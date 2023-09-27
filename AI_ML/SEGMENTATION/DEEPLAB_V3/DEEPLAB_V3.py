@@ -6,16 +6,16 @@ from flojoy import flojoy, run_in_venv, Image
     pip_dependencies=[
         "torch==2.0.1",
         "torchvision==0.15.2",
-        "Pillow==9.5.0",
-        "numpy==1.24.3",
+        "Pillow",
+        "numpy",
     ]
 )
 def DEEPLAB_V3(default: Image) -> Image:
     """The DEEPLAB_V3 node returns a segmentation mask from an input image in a dataframe.
 
-    The input image is expected to be a DataContainer of an "image" type.
+    The input image is expected to be a DataContainer of an 'image' type.
 
-    The output is a DataContainer of an "image" type with the same dimensions as the input image, but with the red, green, and blue channels replaced with the segmentation mask.
+    The output is a DataContainer of an 'image' type with the same dimensions as the input image, but with the red, green, and blue channels replaced with the segmentation mask.
 
     Returns
     -------

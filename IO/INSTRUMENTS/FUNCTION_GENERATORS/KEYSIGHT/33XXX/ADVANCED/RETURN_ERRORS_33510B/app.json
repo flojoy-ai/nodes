@@ -1,0 +1,138 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 192,
+                "height": 192,
+                "id": "RETURN_ERRORS_33510B-3a066f98-2226-43cf-b6db-c231fd651f55",
+                "type": "IO",
+                "data": {
+                    "id": "RETURN_ERRORS_33510B-3a066f98-2226-43cf-b6db-c231fd651f55",
+                    "label": "RETURN ERRORS 33510B",
+                    "func": "RETURN_ERRORS_33510B",
+                    "type": "IO",
+                    "ctrls": {
+                        "VISA_address": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "The VISA address to query.",
+                            "overload": null,
+                            "functionName": "RETURN_ERRORS_33510B",
+                            "param": "VISA_address",
+                            "value": ""
+                        },
+                        "VISA_index": {
+                            "type": "int",
+                            "default": 0,
+                            "desc": "The address will be found from LIST_VISA node list with this index.",
+                            "overload": null,
+                            "functionName": "RETURN_ERRORS_33510B",
+                            "param": "VISA_index",
+                            "value": 2
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "TextBlob: Returns all errors in the WFG memory."
+                        }
+                    ],
+                    "pip_dependencies": [
+                        {
+                            "name": "pyvisa",
+                            "v": "1.13.0"
+                        },
+                        {
+                            "name": "pyusb",
+                            "v": "1.2.1"
+                        },
+                        {
+                            "name": "zeroconf",
+                            "v": "0.102.0"
+                        },
+                        {
+                            "name": "pyvisa_py",
+                            "v": "0.7.0"
+                        },
+                        {
+                            "name": "qcodes",
+                            "v": "0.39.1"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/FUNCTION_GENERATORS/KEYSIGHT/33XXX/ADVANCED/RETURN_ERRORS_33510B/RETURN_ERRORS_33510B.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 193.2467834815114,
+                    "y": 112.8639037908917
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 193.2467834815114,
+                    "y": 112.8639037908917
+                }
+            },
+            {
+                "width": 384,
+                "height": 288,
+                "id": "TEXT_VIEW-9ef30eb9-6f9c-4b38-bdcf-a4093e1ec2a0",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-9ef30eb9-6f9c-4b38-bdcf-a4093e1ec2a0",
+                    "label": "TEXT VIEW",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "path": "VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 591.3285686884251,
+                    "y": 101.4852722421046
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 591.3285686884251,
+                    "y": 101.4852722421046
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "RETURN_ERRORS_33510B-3a066f98-2226-43cf-b6db-c231fd651f55",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-9ef30eb9-6f9c-4b38-bdcf-a4093e1ec2a0",
+                "targetHandle": "default",
+                "id": "reactflow__edge-RETURN_ERRORS_33510B-3a066f98-2226-43cf-b6db-c231fd651f55default-TEXT_VIEW-9ef30eb9-6f9c-4b38-bdcf-a4093e1ec2a0default"
+            }
+        ],
+        "viewport": {
+            "x": 1104.261946392206,
+            "y": 573.1338859553202,
+            "zoom": 1.2154437530123414
+        }
+    }
+}

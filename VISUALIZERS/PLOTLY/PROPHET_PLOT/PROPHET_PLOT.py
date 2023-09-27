@@ -1,7 +1,7 @@
 from flojoy import flojoy, run_in_venv, DataFrame, Plotly
 
 
-@flojoy(deps={"prophet": "1.1.4", "holidays": "0.26", "pystan": "2.19.1.1"})
+@flojoy
 @run_in_venv(
     pip_dependencies=[
         "prophet==1.1.4",
@@ -9,13 +9,14 @@ from flojoy import flojoy, run_in_venv, DataFrame, Plotly
 )
 def PROPHET_PLOT(default: DataFrame, periods: int = 365) -> Plotly:
     """The PROPHET_PLOT node plots the forecasted trend of the time series data that was passed in.
-    This is the output plotly graph from the "plot_plotly" function from "prophet.plot".
-    It expects as input the trained Prophet model from the PROPHET_PREDICT node.
 
-     If "run_forecast" was True in that node, the forecasted dataframe will be available in "m" attribute of default input.
-    Otherwise, this will make the predictions on the raw dataframe (in which case it will be the "m" attribute of default input).
+    This is the output plotly graph from the 'plot_plotly' function from 'prophet.plot'.
+    It expects the trained Prophet model from the PROPHET_PREDICT node as input.
 
-    You can tell if that forecasted dataframe is available via the "extra" field of data input - "run_forecast", (data.extra["run_forecast"]).
+    If 'run_forecast' was True in that node, the forecasted dataframe will be available as the 'm' attribute of the default input.
+    Otherwise, this will make the predictions on the raw dataframe (in which case it will be the 'm' attribute of the default input).
+
+    You can tell if that forecasted dataframe is available via the 'extra' field of data input, 'run_forecast' (data.extra["run_forecast"]).
 
     Inputs
     ------
@@ -23,7 +24,7 @@ def PROPHET_PLOT(default: DataFrame, periods: int = 365) -> Plotly:
         the DataContainer to be visualized
 
     data : DataContainer
-        the DataContainer that holds prophet model and forecast data in the `extra` field
+        the DataContainer that holds the prophet model and forecast data in the 'extra' field
 
     Parameters
     ----------
@@ -37,7 +38,7 @@ def PROPHET_PLOT(default: DataFrame, periods: int = 365) -> Plotly:
     Returns
     -------
     Plotly
-        the DataContainer containing Plotly visualization of the prophet model
+        the DataContainer containing the Plotly visualization of the prophet model
     """
 
     import os

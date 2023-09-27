@@ -1,4 +1,4 @@
-import numpy as np
+from numpy import zeros, append, ndarray
 from flojoy import flojoy, Scalar, DefaultParams, SmallMemory
 
 memory_key = "pid-info"
@@ -13,12 +13,12 @@ def PID(
     Kd: float = 356.25,
 ) -> Scalar:
     """The PID node acts like a PID function.
-    The returned value with be modified according to the
-    PID parameters Kp, Ki, and Kd.
+
+    The returned value will be modified according to the PID parameters Kp, Ki, and Kd.
 
     Inputs
     ------
-    default : Scalar
+    single_input : Scalar
         The data to apply the PID function to.
 
     Parameters
@@ -44,12 +44,12 @@ def PID(
     data = SmallMemory().read_memory(node_id, memory_key)
     if data is None:
         initialize = True
-    elif type(data) == np.ndarray:
+    elif type(data) == ndarray:
         initialize = False
     else:
         raise TypeError("Issue reading memory from REDIS.")
     integral: int = 0 if initialize else data[0]
-    regulation_error_primes = np.zeros(3) if initialize else data[1:]
+    regulation_error_primes = zeros(3) if initialize else data[1:]
     regulation_error = single_input.c
 
     integral: float = integral + 0.5 * Ki * (
@@ -72,7 +72,7 @@ def PID(
 
     # Now write to memory ...
     SmallMemory().write_to_memory(
-        node_id, memory_key, np.append(integral, regulation_error_primes)
+        node_id, memory_key, append(integral, regulation_error_primes)
     )
 
     # ... and return the result

@@ -14,46 +14,42 @@ from PIL import Image as PILImage
 
 @flojoy(deps={"scikit-image": "0.21.0"}, node_type="VISUALIZERS")
 def REGION_PROPERTIES(default: Optional[Image | Grayscale | Matrix] = None) -> Plotly:
-    """
-    This image processing node is a stand-alone visualizer for analyzing
-    an input array of data. There are multiple input `DataContainer` types for which
-    this function is applicable: `Image`, or  `Grayscale`, or `Matrix`.
+    """The image processing REGION_PROPERTIES node is a stand-alone visualizer for analyzing an input array of data.
+
+    There are multiple input 'DataContainer' types for which
+    this function is applicable: 'Image', 'Grayscale', or 'Matrix'.
 
     Often in image analysis, it is necessary to determine subvolumes / subregions
-    inside a given image, whether this be for object count (e.g. the counting of
-    cells on a glass plate), object dimensional analysis (determining coutours of
+    inside a given image, whether for object count (e.g. the counting of
+    cells on a glass plate), or object dimensional analysis (determining coutours of
     a region, centroid of a region relative to the pixel coordinate origin of the image,
-    determining the semi-major (-minor) axes of a region, etc.). This functionality
+    determining the semi-major or -minor axes of a region, etc.). This functionality
     is entirely provided by this node in a two-step process:
 
-        - First, the regions of the INTEGER image are identified and labelled (NOTA BENE
-            the integer type requirement)
-        - Second, the regions are then analysed.
+    - First, the regions of the INTEGER image are identified and labelled.
+    - Second, the regions are analyzed.
+
     The first step is provided by the morphology library of scikit-image's label function,
     while the second is provided by scikit-image's regionprops function.
 
     After processing, the results of this node are visualized in the main UI,
     where the user can see:
-        - The input array / image
-        - The semi-major and semi-minor axes of the contour drawn relative to the contour centroid
-        - The contour centroid
-        - The countour bounding-box
-        - A mouse-hover utility that displays the contour information to the user for the contour
-          above which is the mouse.
+    - The input array / image.
+    - The semi-major and semi-minor axes of the contour drawn relative to the contour centroid.
+    - The contour centroid.
+    - The countour bounding-box.
+    - A mouse-hover utility that displays the contour information to the user.
 
     Parameters
     ----------
-    default     :       Optional[Image | Grayscale],
-        The input node to this function. If nothing is supplied, then a demo test
-        case is returned to illustrate the functionality of this node.
+    default : Image | Grayscale
+        The input node to this function.
+        If nothing is supplied, a demo test case is returned to illustrate the functionality of this node.
 
     Returns
     -------
-    fig         :       Plotly
-        Returns the Plotly superclass of `DataContainer` that has the illustrated
-        features as determined by this node.
-
-
+    fig: Plotly
+        A Plotly figure containing the illustrated features as determined by this node.
     """
 
     if default:

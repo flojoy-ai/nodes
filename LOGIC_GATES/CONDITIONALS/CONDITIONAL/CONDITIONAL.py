@@ -15,8 +15,8 @@ def CONDITIONAL(
     operator_type: Literal["<=", ">", "<", ">=", "!=", "=="] = ">=",
 ) -> ConditionalOutput:
     """The CONDITIONAL node is a specialized node that compares two given Scalar inputs.
-    We are planning to add support for more DataContainer types in the future.
 
+    We are planning to add support for more DataContainer types in the future.
 
     It then enqueues nodes connected with a "true" or "false" output based on the comparison result.
 

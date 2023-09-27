@@ -11,7 +11,7 @@ def SCALAR(
 
     Parameters
     ----------
-    value: float
+    value : float
         The value set in Parameters
 
     Returns
