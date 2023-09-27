@@ -50,3 +50,4 @@ pytest-xdist==3.3.1
 flojoy==0.1.11
 qcodes==0.39.1
 pyvisa-sim==0.5.1
+pillow>=10.0.1 # not directly required, pinned by Snyk to avoid a vulnerability
