@@ -16,8 +16,8 @@ def test_REPLACE_SUBSET(mock_flojoy_decorator):
     )
 
     # check if the arrays are equal
-    tmp = put(ex.v, [0, 1, 2], [22, -44, 22])
-    assert array_equal(res.v, tmp)
+    put(ex.v, [0, 1, 2], [22, -44, 22])
+    assert array_equal(res.v, ex.v)
 
     # # # when multiple indices at different locations are specified
     res = REPLACE_SUBSET.REPLACE_SUBSET(
@@ -25,8 +25,8 @@ def test_REPLACE_SUBSET(mock_flojoy_decorator):
     )
 
     # # check if the arrays are equal
-    tmp = put(ex.v, [1, 4, 5, 6], [10, 100, -12, 800])
-    assert array_equal(res.v, tmp)
+    put(ex.v, [1, 4, 5, 6], [10, 100, -12, 800])
+    assert array_equal(res.v, ex.v)
 
     with raises(AssertionError):
         REPLACE_SUBSET.REPLACE_SUBSET(
