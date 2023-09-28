@@ -23,7 +23,4 @@ def SORT_VECTOR(
     Vector
         Sorted input vector
     """
-    if reverse:
-        return Vector(v=sorted(default.v))
-    elif reverse:
-        return Vector(v=sorted(default.v, reverse=True))
+    return Vector(v=sorted(default.v, reverse=reverse))
