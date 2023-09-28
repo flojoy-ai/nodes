@@ -80,7 +80,7 @@ def RAND(
             y = my_generator.poisson(lam=poisson_events, size=size)
 
     if not eval(force_scalar):
-        return OrderedPair(x=x, y=y) if default else Scalar(c=float(y))
+        return OrderedPair(x=x, y=y) if default else Scalar(c=float(y[0]))
     elif eval(force_scalar):
         return Scalar(c=float(y))
     else:
