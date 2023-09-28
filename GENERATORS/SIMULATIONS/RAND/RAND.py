@@ -26,7 +26,7 @@ def RAND(
     ----------
     distribution : select
         the distribution over the random samples
-    force_scalar : select
+    force_scalar : bool
         whether to force the output to be a Scalar
     lower_bound : float
         the lower bound of the output interval
