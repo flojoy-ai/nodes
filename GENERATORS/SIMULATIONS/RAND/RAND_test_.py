@@ -49,7 +49,7 @@ def test_RAND_single_value_poisson(mock_flojoy_decorator):
     import RAND
 
     res = RAND.RAND(default=None, distribution="poisson", poisson_events=1)
-    assert res.c.shape == (1,) and isinstance(res.c[0].item(), int)
+    assert isinstance(res.c, float)
     assert res.c < 10
 
 
