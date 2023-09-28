@@ -2,59 +2,6 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 160,
-                "height": 160,
-                "id": "ROTATE_VECTOR-3f730947-a976-4851-b806-256cc3bb918e",
-                "type": "TRANSFORMERS",
-                "data": {
-                    "id": "ROTATE_VECTOR-3f730947-a976-4851-b806-256cc3bb918e",
-                    "label": "ROTATE VECTOR",
-                    "func": "ROTATE_VECTOR",
-                    "type": "TRANSFORMERS",
-                    "ctrls": {
-                        "shift": {
-                            "type": "int",
-                            "default": 1,
-                            "desc": "the number of places in which elements are moved (negative values will shift them to the right)",
-                            "overload": null,
-                            "functionName": "ROTATE_VECTOR",
-                            "param": "shift",
-                            "value": 3
-                        }
-                    },
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Vector",
-                            "multiple": false,
-                            "desc": null
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Vector",
-                            "desc": "The new vector with elements shifted"
-                        }
-                    ],
-                    "path": "TRANSFORMERS/VECTOR_MANIPULATION/ROTATE_VECTOR/ROTATE_VECTOR.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 139.48159980377463,
-                    "y": 91.51786167348246
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 139.48159980377463,
-                    "y": 91.51786167348246
-                },
-                "dragging": true
-            },
-            {
                 "width": 208,
                 "height": 96,
                 "id": "LINSPACE-e379dbbd-8e84-49d0-a55a-73c7bb83a9d0",
@@ -158,13 +105,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 437.0975797559655,
-                    "y": -166.3190063382396
+                    "x": 467.0975797559655,
+                    "y": -172.3190063382396
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 437.0975797559655,
-                    "y": -166.3190063382396
+                    "x": 467.0975797559655,
+                    "y": -172.3190063382396
                 },
                 "dragging": true
             },
@@ -201,13 +148,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 415.10500366948986,
-                    "y": 227.3090438343204
+                    "x": 443.10500366948986,
+                    "y": 179.3090438343204
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 415.10500366948986,
-                    "y": 227.3090438343204
+                    "x": 443.10500366948986,
+                    "y": 179.3090438343204
                 },
                 "dragging": true
             },
@@ -272,66 +219,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -229.96114622718932,
-                    "y": 673.270566627652
+                    "x": -223.96114622718932,
+                    "y": 707.270566627652
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -229.96114622718932,
-                    "y": 673.270566627652
-                },
-                "dragging": true
-            },
-            {
-                "width": 160,
-                "height": 160,
-                "id": "ROTATE_VECTOR-10ebc826-5ee8-4cb4-84f9-62fe4cdfc645",
-                "type": "TRANSFORMERS",
-                "data": {
-                    "id": "ROTATE_VECTOR-10ebc826-5ee8-4cb4-84f9-62fe4cdfc645",
-                    "label": "ROTATE VECTOR 1",
-                    "func": "ROTATE_VECTOR",
-                    "type": "TRANSFORMERS",
-                    "ctrls": {
-                        "shift": {
-                            "type": "int",
-                            "default": 1,
-                            "desc": "the number of places in which elements are moved (negative values will shift them to the right)",
-                            "overload": null,
-                            "functionName": "ROTATE_VECTOR",
-                            "param": "shift",
-                            "value": -3
-                        }
-                    },
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Vector",
-                            "multiple": false,
-                            "desc": null
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Vector",
-                            "desc": "The new vector with elements shifted"
-                        }
-                    ],
-                    "path": "TRANSFORMERS/VECTOR_MANIPULATION/ROTATE_VECTOR/ROTATE_VECTOR.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 107.14095563955314,
-                    "y": 672.3926040143558
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 107.14095563955314,
-                    "y": 672.3926040143558
+                    "x": -223.96114622718932,
+                    "y": 707.270566627652
                 },
                 "dragging": true
             },
@@ -368,13 +262,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 433.85436957217325,
-                    "y": 653.327989002352
+                    "x": 461.85436957217325,
+                    "y": 633.327989002352
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 433.85436957217325,
-                    "y": 653.327989002352
+                    "x": 461.85436957217325,
+                    "y": 633.327989002352
                 },
                 "dragging": true
             },
@@ -421,13 +315,13 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1029.039164702942,
-                    "y": 250.74566673722245
+                    "x": 931.0391647029419,
+                    "y": 248.74566673722245
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1029.039164702942,
-                    "y": 250.74566673722245
+                    "x": 931.0391647029419,
+                    "y": 248.74566673722245
                 },
                 "dragging": true
             },
@@ -456,13 +350,119 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 1401.5947356865488,
-                    "y": 164.47563144496644
+                    "x": 1353.5947356865488,
+                    "y": 172.47563144496644
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 1401.5947356865488,
-                    "y": 164.47563144496644
+                    "x": 1353.5947356865488,
+                    "y": 172.47563144496644
+                },
+                "dragging": true
+            },
+            {
+                "width": 160,
+                "height": 160,
+                "id": "SHIFT_VECTOR-19f0b259-c5c9-4691-bb1d-266f00b6bb8c",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "SHIFT_VECTOR-19f0b259-c5c9-4691-bb1d-266f00b6bb8c",
+                    "label": "SHIFT VECTOR",
+                    "func": "SHIFT_VECTOR",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {
+                        "shift": {
+                            "type": "int",
+                            "default": 1,
+                            "desc": "the number of places in which elements are moved (negative values will shift them to the left)",
+                            "overload": null,
+                            "functionName": "SHIFT_VECTOR",
+                            "param": "shift",
+                            "value": 3
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "desc": "The new vector with elements shifted"
+                        }
+                    ],
+                    "path": "TRANSFORMERS/VECTOR_MANIPULATION/SHIFT_VECTOR/SHIFT_VECTOR.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 132.48736880826465,
+                    "y": -42.665656394050814
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 132.48736880826465,
+                    "y": -42.665656394050814
+                },
+                "dragging": true
+            },
+            {
+                "width": 160,
+                "height": 160,
+                "id": "SHIFT_VECTOR-344524df-0eae-49bf-ad50-c5dfcae04ca0",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "SHIFT_VECTOR-344524df-0eae-49bf-ad50-c5dfcae04ca0",
+                    "label": "SHIFT VECTOR 1",
+                    "func": "SHIFT_VECTOR",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {
+                        "shift": {
+                            "type": "int",
+                            "default": 1,
+                            "desc": "the number of places in which elements are moved (negative values will shift them to the left)",
+                            "overload": null,
+                            "functionName": "SHIFT_VECTOR",
+                            "param": "shift",
+                            "value": -3
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "desc": "The new vector with elements shifted"
+                        }
+                    ],
+                    "path": "TRANSFORMERS/VECTOR_MANIPULATION/SHIFT_VECTOR/SHIFT_VECTOR.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 124.56549480602405,
+                    "y": 654.762527395164
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 124.56549480602405,
+                    "y": 654.762527395164
                 },
                 "dragging": true
             }
@@ -471,37 +471,9 @@
             {
                 "source": "LINSPACE-e379dbbd-8e84-49d0-a55a-73c7bb83a9d0",
                 "sourceHandle": "default",
-                "target": "ROTATE_VECTOR-3f730947-a976-4851-b806-256cc3bb918e",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINSPACE-e379dbbd-8e84-49d0-a55a-73c7bb83a9d0default-ROTATE_VECTOR-3f730947-a976-4851-b806-256cc3bb918edefault"
-            },
-            {
-                "source": "ROTATE_VECTOR-3f730947-a976-4851-b806-256cc3bb918e",
-                "sourceHandle": "default",
-                "target": "SCATTER-fc390cc7-cd39-478c-b149-44510a1abc55",
-                "targetHandle": "default",
-                "id": "reactflow__edge-ROTATE_VECTOR-3f730947-a976-4851-b806-256cc3bb918edefault-SCATTER-fc390cc7-cd39-478c-b149-44510a1abc55default"
-            },
-            {
-                "source": "LINSPACE-e379dbbd-8e84-49d0-a55a-73c7bb83a9d0",
-                "sourceHandle": "default",
                 "target": "SCATTER-c4aaa4eb-367d-49f9-944a-de4aa7b5eab7",
                 "targetHandle": "default",
                 "id": "reactflow__edge-LINSPACE-e379dbbd-8e84-49d0-a55a-73c7bb83a9d0default-SCATTER-c4aaa4eb-367d-49f9-944a-de4aa7b5eab7default"
-            },
-            {
-                "source": "LINSPACE-a3ecb471-ef0c-4af6-9b42-8b85d63aa15b",
-                "sourceHandle": "default",
-                "target": "ROTATE_VECTOR-10ebc826-5ee8-4cb4-84f9-62fe4cdfc645",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINSPACE-a3ecb471-ef0c-4af6-9b42-8b85d63aa15bdefault-ROTATE_VECTOR-10ebc826-5ee8-4cb4-84f9-62fe4cdfc645default"
-            },
-            {
-                "source": "ROTATE_VECTOR-10ebc826-5ee8-4cb4-84f9-62fe4cdfc645",
-                "sourceHandle": "default",
-                "target": "SCATTER-4cd82265-65b6-462c-9523-286c65163e01",
-                "targetHandle": "default",
-                "id": "reactflow__edge-ROTATE_VECTOR-10ebc826-5ee8-4cb4-84f9-62fe4cdfc645default-SCATTER-4cd82265-65b6-462c-9523-286c65163e01default"
             },
             {
                 "source": "TEXT-3c162e78-3b90-4392-9ef6-8988c48bac83",
@@ -509,6 +481,34 @@
                 "target": "TEXT_VIEW-e7df43bd-4f8a-45d5-8b38-ee14fa4d26ef",
                 "targetHandle": "default",
                 "id": "reactflow__edge-TEXT-3c162e78-3b90-4392-9ef6-8988c48bac83default-TEXT_VIEW-e7df43bd-4f8a-45d5-8b38-ee14fa4d26efdefault"
+            },
+            {
+                "source": "SHIFT_VECTOR-19f0b259-c5c9-4691-bb1d-266f00b6bb8c",
+                "sourceHandle": "default",
+                "target": "SCATTER-fc390cc7-cd39-478c-b149-44510a1abc55",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SHIFT_VECTOR-19f0b259-c5c9-4691-bb1d-266f00b6bb8cdefault-SCATTER-fc390cc7-cd39-478c-b149-44510a1abc55default"
+            },
+            {
+                "source": "LINSPACE-e379dbbd-8e84-49d0-a55a-73c7bb83a9d0",
+                "sourceHandle": "default",
+                "target": "SHIFT_VECTOR-19f0b259-c5c9-4691-bb1d-266f00b6bb8c",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-e379dbbd-8e84-49d0-a55a-73c7bb83a9d0default-SHIFT_VECTOR-19f0b259-c5c9-4691-bb1d-266f00b6bb8cdefault"
+            },
+            {
+                "source": "LINSPACE-a3ecb471-ef0c-4af6-9b42-8b85d63aa15b",
+                "sourceHandle": "default",
+                "target": "SHIFT_VECTOR-344524df-0eae-49bf-ad50-c5dfcae04ca0",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-a3ecb471-ef0c-4af6-9b42-8b85d63aa15bdefault-SHIFT_VECTOR-344524df-0eae-49bf-ad50-c5dfcae04ca0default"
+            },
+            {
+                "source": "SHIFT_VECTOR-344524df-0eae-49bf-ad50-c5dfcae04ca0",
+                "sourceHandle": "default",
+                "target": "SCATTER-4cd82265-65b6-462c-9523-286c65163e01",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SHIFT_VECTOR-344524df-0eae-49bf-ad50-c5dfcae04ca0default-SCATTER-4cd82265-65b6-462c-9523-286c65163e01default"
             }
         ],
         "viewport": {

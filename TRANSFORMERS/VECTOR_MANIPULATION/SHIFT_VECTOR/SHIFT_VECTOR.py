@@ -3,8 +3,8 @@ from flojoy import flojoy, Vector
 
 
 @flojoy
-def ROTATE_VECTOR(default: Vector, shift: int = 1) -> Vector:
-    """The ROTATE_VECTOR node shifts the elements in the vector by the amount specified
+def SHIFT_VECTOR(default: Vector, shift: int = 1) -> Vector:
+    """The SHIFT_VECTOR node shifts the elements in the vector by the amount specified
 
     Inputs
     ------

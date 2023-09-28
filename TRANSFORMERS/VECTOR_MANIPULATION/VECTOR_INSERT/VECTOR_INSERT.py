@@ -24,8 +24,8 @@ def VECTOR_INSERT(default: Vector, index: int = 0, value: int = 0) -> Vector:
     -------
     Vector
         The new vector that contains the inserted value
-
     """
+
     assert (
         len(default.v) > index
     ), "The index parameter must be less than the length of the Vector."

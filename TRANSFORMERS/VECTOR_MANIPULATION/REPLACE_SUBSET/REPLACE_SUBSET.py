@@ -29,6 +29,7 @@ def REPLACE_SUBSET(
     Vector
         The new vector with subset of elements replaced from the input vector
     """
+
     # unwrap the indices first
     indices = array(indices.unwrap(), dtype=int)
     # unwrap the values next

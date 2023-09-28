@@ -23,6 +23,7 @@ def VECTOR_SUBSET(default: Vector, indices: Array, length: int = 1) -> Vector:
     Vector
         The new vector with subset of elements extracted from the input vector
     """
+
     # unwrap the indices first
     indices = array(indices.unwrap(), dtype=int)
 

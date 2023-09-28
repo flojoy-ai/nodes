@@ -4,7 +4,7 @@ from flojoy import flojoy, Vector, Array
 
 @flojoy
 def VECTOR_DELETE(default: Vector, indices: Array, length: int = 1) -> Vector:
-    """The VECTOR_MIN_MAX node returns the maximum or minimum value from the Vector
+    """The VECTOR_DELETE node returns a new Vector with elements deleted from requested indices
 
     Inputs
     ------
@@ -24,6 +24,7 @@ def VECTOR_DELETE(default: Vector, indices: Array, length: int = 1) -> Vector:
     Vector
         The new vector with element(s) deleted from the input vector
     """
+
     # unwrap the indices first
     indices = array(indices.unwrap(), dtype=int)
 
