@@ -8,7 +8,7 @@ from typing import Literal, Optional
 def RAND(
     default: Optional[OrderedPair | Vector] = None,
     distribution: Literal["normal", "uniform", "poisson"] = "normal",
-    force_scalar: Literal["False", "True"] = "False",
+    force_scalar: bool = False,
     lower_bound: float = 0,
     upper_bound: float = 1,
     normal_mean: float = 0,
@@ -66,7 +66,7 @@ def RAND(
         case _:
             size = 1
 
-    if eval(force_scalar):
+    if force_scalar:
         size = 1
 
     match distribution:
@@ -79,9 +79,9 @@ def RAND(
         case "poisson":
             y = my_generator.poisson(lam=poisson_events, size=size)
 
-    if not eval(force_scalar):
+    if not force_scalar:
         return OrderedPair(x=x, y=y) if default else Scalar(c=float(y[0]))
-    elif eval(force_scalar):
+    elif force_scalar:
         return Scalar(c=float(y))
     else:
         raise TypeError("True/False string evaluation error.")
