@@ -81,10 +81,8 @@ def RAND(
 
     if not force_scalar:
         return OrderedPair(x=x, y=y) if default else Scalar(c=float(y[0]))
-    elif force_scalar:
-        return Scalar(c=float(y))
-    else:
-        raise TypeError("True/False string evaluation error.")
+    
+    return Scalar(c=float(y))
 
 
 @display
