@@ -8,6 +8,7 @@ from typing import Literal, Optional
 def RAND(
     default: Optional[OrderedPair | Vector] = None,
     distribution: Literal["normal", "uniform", "poisson"] = "normal",
+    force_scalar: Literal["False", "True"] = "False",
     lower_bound: float = 0,
     upper_bound: float = 1,
     normal_mean: float = 0,
@@ -25,6 +26,8 @@ def RAND(
     ----------
     distribution : select
         the distribution over the random samples
+    force_scalar : select
+        whether to force the output to be a Scalar
     lower_bound : float
         the lower bound of the output interval
     upper_bound : float
@@ -63,6 +66,9 @@ def RAND(
         case _:
             size = 1
 
+    if eval(force_scalar):
+        size = 1
+
     match distribution:
         case "uniform":
             y = my_generator.uniform(low=lower_bound, high=upper_bound, size=size)
@@ -73,16 +79,23 @@ def RAND(
         case "poisson":
             y = my_generator.poisson(lam=poisson_events, size=size)
 
-    return OrderedPair(x=x, y=y) if default else Scalar(c=y)
+    if not eval(force_scalar):
+        return OrderedPair(x=x, y=y) if default else Scalar(c=float(y))
+    elif eval(force_scalar):
+        return Scalar(c=float(y))
+    else:
+        raise TypeError("True/False string evaluation error.")
 
 
 @display
-def OVERLOAD(lower_bound, upper_bound, distribution="uniform") -> None:
+def OVERLOAD(force_scalar, lower_bound, upper_bound, distribution="uniform") -> None:
     return None
 
 
 @display
-def OVERLOAD(normal_mean, normal_standard_deviation, distribution="normal") -> None:
+def OVERLOAD(
+    force_scalar, normal_mean, normal_standard_deviation, distribution="normal"
+) -> None:
     return None
 
 
