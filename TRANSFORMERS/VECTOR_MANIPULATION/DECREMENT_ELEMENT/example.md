@@ -1,1 +1,0 @@
-In this example, we generate a vector by using a `LINSPACE` node. Then specify the value to decrement for each element in the vector with `DECREMENT_ELEMENT` node. The resulting vector is visualized with `LINE` node. 
