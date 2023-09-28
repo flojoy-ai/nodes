@@ -2,12 +2,65 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 384,
-                "height": 288,
-                "id": "TEXT_VIEW-819c7e1c-0ff5-4c09-8a13-b65b1e1bab0e",
+                "width": 192,
+                "height": 192,
+                "id": "CONNECTION_33510B-4c8ca1dd-a8ee-4ba9-ae8b-886c80a0a027",
+                "type": "IO",
+                "data": {
+                    "id": "CONNECTION_33510B-4c8ca1dd-a8ee-4ba9-ae8b-886c80a0a027",
+                    "label": "CONNECTION 33510B",
+                    "func": "CONNECTION_33510B",
+                    "type": "IO",
+                    "ctrls": {
+                        "device": {
+                            "type": "VisaDevice",
+                            "default": null,
+                            "desc": "The VISA address to connect to.",
+                            "overload": null,
+                            "functionName": "CONNECTION_33510B",
+                            "param": "device",
+                            "value": "USB0::2391::9735::MY59003244::0::INSTR"
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "desc": "Optional: None"
+                        }
+                    ],
+                    "path": "IO/INSTRUMENTS/FUNCTION_GENERATORS/KEYSIGHT/33XXX/BASIC/CONNECTION_33510B/CONNECTION_33510B.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -886.7395156170513,
+                    "y": -112.96725387394693
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -886.7395156170513,
+                    "y": -112.96725387394693
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "TEXT_VIEW-1e087237-ee3a-4db7-963d-46fbdbd7b59b",
                 "type": "VISUALIZERS",
                 "data": {
-                    "id": "TEXT_VIEW-819c7e1c-0ff5-4c09-8a13-b65b1e1bab0e",
+                    "id": "TEXT_VIEW-1e087237-ee3a-4db7-963d-46fbdbd7b59b",
                     "label": "TEXT VIEW",
                     "func": "TEXT_VIEW",
                     "type": "VISUALIZERS",
@@ -26,93 +79,35 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -73.10397672973124,
-                    "y": -120.11566570130807
+                    "x": -228.91602197898922,
+                    "y": -130.8283743248985
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -73.10397672973124,
-                    "y": -120.11566570130807
+                    "x": -228.91602197898922,
+                    "y": -130.8283743248985
                 },
                 "dragging": true
             },
             {
                 "width": 192,
                 "height": 192,
-                "id": "CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7",
+                "id": "OUTPUT_SYNC_33510B-a889708d-f110-42a5-a7ce-67c30d4eb9c0",
                 "type": "IO",
                 "data": {
-                    "id": "CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7",
-                    "label": "CLOSE ALL",
-                    "func": "CLOSE_ALL",
-                    "type": "IO",
-                    "ctrls": {},
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false,
-                            "desc": null
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "desc": "optional: The input DataContainer is returned."
-                        }
-                    ],
-                    "pip_dependencies": [
-                        {
-                            "name": "qcodes",
-                            "v": "0.39.1"
-                        }
-                    ],
-                    "path": "IO/INSTRUMENTS/QCODES/CLOSE_ALL/CLOSE_ALL.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": -919.3821328184661,
-                    "y": -74.54262269929615
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -919.3821328184661,
-                    "y": -74.54262269929615
-                },
-                "dragging": true
-            },
-            {
-                "width": 192,
-                "height": 192,
-                "id": "OUTPUT_SYNC_33510B-3ac2323e-d6a3-44e7-b7b2-f89168e0ad16",
-                "type": "IO",
-                "data": {
-                    "id": "OUTPUT_SYNC_33510B-3ac2323e-d6a3-44e7-b7b2-f89168e0ad16",
+                    "id": "OUTPUT_SYNC_33510B-a889708d-f110-42a5-a7ce-67c30d4eb9c0",
                     "label": "OUTPUT SYNC 33510B",
                     "func": "OUTPUT_SYNC_33510B",
                     "type": "IO",
                     "ctrls": {
-                        "VISA_address": {
-                            "type": "str",
+                        "connection": {
+                            "type": "VisaConnection",
                             "default": null,
-                            "desc": "The VISA address to query.",
+                            "desc": "The VISA address (requires the CONNECTION_MDO3XXX node).",
                             "overload": null,
                             "functionName": "OUTPUT_SYNC_33510B",
-                            "param": "VISA_address",
+                            "param": "connection",
                             "value": "USB0::2391::9735::MY59003244::0::INSTR"
-                        },
-                        "VISA_index": {
-                            "type": "int",
-                            "default": 0,
-                            "desc": "The address will be found from LIST_VISA node list with this index.",
-                            "overload": null,
-                            "functionName": "OUTPUT_SYNC_33510B",
-                            "param": "VISA_index",
-                            "value": 0
                         },
                         "on_off": {
                             "type": "select",
@@ -155,61 +150,39 @@
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Any",
-                            "desc": "TextBlob: ON or OFF depending on on_off value."
-                        }
-                    ],
-                    "pip_dependencies": [
-                        {
-                            "name": "pyvisa",
-                            "v": "1.13.0"
-                        },
-                        {
-                            "name": "pyusb",
-                            "v": "1.2.1"
-                        },
-                        {
-                            "name": "zeroconf",
-                            "v": "0.102.0"
-                        },
-                        {
-                            "name": "pyvisa_py",
-                            "v": "0.7.0"
-                        },
-                        {
-                            "name": "qcodes",
-                            "v": "0.39.1"
+                            "type": "TextBlob",
+                            "desc": "TextBlob: The channel, and ON or OFF depending on on_off value."
                         }
                     ],
                     "path": "IO/INSTRUMENTS/FUNCTION_GENERATORS/KEYSIGHT/33XXX/BASIC/OUTPUT_SYNC_33510B/OUTPUT_SYNC_33510B.py",
                     "selected": false
                 },
                 "position": {
-                    "x": -510.11784179817596,
-                    "y": -76.20285758215164
+                    "x": -576.8436213938844,
+                    "y": -112.88858916855764
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -510.11784179817596,
-                    "y": -76.20285758215164
+                    "x": -576.8436213938844,
+                    "y": -112.88858916855764
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7",
+                "source": "CONNECTION_33510B-4c8ca1dd-a8ee-4ba9-ae8b-886c80a0a027",
                 "sourceHandle": "default",
-                "target": "OUTPUT_SYNC_33510B-3ac2323e-d6a3-44e7-b7b2-f89168e0ad16",
+                "target": "OUTPUT_SYNC_33510B-a889708d-f110-42a5-a7ce-67c30d4eb9c0",
                 "targetHandle": "default",
-                "id": "reactflow__edge-CLOSE_ALL-5ce40df5-d7b2-4c4c-a350-028ed7d948d7default-OUTPUT_SYNC_33510B-3ac2323e-d6a3-44e7-b7b2-f89168e0ad16default"
+                "id": "reactflow__edge-CONNECTION_33510B-4c8ca1dd-a8ee-4ba9-ae8b-886c80a0a027default-OUTPUT_SYNC_33510B-a889708d-f110-42a5-a7ce-67c30d4eb9c0default"
             },
             {
-                "source": "OUTPUT_SYNC_33510B-3ac2323e-d6a3-44e7-b7b2-f89168e0ad16",
+                "source": "OUTPUT_SYNC_33510B-a889708d-f110-42a5-a7ce-67c30d4eb9c0",
                 "sourceHandle": "default",
-                "target": "TEXT_VIEW-819c7e1c-0ff5-4c09-8a13-b65b1e1bab0e",
+                "target": "TEXT_VIEW-1e087237-ee3a-4db7-963d-46fbdbd7b59b",
                 "targetHandle": "default",
-                "id": "reactflow__edge-OUTPUT_SYNC_33510B-3ac2323e-d6a3-44e7-b7b2-f89168e0ad16default-TEXT_VIEW-819c7e1c-0ff5-4c09-8a13-b65b1e1bab0edefault"
+                "id": "reactflow__edge-OUTPUT_SYNC_33510B-a889708d-f110-42a5-a7ce-67c30d4eb9c0default-TEXT_VIEW-1e087237-ee3a-4db7-963d-46fbdbd7b59bdefault"
             }
         ],
         "viewport": {
