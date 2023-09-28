@@ -81,7 +81,7 @@ def RAND(
 
     if not force_scalar:
         return OrderedPair(x=x, y=y) if default else Scalar(c=float(y[0]))
-    
+
     return Scalar(c=float(y))
 
 
