@@ -4,7 +4,7 @@ from flojoy import flojoy, Vector
 @flojoy
 def SORT_VECTOR(
     default: Vector,
-    reverse: int = 0,
+    reverse: bool = False,
 ) -> Vector:
     """The SORT_VECTOR node returns the input Vector that is sorted
 
@@ -15,20 +15,15 @@ def SORT_VECTOR(
 
     Parameters
     ----------
-    reverse : int
-        If it's given 0, sort in ascending order.
-        If it's given 1, sort in descending order.
+    reverse : bool
+        If False, sort in ascending order. If True, descending order.
 
     Returns
     -------
     Vector
         Sorted input vector
     """
-    if reverse == 0:
+    if reverse:
         return Vector(v=sorted(default.v))
-    elif reverse == 1:
+    elif reverse:
         return Vector(v=sorted(default.v, reverse=True))
-    else:
-        raise AssertionError(
-            f"Invalid reverse value! It should be either 0 or 1 but given {reverse}"
-        )
