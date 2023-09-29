@@ -8,7 +8,7 @@ def DELAY(
     time: float,
 ) -> TextBlob:
     """
-    The MOVE_JOINT node linearly moves the robot's tool to an absolute Cartesian position.
+    The DELAY node delays the action between two nodes.
 
     Inputs
     ------
