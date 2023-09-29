@@ -37,7 +37,7 @@ def REMOTE_FILE(
 
     For now, REMOTE_FILE only supports HTTP file URLs, in particular GCP URL (starting with gcp://). S3 URL (starting with s3://) and other bucket-like URLs are not supported.
 
-    If the file url is not specified and the default input is not connected, or if the file url is not a valid URL, a ValueError is raised.
+    If the file url is not specified and the default input is not connected, or if the file URL is not a valid URL, a ValueError is raised.
 
     Parameters
     ----------

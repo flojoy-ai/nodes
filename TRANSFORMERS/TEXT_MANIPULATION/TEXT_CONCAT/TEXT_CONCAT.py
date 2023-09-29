@@ -10,20 +10,21 @@ def TEXT_CONCAT(
         "space", "comma", "semicolon", "colon", "new line", "none"
     ] = "space",
 ) -> TextBlob:
-    """The TEXT_CONCAT node takes in two TextBlob DataContainer type and concatenates the text string.
+    """The TEXT_CONCAT node takes in two TextBlobs from the DataContainer type and concatenates the text string.
 
     Inputs
     ------
     a: TextBlob
-        The input text to be concatenated to input b
+        The input text to be concatenated to input b.
 
     b: TextBlob
-        The input text to be concatenated to input a
+        The input text to be concatenated to input a.
 
     Parameters
     ----------
-    delimiter: "space" | "comma" | "semicolon" | "colon" | "new line" | "none", default="space"
-        Select the delimiter to place between two text.
+    delimiter: "space" | "comma" | "semicolon" | "colon" | "new line" | "none"
+        Default = "space".
+        Select the delimiter to place between two text strings.
 
     Returns
     -------
