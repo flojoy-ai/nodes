@@ -1,52 +1,55 @@
-from flojoy import flojoy, DataContainer
-import torch
-from transformers import BartTokenizer, BartForConditionalGeneration
-import pandas as pd
+from flojoy import flojoy, run_in_venv, DataFrame
 
 
 @flojoy
-def BART_LARGE_CNN(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The BART_LARGE_CNN node takes an input dataframe with multiple rows and a single "text" column,
-    and produces a dataframe with a single "summary_text" column.  The "summary_text" column contains a summary
-    of the text in the corresponding row of the input dataframe.
+@run_in_venv(
+    pip_dependencies=[
+        "transformers==4.30.2",
+        "torch==2.0.1",
+        "torchvision==0.15.2",
+        "pandas",
+    ]
+)
+def BART_LARGE_CNN(default: DataFrame) -> DataFrame:
+    """The BART_LARGE_CNN node takes an input dataframe with multiple rows and a single column, and produces a dataframe with a single "summary_text" column.
 
-    Parameters
-    ----------
-    None
+    The "summary_text" column contains a summary of the text in the corresponding row of the input dataframe.
 
-    Returns:
-    --------
-    DataContainer:
-        type 'dataframe' containing the summary text in the "summary_text" column.
-
+    Returns
+    -------
+    DataFrame
+        dataframe containing the summary text in the "summary_text" column
     """
-    if len(dc_inputs) != 1 or dc_inputs[0].type != "dataframe":
-        raise ValueError(
-            f"Invalid input, expected exactly one DataContainer of type 'dataframe'"
-        )
-    input_df = dc_inputs[0].m
+
+    import torch
+    from flojoy import snapshot_download
+    from transformers import BartTokenizer, BartForConditionalGeneration
+    import pandas as pd
+
+    input_df = default.m
 
     assert (
         len(input_df.columns.tolist()) == 1
     ), "Can only take a single-column dataframe as input"
 
+    # Load the repo from either the local cache or from the web, and get the local path
+    local_path = snapshot_download(
+        repo_id="facebook/bart-large-cnn", revision="3d22493"
+    )
+
     # Load the pre-trained BART model
-    model = BartForConditionalGeneration.from_pretrained(
-        "facebook/bart-large-cnn", revision="3d22493"
-    )
-    tokenizer = BartTokenizer.from_pretrained(
-        "facebook/bart-large-cnn", revision="3d22493"
-    )
+    model = BartForConditionalGeneration.from_pretrained(local_path)
+    tokenizer = BartTokenizer.from_pretrained(local_path)
 
     def _chunk_text(text):
         inputs_no_trunc = tokenizer(
             text, max_length=None, return_tensors="pt", truncation=False
         )
         chunks = []
-        for i in range(
-            0, len(inputs_no_trunc["input_ids"][0]), tokenizer.model_max_length
-        ):
-            chunk = inputs_no_trunc["input_ids"][0][i : i + tokenizer.model_max_length]
+        step = 1024
+        # step = tokenizer.model_max_length - 1
+        for i in range(0, len(inputs_no_trunc["input_ids"][0]), step):
+            chunk = inputs_no_trunc["input_ids"][0][i : i + step]
             chunks.append(torch.unsqueeze(chunk, 0))
         return chunks
 
@@ -56,7 +59,7 @@ def BART_LARGE_CNN(dc_inputs: list[DataContainer], params: dict) -> DataContaine
             model.generate(
                 chunk,
                 num_beams=4,
-                max_length=tokenizer.model_max_length // 2,
+                max_length=1024 // 2,
                 early_stopping=True,
             )
             for chunk in chunks
@@ -76,7 +79,8 @@ def BART_LARGE_CNN(dc_inputs: list[DataContainer], params: dict) -> DataContaine
 
     column = input_df.columns[0]
 
-    output_df = pd.DataFrame(
-        input_df[column].apply(_summarize_text).rename("summary_text")
-    )
-    return DataContainer(type="dataframe", m=output_df)
+    with torch.inference_mode():
+        output_df = pd.DataFrame(
+            input_df[column].apply(_summarize_text).rename("summary_text")
+        )
+    return DataFrame(df=output_df)

@@ -1,44 +1,33 @@
-import numpy
-
-from functools import wraps
-from unittest.mock import patch
-
-from flojoy import DataContainer
+import numpy as np
+from flojoy import OrderedPair, Vector, Scalar
 
 
-# Python functions are decorated at module-loading time, So we'll need to patch our decorator
-#  with a simple mock ,before loading the module.
+def test_ADD_Vector_Vector(mock_flojoy_decorator):
+    import ADD
+
+    x = Vector(v=np.arange(-10, 10, 1))
+    y = Vector(v=np.arange(-20, 20, 2))
+    res = ADD.ADD(a=x, b=[y])
+
+    np.testing.assert_allclose(res.v, x.v + y.v)
 
 
-def mock_flojoy_decorator(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        return f(*args, **kwargs)
+def test_ADD_Vector_Scalar(mock_flojoy_decorator):
+    import ADD
 
-    return decorated_function
+    x = Vector(v=np.arange(-10, 10, 1))
+    res = ADD.ADD(a=x, b=[Scalar(c=2), Scalar(c=3)])
 
-
-# Patch the flojoy decorator that handles connecting our node to the App.
-patch("flojoy.flojoy", mock_flojoy_decorator).start()
-
-# After Patching the flojoy decorator, let's load the node under test.
-import ADD
+    np.testing.assert_allclose(res.v, x.v + 2 + 3)
 
 
-def test_ADD():
-    # create the two ordered pair datacontainers
-    element_a = DataContainer(
-        type="ordered_pair", x=numpy.linspace(-10, 10, 100), y=[10] * 100
-    )
+def test_ADD_OrderedPair_Vector(mock_flojoy_decorator):
+    import ADD
 
-    element_b = DataContainer(
-        type="ordered_pair", x=numpy.linspace(-10, 10, 100), y=[7] * 100
-    )
+    x = np.arange(-10, 10, 1)
+    y = np.arange(-20, 20, 2)
+    z = np.arange(-30, 30, 3)
+    res = ADD.ADD(a=OrderedPair(x=x, y=y), b=[Vector(v=z)])
 
-    # node under test
-    res = ADD.ADD([element_a, element_b], {})
-
-    # check that the correct number of elements
-    assert (len(res.y)) == 100
-    for y in res.y:
-        assert y == 17
+    np.testing.assert_allclose(res.x, x)
+    np.testing.assert_allclose(res.y, y + z)

@@ -1,40 +1,41 @@
-from flojoy import flojoy, DataContainer
-import numpy as np
+from flojoy import flojoy, Plotly, OrderedPair, DataFrame, Matrix, Vector
+from numpy import arange
 import plotly.graph_objects as go
-import pandas as pd
+from pandas.api.types import is_datetime64_any_dtype
 from nodes.VISUALIZERS.template import plot_layout
-from typing import cast
 
 
 @flojoy
-def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The LINE node creates a Plotly Line visualization for a given input data container.
+def LINE(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
+    """The LINE node creates a Plotly Line visualization for a given input DataContainer.
 
-    Parameters:
-    -----------
-    None
+    Inputs
+    ------
+    default : OrderedPair|DataFrame|Matrix|Vector
+        the DataContainer to be visualized
 
-    Supported DC types:
-    -------------------
-    `ordered_pair`, `dataframe` (including timeseries), `matrix`
+    Returns
+    -------
+    Plotly
+        the DataContainer containing the Plotly Line visualization of the input data
     """
-    dc_input: DataContainer = dc_inputs[0]
-    node_name = __name__.split(".")[-1]
-    layout = plot_layout(title=node_name)
+
+    layout = plot_layout(title="LINE")
     fig = go.Figure(layout=layout)
-    match dc_input.type:
-        case "ordered_pair":
-            x = dc_input.x
-            if isinstance(dc_input.x, dict):
-                dict_keys = list(dc_input.x.keys())
-                x = dc_input.x[dict_keys[0]]
-            y = dc_input.y
+
+    match default:
+        case OrderedPair():
+            x = default.x
+            if isinstance(default.x, dict):
+                dict_keys = list(default.x.keys())
+                x = default.x[dict_keys[0]]
+            y = default.y
             fig.add_trace(go.Scatter(x=x, y=y, mode="lines"))
-        case "dataframe":
-            df = pd.DataFrame(dc_input.m)
+        case DataFrame():
+            df = default.m
             first_col = df.iloc[:, 0]
             is_timeseries = False
-            if pd.api.types.is_datetime64_any_dtype(first_col):
+            if is_datetime64_any_dtype(first_col):
                 is_timeseries = True
             if is_timeseries:
                 for col in df.columns:
@@ -58,12 +59,12 @@ def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                         )
                     )
 
-        case "matrix":
-            m: np.ndarray = dc_input.m
+        case Matrix():
+            m = default.m
 
             num_rows, num_cols = m.shape
 
-            x_ticks = np.arange(num_cols)
+            x_ticks = arange(num_cols)
 
             for i in range(num_rows):
                 fig.add_trace(
@@ -71,9 +72,9 @@ def LINE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 )
 
             fig.update_layout(xaxis_title="Column", yaxis_title="Value")
+        case Vector():
+            y = default.v
+            x = arange(len(y))
+            fig.add_trace(go.Scatter(x=x, y=y, mode="lines"))
 
-        case _:
-            raise ValueError(
-                f"unsupported DataContainer type passed for {node_name}: {dc_input.type}"
-            )
-    return DataContainer(type="plotly", fig=fig)
+    return Plotly(fig=fig)

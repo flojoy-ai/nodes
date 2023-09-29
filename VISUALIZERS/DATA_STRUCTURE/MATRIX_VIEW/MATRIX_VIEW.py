@@ -1,4 +1,4 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, Matrix, Plotly, DCNpArrayType, Vector
 import plotly.graph_objects as go
 import numpy as np
 
@@ -12,7 +12,7 @@ l_dot = "$\\ldots$"
 
 
 def numpy_2d_array_as_table(
-    arr: np.ndarray,
+    arr: DCNpArrayType,
     arr_row_shape: int,
     arr_col_shape: int,
     placeholder: str,
@@ -43,7 +43,7 @@ def numpy_2d_array_as_table(
     return new_arr.T
 
 
-def numpy_1d_array_as_table(arr: np.ndarray, placeholder: str):
+def numpy_1d_array_as_table(arr: DCNpArrayType):
     if arr.size > MAX_ALLOWED_SHAPE:
         converted_type = arr.astype(object)
         new_arr = converted_type[:MAX_ALLOWED_SHAPE]
@@ -53,10 +53,10 @@ def numpy_1d_array_as_table(arr: np.ndarray, placeholder: str):
     return new_arr.reshape(-1, 1)
 
 
-def numpy_array_as_table(arr: np.ndarray):
+def numpy_array_as_table(arr: DCNpArrayType):
     ndim = arr.ndim
     if ndim == 1:
-        cell_values = numpy_1d_array_as_table(arr, l_dot)
+        cell_values = numpy_1d_array_as_table(arr)
     elif ndim > 2:
         raise ValueError("MATRIX_VIEW can process only 2D arrays!")
     else:
@@ -66,33 +66,30 @@ def numpy_array_as_table(arr: np.ndarray):
 
 
 @flojoy
-def MATRIX_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """
-    The MATRIX_VIEW node "matrix" or "ordered_pair" type as input type and displays its visualization
-    using plotly table in matrix format.
+def MATRIX_VIEW(default: OrderedPair | Matrix) -> Plotly:
+    """The MATRIX_VIEW node takes a Matrix or OrderedPair DataContainer object as input, and visualizes it using a Plotly table in matrix format.
 
-    Parameters
-    ----------
-    None
+    Inputs
+    ------
+    default : OrderedPair | Matrix
+        the DataContainer to be visualized in matrix format.
 
     Returns
     -------
-    plotly
-        Visualization of the input data in matrix format
+    Plotly
+        the DataContainer containing visualization of the input in matrix format
     """
 
-    dc_input = dc_inputs[0]
-    match dc_input.type:
-        case "matrix":
-            np_arr = dc_input.m
-            cell_values = numpy_array_as_table(np_arr)
-        case "ordered_pair":
-            np_arr = dc_input.y
-            cell_values = numpy_array_as_table(np_arr)
-        case _:
-            raise ValueError(
-                f"unsupported DataContainer type passed for MATRIX_VIEW: {dc_input.type}"
-            )
+    if isinstance(default, Matrix):
+        np_arr = default.m
+        cell_values = numpy_array_as_table(np_arr)
+    elif isinstance(default, Vector):
+        np_arr = default.v
+        cell_values = numpy_array_as_table(np_arr)
+    else:
+        np_arr = default.y
+        cell_values = numpy_array_as_table(np_arr)
+
     fig = go.Figure(
         data=[
             go.Table(
@@ -121,4 +118,4 @@ def MATRIX_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         font=dict(size=FONT_SIZE),
     )
 
-    return DataContainer(type="plotly", fig=fig)
+    return Plotly(fig=fig)

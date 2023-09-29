@@ -1,24 +1,48 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, Scalar, Vector
+from nodes.TRANSFORMERS.ARITHMETIC.utils.arithmetic_utils import get_val
+from functools import reduce
 
 
 @flojoy
-def ADD(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """Add 2 or more numeric arrays, matrices, dataframes, or constants element-wise.
-    When a constant is added to an array or matrix, each element in the array or
-    matrix will be increased by the constant value. If 2 arrays or matrices of different
-    sizes are added, the output will be the size of the larger array or matrix with
-    only the overlapping elements changed.
+def ADD(
+    a: OrderedPair | Scalar | Vector, b: list[OrderedPair | Scalar | Vector]
+) -> OrderedPair | Scalar | Vector:
+    """The ADD node adds two or more numeric arrays, matrices, dataframes, or constants element-wise.
+
+    When a constant is added to an array or matrix, each element in the array or matrix will be increased by the constant value.
+
+    If two arrays or matrices of different sizes are added, the output will be the size of the larger array or matrix with only the overlapping elements changed.
+
+    Inputs
+    ------
+    a : OrderedPair|Scalar|Vector
+        The input a use to compute the sum of a and b.
+    b : OrderedPair|Scalar|Vector
+        The input b use to compute the sum of a and b.
+
+    Returns
+    -------
+    OrderedPair|Scalar|Vector
+        OrderedPair if a is an OrderedPair.
+        x: the x-axis of input a.
+        y: the sum of input a and input b.
+
+        Scalar if a is a Scalar.
+        c: the sum of input a and input b.
+
+        Vector if a is a Vector.
+        v: the sum of input a and input b.
     """
 
-    if len(dc_inputs) < 2:
-        raise ValueError(
-            f"To add the values, ADD node requires two inputs, {len(dc_inputs)} was given!"
-        )
-    a = dc_inputs[0].y
-    b = dc_inputs[1].y
+    initial = get_val(a)
+    seq = map(lambda dc: get_val(dc), b)
+    y = reduce(lambda u, v: np.add(u, v), seq, initial)
 
-    x = dc_inputs[0].x
-    y = np.add(a, b)
-
-    return DataContainer(x=x, y=y)
+    match a:
+        case OrderedPair():
+            return OrderedPair(x=a.x, y=y)
+        case Vector():
+            return Vector(v=y)
+        case Scalar():
+            return Scalar(c=y)

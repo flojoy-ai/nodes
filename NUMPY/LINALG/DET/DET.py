@@ -1,25 +1,42 @@
-from flojoy import DataContainer, flojoy
+from flojoy import flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import numpy.linalg
 
 
 @flojoy
-def DET(dc, params):
-    """
+def DET(
+    default: Matrix,
+) -> Matrix | Scalar:
+    """The DET node is based on a numpy or scipy function.
 
-            Compute the determinant of an array.
+    The description of that function is as follows:
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+        Compute the determinant of an array.
 
     Parameters
     ----------
     a : (..., M, M) array_like
-            Input array to compute determinants for.
+        Input array to compute determinants.
+
+    Returns
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.det(
-            a=dc[0].y,
-        ),
+
+    result = numpy.linalg.det(
+        a=default.m,
     )
+
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
+
+    return result

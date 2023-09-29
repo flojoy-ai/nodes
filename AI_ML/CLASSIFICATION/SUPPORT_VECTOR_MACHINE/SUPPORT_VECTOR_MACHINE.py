@@ -1,68 +1,45 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataFrame, Matrix
 import pandas as pd
 import numpy as np
 from sklearn import svm, preprocessing
-from typing import cast
+from typing import Literal
 
 
-@flojoy
+@flojoy(deps={"scikit-learn": "1.2.2"})
 def SUPPORT_VECTOR_MACHINE(
-    dc_inputs: list[DataContainer], params: dict
-) -> DataContainer:
+    train_feature: DataFrame | Matrix,
+    train_label: DataFrame | Matrix,
+    input_data: DataFrame | Matrix,
+    kernel: Literal["linear", "poly", "rbf", "sigmoid", "precomputed"] = "linear",
+) -> DataFrame:
     """The SUPPORT_VECTOR_MACHINE node is used to train a support vector machine model for classification tasks.
-    It takes a dataframe of labelled training data, and a dataframe of unlabelled input data.
+
+    It takes two dataframes of label and feature from labelled training data and a dataframe of unlabelled input data.
 
     Parameters
     ----------
-    target: str, optional
-        The column name of the label in the input dataframe.
-    kernel: 'linear' | 'poly' | 'rvm' | 'sigmoid', default='linear'
+    kernel : 'linear' | 'poly' | 'rbf' | 'sigmoid' | 'precomputed'
         Specifies the kernel type to be used in the algorithm.
+        For detailed information about kernel types:
+        https://scikit-learn.org/stable/modules/svm.html#kernel-functions
 
     Returns
     -------
-    dataframe
+    DataFrame
         The predictions for the input data.
     """
 
-    if len(dc_inputs) != 2:
-        raise ValueError(
-            "SUPPORT_VECTOR_MACHINE requires both training data and input data"
-        )
-
-    training_data = dc_inputs[0]
-    input_data = dc_inputs[1]
-
-    if training_data.type != "dataframe" and training_data.type != "matrix":
-        raise ValueError(
-            f"unsupported DataContainer type passed to SUPPORT_VECTOR_MACHINE node for train: {training_data.type}"
-        )
-
-    if input_data.type != "dataframe" and input_data.type != "matrix":
-        raise ValueError(
-            f"unsupported DataContainer type passed to SUPPORT_VECTOR_MACHINE node for input: {input_data.type}"
-        )
-
-    target: str = params["target"]
-    kernel: str = params.get("kernel", "linear")
-
     le = preprocessing.LabelEncoder()
 
-    if training_data.type == "dataframe":
-        df = cast(pd.DataFrame, training_data.m)
-        if not target:
-            target = str(df.columns[-1])
+    if isinstance(train_feature, DataFrame):
+        train = train_feature.m.to_numpy()
+        col = train_label.m.to_numpy()
+        target_name = train_label.m.columns.values[0]
 
-        col = df[target]
-        train = cast(pd.DataFrame, df.drop(target, axis=1)).to_numpy()
-    # Other case is matrix
     else:
-        # assume the last column is the label
-        data = cast(np.ndarray, training_data.m)
-        col = data[:, -1]
-
-        # remove the last column
-        train = np.delete(data, -1, axis=1)
+        train = train_feature.m
+        col = train_label.m
+        target_name = "target"
 
     X = train
     Y = le.fit_transform(col)
@@ -70,13 +47,12 @@ def SUPPORT_VECTOR_MACHINE(
     clf = svm.SVC(kernel=kernel)
     clf.fit(X, Y)
 
-    if input_data.type == "dataframe":
-        input_arr = cast(pd.DataFrame, input_data.m).to_numpy()
+    if isinstance(input_data, DataFrame):
+        input_arr = input_data.m.to_numpy()
     else:
-        input_arr = cast(np.ndarray, input_data.m)
+        input_arr = input_data.m
 
     prediction = clf.predict(input_arr)
     prediction = le.inverse_transform(prediction)
-    prediction = pd.DataFrame({target: prediction})
-
-    return DataContainer(type="dataframe", m=prediction)
+    prediction = pd.DataFrame({target_name: prediction})
+    return DataFrame(df=prediction)

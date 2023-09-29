@@ -1,35 +1,51 @@
-from flojoy import DataContainer, flojoy
+from flojoy import flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import numpy.linalg
 
 
 @flojoy
-def TENSORINV(dc, params):
-    """
+def TENSORINV(
+    default: Matrix,
+    ind: int = 2,
+) -> Matrix | Scalar:
+    """The TENSORINV node is based on a numpy or scipy function.
 
-            Compute the 'inverse' of an N-dimensional array.
+    The description of that function is as follows:
 
-            The result is an inverse for `a` relative to the tensordot operation
-            ``tensordot(a, b, ind)``, i. e., up to floating-point accuracy,
-            ``tensordot(tensorinv(a), a, ind)`` is the "identity" tensor for the
-            tensordot operation.
+        Compute the 'inverse' of an N-dimensional array.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+        The result is an inverse for 'a' relative to the tensordot operation "tensordot(a, b, ind)",
+        i.e. up to floating-point accuracy, "tensordot(tensorinv(a), a, ind)" is the "identity" tensor for the tensordot operation.
 
     Parameters
     ----------
     a : array_like
-            Tensor to 'invert'. Its shape must be 'square', i. e.,
-    ``prod(a.shape[:ind]) == prod(a.shape[ind:])``.
+        Tensor to 'invert'.
+        Its shape must be 'square', i.e. "prod(a.shape[:ind]) == prod(a.shape[ind:])".
     ind : int, optional
-            Number of first indices that are involved in the inverse sum.
-            Must be a positive integer, default is 2.
+        Number of first indices that are involved in the inverse sum.
+        Must be a positive integer, default is 2.
+
+    Returns
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.tensorinv(
-            a=dc[0].y,
-            ind=(int(params["ind"]) if params["ind"] != "" else None),
-        ),
+
+    result = numpy.linalg.tensorinv(
+        a=default.m,
+        ind=ind,
     )
+
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
+
+    return result

@@ -1,32 +1,25 @@
-import traceback
 from numpy import asarray
 import pandas as pd
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, Matrix, DataFrame
 
 
 @flojoy
-def MAT_2_DF(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """
-    Node to convert matrix type data into dataframe type data.
-    It takes one matrix type data and converts it to dataframe type data.
+def MAT_2_DF(default: Matrix) -> DataFrame:
+    """The MAT_2_DF node takes one matrix type data and converts it to a dataframe type data.
 
-    Parameters
-    ----------
-    None
+    Inputs
+    ------
+    default : Matrix
+        The input matrix to which we apply the conversion to.
 
     Returns
     -------
-    dataframe
-        Converted matrix value from the input
+    DataFrame
+        The dataframe result from the conversion of the input.
     """
-    dc_input = dc_inputs[0]
-    if dc_input.type == "matrix":
-        np_data = dc_input.m
-        np_array = asarray(np_data)
-        df = pd.DataFrame(np_array)
 
-        return DataContainer(type="dataframe", m=df)
-    else:
-        raise ValueError(
-            f"unsupported DataContainer type passed for MAT_2_DF : {dc_input.type}"
-        )
+    np_data = default.m
+    np_array = asarray(np_data)
+    df = pd.DataFrame(np_array)
+
+    return DataFrame(df=df)

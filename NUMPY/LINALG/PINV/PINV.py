@@ -1,47 +1,61 @@
-from flojoy import DataContainer, flojoy
+from flojoy import flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import numpy.linalg
 
 
 @flojoy
-def PINV(dc, params):
-    """
+def PINV(
+    default: Matrix,
+    rcond: float = 1e-15,
+    hermitian: bool = False,
+) -> Matrix | Scalar:
+    """The PINV node is based on a numpy or scipy function.
 
-            Compute the (Moore-Penrose) pseudo-inverse of a matrix.
+    The description of that function is as follows:
 
-            Calculate the generalized inverse of a matrix using its
-            singular-value decomposition (SVD) and including all
-            *large* singular values.
+        Compute the (Moore-Penrose) pseudo-inverse of a matrix.
+
+        Calculate the generalized inverse of a matrix using its singular-value decomposition (SVD) and including all **large** singular values.
 
     .. versionchanged:: 1.14
-            Can now operate on stacks of matrices
-
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+        Can now operate on stacks of matrices
 
     Parameters
     ----------
     a : (..., M, N) array_like
-            Matrix or stack of matrices to be pseudo-inverted.
+        Matrix or stack of matrices to be pseudo-inverted.
     rcond : (...) array_like of float
-            Cutoff for small singular values.
-            Singular values less than or equal to
-            ``rcond * largest_singular_value`` are set to zero.
-            Broadcasts against the stack of matrices.
+        Cutoff for small singular values.
+        Singular values less than or equal to "rcond * largest_singular_value" are set to zero.
+        Broadcasts against the stack of matrices.
     hermitian : bool, optional
-            If True, `a` is assumed to be Hermitian (symmetric if real-valued),
-            enabling a more efficient method for finding singular values.
-            Defaults to False.
+        If True, "a" is assumed to be Hermitian (symmetric if real-valued), enabling a more
+        efficient method for finding singular values.
+        Defaults to False.
 
     .. versionadded:: 1.17.0
+
+    Returns
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.pinv(
-            a=dc[0].y,
-            rcond=(float(params["rcond"]) if params["rcond"] != "" else None),
-            hermitian=(
-                bool(params["hermitian"]) if params["hermitian"] != "" else None
-            ),
-        ),
+
+    result = numpy.linalg.pinv(
+        a=default.m,
+        rcond=rcond,
+        hermitian=hermitian,
     )
+
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
+
+    return result

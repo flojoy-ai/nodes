@@ -1,33 +1,32 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, Image
 import cv2
 import numpy as np
-from PIL import ImageFilter, Image
+from PIL import ImageFilter, Image as PILImage
 
 
-@flojoy
-def EDGE_DETECTION(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The EDGE_DETECTION node detects edges in the image passed to it.
-    This is done through the the Pillow image filter FIND_EDGES.
+@flojoy(deps={"opencv-python": "4.8.0"})
+def EDGE_DETECTION(default: Image) -> Image:
+    """The EDGE_DETECTION node detects edges in the image that was passed to it.
+
+    This is done through the Pillow image filter, FIND_EDGES.
+
     Note that the image is converted to greyscale during this processing.
 
-    Parameters
-    ----------
-    None
+    Inputs
+    ------
+    default : Image
+        The input image to apply edge detection to.
 
     Returns
     -------
-    image
+    Image
         The image with detected edges in white.
     """
-    dc_input = dc_inputs[0]
-    if dc_input.type != "image":
-        raise ValueError(
-            f"unsupported DataContainer type passed to EDGE_DETECTION node: '{dc_input.type}'"
-        )
-    r = dc_input.r
-    g = dc_input.g
-    b = dc_input.b
-    a = dc_input.a
+
+    r = default.r
+    g = default.g
+    b = default.b
+    a = default.a
 
     if a is not None:
         rgba_image = np.stack((r, g, b, a), axis=2)
@@ -36,10 +35,8 @@ def EDGE_DETECTION(dc_inputs: list[DataContainer], params: dict) -> DataContaine
         rgba_image = np.stack((r, g, b), axis=2)
 
     try:
-        image = Image.fromarray(rgba_image)
-        image = image.convert("L")
-        image = image.filter(ImageFilter.FIND_EDGES)
-        image = image.convert("RGB")
+        image = PILImage.fromarray(rgba_image)
+        image = image.convert("L").filter(ImageFilter.FIND_EDGES).convert("RGB")
         image = np.array(image)
 
         try:
@@ -48,8 +45,7 @@ def EDGE_DETECTION(dc_inputs: list[DataContainer], params: dict) -> DataContaine
             r, g, b = cv2.split(image)
         if a is None:
             a = None
-        return DataContainer(
-            type="image",
+        return Image(
             r=r,
             g=g,
             b=b,

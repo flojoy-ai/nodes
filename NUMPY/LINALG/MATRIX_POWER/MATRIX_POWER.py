@@ -1,36 +1,52 @@
-from flojoy import DataContainer, flojoy
+from flojoy import flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import numpy.linalg
 
 
 @flojoy
-def MATRIX_POWER(dc, params):
-    """
+def MATRIX_POWER(
+    default: Matrix,
+    n: int = 2,
+) -> Matrix | Scalar:
+    """The MATRIX_POWER node is based on a numpy or scipy function.
 
-            Raise a square matrix to the (integer) power `n`.
+    The description of that function is as follows:
 
-            For positive integers `n`, the power is computed by repeated matrix
-            squarings and matrix multiplications. If ``n == 0``, the identity matrix
-            of the same shape as M is returned. If ``n < 0``, the inverse
-            is computed and then raised to the ``abs(n)``.
+        Raise a square matrix to the (integer) power 'n'.
 
-    .. note:: Stacks of object matrices are not currently supported.
+        For positive integers 'n', the power is computed by repeated matrix squarings and matrix multiplications.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+        If "n == 0", the identity matrix of the same shape as M is returned. If "n < 0", the inverse is computed and then raised to "abs(n)".
+
+    Note: Stacks of object matrices are not currently supported.
 
     Parameters
     ----------
     a : (..., M, M) array_like
             Matrix to be "powered".
     n : int
-            The exponent can be any integer or long integer, positive,
-            negative, or zero.
+            The exponent can be any integer or long integer, positive, negative, or zero.
+
+    Returns
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.matrix_power(
-            a=dc[0].y,
-            n=(int(params["n"]) if params["n"] != "" else None),
-        ),
+
+    result = numpy.linalg.matrix_power(
+        a=default.m,
+        n=n,
     )
+
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
+
+    return result

@@ -1,39 +1,43 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, Vector
 import numpy as np
 
 
 @flojoy
-def DIFFERENTIATE(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """
-    The DIFFERENTIATE node takes two list, x and y, as input.
-    It computes the derivative of the array, y with respect to x.
+def DIFFERENTIATE(default: OrderedPair | Vector) -> OrderedPair:
+    """The DIFFERENTIATE node takes two lists, x and y, as input.
 
-    Parameters
-    ----------
-    None
+    It then computes the derivative of the array, y, with respect to x.
+
+    Inputs
+    ------
+    default : OrderedPair|Vector
+        Input from which we get the x and y lists use in the derivative.
 
     Returns
     -------
-    numpy array
-        Derivative of the array
+    OrderedPair
+        x: the x-axis of the input.
+        y: the result of the derivative.
     """
-    dc_input = dc_inputs[0]
 
-    if dc_input.type != "ordered_pair":
-        raise ValueError(
-            f"unsupported DataContainer type passed for DIFFERENTIATE : {dc_input.type}"
-        )
+    match default:
+        case OrderedPair():
+            input_x = default.x
+            input_y = default.y
 
-    input_x = dc_input.x
-    input_y = dc_input.y
+            if len(input_x) != len(input_y):
+                raise ValueError(
+                    f" X and Y keys must have the same length, got x of length {len(input_x)} and y {len(input_y)}"
+                )
 
-    if type(input_x) != np.ndarray:
-        raise ValueError(f"Invalid type for x:{type(input_x)}")
-    elif type(input_y) != np.ndarray:
-        raise ValueError(f"Invalid type for y:{type(input_y)}")
-    elif len(input_x) != len(input_y):
-        raise ValueError(f"Invalid inputs, x:{input_x} y:{input_y}")
+            differentiate = np.diff(input_y) / np.diff(input_x)
 
-    differentiate = np.diff(input_y) / np.diff(input_x)
+            return OrderedPair(x=input_x, y=differentiate)
+        case Vector():
+            input_x = np.arange((len(default.v) - 1))
+            differentiate = np.zeros_like(input_x)
 
-    return DataContainer(type="ordered_pair", x=input_x, y=differentiate)
+            for i in range(0, len(input_x)):
+                differentiate[i] = default.v[i + 1] - default.v[i]
+
+            return OrderedPair(x=input_x, y=differentiate)

@@ -1,42 +1,77 @@
-from flojoy import flojoy, DataContainer, JobResultBuilder
-from typing import Union
-from utils.utils import compare_values
+from typing import Any, Literal, TypedDict
+
+from flojoy import JobResultBuilder, Scalar, flojoy
+
+
+class ConditionalOutput(TypedDict):
+    true: Any
+    false: Any
 
 
 @flojoy
 def CONDITIONAL(
-    dc_inputs: list[DataContainer], params: dict
-) -> Union[DataContainer, dict]:
-    """The CONDITIONAL node is a specialized node that compares two given DataContainer inputs
-    and enqueues nodes connected with `true` or `false` output based on the comparison result.
+    x: Scalar,
+    y: Scalar,
+    operator_type: Literal["<=", ">", "<", ">=", "!=", "=="] = ">=",
+) -> ConditionalOutput:
+    """The CONDITIONAL node is a specialized node that compares two given Scalar inputs.
 
-    Parameters:
-    -----------
-    operator_type: str, optional
-        Specifies the type of comparison to be performed between the two inputs. The default value is `>=`.
+    We are planning to add support for more DataContainer types in the future.
+
+    It then enqueues nodes connected with a "true" or "false" output based on the comparison result.
+
+    Parameters
+    ----------
+    operator_type : select
+        Specifies the type of comparison to be performed between the two inputs. The default value is ">=".
     """
-    operator = params["operator_type"]
 
-    dc_input_x = dc_inputs[0]
-    dc_input_y = dc_inputs[1]
-    x = dc_input_x.y
-    y = dc_input_y.y
-    bool_ = compare_values(x[0], y[0], operator)
+    # y_of_x = x.y
+    # y_of_y = y.y
 
+    bool_ = compare_values(x.c, y.c, operator_type)
     data = None
-    if operator in ["<=", "<"]:
-        if not bool_:
-            data = DataContainer(x=dc_inputs[0].x, y=y)
-        else:
-            data = DataContainer(x=dc_inputs[1].x, y=x)
+    if bool_:
+        data = x
     else:
-        if bool_:
-            data = DataContainer(x=dc_inputs[0].x, y=y)
-        else:
-            data = DataContainer(x=dc_inputs[1].x, y=x)
+        data = y
+
+    # if operator_type in ["<=", "<"]:
+    #     if not bool_:
+    #         data = OrderedPair(x=x.x, y=y.y)
+    #     else:
+    #         data = OrderedPair(x=y.x, y=x.y)
+    # elif bool_:
+    #     data = OrderedPair(x=x.x, y=y.y)
+    # else:
+    #     data = OrderedPair(x=y.x, y=x.y)
 
     next_direction = str(bool_).lower()
 
-    return (
-        JobResultBuilder().from_data(data).flow_to_directions([next_direction]).build()
+    return ConditionalOutput(
+        true=JobResultBuilder()
+        .from_data(data)
+        .flow_to_directions([next_direction])
+        .build(),
+        false=JobResultBuilder()
+        .from_data(data)
+        .flow_to_directions([next_direction])
+        .build(),
     )
+
+
+def compare_values(first_value: Any, second_value: Any, operator: str):
+    bool_: bool = False
+    if operator == "<=":
+        bool_ = first_value <= second_value
+    elif operator == ">":
+        bool_ = first_value > second_value
+    elif operator == "<":
+        bool_ = first_value < second_value
+    elif operator == ">=":
+        bool_ = first_value >= second_value
+    elif operator == "!=":
+        bool_ = first_value != second_value
+    else:
+        bool_ = first_value == second_value
+    return bool_

@@ -1,43 +1,45 @@
-from flojoy import flojoy, DataContainer
-import pandas as pd
-from typing import cast
+from flojoy import flojoy, DataFrame
+from typing import Optional
 
 
 @flojoy
-def ACCURACY(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The ACCURACY node takes two dataframes with the true and predicted labels from a classification task,
-    and indicates whether the prediction was correct or not. These dataframes should both be single columns.
+def ACCURACY(
+    true_data: DataFrame,
+    predicted_data: DataFrame,
+    true_label: Optional[str] = None,
+    predicted_label: Optional[str] = None,
+) -> DataFrame:
+    """The ACCURACY node takes two dataframes with the true and predicted labels from a classification task, and indicates whether the prediction was correct or not.
+
+    These dataframes should both be single columns.
 
     Parameters
     ----------
-    None
+    true_label : optional str
+        true label users can select from original data
+    predicted_label : optional str
+        resulting predicted label users can select
 
     Returns
     -------
-    dataframe
+    DataFrame
         The input predictions dataframe, with an extra boolean column "prediction_correct".
-
     """
 
-    if len(dc_inputs) != 2:
-        raise ValueError("ACCURACY node requires both true data and predicted data")
+    true_df = true_data.m
+    predicted_df = predicted_data.m
 
-    true_data = dc_inputs[0]
-    predicted_data = dc_inputs[1]
+    # if users prov
+    if true_label:
+        true_label = true_df[true_label]
+    else:
+        true_label = true_df.iloc[:, 0]
 
-    if true_data.type != "dataframe":
-        raise ValueError(
-            f"unsupported DataContainer type passed to ACCURACY node for true: {true_data.type}"
-        )
+    if predicted_label:
+        predicted_label = predicted_df[predicted_label]
+    else:
+        predicted_label = predicted_df.iloc[:, 0]
 
-    if predicted_data.type != "dataframe":
-        raise ValueError(
-            f"unsupported DataContainer type passed to ACCURACY node for predicted: {predicted_data.type}"
-        )
+    predicted_df["prediction_correct"] = true_label == predicted_label
 
-    true_df = cast(pd.DataFrame, true_data.m)
-    predicted_df = cast(pd.DataFrame, predicted_data.m)
-
-    predicted_df["prediction_correct"] = true_df.iloc[:, 0] == predicted_df.iloc[:, 0]
-
-    return DataContainer(type="dataframe", m=predicted_df)
+    return DataFrame(df=predicted_df)

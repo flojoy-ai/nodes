@@ -1,36 +1,37 @@
 import plotly.graph_objects as go
 import plotly.express as px
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedTriple, DataFrame, Plotly, flojoy
 from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
-def SCATTER3D(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input data container.
+def SCATTER3D(default: OrderedTriple | DataFrame) -> Plotly:
+    """The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input DataContainer.
 
-    Parameters:
-    -----------
-    None
+    Inputs
+    ------
+    default : OrderedTriple|DataFrame
+        the DataContainer to be visualized
 
-    Supported DC types:
-    -------------------
-    `ordered_triple`, `dataframe`
+    Returns
+    -------
+    Plotly
+        the DataContainer containing the Plotly 3D Scatter visualization
     """
-    dc_input: DataContainer = dc_inputs[0]
-    node_name = __name__.split(".")[-1]
-    layout = plot_layout(title=node_name)
+
+    layout = plot_layout(title="SCATTER3D")
     fig = go.Figure(layout=layout)
-    match dc_input.type:
-        case "ordered_triple":
-            x = dc_input.x
-            if isinstance(dc_input.x, dict):
-                dict_keys = list(dc_input.x.keys())
-                x = dc_input.x[dict_keys[0]]
-            y = dc_input.y
-            z = dc_input.z
+    match default:
+        case OrderedTriple():
+            x = default.x
+            if isinstance(default.x, dict):
+                dict_keys = list(default.x.keys())
+                x = default.x[dict_keys[0]]
+            y = default.y
+            z = default.z
             fig.add_trace(go.Scatter3d(x=x, y=y, z=z, mode="markers"))
-        case "dataframe":
-            df = dc_input.m
+        case DataFrame():
+            df = default.m
             if len(df.columns) < 3:
                 raise ValueError(
                     "DataFrame must have at least 3 columns for x, y, and z coordinates."
@@ -41,9 +42,5 @@ def SCATTER3D(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             z_column = df.columns[2]
 
             fig = px.scatter_3d(df, x=x_column, y=y_column, z=z_column, color=z_column)
-        case _:
-            raise ValueError(
-                f"unsupported DataContainer type passed for {node_name}: {dc_input.type}"
-            )
 
-    return DataContainer(type="plotly", fig=fig)
+    return Plotly(fig=fig)

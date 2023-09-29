@@ -1,6 +1,7 @@
 from scipy import fft
-from flojoy import flojoy, DataContainer
-from PIL import Image
+from flojoy import flojoy, DataFrame, Matrix, Image, Grayscale
+from typing import Literal
+from PIL import Image as PillowImage
 import pandas as pd
 import numpy as np
 
@@ -10,72 +11,76 @@ def extrapolate(x):
 
 
 @flojoy
-def TWO_DIMENSIONAL_FFT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The TWO_DIMENSIONAL_FFT node performs a two-dimensional fourier transform on the input matrix.
-    With the FFT algorithm, the input matrix will undergo a change of basis
-    from the space domain into the frequency domain.
+def TWO_DIMENSIONAL_FFT(
+    default: Grayscale | DataFrame | Image | Matrix,
+    real_signal: bool = True,
+    color: Literal["red", "green", "blue", "grayscale"] = "red",
+) -> Matrix | DataFrame | Image:
+    """The TWO_DIMENSIONAL_FFT node performs a two-dimensional fast fourier transform function on the input matrix.
+
+    With the FFT algorithm, the input matrix will undergo a change of basis from the space domain into the frequency domain.
+
+    grayscale, dataframe, image, or matrix
+
+    Inputs
+    ------
+    default : Grayscale|DataFrame|Image|Matrix
+        The 2D data to apply 2DFFT to.
 
     Parameters
     ----------
-    real_input: boolean
-        true if the input matrix is consists of only real numbers, false otherwise
-    color: select
-        If the input is an RGBA or RGB image, this parameter selects the color channel to perform fft on
+    real_signal : bool
+        true if the input matrix consists of only real numbers, false otherwise
+    color : select
+        if the input is an RGBA or RGB image, this parameter selects the color channel to perform the FFT on
 
     Returns
     -------
-    image
-        The frequency spectrum of the color channel
+    Matrix if input is Matrix
+        m: the matrix after 2DFFT
+    DataFrame if input is Dataframe
+        m: the dataframe after 2DFFT
+    Image
+        the frequency spectrum of the color channel
     """
-    if len(dc_inputs) != 1:
-        raise ValueError(
-            f"TWO_DIMENSIONAL_FFT node requires 1 input, but {len(dc_inputs)} was given! "
-        )
-    dc = dc_inputs[0]
-    if dc.type not in ["grayscale", "dataframe", "image", "matrix"]:
-        raise ValueError(
-            f"unsupported DataContainer type passed to TWO_DIMENSIONAL_FFT node: '{dc.type}'"
-        )
-    real = params["real_signal"]
-    color = params["color"]
 
-    match dc.type:
-        case "greyscale" | "matrix":
-            input = dc.m
-            fourier = fft.rfft2(input) if real else fft.fft2(input)
-            if dc.type == "matrix":
+    match default:
+        case Grayscale() | Matrix():
+            input = default.m
+            fourier = fft.rfft2(input) if real_signal else fft.fft2(input)
+            if isinstance(default, Matrix):
                 fourier = fourier.real
-                return DataContainer(type="matrix", m=fourier)
-        case "dataframe":
-            input = pd.DataFrame(dc.m)
-            fourier = fft.rfft2(input) if real else fft.fft2(input)
+                return Matrix(m=fourier)
+        case DataFrame():
+            input: pd.DataFrame = pd.DataFrame(default.m)
+            fourier = fft.rfft2(input) if real_signal else fft.fft2(input)
             fourier = fourier.real
             result = pd.DataFrame(columns=fourier.columns, index=fourier.index)
-            return DataContainer(type="dataframe", m=result)
-        case "image":
-            red = dc.r
-            green = dc.g
-            blue = dc.b
-            alpha = dc.a
+            return DataFrame(m=result)
+        case Image():
+            red = default.r
+            green = default.g
+            blue = default.b
+            alpha = default.a
             if color == "grayscale":
                 if alpha is None:
                     rgba_image = np.stack((red, green, blue), axis=2)
                 else:
                     rgba_image = np.stack((red, green, blue, alpha), axis=2)
                 try:
-                    image = Image.fromarray(rgba_image)
+                    image = PillowImage.fromarray(rgba_image)
                 except TypeError:
-                    image = Image.fromarray((rgba_image * 255).astype(np.uint8))
+                    image = PillowImage.fromarray((rgba_image * 255).astype(np.uint8))
                 image = image.convert("L")
                 grayscale = np.array(image)
-                fourier = fft.rfft2(grayscale) if real else fft.fft2(grayscale)
+                fourier = fft.rfft2(grayscale) if real_signal else fft.fft2(grayscale)
             else:
                 fourier = (
                     fft.rfft2(locals()[color], axes=[0, 1])
-                    if real
+                    if real_signal
                     else fft.fft2(locals()[color], axes=[0, 1])
                 )
 
     fourier = np.log10(np.abs(fourier))
     fourier = extrapolate(fourier)
-    return DataContainer(type="image", r=fourier, g=fourier, b=fourier, a=None)
+    return Image(r=fourier, g=fourier, b=fourier, a=None)

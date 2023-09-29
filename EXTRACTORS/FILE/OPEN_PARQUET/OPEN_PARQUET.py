@@ -1,28 +1,26 @@
 from os import path
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, DataFrame
 import pandas as pd
 
 
-@flojoy
-def OPEN_PARQUET(
-    dc_inputs: list[DataContainer], params: dict[str, str]
-) -> DataContainer:
-    """
-    The OPEN_PARQUET node loads a local file of the .parquet file format.
-    It returns the file in pandas.Dataframe type.
+@flojoy(deps={"pyarrow": "12.0.1", "fastparquet": "2023.7.0"})
+def OPEN_PARQUET(file_path: str = "") -> DataFrame:
+    """The OPEN_PARQUET node loads a local file of the .parquet file format. It then returns the file as a pandas.Dataframe type.
+
+    Inputs
+    ------
+    default: None
 
     Parameters
     ----------
     file_path : str
-        path to the file to be loaded.
+        File path to the .parquet file or an URL of a .parquet file.
 
-    Returns:
-    --------
-    DataContainer:
-        type 'dataframe', m
+    Returns
+    -------
+    DataFrame
+        DataFrame loaded from .parquet file
     """
-
-    file_path = params["file_path"]
 
     if file_path[-8:] != ".parquet":
         raise ValueError(f"File type {file_path[-8:]} unsupported.")
@@ -32,4 +30,4 @@ def OPEN_PARQUET(
 
     read_parquet = pd.read_parquet(file_path)
 
-    return DataContainer(type="dataframe", m=read_parquet)
+    return DataFrame(df=read_parquet)

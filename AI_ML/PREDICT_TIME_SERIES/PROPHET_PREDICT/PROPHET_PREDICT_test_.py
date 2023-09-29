@@ -1,35 +1,16 @@
-import numpy
-
-from functools import wraps
-from unittest.mock import patch
-
 import numpy as np
 import pandas as pd
-from flojoy import DataContainer
-from prophet import Prophet
-from prophet.serialize import model_from_json
+import pytest
+from flojoy import DataFrame
 
 
-# Python functions are decorated at module-loading time, So we'll need to patch our decorator
-#  with a simple mock before loading the module.
+def test_PROPHET_PREDICT(mock_flojoy_decorator, mock_flojoy_venv_cache_directory):
+    pytest.importorskip(
+        "fastparquet",
+        reason="A suitable version of pyarrow or fastparquet is required for parquet support used by PROPHET_PREDICT.",
+    )
+    import PROPHET_PREDICT
 
-
-def mock_flojoy_decorator(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        return f(*args, **kwargs)
-
-    return decorated_function
-
-
-# Patch the flojoy decorator that handles connecting our node to the App.
-patch("flojoy.flojoy", mock_flojoy_decorator).start()
-
-# After Patching the flojoy decorator, let's load the node under test.
-import PROPHET_PREDICT
-
-
-def test_PROPHET_PREDICT():
     # Generate random time series data
     start_date = pd.Timestamp("2023-01-01")
     end_date = pd.Timestamp("2023-07-20")
@@ -38,10 +19,10 @@ def test_PROPHET_PREDICT():
     data = np.random.randn(num_days)  # Random data points
 
     df = pd.DataFrame({"Timestamp": timestamps, "Data": data})
-    dc = DataContainer(type="dataframe", m=df)
+    dc = DataFrame(df=df)
 
     # node under test
-    res = PROPHET_PREDICT.PROPHET_PREDICT([dc], {"run_forecast": True, "periods": 365})
+    res = PROPHET_PREDICT.PROPHET_PREDICT(default=dc, run_forecast=True, periods=365)
 
     # Should get back a dataframe
     assert isinstance(res.m, pd.DataFrame)
@@ -50,6 +31,10 @@ def test_PROPHET_PREDICT():
     assert extra["run_forecast"] is True
     assert isinstance(extra["original"], pd.DataFrame)
     # This should be identical to the original df, all columns, all rows
-    assert (extra["original"] == df).all().all()
+    assert (
+        (extra["original"] == df.rename(columns={"Timestamp": "ds", "Data": "y"}))
+        .all()
+        .all()
+    )
     assert extra["prophet"] is not None
-    assert isinstance(model_from_json(extra["prophet"]), Prophet)
+    assert isinstance(extra["prophet"], str)

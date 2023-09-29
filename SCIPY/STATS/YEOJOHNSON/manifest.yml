@@ -1,8 +1,0 @@
-COMMAND:
-  - name: Yeojohnson
-    key: YEOJOHNSON
-    type: SCIPY_STATS
-    parameters: 
-      lmbda: 
-        type: float
-        default:

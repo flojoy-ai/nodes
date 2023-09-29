@@ -1,28 +1,44 @@
-from flojoy import DataContainer, flojoy
+from flojoy import flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import numpy.linalg
 
 
 @flojoy
-def INV(dc, params):
-    """
+def INV(
+    default: Matrix,
+) -> Matrix | Scalar:
+    """The INV node is based on a numpy or scipy function.
 
-            Compute the (multiplicative) inverse of a matrix.
+    The description of that function is as follows:
 
-            Given a square matrix `a`, return the matrix `ainv` satisfying
-            ``dot(a, ainv) = dot(ainv, a) = eye(a.shape[0])``.
+        Compute the (multiplicative) inverse of a matrix.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+        Given a square matrix 'a', return the matrix 'ainv', satisfying "dot(a, ainv) = dot(ainv, a) = eye(a.shape[0])".
 
     Parameters
     ----------
     a : (..., M, M) array_like
-            Matrix to be inverted.
+        Matrix to be inverted.
+
+    Returns
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=numpy.linalg.inv(
-            a=dc[0].y,
-        ),
+
+    result = numpy.linalg.inv(
+        a=default.m,
     )
+
+    if isinstance(result, np.ndarray):
+        result = Matrix(m=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
+
+    return result

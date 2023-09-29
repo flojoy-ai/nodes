@@ -1,13 +1,22 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, Matrix
 
 
 @flojoy
-def MATMUL(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """Takes 2 input matrices, multiplies them, and returns the result"""
-    a: np.ndarray = np.eye(3)
-    b: np.ndarray = np.eye(3)
-    if len(dc_inputs) == 2:
-        a = dc_inputs[0].y
-        b = dc_inputs[1]["y"]
-    return DataContainer(type="matrix", m=np.matmul(a, b))
+def MATMUL(a: Matrix, b: Matrix) -> Matrix:
+    """The MATMUL node takes two input matrices, multiplies them, and returns the result.
+
+    Inputs
+    ------
+    a : Matrix
+        The input matrix to be multiplied to input b.
+    b : Matrix
+        The input matrix to be multiplied to input a.
+
+    Returns
+    -------
+    Matrix
+        The matrix result from the matrix multiplication.
+    """
+
+    return Matrix(m=np.matmul(a.m, b.m))

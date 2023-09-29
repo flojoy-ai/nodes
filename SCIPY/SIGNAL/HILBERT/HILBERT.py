@@ -1,33 +1,52 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.signal
 
 
 @flojoy
-def HILBERT(dc, params):
-    """
+def HILBERT(
+    default: OrderedPair | Matrix,
+    N: int = 2,
+    axis: int = -1,
+) -> OrderedPair | Matrix | Scalar:
+    """The HILBERT node is based on a numpy or scipy function.
 
-            Compute the analytic signal, using the Hilbert transform.
+    The description of that function is as follows:
 
-            The transformation is done along the last axis by default.
+        Compute the analytic signal, using the Hilbert transform.
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+        The transformation is done along the last axis by default.
 
     Parameters
     ----------
     x : array_like
-            Signal data.  Must be real.
+        Signal data.  Must be real.
     N : int, optional
-    Number of Fourier components.  Default: ``x.shape[axis]``
+        Number of Fourier components. Default: x.shape[axis].
     axis : int, optional
-    Axis along which to do the transformation.  Default: -1.
+        Axis along which to do the transformation. Default: -1.
+
+    Returns
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.signal.hilbert(
-            x=dc[0].y,
-            N=(int(params["N"]) if params["N"] != "" else None),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-        ),
+
+    result = scipy.signal.hilbert(
+        x=default.y,
+        N=N,
+        axis=axis,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
+
+    return result

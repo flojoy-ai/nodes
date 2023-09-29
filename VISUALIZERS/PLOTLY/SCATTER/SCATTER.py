@@ -1,36 +1,37 @@
-import plotly.graph_objects as go
-from flojoy import flojoy, DataContainer
-import pandas as pd
-from nodes.VISUALIZERS.template import plot_layout
 import numpy as np
+import pandas as pd
+import plotly.graph_objects as go
+from flojoy import DataFrame, Matrix, OrderedPair, Plotly, flojoy, Vector
+from nodes.VISUALIZERS.template import plot_layout
 
 
 @flojoy
-def SCATTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The SCATTER Node creates a Plotly Scatter visualization for a given input data container.
+def SCATTER(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:
+    """The SCATTER node creates a Plotly Scatter visualization for a given input DataContainer.
 
-    Parameters:
-    ----------
-    None
+    Inputs
+    ------
+    default : OrderedPair|DataFrame|Matrix|Vector
+        the DataContainer to be visualized
 
-    Supported DC types:
-    -------------------
-    `ordered_pair`, `dataframe`, `matrix`
+    Returns
+    -------
+    Plotly
+        the DataContainer containing the Plotly Scatter visualization
     """
-    dc_input: DataContainer = dc_inputs[0]
-    node_name = __name__.split(".")[-1]
-    layout = plot_layout(title=node_name)
+
+    layout = plot_layout(title="SCATTER")
     fig = go.Figure(layout=layout)
-    match dc_input.type:
-        case "ordered_pair":
-            x = dc_input.x
-            if isinstance(dc_input.x, dict):
-                dict_keys = list(dc_input.x.keys())
-                x = dc_input.x[dict_keys[0]]
-            y = dc_input.y
+    match default:
+        case OrderedPair():
+            x = default.x
+            if isinstance(default.x, dict):
+                dict_keys = list(default.x.keys())
+                x = default.x[dict_keys[0]]
+            y = default.y
             fig.add_trace(go.Scatter(x=x, y=y, mode="markers", marker=dict(size=4)))
-        case "dataframe":
-            df = pd.DataFrame(dc_input.m)
+        case DataFrame():
+            df = pd.DataFrame(default.m)
             first_col = df.iloc[:, 0]
             is_timeseries = False
             if pd.api.types.is_datetime64_any_dtype(first_col):
@@ -46,9 +47,9 @@ def SCATTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                     fig.add_trace(
                         go.Scatter(x=df.index, y=df[col], mode="markers", name=col)
                     )
-        case "matrix":
-            m: np.ndarray = dc_input.m
 
+        case Matrix():
+            m: np.ndarray = default.m
             num_rows, num_cols = m.shape
 
             x_ticks = np.arange(num_cols)
@@ -59,9 +60,9 @@ def SCATTER(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
                 )
 
             fig.update_layout(xaxis_title="Column", yaxis_title="Value")
+        case Vector():
+            y = default.v
+            x = np.arange(len(y))
+            fig.add_trace(go.Scatter(x=x, y=y, mode="markers", marker=dict(size=4)))
 
-        case _:
-            raise ValueError(
-                f"unsupported DataContainer type passed for {node_name}: {dc_input.type}"
-            )
-    return DataContainer(type="plotly", fig=fig)
+    return Plotly(fig=fig)

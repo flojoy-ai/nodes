@@ -1,19 +1,44 @@
 import numpy as np
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, Scalar, Vector
+from nodes.TRANSFORMERS.ARITHMETIC.utils.arithmetic_utils import get_val
+from functools import reduce
 
 
 @flojoy
-def SUBTRACT(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """Subtract 2 input vectors and return the result"""
+def SUBTRACT(
+    a: OrderedPair | Scalar | Vector, b: list[OrderedPair | Scalar | Vector]
+) -> OrderedPair | Scalar | Vector:
+    """The SUBTRACT node subtracts two numeric arrays, vectors, matrices, or constants element-wise and returns the result.
 
-    if len(dc_inputs) < 2:
-        raise ValueError(
-            f"To substract the values, SUBSTRACT node requires two inputs, {len(dc_inputs)} was given!"
-        )
-    a = dc_inputs[0].y
-    b = dc_inputs[1].y
+    Inputs
+    ------
+    a : OrderedPair|Scalar|Vector
+        The input a use in the subtraction of a by b.
+    b : OrderedPair|Scalar|Vector
+        The input b use in the subtraction of a by b.
 
-    x = dc_inputs[0].x
-    y = np.subtract(a, b)
+    Returns
+    -------
+    OrderedPair|Scalar|Vector
+        OrderedPair if a is an OrderedPair.
+        x: the x-axis of input a.
+        y: the result of the subtraction of input a by input b.
 
-    return DataContainer(x=x, y=y)
+        Scalar if a is a Scalar.
+        c: the result of the subtraction of input a by input b.
+
+        Vector if a is a Vector.
+        v: the result of the subtraction of input a by input b.
+    """
+
+    initial = get_val(a)
+    seq = map(lambda dc: get_val(dc), b)
+    y = reduce(lambda u, v: np.subtract(u, v), seq, initial)
+
+    match a:
+        case OrderedPair():
+            return OrderedPair(x=a.x, y=y)
+        case Vector():
+            return Vector(v=y)
+        case Scalar():
+            return Scalar(c=y)

@@ -1,9 +1,6 @@
 __all__ = [
-    "ARGRELMAX",
-    "ARGRELMIN",
     "BSPLINE",
     "CUBIC",
-    "CZT",
     "DECIMATE",
     "DETREND",
     "GAUSS_SPLINE",

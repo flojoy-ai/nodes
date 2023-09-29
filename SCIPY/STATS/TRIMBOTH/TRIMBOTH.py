@@ -1,42 +1,57 @@
-from flojoy import DataContainer, flojoy
+from flojoy import OrderedPair, flojoy, Matrix, Scalar
+import numpy as np
+from collections import namedtuple
+from typing import Literal
+
 import scipy.stats
 
 
 @flojoy
-def TRIMBOTH(dc, params):
-    """
-            Slice off a proportion of items from both ends of an array.
+def TRIMBOTH(
+    default: OrderedPair | Matrix,
+    proportiontocut: float = 0.1,
+    axis: int = 0,
+) -> OrderedPair | Matrix | Scalar:
+    """The TRIMBOTH node is based on a numpy or scipy function.
 
-            Slice off the passed proportion of items from both ends of the passed
-            array (i.e., with `proportiontocut` = 0.1, slices leftmost 10% **and**
-            rightmost 10% of scores). The trimmed values are the lowest and
-            highest ones.
-            Slice off less if proportion results in a non-integer slice index (i.e.
-            conservatively slices off `proportiontocut`).
+    The description of that function is as follows:
 
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-    The parameters of the function in this Flojoy wrapper are given below.
-    -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+        Slice off a proportion of items from both ends of an array.
+
+        Slice off the passed proportion of items from both ends of the passed array
+        (i.e., with 'proportiontocut' = 0.1, slices leftmost 10% and rightmost 10% of scores).
+        The trimmed values are the lowest and highest ones.
+        Slice off less if proportion results in a non-integer slice index (i.e. conservatively slices off 'proportiontocut').
 
     Parameters
     ----------
     a : array_like
-            Data to trim.
+        Data to trim.
     proportiontocut : float
-            Proportion (in range 0-1) of total data set to trim of each end.
+        Proportion (in range 0-1) of total data set to trim of each end.
     axis : int or None, optional
-            Axis along which to trim data. Default is 0. If None, compute over
-            the whole array `a`.
+        Axis along which to trim data.
+        Default is 0.
+        If None, compute over the whole array 'a'.
+
+    Returns
+    -------
+    DataContainer
+        type 'ordered pair', 'scalar', or 'matrix'
     """
-    return DataContainer(
-        x=dc[0].y,
-        y=scipy.stats.trimboth(
-            a=dc[0].y,
-            proportiontocut=(
-                float(params["proportiontocut"])
-                if params["proportiontocut"] != ""
-                else None
-            ),
-            axis=(int(params["axis"]) if params["axis"] != "" else None),
-        ),
+
+    result = scipy.stats.trimboth(
+        a=default.y,
+        proportiontocut=proportiontocut,
+        axis=axis,
     )
+
+    if isinstance(result, np.ndarray):
+        result = OrderedPair(x=default.x, y=result)
+    else:
+        assert isinstance(
+            result, np.number | float | int
+        ), f"Expected np.number, float or int for result, got {type(result)}"
+        result = Scalar(c=float(result))
+
+    return result

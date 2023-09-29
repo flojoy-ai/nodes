@@ -1,7 +1,6 @@
-from flojoy import flojoy, DataContainer
+from flojoy import flojoy, OrderedPair, DataFrame, Matrix, Image, Plotly
 import plotly.graph_objects as go
 import numpy as np
-import pandas as pd
 
 CELL_SIZE = 50
 FONT_SIZE = 10
@@ -9,7 +8,7 @@ MAX_ALLOWED_SHAPE = 10
 l_dot = "$\\ldots$"
 
 
-def numpy_array_as_table(arr: np.ndarray, placeholder: str):
+def numpy_array_as_table(arr: np.ndarray):
     if arr.size > MAX_ALLOWED_SHAPE:
         converted_type = arr.astype(object)
         new_arr = converted_type[:MAX_ALLOWED_SHAPE]
@@ -20,50 +19,43 @@ def numpy_array_as_table(arr: np.ndarray, placeholder: str):
 
 
 @flojoy
-def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """
-    The ARRAY_VIEW node takes "ordered_pair", "dataframe", "matrix", and "image" as input type
-    and displays its visualization in array format.
+def ARRAY_VIEW(default: OrderedPair | Matrix | DataFrame | Image) -> Plotly:
+    """The ARRAY_VIEW node takes OrderedPair, DataFrame, Matrix, and Image DataContainer objects as input, and visualizes it in array format.
 
-    Parameters
-    ----------
-    None
+    Inputs
+    ------
+    default : OrderedPair | DataFrame | Matrix | Image
+        the DataContainer to be visualized in array format
 
     Returns
     -------
-    plotly
-        Visualization of the input data in array format
+    Plotly
+        the DataContainer containing the visualization of the input in array format
     """
 
-    dc_input = dc_inputs[0]
-    match dc_input.type:
-        case "ordered_pair":
-            data = dc_input.y
-            cell_values = numpy_array_as_table(data, l_dot)
-        case "dataframe":
-            data = pd.DataFrame(dc_input.m).to_numpy(dtype=object)
-            data = data[:, :-1]
-            cell_values = numpy_array_as_table(data, l_dot)
-        case "matrix":
-            data = dc_input.m
-            cell_values = numpy_array_as_table(data, l_dot)
-        case "image":
-            red = dc_input.r
-            green = dc_input.g
-            blue = dc_input.b
+    if isinstance(default, OrderedPair):
+        data = default.y
+        cell_values = numpy_array_as_table(data)
+    elif isinstance(default, DataFrame):
+        data = default.m.to_numpy(dtype=object)
+        data = data[:, :-1]
+        cell_values = numpy_array_as_table(data)
+    elif isinstance(default, Matrix):
+        data = default.m
+        cell_values = numpy_array_as_table(data)
+    else:
+        red = default.r
+        green = default.g
+        blue = default.b
 
-            if dc_input.a == None:
-                merge = np.stack((red, green, blue), axis=2)
-            else:
-                alpha = dc_inputs[0].a
-                merge = np.stack((red, green, blue, alpha), axis=2)
+        if default.a is None:
+            merge = np.stack((red, green, blue), axis=2)
+        else:
+            alpha = default.a
+            merge = np.stack((red, green, blue, alpha), axis=2)
 
-            merge = merge.reshape(-1, merge.shape[-1])
-            cell_values = numpy_array_as_table(merge, l_dot)
-        case _:
-            raise ValueError(
-                f"unsupported DataContainer type passed for ARRAY_VIEW: {dc_input.type}"
-            )
+        merge = merge.reshape(-1, merge.shape[-1])
+        cell_values = numpy_array_as_table(merge)
 
     fig = go.Figure(
         data=[
@@ -80,7 +72,7 @@ def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
             )
         ]
     )
-    if dc_input.type == "image" or dc_input.type == "dataframe":
+    if default.type == "image" or default.type == "dataframe":
         width = MAX_ALLOWED_SHAPE * CELL_SIZE + 800
 
     else:
@@ -97,4 +89,4 @@ def ARRAY_VIEW(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
         font=dict(size=FONT_SIZE),
     )
 
-    return DataContainer(type="plotly", fig=fig)
+    return Plotly(fig=fig)

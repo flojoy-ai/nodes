@@ -1,5 +1,0 @@
-COMMAND:
-  - name: 3D Scatter Plot
-    key: SCATTER3D
-    type: PLOTLY_VISOR
-    inputs: []

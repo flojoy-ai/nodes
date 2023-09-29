@@ -1,41 +1,63 @@
-import plotly.graph_objects as go
-from flojoy import DataContainer, flojoy
+import plotly.graph_objects as go  # type:ignore
+from flojoy import Plotly, OrderedTriple, DataFrame, flojoy, Surface, Matrix
 from nodes.VISUALIZERS.template import plot_layout
-import pandas as pd
+import numpy as np
 
 
 @flojoy
-def SURFACE3D(dc_inputs: list[DataContainer], params: dict) -> DataContainer:
-    """The SURFACE3D node creates a Plotly 3D Surface visualization for a given input data container.
+def SURFACE3D(default: OrderedTriple | DataFrame | Surface | Matrix) -> Plotly:
+    """The SURFACE3D node creates a Plotly 3D Surface visualization for a given input DataContainer.
 
-    Parameters:
-    -----------
-    None
+    Inputs
+    ------
+    default : OrderedTriple|DataFrame|Surface|Matrix
+        the DataContainer to be visualized
 
-    Supported DC types:
-    -------------------
-    `ordered_triple`, `dataframe`
+    Returns
+    -------
+    Plotly
+        the DataContainer containing the Plotly 3D Surface visualization
+
     """
-    dc_input: DataContainer = dc_inputs[0]
-    node_name = __name__.split(".")[-1]
-    layout = plot_layout(title=node_name)
-    fig = go.Figure(layout=layout)
-    match dc_input.type:
-        case "ordered_triple":
-            x = dc_input.x
-            y = dc_input.y
-            z = dc_input.z
+
+    layout = plot_layout(title="SURFACE3D")
+
+    match default:
+        case OrderedTriple():
+            x = np.unique(default.x)
+            y = np.unique(default.y)
+
+            z_size = len(x) * len(y)
+
+            # Truncate or pad the z array to match the desired size
+            if z_size > len(default.z):
+                z = np.pad(
+                    default.z, (0, z_size - len(default.z)), mode="constant"
+                ).reshape(len(y), len(x))
+            else:
+                z = default.z[:z_size].reshape(len(y), len(x))
+
+            X, Y = np.meshgrid(x, y)
+            if z.ndim < 2:
+                num_columns = len(z) // 2
+                z = np.reshape(z, (2, num_columns))
             fig = go.Figure(
-                data=[
-                    go.Surface(x=x, y=y, z=z),
-                ],
+                data=[go.Surface(x=X, y=Y, z=z)],
                 layout=layout,
             )
-        case "dataframe":
-            df = pd.DataFrame(dc_input.m)
-            fig = go.Figure(data=go.Surface(z=df.values), layout=layout)
-        case _:
-            raise ValueError(
-                f"unsupported DataContainer type passed for {node_name}: {dc_input.type}"
-            )
-    return DataContainer(type="plotly", fig=fig)
+        case Surface():
+            x = default.x
+            y = default.y
+            z = default.z
+            fig = go.Figure(data=[go.Surface(x=x, y=y, z=z)], layout=layout)
+        case Matrix():
+            m = default.m
+            if m.ndim < 2:
+                num_columns = len(m) // 2
+                m = np.reshape(m, (2, num_columns))
+            fig = go.Figure(data=[go.Surface(z=m)], layout=layout)
+        case DataFrame():
+            df = default.m
+            fig = go.Figure(data=[go.Surface(z=df.values)], layout=layout)
+
+    return Plotly(fig=fig)
