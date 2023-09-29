@@ -1,9 +1,9 @@
-from flojoy import flojoy, DataContainer
+from flojoy import Image, flojoy, DataContainer
 import serial
 
 
 @flojoy
-def LED_MATRIX_WS2812B(dc_inputs: list[DataContainer], params: dict) -> dict:
+def LED_MATRIX_WS2812B(default: Image, params: dict) -> dict:
     """
     The LED_MATRIX_WS2812B node takes an image as an input and sends signals to the LED Matrix to light up specific
     LEDs accoring to the image input
@@ -13,11 +13,7 @@ def LED_MATRIX_WS2812B(dc_inputs: list[DataContainer], params: dict) -> dict:
     - width: the width of the LED Matrix
     - height: the height of the LED Matrix
     """
-    input = dc_inputs[0]
-    if input.type != "image":
-        raise ValueError(
-            f"unsupported DataContainer type passed for LED_MATRIX_WS2812B: {input.type}"
-        )
+    input = default
     port = params.get("port")
     width = params.get("width")  # width of the LED matrix, not the image
     height = params.get("height")
