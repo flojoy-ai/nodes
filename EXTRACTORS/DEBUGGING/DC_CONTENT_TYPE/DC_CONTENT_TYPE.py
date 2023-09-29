@@ -5,12 +5,14 @@ from flojoy import flojoy, DataContainer, TextBlob
 def DC_CONTENT_TYPE(
     default: DataContainer,
 ) -> TextBlob:
-    """The DC_CONTENT_TYPE node
+    """The DC_CONTENT_TYPE node returns a TextBlob containing the type of the input DataContainer's content.
+
+    Must use the TEXT_VIEW node to view the text.
 
     Returns
     -------
     DataContainer
-        TextBlob:
+        TextBlob: Type of the input DataContainer's content (e.g. float)
     """
 
     dc_type = str(default.type)

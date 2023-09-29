@@ -5,12 +5,14 @@ from flojoy import flojoy, DataContainer, TextBlob
 def DATACONTAINER_TYPE(
     default: DataContainer,
 ) -> TextBlob:
-    """The DATACONTAINER_TYPE node
+    """The DATACONTAINER_TYPE node returns a TextBlob containing the input DataContainer type (e.g. Vector).
+
+    Must use the TEXT_VIEW node to view the text.
 
     Returns
     -------
     DataContainer
-        TextBlob:
+        TextBlob: Input DataContainer type
     """
 
     return TextBlob(text_blob=str(default.type))
