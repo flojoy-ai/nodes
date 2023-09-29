@@ -46,4 +46,3 @@ def MOVE_POSE(
     robot.MovePose(x=x, y=y, z=z, alpha=alpha, beta=beta, gamma=gamma)
     robot.WaitIdle()
     return ip_address
-

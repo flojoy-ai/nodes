@@ -43,6 +43,6 @@ def MOVE_JOINT(
 
     """
     robot = query_for_handle(ip_address)
-    robot.MoveJoints(x,y,z,alpha,beta,gamma)
+    robot.MoveJoints(x, y, z, alpha, beta, gamma)
     robot.WaitIdle()
     return ip_address

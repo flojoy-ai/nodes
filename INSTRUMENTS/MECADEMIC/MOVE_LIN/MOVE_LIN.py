@@ -2,6 +2,7 @@ from flojoy import flojoy, TextBlob
 from typing import Optional
 from PYTHON.utils.mecademic_state.mecademic_state import query_for_handle
 
+
 @flojoy(deps={"mecademicpy": "1.4.0"})
 def MOVE_LIN(
     ip_address: TextBlob,

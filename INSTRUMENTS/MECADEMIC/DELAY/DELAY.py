@@ -5,7 +5,7 @@ from PYTHON.utils.mecademic_state.mecademic_state import query_for_handle
 @flojoy(deps={"mecademicpy": "1.4.0"})
 def DELAY(
     ip_address: TextBlob,
-    time : float,
+    time: float,
 ) -> TextBlob:
     """
     The MOVE_JOINT node linearly moves the robot's tool to an absolute Cartesian position.
