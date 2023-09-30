@@ -1,0 +1,240 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 231,
+                "height": 160,
+                "id": "INTERPOLATE_VECTOR-58092bf7-8f7f-4715-bd6b-dab0185ca39a",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "INTERPOLATE_VECTOR-58092bf7-8f7f-4715-bd6b-dab0185ca39a",
+                    "label": "INTERPOLATE VECTOR",
+                    "func": "INTERPOLATE_VECTOR",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {
+                        "fractional_index": {
+                            "type": "float",
+                            "default": null,
+                            "desc": "The starting index to interpolate from",
+                            "overload": null,
+                            "functionName": "INTERPOLATE_VECTOR",
+                            "param": "fractional_index",
+                            "value": 6.12321
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "multiple": false,
+                            "desc": "The input vector"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Scalar",
+                            "desc": "interpolated value"
+                        }
+                    ],
+                    "path": "TRANSFORMERS/VECTOR_MANIPULATION/INTERPOLATE_VECTOR/INTERPOLATE_VECTOR.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 93.44926955145046,
+                    "y": -199.25392695270583
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 93.44926955145046,
+                    "y": -199.25392695270583
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "LINSPACE-0083c664-d5d8-49ee-b328-e4efceb0a496",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "LINSPACE-0083c664-d5d8-49ee-b328-e4efceb0a496",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "start": {
+                            "type": "float",
+                            "default": 10,
+                            "desc": "The start point of the data.",
+                            "overload": null,
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": 0
+                        },
+                        "end": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "The end point of the data.",
+                            "overload": null,
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": 10
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "desc": "The number of points in the vector.",
+                            "overload": null,
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": 10
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector|OrderedPair",
+                            "multiple": false,
+                            "desc": "Optional input in case LINSPACE is used in a loop. Not used."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "desc": "v: the vector between 'start' and 'end' with a 'step' number of points."
+                        }
+                    ],
+                    "path": "GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -320.9553697968176,
+                    "y": -166.96137567084705
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -320.9553697968176,
+                    "y": -166.96137567084705
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "BIG_NUMBER-fa9d95cf-056d-4c3f-b0f1-6c72bc86a5b1",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "BIG_NUMBER-fa9d95cf-056d-4c3f-b0f1-6c72bc86a5b1",
+                    "label": "BIG NUMBER",
+                    "func": "BIG_NUMBER",
+                    "type": "VISUALIZERS",
+                    "ctrls": {
+                        "suffix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "any suffix to show with big number",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "suffix",
+                            "value": ""
+                        },
+                        "prefix": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "any prefix to show with big number",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "prefix",
+                            "value": ""
+                        },
+                        "title": {
+                            "type": "str",
+                            "default": null,
+                            "desc": "title of the plot, default = \"BIG_NUMBER\"",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "title",
+                            "value": ""
+                        },
+                        "relative_delta": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": "whether or not to show the relative delta from the last run along with big number",
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "relative_delta",
+                            "value": true
+                        },
+                        "scientific_notation": {
+                            "type": "bool",
+                            "default": false,
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "BIG_NUMBER",
+                            "param": "scientific_notation",
+                            "value": false
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Scalar|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing the Plotly big number visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/BIG_NUMBER/BIG_NUMBER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 465.2818942591062,
+                    "y": -266.53411023397246
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 465.2818942591062,
+                    "y": -266.53411023397246
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "LINSPACE-0083c664-d5d8-49ee-b328-e4efceb0a496",
+                "sourceHandle": "default",
+                "target": "INTERPOLATE_VECTOR-58092bf7-8f7f-4715-bd6b-dab0185ca39a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-0083c664-d5d8-49ee-b328-e4efceb0a496default-INTERPOLATE_VECTOR-58092bf7-8f7f-4715-bd6b-dab0185ca39adefault"
+            },
+            {
+                "source": "INTERPOLATE_VECTOR-58092bf7-8f7f-4715-bd6b-dab0185ca39a",
+                "sourceHandle": "default",
+                "target": "BIG_NUMBER-fa9d95cf-056d-4c3f-b0f1-6c72bc86a5b1",
+                "targetHandle": "default",
+                "id": "reactflow__edge-INTERPOLATE_VECTOR-58092bf7-8f7f-4715-bd6b-dab0185ca39adefault-BIG_NUMBER-fa9d95cf-056d-4c3f-b0f1-6c72bc86a5b1default"
+            }
+        ],
+        "viewport": {
+            "x": 637.654905587641,
+            "y": 363.60612546109087,
+            "zoom": 0.7111497425822767
+        }
+    }
+}
