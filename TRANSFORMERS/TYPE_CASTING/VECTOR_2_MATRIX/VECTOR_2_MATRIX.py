@@ -1,7 +1,5 @@
-from numpy import transpose
+from numpy import reshape
 from flojoy import flojoy, Vector, Matrix
-from typing import Optional, Union, List, Tuple
-
 
 @flojoy
 def VECTOR_2_MATRIX(default: Vector, row: int, col: int ) -> Matrix:
@@ -28,6 +26,7 @@ def VECTOR_2_MATRIX(default: Vector, row: int, col: int ) -> Matrix:
     elif col * row > len(default.v):
         raise AssertionError("Invalid parameter")
     
+    return Matrix(m=default.v.reshape(row,col))
     
     
 
