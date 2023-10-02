@@ -1,4 +1,3 @@
-import numpy as np
 from flojoy import flojoy, Vector, Scalar
 
 
@@ -28,7 +27,7 @@ def VECTOR_INDEXING(
     assert (
         len(default.v) > index
     ), "The index parameter must be less than the length of the Vector."
-    assert index >= 0, "The index parameter greater than zero."
+    assert index >= 0, "The index parameter must be greater than zero."
     c = default.v[index]
 
     return Scalar(c=c)
