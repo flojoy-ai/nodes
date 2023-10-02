@@ -15,4 +15,4 @@ def DATACONTAINER_TYPE(
         TextBlob: Input DataContainer type
     """
 
-    return TextBlob(text_blob=str(default.type))
+    return TextBlob(text_blob=default.type)
