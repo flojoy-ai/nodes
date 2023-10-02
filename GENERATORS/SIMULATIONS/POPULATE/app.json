@@ -31,354 +31,389 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 811.2928245068351,
-                    "y": -146.0596461029216
+                    "x": 794.6062406107221,
+                    "y": -355.5689772430068
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 811.2928245068351,
-                    "y": -146.0596461029216
+                    "x": 794.6062406107221,
+                    "y": -355.5689772430068
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "LINSPACE-14e316a4-dcdb-47ac-868d-d829b0c30678",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "LINSPACE-14e316a4-dcdb-47ac-868d-d829b0c30678",
+                    "label": "LINSPACE",
+                    "func": "LINSPACE",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "start": {
+                            "type": "float",
+                            "default": 10,
+                            "desc": "The start point of the data.",
+                            "overload": null,
+                            "functionName": "LINSPACE",
+                            "param": "start",
+                            "value": 10
+                        },
+                        "end": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "The end point of the data.",
+                            "overload": null,
+                            "functionName": "LINSPACE",
+                            "param": "end",
+                            "value": 0
+                        },
+                        "step": {
+                            "type": "int",
+                            "default": 1000,
+                            "desc": "The number of points in the vector.",
+                            "overload": null,
+                            "functionName": "LINSPACE",
+                            "param": "step",
+                            "value": 1000
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector|OrderedPair",
+                            "multiple": false,
+                            "desc": "Optional input in case LINSPACE is used in a loop. Not used."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector",
+                            "desc": "v: the vector between 'start' and 'end' with a 'step' number of points."
+                        }
+                    ],
+                    "path": "GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 60.78604888475641,
+                    "y": -72.26608171130152
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 60.78604888475641,
+                    "y": -72.26608171130152
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "POPULATE-b27a1155-ccd8-4e60-a0ca-3a0744f6f19c",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "POPULATE-b27a1155-ccd8-4e60-a0ca-3a0744f6f19c",
+                    "label": "POPULATE",
+                    "func": "POPULATE",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "distribution": {
+                            "type": "select",
+                            "options": [
+                                "normal",
+                                "uniform",
+                                "poisson"
+                            ],
+                            "default": "normal",
+                            "desc": "the distribution over the random samples",
+                            "overload": {
+                                "uniform": [
+                                    "lower_bound",
+                                    "upper_bound"
+                                ],
+                                "normal": [
+                                    "normal_mean",
+                                    "normal_standard_deviation"
+                                ],
+                                "poisson": [
+                                    "poisson_events"
+                                ]
+                            },
+                            "functionName": "POPULATE",
+                            "param": "distribution",
+                            "value": "normal"
+                        },
+                        "lower_bound": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "the lower bound of the output interval",
+                            "overload": null,
+                            "functionName": "POPULATE",
+                            "param": "lower_bound",
+                            "value": 0
+                        },
+                        "upper_bound": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "the upper bound of the output interval",
+                            "overload": null,
+                            "functionName": "POPULATE",
+                            "param": "upper_bound",
+                            "value": 1
+                        },
+                        "normal_mean": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "the mean or \"center\" of the normal distribution",
+                            "overload": null,
+                            "functionName": "POPULATE",
+                            "param": "normal_mean",
+                            "value": 0
+                        },
+                        "normal_standard_deviation": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "the spread or \"width\" of the normal distribution",
+                            "overload": null,
+                            "functionName": "POPULATE",
+                            "param": "normal_standard_deviation",
+                            "value": 1
+                        },
+                        "poisson_events": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "the expected number of events occurring in a fixed time-interval when distribution is poisson",
+                            "overload": null,
+                            "functionName": "POPULATE",
+                            "param": "poisson_events",
+                            "value": 1
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Vector",
+                            "multiple": false,
+                            "desc": "Input to use as the x-axis for the random samples."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "desc": "x: provided from input data\ny: the random samples"
+                        }
+                    ],
+                    "path": "GENERATORS/SIMULATIONS/POPULATE/POPULATE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 428.99358191180903,
+                    "y": -258.88112365217773
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 428.99358191180903,
+                    "y": -258.88112365217773
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "POPULATE-fb436d2a-9db1-4de7-8e25-97b7c56a9f29",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "POPULATE-fb436d2a-9db1-4de7-8e25-97b7c56a9f29",
+                    "label": "POPULATE 1",
+                    "func": "POPULATE",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "distribution": {
+                            "type": "select",
+                            "options": [
+                                "normal",
+                                "uniform",
+                                "poisson"
+                            ],
+                            "default": "normal",
+                            "desc": "the distribution over the random samples",
+                            "overload": {
+                                "uniform": [
+                                    "lower_bound",
+                                    "upper_bound"
+                                ],
+                                "normal": [
+                                    "normal_mean",
+                                    "normal_standard_deviation"
+                                ],
+                                "poisson": [
+                                    "poisson_events"
+                                ]
+                            },
+                            "functionName": "POPULATE",
+                            "param": "distribution",
+                            "value": "poisson"
+                        },
+                        "lower_bound": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "the lower bound of the output interval",
+                            "overload": null,
+                            "functionName": "POPULATE",
+                            "param": "lower_bound",
+                            "value": 0
+                        },
+                        "upper_bound": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "the upper bound of the output interval",
+                            "overload": null,
+                            "functionName": "POPULATE",
+                            "param": "upper_bound",
+                            "value": 1
+                        },
+                        "normal_mean": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "the mean or \"center\" of the normal distribution",
+                            "overload": null,
+                            "functionName": "POPULATE",
+                            "param": "normal_mean",
+                            "value": 0
+                        },
+                        "normal_standard_deviation": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "the spread or \"width\" of the normal distribution",
+                            "overload": null,
+                            "functionName": "POPULATE",
+                            "param": "normal_standard_deviation",
+                            "value": 1
+                        },
+                        "poisson_events": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "the expected number of events occurring in a fixed time-interval when distribution is poisson",
+                            "overload": null,
+                            "functionName": "POPULATE",
+                            "param": "poisson_events",
+                            "value": 1
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|Vector",
+                            "multiple": false,
+                            "desc": "Input to use as the x-axis for the random samples."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "desc": "x: provided from input data\ny: the random samples"
+                        }
+                    ],
+                    "path": "GENERATORS/SIMULATIONS/POPULATE/POPULATE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 423.735359873562,
+                    "y": 61.2094115519848
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 423.735359873562,
+                    "y": 61.2094115519848
                 },
                 "dragging": true
             },
             {
                 "width": 380,
                 "height": 293,
-                "id": "BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266",
+                "id": "HISTOGRAM-e426b844-934e-4b27-983f-68afc25b5659",
                 "type": "VISUALIZERS",
                 "data": {
-                    "id": "BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266",
-                    "label": "BIG NUMBER",
-                    "func": "BIG_NUMBER",
+                    "id": "HISTOGRAM-e426b844-934e-4b27-983f-68afc25b5659",
+                    "label": "HISTOGRAM 1",
+                    "func": "HISTOGRAM",
                     "type": "VISUALIZERS",
-                    "ctrls": {
-                        "suffix": {
-                            "type": "str",
-                            "default": null,
-                            "functionName": "BIG_NUMBER",
-                            "param": "suffix",
-                            "value": ""
-                        },
-                        "prefix": {
-                            "type": "str",
-                            "default": null,
-                            "functionName": "BIG_NUMBER",
-                            "param": "prefix",
-                            "value": ""
-                        },
-                        "title": {
-                            "type": "str",
-                            "default": null,
-                            "functionName": "BIG_NUMBER",
-                            "param": "title",
-                            "value": ""
-                        },
-                        "relative_delta": {
-                            "type": "bool",
-                            "default": true,
-                            "functionName": "BIG_NUMBER",
-                            "param": "relative_delta",
-                            "value": true
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Plotly"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/VISUALIZERS/PLOTLY/BIG_NUMBER/BIG_NUMBER.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 815.0077637293098,
-                    "y": 255.69966488030104
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 815.0077637293098,
-                    "y": 255.69966488030104
-                },
-                "dragging": true
-            },
-            {
-                "width": 208,
-                "height": 96,
-                "id": "RAND-110a9abb-d0df-4b06-9555-6b9e38cdd237",
-                "type": "GENERATORS",
-                "data": {
-                    "id": "RAND-110a9abb-d0df-4b06-9555-6b9e38cdd237",
-                    "label": "RAND",
-                    "func": "RAND",
-                    "type": "GENERATORS",
-                    "ctrls": {
-                        "distribution": {
-                            "type": "select",
-                            "options": [
-                                "normal",
-                                "uniform",
-                                "poisson"
-                            ],
-                            "default": "normal",
-                            "desc": "the distribution over the random samples",
-                            "overload": {
-                                "uniform": [
-                                    "size",
-                                    "lower_bound",
-                                    "upper_bound"
-                                ],
-                                "normal": [
-                                    "size",
-                                    "normal_mean",
-                                    "normal_standard_deviation"
-                                ],
-                                "poisson": [
-                                    "size",
-                                    "poisson_events"
-                                ]
-                            },
-                            "functionName": "RAND",
-                            "param": "distribution",
-                            "value": "normal"
-                        },
-                        "size": {
-                            "type": "int",
-                            "default": 1000,
-                            "desc": "the size of the output. =1 outputs Scalar, >1 outputs Vector",
-                            "overload": null,
-                            "functionName": "RAND",
-                            "param": "size",
-                            "value": 1000
-                        },
-                        "lower_bound": {
-                            "type": "float",
-                            "default": 0,
-                            "desc": "the lower bound of the output interval",
-                            "overload": null,
-                            "functionName": "RAND",
-                            "param": "lower_bound",
-                            "value": 0
-                        },
-                        "upper_bound": {
-                            "type": "float",
-                            "default": 1,
-                            "desc": "the upper bound of the output interval",
-                            "overload": null,
-                            "functionName": "RAND",
-                            "param": "upper_bound",
-                            "value": 1
-                        },
-                        "normal_mean": {
-                            "type": "float",
-                            "default": 0,
-                            "desc": "the mean or \"center\" of the normal distribution",
-                            "overload": null,
-                            "functionName": "RAND",
-                            "param": "normal_mean",
-                            "value": 0
-                        },
-                        "normal_standard_deviation": {
-                            "type": "float",
-                            "default": 1,
-                            "desc": "the spread or \"width\" of the normal distribution",
-                            "overload": null,
-                            "functionName": "RAND",
-                            "param": "normal_standard_deviation",
-                            "value": 1
-                        },
-                        "poisson_events": {
-                            "type": "float",
-                            "default": 1,
-                            "desc": "the expected number of events occurring in a fixed time-interval when distribution is poisson",
-                            "overload": null,
-                            "functionName": "RAND",
-                            "param": "poisson_events",
-                            "value": 1
-                        }
-                    },
+                    "ctrls": {},
                     "initCtrls": {},
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Any",
+                            "type": "OrderedPair|DataFrame|Matrix|Vector",
                             "multiple": false,
-                            "desc": "unused in this node"
+                            "desc": "the DataContainer to be visualized"
                         }
                     ],
                     "outputs": [
                         {
                             "name": "default",
                             "id": "default",
-                            "type": "Vector|Scalar",
-                            "desc": "Vector if size > 1\nv: the random samples\n\nScalar if size = 1\nc: the random number"
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing the Plotly Histogram visualization"
                         }
                     ],
-                    "path": "GENERATORS/SIMULATIONS/RAND/RAND.py",
+                    "path": "VISUALIZERS/PLOTLY/HISTOGRAM/HISTOGRAM.py",
                     "selected": false
                 },
                 "position": {
-                    "x": 428.5700838695367,
-                    "y": -49.13895270504895
+                    "x": 792.6069096920073,
+                    "y": -29.88744351696306
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 428.5700838695367,
-                    "y": -49.13895270504895
-                },
-                "dragging": true
-            },
-            {
-                "width": 208,
-                "height": 96,
-                "id": "RAND-d9a6b7da-5ef2-4bb6-bf6d-cd92baca5f7d",
-                "type": "GENERATORS",
-                "data": {
-                    "id": "RAND-d9a6b7da-5ef2-4bb6-bf6d-cd92baca5f7d",
-                    "label": "RAND 1",
-                    "func": "RAND",
-                    "type": "GENERATORS",
-                    "ctrls": {
-                        "distribution": {
-                            "type": "select",
-                            "options": [
-                                "normal",
-                                "uniform",
-                                "poisson"
-                            ],
-                            "default": "normal",
-                            "desc": "the distribution over the random samples",
-                            "overload": {
-                                "uniform": [
-                                    "size",
-                                    "lower_bound",
-                                    "upper_bound"
-                                ],
-                                "normal": [
-                                    "size",
-                                    "normal_mean",
-                                    "normal_standard_deviation"
-                                ],
-                                "poisson": [
-                                    "size",
-                                    "poisson_events"
-                                ]
-                            },
-                            "functionName": "RAND",
-                            "param": "distribution",
-                            "value": "normal"
-                        },
-                        "size": {
-                            "type": "int",
-                            "default": 1000,
-                            "desc": "the size of the output. =1 outputs Scalar, >1 outputs Vector",
-                            "overload": null,
-                            "functionName": "RAND",
-                            "param": "size",
-                            "value": 1
-                        },
-                        "lower_bound": {
-                            "type": "float",
-                            "default": 0,
-                            "desc": "the lower bound of the output interval",
-                            "overload": null,
-                            "functionName": "RAND",
-                            "param": "lower_bound",
-                            "value": 0
-                        },
-                        "upper_bound": {
-                            "type": "float",
-                            "default": 1,
-                            "desc": "the upper bound of the output interval",
-                            "overload": null,
-                            "functionName": "RAND",
-                            "param": "upper_bound",
-                            "value": 1
-                        },
-                        "normal_mean": {
-                            "type": "float",
-                            "default": 0,
-                            "desc": "the mean or \"center\" of the normal distribution",
-                            "overload": null,
-                            "functionName": "RAND",
-                            "param": "normal_mean",
-                            "value": 0
-                        },
-                        "normal_standard_deviation": {
-                            "type": "float",
-                            "default": 1,
-                            "desc": "the spread or \"width\" of the normal distribution",
-                            "overload": null,
-                            "functionName": "RAND",
-                            "param": "normal_standard_deviation",
-                            "value": 1
-                        },
-                        "poisson_events": {
-                            "type": "float",
-                            "default": 1,
-                            "desc": "the expected number of events occurring in a fixed time-interval when distribution is poisson",
-                            "overload": null,
-                            "functionName": "RAND",
-                            "param": "poisson_events",
-                            "value": 1
-                        }
-                    },
-                    "initCtrls": {},
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Any",
-                            "multiple": false,
-                            "desc": "unused in this node"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "Vector|Scalar",
-                            "desc": "Vector if size > 1\nv: the random samples\n\nScalar if size = 1\nc: the random number"
-                        }
-                    ],
-                    "path": "GENERATORS/SIMULATIONS/RAND/RAND.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 424.11613231809054,
-                    "y": 352.35894002884334
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 424.11613231809054,
-                    "y": 352.35894002884334
+                    "x": 792.6069096920073,
+                    "y": -29.88744351696306
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "RAND-110a9abb-d0df-4b06-9555-6b9e38cdd237",
+                "source": "LINSPACE-14e316a4-dcdb-47ac-868d-d829b0c30678",
+                "sourceHandle": "default",
+                "target": "POPULATE-b27a1155-ccd8-4e60-a0ca-3a0744f6f19c",
+                "targetHandle": "default",
+                "id": "reactflow__edge-LINSPACE-14e316a4-dcdb-47ac-868d-d829b0c30678default-POPULATE-b27a1155-ccd8-4e60-a0ca-3a0744f6f19cdefault"
+            },
+            {
+                "source": "POPULATE-b27a1155-ccd8-4e60-a0ca-3a0744f6f19c",
                 "sourceHandle": "default",
                 "target": "HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4",
                 "targetHandle": "default",
-                "id": "reactflow__edge-RAND-110a9abb-d0df-4b06-9555-6b9e38cdd237default-HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4default"
+                "id": "reactflow__edge-POPULATE-b27a1155-ccd8-4e60-a0ca-3a0744f6f19cdefault-HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4default"
             },
             {
-                "source": "RAND-d9a6b7da-5ef2-4bb6-bf6d-cd92baca5f7d",
+                "source": "LINSPACE-14e316a4-dcdb-47ac-868d-d829b0c30678",
                 "sourceHandle": "default",
-                "target": "BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266",
+                "target": "POPULATE-fb436d2a-9db1-4de7-8e25-97b7c56a9f29",
                 "targetHandle": "default",
-                "id": "reactflow__edge-RAND-d9a6b7da-5ef2-4bb6-bf6d-cd92baca5f7ddefault-BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266default"
+                "id": "reactflow__edge-LINSPACE-14e316a4-dcdb-47ac-868d-d829b0c30678default-POPULATE-fb436d2a-9db1-4de7-8e25-97b7c56a9f29default"
+            },
+            {
+                "source": "POPULATE-fb436d2a-9db1-4de7-8e25-97b7c56a9f29",
+                "sourceHandle": "default",
+                "target": "HISTOGRAM-e426b844-934e-4b27-983f-68afc25b5659",
+                "targetHandle": "default",
+                "id": "reactflow__edge-POPULATE-fb436d2a-9db1-4de7-8e25-97b7c56a9f29default-HISTOGRAM-e426b844-934e-4b27-983f-68afc25b5659default"
             }
         ],
         "viewport": {
