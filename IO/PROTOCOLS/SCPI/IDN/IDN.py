@@ -32,4 +32,4 @@ def IDN(
     
     ser.write('*IDN?\n'.encode())
 
-    return TextBlob(text_blob=ser.readline())
+    return TextBlob(text_blob=ser.readline().decode())
