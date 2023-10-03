@@ -3,6 +3,7 @@ import datetime
 from flojoy import flojoy, Scalar, Vector, OrderedPair
 from typing import Optional, Literal
 
+
 @flojoy
 def UNIX_TIMESTAMP(
     default: Optional[Scalar] = None,
@@ -20,7 +21,7 @@ def UNIX_TIMESTAMP(
     Parameters
     ----------
     dc_type : select
-        The type of DataContainer to return.    
+        The type of DataContainer to return.
 
     Returns
     -------

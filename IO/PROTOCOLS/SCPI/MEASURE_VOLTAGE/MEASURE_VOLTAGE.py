@@ -3,6 +3,7 @@ import traceback
 from flojoy import flojoy, SerialConnection, TextBlob, Scalar
 from typing import cast, Optional
 
+
 @flojoy(deps={"pyserial": "3.5"}, inject_connection=True)
 def MEASURE_VOLTAGE(
     connection: SerialConnection, default: Optional[TextBlob] = None
@@ -24,23 +25,25 @@ def MEASURE_VOLTAGE(
     Scalar|TextBlob
         The measured voltage as a Scalar or an exception error as a TextBlob.
     """
-    
+
     # Start serial communication with the instrument
     ser = cast(serial.Serial, connection.get_handle())
 
     if ser is None:
         raise ValueError("Serial communication is not open")
-    
-    CMD = 'MEASURE:VOLTAGE:DC?\n\r'
-    
+
+    CMD = "MEASURE:VOLTAGE:DC?\n\r"
+
     ser.write(CMD.encode())
 
     resp = ser.readline().decode()
 
     try:
-        resp = float(resp.rstrip('\n'))
+        resp = float(resp.rstrip("\n"))
     except:
-        print('Could not convert instrument response to a float', traceback.format_exc())
+        print(
+            "Could not convert instrument response to a float", traceback.format_exc()
+        )
         return TextBlob(resp)
-    
+
     return Scalar(resp)
