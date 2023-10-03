@@ -1,10 +1,12 @@
 import serial
-from flojoy import flojoy, SerialConnection, TextBlob
+from flojoy import flojoy, SerialConnection, TextBlob, DataContainer
 from typing import cast, Optional
 
 
 @flojoy(deps={"pyserial": "3.5"}, inject_connection=True)
-def IDN(connection: SerialConnection, default: Optional[DataContainer] = None) -> TextBlob:
+def IDN(
+    connection: SerialConnection, default: Optional[DataContainer] = None
+) -> TextBlob:
     """The IDN node queries a device's identity through the universal *IDN? SCPI command.
 
     Inputs
