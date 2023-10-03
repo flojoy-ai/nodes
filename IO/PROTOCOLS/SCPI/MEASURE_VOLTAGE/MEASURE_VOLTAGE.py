@@ -5,14 +5,14 @@ from typing import cast, Optional
 
 @flojoy(deps={"pyserial": "3.5"}, inject_connection=True)
 def MEASURE_VOLTAGE(
-    connection: SerialConnection, default: Optional[TextBlob]
+    connection: SerialConnection, default: Optional[TextBlob] = None
 ) -> Scalar | TextBlob:
     """The MEASURE_VOLTAGE node queries an instrument's measured output voltage, such as a DMM or power supply.
 
     Inputs
     ------
     default: TextBlob
-        An optional SCPI commmand string to override the MEASURE:VOLTAGE:DC? command.
+        A dummy TextBlob DataContainer - likely connected to the output of the OPEN_SERIAL node. This dummy input is intended to connect to the OPEN_SERIAL output to ensure that OPEN_SERIAL is executed first.
 
     Parameters
     ----------
@@ -21,7 +21,8 @@ def MEASURE_VOLTAGE(
 
     Returns
     -------
-    Scalar
+    Scalar|TextBlob
+        The measured voltage as a Scalar or an exception error as a TextBlob.
     """
     
     # Start serial communication with the instrument
