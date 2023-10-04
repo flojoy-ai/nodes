@@ -12,10 +12,8 @@ import plotly.graph_objects as go
 # MEMORY_KEY = "BIG_NUMBER_MEMORY_KEY"
 
 
-@flojoy(node_type="BIG_NUMBER", visualizer=True)
-def BIG_NUMBER(
-    default: OrderedPair | Scalar | Vector,
-) -> Scalar:
+@flojoy(node_type="BIG_NUMBER", forward_result=True)
+def BIG_NUMBER(default: OrderedPair | Scalar | Vector, ) -> Scalar:
     """The BIG_NUMBER node generates a Plotly figure, displaying a big number with an optional prefix and suffix.
 
     Inputs
@@ -54,7 +52,8 @@ def BIG_NUMBER(
         case Vector():
             return Scalar(default.v[-1])
         case _:
-            raise ValueError(f"Invalid input type {type(default)} for node {node_name}")
+            raise ValueError(
+                f"Invalid input type {type(default)} for node {node_name}")
     #
     # delta_val_format = ".1%" if relative_delta is True else ".1f"
     # val_format = "%g" if scientific_notation is False else ".4e"

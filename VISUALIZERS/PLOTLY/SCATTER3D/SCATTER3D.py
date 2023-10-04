@@ -1,7 +1,7 @@
 from flojoy import OrderedTriple, DataFrame, flojoy
 
 
-@flojoy(node_type="SCATTER3D", visualizer=True)
+@flojoy(node_type="SCATTER3D", forward_result=True)
 def SCATTER3D(default: OrderedTriple | DataFrame) -> OrderedTriple:
     """The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input DataContainer.
 
