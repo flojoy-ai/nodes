@@ -1,11 +1,12 @@
 import os
-import shutil
 import traceback
 import sys
 import textwrap
 
 
 path = os.path
+
+__generated_docs = []
 
 N_PATH = "nodes/"
 boilar_plates = {
@@ -15,23 +16,8 @@ boilar_plates = {
 }
 
 
-def get_md_file_content(
-    file_path: str, node_label: str, has_example: bool, example_section: str
-):
-    file_dir, _ = path.split(file_path)
-    nodes_index = file_dir.replace("\\", "/").rfind(N_PATH)
-    node_path = file_dir[nodes_index:].replace("\\", "/").replace(N_PATH, "")
-    node_file_path = (
-        file_path[nodes_index:]
-        .replace("\\", "/")
-        .replace(N_PATH, "")
-        .replace(".md", ".py")
-    )
-    appendix_folder_path = path.join(file_dir[nodes_index:], "appendix/").replace(
-        "\\", "/"
-    )
-
-    common_section = """
+def get_common_md(node_file_path: str):
+    return """
 [//]: # (Custom component imports)
 
 import DocString from '@site/src/components/DocString';
@@ -54,7 +40,9 @@ import PythonSource from '!!raw-loader!./a1-[autogen]/python_code.txt';
         node_file_path=node_file_path
     )
 
-    example_section_default = """
+
+def get_md_example_section(node_label: str, node_path: str):
+    return """
 
 [//]: # (Examples)
 
@@ -71,7 +59,9 @@ import PythonSource from '!!raw-loader!./a1-[autogen]/python_code.txt';
         node_label=node_label, node_path=node_path
     )
 
-    appendix_section = """
+
+def get_appendix_section(appendix_folder_path: str):
+    return """
 
 [//]: # (Appendix)
 
@@ -90,51 +80,30 @@ import Media from './appendix/media.md';
         appendix_folder_path=appendix_folder_path
     )
 
-    return (
-        common_section + example_section + appendix_section
-        if has_example
-        else common_section + example_section_default + appendix_section
+
+def get_md_file_content(file_path: str, node_label: str):
+    file_dir, _ = path.split(file_path)
+    nodes_index = file_dir.replace("\\", "/").rfind(N_PATH)
+    node_path = file_dir[nodes_index:].replace("\\", "/").replace(N_PATH, "")
+    node_file_path = (
+        file_path[nodes_index:]
+        .replace("\\", "/")
+        .replace(N_PATH, "")
+        .replace(".md", ".py")
+    )
+    appendix_folder_path = path.join(file_dir[nodes_index:], "appendix/").replace(
+        "\\", "/"
     )
 
+    common_section = get_common_md(node_file_path)
 
-def get_example_section(node_label: str, has_app_image: bool, has_output_image: bool):
-    app_image = "import appImg from './examples/EX1/app.jpeg'" if has_app_image else ""
-    output_image = (
-        "import outputImg from './examples/EX1/output.jpeg'" if has_output_image else ""
+    example_section_default = get_md_example_section(
+        node_label=node_label, node_path=node_path
     )
-    app_image_val = "{appImg}" if has_app_image else "{''}"
-    output_image_val = "{outputImg}" if has_output_image else "{''}"
-    example_section = """
 
-[//]: # (Examples)
+    appendix_section = get_appendix_section(appendix_folder_path=appendix_folder_path)
 
-## Examples
-
-import Example1 from './examples/EX1/example.md';
-import App1 from '!!raw-loader!./examples/EX1/app.json';
-{app_image}
-{output_image}
-
-<AppDisplay 
-    nodeLabel='{node_label}'
-    appImg={app_image_val}
-    outputImg={output_image_val}
-    >
-    {{App1}}
-</AppDisplay>
-
-<Example1 />
-
-<SectionBreak />
-  
-    """.format(
-        node_label=node_label,
-        app_image=app_image,
-        output_image=output_image,
-        app_image_val=app_image_val,
-        output_image_val=output_image_val,
-    )
-    return example_section
+    return common_section + example_section_default + appendix_section
 
 
 def write_file_recursive(file_path: str, content: str):
@@ -168,35 +137,23 @@ def process_python_file(input_file_path: str, output_path: str):
     if not node_name.isupper():  # all node file names should be in upper case
         return
     try:
-        content = get_content(input_file_path)
+        node_content = get_content(input_file_path)
 
         # Extract docstring
-        docstring = extract_docstring(content)
+        docstring = extract_docstring(node_content)
 
         # Extract function code
-        function_code = extract_function_code(content)
+        function_code = extract_function_code(node_content)
         autogen_dir_name = "a1-[autogen]"
         # Write docstring to a file
         docstring_file_path = path.join(output_path, autogen_dir_name, "docstring.txt")
-        if not path.exists(docstring_file_path):
-            write_file_recursive(docstring_file_path, textwrap.dedent(docstring))
-        else:
-            doc_str = get_content(docstring_file_path)
-            diff = compare_two_str(docstring, doc_str)
-            if diff:
-                write_file_recursive(docstring_file_path, textwrap.dedent(docstring))
+        write_to_docs(content=docstring, file_path=docstring_file_path, docstring=True)
 
         # Write function code to a file
         function_code_file_path = path.join(
             output_path, autogen_dir_name, "python_code.txt"
         )
-        if not path.exists(function_code_file_path):
-            write_file_recursive(function_code_file_path, function_code)
-        else:
-            func_str = get_content(function_code_file_path)
-            diff = compare_two_str(func_str, function_code)
-            if diff:
-                write_file_recursive(function_code_file_path, function_code)
+        write_to_docs(content=function_code, file_path=function_code_file_path)
 
         md_file_path = path.join(output_path, f"{node_name}.md")
         # appendix
@@ -211,13 +168,11 @@ def process_python_file(input_file_path: str, output_path: str):
                 write_file_recursive(path.join(appendix_dir_path, f), c)
 
         # examples
-        has_example = False
         example_dir_path = path.join(output_path, "examples", "EX1")
-        # for f in ["app.txt", "example.md"]:
         for f in ["app.json", "example.md"]:
-            if path.exists(path.join(input_dir, f)):
-                # has_example = True
-                c = get_content(path.join(input_dir, f))
+            f_path = path.join(input_dir, f)
+            if path.exists(f_path):
+                c = get_content(f_path)
                 if not path.exists(path.join(example_dir_path, f)):
                     write_file_recursive(path.join(example_dir_path, f), c)
                 else:
@@ -226,42 +181,33 @@ def process_python_file(input_file_path: str, output_path: str):
                         diff = compare_two_str(c, existing_c)
                         if diff:
                             write_file_recursive(path.join(example_dir_path, f), c)
-            else:
-                has_example = False
 
         # write md file with file name
-
-        # app_jpg = "app.jpeg"
-        # output_jpg = "output.jpeg"
-        # img_map = {app_jpg: False, output_jpg: False}
-        # for f in [app_jpg, output_jpg]:
-        #     img_path = path.join(input_dir, f)
-        #     if path.exists(img_path):
-        #         shutil.copy2(img_path, path.join(example_dir_path, f))
-        #         img_map[f] = True
-
-        example_section = get_example_section(
-            node_name,
-            has_app_image=False,
-            has_output_image=False,
-        )
-        md_file_content = get_md_file_content(
-            md_file_path,
-            node_name,
-            has_example=True,
-            example_section=example_section,
-        )
+        md_file_content = get_md_file_content(md_file_path, node_name)
         if not path.exists(md_file_path):
             write_file_recursive(md_file_path, md_file_content)
-        # else:
-        #     if path.exists(path.join(example_dir_path, "app.txt")) and has_example:
-        #         write_file_recursive(md_file_path, md_file_content)
+            __generated_docs.append(node_name)
+
     except Exception as e:
         print(
             f"failed to write doc for {node_name}, input path: {input_file_path} ",
             e,
-            traceback.format_exc(),
+            traceback.format_exc()
         )
+
+
+def write_to_docs(content: str, file_path: str, docstring: bool = False):
+    if not path.exists(file_path):
+        write_file_recursive(
+            file_path, textwrap.dedent(content) if docstring else content
+        )
+    else:
+        doc_str = get_content(file_path)
+        diff = compare_two_str(content, doc_str)
+        if diff:
+            write_file_recursive(
+                file_path, textwrap.dedent(content) if docstring else content
+            )
 
 
 def extract_docstring(content: str):
@@ -316,5 +262,7 @@ docs_dir = ""
 if __name__ == "__main__":
     docs_dir_path = sys.argv[1]
     docs_dir = path.abspath(path.join(docs_dir_path, "docs"))
-    print(" docs dir: ", docs_dir)
+    print("docs dir: ", docs_dir)
     write_doc(docs_dir=docs_dir)
+    if __generated_docs:
+        print(f"Generated new docs for: {', '.join(__generated_docs)}")
