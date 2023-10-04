@@ -14,7 +14,7 @@ keyring==24.2.0
 LabJackPython==2.1.0
 lazy_loader==0.2
 lxml==4.9.2
-mypy-extensions==1.0.0
+mypy_extensions==1.0.0
 numpy
 opencv-python-headless==4.7.0.72
 openpyxl==3.0.10
@@ -22,7 +22,7 @@ moto==4.1.13
 packaging==23.1
 pandas[parquet]
 pathspec==0.11.1
-Phidget22==1.15.20230608
+Phidget22==1.17.20231002
 platformdirs==3.5.3
 PyMeeus==0.5.12
 pyparsing==3.0.9
@@ -42,7 +42,6 @@ ticlib==0.2.2
 tifffile==2023.4.12
 tomli==2.0.1
 tqdm==4.65.0
-tzdata==2023.3
 xlrd==2.0.1
 pytest==7.4.0
 pytest-test-groups==1.0.3
