@@ -1,5 +1,5 @@
 import serial
-from flojoy import flojoy, SerialConnection, TextBlob
+from flojoy import flojoy, SerialConnection, TextBlob, DataContainer
 from typing import cast, Optional
 
 
