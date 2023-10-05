@@ -5,7 +5,7 @@ from sklearn.datasets import load_iris
 
 
 @flojoy()
-def R_DATASET(dataset_name: Literal["iris"] = "iris") -> DataFrame:
+def SCIKIT_LEARN_DATASET(dataset_name: Literal["iris"] = "iris") -> DataFrame:
     """The SCIKIT_LEARN_DATASET node retrieves a pandas DataFrame from 'sklearn.datasets', using the provided dataset_key parameter, and returns it wrapped in a DataContainer.
 
     Parameters
@@ -20,7 +20,7 @@ def R_DATASET(dataset_name: Literal["iris"] = "iris") -> DataFrame:
 
     if dataset_name == "iris":
         iris = load_iris(as_frame=True)
-        return DataFrame(df=iris)  # type: ignore
+        return DataFrame(m=iris)  # type: ignore
 
     else:
         raise ValueError(f"Failed to retrieve '{dataset_name}' from rdatasets package!")
