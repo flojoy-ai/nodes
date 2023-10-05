@@ -20,7 +20,7 @@ def SCIKIT_LEARN_DATASET(dataset_name: Literal["iris"] = "iris") -> DataFrame:
 
     if dataset_name == "iris":
         iris = load_iris(as_frame=True)
-        return DataFrame(m=iris)  # type: ignore
+        return DataFrame(df=iris)  # type: ignore
 
     else:
         raise ValueError(f"Failed to retrieve '{dataset_name}' from rdatasets package!")
