@@ -1,8 +1,9 @@
-from flojoy import OrderedTriple, DataFrame, flojoy
+from flojoy import DataContainer, OrderedTriple, DataFrame, flojoy
+import numpy as np
 
 
 @flojoy(node_type="SCATTER3D", forward_result=True)
-def SCATTER3D(default: OrderedTriple | DataFrame) -> OrderedTriple:
+def SCATTER3D(default: OrderedTriple | DataFrame) -> DataContainer:
     """The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input DataContainer.
 
     Inputs
@@ -18,7 +19,9 @@ def SCATTER3D(default: OrderedTriple | DataFrame) -> OrderedTriple:
 
     match default:
         case OrderedTriple():
-            return default
+            x = default.x
+            y = default.y
+            z = default.z
         case DataFrame():
             df = default.m
             if len(df.columns) < 3:
@@ -30,4 +33,4 @@ def SCATTER3D(default: OrderedTriple | DataFrame) -> OrderedTriple:
             y = df.columns[1].to_numpy()
             z = df.columns[2].to_numpy()
 
-            return OrderedTriple(x=x, y=y, z=z)
+    return DataContainer(type='Vector', v=[], extra=np.column_stack((x, y, z)))
