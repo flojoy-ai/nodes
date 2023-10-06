@@ -3,7 +3,7 @@ from flojoy import flojoy, Vector, Matrix
 
 @flojoy
 def MATRIX_2_VECTOR(default: Matrix) -> Vector:
-    """The VECTOR_2_MATRIX node takes an input matrix and transpose it along the chosen axis.
+    """The MATRIX_2_VECTOR node takes a matrix and flatten it into vector type data.
 
     Inputs
     ------
