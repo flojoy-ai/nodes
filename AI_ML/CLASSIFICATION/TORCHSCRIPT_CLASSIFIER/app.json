@@ -18,7 +18,7 @@
                             "desc": "path to the file to be loaded.",
                             "functionName": "LOCAL_FILE",
                             "param": "file_path",
-                            "value": "PYTHON/nodes/AI_ML/CLASSIFICATION/TORCHSCRIPT_CLASSIFIER/assets/President_Barack_Obama.jpg"
+                            "value": "AI_ML/CLASSIFICATION/TORCHSCRIPT_CLASSIFIER/assets/President_Barack_Obama.jpg"
                         },
                         "file_type": {
                             "type": "select",
@@ -73,8 +73,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "IMAGE-b931ca30-e0fa-40c0-b7fd-bf3fd9d52ac0",
                 "type": "VISUALIZERS",
                 "data": {
@@ -115,8 +115,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "TABLE-f1d5b18c-5c89-4577-b460-53c7827703d4",
                 "type": "VISUALIZERS",
                 "data": {
@@ -173,7 +173,7 @@
                             "desc": "path to the file to be loaded.",
                             "functionName": "LOCAL_FILE",
                             "param": "file_path",
-                            "value": "PYTHON/nodes/AI_ML/CLASSIFICATION/TORCHSCRIPT_CLASSIFIER/assets/class_names.csv"
+                            "value": "AI_ML/CLASSIFICATION/TORCHSCRIPT_CLASSIFIER/assets/class_names.csv"
                         },
                         "file_type": {
                             "type": "select",
@@ -228,7 +228,7 @@
                 "dragging": true
             },
             {
-                "width": 208,
+                "width": 231,
                 "height": 96,
                 "id": "TORCHSCRIPT_CLASSIFIER-51ef4ad1-ce39-4cf8-84ed-0474f8a25283",
                 "type": "AI_ML",
@@ -286,8 +286,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "TABLE-a791e475-0516-453c-af76-33fa8864ff67",
                 "type": "VISUALIZERS",
                 "data": {
@@ -389,5 +389,6 @@
                 "i": "INPUT_PLACEHOLDER"
             }
         }
-    ]
+    ],
+    "textNodes": []
 }
