@@ -1,8 +1,9 @@
 from numpy import reshape
 from flojoy import flojoy, Vector, Matrix
 
+
 @flojoy
-def VECTOR_2_MATRIX(default: Vector, row: int, col: int ) -> Matrix:
+def VECTOR_2_MATRIX(default: Vector, row: int, col: int) -> Matrix:
     """The VECTOR_2_MATRIX node takes an input matrix and transpose it along the chosen axis.
 
     Inputs
@@ -22,7 +23,7 @@ def VECTOR_2_MATRIX(default: Vector, row: int, col: int ) -> Matrix:
         The matrix that is generated from the given vector and the parameters.
     """
     try:
-        matrix = default.v.reshape((row,col))
+        matrix = default.v.reshape((row, col))
         return Matrix(m=matrix)
     except Exception as e:
         print(e)

@@ -16,5 +16,5 @@ def TRANSPOSE_MATRIX(default: Matrix) -> Matrix:
     Matrix
         The matrix result from transposing.
     """
-    
-    return Matrix(m=transpose(default.m, (1,0)))
+
+    return Matrix(m=transpose(default.m, (1, 0)))
