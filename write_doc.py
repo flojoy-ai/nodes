@@ -192,7 +192,7 @@ def process_python_file(input_file_path: str, output_path: str):
         print(
             f"failed to write doc for {node_name}, input path: {input_file_path} ",
             e,
-            traceback.format_exc()
+            traceback.format_exc(),
         )
 
 
