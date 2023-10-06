@@ -2,8 +2,8 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
+                "width": 160,
+                "height": 160,
                 "id": "LOCAL_FILE-37e74f08-bfb2-49d1-bec2-d962fda0f0a6",
                 "type": "LOADERS",
                 "data": {
@@ -17,7 +17,7 @@
                             "default": null,
                             "functionName": "LOCAL_FILE",
                             "param": "file_path",
-                            "value": "./PYTHON/nodes/AI_ML/IMAGE_CAPTIONING/NLP_CONNECT_VIT_GPT2/assets/President_Barack_Obama.jpg"
+                            "value": "AI_ML/IMAGE_CAPTIONING/NLP_CONNECT_VIT_GPT2/assets/President_Barack_Obama.jpg"
                         },
                         "file_type": {
                             "type": "select",
@@ -66,8 +66,8 @@
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
+                "width": 208,
+                "height": 96,
                 "id": "NLP_CONNECT_VIT_GPT2-f4c9d884-68df-45a4-a06a-9c56750ff1c1",
                 "type": "AI_ML",
                 "data": {
@@ -106,8 +106,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "TABLE-15ab5a91-a962-4f8e-ba9c-8a159d576dbb",
                 "type": "VISUALIZERS",
                 "data": {
@@ -146,8 +146,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "IMAGE-ec76f3cf-6397-45cf-a1e0-ce43c89a9327",
                 "type": "VISUALIZERS",
                 "data": {
@@ -233,5 +233,6 @@
                 "i": "INPUT_PLACEHOLDER"
             }
         }
-    ]
+    ],
+    "textNodes": []
 }
