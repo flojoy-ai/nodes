@@ -21,12 +21,8 @@ def VECTOR_2_MATRIX(default: Vector, row: int, col: int ) -> Matrix:
     Matrix
         The matrix that is generated from the given vector and the parameters.
     """
-    if row > len(default.v):
-        raise AssertionError("Invalid parameter")
-    elif col * row > len(default.v):
-        raise AssertionError("Invalid parameter")
-    
-    return Matrix(m=default.v.reshape(row,col))
-    
-    
-
+    try:
+        matrix = default.v.reshape((row,col))
+        return Matrix(m=matrix)
+    except Exception as e:
+        print(e)
