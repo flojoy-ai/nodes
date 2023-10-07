@@ -149,7 +149,9 @@ def process_python_file(input_file_path: str, output_path: str):
         # Write docstring to a file
         docstring_file_path = path.join(output_path, autogen_dir_name, "docstring.txt")
         write_to_docs(content=docstring, file_path=docstring_file_path, docstring=True)
-        shutil.copy(f"{input_file_path}/docstring.json", f"{output_path}")
+        shutil.copy(
+            f"{os.path.dirname(input_file_path)}/docstring.json", f"{output_path}"
+        )
 
         # Write function code to a file
         function_code_file_path = path.join(
