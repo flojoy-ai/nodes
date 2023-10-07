@@ -151,7 +151,7 @@ def process_python_file(input_file_path: str, output_path: str):
         write_to_docs(content=docstring, file_path=docstring_file_path, docstring=True)
         shutil.copy(
             f"{os.path.dirname(input_file_path)}/docstring.json",
-            f"{output_path}/ai-[autogen]",
+            f"{output_path}/{autogen_dir_name}/",
         )
 
         # Write function code to a file
