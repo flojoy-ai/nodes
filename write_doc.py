@@ -194,8 +194,8 @@ def process_python_file(input_file_path: str, output_path: str):
         # write md file with file name
         md_file_content = get_md_file_content(md_file_path, node_name)
         if not path.exists(md_file_path):
+            write_file_recursive(md_file_path, md_file_content)
             __generated_docs.append(node_name)
-        write_file_recursive(md_file_path, md_file_content)
 
     except Exception as e:
         print(
