@@ -1,0 +1,17 @@
+{
+  "description": "'sklearn.datasets', using the provided dataset_key parameter, and returns\nit wrapped in a DataContainer.",
+  "parameters": [
+    {
+      "name": "dataset_name",
+      "type": "str",
+      "description": null
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataFrame",
+      "description": "A DataContainer object containing the retrieved pandas DataFrame."
+    }
+  ]
+}

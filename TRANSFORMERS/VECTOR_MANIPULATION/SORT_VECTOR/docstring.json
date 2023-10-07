@@ -1,0 +1,17 @@
+{
+  "description": "Inputs\n------\ndefault : Vector\n    The input vector",
+  "parameters": [
+    {
+      "name": "reverse",
+      "type": "bool",
+      "description": "If False, sort in ascending order. If True, descending order."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Vector",
+      "description": "Sorted input vector"
+    }
+  ]
+}

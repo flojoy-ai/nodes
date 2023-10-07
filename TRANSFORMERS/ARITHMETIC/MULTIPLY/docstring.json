@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\na : OrderedPair|Scalar|Vector\n    The input a use to compute the product of a and b.\nb : OrderedPair|Scalar|Vector\n    The input b use to compute the product of a and b.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair|Scalar|Vector",
+      "description": "OrderedPair if a is an OrderedPair.\nx: the x-axis of input a.\ny: the result of the product of input a and input b.\n\nScalar if a is a Scalar.\nc: the result of the product of input a and input b.\n\nVector if a is a Vector.\nv: the result of the product of input a and input b."
+    }
+  ]
+}

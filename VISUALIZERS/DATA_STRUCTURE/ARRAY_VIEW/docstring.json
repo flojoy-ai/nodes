@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\ndefault : OrderedPair | DataFrame | Matrix | Image\n    the DataContainer to be visualized in array format",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Plotly",
+      "description": "the DataContainer containing the visualization of the input in array format"
+    }
+  ]
+}

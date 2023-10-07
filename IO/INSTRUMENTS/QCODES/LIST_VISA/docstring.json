@@ -1,0 +1,11 @@
+{
+  "description": null,
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "optional: The input DataContainer is returned."
+    }
+  ]
+}

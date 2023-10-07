@@ -1,0 +1,16 @@
+{
+  "description": null,
+  "parameters": [],
+  "returns": [
+    {
+      "name": "tokens",
+      "type": "DataFrame",
+      "description": "Holds all the unique tokens observed from the input."
+    },
+    {
+      "name": "word_count_vector",
+      "type": "Vector",
+      "description": "Contains the occurences of these tokens from each sentence."
+    }
+  ]
+}

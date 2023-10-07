@@ -48,3 +48,4 @@ flojoy==0.1.11
 qcodes==0.40.0
 pyvisa-sim==0.5.1
 mecademicpy==1.4.0
+docstring-parser
