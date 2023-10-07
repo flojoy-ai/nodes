@@ -1,8 +1,8 @@
 import os
-import traceback
+import shutil
 import sys
 import textwrap
-
+import traceback
 
 path = os.path
 
@@ -145,9 +145,11 @@ def process_python_file(input_file_path: str, output_path: str):
         # Extract function code
         function_code = extract_function_code(node_content)
         autogen_dir_name = "a1-[autogen]"
+
         # Write docstring to a file
         docstring_file_path = path.join(output_path, autogen_dir_name, "docstring.txt")
         write_to_docs(content=docstring, file_path=docstring_file_path, docstring=True)
+        shutil.copy(f"{input_file_path}/docstring.json", f"{output_path}")
 
         # Write function code to a file
         function_code_file_path = path.join(
