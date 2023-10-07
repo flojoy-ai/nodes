@@ -1,0 +1,17 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "device",
+      "type": "Serial",
+      "description": "The connected serial device."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "TextBlob",
+      "description": null
+    }
+  ]
+}

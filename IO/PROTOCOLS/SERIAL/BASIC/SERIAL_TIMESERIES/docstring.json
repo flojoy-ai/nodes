@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "num_readings",
+      "type": "int",
+      "description": "Number of points to record."
+    },
+    {
+      "name": "record_period",
+      "type": "float",
+      "description": "Length between two recordings in seconds."
+    },
+    {
+      "name": "baudrate",
+      "type": "int",
+      "description": "Baud rate for the serial device."
+    },
+    {
+      "name": "comport",
+      "type": "string",
+      "description": "COM port of the serial device."
+    },
+    {
+      "name": "num_readings * record_period",
+      "type": "",
+      "description": "Is roughly the run length in seconds."
+    }
+  ],
+  "returns": []
+}

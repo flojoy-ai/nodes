@@ -1,0 +1,11 @@
+{
+  "description": "into a single vector type by interleaving their elements\n\nInputs\n------\ndefault : Vector\n    The input vector",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Vector",
+      "description": "Decimated vector"
+    }
+  ]
+}

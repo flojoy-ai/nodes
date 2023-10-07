@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\ndefault : OrderedPair | Matrix\n    the DataContainer to be visualized in matrix format.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Plotly",
+      "description": "the DataContainer containing visualization of the input in matrix format"
+    }
+  ]
+}

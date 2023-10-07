@@ -1,0 +1,32 @@
+{
+  "description": "Inputs\n------\ndefault : OrderedPair|Scalar|Vector\n    the DataContainer to be visualized",
+  "parameters": [
+    {
+      "name": "relative_delta",
+      "type": "bool",
+      "description": "whether or not to show the relative delta from the last run along with big number"
+    },
+    {
+      "name": "suffix",
+      "type": "str",
+      "description": "any suffix to show with big number"
+    },
+    {
+      "name": "prefix",
+      "type": "str",
+      "description": "any prefix to show with big number"
+    },
+    {
+      "name": "title",
+      "type": "str",
+      "description": "title of the plot, default = \"BIG_NUMBER\""
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Plotly",
+      "description": "the DataContainer containing the Plotly big number visualization"
+    }
+  ]
+}

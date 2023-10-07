@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\nv : Vector\n    The input vector to use max peration",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Scalar",
+      "description": "The maximum value found from the input vector"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "description": "The description of that function is as follows:\n\n    Compute the eigenvalues and right eigenvectors of a square array.",
+  "parameters": [
+    {
+      "name": "select_return",
+      "type": "'w', 'v'",
+      "description": "Select the desired object to return.\nSee the respective function docs for descriptors."
+    },
+    {
+      "name": "a",
+      "type": "(..., M, M) array",
+      "description": "Matrices for which the eigenvalues and right eigenvectors will be computed."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "type 'ordered pair', 'scalar', or 'matrix'"
+    }
+  ]
+}

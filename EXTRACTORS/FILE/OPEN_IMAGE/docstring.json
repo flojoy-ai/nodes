@@ -1,0 +1,17 @@
+{
+  "description": "Inputs\n------\ndefault: None",
+  "parameters": [
+    {
+      "name": "file_path",
+      "type": "str",
+      "description": "path to the file to be loaded"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Image",
+      "description": "Image loaded from specified file path"
+    }
+  ]
+}

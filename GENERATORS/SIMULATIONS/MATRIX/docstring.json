@@ -1,0 +1,22 @@
+{
+  "description": "Based on these inputs, it generates a random matrix where the integers inside the matrix are between 0 and 19.",
+  "parameters": [
+    {
+      "name": "row",
+      "type": "int",
+      "description": "number of rows"
+    },
+    {
+      "name": "column",
+      "type": "int",
+      "description": "number of columns"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "matrix",
+      "description": "randomly generated matrix"
+    }
+  ]
+}

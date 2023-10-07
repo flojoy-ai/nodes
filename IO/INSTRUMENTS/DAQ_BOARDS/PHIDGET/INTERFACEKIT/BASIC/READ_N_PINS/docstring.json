@@ -1,0 +1,11 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "n_sensors",
+      "type": "int",
+      "description": "Defines the number of pressure sensors connected to the Phidget InterfaceKit."
+    }
+  ],
+  "returns": []
+}
