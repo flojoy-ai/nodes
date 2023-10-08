@@ -1,23 +1,21 @@
 from flojoy import flojoy, Boolean, OrderedPair, Scalar, Vector
 from typing import Literal
-import sys 
-# sys.path.insert(0, '../../TRANSFORMERS/ARITHMETIC/MULTIPLY')
-# sys.path.insert(0, 'PYTHON/nodes/TRANSFORMERS/ARITHMETIC/MULTIPLY')
-# sys.path.insert(0, 'PYTHON/nodes/TRANSFORMERS/ARITHMETIC/MULTIPLY')
-# from ADD import ADD
-# from MULTIPLY import MULTIPLY
-from nodes.TRANSFORMERS.ARITHMETIC.MULTIPLY import MULTIPLY
+from PYTHON.nodes.TRANSFORMERS.ARITHMETIC.MULTIPLY import MULTIPLY
+from PYTHON.nodes.TRANSFORMERS.ARITHMETIC.ADD import ADD
+from PYTHON.nodes.LOGIC_GATES.AND import AND
+from PYTHON.nodes.LOGIC_GATES.OR import OR
+from PYTHON.nodes.LOGIC_GATES.EXCLUSIVE_OR import EXCLUSIVE_OR
 
 @flojoy
 def COMPOUND_ARITHMETIC(x: Boolean | OrderedPair | Scalar | Vector, y: Boolean | OrderedPair | Scalar | Vector,
-                        operation: Literal['ADD', 'MULTIPLY', 'AND', 'OR', 'XOR']) -> Boolean:
+                        operation: Literal['ADD', 'MULTIPLY', 'AND', 'OR', 'XOR']) -> Boolean | OrderedPair | Scalar | Vector:
     if operation == "ADD":
-        pass
+        return ADD.ADD(x,[y])
     elif operation == "MULTIPLY":
-        return MULTIPLY(x,y)
+        return MULTIPLY.MULTIPLY(x,[y])
     elif operation == "AND":
-        pass
+        return AND.AND(x,y)
     elif operation == "OR":
-        pass
+        return OR.OR(x,y)
     elif operation == "XOR":
-        pass
+        return EXCLUSIVE_OR.EXCLUSIVE_OR(x,y)
