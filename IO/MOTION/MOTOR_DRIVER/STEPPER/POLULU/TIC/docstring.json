@@ -1,0 +1,21 @@
+{
+  "description": "The user defines the speed and the sleep time between movements.\n\n(To choose the position, use the STEPPER_DRIVER_TIC_KNOB.)",
+  "parameters": [
+    {
+      "name": "current_limit",
+      "type": "int",
+      "description": "Defines the current limitation that the stepper motor will receive."
+    },
+    {
+      "name": "sleep_time",
+      "type": "int",
+      "description": "Defines the sleep time after moving to each position."
+    },
+    {
+      "name": "speed",
+      "type": "int",
+      "description": "Defines the speed of the motor movement (between 0 and 200000)."
+    }
+  ],
+  "returns": []
+}

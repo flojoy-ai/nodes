@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\na : OrderedPair|Scalar|Vector\n    The input a use in the subtraction of a by b.\nb : OrderedPair|Scalar|Vector\n    The input b use in the subtraction of a by b.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair|Scalar|Vector",
+      "description": "OrderedPair if a is an OrderedPair.\nx: the x-axis of input a.\ny: the result of the subtraction of input a by input b.\n\nScalar if a is a Scalar.\nc: the result of the subtraction of input a by input b.\n\nVector if a is a Vector.\nv: the result of the subtraction of input a by input b."
+    }
+  ]
+}

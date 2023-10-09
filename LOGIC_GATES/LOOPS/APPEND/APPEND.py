@@ -74,8 +74,9 @@ def APPEND(
         return Vector(v=v)
 
     else:
-        df0 = primary_dp.m
-        df1 = secondary_dp.m
-
-        df = append(df0, df1, axis=0)
-        return DataFrame(df=df)
+        raise ValueError(
+            (
+                "The APPEND node requires the two inputs to be the same type. "
+                f"The types passed were: {type(primary_dp)} and {type(secondary_dp)}"
+            )
+        )

@@ -1,0 +1,17 @@
+{
+  "description": "With the IFFT algorithm, the input signal will be transformed from the frequency domain back into the time domain.\n\nInputs\n------\ndefault : OrderedPair\n    The data to apply inverse FFT to.",
+  "parameters": [
+    {
+      "name": "real_signal",
+      "type": "boolean",
+      "description": "whether the input signal is real (true) or complex (false)"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair",
+      "description": "x = time\ny = reconstructed signal"
+    }
+  ]
+}

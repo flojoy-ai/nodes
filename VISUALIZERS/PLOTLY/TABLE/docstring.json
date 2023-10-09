@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\ndefault : OrderedTriple|OrderedPair|DataFrame|Vector|Scalar\n    the DataContainer to be visualized",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Plotly",
+      "description": "the DataContainer containing the Plotly Table visualization"
+    }
+  ]
+}

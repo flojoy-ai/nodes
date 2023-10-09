@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\nip_address: TextBlob\n    The IP address of the robot arm.\n\nParameters\n------\nsimulator\n    Whether to activate the simulator or not. Defaults to False.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "ip",
+      "description": "The IP address of the robot arm."
+    }
+  ]
+}

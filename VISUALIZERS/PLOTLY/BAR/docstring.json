@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\ndefault : OrderedPair|DataFrame|Matrix|Vector\n    the DataContainer to be visualized in a bar chart",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Plotly",
+      "description": "the DataContainer containing the Plotly Bar chart visualization"
+    }
+  ]
+}

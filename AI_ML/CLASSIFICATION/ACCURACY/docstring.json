@@ -1,0 +1,22 @@
+{
+  "description": "These dataframes should both be single columns.",
+  "parameters": [
+    {
+      "name": "true_label",
+      "type": "optional str",
+      "description": "true label users can select from original data"
+    },
+    {
+      "name": "predicted_label",
+      "type": "optional str",
+      "description": "resulting predicted label users can select"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataFrame",
+      "description": "The input predictions dataframe, with an extra boolean column \"prediction_correct\"."
+    }
+  ]
+}
