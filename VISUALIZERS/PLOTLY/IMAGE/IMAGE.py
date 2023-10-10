@@ -4,7 +4,7 @@ import numpy as np
 from nodes.VISUALIZERS.template import plot_layout
 
 
-@flojoy
+@flojoy(inject_node_metadata=True)
 def IMAGE(default: Image | Grayscale) -> Plotly:
     """The IMAGE node creates a Plotly Image visualization for a given input DataContainer type of image.
 
