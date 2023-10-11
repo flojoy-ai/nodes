@@ -5,7 +5,7 @@ from typing import cast, Optional, Literal
 
 
 @flojoy(deps={"pyserial": "3.5"}, inject_connection=True)
-def SET_MODE(
+def PROLOGIX_MODE(
     connection: SerialConnection, default: Optional[DataContainer] = None,
     mode: Literal["CONTROLLER", "DEVICE"] = "CONTROLLER",
 ) -> TextBlob:
@@ -53,7 +53,8 @@ def SET_MODE(
     if mode == 'CONTROLLER':
         mode_integer = 1
 
-    ser.write(b'++mode ' + str(mode_integer) + '\r\n')
+    cmd = '++mode ' + str(mode_integer) + '\r\n'
+    ser.write(cmd.encode())
 
     s = ser.read(256);
 

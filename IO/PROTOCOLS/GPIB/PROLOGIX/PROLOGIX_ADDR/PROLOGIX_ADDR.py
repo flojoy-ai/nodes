@@ -5,7 +5,7 @@ from typing import cast, Optional
 
 
 @flojoy(deps={"pyserial": "3.5"}, inject_connection=True)
-def SET_ADDR(
+def PROLOGIX_ADDR(
     connection: SerialConnection, default: Optional[DataContainer] = None,
     addr: int = 22
 ) -> TextBlob:
@@ -33,9 +33,9 @@ def SET_ADDR(
     if ser is None:
         raise ValueError("Serial communication is not open")
 
-    ser.write(b'++addr ' + str(addr) + '\r\n')
+    cmd = '++addr ' + str(addr) + '\r\n'
+    ser.write(cmd.encode())
 
-    s = ''
     s = ser.read(256);
 
     return TextBlob(s)

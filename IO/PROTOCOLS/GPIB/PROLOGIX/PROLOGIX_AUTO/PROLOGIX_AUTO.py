@@ -4,7 +4,7 @@ from typing import cast, Optional, Literal
 
 
 @flojoy(deps={"pyserial": "3.5"}, inject_connection=True)
-def SET_AUTO(
+def PROLOGIX_AUTO(
     connection: SerialConnection, default: Optional[DataContainer] = None,
     auto: Literal["On", "Off", "Current state"] = "Current state",
 ) -> TextBlob:
@@ -40,7 +40,8 @@ def SET_AUTO(
     elif auto == 'On':
         auto_integer = 1
     else:
-        ser.write(b'++auto ' + auto_integer + '\r\n')
+        cmd = '++auto ' + str(auto_integer) + '\r\n'
+        ser.write(cmd.encode())
 
     s = ser.read(256);
 
