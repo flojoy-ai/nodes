@@ -10,7 +10,7 @@ def FUNC_2_VAR(points: OrderedPair, function: str) -> OrderedTriple:
     f = lambdify(symbols, func)
 
     x = points.x
-    y = points.y
-    z = f(x, y)
+    z = points.y
+    y = f(x, z)
 
     return OrderedTriple(x=x, y=y, z=z)
