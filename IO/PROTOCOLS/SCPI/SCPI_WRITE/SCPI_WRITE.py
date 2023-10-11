@@ -8,7 +8,7 @@ def SCPI_WRITE(
     connection: SerialConnection, default: Optional[DataContainer] = None,
     command: str = '*IDN?'
 ) -> Scalar | TextBlob:
-    """The SCPI node writes a SCPI command to a connected bench-top instrument and returns the result.
+    """The SCPI_WRITE node writes a SCPI command to a connected bench-top instrument and returns the result.
 
     Inputs
     ------
