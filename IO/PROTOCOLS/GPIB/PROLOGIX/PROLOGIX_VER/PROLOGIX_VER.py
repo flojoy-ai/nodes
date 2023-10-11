@@ -5,7 +5,8 @@ from typing import cast, Optional
 
 @flojoy(deps={"pyserial": "3.5"}, inject_connection=True)
 def PROLOGIX_VER(
-    connection: SerialConnection, default: Optional[DataContainer] = None,
+    connection: SerialConnection,
+    default: Optional[DataContainer] = None,
 ) -> TextBlob:
     """The PROLOGIX_VER command queries the Prologix USB-to-GPIB firmware version.
 
@@ -30,7 +31,7 @@ def PROLOGIX_VER(
         ser = cast(serial.Serial, connection.get_handle())
         if ser is None:
             raise ValueError("Serial communication is not open")
-        ser.write(b'++ver\r\n')
+        ser.write(b"++ver\r\n")
         s = ser.read(1000).decode()
     except:
         s = traceback.format_exc()

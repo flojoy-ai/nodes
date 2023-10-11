@@ -6,7 +6,8 @@ from typing import cast, Optional, Literal
 
 @flojoy(deps={"pyserial": "3.5"}, inject_connection=True)
 def PROLOGIX_MODE(
-    connection: SerialConnection, default: Optional[DataContainer] = None,
+    connection: SerialConnection,
+    default: Optional[DataContainer] = None,
     mode: Literal["CONTROLLER", "DEVICE"] = "CONTROLLER",
 ) -> TextBlob:
     """The PROLOGIX_MODE node sets the mode of the Prologix USB-to-GPIB controller - 1 for CONTROLLER mode and 0 for DEVICE mode.
@@ -15,9 +16,9 @@ def PROLOGIX_MODE(
 
     In Controller mode, the GPIB-USB Controller acts as the Controller-In-Charge (CIC)
     on the GPIB bus. When the controller receives a command over the USB port
-    terminated by the USB terminator – CR (ASCII 13) or LF (ASCII 10) – it addresses the 
+    terminated by the USB terminator – CR (ASCII 13) or LF (ASCII 10) – it addresses the
     GPIB instrument at the currently specified address (See ++addr command) to listen, and
-    passes along the received data. 
+    passes along the received data.
 
     In Device mode, Prologix GPIB-USB Controller acts as another peripheral on the GPIB
     bus. In this mode, the controller can act as a GPIB TALKER or GPIB LISTENER
@@ -25,7 +26,7 @@ def PROLOGIX_MODE(
     mode, it expects to receive commands from a GPIB controller. When Device mode is
     enabled Prologix GPIB-USB controller configures itself as a GPIB Listener. All data
     received by the controller over the GPIB port is passed along to the USB port without
-    buffering. 
+    buffering.
 
     Inputs
     ------
@@ -48,14 +49,14 @@ def PROLOGIX_MODE(
 
     if ser is None:
         raise ValueError("Serial communication is not open")
-    
+
     mode_integer = 0
-    if mode == 'CONTROLLER':
+    if mode == "CONTROLLER":
         mode_integer = 1
 
-    cmd = '++mode ' + str(mode_integer) + '\r\n'
+    cmd = "++mode " + str(mode_integer) + "\r\n"
     ser.write(cmd.encode())
 
-    s = ser.read(256);
+    s = ser.read(256)
 
     return TextBlob(s)

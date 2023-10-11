@@ -6,8 +6,9 @@ from typing import cast, Optional
 
 @flojoy(deps={"pyserial": "3.5"}, inject_connection=True)
 def PROLOGIX_ADDR(
-    connection: SerialConnection, default: Optional[DataContainer] = None,
-    addr: int = 22
+    connection: SerialConnection,
+    default: Optional[DataContainer] = None,
+    addr: int = 22,
 ) -> TextBlob:
     """The PROLOGIX_ADDR node sets the GPIB address of an instrument using the Prologix USB-to-GPIB or USB-to-Ethernet adapter.
 
@@ -33,9 +34,9 @@ def PROLOGIX_ADDR(
     if ser is None:
         raise ValueError("Serial communication is not open")
 
-    cmd = '++addr ' + str(addr) + '\r\n'
+    cmd = "++addr " + str(addr) + "\r\n"
     ser.write(cmd.encode())
 
-    s = ser.read(256);
+    s = ser.read(256)
 
     return TextBlob(s)

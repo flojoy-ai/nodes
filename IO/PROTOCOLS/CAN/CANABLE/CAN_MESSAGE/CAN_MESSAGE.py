@@ -6,10 +6,10 @@ from typing import Optional
 
 @flojoy(deps={"python-can": "4.2.2"})
 def CAN_MESSAGE(
-    device: SerialDevice, 
+    device: SerialDevice,
     default: Vector | Optional[DataContainer] = None,
     # arbitration_id: hex = 0xC0FFEE, TODO: Support hex inputs
-    is_extended_id: bool = True
+    is_extended_id: bool = True,
 ) -> TextBlob:
     """The CAN_MESSAGE node sends a message onto CAN network through a slcan-compatible USB-to-CAN adapter.
 
@@ -23,25 +23,23 @@ def CAN_MESSAGE(
     arbitration_id:
         Unique ID for message being sent.
     is_extended_id: bool
-        Flag that controls the size of the arbitration_id field.      
+        Flag that controls the size of the arbitration_id field.
 
     Returns
     -------
     None
     """
 
-    s = ''
+    s = ""
     try:
-        can.rc['interface'] = 'slcan'
-        can.rc['channel'] = device.get_port()
-        can.rc['bitrate'] = 500000
+        can.rc["interface"] = "slcan"
+        can.rc["channel"] = device.get_port()
+        can.rc["bitrate"] = 500000
 
         s = json.dumps(can.rc)
 
         msg = can.Message(
-            data = default.v,
-            arbitration_id = 0xC0FFEE,
-            is_extended_id = is_extended_id
+            data=default.v, arbitration_id=0xC0FFEE, is_extended_id=is_extended_id
         )
 
         with can.Bus() as bus:

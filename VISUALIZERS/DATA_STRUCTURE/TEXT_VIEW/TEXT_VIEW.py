@@ -3,10 +3,7 @@ from flojoy import flojoy, TextBlob
 
 
 @flojoy
-def TEXT_VIEW(
-    default: TextBlob,
-    prettify: bool = False
-) -> TextBlob:
+def TEXT_VIEW(default: TextBlob, prettify: bool = False) -> TextBlob:
     """The TEXT_VIEW node creates a text visualization for a given TextBlob DataContainer type.
 
     Inputs

@@ -5,8 +5,9 @@ from typing import cast, Optional
 
 @flojoy(deps={"pyserial": "3.5"}, inject_connection=True)
 def SCPI_WRITE(
-    connection: SerialConnection, default: Optional[DataContainer] = None,
-    command: str = '*IDN?'
+    connection: SerialConnection,
+    default: Optional[DataContainer] = None,
+    command: str = "*IDN?",
 ) -> Scalar | TextBlob:
     """The SCPI_WRITE node writes a SCPI command to a connected bench-top instrument and returns the result.
 
@@ -32,7 +33,7 @@ def SCPI_WRITE(
     if ser is None:
         raise ValueError("Serial communication is not open")
 
-    CMD = command + '\n\r'
+    CMD = command + "\n\r"
 
     ser.write(CMD.encode())
 
