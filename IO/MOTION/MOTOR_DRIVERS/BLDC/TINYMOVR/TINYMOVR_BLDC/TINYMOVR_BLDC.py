@@ -15,7 +15,8 @@ def TINYMOVR_BLDC(
 
     Input
     -----
-
+    Vector
+        Servo positions
 
     Parameters
     ----------
