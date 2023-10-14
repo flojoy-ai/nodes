@@ -2,9 +2,9 @@ from flojoy import flojoy, Boolean, OrderedPair, Scalar, Vector
 from typing import Literal
 from PYTHON.nodes.TRANSFORMERS.ARITHMETIC.MULTIPLY import MULTIPLY
 from PYTHON.nodes.TRANSFORMERS.ARITHMETIC.ADD import ADD
-from PYTHON.nodes.LOGIC_GATES.AND import AND
-from PYTHON.nodes.LOGIC_GATES.OR import OR
-from PYTHON.nodes.LOGIC_GATES.EXCLUSIVE_OR import EXCLUSIVE_OR
+from PYTHON.nodes.LOGIC_GATES.LOGIC_OPERATORS.AND import AND
+from PYTHON.nodes.LOGIC_GATES.LOGIC_OPERATORS.OR import OR
+from PYTHON.nodes.LOGIC_GATES.LOGIC_OPERATORS.EXCLUSIVE_OR import EXCLUSIVE_OR
 
 @flojoy
 def COMPOUND_ARITHMETIC(x: Boolean | OrderedPair | Scalar | Vector, y: Boolean | OrderedPair | Scalar | Vector,

@@ -1,0 +1,168 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 208,
+                "height": 96,
+                "id": "BOOLEAN-e7ff74be-dbcc-40ae-945d-398a45400324",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "BOOLEAN-e7ff74be-dbcc-40ae-945d-398a45400324",
+                    "label": "BOOLEAN",
+                    "func": "BOOLEAN",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "status": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": "either True or False value that you want to assign",
+                            "overload": null,
+                            "functionName": "BOOLEAN",
+                            "param": "status",
+                            "value": false
+                        }
+                    },
+                    "initCtrls": {},
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Boolean",
+                            "desc": "Boolean node"
+                        }
+                    ],
+                    "path": "GENERATORS/SIMULATIONS/BOOLEAN/BOOLEAN.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -310.1349373088009,
+                    "y": 0.10247171249611142
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -310.1349373088009,
+                    "y": 0.10247171249611142
+                },
+                "dragging": true
+            },
+            {
+                "width": 96,
+                "height": 96,
+                "id": "NOT-e72d9078-b3ac-446b-bfd7-0698b47cd48b",
+                "type": "LOGIC_GATES",
+                "data": {
+                    "id": "NOT-e72d9078-b3ac-446b-bfd7-0698b47cd48b",
+                    "label": "NOT",
+                    "func": "NOT",
+                    "type": "LOGIC_GATES",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Boolean",
+                            "multiple": false,
+                            "desc": "The input boolean to which we apply the NOT operation."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Boolean",
+                            "desc": "The boolean result from the operation of the input."
+                        }
+                    ],
+                    "path": "LOGIC_GATES/LOGIC_OPERATORS/NOT/NOT.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 39.59550953858225,
+                    "y": 6.966359936541892
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 39.59550953858225,
+                    "y": 6.966359936541892
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "TEXT_VIEW-ad5a0bae-dcc5-4588-9e9f-243c4769e211",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-ad5a0bae-dcc5-4588-9e9f-243c4769e211",
+                    "label": "TEXT VIEW",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {
+                        "prettify": {
+                            "type": "bool",
+                            "default": false,
+                            "desc": "Whether to prettify the displayed text (defaults to True)",
+                            "overload": null,
+                            "functionName": "TEXT_VIEW",
+                            "param": "prettify",
+                            "value": false
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob|Boolean",
+                            "multiple": false,
+                            "desc": "The DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "desc": "The DataContainer containing text data"
+                        }
+                    ],
+                    "path": "VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 293.9765662585098,
+                    "y": -68.68114877495509
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 293.9765662585098,
+                    "y": -68.68114877495509
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "BOOLEAN-e7ff74be-dbcc-40ae-945d-398a45400324",
+                "sourceHandle": "default",
+                "target": "NOT-e72d9078-b3ac-446b-bfd7-0698b47cd48b",
+                "targetHandle": "default",
+                "id": "reactflow__edge-BOOLEAN-e7ff74be-dbcc-40ae-945d-398a45400324default-NOT-e72d9078-b3ac-446b-bfd7-0698b47cd48bdefault"
+            },
+            {
+                "source": "NOT-e72d9078-b3ac-446b-bfd7-0698b47cd48b",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-ad5a0bae-dcc5-4588-9e9f-243c4769e211",
+                "targetHandle": "default",
+                "id": "reactflow__edge-NOT-e72d9078-b3ac-446b-bfd7-0698b47cd48bdefault-TEXT_VIEW-ad5a0bae-dcc5-4588-9e9f-243c4769e211default"
+            }
+        ],
+        "viewport": {
+            "x": 850.2065407835213,
+            "y": 460.14150061478784,
+            "zoom": 0.9481996567763689
+        }
+    },
+    "textNodes": []
+}
