@@ -1,0 +1,17 @@
+{
+  "description": "Inputs\n------\ndefault : Matrix\n    The input Matrix",
+  "parameters": [
+    {
+      "name": "axis",
+      "type": "int",
+      "description": "Axis along the matrix is shuffled. If axis is 0, shuffled by row and if it is 1, shuffled by column."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Matrix",
+      "description": "Shuffled input Matrix"
+    }
+  ]
+}

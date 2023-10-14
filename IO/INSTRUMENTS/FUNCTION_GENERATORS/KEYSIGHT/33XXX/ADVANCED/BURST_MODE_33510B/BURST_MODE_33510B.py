@@ -1,22 +1,10 @@
-from flojoy import flojoy, DataContainer, TextBlob
-import pyvisa
+from flojoy import flojoy, DataContainer, TextBlob, VisaConnection
 from typing import Optional, Literal
-from qcodes.instrument_drivers.Keysight import Keysight33512B
-from usb.core import USBError
 
 
-@flojoy(
-    deps={
-        "pyvisa": "1.13.0",
-        "pyusb": "1.2.1",
-        "zeroconf": "0.102.0",
-        "pyvisa_py": "0.7.0",
-        "qcodes": "0.39.1",
-    }
-)
+@flojoy(inject_connection=True)
 def BURST_MODE_33510B(
-    VISA_address: Optional[str],
-    VISA_index: Optional[int] = 0,
+    connection: VisaConnection,
     on_off: Literal["ON", "OFF"] = "OFF",
     channel: Literal["ch1", "ch2"] = "ch1",
     trigger_source: Literal["EXT", "IMM", "TIM"] = "TIM",
@@ -28,26 +16,23 @@ def BURST_MODE_33510B(
     burst_phase: float = 0,
     burst_polarity: Literal["NORM", "INV"] = "NORM",
     default: Optional[DataContainer] = None,
-) -> Optional[DataContainer]:
+) -> TextBlob:
     """The BURST_MODE_33510B node is used to turn the Burst mode on or off.
 
     You can set various settings for the triggering of the bursts as well.
     The burst mode is way to have signals come in "bursts" that are triggered
     externally or with a timer for instance.
 
-    If the "VISA_address" parameter is not specified the VISA_index will be
-    used to find the address. The LIST_VISA node can be used to show the
-    indicies of all available VISA instruments.
+    Requires a CONNECTION_33510B node at the start of the app to connect with
+    the instrument. The VISA address will then be listed under 'connection'.
 
     This node should also work with compatible Keysight 33XXX wavefunction
     generators (although they are untested).
 
     Parameters
     ----------
-    VISA_address: str
-        The VISA address to query.
-    VISA_index: int
-        The address will be found from LIST_VISA node list with this index.
+    connection: VisaConnection
+        The VISA address (requires the CONNECTION_MDO3XXX node).
     on_off: str
         Turn the burst mode on or off.
     channel: str
@@ -73,22 +58,7 @@ def BURST_MODE_33510B(
         TextBlob: summary of burst mode settings.
     """
 
-    rm = pyvisa.ResourceManager("@py")
-    if VISA_address == "":
-        VISA_addresses = rm.list_resources()
-        VISA_address = VISA_addresses[int(VISA_index)]
-
-    try:
-        ks = Keysight33512B(
-            "ks",
-            VISA_address,
-            visalib="@py",
-            device_clear=False,
-        )
-    except USBError as err:
-        raise Exception(
-            "USB port error. Trying unplugging+replugging the port."
-        ) from err
+    ks = connection.get_handle()
 
     channel_str = channel
     channel = getattr(ks, channel)

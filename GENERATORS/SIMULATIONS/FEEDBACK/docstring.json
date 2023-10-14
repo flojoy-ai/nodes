@@ -1,0 +1,11 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "referred_node",
+      "type": "str",
+      "description": "The node ID to capture the result from."
+    }
+  ],
+  "returns": []
+}

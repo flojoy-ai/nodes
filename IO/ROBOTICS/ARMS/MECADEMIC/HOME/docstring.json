@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\nip_address\n    The IP address of the robot arm.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "ip_address",
+      "description": "The IP address of the robot arm."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "description": "If a Scalar input is provided, the Scalar is returned with the timestamp as an OrderedPair.\n\nInputs\n------\ndefault : Scalar\n    A value to timestamp",
+  "parameters": [
+    {
+      "name": "dc_type",
+      "type": "select",
+      "description": "The type of DataContainer to return."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Scalar|Vector|OrderedPair",
+      "description": null
+    }
+  ]
+}

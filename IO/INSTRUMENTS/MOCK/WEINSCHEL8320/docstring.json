@@ -1,0 +1,17 @@
+{
+  "description": "Note: This node is for testing purposes only.",
+  "parameters": [
+    {
+      "name": "attenuation",
+      "type": "int",
+      "description": "Value at which the instrument would attenuate the input signal (mocked)."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Scalar",
+      "description": "c: attenuation value"
+    }
+  ]
+}

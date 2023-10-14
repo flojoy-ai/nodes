@@ -1,30 +1,33 @@
 import random
 import numpy as np
-from flojoy import flojoy, OrderedPair, Scalar, Vector, display
+from flojoy import flojoy, Scalar, Vector, display, DataContainer
 from typing import Literal, Optional
 
 
 @flojoy
 def RAND(
-    default: Optional[OrderedPair | Vector] = None,
+    default: Optional[DataContainer] = None,
     distribution: Literal["normal", "uniform", "poisson"] = "normal",
+    size: int = 1000,
     lower_bound: float = 0,
     upper_bound: float = 1,
     normal_mean: float = 0,
     normal_standard_deviation: float = 1,
     poisson_events: float = 1,
-) -> OrderedPair | Scalar:
+) -> Vector | Scalar:
     """The RAND node generates a random number or a list of random numbers, depending on the distribution selected.
 
     Inputs
     ------
-    default : OrderedPair|Vector
-        Optional input to use as the x-axis for the random samples.
+    default : DataContainer
+        unused in this node
 
     Parameters
     ----------
     distribution : select
         the distribution over the random samples
+    size : int
+        the size of the output. =1 outputs Scalar, >1 outputs Vector
     lower_bound : float
         the lower bound of the output interval
     upper_bound : float
@@ -38,30 +41,21 @@ def RAND(
 
     Returns
     -------
-    OrderedPair|Scalar
-        OrderedPair if there is an input.
-        x: the x-axis of the input
-        y: the random samples
+    Scalar|Vector
+        Vector if size > 1
+        v: the random samples
 
-        Scalar if there is no input.
+        Scalar if size = 1
         c: the random number
     """
+
+    assert size >= 1, "Size must be greater than or equal to than 1"
 
     if upper_bound < lower_bound:
         upper_bound, lower_bound = lower_bound, upper_bound
 
     seed = random.randint(1, 10000)
     my_generator = np.random.default_rng(seed)
-
-    match default:
-        case OrderedPair():
-            size = len(default.x)
-            x = default.x
-        case Vector():
-            size = len(default.v)
-            x = default.v
-        case _:
-            size = 1
 
     match distribution:
         case "uniform":
@@ -73,19 +67,24 @@ def RAND(
         case "poisson":
             y = my_generator.poisson(lam=poisson_events, size=size)
 
-    return OrderedPair(x=x, y=y) if default else Scalar(c=y)
+    if size > 1:
+        return Vector(v=y)
+
+    return Scalar(c=float(y[0]))
 
 
 @display
-def OVERLOAD(lower_bound, upper_bound, distribution="uniform") -> None:
+def OVERLOAD(size, lower_bound, upper_bound, distribution="uniform") -> None:
     return None
 
 
 @display
-def OVERLOAD(normal_mean, normal_standard_deviation, distribution="normal") -> None:
+def OVERLOAD(
+    size, normal_mean, normal_standard_deviation, distribution="normal"
+) -> None:
     return None
 
 
 @display
-def OVERLOAD(poisson_events, distribution="poisson") -> None:
+def OVERLOAD(size, poisson_events, distribution="poisson") -> None:
     return None

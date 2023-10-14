@@ -1,0 +1,16 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "baudrate",
+      "type": "int",
+      "description": "Baud rate for the serial communication."
+    },
+    {
+      "name": "comport",
+      "type": "string",
+      "description": "Defines the comunication port on which the serial device is connected."
+    }
+  ],
+  "returns": []
+}

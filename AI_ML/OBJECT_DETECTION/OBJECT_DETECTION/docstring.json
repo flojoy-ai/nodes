@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\ndefault : Image",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Image",
+      "description": null
+    }
+  ]
+}
