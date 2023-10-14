@@ -7,7 +7,7 @@ from tinymovr.config import get_bus_config, create_device
 
 @flojoy(deps={"tinymovr": "1.6.2"})
 def TINYMOVR_SET_VELOCITY(
-        velocity: Scalar
+        default: Scalar
 ) -> TextBlob:
     """Direct a tinymovr BLDC driver to a set velocity.
 
@@ -30,7 +30,7 @@ def TINYMOVR_SET_VELOCITY(
     MAX_v = 15
     MIN_v = 1
 
-    velocity = sorted((MIN_v, velocity, MAX_v))[1]
+    velocity = sorted((MIN_v, default.c, MAX_v))[1]
 
     try:
         # Connect to servo over CAN network
