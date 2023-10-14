@@ -20,7 +20,7 @@ def CAN_MESSAGE(
 
     Parameters
     ----------
-    arbitration_id:
+    arbitration_id: int
         Unique ID for message being sent.
     is_extended_id: bool
         Flag that controls the size of the arbitration_id field.
