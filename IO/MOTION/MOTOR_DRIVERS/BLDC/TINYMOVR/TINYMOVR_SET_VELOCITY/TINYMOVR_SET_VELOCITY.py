@@ -7,44 +7,35 @@ from tinymovr.config import get_bus_config, create_device
 
 @flojoy(deps={"tinymovr": "1.6.2"})
 def TINYMOVR_SET_VELOCITY(
-    default: Scalar | Optional[DataContainer] = None,
-    velocity: float = 8
+        velocity: Scalar
 ) -> TextBlob:
     """Direct a tinymovr BLDC driver to a set velocity.
 
     Input
     -----
-    A Scalar or no DataContainer
-
-    Parameters
-    ----------
-    velocity: float
-        Servo velocity (kTicks/sec [1, 15]).
+    velocity : Scalar
+        Servo velocity (10k ticks/sec [1, 15]).
 
     Returns
     -------
     Textblob
-        Traceback error
+        Traceback error (if any)
     """
-
-    # Connect to servo over CAN network
-    # TODO: Consider saving Avlos tm Python object in Flojoy's hardware device context manager
-    # Reference: https://github.com/tinymovr/avlos
 
     tb = ''
     bitrate = 1000000
     params = get_bus_config(["canine", "slcan_disco"])
     params["bitrate"] = bitrate
-    velocity_multiplier = 1000
+    velocity_multiplier = 10000
     MAX_v = 15
     MIN_v = 1
-
-    if default.c is not None:
-        velocity = default.c
 
     velocity = sorted((MIN_v, velocity, MAX_v))[1]
 
     try:
+        # Connect to servo over CAN network
+        # TODO: Consider saving Avlos tm Python object in HW device context manager
+        # Reference: https://github.com/tinymovr/avlos        
         with can.Bus(**params) as bus:
             init_tee(bus)
             tm = create_device(node_id=1)
