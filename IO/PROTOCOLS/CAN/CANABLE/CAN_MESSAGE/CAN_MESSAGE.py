@@ -27,7 +27,8 @@ def CAN_MESSAGE(
 
     Returns
     -------
-    None
+    Textblob
+        Traceback error
     """
 
     s = ""
