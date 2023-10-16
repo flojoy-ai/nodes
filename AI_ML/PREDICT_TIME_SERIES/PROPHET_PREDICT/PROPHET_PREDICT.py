@@ -4,7 +4,7 @@ from flojoy import flojoy, run_in_venv, DataFrame
 @flojoy
 @run_in_venv(
     pip_dependencies=[
-        "prophet==1.1.4",
+        "prophet==1.1.5",
     ]
 )
 def PROPHET_PREDICT(
