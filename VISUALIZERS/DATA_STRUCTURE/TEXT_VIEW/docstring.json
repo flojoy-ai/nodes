@@ -1,11 +1,17 @@
 {
-  "description": "Inputs\n------\ndefault : TextBlob\n    the DataContainer to be visualized in text format",
-  "parameters": [],
+  "description": "Inputs\n------\ndefault : TextBlob\n    The DataContainer to be visualized in text format",
+  "parameters": [
+    {
+      "name": "prettify",
+      "type": "Boolean",
+      "description": "Whether to prettify the displayed text (defaults to True)"
+    }
+  ],
   "returns": [
     {
       "name": null,
       "type": "TextBlob",
-      "description": "the DataContainer containing text data"
+      "description": "The DataContainer containing text data"
     }
   ]
 }

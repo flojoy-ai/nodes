@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\na : Matrix\n    The input matrix to be transposed",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Matrix",
+      "description": "The transposed matrix"
+    }
+  ]
+}
