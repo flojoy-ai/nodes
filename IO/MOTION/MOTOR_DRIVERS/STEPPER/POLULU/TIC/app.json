@@ -17,65 +17,50 @@
                             "default": 30,
                             "functionName": "STEPPER_DRIVER_TIC",
                             "param": "current_limit",
-                            "value": 30
+                            "value": 30,
                         },
                         "sleep_time": {
                             "type": "int",
                             "default": 2,
                             "functionName": "STEPPER_DRIVER_TIC",
                             "param": "sleep_time",
-                            "value": 2
+                            "value": 2,
                         },
                         "speed": {
                             "type": "int",
                             "default": 100000,
                             "functionName": "STEPPER_DRIVER_TIC",
                             "param": "speed",
-                            "value": 100000
-                        }
+                            "value": 100000,
+                        },
                     },
                     "inputs": [
                         {
                             "name": "default",
                             "id": "default",
                             "type": "OrderedPair",
-                            "multiple": false
+                            "multiple": false,
                         }
                     ],
                     "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
-                        }
+                        {"name": "default", "id": "default", "type": "OrderedPair"}
                     ],
-                    "pip_dependencies": [
-                        {
-                            "name": "ticlib",
-                            "v": "0.2.2"
-                        }
-                    ],
+                    "pip_dependencies": [{"name": "ticlib", "v": "0.2.2"}],
                     "path": "PYTHON/nodes/INSTRUMENTS/STEPPER_MOTOR/STEPPER_DRIVER_TIC/STEPPER_DRIVER_TIC.py",
-                    "selected": false
+                    "selected": false,
                 },
-                "position": {
-                    "x": 883.1245033729516,
-                    "y": -2.309719518942927
-                },
+                "position": {"x": 883.1245033729516, "y": -2.309719518942927},
                 "selected": false,
-                "positionAbsolute": {
-                    "x": 883.1245033729516,
-                    "y": -2.309719518942927
-                },
-                "dragging": true
+                "positionAbsolute": {"x": 883.1245033729516, "y": -2.309719518942927},
+                "dragging": true,
             }
         ],
         "edges": [],
         "viewport": {
             "x": -358.59636577932724,
             "y": 99.85117439980638,
-            "zoom": 1.0581352782820395
-        }
+            "zoom": 1.0581352782820395,
+        },
     },
     "ctrlsManifest": [
         {
@@ -92,8 +77,8 @@
                 "w": 2,
                 "minH": 1,
                 "minW": 2,
-                "i": "INPUT_PLACEHOLDER"
-            }
+                "i": "INPUT_PLACEHOLDER",
+            },
         }
-    ]
+    ],
 }
