@@ -40,7 +40,7 @@ def CAN_MESSAGE(
         s = json.dumps(can.rc)
 
         msg = can.Message(
-            data = message.v, arbitration_id=0xC0FFEE, is_extended_id=is_extended_id
+            data=message.v, arbitration_id=0xC0FFEE, is_extended_id=is_extended_id
         )
 
         with can.Bus() as bus:

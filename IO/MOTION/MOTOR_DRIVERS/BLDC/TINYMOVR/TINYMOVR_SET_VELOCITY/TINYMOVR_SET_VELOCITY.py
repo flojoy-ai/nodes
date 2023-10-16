@@ -5,10 +5,9 @@ from typing import Optional
 from tinymovr.tee import init_tee, destroy_tee
 from tinymovr.config import get_bus_config, create_device
 
+
 @flojoy(deps={"tinymovr": "1.6.2"})
-def TINYMOVR_SET_VELOCITY(
-        default: Scalar
-) -> TextBlob:
+def TINYMOVR_SET_VELOCITY(default: Scalar) -> TextBlob:
     """Direct a tinymovr BLDC driver to a set velocity.
 
     Input
@@ -22,7 +21,7 @@ def TINYMOVR_SET_VELOCITY(
         Traceback error (if any)
     """
 
-    tb = ''
+    tb = ""
     bitrate = 1000000
     params = get_bus_config(["canine", "slcan_disco"])
     params["bitrate"] = bitrate
@@ -35,7 +34,7 @@ def TINYMOVR_SET_VELOCITY(
     try:
         # Connect to servo over CAN network
         # TODO: Consider saving Avlos tm Python object in HW device context manager
-        # Reference: https://github.com/tinymovr/avlos        
+        # Reference: https://github.com/tinymovr/avlos
         with can.Bus(**params) as bus:
             init_tee(bus)
             tm = create_device(node_id=1)
@@ -45,4 +44,4 @@ def TINYMOVR_SET_VELOCITY(
     except:
         tb = traceback.format_exc()
 
-    return TextBlob(text_blob = tb)
+    return TextBlob(text_blob=tb)

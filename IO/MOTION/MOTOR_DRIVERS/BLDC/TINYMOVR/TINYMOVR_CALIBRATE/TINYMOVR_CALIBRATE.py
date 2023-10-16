@@ -4,6 +4,7 @@ import can, traceback
 from tinymovr.tee import init_tee, destroy_tee
 from tinymovr.config import get_bus_config, create_device
 
+
 @flojoy(deps={"tinymovr": "1.6.2"})
 def TINYMOVR_CALIBRATE() -> TextBlob:
     """Discover and calibrate a connected tinymovr BLDC driver through a CANine USB-to-CAN controller.
@@ -21,7 +22,7 @@ def TINYMOVR_CALIBRATE() -> TextBlob:
     bitrate = 1000000
     params = get_bus_config(["canine", "slcan_disco"])
     params["bitrate"] = bitrate
-    tb = ''
+    tb = ""
 
     try:
         with can.Bus(**params) as bus:
@@ -32,4 +33,4 @@ def TINYMOVR_CALIBRATE() -> TextBlob:
     except:
         tb = traceback.format_exc()
 
-    return TextBlob(text_blob = tb)
+    return TextBlob(text_blob=tb)
