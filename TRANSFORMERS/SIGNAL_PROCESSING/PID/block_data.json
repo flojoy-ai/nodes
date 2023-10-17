@@ -1,0 +1,28 @@
+{
+  "description": "The returned value will be modified according to the PID parameters Kp, Ki, and Kd.\n\nInputs\n------\nsingle_input : Scalar\n    The data to apply the PID function to.",
+  "parameters": [
+    {
+      "name": "Kp",
+      "type": "float",
+      "description": "The proprotional PID parameter."
+    },
+    {
+      "name": "Ki",
+      "type": "float",
+      "description": "The integral PID parameter."
+    },
+    {
+      "name": "Kd",
+      "type": "float",
+      "description": "The derivative PID parameter."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Scalar",
+      "description": "c: The PID function output."
+    }
+  ],
+  "code": "from numpy import zeros, append, ndarray\nfrom flojoy import flojoy, Scalar, DefaultParams, SmallMemory\n\nmemory_key = \"pid-info\"\n\n\n@flojoy(inject_node_metadata=True)\ndef PID(\n    single_input: Scalar,\n    default_params: DefaultParams,\n    Kp: float = 5,\n    Ki: float = 0.0143,\n    Kd: float = 356.25,\n) -> Scalar:\n    \"\"\"The PID node acts like a PID function.\n\n    The returned value will be modified according to the PID parameters Kp, Ki, and Kd.\n\n    Inputs\n    ------\n    single_input : Scalar\n        The data to apply the PID function to.\n\n    Parameters\n    ----------\n    Kp : float\n        The proprotional PID parameter.\n    Ki : float\n        The integral PID parameter.\n    Kd : float\n        The derivative PID parameter.\n\n    Returns\n    -------\n    Scalar\n        c: The PID function output.\n    \"\"\"\n\n    # First let's get the parameters that won't change\n    node_id = default_params.node_id\n    # Now we need some memory! We need to keep track of the running\n    # integral value of the inputs (regulation errors), as well as\n    # the previous 3 values of the regulation error\n    data = SmallMemory().read_memory(node_id, memory_key)\n    if data is None:\n        initialize = True\n    elif type(data) == ndarray:\n        initialize = False\n    else:\n        raise TypeError(\"Issue reading memory from REDIS.\")\n    integral: int = 0 if initialize else data[0]\n    regulation_error_primes = zeros(3) if initialize else data[1:]\n    regulation_error = single_input.c\n\n    integral: float = integral + 0.5 * Ki * (\n        regulation_error + regulation_error_primes[0]\n    )\n    output_signal = -1 * (\n        Kp * regulation_error\n        + integral\n        + 0.1667\n        * Kd\n        * (\n            regulation_error\n            - regulation_error_primes[2]\n            + 3.0 * (regulation_error_primes[0] - regulation_error_primes[1])\n        )\n    )\n    regulation_error_primes[2] = regulation_error_primes[1]\n    regulation_error_primes[1] = regulation_error_primes[0]\n    regulation_error_primes[0] = regulation_error\n\n    # Now write to memory ...\n    SmallMemory().write_to_memory(\n        node_id, memory_key, append(integral, regulation_error_primes)\n    )\n\n    # ... and return the result\n    return Scalar(c=output_signal)\n"
+}

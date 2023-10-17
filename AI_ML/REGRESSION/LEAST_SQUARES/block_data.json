@@ -1,0 +1,17 @@
+{
+  "description": null,
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair",
+      "description": "x: input matrix (data points)\ny: fitted line computed with returned regression weights"
+    },
+    {
+      "name": null,
+      "type": "Matrix",
+      "description": "m: fitted matrix computed with returned regression weights"
+    }
+  ],
+  "code": "import numpy as np\nfrom typing import Optional\nfrom flojoy import flojoy, OrderedPair, Matrix\n\n\n@flojoy\ndef LEAST_SQUARES(\n    a: OrderedPair | Matrix, b: Optional[OrderedPair | Matrix] = None\n) -> Matrix | OrderedPair:\n    \"\"\"The LEAST_SQUARE node computes the coefficients that minimize the distance between the inputs 'Matrix' or 'OrderedPair' class and the regression.\n\n    Returns\n    -------\n    OrderedPair\n        x: input matrix (data points)\n        y: fitted line computed with returned regression weights\n    Matrix\n        m: fitted matrix computed with returned regression weights\n    \"\"\"\n\n    if b is None:\n        if isinstance(a, OrderedPair):\n            x = a.x\n            y = a.y\n            try:\n                a = np.vstack([x, np.ones(len(x))]).T\n                p = np.linalg.lstsq(a, y, rcond=None)[0]\n            except np.linalg.LinAlgError:\n                raise ValueError(\"Least Square Computation failed.\")\n\n            slope, intercept = p[0:-1], p[-1]\n            res = slope * x + intercept\n\n            return OrderedPair(x=x, y=res)\n        else:\n            raise ValueError(\"For matrix type b must be specified!\")\n    else:\n        if isinstance(a, OrderedPair) and isinstance(b, OrderedPair):\n            x = a.y\n            y = b.y\n\n            try:\n                a = np.vstack([x, np.ones(len(x))]).T\n                p = np.linalg.lstsq(a, y, rcond=None)[0]\n            except np.linalg.LinAlgError:\n                raise ValueError(\"Least Square Computation failed.\")\n\n            slope, intercept = p[0:-1], p[-1]\n            print(\"=============== This is slope: \", slope)\n            print(\"=============== This is intercept: \", intercept)\n            res = slope * x + intercept\n\n            return OrderedPair(x=x, y=res)\n\n        elif isinstance(a, Matrix) and isinstance(b, Matrix):\n            x = a.m\n            y = b.m\n\n            try:\n                a = np.vstack([x, np.ones(len(x))]).T\n                p = np.linalg.lstsq(a, y, rcond=None)[0]\n            except np.linalg.LinAlgError:\n                raise ValueError(\"Least Square Computation failed.\")\n\n            slope, intercept = p[0:-1], p[-1]\n            res = slope * x + intercept\n\n            return Matrix(m=res)\n        else:\n            raise ValueError(\"a and b must be of same type!\")\n"
+}

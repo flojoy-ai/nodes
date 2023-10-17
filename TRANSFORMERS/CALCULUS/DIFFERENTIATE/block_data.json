@@ -1,0 +1,12 @@
+{
+  "description": "It then computes the derivative of the array, y, with respect to x.\n\nInputs\n------\ndefault : OrderedPair|Vector\n    Input from which we get the x and y lists use in the derivative.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair",
+      "description": "x: the x-axis of the input.\ny: the result of the derivative."
+    }
+  ],
+  "code": "from flojoy import flojoy, OrderedPair, Vector\nimport numpy as np\n\n\n@flojoy\ndef DIFFERENTIATE(default: OrderedPair | Vector) -> OrderedPair:\n    \"\"\"The DIFFERENTIATE node takes two lists, x and y, as input.\n\n    It then computes the derivative of the array, y, with respect to x.\n\n    Inputs\n    ------\n    default : OrderedPair|Vector\n        Input from which we get the x and y lists use in the derivative.\n\n    Returns\n    -------\n    OrderedPair\n        x: the x-axis of the input.\n        y: the result of the derivative.\n    \"\"\"\n\n    match default:\n        case OrderedPair():\n            input_x = default.x\n            input_y = default.y\n\n            if len(input_x) != len(input_y):\n                raise ValueError(\n                    f\" X and Y keys must have the same length, got x of length {len(input_x)} and y {len(input_y)}\"\n                )\n\n            differentiate = np.diff(input_y) / np.diff(input_x)\n\n            return OrderedPair(x=input_x, y=differentiate)\n        case Vector():\n            input_x = np.arange((len(default.v) - 1))\n            differentiate = np.zeros_like(input_x)\n\n            for i in range(0, len(input_x)):\n                differentiate[i] = default.v[i + 1] - default.v[i]\n\n            return OrderedPair(x=input_x, y=differentiate)\n"
+}

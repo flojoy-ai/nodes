@@ -1,0 +1,12 @@
+{
+  "description": "Inputs\n------\ndefault: Matrix\n    The input matrix that will be transformed into vector data type.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Vector",
+      "description": "Vector that is flatten from input matrix."
+    }
+  ],
+  "code": "from flojoy import flojoy, Vector, Matrix\n\n\n@flojoy\ndef MATRIX_2_VECTOR(default: Matrix) -> Vector:\n    \"\"\"The MATRIX_2_VECTOR node takes a matrix and flatten it into vector type data.\n\n    Inputs\n    ------\n    default: Matrix\n        The input matrix that will be transformed into vector data type.\n\n    Returns\n    -------\n    Vector\n        Vector that is flatten from input matrix.\n    \"\"\"\n    rVector = default.m.flatten()\n\n    return Vector(v=rVector)\n"
+}

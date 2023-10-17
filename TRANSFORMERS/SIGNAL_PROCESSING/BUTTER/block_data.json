@@ -1,0 +1,33 @@
+{
+  "description": "It is designed to have a frequency response that is as flat as possible in the pass band.\n\nInputs\n------\ndefault : OrderedPair\n    The data to apply the butter filter to.",
+  "parameters": [
+    {
+      "name": "filter_order",
+      "type": "int",
+      "description": "The intensity of the filter."
+    },
+    {
+      "name": "critical_frequency",
+      "type": "int",
+      "description": "The frequency where the filter takes effect. For lowpass and highpass, it takes a scalar.\nFor bandpass and bandstop, it takes an array with the length of 2."
+    },
+    {
+      "name": "btype",
+      "type": "select",
+      "description": "The type of the filter."
+    },
+    {
+      "name": "sample_rate",
+      "type": "int",
+      "description": "The sample rate of the input signal."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair",
+      "description": "x: time domain\ny: filtered signal"
+    }
+  ],
+  "code": "from scipy import signal\nfrom flojoy import flojoy, OrderedPair\nfrom typing import Literal, Union\n\n\n@flojoy\ndef BUTTER(\n    default: OrderedPair,\n    filter_order: int = 1,\n    critical_frequency: int = 1,\n    btype: Literal[\"lowpass\", \"highpass\", \"bandpass\", \"bandstop\"] = \"lowpass\",\n    sample_rate: int = 10,\n) -> OrderedPair:\n    \"\"\"The BUTTER node applies a butterworth filter to an input signal.\n\n    It is designed to have a frequency response that is as flat as possible in the pass band.\n\n    Inputs\n    ------\n    default : OrderedPair\n        The data to apply the butter filter to.\n\n    Parameters\n    ----------\n    filter_order : int\n        The intensity of the filter.\n    critical_frequency : int\n        The frequency where the filter takes effect. For lowpass and highpass, it takes a scalar.\n        For bandpass and bandstop, it takes an array with the length of 2.\n    btype : select\n        The type of the filter.\n    sample_rate : int\n        The sample rate of the input signal.\n\n    Returns\n    -------\n    OrderedPair\n        x: time domain\n        y: filtered signal\n    \"\"\"\n\n    sig = default.y\n    order: int = filter_order\n    wn: int = critical_frequency  # hz\n    btype: str = btype\n    fs: int = sample_rate  # hz\n\n    sos = signal.butter(N=order, Wn=wn, btype=btype, fs=fs, output=\"sos\")\n    #    sos = signal.butter(10, 15, \"hp\", fs=1000, output=\"sos\")\n    filtered = signal.sosfilt(sos, sig)\n\n    return OrderedPair(x=default.x, y=filtered)\n"
+}

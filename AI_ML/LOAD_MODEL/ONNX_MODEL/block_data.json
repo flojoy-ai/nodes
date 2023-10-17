@@ -1,0 +1,23 @@
+{
+  "description": "This allows supporting a wide range of deep learning frameworks and hardware platforms.",
+  "parameters": [
+    {
+      "name": "file_path",
+      "type": "str",
+      "description": "Path to a ONNX model to load and use for prediction."
+    },
+    {
+      "name": "default",
+      "type": "Vector",
+      "description": "The input tensor to use for prediction.\nFor now, only a single input tensor is supported.\nNote that the input tensor shape is not checked against the model's input shape."
+    }
+  ],
+  "returns": [
+    {
+      "name": "Vector",
+      "type": "",
+      "description": "The predictions made by the ONNX model.\nFor now, only a single output tensor is supported."
+    }
+  ],
+  "code": "from flojoy import flojoy, run_in_venv, Vector\nfrom flojoy.utils import FLOJOY_CACHE_DIR\n\n\n@flojoy\n@run_in_venv(\n    pip_dependencies=[\n        \"onnxruntime\",\n        \"numpy\",\n        \"onnx\",\n    ]\n)\ndef ONNX_MODEL(\n    file_path: str,\n    default: Vector,\n) -> Vector:\n    \"\"\"ONNX_MODEL loads a serialized ONNX model and uses it to make predictions using ONNX Runtime.\n\n    This allows supporting a wide range of deep learning frameworks and hardware platforms.\n\n    Notes\n    -----\n\n    On the one hand, ONNX is an open format to represent deep learning models.\n    ONNX defines a common set of operators - the building blocks of machine learning\n    and deep learning models - and a common file format to enable AI developers\n    to use models with a variety of frameworks, tools, runtimes, and compilers.\n\n    See: https://onnx.ai/\n\n    On the other hand, ONNX Runtime is a high-performance inference engine for machine\n    learning models in the ONNX format. ONNX Runtime has proved to considerably increase\n    performance in inferencing for a broad range of ML models and hardware platforms.\n\n    See: https://onnxruntime.ai/docs/\n\n    Moreover, the ONNX Model Zoo is a collection of pre-trained models for common\n    machine learning tasks. The models are stored in ONNX format and are ready to use\n    in different inference scenarios.\n\n    See: https://github.com/onnx/models\n\n    Parameters\n    ----------\n    file_path : str\n        Path to a ONNX model to load and use for prediction.\n\n    default : Vector\n        The input tensor to use for prediction.\n        For now, only a single input tensor is supported.\n        Note that the input tensor shape is not checked against the model's input shape.\n\n    Returns\n    -------\n    Vector:\n        The predictions made by the ONNX model.\n        For now, only a single output tensor is supported.\n    \"\"\"\n\n    import os\n    import onnx\n    import urllib.request\n    import numpy as np\n    import onnxruntime as rt\n\n    model_name = os.path.basename(file_path)\n\n    if file_path.startswith(\"http://\") or file_path.startswith(\"https://\"):\n        # Downloading the ONNX model from a URL to FLOJOY_CACHE_DIR.\n        onnx_model_zoo_cache = os.path.join(\n            FLOJOY_CACHE_DIR, \"cache\", \"onnx\", \"model_zoo\"\n        )\n\n        os.makedirs(onnx_model_zoo_cache, exist_ok=True)\n\n        filename = os.path.join(onnx_model_zoo_cache, model_name)\n\n        urllib.request.urlretrieve(\n            url=file_path,\n            filename=filename,\n        )\n\n        # Using the downloaded file.\n        file_path = filename\n\n    # Pre-loading the serialized model to validate whether is well-formed or not.\n    model = onnx.load(file_path)\n    onnx.checker.check_model(model)\n\n    # Using ONNX runtime for the ONNX model to make predictions.\n    sess = rt.InferenceSession(file_path, providers=[\"CPUExecutionProvider\"])\n\n    # TODO(jjerphan): Assuming a single input and a single output for now.\n    input_name = sess.get_inputs()[0].name\n    label_name = sess.get_outputs()[0].name\n\n    # TODO(jjerphan): For now NumPy is assumed to be the main backend for Flojoy.\n    # We might adapt it in the future so that we can use other backends\n    # for tensor libraries for application using Deep Learning libraries.\n    input_tensor = np.asarray(default.v, dtype=np.float32)\n    predictions = sess.run([label_name], {input_name: input_tensor})[0]\n\n    return Vector(v=predictions)\n"
+}

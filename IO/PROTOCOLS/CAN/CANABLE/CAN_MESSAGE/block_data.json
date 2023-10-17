@@ -1,0 +1,23 @@
+{
+  "description": "Inputs\n------\nmessage : Vector\n    The array of data to send to the CAN bus.",
+  "parameters": [
+    {
+      "name": "arbitration_id",
+      "type": "int",
+      "description": "Unique ID for message being sent."
+    },
+    {
+      "name": "is_extended_id",
+      "type": "bool",
+      "description": "Flag that controls the size of the arbitration_id field."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Textblob",
+      "description": "Traceback error"
+    }
+  ],
+  "code": "import can, traceback, json\nfrom can.interface import Bus\nfrom flojoy import flojoy, SerialDevice, Vector, DataContainer, TextBlob\nfrom typing import Optional\n\n\n@flojoy(deps={\"python-can\": \"4.2.2\"})\ndef CAN_MESSAGE(\n    device: SerialDevice,\n    message: Vector | Optional[DataContainer] = None,\n    # arbitration_id: hex = 0xC0FFEE, TODO: Support hex inputs\n    is_extended_id: bool = True,\n) -> TextBlob:\n    \"\"\"The CAN_MESSAGE node sends a message onto CAN network through a slcan-compatible USB-to-CAN adapter.\n\n    Inputs\n    ------\n    message : Vector\n        The array of data to send to the CAN bus.\n\n    Parameters\n    ----------\n    arbitration_id : int\n        Unique ID for message being sent.\n    is_extended_id : bool\n        Flag that controls the size of the arbitration_id field.\n\n    Returns\n    -------\n    Textblob\n        Traceback error\n    \"\"\"\n\n    s = \"\"\n    try:\n        can.rc[\"interface\"] = \"slcan\"\n        can.rc[\"channel\"] = device.get_port()\n        can.rc[\"bitrate\"] = 500000\n\n        s = json.dumps(can.rc)\n\n        msg = can.Message(\n            data=message.v, arbitration_id=0xC0FFEE, is_extended_id=is_extended_id\n        )\n\n        with can.Bus() as bus:\n            bus.send(msg)\n    except:\n        s = traceback.format_exc()\n\n    return TextBlob(s)\n"
+}

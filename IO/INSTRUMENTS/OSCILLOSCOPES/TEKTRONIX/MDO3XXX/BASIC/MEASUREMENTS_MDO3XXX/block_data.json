@@ -1,0 +1,28 @@
+{
+  "description": "This node can select from three different waveform measurements:\nfrequency, period, and amplitude. Also available are 5 statistic modes:\ninstant, mean, max, min, and stdev where instant is a single measurement\nand stdev is the standard deviation of the mean.\n\nUnits are in seconds, Hz, and V for frequency, period, and amplitude respectively.\n\nRequires a CONNECTION_MDO3XXX node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "parameters": [
+    {
+      "name": "connection",
+      "type": "VisaConnection",
+      "description": "The VISA address (requires the CONNECTION_MDO3XXX node)."
+    },
+    {
+      "name": "measurement",
+      "type": "str",
+      "description": "The measurement to extract from the scope."
+    },
+    {
+      "name": "statistic",
+      "type": "str",
+      "description": "The statistic mode to use for the measurement."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "Scalar: The waveform measurement in the selected statistic mode."
+    }
+  ],
+  "code": "from flojoy import flojoy, DataContainer, Scalar, VisaConnection\nfrom typing import Optional, Literal\n\n\n@flojoy(inject_connection=True)\ndef MEASUREMENTS_MDO3XXX(\n    connection: VisaConnection,\n    channel: int = 0,\n    measurement: Literal[\"period\", \"frequency\", \"amplitude\"] = \"period\",\n    statistic: Literal[\"instant\", \"mean\", \"max\", \"min\", \"stdev\"] = \"instant\",\n    default: Optional[DataContainer] = None,\n) -> Scalar:\n    \"\"\"The MEASUREMENTS_MDO3XXX node extracts waveform measurements from an MDO3XXX oscilloscope.\n\n    This node can select from three different waveform measurements:\n    frequency, period, and amplitude. Also available are 5 statistic modes:\n    instant, mean, max, min, and stdev where instant is a single measurement\n    and stdev is the standard deviation of the mean.\n\n    Units are in seconds, Hz, and V for frequency, period, and amplitude respectively.\n\n    Requires a CONNECTION_MDO3XXX node at the start of the app to connect with\n    the instrument. The VISA address will then be listed under 'connection'.\n\n    This node should also work with compatible Tektronix scopes (untested):\n    MDO4xxx, MSO4xxx, and DPO4xxx.\n\n    Parameters\n    ----------\n    connection: VisaConnection\n        The VISA address (requires the CONNECTION_MDO3XXX node).\n    measurement: str\n        The measurement to extract from the scope.\n    statistic: str\n        The statistic mode to use for the measurement.\n\n    Returns\n    -------\n    DataContainer\n        Scalar: The waveform measurement in the selected statistic mode.\n    \"\"\"\n\n    tek = connection.get_handle()\n\n    tek.measurement[0].source1(f\"CH{int(channel + 1)}\")\n\n    match measurement:\n        case \"frequency\":\n            chan = tek.measurement[0].source1()\n            if statistic == \"instant\":\n                value = tek.measurement[0].frequency()\n            else:\n                value = getattr(tek.measurement[0].frequency, statistic)\n                value = value()\n            unit = tek.measurement[0].frequency.unit\n            print(f\"Frequency of signal at channel {chan}: {value:.2E} {unit}\")\n\n        case \"period\":\n            chan = tek.measurement[0].source1()\n            if statistic == \"instant\":\n                value = tek.measurement[0].period()\n            else:\n                value = getattr(tek.measurement[0].period, statistic)\n                value = value()\n            unit = tek.measurement[0].period.unit\n            print(f\"Period of signal at channel {chan}: {value:.2E} {unit}\")\n\n        case \"amplitude\":\n            chan = tek.measurement[0].source1()\n            if statistic == \"instant\":\n                value = tek.measurement[0].amplitude()\n            else:\n                value = getattr(tek.measurement[0].amplitude, statistic)\n                value = value()\n            unit = tek.measurement[0].amplitude.unit\n            print(f\"Amplitude of signal at channel {chan}: {value:.2E} {unit}\")\n\n    return Scalar(c=value)\n"
+}

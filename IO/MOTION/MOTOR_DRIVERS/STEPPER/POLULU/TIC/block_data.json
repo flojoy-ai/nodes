@@ -1,0 +1,22 @@
+{
+  "description": "The user defines the speed and the sleep time between movements.\n\n(To choose the position, use the STEPPER_DRIVER_TIC_KNOB.)",
+  "parameters": [
+    {
+      "name": "current_limit",
+      "type": "int",
+      "description": "Defines the current limitation that the stepper motor will receive."
+    },
+    {
+      "name": "sleep_time",
+      "type": "int",
+      "description": "Defines the sleep time after moving to each position."
+    },
+    {
+      "name": "speed",
+      "type": "int",
+      "description": "Defines the speed of the motor movement (between 0 and 200000)."
+    }
+  ],
+  "returns": [],
+  "code": "from flojoy import flojoy, OrderedPair\nfrom typing import Optional\nfrom ticlib import (\n    TicUSB,\n)  # Import the TicUSB library to send command to Tic drivers with USB connection\nfrom time import sleep\n\n\n@flojoy(deps={\"ticlib\": \"0.2.2\"})\ndef TIC(\n    default: Optional[OrderedPair] = None,\n    current_limit: int = 30,\n    sleep_time: int = 2,\n    speed: int = 100000,\n) -> OrderedPair:\n    \"\"\"The STEPPER_DRIVER_TIC node controls a stepper motor's movement with a TIC driver.\n\n    The user defines the speed and the sleep time between movements.\n\n    (To choose the position, use the STEPPER_DRIVER_TIC_KNOB.)\n\n    Parameters\n    ----------\n    current_limit : int\n        Defines the current limitation that the stepper motor will receive.\n    sleep_time : int\n        Defines the sleep time after moving to each position.\n    speed : int\n        Defines the speed of the motor movement (between 0 and 200000).\n    \"\"\"\n\n    # Setting default positions\n    positions: list[int] = [50, 100, 150, 200]\n\n    # Declaration of the stepper driver\n    tic: TicUSB = TicUSB()\n    tic.halt_and_set_position(0)  # Set the position to 0\n    # Set the current limit of the TIC driver\n    tic.set_current_limit(current_limit)\n    tic.energize()  # Turn on the driver\n    tic.exit_safe_start()  # The driver is now ready to receive commands\n\n    for i in range(0, len(positions)):\n        tic.set_max_speed(speed)  # Set motor speed\n        tic.set_target_position(positions[i])  # Set target positions\n        sleep(sleep_time)\n\n    tic.deenergize()\n    tic.enter_safe_start()\n\n    return OrderedPair(x=positions, y=positions)\n"
+}

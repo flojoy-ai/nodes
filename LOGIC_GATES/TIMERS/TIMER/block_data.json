@@ -1,0 +1,12 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "sleep_time",
+      "type": "float",
+      "description": "number of seconds to sleep"
+    }
+  ],
+  "returns": [],
+  "code": "from flojoy import flojoy, DataContainer, DefaultParams\nfrom flojoy.utils import PlotlyJSONEncoder\nfrom flojoy.job_result_builder import JobResultBuilder\nimport plotly.graph_objects as go\nimport time\nimport json\nfrom typing import Optional, cast\n\n\n@flojoy\ndef TIMER(\n    default: Optional[DataContainer] = None,\n    sleep_time: float = 0,\n) -> DataContainer:\n    \"\"\"The TIMER node sleeps for a specified number of seconds.\n\n    Parameters\n    ----------\n    sleep_time : float\n        number of seconds to sleep\n    \"\"\"\n\n    time.sleep(sleep_time)\n    result = cast(\n        DataContainer,\n        JobResultBuilder().from_inputs([default] if default else []).build(),\n    )\n\n    return result\n"
+}

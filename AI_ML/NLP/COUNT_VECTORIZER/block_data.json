@@ -1,0 +1,17 @@
+{
+  "description": null,
+  "parameters": [],
+  "returns": [
+    {
+      "name": "tokens",
+      "type": "DataFrame",
+      "description": "Holds all the unique tokens observed from the input."
+    },
+    {
+      "name": "word_count_vector",
+      "type": "Vector",
+      "description": "Contains the occurences of these tokens from each sentence."
+    }
+  ],
+  "code": "from typing import TypedDict\nfrom sklearn.feature_extraction.text import CountVectorizer\nfrom flojoy import flojoy, DataFrame, Matrix, Vector\nimport pandas as pd\n\n\nclass CountVectorizerOutput(TypedDict):\n    tokens: DataFrame\n    word_count_vector: Vector\n\n\n@flojoy(deps={\"scikit-learn\": \"1.2.2\"})\ndef COUNT_VECTORIZER(default: DataFrame | Matrix | Vector) -> CountVectorizerOutput:\n    \"\"\"The COUNT_VECTORIZER node receives a collection (matrix, vector or dataframe) of text documents and converts it to a matrix of token counts.\n\n    Returns\n    -------\n    tokens: DataFrame\n        Holds all the unique tokens observed from the input.\n    word_count_vector: Vector\n        Contains the occurences of these tokens from each sentence.\n    \"\"\"\n\n    if isinstance(default, DataFrame):\n        data = default.m.values\n    elif isinstance(default, Vector):\n        data = default.v\n    else:\n        data = default.m\n\n    vectorizer = CountVectorizer()\n    X = vectorizer.fit_transform(data.flatten())\n\n    x = pd.DataFrame({\"tokens\": vectorizer.get_feature_names_out()})\n    y = X.toarray()  # type: ignore\n\n    return CountVectorizerOutput(tokens=DataFrame(df=x), word_count_vector=Vector(v=y))\n"
+}

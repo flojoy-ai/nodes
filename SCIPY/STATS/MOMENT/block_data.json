@@ -1,0 +1,38 @@
+{
+  "description": "The description of that function is as follows:\n\n    Calculate the nth moment about the mean for a sample.\n\n    A moment is a specific quantitative measure of the shape of a set of points.\n    It is often used to calculate coefficients of skewness and kurtosis due to its close relationship with them.",
+  "parameters": [
+    {
+      "name": "a",
+      "type": "array_like",
+      "description": "Input array."
+    },
+    {
+      "name": "moment",
+      "type": "int or array_like of ints",
+      "description": "Order of central moment that is returned.\nDefault is 1."
+    },
+    {
+      "name": "axis",
+      "type": "int or None, default: 0",
+      "description": "If an int, the axis of the input along which to compute the statistic.\nThe statistic of each axis-slice (e.g. row) of the input will appear in a\ncorresponding element of the output.\nIf None, the input will be raveled before computing the statistic."
+    },
+    {
+      "name": "nan_policy",
+      "type": "{'propagate', 'omit', 'raise'}",
+      "description": "Defines how to handle input NaNs.\n- propagate : if a NaN is present in the axis slice (e.g. row) along\nwhich the statistic is computed, the corresponding entry of the output will be NaN.\n- omit : NaNs will be omitted when performing the calculation.\nIf insufficient data remains in the axis slice along which the\nstatistic is computed, the corresponding entry of the output will be NaN.\n- raise : if a NaN is present, a ValueError will be raised."
+    },
+    {
+      "name": "keepdims",
+      "type": "bool, default: False",
+      "description": "If this is set to True, the axes which are reduced are left\nin the result as dimensions with size one. With this option,\nthe result will broadcast correctly against the input array."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "type 'ordered pair', 'scalar', or 'matrix'"
+    }
+  ],
+  "code": "from flojoy import OrderedPair, flojoy, Matrix, Scalar\nimport numpy as np\nfrom collections import namedtuple\nfrom typing import Literal\n\nimport scipy.stats\n\n\n@flojoy\ndef MOMENT(\n    default: OrderedPair | Matrix,\n    moment: int = 1,\n    axis: int = 0,\n    nan_policy: str = \"propagate\",\n    keepdims: bool = False,\n) -> OrderedPair | Matrix | Scalar:\n    \"\"\"The MOMENT node is based on a numpy or scipy function.\n\n    The description of that function is as follows:\n\n        Calculate the nth moment about the mean for a sample.\n\n        A moment is a specific quantitative measure of the shape of a set of points.\n        It is often used to calculate coefficients of skewness and kurtosis due to its close relationship with them.\n\n    Parameters\n    ----------\n    a : array_like\n        Input array.\n    moment : int or array_like of ints, optional\n        Order of central moment that is returned.\n        Default is 1.\n    axis : int or None, default: 0\n        If an int, the axis of the input along which to compute the statistic.\n        The statistic of each axis-slice (e.g. row) of the input will appear in a\n        corresponding element of the output.\n        If None, the input will be raveled before computing the statistic.\n    nan_policy : {'propagate', 'omit', 'raise'}\n        Defines how to handle input NaNs.\n        - propagate : if a NaN is present in the axis slice (e.g. row) along\n        which the statistic is computed, the corresponding entry of the output will be NaN.\n        - omit : NaNs will be omitted when performing the calculation.\n        If insufficient data remains in the axis slice along which the\n        statistic is computed, the corresponding entry of the output will be NaN.\n        - raise : if a NaN is present, a ValueError will be raised.\n    keepdims : bool, default: False\n        If this is set to True, the axes which are reduced are left\n        in the result as dimensions with size one. With this option,\n        the result will broadcast correctly against the input array.\n\n    Returns\n    -------\n    DataContainer\n        type 'ordered pair', 'scalar', or 'matrix'\n    \"\"\"\n\n    result = scipy.stats.moment(\n        a=default.y,\n        moment=moment,\n        axis=axis,\n        nan_policy=nan_policy,\n        keepdims=keepdims,\n    )\n\n    if isinstance(result, np.ndarray):\n        result = OrderedPair(x=default.x, y=result)\n    else:\n        assert isinstance(\n            result, np.number | float | int\n        ), f\"Expected np.number, float or int for result, got {type(result)}\"\n        result = Scalar(c=float(result))\n\n    return result\n"
+}

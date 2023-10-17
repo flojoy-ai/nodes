@@ -1,0 +1,18 @@
+{
+  "description": "Inputs\n------\ndefault: OrderedPair | Vector\n    The voltages to send to the Keithley 2400 source meter.",
+  "parameters": [
+    {
+      "name": "connection",
+      "type": "Serial",
+      "description": "The open connection with the Keithley2400 source meter."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair",
+      "description": null
+    }
+  ],
+  "code": "import serial\nimport numpy as np\nfrom flojoy import SerialConnection, flojoy, OrderedPair, Vector\nfrom typing import cast\n\n\n@flojoy(deps={\"pyserial\": \"3.5\"}, inject_connection=True)\ndef IV_SWEEP(\n    connection: SerialConnection, default: OrderedPair | Vector\n) -> OrderedPair:\n    \"\"\"The IV_SWEEP node takes an I-V curve measurement with a Keithley 2400 source meter, send voltages, and measures currents.\n\n    Inputs\n    ------\n    default: OrderedPair | Vector\n        The voltages to send to the Keithley 2400 source meter.\n\n    Parameters\n    ----------\n    connection: Serial\n        The open connection with the Keithley2400 source meter.\n\n    Returns\n    -------\n    OrderedPair\n    \"\"\"\n\n    # Start serial communication with the instrument\n    ser = cast(serial.Serial, connection.get_handle())\n\n    if ser is None:\n        raise ValueError(\"Serial communication is not open\")\n\n    # Keithley 2400 Configuration\n    ser.write(b\"*RST\\n\")  # reinitialisation of the instrument\n    ser.write(\n        b\":SOUR:FUNC:MODE VOLT\\n\"\n    )  # Sourcing tension ser.write(b':SENS:FUNC \"CURR\"\\n')  # Measuring current\n    ser.write(\n        b\":SENS:CURR:PROT 1.05\\n\"\n    )  # Current protection set at 1.05A (Keithley 2400)\n\n    match default:\n        case OrderedPair():\n            voltages = default.y\n        case Vector():\n            voltages = default.v\n\n    currents_neg: list[float] = []  # measured currents\n\n    for voltage in voltages:\n        ser.write(b\":SOUR:VOLT %f\\n\" % voltage)  # Source Tension (V)\n        ser.write(b\":OUTP ON\\n\")  # Instrument output open\n        ser.write(b\":INIT\\n\")  # Start measuring\n        ser.write(b\":FETC?\\n\")  # Retrieve the measured values\n\n        current_str = ser.readline().decode(\"ascii\").strip()  # Save answers in a string\n        voltage_current_values = current_str.split(\",\")  # Split the string\n        currents_neg.append(-float(voltage_current_values[1]))\n\n        ser.write(b\":OUTP OFF\\n\")  # Close output from Instrument\n\n    # Close Serial Communication\n    ser.close()\n\n    return OrderedPair(x=voltages, y=np.array(currents_neg))\n"
+}

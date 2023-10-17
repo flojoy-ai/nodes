@@ -1,0 +1,38 @@
+{
+  "description": "Note that \"unchanged\" will leave the settings unchanged.\n\nRequires a CONNECTION_MDO3XXX node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "parameters": [
+    {
+      "name": "connection",
+      "type": "VisaConnection",
+      "description": "The VISA address (requires the CONNECTION_MDO3XXX node)."
+    },
+    {
+      "name": "query_set",
+      "type": "str",
+      "description": "Whether to query or set the triggering channel."
+    },
+    {
+      "name": "edge_couplings",
+      "type": "str",
+      "description": "Set the trigger edge coupling type."
+    },
+    {
+      "name": "trigger_types",
+      "type": "str",
+      "description": "Set to trigger on edge, logic, or pulses."
+    },
+    {
+      "name": "edge_slope",
+      "type": "str",
+      "description": "Set to trigger on positive, negative, or either slopes."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "TextBlob: Summary of trigger settings."
+    }
+  ],
+  "code": "from flojoy import flojoy, DataContainer, TextBlob, VisaConnection\nfrom typing import Optional, Literal\n\n\n@flojoy(inject_connection=True)\ndef TRIGGER_SETTINGS_MDO3XXX(\n    connection: VisaConnection,\n    query_set: Literal[\"query\", \"set\"] = \"query\",\n    edge_couplings: Literal[\n        \"unchanged\", \"ac\", \"dc\", \"hfrej\", \"lfrej\", \"noiserej\"\n    ] = \"unchanged\",\n    trigger_types: Literal[\"unchanged\", \"edge\", \"logic\", \"pulse\"] = \"unchanged\",\n    edge_slope: Literal[\"unchanged\", \"rise\", \"fall\", \"either\"] = \"unchanged\",\n    default: Optional[DataContainer] = None,\n) -> TextBlob:\n    \"\"\"The TRIGGER_SETTINGS_MDO3XXX node sets advanced trigger settings.\n\n    Note that \"unchanged\" will leave the settings unchanged.\n\n    Requires a CONNECTION_MDO3XXX node at the start of the app to connect with\n    the instrument. The VISA address will then be listed under 'connection'.\n\n    This node should also work with compatible Tektronix scopes (untested):\n    MDO4xxx, MSO4xxx, and DPO4xxx.\n\n    Parameters\n    ----------\n    connection: VisaConnection\n        The VISA address (requires the CONNECTION_MDO3XXX node).\n    query_set: str\n        Whether to query or set the triggering channel.\n    edge_couplings: str\n        Set the trigger edge coupling type.\n    trigger_types: str\n        Set to trigger on edge, logic, or pulses.\n    edge_slope: str\n        Set to trigger on positive, negative, or either slopes.\n\n    Returns\n    -------\n    DataContainer\n        TextBlob: Summary of trigger settings.\n    \"\"\"\n\n    tek = connection.get_handle()\n\n    match query_set:\n        case \"query\":\n            edge_couplings = tek.trigger.edge_coupling()\n            trigger_types = tek.trigger.type()\n            edge_slope = tek.trigger.edge_slope()\n\n        case \"set\":\n            if edge_couplings != \"unchanged\":\n                edge_couplings = tek.trigger.edge_coupling()\n            if trigger_types != \"unchanged\":\n                tek.trigger.type(trigger_types)\n            if edge_slope != \"unchanged\":\n                tek.trigger.edge_slope(edge_slope)\n\n    s = str(\n        f\"Edge coupling: {edge_couplings},\\n\"\n        f\"Trigger type: {trigger_types},\\n\"\n        f\"Edge slope: {edge_slope}\"\n    )\n\n    return TextBlob(text_blob=s)\n"
+}

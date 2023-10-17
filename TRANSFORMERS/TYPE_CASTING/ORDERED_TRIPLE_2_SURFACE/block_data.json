@@ -1,0 +1,12 @@
+{
+  "description": "It then reshapes the z array into a 2D grid using the unique values of x and y.\n\nThe resulting 2D grid is used to create a Surface object with corresponding x, y, and z values.\n\nInputs\n------\ndefault : OrderedTriple\n    The input OrderedTriple to which we apply the conversion to.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Surface",
+      "description": "The surface result from the conversion of the input."
+    }
+  ],
+  "code": "from flojoy import flojoy, OrderedTriple, Surface\nimport numpy as np\n\n\n@flojoy\ndef ORDERED_TRIPLE_2_SURFACE(default: OrderedTriple) -> Surface:\n    \"\"\"The ORDERED_TRIPLE_2_SURFACE node takes an \"OrderedTriple\" instance of the DataContainer class that contains three arrays: x, y, and z.\n\n    It then reshapes the z array into a 2D grid using the unique values of x and y.\n\n    The resulting 2D grid is used to create a Surface object with corresponding x, y, and z values.\n\n    Inputs\n    ------\n    default : OrderedTriple\n        The input OrderedTriple to which we apply the conversion to.\n\n    Returns\n    -------\n    Surface\n        The surface result from the conversion of the input.\n    \"\"\"\n\n    x = np.unique(default.x)\n    y = np.unique(default.y)\n\n    z_size = len(x) * len(y)\n\n    # Truncate or pad the z array to match the desired size\n    if z_size > len(default.z):\n        z = np.pad(default.z, (0, z_size - len(default.z)), mode=\"constant\").reshape(\n            len(y), len(x)\n        )\n    else:\n        z = default.z[:z_size].reshape(len(y), len(x))\n\n    X, Y = np.meshgrid(x, y)\n    return Surface(x=X, y=Y, z=z)\n"
+}

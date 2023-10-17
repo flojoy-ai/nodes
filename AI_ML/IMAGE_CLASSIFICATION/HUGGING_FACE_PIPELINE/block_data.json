@@ -1,0 +1,28 @@
+{
+  "description": "For more information about Vision Transformers,\nsee: https://huggingface.co/google/vit-base-patch16-224\n\nFor a complete list of models, see:\nhttps://huggingface.co/models?pipeline_tag=image-classification\n\nFor examples of how revision parameters (such as 'main') is used,\nsee: https://huggingface.co/google/vit-base-patch16-224/commits/main",
+  "parameters": [
+    {
+      "name": "default",
+      "type": "Image",
+      "description": "The input image to be classified.\nThe image must be a PIL.Image object, wrapped in a Flojoy Image object."
+    },
+    {
+      "name": "model",
+      "type": "str",
+      "description": "The model to be used for classification.\nIf not specified, Vision Transformers (i.e. 'google/vit-base-patch16-224') are used."
+    },
+    {
+      "name": "revision",
+      "type": "str",
+      "description": "The revision of the model to be used for classification.\nIf not specified, 'main' is used."
+    }
+  ],
+  "returns": [
+    {
+      "name": "DataFrame",
+      "type": "",
+      "description": "A DataFrame containing the columns 'label' (as classification label)\nand 'score' (as the confidence score).\nAll scores are between 0 and 1, and sum to 1."
+    }
+  ],
+  "code": "from flojoy import flojoy, run_in_venv, Image, DataFrame\n\n\n@flojoy\n@run_in_venv(\n    pip_dependencies=[\n        \"transformers~=4.30.2\",\n        \"torch~=2.0.1\",\n        \"Pillow\",\n        \"numpy\",\n        \"pandas\",\n    ],\n    verbose=True,\n)\ndef HUGGING_FACE_PIPELINE(\n    default: Image,\n    model: str = \"google/vit-base-patch16-224\",\n    revision: str = \"main\",\n) -> DataFrame:\n    \"\"\"The HUGGING_FACE_PIPELINE node uses a classification pipeline to process and classify an image.\n\n    For more information about Vision Transformers,\n    see: https://huggingface.co/google/vit-base-patch16-224\n\n    For a complete list of models, see:\n    https://huggingface.co/models?pipeline_tag=image-classification\n\n    For examples of how revision parameters (such as 'main') is used,\n    see: https://huggingface.co/google/vit-base-patch16-224/commits/main\n\n    Parameters\n    ----------\n    default : Image\n        The input image to be classified.\n        The image must be a PIL.Image object, wrapped in a Flojoy Image object.\n    model : str\n        The model to be used for classification.\n        If not specified, Vision Transformers (i.e. 'google/vit-base-patch16-224') are used.\n    revision : str\n        The revision of the model to be used for classification.\n        If not specified, 'main' is used.\n\n    Returns\n    -------\n    DataFrame:\n        A DataFrame containing the columns 'label' (as classification label)\n        and 'score' (as the confidence score).\n        All scores are between 0 and 1, and sum to 1.\n    \"\"\"\n\n    import os\n    import numpy as np\n    import pandas as pd\n    import PIL.Image as PILImage\n    from flojoy.utils import FLOJOY_CACHE_DIR\n    from typing import List, Dict\n\n    # Setting transformers cache directory to flojoy cache directory before importing transformers\n    # not to pollute the user's cache directory.\n    os.environ[\"TRANSFORMERS_CACHE\"] = os.path.join(FLOJOY_CACHE_DIR, \"transformers\")\n    from transformers import pipeline\n\n    # Using Vision Transformer, a general purpose vision model.\n    # See: https://huggingface.co/google/vit-base-patch16-224\n    # Lists of revisions: https://huggingface.co/google/vit-base-patch16-224/commits/main\n    # TODO: find a way to set the revision and model name as parameters.\n    pipeline = pipeline(\"image-classification\", model=model, revision=revision)\n\n    # Convert input image\n    input_image = default\n    r, g, b, a = input_image.r, input_image.g, input_image.b, input_image.a\n    image_as_nparray = (\n        np.stack((r, g, b, a), axis=2) if a is not None else np.stack((r, g, b), axis=2)\n    )\n    input_image = PILImage.fromarray(image_as_nparray)\n\n    # List of dict of classification labels and confidence scores\n    # See: https://huggingface.co/docs/transformers/main_classes/pipelines#transformers.ImageClassificationPipeline.example\n    classification_confidence_scores: List[Dict[str, float]] = pipeline(input_image)\n\n    df_classification_confidence_scores = DataFrame(\n        pd.DataFrame(classification_confidence_scores, columns=[\"label\", \"score\"])\n    )\n    return df_classification_confidence_scores\n"
+}

@@ -1,0 +1,18 @@
+{
+  "description": "If a Scalar input is provided, the Scalar is returned with the timestamp as an OrderedPair.\n\nInputs\n------\ndefault : Scalar\n    A value to timestamp",
+  "parameters": [
+    {
+      "name": "dc_type",
+      "type": "select",
+      "description": "The type of DataContainer to return."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Scalar|Vector|OrderedPair",
+      "description": null
+    }
+  ],
+  "code": "import time\nimport datetime\nfrom flojoy import flojoy, Scalar, Vector, OrderedPair\nfrom typing import Optional, Literal\n\n\n@flojoy\ndef UNIX_TIMESTAMP(\n    default: Optional[Scalar] = None,\n    dc_type: Literal[\"Scalar\", \"Vector\"] = \"Scalar\",\n) -> Scalar | Vector | OrderedPair:\n    \"\"\"Return the current UNIX timestamp as a float (Scalar) or array (Vector) with length equal to 1.\n\n    If a Scalar input is provided, the Scalar is returned with the timestamp as an OrderedPair.\n\n    Inputs\n    ------\n    default : Scalar\n        A value to timestamp\n\n    Parameters\n    ----------\n    dc_type : select\n        The type of DataContainer to return.\n\n    Returns\n    -------\n    Scalar|Vector|OrderedPair\n    \"\"\"\n\n    unix_timestamp = time.mktime(datetime.datetime.now().timetuple())\n\n    if default is not None:\n        return OrderedPair(x=[unix_timestamp], y=[default.c])\n\n    match dc_type:\n        case \"Scalar\":\n            return Scalar(c=unix_timestamp)\n        case \"Vector\":\n            return Vector(v=[unix_timestamp])\n"
+}

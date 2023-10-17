@@ -1,0 +1,12 @@
+{
+  "description": "into a single vector type by interleaving their elements\n\nInputs\n------\ndefault : Vector\n    The input vector",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Vector",
+      "description": "Decimated vector"
+    }
+  ],
+  "code": "from numpy import stack\nfrom flojoy import flojoy, Vector\n\n\n@flojoy\ndef INTERLEAVE_VECTOR(\n    default: Vector,\n    a: list[Vector],\n) -> Vector:\n    \"\"\"The INTERLEAVE_VECTOR node combine multiple vectors\n    into a single vector type by interleaving their elements\n\n    Inputs\n    ------\n    default : Vector\n        The input vector\n\n    Returns\n    -------\n    Vector\n        Decimated vector\n    \"\"\"\n    interleavedVectors = [default.v]\n\n    for i in range(len(a)):\n        interleavedVectors = interleavedVectors + [a[i].v]\n\n    interleavedVector = stack(interleavedVectors)\n    interleavedVector = interleavedVector.T.flatten()\n\n    return Vector(v=interleavedVector)\n"
+}

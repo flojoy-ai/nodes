@@ -1,0 +1,38 @@
+{
+  "description": "The description of that function is as follows:\n\n    Compute the sample skewness of a dataset.\n\n    For normally distributed data, the skewness should be about zero. \n    For unimodal continuous distributions, a skewness value greater than zero means that there is more weight in the right tail of the distribution.         The function 'skewtest' can be used to determine if the skewness value is close enough to zero, statistically speaking.",
+  "parameters": [
+    {
+      "name": "a",
+      "type": "ndarray",
+      "description": "Input array."
+    },
+    {
+      "name": "axis",
+      "type": "int ",
+      "description": "Default = 0.\nIf an int, the axis of the input along which to compute the statistic.\nThe statistic of each axis-slice (e.g. row) of the input will appear in a\ncorresponding element of the output.\nIf None, the input will be raveled before computing the statistic."
+    },
+    {
+      "name": "bias",
+      "type": "bool",
+      "description": "If False, then the calculations are corrected for statistical bias."
+    },
+    {
+      "name": "nan_policy",
+      "type": "{'propagate', 'omit', 'raise'}",
+      "description": "Defines how to handle input NaNs.\n- propagate : if a NaN is present in the axis slice (e.g. row) along\nwhich the statistic is computed, the corresponding entry of the output\nwill be NaN.\n- omit : NaNs will be omitted when performing the calculation.\nIf insufficient data remains in the axis slice along which the\nstatistic is computed, the corresponding entry of the output will be NaN.\n- raise : if a NaN is present, a ValueError will be raised."
+    },
+    {
+      "name": "keepdims",
+      "type": "bool, default: False",
+      "description": "If this is set to True, the axes which are reduced are left\nin the result as dimensions with size one. With this option,\nthe result will broadcast correctly against the input array."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "type 'ordered pair', 'scalar', or 'matrix'"
+    }
+  ],
+  "code": "from flojoy import OrderedPair, flojoy, Matrix, Scalar\nimport numpy as np\nfrom collections import namedtuple\nfrom typing import Literal\n\nimport scipy.stats\n\n\n@flojoy\ndef SKEW(\n    default: OrderedPair | Matrix,\n    axis: int = 0,\n    bias: bool = True,\n    nan_policy: str = \"propagate\",\n    keepdims: bool = False,\n) -> OrderedPair | Matrix | Scalar:\n    \"\"\"The SKEW node is based on a numpy or scipy function.\n\n    The description of that function is as follows:\n\n        Compute the sample skewness of a dataset.\n\n        For normally distributed data, the skewness should be about zero. \n        For unimodal continuous distributions, a skewness value greater than zero means that there is more weight in the right tail of the distribution. \\\n        The function 'skewtest' can be used to determine if the skewness value is close enough to zero, statistically speaking.\n\n    Parameters\n    ----------\n    a : ndarray\n        Input array.\n    axis : int \n        Default = 0.\n        If an int, the axis of the input along which to compute the statistic.\n        The statistic of each axis-slice (e.g. row) of the input will appear in a\n        corresponding element of the output.\n        If None, the input will be raveled before computing the statistic.\n    bias : bool, optional\n        If False, then the calculations are corrected for statistical bias.\n    nan_policy : {'propagate', 'omit', 'raise'}\n        Defines how to handle input NaNs.\n        - propagate : if a NaN is present in the axis slice (e.g. row) along\n        which the statistic is computed, the corresponding entry of the output\n        will be NaN.\n        - omit : NaNs will be omitted when performing the calculation.\n        If insufficient data remains in the axis slice along which the\n        statistic is computed, the corresponding entry of the output will be NaN.\n        - raise : if a NaN is present, a ValueError will be raised.\n    keepdims : bool, default: False\n        If this is set to True, the axes which are reduced are left\n        in the result as dimensions with size one. With this option,\n        the result will broadcast correctly against the input array.\n\n    Returns\n    -------\n    DataContainer\n        type 'ordered pair', 'scalar', or 'matrix'\n    \"\"\"\n\n    result = scipy.stats.skew(\n        a=default.y,\n        axis=axis,\n        bias=bias,\n        nan_policy=nan_policy,\n        keepdims=keepdims,\n    )\n\n    if isinstance(result, np.ndarray):\n        result = OrderedPair(x=default.x, y=result)\n    else:\n        assert isinstance(\n            result, np.number | float | int\n        ), f\"Expected np.number, float or int for result, got {type(result)}\"\n        result = Scalar(c=float(result))\n\n    return result\n"
+}

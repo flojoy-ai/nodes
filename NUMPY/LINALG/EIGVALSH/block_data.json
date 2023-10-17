@@ -1,0 +1,23 @@
+{
+  "description": "The description of that function is as follows:\n\n    Compute the eigenvalues of a complex Hermitian or real symmetric matrix.\n\nMain difference from eigh: the eigenvectors are not computed.",
+  "parameters": [
+    {
+      "name": "a",
+      "type": "(..., M, M) array_like",
+      "description": "A complex- or real-valued matrix whose eigenvalues are to be computed."
+    },
+    {
+      "name": "UPLO",
+      "type": "{'L', 'U'}",
+      "description": "Specifies whether the calculation is done with the lower triangular\npart of 'a' ('L', default) or the upper triangular part ('U').\nIrrespective of this value, only the real parts of the diagonal will\nbe considered in the computation to preserve the notion of a Hermitian matrix.\nIt therefore follows that the imaginary part of the diagonal will always\nbe treated as zero."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "type 'ordered pair', 'scalar', or 'matrix'"
+    }
+  ],
+  "code": "from flojoy import flojoy, Matrix, Scalar\nimport numpy as np\nfrom collections import namedtuple\nfrom typing import Literal\n\nimport numpy.linalg\n\n\n@flojoy\ndef EIGVALSH(\n    default: Matrix,\n    UPLO: str = \"L\",\n) -> Matrix | Scalar:\n    \"\"\"The EIGVALSH node is based on a numpy or scipy function.\n\n    The description of that function is as follows:\n\n        Compute the eigenvalues of a complex Hermitian or real symmetric matrix.\n\n    Main difference from eigh: the eigenvectors are not computed.\n\n    Parameters\n    ----------\n    a : (..., M, M) array_like\n        A complex- or real-valued matrix whose eigenvalues are to be computed.\n    UPLO : {'L', 'U'}, optional\n        Specifies whether the calculation is done with the lower triangular\n        part of 'a' ('L', default) or the upper triangular part ('U').\n        Irrespective of this value, only the real parts of the diagonal will\n        be considered in the computation to preserve the notion of a Hermitian matrix.\n        It therefore follows that the imaginary part of the diagonal will always\n        be treated as zero.\n\n    Returns\n    -------\n    DataContainer\n        type 'ordered pair', 'scalar', or 'matrix'\n    \"\"\"\n\n    result = numpy.linalg.eigvalsh(\n        a=default.m,\n        UPLO=UPLO,\n    )\n\n    if isinstance(result, np.ndarray):\n        result = Matrix(m=result)\n    else:\n        assert isinstance(\n            result, np.number | float | int\n        ), f\"Expected np.number, float or int for result, got {type(result)}\"\n        result = Scalar(c=float(result))\n\n    return result\n"
+}

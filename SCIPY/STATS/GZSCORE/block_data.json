@@ -1,0 +1,33 @@
+{
+  "description": "The description of that function is as follows:\n\n    Compute the geometric standard score.\n\n    Compute the geometric z score of each strictly positive value in the sample, relative to the geometric mean and standard deviation.\n\n    Mathematically the geometric z score can be evaluated as::\n\n        gzscore = log(a/gmu) / log(gsigma)\n\n        where ``gmu`` (resp. ``gsigma``) is the geometric mean (resp. standard\n        deviation).",
+  "parameters": [
+    {
+      "name": "a",
+      "type": "array_like",
+      "description": "Sample data."
+    },
+    {
+      "name": "axis",
+      "type": "int or None",
+      "description": "Axis along which to operate.\nDefault is 0.\nIf None, compute over the whole array 'a'."
+    },
+    {
+      "name": "ddof",
+      "type": "int",
+      "description": "Degrees of freedom correction in the calculation of the standard deviation.\nDefault is 0."
+    },
+    {
+      "name": "nan_policy",
+      "type": "{'propagate', 'raise', 'omit'}",
+      "description": "Defines how to handle when input contains nan. 'propagate' returns nan,\n'raise' throws an error, 'omit' performs the calculations ignoring nan values.\nDefault is 'propagate'.\nNote that when the value is 'omit', nans in the input also propagate to the output,\nbut they do not affect the geometric z scores computed for the non-nan values."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "type 'ordered pair', 'scalar', or 'matrix'"
+    }
+  ],
+  "code": "from flojoy import OrderedPair, flojoy, Matrix, Scalar\nimport numpy as np\nfrom collections import namedtuple\nfrom typing import Literal\n\nimport scipy.stats\n\n\n@flojoy\ndef GZSCORE(\n    default: OrderedPair | Matrix,\n    axis: int = 0,\n    ddof: int = 0,\n    nan_policy: str = \"propagate\",\n) -> OrderedPair | Matrix | Scalar:\n    \"\"\"The GZSCORE node is based on a numpy or scipy function.\n\n    The description of that function is as follows:\n\n        Compute the geometric standard score.\n\n        Compute the geometric z score of each strictly positive value in the sample, relative to the geometric mean and standard deviation.\n\n        Mathematically the geometric z score can be evaluated as::\n\n            gzscore = log(a/gmu) / log(gsigma)\n\n            where ``gmu`` (resp. ``gsigma``) is the geometric mean (resp. standard\n            deviation).\n\n    Parameters\n    ----------\n    a : array_like\n        Sample data.\n    axis : int or None, optional\n        Axis along which to operate.\n        Default is 0.\n        If None, compute over the whole array 'a'.\n    ddof : int, optional\n        Degrees of freedom correction in the calculation of the standard deviation.\n        Default is 0.\n    nan_policy : {'propagate', 'raise', 'omit'}, optional\n        Defines how to handle when input contains nan. 'propagate' returns nan,\n        'raise' throws an error, 'omit' performs the calculations ignoring nan values.\n        Default is 'propagate'.\n        Note that when the value is 'omit', nans in the input also propagate to the output,\n        but they do not affect the geometric z scores computed for the non-nan values.\n\n    Returns\n    -------\n    DataContainer\n        type 'ordered pair', 'scalar', or 'matrix'\n    \"\"\"\n\n    result = scipy.stats.gzscore(\n        a=default.y,\n        axis=axis,\n        ddof=ddof,\n        nan_policy=nan_policy,\n    )\n\n    if isinstance(result, np.ndarray):\n        result = OrderedPair(x=default.x, y=result)\n    else:\n        assert isinstance(\n            result, np.number | float | int\n        ), f\"Expected np.number, float or int for result, got {type(result)}\"\n        result = Scalar(c=float(result))\n\n    return result\n"
+}

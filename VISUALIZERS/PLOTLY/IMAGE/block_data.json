@@ -1,0 +1,12 @@
+{
+  "description": "Inputs\n------\ndefault : Image\n    the DataContainer to be visualized",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Plotly",
+      "description": "the DataContainer containing the Plotly Image visualization of the input image"
+    }
+  ],
+  "code": "from flojoy import flojoy, Image, Plotly, Grayscale\nimport plotly.express as px\nimport numpy as np\nfrom nodes.VISUALIZERS.template import plot_layout\n\n\n@flojoy\ndef IMAGE(default: Image | Grayscale) -> Plotly:\n    \"\"\"The IMAGE node creates a Plotly Image visualization for a given input DataContainer type of image.\n\n    Inputs\n    ------\n    default : Image\n        the DataContainer to be visualized\n\n    Returns\n    -------\n    Plotly\n        the DataContainer containing the Plotly Image visualization of the input image\n    \"\"\"\n\n    layout = plot_layout(title=\"IMAGE\")\n\n    if isinstance(default, Image):\n        r = default.r\n        g = default.g\n        b = default.b\n        a = default.a\n\n        if a is None:\n            img_combined = np.stack((r, g, b), axis=2)\n        else:\n            img_combined = np.stack((r, g, b, a), axis=2)\n        fig = px.imshow(img=img_combined)\n\n    else:\n        img = default.m\n        rgb_image = np.zeros(\n            (*img.shape, 3), dtype=np.uint8\n        )  # only generated for plotting\n        rgb_image[..., 0] = img * 255  # Red channel\n        rgb_image[..., 1] = img * 255  # Green channel\n        rgb_image[..., 2] = img * 255  # Blue channel\n        fig = px.imshow(img=rgb_image)\n\n    fig.layout = layout\n\n    return Plotly(fig=fig)\n"
+}

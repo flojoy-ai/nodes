@@ -1,0 +1,23 @@
+{
+  "description": "Inputs\n------\nv : Vector\n    The input vector to return subset of values from",
+  "parameters": [
+    {
+      "name": "indices",
+      "type": "Array",
+      "description": "specified indices to extract values at from the input vector"
+    },
+    {
+      "name": "length",
+      "type": "int",
+      "description": "number of elements to extract from the input vector, default is 1 (this only applies when one index is specified for indices parameter)"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Vector",
+      "description": "The new vector with subset of elements extracted from the input vector"
+    }
+  ],
+  "code": "from numpy import any, array, arange, take\nfrom flojoy import flojoy, Vector, Array\n\n\n@flojoy\ndef VECTOR_SUBSET(default: Vector, indices: Array, length: int = 1) -> Vector:\n    \"\"\"The VECTOR_SUBSET node returns the subset of values from requested indices\n    Inputs\n    ------\n    v : Vector\n        The input vector to return subset of values from\n\n    Parameters\n    ----------\n    indices: Array\n        specified indices to extract values at from the input vector\n\n    length: int\n        number of elements to extract from the input vector, default is 1 (this only applies when one index is specified for indices parameter)\n\n    Returns\n    -------\n    Vector\n        The new vector with subset of elements extracted from the input vector\n    \"\"\"\n\n    # unwrap the indices first\n    indices = array(indices.unwrap(), dtype=int)\n\n    assert len(default.v) > len(\n        indices\n    ), \"The length of indices parameter must be less than the length of the Vector.\"\n    assert any(indices >= 0), \"The indices must be greater than zero.\"\n\n    if len(indices) == 1:\n        assert (indices[0] + (length - 1)) < len(\n            default.v\n        ), \"The length of items to delete starting from index parameter must not exceed the length of the Vector.\"\n\n    if len(indices) > 1:\n        v = take(default.v, indices)\n    else:\n        indices = arange(indices[0], length)\n        v = take(default.v, indices)\n    return Vector(v=v)\n"
+}

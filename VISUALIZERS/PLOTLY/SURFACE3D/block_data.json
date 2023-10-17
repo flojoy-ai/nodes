@@ -1,0 +1,12 @@
+{
+  "description": "Inputs\n------\ndefault : OrderedTriple|DataFrame|Surface|Matrix\n    the DataContainer to be visualized",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Plotly",
+      "description": "the DataContainer containing the Plotly 3D Surface visualization"
+    }
+  ],
+  "code": "import plotly.graph_objects as go  # type:ignore\nfrom flojoy import Plotly, OrderedTriple, DataFrame, flojoy, Surface, Matrix\nfrom nodes.VISUALIZERS.template import plot_layout\nimport numpy as np\n\n\n@flojoy\ndef SURFACE3D(default: OrderedTriple | DataFrame | Surface | Matrix) -> Plotly:\n    \"\"\"The SURFACE3D node creates a Plotly 3D Surface visualization for a given input DataContainer.\n\n    Inputs\n    ------\n    default : OrderedTriple|DataFrame|Surface|Matrix\n        the DataContainer to be visualized\n\n    Returns\n    -------\n    Plotly\n        the DataContainer containing the Plotly 3D Surface visualization\n\n    \"\"\"\n\n    layout = plot_layout(title=\"SURFACE3D\")\n\n    match default:\n        case OrderedTriple():\n            x = np.unique(default.x)\n            y = np.unique(default.y)\n\n            z_size = len(x) * len(y)\n\n            # Truncate or pad the z array to match the desired size\n            if z_size > len(default.z):\n                z = np.pad(\n                    default.z, (0, z_size - len(default.z)), mode=\"constant\"\n                ).reshape(len(y), len(x))\n            else:\n                z = default.z[:z_size].reshape(len(y), len(x))\n\n            X, Y = np.meshgrid(x, y)\n            if z.ndim < 2:\n                num_columns = len(z) // 2\n                z = np.reshape(z, (2, num_columns))\n            fig = go.Figure(\n                data=[go.Surface(x=X, y=Y, z=z)],\n                layout=layout,\n            )\n        case Surface():\n            x = default.x\n            y = default.y\n            z = default.z\n            fig = go.Figure(data=[go.Surface(x=x, y=y, z=z)], layout=layout)\n        case Matrix():\n            m = default.m\n            if m.ndim < 2:\n                num_columns = len(m) // 2\n                m = np.reshape(m, (2, num_columns))\n            fig = go.Figure(data=[go.Surface(z=m)], layout=layout)\n        case DataFrame():\n            df = default.m\n            fig = go.Figure(data=[go.Surface(z=df.values)], layout=layout)\n\n    return Plotly(fig=fig)\n"
+}

@@ -1,0 +1,33 @@
+{
+  "description": "Inputs\n------\ndefault : OrderedPair|Scalar|Vector\n    the DataContainer to be visualized",
+  "parameters": [
+    {
+      "name": "relative_delta",
+      "type": "bool",
+      "description": "whether or not to show the relative delta from the last run along with big number"
+    },
+    {
+      "name": "suffix",
+      "type": "str",
+      "description": "any suffix to show with big number"
+    },
+    {
+      "name": "prefix",
+      "type": "str",
+      "description": "any prefix to show with big number"
+    },
+    {
+      "name": "title",
+      "type": "str",
+      "description": "title of the plot, default = \"BIG_NUMBER\""
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Plotly",
+      "description": "the DataContainer containing the Plotly big number visualization"
+    }
+  ],
+  "code": "from flojoy import (\n    flojoy,\n    Plotly,\n    OrderedPair,\n    DefaultParams,\n    SmallMemory,\n    Scalar,\n    Vector,\n)\nfrom typing import cast\nimport plotly.graph_objects as go\nfrom nodes.VISUALIZERS.template import plot_layout\n\nMEMORY_KEY = \"BIG_NUMBER_MEMORY_KEY\"\n\n\n@flojoy(inject_node_metadata=True)\ndef BIG_NUMBER(\n    default: OrderedPair | Scalar | Vector,\n    default_params: DefaultParams,\n    suffix: str,\n    prefix: str,\n    title: str,\n    relative_delta: bool = True,\n    scientific_notation: bool = False,\n) -> Plotly:\n    \"\"\"The BIG_NUMBER node generates a Plotly figure, displaying a big number with an optional prefix and suffix.\n\n    Inputs\n    ------\n    default : OrderedPair|Scalar|Vector\n        the DataContainer to be visualized\n\n    Parameters\n    ----------\n    relative_delta : bool\n        whether or not to show the relative delta from the last run along with big number\n    suffix : str\n        any suffix to show with big number\n    prefix : str\n        any prefix to show with big number\n    title : str\n        title of the plot, default = \"BIG_NUMBER\"\n\n    Returns\n    -------\n    Plotly\n        the DataContainer containing the Plotly big number visualization\n    \"\"\"\n\n    job_id = default_params.job_id\n    node_name = __name__.split(\".\")[-1]\n    layout = plot_layout(title=title if title else node_name)\n    fig = go.Figure(layout=layout)\n\n    prev_num = cast(str, SmallMemory().read_memory(job_id, MEMORY_KEY))\n    match default:\n        case OrderedPair():\n            big_num = default.y[-1]\n        case Scalar():\n            big_num = default.c\n        case Vector():\n            big_num = default.v[-1]\n        case _:\n            raise ValueError(f\"Invalid input type {type(default)} for node {node_name}\")\n\n    delta_val_format = \".1%\" if relative_delta is True else \".1f\"\n    val_format = \"%g\" if scientific_notation is False else \".4e\"\n\n    fig.add_trace(\n        go.Indicator(\n            mode=\"number+delta\",\n            value=big_num,\n            domain={\"y\": [0, 1], \"x\": [0, 1]},\n            number={\"prefix\": prefix, \"suffix\": suffix, \"valueformat\": val_format},\n            delta=None\n            if prev_num is None\n            else {\n                \"reference\": float(prev_num),\n                \"relative\": relative_delta,\n                \"valueformat\": delta_val_format,\n            },\n        )\n    )\n    SmallMemory().write_to_memory(job_id, MEMORY_KEY, str(float(big_num)))\n\n    return Plotly(fig=fig)\n"
+}

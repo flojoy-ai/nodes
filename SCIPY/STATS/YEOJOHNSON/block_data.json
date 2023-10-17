@@ -1,0 +1,23 @@
+{
+  "description": "The description of that function is as follows:\n\n    Return a dataset transformed by a Yeo-Johnson power transformation.",
+  "parameters": [
+    {
+      "name": "x",
+      "type": "ndarray",
+      "description": "Input array.\nShould be 1-dimensional."
+    },
+    {
+      "name": "lmbda",
+      "type": "float",
+      "description": "If 'lmbda' is 'None', find the lambda that maximizes the\nlog-likelihood function and return it as the second output argument.\nOtherwise the transformation is done for the given value."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "type 'ordered pair', 'scalar', or 'matrix'"
+    }
+  ],
+  "code": "from flojoy import OrderedPair, flojoy, Matrix, Scalar\nimport numpy as np\nfrom collections import namedtuple\nfrom typing import Literal\n\nimport scipy.stats\n\n\n@flojoy\ndef YEOJOHNSON(\n    default: OrderedPair | Matrix,\n    lmbda: float = 0.1,\n) -> OrderedPair | Matrix | Scalar:\n    \"\"\"The YEOJOHNSON node is based on a numpy or scipy function.\n\n    The description of that function is as follows:\n\n        Return a dataset transformed by a Yeo-Johnson power transformation.\n\n    Parameters\n    ----------\n    x : ndarray\n        Input array.\n        Should be 1-dimensional.\n    lmbda : float, optional\n        If 'lmbda' is 'None', find the lambda that maximizes the\n        log-likelihood function and return it as the second output argument.\n        Otherwise the transformation is done for the given value.\n\n    Returns\n    -------\n    DataContainer\n        type 'ordered pair', 'scalar', or 'matrix'\n    \"\"\"\n\n    result = scipy.stats.yeojohnson(\n        x=default.y,\n        lmbda=lmbda,\n    )\n\n    if isinstance(result, np.ndarray):\n        result = OrderedPair(x=default.x, y=result)\n    else:\n        assert isinstance(\n            result, np.number | float | int\n        ), f\"Expected np.number, float or int for result, got {type(result)}\"\n        result = Scalar(c=float(result))\n\n    return result\n"
+}

@@ -1,0 +1,38 @@
+{
+  "description": "The description of that function is as follows:\n\n    Compute the trimmed minimum.\n\n    This function finds the miminum value of an array 'a' along the specified axis, but only considering values greater than a specified lower limit.",
+  "parameters": [
+    {
+      "name": "a",
+      "type": "array_like",
+      "description": "Array of values."
+    },
+    {
+      "name": "lowerlimit",
+      "type": "None or float",
+      "description": "Values in the input array less than the given limit will be ignored.\nWhen lowerlimit is None, then all values are used.\nThe default value is None."
+    },
+    {
+      "name": "axis",
+      "type": "int or None",
+      "description": "Axis along which to operate.\nDefault is 0.\nIf None, compute over the whole array 'a'."
+    },
+    {
+      "name": "inclusive",
+      "type": "{True, False}",
+      "description": "This flag determines whether values exactly equal to the lower limit are included.\nThe default value is True."
+    },
+    {
+      "name": "nan_policy",
+      "type": "{'propagate', 'raise', 'omit'}",
+      "description": "Defines how to handle when input contains nan.\nThe following options are available (default is 'propagate'):\n'propagate' : returns nan\n'raise' : raises an error\n'omit' : performs the calculations ignoring nan values"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "type 'ordered pair', 'scalar', or 'matrix'"
+    }
+  ],
+  "code": "from flojoy import OrderedPair, flojoy, Matrix, Scalar\nimport numpy as np\nfrom collections import namedtuple\nfrom typing import Literal\n\nimport scipy.stats\n\n\n@flojoy\ndef TMIN(\n    default: OrderedPair | Matrix,\n    lowerlimit: float = 0.1,\n    axis: int = 0,\n    inclusive: bool = True,\n    nan_policy: str = \"propagate\",\n) -> OrderedPair | Matrix | Scalar:\n    \"\"\"The TMIN node is based on a numpy or scipy function.\n\n    The description of that function is as follows:\n\n        Compute the trimmed minimum.\n\n        This function finds the miminum value of an array 'a' along the specified axis, but only considering values greater than a specified lower limit.\n\n    Parameters\n    ----------\n    a : array_like\n        Array of values.\n    lowerlimit : None or float, optional\n        Values in the input array less than the given limit will be ignored.\n        When lowerlimit is None, then all values are used.\n        The default value is None.\n    axis : int or None, optional\n        Axis along which to operate.\n        Default is 0.\n        If None, compute over the whole array 'a'.\n    inclusive : {True, False}, optional\n        This flag determines whether values exactly equal to the lower limit are included.\n        The default value is True.\n    nan_policy : {'propagate', 'raise', 'omit'}, optional\n        Defines how to handle when input contains nan.\n        The following options are available (default is 'propagate'):\n        'propagate' : returns nan\n        'raise' : raises an error\n        'omit' : performs the calculations ignoring nan values\n\n    Returns\n    -------\n    DataContainer\n        type 'ordered pair', 'scalar', or 'matrix'\n    \"\"\"\n\n    result = scipy.stats.tmin(\n        a=default.y,\n        lowerlimit=lowerlimit,\n        axis=axis,\n        inclusive=inclusive,\n        nan_policy=nan_policy,\n    )\n\n    if isinstance(result, np.ndarray):\n        result = OrderedPair(x=default.x, y=result)\n    else:\n        assert isinstance(\n            result, np.number | float | int\n        ), f\"Expected np.number, float or int for result, got {type(result)}\"\n        result = Scalar(c=float(result))\n\n    return result\n"
+}

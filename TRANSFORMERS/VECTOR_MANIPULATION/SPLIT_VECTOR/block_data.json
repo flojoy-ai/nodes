@@ -1,0 +1,18 @@
+{
+  "description": "Inputs\n------\ndefault : Vector\n    The input vector",
+  "parameters": [
+    {
+      "name": "index",
+      "type": "int",
+      "description": "index which you want to split your vector by"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Vector",
+      "description": "Splited input vector"
+    }
+  ],
+  "code": "from numpy.random import permutation\nfrom flojoy import flojoy, Vector\nfrom typing import TypedDict\nfrom sklearn.model_selection import train_test_split\n\n\nclass resultSplit(TypedDict):\n    vector1: Vector\n    vector2: Vector\n\n\n@flojoy\ndef SPLIT_VECTOR(\n    default: Vector,\n    index: int = 0,\n) -> resultSplit:\n    \"\"\"The SPLIT_VECTOR node returns a vector that is splited by a given index\n\n    Inputs\n    ------\n    default : Vector\n        The input vector\n\n    Parameters\n    ----------\n    index : int\n        index which you want to split your vector by\n\n    Returns\n    -------\n    Vector\n        Splited input vector\n    \"\"\"\n    if index > len(default.v) - 1:\n        raise ValueError(f\"Given index is larger than the input vector, index: {index}\")\n\n    return resultSplit(\n        vector1=Vector(default.v[:index]), vector2=Vector(default.v[index:])\n    )\n"
+}

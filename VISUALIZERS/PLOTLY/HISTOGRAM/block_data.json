@@ -1,0 +1,12 @@
+{
+  "description": "Inputs\n------\ndefault : OrderedPair|DataFrame|Matrix|Vector\n    the DataContainer to be visualized",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Plotly",
+      "description": "the DataContainer containing the Plotly Histogram visualization"
+    }
+  ],
+  "code": "import pandas as pd\nimport plotly.graph_objects as go\nfrom flojoy import flojoy, OrderedPair, DataFrame, Matrix, Plotly, Vector\nfrom nodes.VISUALIZERS.template import plot_layout\n\n\n@flojoy\ndef HISTOGRAM(default: OrderedPair | DataFrame | Matrix | Vector) -> Plotly:\n    \"\"\"The HISTOGRAM node creates a Plotly Histogram visualization for a given input DataContainer.\n\n    Inputs\n    ------\n    default : OrderedPair|DataFrame|Matrix|Vector\n        the DataContainer to be visualized\n\n    Returns\n    -------\n    Plotly\n        the DataContainer containing the Plotly Histogram visualization\n    \"\"\"\n\n    layout = plot_layout(title=\"HISTOGRAM\")\n    fig = go.Figure(layout=layout)\n\n    match default:\n        case OrderedPair():\n            y = default.y\n            fig.add_trace(go.Histogram(x=y))\n        case DataFrame():\n            df = pd.DataFrame(default.m)\n            for col in df.columns:\n                fig.add_trace(go.Histogram(x=df[col], name=col))\n\n            fig.update_layout(xaxis_title=\"Value\", yaxis_title=\"Frequency\")\n        case Matrix():\n            m = default.m\n            flattened_matrix = m.flatten()\n            histogram_trace = go.Histogram(x=flattened_matrix)\n            fig = fig.add_trace(histogram_trace)\n        case Vector():\n            v = default.v\n            fig.add_trace(go.Histogram(x=v))\n\n    return Plotly(fig=fig)\n"
+}

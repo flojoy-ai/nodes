@@ -1,0 +1,12 @@
+{
+  "description": "Inputs\n------\nip_address: TextBlob\n    The IP address of the robot arm.\n\nParameters\n------\nv : float\n    The velocity to be set.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "ip_address",
+      "description": "The IP address of the robot arm."
+    }
+  ],
+  "code": "from flojoy import flojoy, TextBlob\nfrom PYTHON.utils.mecademic_state.mecademic_state import query_for_handle\n\n\n@flojoy(deps={\"mecademicpy\": \"1.4.0\"})\ndef SET_CART_LIN_VEL(ip_address: TextBlob, v: float) -> TextBlob:\n    \"\"\"\n    The SET_CART_LIN_VEL node sets the robot arm's linear velocity in Cartesian coordinates.\n\n    Inputs\n    ------\n    ip_address: TextBlob\n        The IP address of the robot arm.\n\n    Parameters\n    ------\n    v : float\n        The velocity to be set.\n\n    Returns\n    -------\n    ip_address\n        The IP address of the robot arm.\n    \"\"\"\n\n    robot = query_for_handle(ip_address)\n    robot.SetCartLinVel(v)\n    return ip_address\n"
+}

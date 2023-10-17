@@ -1,0 +1,18 @@
+{
+  "description": "The description of that function is as follows:\n\n    Cholesky decomposition.\n\n    Return the Cholesky decomposition, \"L * L.H\", of the square matrix \"a\", where \"L\" is lower-triangular and .H is the conjugate transpose operator (which is the ordinary transpose if \"a\" is real-valued).\n\n    \"a\" must be Hermitian (symmetric if real-valued) and positive-definite. No checking is performed to verify whether \"a\" is Hermitian or not.\n\n    In addition, only the lower-triangular and diagonal elements of \"a\" are used. Only \"L\" is actually returned.",
+  "parameters": [
+    {
+      "name": "a",
+      "type": "(..., M, M) array_like",
+      "description": "Hermitian (symmetric if all elements are real), positive-definite input matrix."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "type 'ordered pair', 'scalar', or 'matrix'"
+    }
+  ],
+  "code": "from flojoy import flojoy, Matrix, Scalar\nimport numpy as np\nfrom collections import namedtuple\nfrom typing import Literal\n\nimport numpy.linalg\n\n\n@flojoy\ndef CHOLESKY(\n    default: Matrix,\n) -> Matrix | Scalar:\n    \"\"\"The CHOLESKY node is based on a numpy or scipy function.\n\n    The description of that function is as follows:\n\n        Cholesky decomposition.\n\n        Return the Cholesky decomposition, \"L * L.H\", of the square matrix \"a\", where \"L\" is lower-triangular and .H is the conjugate transpose operator (which is the ordinary transpose if \"a\" is real-valued).\n\n        \"a\" must be Hermitian (symmetric if real-valued) and positive-definite. No checking is performed to verify whether \"a\" is Hermitian or not.\n\n        In addition, only the lower-triangular and diagonal elements of \"a\" are used. Only \"L\" is actually returned.\n\n    Parameters\n    ----------\n    a : (..., M, M) array_like\n        Hermitian (symmetric if all elements are real), positive-definite input matrix.\n\n    Returns\n    -------\n    DataContainer\n        type 'ordered pair', 'scalar', or 'matrix'\n    \"\"\"\n\n    result = numpy.linalg.cholesky(\n        a=default.m,\n    )\n\n    if isinstance(result, np.ndarray):\n        result = Matrix(m=result)\n    else:\n        assert isinstance(\n            result, np.number | float | int\n        ), f\"Expected np.number, float or int for result, got {type(result)}\"\n        result = Scalar(c=float(result))\n\n    return result\n"
+}

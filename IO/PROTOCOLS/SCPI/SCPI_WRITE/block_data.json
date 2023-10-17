@@ -1,0 +1,18 @@
+{
+  "description": "Inputs\n------\ndefault: DataContainer\n    Any DataContainer - likely connected to the output of the OPEN_SERIAL node.",
+  "parameters": [
+    {
+      "name": "connection",
+      "type": "Serial",
+      "description": "The open serial connection with the instrument."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Scalar|TextBlob",
+      "description": "The return value from the bench-top instrument as a Scalar or TextBlob."
+    }
+  ],
+  "code": "import serial\nfrom flojoy import flojoy, SerialConnection, TextBlob, Scalar, DataContainer\nfrom typing import cast, Optional\n\n\n@flojoy(deps={\"pyserial\": \"3.5\"}, inject_connection=True)\ndef SCPI_WRITE(\n    connection: SerialConnection,\n    default: Optional[DataContainer] = None,\n    command: str = \"*IDN?\",\n) -> Scalar | TextBlob:\n    \"\"\"The SCPI_WRITE node writes a SCPI command to a connected bench-top instrument and returns the result.\n\n    Inputs\n    ------\n    default: DataContainer\n        Any DataContainer - likely connected to the output of the OPEN_SERIAL node.\n\n    Parameters\n    ----------\n    connection: Serial\n        The open serial connection with the instrument.\n\n    Returns\n    -------\n    Scalar|TextBlob\n        The return value from the bench-top instrument as a Scalar or TextBlob.\n    \"\"\"\n\n    # Start serial communication with the instrument\n    ser = cast(serial.Serial, connection.get_handle())\n\n    if ser is None:\n        raise ValueError(\"Serial communication is not open\")\n\n    CMD = command + \"\\n\\r\"\n\n    ser.write(CMD.encode())\n\n    resp = ser.readline().decode()\n\n    try:\n        resp = float(resp.rstrip(\"\\n\"))\n    except:\n        return TextBlob(resp)\n\n    return Scalar(resp)\n"
+}

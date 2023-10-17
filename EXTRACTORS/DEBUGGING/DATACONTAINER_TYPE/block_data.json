@@ -1,0 +1,12 @@
+{
+  "description": "Must use the TEXT_VIEW node to view the text.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "TextBlob: Input DataContainer type"
+    }
+  ],
+  "code": "from flojoy import flojoy, DataContainer, TextBlob\n\n\n@flojoy()\ndef DATACONTAINER_TYPE(\n    default: DataContainer,\n) -> TextBlob:\n    \"\"\"The DATACONTAINER_TYPE node returns a TextBlob containing the input DataContainer type (e.g. Vector).\n\n    Must use the TEXT_VIEW node to view the text.\n\n    Returns\n    -------\n    DataContainer\n        TextBlob: Input DataContainer type\n    \"\"\"\n\n    return TextBlob(text_blob=default.type)\n"
+}

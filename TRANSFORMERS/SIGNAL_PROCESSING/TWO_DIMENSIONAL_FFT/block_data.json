@@ -1,0 +1,33 @@
+{
+  "description": "With the FFT algorithm, the input matrix will undergo a change of basis from the space domain into the frequency domain.\n\ngrayscale, dataframe, image, or matrix\n\nInputs\n------\ndefault : Grayscale|DataFrame|Image|Matrix\n    The 2D data to apply 2DFFT to.",
+  "parameters": [
+    {
+      "name": "real_signal",
+      "type": "bool",
+      "description": "true if the input matrix consists of only real numbers, false otherwise"
+    },
+    {
+      "name": "color",
+      "type": "select",
+      "description": "if the input is an RGBA or RGB image, this parameter selects the color channel to perform the FFT on"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Matrix if input is Matrix",
+      "description": "m: the matrix after 2DFFT"
+    },
+    {
+      "name": null,
+      "type": "DataFrame if input is Dataframe",
+      "description": "m: the dataframe after 2DFFT"
+    },
+    {
+      "name": null,
+      "type": "Image",
+      "description": "the frequency spectrum of the color channel"
+    }
+  ],
+  "code": "from scipy import fft\nfrom flojoy import flojoy, DataFrame, Matrix, Image, Grayscale\nfrom typing import Literal\nfrom PIL import Image as PillowImage\nimport pandas as pd\nimport numpy as np\n\n\ndef extrapolate(x):\n    return (x - x.min()) / (x.max() - x.min())\n\n\n@flojoy\ndef TWO_DIMENSIONAL_FFT(\n    default: Grayscale | DataFrame | Image | Matrix,\n    real_signal: bool = True,\n    color: Literal[\"red\", \"green\", \"blue\", \"grayscale\"] = \"red\",\n) -> Matrix | DataFrame | Image:\n    \"\"\"The TWO_DIMENSIONAL_FFT node performs a two-dimensional fast fourier transform function on the input matrix.\n\n    With the FFT algorithm, the input matrix will undergo a change of basis from the space domain into the frequency domain.\n\n    grayscale, dataframe, image, or matrix\n\n    Inputs\n    ------\n    default : Grayscale|DataFrame|Image|Matrix\n        The 2D data to apply 2DFFT to.\n\n    Parameters\n    ----------\n    real_signal : bool\n        true if the input matrix consists of only real numbers, false otherwise\n    color : select\n        if the input is an RGBA or RGB image, this parameter selects the color channel to perform the FFT on\n\n    Returns\n    -------\n    Matrix if input is Matrix\n        m: the matrix after 2DFFT\n    DataFrame if input is Dataframe\n        m: the dataframe after 2DFFT\n    Image\n        the frequency spectrum of the color channel\n    \"\"\"\n\n    match default:\n        case Grayscale() | Matrix():\n            input = default.m\n            fourier = fft.rfft2(input) if real_signal else fft.fft2(input)\n            if isinstance(default, Matrix):\n                fourier = fourier.real\n                return Matrix(m=fourier)\n        case DataFrame():\n            input: pd.DataFrame = pd.DataFrame(default.m)\n            fourier = fft.rfft2(input) if real_signal else fft.fft2(input)\n            fourier = fourier.real\n            result = pd.DataFrame(columns=fourier.columns, index=fourier.index)\n            return DataFrame(m=result)\n        case Image():\n            red = default.r\n            green = default.g\n            blue = default.b\n            alpha = default.a\n            if color == \"grayscale\":\n                if alpha is None:\n                    rgba_image = np.stack((red, green, blue), axis=2)\n                else:\n                    rgba_image = np.stack((red, green, blue, alpha), axis=2)\n                try:\n                    image = PillowImage.fromarray(rgba_image)\n                except TypeError:\n                    image = PillowImage.fromarray((rgba_image * 255).astype(np.uint8))\n                image = image.convert(\"L\")\n                grayscale = np.array(image)\n                fourier = fft.rfft2(grayscale) if real_signal else fft.fft2(grayscale)\n            else:\n                fourier = (\n                    fft.rfft2(locals()[color], axes=[0, 1])\n                    if real_signal\n                    else fft.fft2(locals()[color], axes=[0, 1])\n                )\n\n    fourier = np.log10(np.abs(fourier))\n    fourier = extrapolate(fourier)\n    return Image(r=fourier, g=fourier, b=fourier, a=None)\n"
+}

@@ -1,0 +1,28 @@
+{
+  "description": "The USB-4065 is a NI (National Instruments) multimeter. It is possible that\nthe node will work with other NI DMMs (digital multimeters) such as the\n4070 and 4080 series.\n\nThis instrument will likely only be compatible with Windows systems due to\nNI driver availablity. To use the instrument you must install the runtime:\n\nhttps://www.ni.com/en/support/downloads/drivers/download.ni-dmm.html\n\nYou must also find the address/resource name for the instrument. You can\nfind this using the NI MAX programming which can be downloaded when\ninstalling the drivers.",
+  "parameters": [
+    {
+      "name": "NI_address",
+      "type": "str",
+      "description": "The NI instrument address for the instrument (e.g. 'Dev0', 'Dev1')."
+    },
+    {
+      "name": "digits",
+      "type": "str",
+      "description": "The accuracy of the reading in digits. Lower values are faster."
+    },
+    {
+      "name": "voltage_limit",
+      "type": "str",
+      "description": "The maximum voltage to allow, in Volts."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "Scalar: The DC voltage reading."
+    }
+  ],
+  "code": "from flojoy import flojoy, DataContainer, Scalar\nfrom flojoy.connection_manager import DeviceConnectionManager\nfrom typing import Optional, Literal\nimport nidmm\n\n\n@flojoy(deps={\"nidmm\": \"1.4.6\"})\ndef DC_VOLTAGE_USB4065(\n    NI_address: str = \"Dev1\",\n    digits: Literal[\"4.5\", \"5.5\", \"6.5\"] = \"5.5\",\n    voltage_limit: Literal[\"0.1\", \"1\", \"10\", \"100\", \"300\"] = \"10\",\n    default: Optional[DataContainer] = None,\n) -> Scalar:\n    \"\"\"The DC_VOLTAGE_USB4065 node reads the DC voltage from a USB-4065.\n\n    The USB-4065 is a NI (National Instruments) multimeter. It is possible that\n    the node will work with other NI DMMs (digital multimeters) such as the\n    4070 and 4080 series.\n\n    This instrument will likely only be compatible with Windows systems due to\n    NI driver availablity. To use the instrument you must install the runtime:\n\n    https://www.ni.com/en/support/downloads/drivers/download.ni-dmm.html\n\n    You must also find the address/resource name for the instrument. You can\n    find this using the NI MAX programming which can be downloaded when\n    installing the drivers.\n\n    Parameters\n    ----------\n    NI_address: str\n        The NI instrument address for the instrument (e.g. 'Dev0', 'Dev1').\n    digits: str\n        The accuracy of the reading in digits. Lower values are faster.\n    voltage_limit: str\n        The maximum voltage to allow, in Volts.\n\n    Returns\n    -------\n    DataContainer\n        Scalar: The DC voltage reading.\n    \"\"\"\n\n    connection = DeviceConnectionManager.get_connection(NI_address)\n    session = connection.get_handle()\n\n    session.configure_measurement_digits(\n        nidmm.Function.DC_VOLTS,\n        range=float(voltage_limit),\n        resolution_digits=float(digits),\n    )\n\n    reading = session.read()\n\n    return Scalar(c=reading)\n"
+}

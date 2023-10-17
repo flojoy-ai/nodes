@@ -1,0 +1,23 @@
+{
+  "description": "These dataframes should both be single columns.",
+  "parameters": [
+    {
+      "name": "true_label",
+      "type": "optional str",
+      "description": "true label users can select from original data"
+    },
+    {
+      "name": "predicted_label",
+      "type": "optional str",
+      "description": "resulting predicted label users can select"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataFrame",
+      "description": "The input predictions dataframe, with an extra boolean column \"prediction_correct\"."
+    }
+  ],
+  "code": "from flojoy import flojoy, DataFrame\nfrom typing import Optional\n\n\n@flojoy\ndef ACCURACY(\n    true_data: DataFrame,\n    predicted_data: DataFrame,\n    true_label: Optional[str] = None,\n    predicted_label: Optional[str] = None,\n) -> DataFrame:\n    \"\"\"The ACCURACY node takes two dataframes with the true and predicted labels from a classification task, and indicates whether the prediction was correct or not.\n\n    These dataframes should both be single columns.\n\n    Parameters\n    ----------\n    true_label : optional str\n        true label users can select from original data\n    predicted_label : optional str\n        resulting predicted label users can select\n\n    Returns\n    -------\n    DataFrame\n        The input predictions dataframe, with an extra boolean column \"prediction_correct\".\n    \"\"\"\n\n    true_df = true_data.m\n    predicted_df = predicted_data.m\n\n    # if users prov\n    if true_label:\n        true_label = true_df[true_label]\n    else:\n        true_label = true_df.iloc[:, 0]\n\n    if predicted_label:\n        predicted_label = predicted_df[predicted_label]\n    else:\n        predicted_label = predicted_df.iloc[:, 0]\n\n    predicted_df[\"prediction_correct\"] = true_label == predicted_label\n\n    return DataFrame(df=predicted_df)\n"
+}

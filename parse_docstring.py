@@ -79,10 +79,11 @@ for root, dirs, files in os.walk(current_directory):
                                 }
                                 for rtn in parsed_docstring.many_returns
                             ],
+                            "code": code,
                         }
 
                         # Write the data to a JSON file in the same directory
-                        output_file_path = os.path.join(root, "docstring.json")
+                        output_file_path = os.path.join(root, "block_data.json")
                         with open(output_file_path, "w") as output_file:
                             json.dump(json_data, output_file, indent=2)
 

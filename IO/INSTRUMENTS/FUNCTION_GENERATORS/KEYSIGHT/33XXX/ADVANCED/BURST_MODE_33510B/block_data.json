@@ -1,0 +1,63 @@
+{
+  "description": "You can set various settings for the triggering of the bursts as well.\nThe burst mode is way to have signals come in \"bursts\" that are triggered\nexternally or with a timer for instance.\n\nRequires a CONNECTION_33510B node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Keysight 33XXX wavefunction\ngenerators (although they are untested).",
+  "parameters": [
+    {
+      "name": "connection",
+      "type": "VisaConnection",
+      "description": "The VISA address (requires the CONNECTION_MDO3XXX node)."
+    },
+    {
+      "name": "on_off",
+      "type": "str",
+      "description": "Turn the burst mode on or off."
+    },
+    {
+      "name": "channel",
+      "type": "str",
+      "description": "The channel to modify the burst mode for."
+    },
+    {
+      "name": "trigger_source",
+      "type": "str",
+      "description": "Set the trigger_source (e.g. externally or timed)."
+    },
+    {
+      "name": "trigger_delay",
+      "type": "float",
+      "description": "Delay the burst by this number of seconds after a trigger."
+    },
+    {
+      "name": "trigger_slope",
+      "type": "str",
+      "description": "If triggering is external, trigger on a positive or negative slope."
+    },
+    {
+      "name": "burst_mode",
+      "type": "str",
+      "description": "Set the burst mode for the WFG."
+    },
+    {
+      "name": "burst_ncycles",
+      "type": "int",
+      "description": "How many cycles to have in one burst."
+    },
+    {
+      "name": "burst_phase",
+      "type": "float",
+      "description": "What phase to start the burst with, in degrees."
+    },
+    {
+      "name": "burst_polarity",
+      "type": "str",
+      "description": "The polarity of the burst in Gated mode, normal or inverted."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "TextBlob: summary of burst mode settings."
+    }
+  ],
+  "code": "from flojoy import flojoy, DataContainer, TextBlob, VisaConnection\nfrom typing import Optional, Literal\n\n\n@flojoy(inject_connection=True)\ndef BURST_MODE_33510B(\n    connection: VisaConnection,\n    on_off: Literal[\"ON\", \"OFF\"] = \"OFF\",\n    channel: Literal[\"ch1\", \"ch2\"] = \"ch1\",\n    trigger_source: Literal[\"EXT\", \"IMM\", \"TIM\"] = \"TIM\",\n    trigger_delay: float = 0,\n    trigger_slope: Literal[\"POS\", \"NEG\"] = \"POS\",\n    trigger_timer: float = 1e-3,\n    burst_mode: Literal[\"N Cycle\", \"Gated\"] = \"N Cycle\",\n    burst_ncycles: int = 1,\n    burst_phase: float = 0,\n    burst_polarity: Literal[\"NORM\", \"INV\"] = \"NORM\",\n    default: Optional[DataContainer] = None,\n) -> TextBlob:\n    \"\"\"The BURST_MODE_33510B node is used to turn the Burst mode on or off.\n\n    You can set various settings for the triggering of the bursts as well.\n    The burst mode is way to have signals come in \"bursts\" that are triggered\n    externally or with a timer for instance.\n\n    Requires a CONNECTION_33510B node at the start of the app to connect with\n    the instrument. The VISA address will then be listed under 'connection'.\n\n    This node should also work with compatible Keysight 33XXX wavefunction\n    generators (although they are untested).\n\n    Parameters\n    ----------\n    connection: VisaConnection\n        The VISA address (requires the CONNECTION_MDO3XXX node).\n    on_off: str\n        Turn the burst mode on or off.\n    channel: str\n        The channel to modify the burst mode for.\n    trigger_source: str\n        Set the trigger_source (e.g. externally or timed).\n    trigger_delay: float\n        Delay the burst by this number of seconds after a trigger.\n    trigger_slope: str\n        If triggering is external, trigger on a positive or negative slope.\n    burst_mode: str\n        Set the burst mode for the WFG.\n    burst_ncycles: int\n        How many cycles to have in one burst.\n    burst_phase: float\n        What phase to start the burst with, in degrees.\n    burst_polarity: str\n        The polarity of the burst in Gated mode, normal or inverted.\n\n    Returns\n    -------\n    DataContainer\n        TextBlob: summary of burst mode settings.\n    \"\"\"\n\n    ks = connection.get_handle()\n\n    channel_str = channel\n    channel = getattr(ks, channel)\n\n    channel.trigger_source(trigger_source)\n    assert trigger_delay >= 0, \"trigger_delay must be greater than or equal to zero.\"\n    channel.trigger_delay(trigger_delay)\n\n    if trigger_source == \"EXT\":\n        channel.trigger_slope(trigger_slope)\n\n    if trigger_source == \"TIM\":\n        assert (\n            trigger_timer >= 1e-6\n        ), \"trigger_timer must be greater than or equal to 1us.\"\n        channel.trigger_timer(trigger_timer)\n\n    if on_off == \"OFF\":\n        channel.burst_state(on_off)\n\n    assert (\n        -360.0 <= burst_phase <= 360.0\n    ), \"The phase must be between -360 and 360 degrees.\"\n    channel.burst_mode(burst_mode)\n    channel.burst_phase(burst_phase)\n\n    if burst_mode == \"N Cycle\":\n        assert burst_ncycles > 0, \"burst_ncycles must be greater than 0.\"\n        channel.burst_ncycles(burst_ncycles)\n\n    if burst_mode == \"Gated\":\n        channel.burst_polarity(burst_polarity)\n\n    if on_off == \"ON\":\n        channel.burst_state(on_off)\n    ks.close()\n\n    return TextBlob(text_blob=f\"{channel_str} burst: {on_off}\")\n"
+}

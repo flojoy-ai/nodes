@@ -1,0 +1,12 @@
+{
+  "description": "Must use the TEXT_VIEW node to view the text.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "TextBlob: Type of the input DataContainer's content (e.g. float)"
+    }
+  ],
+  "code": "from flojoy import flojoy, DataContainer, TextBlob\n\n\n@flojoy()\ndef DC_CONTENT_TYPE(\n    default: DataContainer,\n) -> TextBlob:\n    \"\"\"The DC_CONTENT_TYPE node returns a TextBlob containing the type of the input DataContainer's content.\n\n    Must use the TEXT_VIEW node to view the text.\n\n    Returns\n    -------\n    DataContainer\n        TextBlob: Type of the input DataContainer's content (e.g. float)\n    \"\"\"\n\n    dc_type = str(default.type)\n\n    match dc_type:\n        case \"OrderedPair\":\n            s = f\"x: {type(default.x)}, \\ny: {type(default.y)}\"\n        case \"OrderedTriple\":\n            s = f\"x: {type(default.x)}, \\ny: {type(default.y)}, \\nz: {type(default.z)}\"\n        case \"Surface\":\n            s = f\"x: {type(default.x)}, \\ny: {type(default.y)}, \\nz: {type(default.z)}\"\n        case \"Vector\":\n            s = f\"v: {type(default.v)}\"\n        case \"Matrix\":\n            s = f\"m: {type(default.m)}\"\n        case \"Grayscale\":\n            s = f\"m: {type(default.m)}\"\n        case \"DataFrame\":\n            s = f\"m: {type(default.m)}\"\n        case \"Scalar\":\n            s = f\"c: {type(default.c)}\"\n        case \"Image\":\n            s = f\"r: {type(default.r)}, \\ng: {type(default.g)}, \\nb: {type(default.b)}\"\n        case \"TextBlob\":\n            s = f\"text_blob: {type(default.text_blob)}\"\n        case _:\n            raise TypeError(\n                f\"Unsupported DC type {dc_type}. Please add it to the node.\"\n            )\n\n    return TextBlob(text_blob=s)\n"
+}

@@ -1,0 +1,18 @@
+{
+  "description": "If the entered value is a list of scalar, it returns the multiplciative inverse 1/x for each element of the list.\n\nInputs\n------\ndefault : OrderedPair|Matrix\n    The matrix or list of scalar to which we apply the invert.",
+  "parameters": [
+    {
+      "name": "rcond",
+      "type": "float",
+      "description": "Set the rcond used to change small singular values to 0 for a more accurate result when calculating the pseuso-inverse of the matrix."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair|Matrix",
+      "description": "OrderedPair if the default input is an OrderedPair.\nx: the y input list of values.\ny: the list of inverse value of the y input.\n\nMatrix if the default input is a Matrix.\nm: the inverse matrix of the input."
+    }
+  ],
+  "code": "import numpy as np\nfrom flojoy import flojoy, OrderedPair, Matrix\n\n\n@flojoy\ndef INVERT(default: OrderedPair | Matrix, rcond: float = 1.0) -> OrderedPair | Matrix:\n    \"\"\"The INVERT node takes two inputs, one matrix and one rcond if not a square matrix, then inverts them (or pseudo invert) and returns the result.\n\n    If the entered value is a list of scalar, it returns the multiplciative inverse 1/x for each element of the list.\n\n    Inputs\n    ------\n    default : OrderedPair|Matrix\n        The matrix or list of scalar to which we apply the invert.\n\n    Parameters\n    ----------\n    rcond : float\n        Set the rcond used to change small singular values to 0 for a more accurate result when calculating the pseuso-inverse of the matrix.\n\n    Returns\n    -------\n    OrderedPair|Matrix\n        OrderedPair if the default input is an OrderedPair.\n        x: the y input list of values.\n        y: the list of inverse value of the y input.\n\n        Matrix if the default input is a Matrix.\n        m: the inverse matrix of the input.\n    \"\"\"\n\n    a = np.eye(3)\n    b: float = rcond\n\n    if isinstance(\n        default, OrderedPair\n    ):  # v[0] is a DataContainer object with type attribute\n        a = default.y  # scalar valued\n        return OrderedPair(x=a, y=1 / a)\n    elif isinstance(default, Matrix):\n        a = default.m\n        if not a.shape[0] == a.shape[1]:\n            assert (\n                type(b) == float\n            ), \"Need scalar value to compare SVDs for pseudoinversion\"\n            retval = np.linalg.pinv(a, rcond=b, hermitian=False)\n        else:\n            try:\n                retval = np.linalg.inv(a)\n            except np.linalg.LinAlgError:\n                raise ValueError(\"Inversion failed! Singular matrix returned...\")\n        return Matrix(m=retval)\n"
+}

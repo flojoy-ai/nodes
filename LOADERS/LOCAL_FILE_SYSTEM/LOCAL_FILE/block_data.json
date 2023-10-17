@@ -1,0 +1,28 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "file_path",
+      "type": "str",
+      "description": "The path to the file to be loaded. This can be either an absolute path or\na path relative to the \"nodes\" directory."
+    },
+    {
+      "name": "default",
+      "type": "Optional[TextBlob]",
+      "description": "If this input node is connected, the file name will be taken from\nthe output of the connected node.\nTo be used in conjunction with batch processing."
+    },
+    {
+      "name": "file_type",
+      "type": "str",
+      "description": "Type of file to load, default = image.\nIf both 'file_path' and 'default' are not specified when 'file_type=\"Image\"',\na default image will be loaded.\nIf the file path is not specified and the default input is not connected,\na ValueError is raised."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Image | DataFrame",
+      "description": "Image for file_type 'image'.\nGrayscale from file_type 'Grayscale'.\nDataFrame for file_type 'json', 'csv'."
+    }
+  ],
+  "code": "from flojoy import flojoy, Image, DataFrame, Grayscale, TextBlob\nfrom typing import Literal, Optional\nimport numpy as np\nfrom PIL import Image as PIL_Image\nimport os\nimport pandas as pd\n\n\ndef get_file_path(file_path: str, default_path: str | None = None):\n    f_path = file_path if file_path != \"\" else default_path\n    if not f_path:\n        raise ValueError(\n            \"The file path of the input file is missing. \"\n            \"Please provide a input TextBlob or a provide `file_path` with a value!\"\n        )\n    if not os.path.isabs(f_path):\n        path_to_nodes = __file__[: __file__.rfind(\"nodes\") + 5]\n        return os.path.abspath(os.path.join(path_to_nodes, f_path))\n    return f_path\n\n\n@flojoy(\n    deps={\n        \"scikit-image\": \"0.21.0\",\n    }\n)\ndef LOCAL_FILE(\n    file_path: str | None = None,\n    default: Optional[TextBlob] = None,\n    file_type: Literal[\"Image\", \"Grayscale\", \"JSON\", \"CSV\"] = \"Image\",\n) -> Image | DataFrame | Grayscale:\n    \"\"\"The LOCAL_FILE node loads a local file of a different type and converts it to a DataContainer class.\n\n    Parameters\n    ----------\n    file_path : str\n        The path to the file to be loaded. This can be either an absolute path or\n        a path relative to the \"nodes\" directory.\n\n    default : Optional[TextBlob]\n        If this input node is connected, the file name will be taken from\n        the output of the connected node.\n        To be used in conjunction with batch processing.\n    file_type : str\n        Type of file to load, default = image.\n        If both 'file_path' and 'default' are not specified when 'file_type=\"Image\"',\n        a default image will be loaded.\n        If the file path is not specified and the default input is not connected,\n        a ValueError is raised.\n\n    Returns\n    -------\n    Image | DataFrame\n        Image for file_type 'image'.\n        Grayscale from file_type 'Grayscale'.\n        DataFrame for file_type 'json', 'csv'.\n    \"\"\"\n\n    default_image_path = os.path.join(\n        os.path.dirname(os.path.abspath(__file__)),\n        \"assets\",\n        \"astronaut.png\",\n    )\n\n    file_path = default.text_blob if default else file_path\n    file_path = \"\" if file_path is None else file_path\n\n    match file_type:\n        case \"Image\":\n            file_path = get_file_path(file_path, default_image_path)\n            f = PIL_Image.open(file_path)\n            img_array = np.array(f.convert(\"RGBA\"))\n            red_channel = img_array[:, :, 0]\n            green_channel = img_array[:, :, 1]\n            blue_channel = img_array[:, :, 2]\n            if img_array.shape[2] == 4:\n                alpha_channel = img_array[:, :, 3]\n            else:\n                alpha_channel = None\n            return Image(\n                r=red_channel,\n                g=green_channel,\n                b=blue_channel,\n                a=alpha_channel,\n            )\n        case \"Grayscale\":\n            import skimage.io\n\n            file_path = get_file_path(file_path, default_image_path)\n            return Grayscale(img=skimage.io.imread(file_path, as_gray=True))\n        case \"CSV\":\n            file_path = get_file_path(file_path)\n            df = pd.read_csv(file_path)\n            return DataFrame(df=df)\n        case \"JSON\":\n            file_path = get_file_path(file_path)\n            df = pd.read_json(file_path)\n            return DataFrame(df=df)\n        # TODO: we might add support for following file types later\n        # case \"XML\":\n        #     file_path = get_file_path(file_path)\n        #     df = pd.read_xml(file_path)\n        #     return DataFrame(df=df)\n        # case \"Excel\":\n        #     file_path = get_file_path(file_path)\n        #     df = pd.read_excel(file_path)\n        #     return DataFrame(df=df)\n"
+}

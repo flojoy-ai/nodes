@@ -1,0 +1,12 @@
+{
+  "description": "Inputs\n------\ndefault : DataFrame\n    The input dataframe to which we apply the conversion to.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Matrix",
+      "description": "The matrix result from the conversion of the input."
+    }
+  ],
+  "code": "import pandas as pd\nfrom flojoy import flojoy, DataFrame, Matrix\n\n\n@flojoy\ndef DF_2_NP(default: DataFrame) -> Matrix:\n    \"\"\"The DF_2_NP node takes one dataframe type data and converts it to a matrix type data.\n\n    Inputs\n    ------\n    default : DataFrame\n        The input dataframe to which we apply the conversion to.\n\n    Returns\n    -------\n    Matrix\n        The matrix result from the conversion of the input.\n    \"\"\"\n\n    df = default.m\n    df_to_numpy = df.to_numpy(dtype=object)\n\n    return Matrix(m=df_to_numpy)\n"
+}

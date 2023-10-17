@@ -1,0 +1,23 @@
+{
+  "description": "If the \"VISA_address\" parameter is not specified the VISA_index will be\nused to find the address. The LIST_VISA node can be used to show the\nindicies of all available VISA instruments.",
+  "parameters": [
+    {
+      "name": "VISA_address",
+      "type": "str",
+      "description": "The VISA address to query."
+    },
+    {
+      "name": "VISA_index",
+      "type": "int",
+      "description": "The address will be found from LIST_VISA node list with this index."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "optional: The input DataContainer is returned."
+    }
+  ],
+  "code": "from flojoy import flojoy, DataContainer, TextBlob\nimport pyvisa\nfrom typing import Optional\n\n\n@flojoy(\n    deps={\n        \"pyvisa\": \"1.13.0\",\n        \"pyusb\": \"1.2.1\",\n        \"zeroconf\": \"0.102.0\",\n        \"pyvisa_py\": \"0.7.0\",\n    }\n)\ndef VISA_IDENTITY(\n    VISA_address: Optional[str],\n    VISA_index: Optional[int] = 0,\n    default: Optional[DataContainer] = None,\n) -> Optional[DataContainer]:\n    \"\"\"The VISA_IDENTITY node send an identity query (\"*IDN?\") to the specified instrument.\n\n    If the \"VISA_address\" parameter is not specified the VISA_index will be\n    used to find the address. The LIST_VISA node can be used to show the\n    indicies of all available VISA instruments.\n\n    Parameters\n    ----------\n    VISA_address: str\n        The VISA address to query.\n    VISA_index: int\n        The address will be found from LIST_VISA node list with this index.\n\n    Returns\n    -------\n    DataContainer\n        optional: The input DataContainer is returned.\n    \"\"\"\n\n    rm = pyvisa.ResourceManager(\"@py\")\n\n    if VISA_address == \"\":\n        VISA_addresses = rm.list_resources()\n        VISA_address = VISA_addresses[int(VISA_index)]\n\n    # VISA descriptor to identify the test and measurement device\n    scope = rm.open_resource(VISA_address)\n    ident = str(scope.query(\"*IDN?\"))\n    print(ident, flush=True)\n\n    return TextBlob(text_blob=ident)\n"
+}

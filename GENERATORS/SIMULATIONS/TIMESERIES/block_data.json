@@ -1,0 +1,23 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "start_date",
+      "type": "str",
+      "description": "The start date of the timeseries in the format 'YYYY:MM:DD'."
+    },
+    {
+      "name": "end_date",
+      "type": "str",
+      "description": "The end date of the timeseries in the format 'YYYY:MM:DD'."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataFrame",
+      "description": "m: the resulting timeseries"
+    }
+  ],
+  "code": "import numpy as np\nfrom flojoy import flojoy, DataFrame\nimport pandas as pd\nimport traceback\n\n\n@flojoy\ndef TIMESERIES(\n    start_date: str = \"2023-01-01\", end_date: str = \"2023-07-20\"\n) -> DataFrame:\n    \"\"\"The TIMESERIES node generates a random timeseries vector (as a DataFrame).\n\n    Parameters\n    ----------\n    start_date : str\n        The start date of the timeseries in the format 'YYYY:MM:DD'.\n    end_date : str\n        The end date of the timeseries in the format 'YYYY:MM:DD'.\n\n    Returns\n    -------\n    DataFrame\n        m: the resulting timeseries\n    \"\"\"\n\n    try:\n        # Set the random seed for reproducibility\n        np.random.seed(42)\n\n        # Generate random time series data\n        start = pd.Timestamp(start_date)\n        end = pd.Timestamp(end_date)\n        num_days = (end - start).days + 1\n        timestamps = pd.date_range(start=start, end=end, freq=\"D\")\n        data = np.random.randn(num_days)  # Random data points\n\n        df = pd.DataFrame({\"Timestamp\": timestamps, \"Data\": data})\n\n        return DataFrame(df=df)\n    except Exception as e:\n        print(traceback.format_exc())\n        raise e\n"
+}

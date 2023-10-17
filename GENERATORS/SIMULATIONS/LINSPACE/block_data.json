@@ -1,0 +1,28 @@
+{
+  "description": "It uses the 'linspace' numpy function. It is useful for generating an x-axis for the OrderedPair data type.\n\nInputs\n------\ndefault : OrderedPair\n    Optional input in case LINSPACE is used in a loop. Not used.",
+  "parameters": [
+    {
+      "name": "start",
+      "type": "float",
+      "description": "The start point of the data."
+    },
+    {
+      "name": "end",
+      "type": "float",
+      "description": "The end point of the data."
+    },
+    {
+      "name": "step",
+      "type": "float",
+      "description": "The number of points in the vector."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Vector",
+      "description": "v: the vector between 'start' and 'end' with a 'step' number of points."
+    }
+  ],
+  "code": "import numpy as np\nfrom flojoy import flojoy, Vector, OrderedPair\nfrom typing import Optional\n\n\n@flojoy\ndef LINSPACE(\n    default: Optional[OrderedPair | Vector] = None,\n    start: float = 10,\n    end: float = 0,\n    step: int = 1000,\n) -> Vector:\n    \"\"\"The LINSPACE node generates data spaced evenly between two points.\n\n    It uses the 'linspace' numpy function. It is useful for generating an x-axis for the OrderedPair data type.\n\n    Inputs\n    ------\n    default : OrderedPair\n        Optional input in case LINSPACE is used in a loop. Not used.\n\n    Parameters\n    ----------\n    start : float\n        The start point of the data.\n    end : float\n        The end point of the data.\n    step : float\n        The number of points in the vector.\n\n    Returns\n    -------\n    Vector\n        v: the vector between 'start' and 'end' with a 'step' number of points.\n    \"\"\"\n\n    v = np.linspace(start, end, step)\n    return Vector(v=v)\n"
+}

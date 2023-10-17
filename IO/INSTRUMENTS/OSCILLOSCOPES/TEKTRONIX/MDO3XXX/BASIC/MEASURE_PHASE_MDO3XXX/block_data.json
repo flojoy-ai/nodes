@@ -1,0 +1,28 @@
+{
+  "description": "Requires a CONNECTION_MDO3XXX node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "parameters": [
+    {
+      "name": "connection",
+      "type": "VisaConnection",
+      "description": "The VISA address (requires the CONNECTION_MDO3XXX node)."
+    },
+    {
+      "name": "channel1",
+      "type": "int",
+      "description": "The first channel."
+    },
+    {
+      "name": "channel2",
+      "type": "int",
+      "description": "The second channel."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "Scalar: The phase between the two channels."
+    }
+  ],
+  "code": "from flojoy import flojoy, DataContainer, Scalar, VisaConnection\nfrom typing import Optional\n\n\n@flojoy(inject_connection=True)\ndef MEASURE_PHASE_MDO3XXX(\n    connection: VisaConnection,\n    channel1: int = 0,\n    channel2: int = 1,\n    default: Optional[DataContainer] = None,\n) -> Scalar:\n    \"\"\"The MEASURE_PHASE_MDO3XXX node measures the phase between two channels.\n\n    Requires a CONNECTION_MDO3XXX node at the start of the app to connect with\n    the instrument. The VISA address will then be listed under 'connection'.\n\n    This node should also work with compatible Tektronix scopes (untested):\n    MDO4xxx, MSO4xxx, and DPO4xxx.\n\n    Parameters\n    ----------\n    connection: VisaConnection\n        The VISA address (requires the CONNECTION_MDO3XXX node).\n    channel1: int\n        The first channel.\n    channel2: int\n        The second channel.\n\n    Returns\n    -------\n    DataContainer\n        Scalar: The phase between the two channels.\n    \"\"\"\n\n    assert channel1 != channel2, \"The channels must not the same.\"\n\n    tek = connection.get_handle()\n\n    tek.measurement[0].source1(f\"CH{int(channel1 + 1)}\")\n    tek.measurement[0].source2(f\"CH{int(channel2 + 1)}\")\n    value = tek.measurement[0].phase()\n\n    return Scalar(c=value)\n"
+}

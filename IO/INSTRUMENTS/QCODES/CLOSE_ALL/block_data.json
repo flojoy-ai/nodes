@@ -1,0 +1,12 @@
+{
+  "description": null,
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "optional: The input DataContainer that is returned."
+    }
+  ],
+  "code": "from flojoy import flojoy, DataContainer\nfrom qcodes.instrument import Instrument\nfrom typing import Optional\n\n\n@flojoy(deps={\"qcodes\": \"0.39.1\"})\ndef CLOSE_ALL(\n    default: Optional[DataContainer] = None,\n) -> Optional[DataContainer]:\n    \"\"\"The CLOSE_ALL node closes all QCoDeS instruments and should be run at the start and end of each Flojoy app that uses QCoDeS.\n\n    Returns\n    -------\n    DataContainer\n        optional: The input DataContainer that is returned.\n    \"\"\"\n\n    Instrument.close_all()\n\n    return default\n"
+}

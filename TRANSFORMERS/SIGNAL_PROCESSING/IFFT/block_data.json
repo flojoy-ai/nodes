@@ -1,0 +1,18 @@
+{
+  "description": "With the IFFT algorithm, the input signal will be transformed from the frequency domain back into the time domain.\n\nInputs\n------\ndefault : OrderedPair\n    The data to apply inverse FFT to.",
+  "parameters": [
+    {
+      "name": "real_signal",
+      "type": "boolean",
+      "description": "whether the input signal is real (true) or complex (false)"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair",
+      "description": "x = time\ny = reconstructed signal"
+    }
+  ],
+  "code": "from scipy import fft\nfrom flojoy import flojoy, OrderedPair, DataFrame\nimport pandas as pd\n\n\n@flojoy\ndef IFFT(default: DataFrame, real_signal: bool = True) -> OrderedPair:\n    \"\"\"The IFFT node performs the Inverse Discrete Fourier Transform on the input signal.\n\n    With the IFFT algorithm, the input signal will be transformed from the frequency domain back into the time domain.\n\n    Inputs\n    ------\n    default : OrderedPair\n        The data to apply inverse FFT to.\n\n    Parameters\n    ----------\n    real_signal : boolean\n        whether the input signal is real (true) or complex (false)\n\n    Returns\n    -------\n    OrderedPair\n        x = time\n        y = reconstructed signal\n    \"\"\"\n\n    dc: pd.DataFrame = default.m\n\n    x = dc[\"x\"].to_numpy()\n    realValue = dc[\"real\"].to_numpy()\n    imagValue = dc[\"imag\"].to_numpy()\n\n    fourier = realValue + 1j * imagValue\n\n    result = fft.irfft(fourier) if real_signal else fft.ifft(fourier, len(x))\n    result = result.real\n    return OrderedPair(x=x, y=result)\n"
+}

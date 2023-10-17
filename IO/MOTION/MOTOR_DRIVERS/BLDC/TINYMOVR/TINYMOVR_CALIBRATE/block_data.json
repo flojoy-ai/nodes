@@ -1,0 +1,18 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "None",
+      "type": null,
+      "description": null
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "TextBlob",
+      "description": "Traceback error"
+    }
+  ],
+  "code": "from flojoy import flojoy, TextBlob\n\nimport can, traceback\nfrom tinymovr.tee import init_tee, destroy_tee\nfrom tinymovr.config import get_bus_config, create_device\n\n\n@flojoy(deps={\"tinymovr\": \"1.6.2\"})\ndef TINYMOVR_CALIBRATE() -> TextBlob:\n    \"\"\"Discover and calibrate a connected tinymovr BLDC driver through a CANine USB-to-CAN controller.\n\n    Parameters\n    ----------\n    None\n\n    Returns\n    -------\n    TextBlob\n        Traceback error\n    \"\"\"\n\n    bitrate = 1000000\n    params = get_bus_config([\"canine\", \"slcan_disco\"])\n    params[\"bitrate\"] = bitrate\n    tb = \"\"\n\n    try:\n        with can.Bus(**params) as bus:\n            init_tee(can.Bus(**params))\n            tm = create_device(node_id=1)\n            tm.controller.calibrate()\n            destroy_tee()\n    except:\n        tb = traceback.format_exc()\n\n    return TextBlob(text_blob=tb)\n"
+}

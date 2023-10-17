@@ -1,0 +1,23 @@
+{
+  "description": "The connection is made with the VISA address in the Flojoy UI.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "parameters": [
+    {
+      "name": "device",
+      "type": "VisaDevice",
+      "description": "The VISA address to connect to."
+    },
+    {
+      "name": "num_channels",
+      "type": "int",
+      "description": "The number of channels on the instrument that are currently in use."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "Optional: None"
+    }
+  ],
+  "code": "from flojoy import VisaDevice, flojoy, DataContainer\nfrom flojoy.connection_manager import DeviceConnectionManager\nfrom typing import Optional\nfrom flojoy.instruments.tektronix.MDO30xx import TektronixMDO30xx\nfrom usb.core import USBError\n\n\n@flojoy()\ndef CONNECTION_MDO3XXX(\n    device: VisaDevice,\n    num_channels: int = 4,\n    default: Optional[DataContainer] = None,\n) -> Optional[DataContainer]:\n    \"\"\"The CONNECTION_MDO3XXX node connects Flojoy to a MDO3XXX oscilloscope.\n\n    The connection is made with the VISA address in the Flojoy UI.\n\n    This node should also work with compatible Tektronix scopes (untested):\n    MDO4xxx, MSO4xxx, and DPO4xxx.\n\n    Parameters\n    ----------\n    device: VisaDevice\n        The VISA address to connect to.\n    num_channels: int\n        The number of channels on the instrument that are currently in use.\n\n    Returns\n    -------\n    DataContainer\n        Optional: None\n    \"\"\"\n\n    try:\n        tek = TektronixMDO30xx(\n            \"MDO30xx\",\n            device.get_id(),\n            visalib=\"@py\",\n            device_clear=False,\n            number_of_channels=num_channels,\n        )\n    except USBError as err:\n        raise Exception(\n            \"USB port error. Trying unplugging+replugging the port.\"\n        ) from err\n\n    DeviceConnectionManager.register_connection(device, tek)\n\n    return None\n"
+}

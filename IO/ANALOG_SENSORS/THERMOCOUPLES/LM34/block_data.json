@@ -1,0 +1,12 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "Calibration1, Calibration2, Calibration3",
+      "type": "float",
+      "description": "Calibration parameters to convert voltage into temperature in Celcius."
+    }
+  ],
+  "returns": [],
+  "code": "from flojoy import flojoy, OrderedPair, DataContainer\nfrom typing import Optional\n\n\n@flojoy()\ndef LM34(\n    default: OrderedPair,\n    calibration1: float = 100.0,\n    calibration2: float = 32.0,\n    calibration3: float = 1.8,\n) -> OrderedPair:\n    \"\"\"The LM34 node allows you to convert voltages measured with a thermocouple (LM34) connected to a LabJack U3 device into temperatures.\n\n    Parameters\n    ----------\n    Calibration1, Calibration2, Calibration3 : float\n        Calibration parameters to convert voltage into temperature in Celcius.\n    \"\"\"\n\n    temperatures_celsius: list[float] = []\n    voltages = default.y\n    sensor_num = default.x\n    sensors_number = len(default.x)\n\n    # Convert Voltage into temperature in Celsius :\n    for i in range(0, sensors_number):\n        temperature: float = voltages[i] * calibration1\n        temperature_celsius: float = (temperature - calibration2) / calibration3\n        temperatures_celsius.append(temperature_celsius)\n\n    return OrderedPair(sensor_num, temperatures_celsius)\n"
+}

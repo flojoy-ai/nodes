@@ -1,0 +1,23 @@
+{
+  "description": "the shape is chosen by row and col parameters.\n\nInputs\n------\ndefault: Vector\n    The input vector that will be transformed into matrix.",
+  "parameters": [
+    {
+      "name": "row",
+      "type": "int",
+      "description": "number of rows for the new matrix"
+    },
+    {
+      "name": "col",
+      "type": "int",
+      "description": "number of columns for the new matrix"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Matrix",
+      "description": "The matrix that is generated from the given vector and the parameters."
+    }
+  ],
+  "code": "from numpy import reshape\nfrom flojoy import flojoy, Vector, Matrix\n\n\n@flojoy\ndef VECTOR_2_MATRIX(default: Vector, row: int, col: int) -> Matrix:\n    \"\"\"The VECTOR_2_MATRIX node takes a vector and transform it into matrix data type where\n    the shape is chosen by row and col parameters.\n\n    Inputs\n    ------\n    default: Vector\n        The input vector that will be transformed into matrix.\n\n    Parameters\n    ----------\n    row: int\n        number of rows for the new matrix\n    col: int\n        number of columns for the new matrix\n    Returns\n    -------\n    Matrix\n        The matrix that is generated from the given vector and the parameters.\n    \"\"\"\n    try:\n        matrix = default.v.reshape((row, col))\n        return Matrix(m=matrix)\n    except Exception as e:\n        print(e)\n"
+}

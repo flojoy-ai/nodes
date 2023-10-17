@@ -1,0 +1,58 @@
+{
+  "description": "The description of that function is as follows:\n\n    Estimate power spectral density using a periodogram.",
+  "parameters": [
+    {
+      "name": "select_return",
+      "type": "'f', 'Pxx'.",
+      "description": "Select the desired object to return.\nSee the respective function docs for descriptors."
+    },
+    {
+      "name": "x",
+      "type": "array_like",
+      "description": "Time series of measurement values."
+    },
+    {
+      "name": "fs",
+      "type": "float",
+      "description": "Sampling frequency of the 'x' time series.\nDefaults to 1.0."
+    },
+    {
+      "name": "window",
+      "type": "str or tuple or array_like",
+      "description": "Desired window to use.\nIf 'window' is a string or tuple, it is passed to 'get_window' to\ngenerate the window values, which are DFT-even by default.\nSee 'get_window' for a list of windows and required parameters.\nIf 'window' is array_like, it will be used directly as the window\nand its length must be nperseg.\nDefaults to 'boxcar'."
+    },
+    {
+      "name": "nfft",
+      "type": "int",
+      "description": "Length of the FFT used.\nIf 'None', the length of 'x' will be used."
+    },
+    {
+      "name": "detrend",
+      "type": "str or function or 'False'",
+      "description": "Specifies how to detrend each segment.\nIf 'detrend' is a string, it is passed as the 'type' argument\nto the 'detrend' function.\nIf it is a function, it takes a segment and returns a detrended segment.\nIf 'detrend' is 'False', no detrending is done.\nDefaults to 'constant'."
+    },
+    {
+      "name": "return_onesided",
+      "type": "bool",
+      "description": "If 'True', return a one-sided spectrum for real data.\nIf 'False', return a two-sided spectrum.\nDefaults to 'True', but for complex data,\na two-sided spectrum is always returned."
+    },
+    {
+      "name": "scaling",
+      "type": "{ 'density', 'spectrum' }",
+      "description": "Selects between computing the power spectral density ('density')\nwhere 'Pxx' has units of V**2/Hz and computing the power\nspectrum ('spectrum') where 'Pxx' has units of V**2, if 'x'\nis measured in V and 'fs' is measured in Hz.\nDefaults to 'density'."
+    },
+    {
+      "name": "axis",
+      "type": "int",
+      "description": "Axis along which the periodogram is computed;\nthe default is over the last axis (i.e. axis=-1)."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "type 'ordered pair', 'scalar', or 'matrix'"
+    }
+  ],
+  "code": "from flojoy import OrderedPair, flojoy, Matrix, Scalar\nimport numpy as np\nfrom collections import namedtuple\nfrom typing import Literal\n\nimport scipy.signal\n\n\n@flojoy\ndef PERIODOGRAM(\n    default: OrderedPair | Matrix,\n    fs: float = 1.0,\n    window: str = \"boxcar\",\n    nfft: int = 2,\n    detrend: str = \"constant\",\n    return_onesided: bool = True,\n    scaling: str = \"density\",\n    axis: int = -1,\n    select_return: Literal[\"f\", \"Pxx\"] = \"f\",\n) -> OrderedPair | Matrix | Scalar:\n    \"\"\"The PERIODOGRAM node is based on a numpy or scipy function.\n\n    The description of that function is as follows:\n\n        Estimate power spectral density using a periodogram.\n\n    Parameters\n    ----------\n    select_return : 'f', 'Pxx'.\n        Select the desired object to return.\n        See the respective function docs for descriptors.\n    x : array_like\n        Time series of measurement values.\n    fs : float, optional\n        Sampling frequency of the 'x' time series.\n        Defaults to 1.0.\n    window : str or tuple or array_like, optional\n        Desired window to use.\n        If 'window' is a string or tuple, it is passed to 'get_window' to\n        generate the window values, which are DFT-even by default.\n        See 'get_window' for a list of windows and required parameters.\n        If 'window' is array_like, it will be used directly as the window\n        and its length must be nperseg.\n        Defaults to 'boxcar'.\n    nfft : int, optional\n        Length of the FFT used.\n        If 'None', the length of 'x' will be used.\n    detrend : str or function or 'False', optional\n        Specifies how to detrend each segment.\n        If 'detrend' is a string, it is passed as the 'type' argument\n        to the 'detrend' function.\n        If it is a function, it takes a segment and returns a detrended segment.\n        If 'detrend' is 'False', no detrending is done.\n        Defaults to 'constant'.\n    return_onesided : bool, optional\n        If 'True', return a one-sided spectrum for real data.\n        If 'False', return a two-sided spectrum.\n        Defaults to 'True', but for complex data,\n        a two-sided spectrum is always returned.\n    scaling : { 'density', 'spectrum' }, optional\n        Selects between computing the power spectral density ('density')\n        where 'Pxx' has units of V**2/Hz and computing the power\n        spectrum ('spectrum') where 'Pxx' has units of V**2, if 'x'\n        is measured in V and 'fs' is measured in Hz.\n        Defaults to 'density'.\n    axis : int, optional\n        Axis along which the periodogram is computed;\n        the default is over the last axis (i.e. axis=-1).\n\n    Returns\n    -------\n    DataContainer\n        type 'ordered pair', 'scalar', or 'matrix'\n    \"\"\"\n\n    result = scipy.signal.periodogram(\n        x=default.y,\n        fs=fs,\n        window=window,\n        nfft=nfft,\n        detrend=detrend,\n        return_onesided=return_onesided,\n        scaling=scaling,\n        axis=axis,\n    )\n\n    return_list = [\"f\", \"Pxx\"]\n    if isinstance(result, tuple):\n        res_dict = {}\n        num = min(len(result), len(return_list))\n        for i in range(num):\n            res_dict[return_list[i]] = result[i]\n        result = res_dict[select_return]\n    else:\n        result = result._asdict()\n        result = result[select_return]\n\n    if isinstance(result, np.ndarray):\n        result = OrderedPair(x=default.x, y=result)\n    else:\n        assert isinstance(\n            result, np.number | float | int\n        ), f\"Expected np.number, float or int for result, got {type(result)}\"\n        result = Scalar(c=float(result))\n\n    return result\n"
+}

@@ -1,0 +1,17 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "Calibration1",
+      "type": "float",
+      "description": "Calibration parameters to convert voltage into pressure."
+    },
+    {
+      "name": "calibration2",
+      "type": "float",
+      "description": "Calibration parameters to convert voltage into pressure."
+    }
+  ],
+  "returns": [],
+  "code": "from flojoy import flojoy, OrderedPair, DataContainer\nfrom typing import Optional\n\n\n@flojoy(deps={\"pyserial\": \"3.5\"})\ndef FLEXIFORCE_25LB(\n    default: OrderedPair,\n    calibration1: float = 0.015,\n    calibration2: float = 0.06,\n) -> OrderedPair:\n    \"\"\"The Flexiforce node allows you to convert voltages measured with the Phidget Interface Kit into pressures.\n\n    Parameters\n    ----------\n    Calibration1 : float\n        Calibration parameters to convert voltage into pressure.\n    calibration2 : float\n        Calibration parameters to convert voltage into pressure.\n    \"\"\"\n\n    # Example of a Calibration to convert Voltage into pressions :\n    pressions: list[float] = []\n    sensor_num = default.x\n\n    pression_i: float = (default.y - calibration1) / calibration2\n    pressions.append(pression_i)\n\n    return OrderedPair(sensor_num, pressions)\n"
+}

@@ -1,0 +1,18 @@
+{
+  "description": "Error retrival is first-in-first-out (FIFO). Returning errors clears them\nfrom the instruments queue.\n\nRequires a CONNECTION_33510B node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Keysight 33XXX wavefunction\ngenerators (although they are untested).",
+  "parameters": [
+    {
+      "name": "connection",
+      "type": "VisaConnection",
+      "description": "The VISA address (requires the CONNECTION_MDO3XXX node)."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "TextBlob: Returns all errors in the WFG memory."
+    }
+  ],
+  "code": "from flojoy import flojoy, DataContainer, TextBlob, VisaConnection\nfrom typing import Optional\n\n\n@flojoy(inject_connection=True)\ndef RETURN_ERRORS_33510B(\n    connection: VisaConnection,\n    default: Optional[DataContainer] = None,\n) -> TextBlob:\n    \"\"\"The RETURN_ERRORS_33510B node returns error messages from the WFG.\n\n    Error retrival is first-in-first-out (FIFO). Returning errors clears them\n    from the instruments queue.\n\n    Requires a CONNECTION_33510B node at the start of the app to connect with\n    the instrument. The VISA address will then be listed under 'connection'.\n\n    This node should also work with compatible Keysight 33XXX wavefunction\n    generators (although they are untested).\n\n    Parameters\n    ----------\n    connection: VisaConnection\n        The VISA address (requires the CONNECTION_MDO3XXX node).\n\n    Returns\n    -------\n    DataContainer\n        TextBlob: Returns all errors in the WFG memory.\n    \"\"\"\n\n    ks = connection.get_handle()\n\n    err_code, err_message = ks.error()\n    errors = f\"{err_code} {err_message}\"\n\n    return TextBlob(text_blob=errors)\n"
+}

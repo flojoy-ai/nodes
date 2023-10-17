@@ -1,0 +1,12 @@
+{
+  "description": "Inputs\n------\nip_address\n    The IP address of the robot arm.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "ip_address",
+      "description": "The IP address of the robot arm."
+    }
+  ],
+  "code": "from flojoy import flojoy, TextBlob\nfrom PYTHON.utils.mecademic_state.mecademic_state import query_for_handle\n\n\n@flojoy(deps={\"mecademicpy\": \"1.4.0\"})\ndef HOME(ip_address: TextBlob) -> TextBlob:\n    \"\"\"\n    The HOME node homes the robot arm. This node is required to be run before any other robot arm movement. It is recommended to run this node immediately after \"ACTIVATE\".\n\n    Inputs\n    ------\n    ip_address\n        The IP address of the robot arm.\n\n    Returns\n    -------\n    ip_address\n        The IP address of the robot arm.\n    \"\"\"\n    robot = query_for_handle(ip_address)\n    robot.Home()\n    robot.WaitHomed()\n    return ip_address\n"
+}

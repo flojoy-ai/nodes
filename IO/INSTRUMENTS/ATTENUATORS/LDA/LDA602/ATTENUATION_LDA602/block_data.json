@@ -1,0 +1,28 @@
+{
+  "description": "When setting the attenuation, the attenuation is then queried to ensure\nthe attenuation was set correctly.\nThe attenuation is rounded to the nearest 0.5 dB.\n\nThis node should also work with compatible LDA attenuators (untested).",
+  "parameters": [
+    {
+      "name": "serial_number",
+      "type": "str",
+      "description": "The serial number (not model number) to connect to."
+    },
+    {
+      "name": "query_set",
+      "type": "str",
+      "description": "Query or set the attenuation?"
+    },
+    {
+      "name": "attenuation",
+      "type": "str",
+      "description": "The attenuation to set the LDA to, in dB."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "TextBlob: The current attenuation value."
+    }
+  ],
+  "code": "from flojoy import flojoy, DataContainer, TextBlob\nfrom typing import Optional, Literal\nfrom qcodes_contrib_drivers.drivers.Vaunix.LDA import Vaunix_LDA\nimport platform\nfrom numpy import allclose\nfrom os import path\n\n\n@flojoy(deps={\"qcodes-contrib-drivers\": \"0.18.0\"})\ndef ATTENUATION_LDA602(\n    serial_number: int = 839,\n    query_set: Literal[\"query\", \"set\"] = \"query\",\n    attenuation: float = 10.0,\n    default: Optional[DataContainer] = None,\n) -> TextBlob:\n    \"\"\"The ATTENUATION_LDA602 node sets or queries the attenuation for the LDA-602 Digital Attenuator.\n\n    When setting the attenuation, the attenuation is then queried to ensure\n    the attenuation was set correctly.\n    The attenuation is rounded to the nearest 0.5 dB.\n\n    This node should also work with compatible LDA attenuators (untested).\n\n    Parameters\n    ----------\n    serial_number: str\n        The serial number (not model number) to connect to.\n    query_set: str\n        Query or set the attenuation?\n    attenuation: str\n        The attenuation to set the LDA to, in dB.\n\n    Returns\n    -------\n    DataContainer\n        TextBlob: The current attenuation value.\n    \"\"\"\n\n    assert (\n        platform.system() == \"Windows\" and platform.architecture()[0] == \"64bit\"\n    ), \"This node currently supports only 64bit Windows.\"\n\n    driver_path = path.dirname(__file__)\n\n    assert path.isfile(\n        path.join(driver_path, \"VNX_atten64.dll\")\n    ), f\"Ensure the dll file is placed here: {driver_path}\"\n\n    if query_set == \"set\":\n        assert (\n            0.0 <= attenuation <= 63.0\n        ), f\"The attenuation must be between 0 and 63 (set point: {attenuation}).\"\n\n    attenuator = Vaunix_LDA(\"LDA\", serial_number, dll_path=driver_path)\n\n    match query_set:\n        case \"query\":\n            result = round(attenuator.attenuation() * 5, 2)\n            s = f\"Set to {round(attenuator.attenuation() * 5, 2)} dB\"\n        case \"set\":\n            attenuator.attenuation(attenuation)\n            result = round(attenuator.attenuation() * 5, 2)\n\n            assert allclose(\n                result, attenuation, rtol=0.1\n            ), f\"Resulting attenuation {result} is far from the set point {attenuation}\"\n\n            s = f\"Set to {result} dB\"\n\n    attenuator.close()\n\n    return TextBlob(text_blob=s)\n"
+}

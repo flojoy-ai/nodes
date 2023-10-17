@@ -1,0 +1,28 @@
+{
+  "description": "The number of points in the x axis is defined by x_length and length_type\nparameters. A length_type of pixels and a x_length of 5000 will result in\na trace with 5000 points. A length_type of nanoseconds instead results in\na trace with a length of defined by the number of (nano)seconds.\n\nRequires a CONNECTION_MDO3XXX node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "parameters": [
+    {
+      "name": "connection",
+      "type": "VisaConnection",
+      "description": "The VISA address (requires the CONNECTION_MDO3XXX node)."
+    },
+    {
+      "name": "x_length",
+      "type": "int",
+      "description": "The length of the trace to extract."
+    },
+    {
+      "name": "length_type",
+      "type": "select",
+      "description": "The units of the length specified in x_length: nanoseconds or pixels."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "OrderedPair: The trace of the oscilloscope is returned."
+    }
+  ],
+  "code": "from flojoy import flojoy, DataContainer, OrderedPair, VisaConnection\nfrom typing import Optional, Literal\n\n\n@flojoy(inject_connection=True)\ndef EXTRACT_TRACE_MDO3XXX(\n    connection: VisaConnection,\n    channel: int = 0,\n    x_length: int = 5000,\n    length_type: Literal[\"pixels\", \"nanoseconds\"] = \"pixels\",\n    default: Optional[DataContainer] = None,\n) -> OrderedPair:\n    \"\"\"The EXTRACT_TRACE_MDO3XXX node extracts the trace from an MDO3xxx oscilloscope.\n\n    The number of points in the x axis is defined by x_length and length_type\n    parameters. A length_type of pixels and a x_length of 5000 will result in\n    a trace with 5000 points. A length_type of nanoseconds instead results in\n    a trace with a length of defined by the number of (nano)seconds.\n\n    Requires a CONNECTION_MDO3XXX node at the start of the app to connect with\n    the instrument. The VISA address will then be listed under 'connection'.\n\n    This node should also work with compatible Tektronix scopes (untested):\n    MDO4xxx, MSO4xxx, and DPO4xxx.\n\n    Parameters\n    ----------\n    connection: VisaConnection\n        The VISA address (requires the CONNECTION_MDO3XXX node).\n    x_length: int\n        The length of the trace to extract.\n    length_type: select\n        The units of the length specified in x_length: nanoseconds or pixels.\n\n    Returns\n    -------\n    DataContainer\n        OrderedPair: The trace of the oscilloscope is returned.\n    \"\"\"\n\n    tek = connection.get_handle()\n\n    match length_type:\n        case \"pixels\":\n            tek.channel[0].set_trace_length(x_length)\n        case \"nanoseconds\":\n            tek.channel[0].set_trace_time(x_length / 1e9)\n\n    x = tek.channel[channel].waveform.trace_axis()\n    y = tek.channel[channel].waveform.trace()\n\n    return OrderedPair(x=x, y=y)\n"
+}

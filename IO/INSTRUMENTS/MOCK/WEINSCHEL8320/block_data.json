@@ -1,0 +1,18 @@
+{
+  "description": "Note: This node is for testing purposes only.",
+  "parameters": [
+    {
+      "name": "attenuation",
+      "type": "int",
+      "description": "Value at which the instrument would attenuate the input signal (mocked)."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Scalar",
+      "description": "c: attenuation value"
+    }
+  ],
+  "code": "from flojoy import flojoy, Scalar, DataContainer\nfrom qcodes.instrument_drivers.weinschel import Weinschel8320\nfrom typing import Optional\n\n\n@flojoy(deps={\"qcodes\": \"0.39.1\", \"pyvisa-sim\": \"0.5.1\"})\ndef WEINSCHEL8320(\n    default: Optional[DataContainer] = None,\n    attenuation: int = 10,\n) -> Scalar:\n    \"\"\"The WEINSCHEL8320 node mocks the WEINSCHEL 8320 instrument, which attenuates the input signal.\n\n    Note: This node is for testing purposes only.\n\n    Parameters\n    ----------\n    attenuation : int\n        Value at which the instrument would attenuate the input signal (mocked).\n\n    Returns\n    -------\n    Scalar\n        c: attenuation value\n    \"\"\"\n\n    wein_sim = Weinschel8320(\n        \"wein_sim\",\n        address=\"GPIB::1::INSTR\",\n        pyvisa_sim_file=\"Weinschel_8320.yaml\",\n    )\n\n    idn_dict = wein_sim.IDN()\n    print(f\"Connected to mock instrument: {idn_dict}\")\n\n    wein_sim.attenuation(attenuation)\n\n    # Get the current attenuation value\n    attenuation_value = wein_sim.attenuation()\n\n    # Print the current attenuation value\n    print(f\"Current attenuation: {attenuation_value} dB\")\n\n    return Scalar(c=attenuation_value)\n"
+}

@@ -1,0 +1,12 @@
+{
+  "description": "Inputs\n------\nv : Vector\n    The input vector to use max peration",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Scalar",
+      "description": "The maximum value found from the input vector"
+    }
+  ],
+  "code": "import numpy as np\nfrom flojoy import flojoy, Vector, Scalar\n\n\n@flojoy\ndef VECTOR_MAX(default: Vector) -> Scalar:\n    \"\"\"The VECTOR_MAX node returns the maximum value from the Vector\n\n    Inputs\n    ------\n    v : Vector\n        The input vector to use max peration\n\n    Returns\n    -------\n    Scalar\n        The maximum value found from the input vector\n    \"\"\"\n\n    return Scalar(c=np.max(default.v))\n"
+}

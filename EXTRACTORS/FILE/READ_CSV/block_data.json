@@ -1,0 +1,18 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "file_path",
+      "type": "str",
+      "description": "File path to the .csv file or an URL of a .csv file."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataFrame",
+      "description": "DataFrame loaded from .csv file"
+    }
+  ],
+  "code": "from flojoy import flojoy, DataFrame\nimport pandas as pd\n\n\n@flojoy\ndef READ_CSV(\n    file_path: str = \"https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv\",\n) -> DataFrame:\n    \"\"\"The READ_CSV node reads a .csv file from disk or a URL, and then returns a dataframe.\n\n    Parameters\n    ----------\n    file_path : str\n        File path to the .csv file or an URL of a .csv file.\n\n    Returns\n    -------\n    DataFrame\n        DataFrame loaded from .csv file\n    \"\"\"\n\n    df = pd.read_csv(file_path)  # type: ignore\n    return DataFrame(df=df)\n"
+}

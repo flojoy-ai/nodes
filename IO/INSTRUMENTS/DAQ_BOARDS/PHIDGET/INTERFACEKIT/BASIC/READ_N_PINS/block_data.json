@@ -1,0 +1,12 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "n_sensors",
+      "type": "int",
+      "description": "Defines the number of pressure sensors connected to the Phidget InterfaceKit."
+    }
+  ],
+  "returns": [],
+  "code": "from flojoy import flojoy, OrderedPair\nfrom typing import Optional\nfrom Phidget22.Devices.VoltageRatioInput import VoltageRatioInput\n\n\ndef onVoltageRatioChange(self, voltageRatio):\n    # Declaration of the Event handler, print Voltage variation for a channel.\n    print(\"VoltageRatio [\" + str(self.getChannel()) + \"]: \" + str(voltageRatio))\n\n\n@flojoy(deps={\"Phidget22\": \"1.14.20230331\"})\ndef READ_N_PINS(\n    default: Optional[OrderedPair] = None,\n    n_sensors: int = 1,\n) -> OrderedPair:\n    \"\"\"The READ_N_PINS node allows you to measure and output voltages from Flexiforce sensors using a Phidget InterfaceKit.\n\n    Parameters\n    ----------\n    n_sensors : int\n        Defines the number of pressure sensors connected to the Phidget InterfaceKit.\n    \"\"\"\n\n    voltage: list[float] = []\n    pressions: list[float] = []\n    sensor_num: list[int] = []\n\n    for i in range(0, n_sensors):\n        sensor_num.append(i + 1)\n        # Creation of an instance of the VoltageRationInput class\n        voltage_ratio_input = VoltageRatioInput()\n        # Set Channel for Communication with the Phidget Interface Kit :\n        voltage_ratio_input.setChannel(i)\n        # Assign the handler that will be called when the event occurs :\n        voltage_ratio_input.setOnVoltageRatioChangeHandler(onVoltageRatioChange)\n        # Open the Channel after event handler is set :\n        voltage_ratio_input.openWaitForAttachment(5000)\n        volt_i: float = (\n            voltage_ratio_input.getVoltageRatio()\n        )  # Measure Voltage from the sensor\n        voltage.append(volt_i)  # Add Voltage to the list of measurements\n\n        # Example of a Calibration to convert Voltage into pressions :\n        pression_i: float = (volt_i - calibration1) / calibration2\n        pressions.append(pression_i)\n\n    return OrderedPair(x=sensor_num, y=voltage)\n"
+}

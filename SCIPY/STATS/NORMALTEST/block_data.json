@@ -1,0 +1,33 @@
+{
+  "description": "The description of that function is as follows:\n\n    Test whether a sample differs from a normal distribution.\n\n    This function tests the null hypothesis that a sample comes from a normal distribution.\n    It is based on D'Agostino and Pearson's [1]_, [2]_ test that combines skewness and kurtosis to produce an omnibus test of normality.",
+  "parameters": [
+    {
+      "name": "select_return",
+      "type": "'statistic', 'pvalue'",
+      "description": "Select the desired object to return.\nSee the respective function docs for descriptors."
+    },
+    {
+      "name": "a",
+      "type": "array_like",
+      "description": "The array containing the sample to be tested."
+    },
+    {
+      "name": "axis",
+      "type": "int or None",
+      "description": "Axis along which to compute test.\nDefault is 0.\nIf None, compute over the whole array 'a'."
+    },
+    {
+      "name": "nan_policy",
+      "type": "{'propagate', 'raise', 'omit'}",
+      "description": "Defines how to handle when input contains nan.\nThe following options are available (default is 'propagate'):\n'propagate' : returns nan\n'raise' : raises an error\n'omit' : performs the calculations ignoring nan values"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "type 'ordered pair', 'scalar', or 'matrix'"
+    }
+  ],
+  "code": "from flojoy import OrderedPair, flojoy, Matrix, Scalar\nimport numpy as np\nfrom collections import namedtuple\nfrom typing import Literal\n\nimport scipy.stats\n\n\n@flojoy\ndef NORMALTEST(\n    default: OrderedPair | Matrix,\n    axis: int = 0,\n    nan_policy: str = \"propagate\",\n    select_return: Literal[\"statistic\", \"pvalue\"] = \"statistic\",\n) -> OrderedPair | Matrix | Scalar:\n    \"\"\"The NORMALTEST node is based on a numpy or scipy function.\n\n    The description of that function is as follows:\n\n        Test whether a sample differs from a normal distribution.\n\n        This function tests the null hypothesis that a sample comes from a normal distribution.\n        It is based on D'Agostino and Pearson's [1]_, [2]_ test that combines skewness and kurtosis to produce an omnibus test of normality.\n\n    Parameters\n    ----------\n    select_return : 'statistic', 'pvalue'\n        Select the desired object to return.\n        See the respective function docs for descriptors.\n    a : array_like\n        The array containing the sample to be tested.\n    axis : int or None, optional\n        Axis along which to compute test.\n        Default is 0.\n        If None, compute over the whole array 'a'.\n    nan_policy : {'propagate', 'raise', 'omit'}, optional\n        Defines how to handle when input contains nan.\n        The following options are available (default is 'propagate'):\n        'propagate' : returns nan\n        'raise' : raises an error\n        'omit' : performs the calculations ignoring nan values\n\n    Returns\n    -------\n    DataContainer\n        type 'ordered pair', 'scalar', or 'matrix'\n    \"\"\"\n\n    result = scipy.stats.normaltest(\n        a=default.y,\n        axis=axis,\n        nan_policy=nan_policy,\n    )\n\n    return_list = [\"statistic\", \"pvalue\"]\n    if isinstance(result, tuple):\n        res_dict = {}\n        num = min(len(result), len(return_list))\n        for i in range(num):\n            res_dict[return_list[i]] = result[i]\n        result = res_dict[select_return]\n    else:\n        result = result._asdict()\n        result = result[select_return]\n\n    if isinstance(result, np.ndarray):\n        result = OrderedPair(x=default.x, y=result)\n    else:\n        assert isinstance(\n            result, np.number | float | int\n        ), f\"Expected np.number, float or int for result, got {type(result)}\"\n        result = Scalar(c=float(result))\n\n    return result\n"
+}
