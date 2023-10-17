@@ -1,0 +1,11 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "Calibration1, Calibration2, Calibration3",
+      "type": "float",
+      "description": "Calibration parameters to convert voltage into temperature in Celcius."
+    }
+  ],
+  "returns": []
+}

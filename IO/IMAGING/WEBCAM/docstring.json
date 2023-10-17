@@ -1,0 +1,22 @@
+{
+  "description": "The selected camera must be opened already using the OPEN_WEBCAM node.",
+  "parameters": [
+    {
+      "name": "connection",
+      "type": "Camera",
+      "description": "The opened camera connection to use."
+    },
+    {
+      "name": "resolution",
+      "type": "select",
+      "description": "Camera resolution. Choose from a few options."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Image",
+      "description": null
+    }
+  ]
+}

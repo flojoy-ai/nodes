@@ -1,0 +1,22 @@
+{
+  "description": "the shape is chosen by row and col parameters.\n\nInputs\n------\ndefault: Vector\n    The input vector that will be transformed into matrix.",
+  "parameters": [
+    {
+      "name": "row",
+      "type": "int",
+      "description": "number of rows for the new matrix"
+    },
+    {
+      "name": "col",
+      "type": "int",
+      "description": "number of columns for the new matrix"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Matrix",
+      "description": "The matrix that is generated from the given vector and the parameters."
+    }
+  ]
+}

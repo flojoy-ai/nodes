@@ -1,0 +1,17 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "measurement_id",
+      "type": "str",
+      "description": "The measurement id of the data to be uploaded to Flojoy Cloud."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "The input DataContainer will be returned as it is."
+    }
+  ]
+}

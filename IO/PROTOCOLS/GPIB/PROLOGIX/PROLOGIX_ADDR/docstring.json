@@ -1,0 +1,17 @@
+{
+  "description": "Inputs\n------\ndefault: DataContainer\n    Any DataContainer - likely connected to the output of the OPEN_SERIAL node.",
+  "parameters": [
+    {
+      "name": "connection",
+      "type": "Serial",
+      "description": "The open serial connection with the instrument."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "TextBlob",
+      "description": "Response from the Prologix USB-to-GPIB controller."
+    }
+  ]
+}

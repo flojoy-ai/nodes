@@ -1,0 +1,11 @@
+{
+  "description": "It then computes the derivative of the array, y, with respect to x.\n\nInputs\n------\ndefault : OrderedPair|Vector\n    Input from which we get the x and y lists use in the derivative.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair",
+      "description": "x: the x-axis of the input.\ny: the result of the derivative."
+    }
+  ]
+}

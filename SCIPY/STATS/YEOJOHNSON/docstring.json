@@ -1,0 +1,22 @@
+{
+  "description": "The description of that function is as follows:\n\n    Return a dataset transformed by a Yeo-Johnson power transformation.",
+  "parameters": [
+    {
+      "name": "x",
+      "type": "ndarray",
+      "description": "Input array.\nShould be 1-dimensional."
+    },
+    {
+      "name": "lmbda",
+      "type": "float",
+      "description": "If 'lmbda' is 'None', find the lambda that maximizes the\nlog-likelihood function and return it as the second output argument.\nOtherwise the transformation is done for the given value."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "type 'ordered pair', 'scalar', or 'matrix'"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "description": "Inputs\n------\ndefault : Vector\n    The input vector",
+  "parameters": [
+    {
+      "name": "index",
+      "type": "int",
+      "description": "index which you want to split your vector by"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Vector",
+      "description": "Splited input vector"
+    }
+  ]
+}

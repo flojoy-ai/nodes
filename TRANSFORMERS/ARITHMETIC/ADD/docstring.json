@@ -1,0 +1,11 @@
+{
+  "description": "When a constant is added to an array or matrix, each element in the array or matrix will be increased by the constant value.\n\nIf two arrays or matrices of different sizes are added, the output will be the size of the larger array or matrix with only the overlapping elements changed.\n\nInputs\n------\na : OrderedPair|Scalar|Vector\n    The input a use to compute the sum of a and b.\nb : OrderedPair|Scalar|Vector\n    The input b use to compute the sum of a and b.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair|Scalar|Vector",
+      "description": "OrderedPair if a is an OrderedPair.\nx: the x-axis of input a.\ny: the sum of input a and input b.\n\nScalar if a is a Scalar.\nc: the sum of input a and input b.\n\nVector if a is a Vector.\nv: the sum of input a and input b."
+    }
+  ]
+}
