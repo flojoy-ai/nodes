@@ -1,4 +1,4 @@
-from flojoy import flojoy, run_in_venv, DataFrame
+from flojoy import DataFrame, flojoy, run_in_venv
 
 
 @flojoy
@@ -16,12 +16,6 @@ def PROPHET_PREDICT(
 
     This node always returns a DataContainer of a dataframe type. It will also always return an 'extra' field with a key 'prophet' of which the value is the JSONified Prophet model.
     This model can be loaded as follows:
-
-        ```python
-        from prophet.serialize import model_from_json
-
-        model = model_from_json(dc_inputs.extra["prophet"])
-        ```
 
     Parameters
     ----------
@@ -58,9 +52,9 @@ def PROPHET_PREDICT(
 
     import os
     import sys
-    import pandas as pd
-    import numpy as np
 
+    import numpy as np
+    import pandas as pd
     import prophet
     from prophet.serialize import model_to_json
 
