@@ -7,6 +7,8 @@ from docstring_parser import parse
 # Get the current directory
 current_directory = os.getcwd()
 
+total_bad = 0
+
 # Walk through all the folders and files in the current directory
 for root, dirs, files in os.walk(current_directory):
     # Iterate through the files
@@ -44,34 +46,49 @@ for root, dirs, files in os.walk(current_directory):
                         # Process the docstring using docstring_parser
                         parsed_docstring = parse(docstring)
 
-                        if (
-                            parsed_docstring.short_description
-                            or parsed_docstring.long_description
-                        ):
-                            # Build the JSON data
-                            json_data = {
-                                "description": parsed_docstring.long_description,
-                                "parameters": [
-                                    {
-                                        "name": param.arg_name,
-                                        "type": param.type_name,
-                                        "description": param.description,
-                                    }
-                                    for param in parsed_docstring.params
-                                ],
-                                "returns": [
-                                    {
-                                        "name": rtn.return_name,
-                                        "type": rtn.type_name,
-                                        "description": rtn.description,
-                                    }
-                                    for rtn in parsed_docstring.many_returns
-                                ],
-                            }
+                        if not parsed_docstring.long_description:
+                            print(
+                                f"ATTENTION: description not found for {function_name}"
+                            )
+                            total_bad += 1
+                        if not parsed_docstring.params:
+                            print(
+                                f"ATTENTION: 'Parameters' not found for {function_name}"
+                            )
+                            total_bad += 1
+                        if not parsed_docstring.many_returns:
+                            print(f"ATTENTION: 'Returns' not found for {function_name}")
+                            total_bad += 1
 
-                            # Write the data to a JSON file in the same directory
-                            output_file_path = os.path.join(root, "docstring.json")
-                            with open(output_file_path, "w") as output_file:
-                                json.dump(json_data, output_file, indent=2)
+                        # Build the JSON data
+                        json_data = {
+                            "description": parsed_docstring.long_description,
+                            "parameters": [
+                                {
+                                    "name": param.arg_name,
+                                    "type": param.type_name,
+                                    "description": param.description,
+                                }
+                                for param in parsed_docstring.params
+                            ],
+                            "returns": [
+                                {
+                                    "name": rtn.return_name,
+                                    "type": rtn.type_name,
+                                    "description": rtn.description,
+                                }
+                                for rtn in parsed_docstring.many_returns
+                            ],
+                        }
+
+                        # Write the data to a JSON file in the same directory
+                        output_file_path = os.path.join(root, "docstring.json")
+                        with open(output_file_path, "w") as output_file:
+                            json.dump(json_data, output_file, indent=2)
 
                             # sys.exit(0)
+                    else:
+                        print(f"ATTENTION: Docstring not found for {function_name}")
+                        total_bad += 1
+
+print(f"Summary: found {total_bad} problems with docstring formatting")
