@@ -7,8 +7,9 @@ from flojoy import (
 
 
 @flojoy(node_type="BIG_NUMBER", forward_result=True)
-def BIG_NUMBER(default: OrderedPair | Scalar | Vector,
-               scientific_notation: bool = False) -> Scalar:
+def BIG_NUMBER(
+    default: OrderedPair | Scalar | Vector, scientific_notation: bool = False
+) -> Scalar:
     """The BIG_NUMBER node generates a Plotly figure, displaying a big number with an optional prefix and suffix.
 
     Inputs
@@ -41,5 +42,4 @@ def BIG_NUMBER(default: OrderedPair | Scalar | Vector,
         case Vector():
             return Scalar(default.v[-1])
         case _:
-            raise ValueError(
-                f"Invalid input type {type(default)} for node {node_name}")
+            raise ValueError(f"Invalid input type {type(default)} for node {node_name}")

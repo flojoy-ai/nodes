@@ -27,7 +27,8 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix | Vector) -> OrderedPair:
             return OrderedPair(x=np.arange(len(default.v)), y=default.v)
         case _:
             raise TypeError(
-                f"SCATTER node does not support input of type {type(default)}")
+                f"SCATTER node does not support input of type {type(default)}"
+            )
 
     layout = plot_layout(title="SCATTER")
     fig = go.Figure(layout=layout)
@@ -38,8 +39,7 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix | Vector) -> OrderedPair:
                 dict_keys = list(default.x.keys())
                 x = default.x[dict_keys[0]]
             y = default.y
-            fig.add_trace(
-                go.Scatter(x=x, y=y, mode="markers", marker=dict(size=4)))
+            fig.add_trace(go.Scatter(x=x, y=y, mode="markers", marker=dict(size=4)))
         case DataFrame():
             df = pd.DataFrame(default.m)
             first_col = df.iloc[:, 0]
@@ -50,17 +50,13 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix | Vector) -> OrderedPair:
                 for col in df.columns:
                     if col != df.columns[0]:
                         fig.add_trace(
-                            go.Scatter(x=first_col,
-                                       y=df[col],
-                                       mode="markers",
-                                       name=col))
+                            go.Scatter(x=first_col, y=df[col], mode="markers", name=col)
+                        )
             else:
                 for col in df.columns:
                     fig.add_trace(
-                        go.Scatter(x=df.index,
-                                   y=df[col],
-                                   mode="markers",
-                                   name=col))
+                        go.Scatter(x=df.index, y=df[col], mode="markers", name=col)
+                    )
 
         case Matrix():
             m: np.ndarray = default.m
@@ -70,16 +66,13 @@ def SCATTER(default: OrderedPair | DataFrame | Matrix | Vector) -> OrderedPair:
 
             for i in range(num_rows):
                 fig.add_trace(
-                    go.Scatter(x=x_ticks,
-                               y=m[i, :],
-                               name=f"Row {i+1}",
-                               mode="markers"))
+                    go.Scatter(x=x_ticks, y=m[i, :], name=f"Row {i+1}", mode="markers")
+                )
 
             fig.update_layout(xaxis_title="Column", yaxis_title="Value")
         case Vector():
             y = default.v
             x = np.arange(len(y))
-            fig.add_trace(
-                go.Scatter(x=x, y=y, mode="markers", marker=dict(size=4)))
+            fig.add_trace(go.Scatter(x=x, y=y, mode="markers", marker=dict(size=4)))
 
     return Plotly(fig=fig)

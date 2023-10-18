@@ -7,8 +7,9 @@ import numpy as np
 
 
 @flojoy(deps={"TauLidarCamera": "0.0.5"}, inject_connection=True)
-def TAU_LIDAR(connection: SerialConnection,
-              default: Optional[DataContainer] = None) -> OrderedTriple:
+def TAU_LIDAR(
+    connection: SerialConnection, default: Optional[DataContainer] = None
+) -> OrderedTriple:
     camera = connection.get_handle()
     frame: Frame | None = camera.readFrame(FrameType.DISTANCE)
     if frame is None:

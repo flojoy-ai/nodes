@@ -3,20 +3,22 @@ import numpy as np
 
 
 @flojoy(node_type="SCATTER3D", forward_result=True)
-def SCATTER3D(default: OrderedTriple | DataFrame,
-              point_size: int = 4,
-              show_xy_plane: bool = False,
-              show_xz_plane: bool = True,
-              show_yz_plane: bool = False,
-              x_min: float = -10,
-              x_max: float = 10,
-              x_step: float = 1,
-              y_min: float = 0,
-              y_max: float = 10,
-              y_step: float = 1,
-              z_min: float = -10,
-              z_max: float = 10,
-              z_step: float = 1) -> DataContainer:
+def SCATTER3D(
+    default: OrderedTriple | DataFrame,
+    point_size: int = 4,
+    show_xy_plane: bool = False,
+    show_xz_plane: bool = True,
+    show_yz_plane: bool = False,
+    x_min: float = -10,
+    x_max: float = 10,
+    x_step: float = 1,
+    y_min: float = 0,
+    y_max: float = 10,
+    y_step: float = 1,
+    z_min: float = -10,
+    z_max: float = 10,
+    z_step: float = 1,
+) -> DataContainer:
     """The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input DataContainer.
 
     Inputs
