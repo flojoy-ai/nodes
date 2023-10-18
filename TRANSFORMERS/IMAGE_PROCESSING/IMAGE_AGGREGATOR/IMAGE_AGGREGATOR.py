@@ -45,7 +45,6 @@ def IMAGE_AGGREGATOR(
     data: dict[str, Any]
     if referred_node.unwrap() != "":
         data = SmallMemory().read_memory(referred_node.unwrap(), memory_key)
-        
         return Matrix(m=data['images'])
     
 
@@ -55,22 +54,35 @@ def IMAGE_AGGREGATOR(
         img = default.m  
     else:
         if default.a is None:
-            img = np.vstack((default.r, default.g, default.b))
+            img = np.stack(
+                (
+                    default.r[np.newaxis,...], 
+                    default.g[np.newaxis,...], 
+                    default.b[np.newaxis,...]
+                ), axis=1
+            )
         else:
-            img = np.vstack((default.r, default.g, default.b, default.a))
+            img = np.stack(
+                (
+                    default.r[np.newaxis,...], 
+                    default.g[np.newaxis,...], 
+                    default.b[np.newaxis,...],
+                    default.a[np.newaxis,...]
+                ), axis=1
+            )
 
     data = SmallMemory().read_memory(node_id, memory_key) or {}
     
     if not data: #this means that we have not written to memory yet!
          # artificially extend the first dimension
-        images = img[np.newaxis,...] #this now gives us something 1xCxHxW
+        images = img #this now gives us something 1xCxHxW
         img_types = [str(type(default).__name__)] #should be either Image or Grayscale
     else:
         images = np.vstack(
             (
                 data['images'], # this gives us something (N-1)xCxHxW
-                img[np.newaxis,...] #something 1xCxHxW
-                ), 
+                img[np.newaxis,...] if isinstance(default, Grayscale) else img #something 1xCxHxW
+            ), 
         )
         img_types = data['img_types'] + [str(type(default).__name__)]
         if not all(x == img_types[0] for x in img_types):

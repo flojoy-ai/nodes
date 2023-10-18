@@ -193,7 +193,7 @@
                             "desc": "type of file to load, default = image",
                             "functionName": "LOCAL_FILE",
                             "param": "file_type",
-                            "value": "Grayscale"
+                            "value": "Image"
                         }
                     },
                     "initCtrls": {},
@@ -379,7 +379,7 @@
                             "desc": "The directory in which we should pattern match to find the files",
                             "functionName": "BATCH_PROCESSOR",
                             "param": "directory_path",
-                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/BATCH_PROCESSOR/assets"
+                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/IMAGE_AGGREGATOR/assets"
                         },
                         "pattern": {
                             "type": "str",
@@ -387,7 +387,7 @@
                             "desc": "The glob pattern to match. If not provided, all files in the directory\nare returned. The current implementation supports recursion and double\nwildcard matching.",
                             "functionName": "BATCH_PROCESSOR",
                             "param": "pattern",
-                            "value": "*.tif"
+                            "value": "*.jpg"
                         },
                         "refresh": {
                             "type": "bool",
@@ -453,7 +453,7 @@
                             "desc": "The directory in which we should pattern match to find the files",
                             "functionName": "BATCH_PROCESSOR",
                             "param": "directory_path",
-                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/BATCH_PROCESSOR/assets"
+                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/IMAGE_AGGREGATOR/assets"
                         },
                         "pattern": {
                             "type": "str",
@@ -461,7 +461,7 @@
                             "desc": "The glob pattern to match. If not provided, all files in the directory\nare returned. The current implementation supports recursion and double\nwildcard matching.",
                             "functionName": "BATCH_PROCESSOR",
                             "param": "pattern",
-                            "value": "*.tif"
+                            "value": "*.jpg"
                         },
                         "refresh": {
                             "type": "bool",
@@ -1063,8 +1063,8 @@
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 384,
+                "height": 288,
                 "id": "TEXT_VIEW-5fd772e1-0e33-4440-8a73-cb1e5071dfa6",
                 "type": "VISUALIZERS",
                 "data": {
@@ -1362,7 +1362,7 @@
         ],
         "viewport": {
             "x": 639.6486562664779,
-            "y": 165.41130785489457,
+            "y": 149.91130785489457,
             "zoom": 0.5
         }
     },
