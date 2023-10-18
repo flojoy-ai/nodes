@@ -20,26 +20,26 @@ def IMAGE_FORMAT_CONVERTER(
     Returns
     -------
     retval      :       Matrix  
-        The formatted Numpy array of the image
+        The formatted Numpy array of the image, in shape #Channels x H x W
     """
     if isinstance(default, Grayscale):
-        img = default.m [np.newaxis,...]
+        img = default.m[np.newaxis,...]
     else:
         if default.a is None:
-            img = np.stack(
+            img = np.vstack(
                 (
-                    default.r[np.newaxis,...], 
-                    default.g[np.newaxis,...], 
-                    default.b[np.newaxis,...]
-                ), axis=1
+                    default.r, 
+                    default.g, 
+                    default.b
+                )
             )
         else:
-            img = np.stack(
+            img = np.vstack(
                 (
-                    default.r[np.newaxis,...], 
-                    default.g[np.newaxis,...], 
-                    default.b[np.newaxis,...],
-                    default.a[np.newaxis,...]
-                ), axis=1
+                    default.r, 
+                    default.g, 
+                    default.b,
+                    default.a
+                )
             )
     return Matrix(m=img)
