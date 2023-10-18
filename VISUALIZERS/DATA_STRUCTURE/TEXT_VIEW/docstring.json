@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\ndefault : TextBlob\n    the DataContainer to be visualized in text format",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "TextBlob",
+      "description": "the DataContainer containing text data"
+    }
+  ]
+}

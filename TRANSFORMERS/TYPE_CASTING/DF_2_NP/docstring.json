@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\ndefault : DataFrame\n    The input dataframe to which we apply the conversion to.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Matrix",
+      "description": "The matrix result from the conversion of the input."
+    }
+  ]
+}

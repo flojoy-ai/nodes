@@ -1,0 +1,17 @@
+{
+  "description": "The description of that function is as follows:\n\n    A cubic B-spline.\n    This is a special case of 'bspline', and equivalent to \"bspline(x, 3)\".",
+  "parameters": [
+    {
+      "name": "x",
+      "type": "array_like",
+      "description": "a knot vector"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "type 'ordered pair', 'scalar', or 'matrix'"
+    }
+  ]
+}

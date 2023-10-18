@@ -1,0 +1,37 @@
+{
+  "description": "Note that \"unchanged\" will leave the settings unchanged.\n\nRequires a CONNECTION_MDO3XXX node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "parameters": [
+    {
+      "name": "connection",
+      "type": "VisaConnection",
+      "description": "The VISA address (requires the CONNECTION_MDO3XXX node)."
+    },
+    {
+      "name": "query_set",
+      "type": "str",
+      "description": "Whether to query or set the triggering channel."
+    },
+    {
+      "name": "edge_couplings",
+      "type": "str",
+      "description": "Set the trigger edge coupling type."
+    },
+    {
+      "name": "trigger_types",
+      "type": "str",
+      "description": "Set to trigger on edge, logic, or pulses."
+    },
+    {
+      "name": "edge_slope",
+      "type": "str",
+      "description": "Set to trigger on positive, negative, or either slopes."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "TextBlob: Summary of trigger settings."
+    }
+  ]
+}

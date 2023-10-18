@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\ndefault : OrderedPair|Vector\n    Input from which we get the two lists we use in the integration.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair",
+      "description": "x: the x-axis of the input.\ny: the result of the integral."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "description": "the elements are in the reverse order\n\nInputs\n------\ndefault : Vector\n    The input vector",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Vector",
+      "description": "Reversed input vector"
+    }
+  ]
+}

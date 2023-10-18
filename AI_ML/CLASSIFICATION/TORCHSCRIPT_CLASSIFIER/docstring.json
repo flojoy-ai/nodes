@@ -1,0 +1,26 @@
+{
+  "description": "Inputs\n----------\ninput_image : Image\n    The image to classify.\nclass_names : DataFrame\n    A dataframe containing the class names.",
+  "parameters": [
+    {
+      "name": "model_path",
+      "type": "str",
+      "description": "The path to the torchscript model."
+    },
+    {
+      "name": "Returns",
+      "type": null,
+      "description": null
+    },
+    {
+      "name": "----------",
+      "type": null,
+      "description": null
+    },
+    {
+      "name": "DataFrame",
+      "type": null,
+      "description": "A dataframe containing the class name and confidence score."
+    }
+  ],
+  "returns": []
+}

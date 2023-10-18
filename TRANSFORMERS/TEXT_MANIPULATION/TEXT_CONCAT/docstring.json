@@ -1,0 +1,17 @@
+{
+  "description": "Inputs\n------\na: TextBlob\n    The input text to be concatenated to input b\n\nb: TextBlob\n    The input text to be concatenated to input a",
+  "parameters": [
+    {
+      "name": "delimiter",
+      "type": "\"space\" | \"comma\" | \"semicolon\" | \"colon\" | \"new line\" | \"none\", default=\"space\"",
+      "description": "Select the delimiter to place between two text."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "TextBlob",
+      "description": "The text result from concatenation."
+    }
+  ]
+}

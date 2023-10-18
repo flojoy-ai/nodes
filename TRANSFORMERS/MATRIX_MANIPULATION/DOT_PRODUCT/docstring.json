@@ -1,0 +1,11 @@
+{
+  "description": "To multiply a scalar, use the MULTIPLY node.\n\nInputs\n------\na : Matrix\n    The input matrix to be multiplied to input b.\nb : Matrix\n    The input matrix to be multiplied to input a.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Matrix",
+      "description": "The matrix result from the matrix multiplication."
+    }
+  ]
+}

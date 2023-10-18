@@ -54,8 +54,8 @@
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 384,
+                "height": 288,
                 "id": "TEXT_VIEW-b70bbfaf-d726-4ff5-b243-1441ab16befc",
                 "type": "VISUALIZERS",
                 "data": {
@@ -85,138 +85,6 @@
                 "positionAbsolute": {
                     "x": 423.28687718789644,
                     "y": 258.0784623999033
-                },
-                "dragging": true
-            },
-            {
-                "width": 208,
-                "height": 96,
-                "id": "R_DATASET-777e46f9-b7c0-4cf4-91a5-ce61d713141b",
-                "type": "GENERATORS",
-                "data": {
-                    "id": "R_DATASET-777e46f9-b7c0-4cf4-91a5-ce61d713141b",
-                    "label": "R DATASET",
-                    "func": "R_DATASET",
-                    "type": "GENERATORS",
-                    "ctrls": {
-                        "dataset_key": {
-                            "type": "select",
-                            "default": "iris",
-                            "options": [
-                                "ability.cov",
-                                "airmiles",
-                                "AirPassengers",
-                                "airquality",
-                                "anscombe",
-                                "attenu",
-                                "attitude",
-                                "austres",
-                                "BJsales",
-                                "BOD",
-                                "cars",
-                                "ChickWeight",
-                                "chickwts",
-                                "co2",
-                                "crimtab",
-                                "discoveries",
-                                "DNase",
-                                "esoph",
-                                "euro",
-                                "EuStockMarkets",
-                                "faithful",
-                                "Formaldehyde",
-                                "freeny",
-                                "HairEyeColor",
-                                "Harman23",
-                                "Harman74",
-                                "Indometh",
-                                "infert",
-                                "InsectSprays",
-                                "iris",
-                                "iris3",
-                                "islands",
-                                "JohnsonJohnson",
-                                "LakeHuron",
-                                "LifeCycleSavings",
-                                "Loblolly",
-                                "longley",
-                                "lynx",
-                                "morley",
-                                "mtcars",
-                                "nhtemp",
-                                "Nile",
-                                "nottem",
-                                "npk",
-                                "occupationalStatus",
-                                "Orange",
-                                "OrchardSprays",
-                                "PlantGrowth",
-                                "precip",
-                                "presidents",
-                                "pressure",
-                                "Puromycin",
-                                "quakes",
-                                "randu",
-                                "rivers",
-                                "rock",
-                                "Seatbelts",
-                                "sleep",
-                                "stackloss",
-                                "sunspot.month",
-                                "sunspot.year",
-                                "sunspots",
-                                "swiss",
-                                "Theoph",
-                                "Titanic",
-                                "ToothGrowth",
-                                "treering",
-                                "trees",
-                                "UCBAdmissions",
-                                "UKDriverDeaths",
-                                "UKgas",
-                                "USAccDeaths",
-                                "USArrests",
-                                "USJudgeRatings",
-                                "USPersonalExpenditure",
-                                "VADeaths",
-                                "volcano",
-                                "warpbreaks",
-                                "women",
-                                "WorldPhones",
-                                "WWWusage"
-                            ],
-                            "desc": null,
-                            "functionName": "R_DATASET",
-                            "param": "dataset_key",
-                            "value": "airquality"
-                        }
-                    },
-                    "initCtrls": {},
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "DataFrame",
-                            "desc": "A DataContainer object containing the retrieved pandas DataFrame."
-                        }
-                    ],
-                    "pip_dependencies": [
-                        {
-                            "name": "rdatasets",
-                            "v": "0.1.0"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/GENERATORS/SAMPLE_DATASETS/R_DATASET/R_DATASET.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": -677.2257115768947,
-                    "y": 320.5883946561946
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -677.2257115768947,
-                    "y": 320.5883946561946
                 },
                 "dragging": true
             },
@@ -289,8 +157,8 @@
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "TABLE-62eb9ff0-2e0f-4ea7-9770-be6a54d3c45f",
                 "type": "VISUALIZERS",
                 "data": {
@@ -321,19 +189,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 24.997712912767724,
-                    "y": 32.889244940134404
+                    "x": 31.521079459966586,
+                    "y": -20.38491519532323
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 24.997712912767724,
-                    "y": 32.889244940134404
+                    "x": 31.521079459966586,
+                    "y": -20.38491519532323
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "TABLE-de8a3838-f5c7-45e3-b045-2f838d8002d4",
                 "type": "VISUALIZERS",
                 "data": {
@@ -364,19 +232,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -451.59508901412926,
-                    "y": 27.36861318594225
+                    "x": -508.1309324231863,
+                    "y": -25.905546949515326
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -451.59508901412926,
-                    "y": 27.36861318594225
+                    "x": -508.1309324231863,
+                    "y": -25.905546949515326
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "SCATTER3D-9cb36053-f988-4c5f-a860-32c18d550b66",
                 "type": "VISUALIZERS",
                 "data": {
@@ -407,19 +275,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": -449.45547957094664,
-                    "y": 482.8784460901976
+                    "x": -444.01934078161423,
+                    "y": 477.4423073008652
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": -449.45547957094664,
-                    "y": 482.8784460901976
+                    "x": -444.01934078161423,
+                    "y": 477.4423073008652
                 },
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "SCATTER3D-cbfb4d9c-b0ff-4aaf-8aa5-6909ba2e2350",
                 "type": "VISUALIZERS",
                 "data": {
@@ -459,23 +327,61 @@
                     "y": 496.85585704666755
                 },
                 "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "SCIKIT_LEARN_DATASET-25706df5-5161-49f1-b8f7-ddb6053a64a6",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "SCIKIT_LEARN_DATASET-25706df5-5161-49f1-b8f7-ddb6053a64a6",
+                    "label": "SCIKIT LEARN DATASET",
+                    "func": "SCIKIT_LEARN_DATASET",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "dataset_name": {
+                            "type": "select",
+                            "options": [
+                                "iris",
+                                "diabetes",
+                                "digits",
+                                "linnerud",
+                                "wine",
+                                "breast_cancer"
+                            ],
+                            "default": "iris",
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "SCIKIT_LEARN_DATASET",
+                            "param": "dataset_name",
+                            "value": "breast_cancer"
+                        }
+                    },
+                    "initCtrls": {},
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "desc": "A DataContainer object containing the retrieved pandas DataFrame."
+                        }
+                    ],
+                    "path": "GENERATORS/SAMPLE_DATASETS/SCIKIT_LEARN_DATASET/SCIKIT_LEARN_DATASET.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -745.491934881735,
+                    "y": 336.62103541988444
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -745.491934881735,
+                    "y": 336.62103541988444
+                },
+                "dragging": true
             }
         ],
         "edges": [
-            {
-                "source": "R_DATASET-777e46f9-b7c0-4cf4-91a5-ce61d713141b",
-                "sourceHandle": "default",
-                "target": "TABLE-de8a3838-f5c7-45e3-b045-2f838d8002d4",
-                "targetHandle": "default",
-                "id": "reactflow__edge-R_DATASET-777e46f9-b7c0-4cf4-91a5-ce61d713141bdefault-TABLE-de8a3838-f5c7-45e3-b045-2f838d8002d4default"
-            },
-            {
-                "source": "R_DATASET-777e46f9-b7c0-4cf4-91a5-ce61d713141b",
-                "sourceHandle": "default",
-                "target": "SCATTER3D-9cb36053-f988-4c5f-a860-32c18d550b66",
-                "targetHandle": "default",
-                "id": "reactflow__edge-R_DATASET-777e46f9-b7c0-4cf4-91a5-ce61d713141bdefault-SCATTER3D-9cb36053-f988-4c5f-a860-32c18d550b66default"
-            },
             {
                 "source": "DF_2_ORDERED_TRIPLE-a6cde1bc-b701-45c7-beac-24381f68ff83",
                 "sourceHandle": "default",
@@ -498,18 +404,32 @@
                 "id": "reactflow__edge-DF_2_ORDERED_TRIPLE-a6cde1bc-b701-45c7-beac-24381f68ff83default-TEXT-92862b82-03c7-45b3-955e-381cde864d77_"
             },
             {
-                "source": "R_DATASET-777e46f9-b7c0-4cf4-91a5-ce61d713141b",
-                "sourceHandle": "default",
-                "target": "DF_2_ORDERED_TRIPLE-a6cde1bc-b701-45c7-beac-24381f68ff83",
-                "targetHandle": "default",
-                "id": "reactflow__edge-R_DATASET-777e46f9-b7c0-4cf4-91a5-ce61d713141bdefault-DF_2_ORDERED_TRIPLE-a6cde1bc-b701-45c7-beac-24381f68ff83default"
-            },
-            {
                 "source": "TEXT-92862b82-03c7-45b3-955e-381cde864d77",
                 "sourceHandle": "default",
                 "target": "TEXT_VIEW-b70bbfaf-d726-4ff5-b243-1441ab16befc",
                 "targetHandle": "default",
                 "id": "reactflow__edge-TEXT-92862b82-03c7-45b3-955e-381cde864d77default-TEXT_VIEW-b70bbfaf-d726-4ff5-b243-1441ab16befcdefault"
+            },
+            {
+                "source": "SCIKIT_LEARN_DATASET-25706df5-5161-49f1-b8f7-ddb6053a64a6",
+                "sourceHandle": "default",
+                "target": "TABLE-de8a3838-f5c7-45e3-b045-2f838d8002d4",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SCIKIT_LEARN_DATASET-25706df5-5161-49f1-b8f7-ddb6053a64a6default-TABLE-de8a3838-f5c7-45e3-b045-2f838d8002d4default"
+            },
+            {
+                "source": "SCIKIT_LEARN_DATASET-25706df5-5161-49f1-b8f7-ddb6053a64a6",
+                "sourceHandle": "default",
+                "target": "SCATTER3D-9cb36053-f988-4c5f-a860-32c18d550b66",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SCIKIT_LEARN_DATASET-25706df5-5161-49f1-b8f7-ddb6053a64a6default-SCATTER3D-9cb36053-f988-4c5f-a860-32c18d550b66default"
+            },
+            {
+                "source": "SCIKIT_LEARN_DATASET-25706df5-5161-49f1-b8f7-ddb6053a64a6",
+                "sourceHandle": "default",
+                "target": "DF_2_ORDERED_TRIPLE-a6cde1bc-b701-45c7-beac-24381f68ff83",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SCIKIT_LEARN_DATASET-25706df5-5161-49f1-b8f7-ddb6053a64a6default-DF_2_ORDERED_TRIPLE-a6cde1bc-b701-45c7-beac-24381f68ff83default"
             }
         ],
         "viewport": {
@@ -517,5 +437,6 @@
             "y": 226.88940714410813,
             "zoom": 0.5
         }
-    }
+    },
+    "textNodes": []
 }

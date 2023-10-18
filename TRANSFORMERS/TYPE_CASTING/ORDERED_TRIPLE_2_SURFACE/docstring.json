@@ -1,0 +1,11 @@
+{
+  "description": "It then reshapes the z array into a 2D grid using the unique values of x and y.\n\nThe resulting 2D grid is used to create a Surface object with corresponding x, y, and z values.\n\nInputs\n------\ndefault : OrderedTriple\n    The input OrderedTriple to which we apply the conversion to.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Surface",
+      "description": "The surface result from the conversion of the input."
+    }
+  ]
+}

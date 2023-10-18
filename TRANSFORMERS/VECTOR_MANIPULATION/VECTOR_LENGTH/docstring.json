@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\nv : vector\n    The input vector to find the length of.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Scalar",
+      "description": "The length of the input vector."
+    }
+  ]
+}

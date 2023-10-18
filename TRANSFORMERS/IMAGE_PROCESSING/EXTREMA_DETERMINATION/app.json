@@ -18,7 +18,7 @@
                             "desc": "path to the file to be loaded",
                             "functionName": "LOCAL_FILE",
                             "param": "file_path",
-                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/assets/highrange.tif"
+                            "value": "TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/assets/highrange.tif"
                         },
                         "file_type": {
                             "type": "select",
@@ -95,7 +95,7 @@
                             "desc": "path to the file to be loaded",
                             "functionName": "LOCAL_FILE",
                             "param": "file_path",
-                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/assets/lowrange.png"
+                            "value": "TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/assets/lowrange.png"
                         },
                         "file_type": {
                             "type": "select",
@@ -172,7 +172,7 @@
                             "desc": "path to the file to be loaded",
                             "functionName": "LOCAL_FILE",
                             "param": "file_path",
-                            "value": "/home/trbritt/Desktop/Data/projects/flojoy/studio/PYTHON/nodes/TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/assets/hubble_deep_field.tif"
+                            "value": "TRANSFORMERS/IMAGE_PROCESSING/EXTREMA_DETERMINATION/assets/hubble_deep_field.tif"
                         },
                         "file_type": {
                             "type": "select",
@@ -970,5 +970,6 @@
                 "i": "INPUT_PLACEHOLDER"
             }
         }
-    ]
+    ],
+    "textNodes": []
 }

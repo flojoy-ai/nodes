@@ -3,7 +3,7 @@
         "nodes": [
             {
                 "width": 208,
-                "height": 116,
+                "height": 96,
                 "id": "HUGGING_FACE_PIPELINE-160a47cc-72e8-4088-a4af-43efdc9904d6",
                 "type": "AI_ML",
                 "data": {
@@ -78,7 +78,7 @@
                             "desc": "path to the file to be loaded",
                             "functionName": "LOCAL_FILE",
                             "param": "file_path",
-                            "value": "./PYTHON/nodes/AI_ML/IMAGE_CLASSIFICATION/HUGGING_FACE_PIPELINE/assets/ada_lovelace.png"
+                            "value": "AI_ML/IMAGE_CLASSIFICATION/HUGGING_FACE_PIPELINE/assets/ada_lovelace.png"
                         },
                         "file_type": {
                             "type": "select",
@@ -125,13 +125,13 @@
                         }
                     ],
                     "path": "PYTHON/nodes/LOADERS/LOCAL_FILE_SYSTEM/LOCAL_FILE/LOCAL_FILE.py",
-                    "selected": true
+                    "selected": false
                 },
                 "position": {
                     "x": -405.26756052777466,
                     "y": -122.64869035489248
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": -405.26756052777466,
                     "y": -122.64869035489248
@@ -139,8 +139,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "TABLE-b1ca06f2-ecee-4858-a075-cdfb097be848",
                 "type": "VISUALIZERS",
                 "data": {
@@ -182,8 +182,8 @@
                 "dragging": true
             },
             {
-                "width": 380,
-                "height": 293,
+                "width": 225,
+                "height": 226,
                 "id": "IMAGE-b9af5a25-af44-43cd-bc00-315e08b0088f",
                 "type": "VISUALIZERS",
                 "data": {
@@ -253,5 +253,6 @@
             "y": 575.2550328315427,
             "zoom": 1.2199420644594634
         }
-    }
+    },
+    "textNodes": []
 }
