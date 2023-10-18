@@ -10,9 +10,42 @@ def IMAGE_AGGREGATOR(
     default_params: DefaultParams,
     referred_node: Optional[NodeReference] = None
 ) -> Image | Grayscale | Matrix:
+    """The IMAGE_AGGREGATOR node is designed to accumulate the images that are iteratively 
+    passed to it to internal memory. It has two operating modes, and is designed such that 
+    an application will have two instances of this node, each operating in the respectively 
+    modes.
+
+    If the `referred_node` parameter is empty, namely that there is no place to look for 
+    data, the node will operate as if it is supposed to stack images into memory. It is 
+    able to do so for a stack of RGB images, and a stack of monochrome images, but not the 
+    combination of the two. That would be inconsistent, and the code will complain.
+
+    The second mode is "return" mode, where the `referred_node` will be specified to point 
+    to the first instance of this node, the one that accumulated the images. In that case, 
+    the node will immediately return the stack of images in the `Matrix` DataContainer 
+    format.
+
+    The stack of images are given in the following shape:
+        # of images x # of channels x Height x Width
+
+    Parameters
+    ----------
+    default         :       Image or Grayscale
+        The next image to be added to the stack. If no stack yet exists, this
+        will be used to instantiate the stack
+    referred_node   :       Optional[NodeReference]
+        This is the referred to node that previously stacked the images into internal memory. If this node is specified, the function will immediatelty return the stack.
+    
+    Return
+    ------
+    retval          :       Grayscale | Image | Matrix
+        In aggregation mode, the node will return whatever image was just added to the stack, greyscale or not. Otherwise, the node returns the stack. 
+    
+    """
     data: dict[str, Any]
     if referred_node.unwrap() != "":
         data = SmallMemory().read_memory(referred_node.unwrap(), memory_key)
+        
         return Matrix(m=data['images'])
     
 
