@@ -1,0 +1,11 @@
+{
+  "description": null,
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "String",
+      "description": "The IP address of the robot arm."
+    }
+  ]
+}

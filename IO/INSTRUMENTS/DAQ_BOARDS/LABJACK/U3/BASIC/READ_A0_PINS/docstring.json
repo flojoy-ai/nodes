@@ -1,0 +1,11 @@
+{
+  "description": "The SENSOR node can be used to convert voltage into temperature measurements.",
+  "parameters": [
+    {
+      "name": "number",
+      "type": "int",
+      "description": "Defines the number of temperature sensors connected to the LabJack U3 device."
+    }
+  ],
+  "returns": []
+}

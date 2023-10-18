@@ -1,0 +1,17 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "None",
+      "type": null,
+      "description": null
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "TextBlob",
+      "description": "Traceback error"
+    }
+  ]
+}

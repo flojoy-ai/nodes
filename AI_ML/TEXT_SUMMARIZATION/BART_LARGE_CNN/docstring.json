@@ -1,0 +1,11 @@
+{
+  "description": "The \"summary_text\" column contains a summary of the text in the corresponding row of the input dataframe.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataFrame",
+      "description": "dataframe containing the summary text in the \"summary_text\" column"
+    }
+  ]
+}

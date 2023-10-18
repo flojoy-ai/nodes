@@ -1,0 +1,11 @@
+{
+  "description": "Must use the TEXT_VIEW node to view the text.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "TextBlob: Input datacontainer information"
+    }
+  ]
+}

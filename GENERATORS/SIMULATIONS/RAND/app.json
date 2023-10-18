@@ -2,62 +2,8 @@
     "rfInstance": {
         "nodes": [
             {
-                "width": 150,
-                "height": 150,
-                "id": "LINSPACE-cc55781a-14c8-4405-8fd1-0157351b3486",
-                "type": "default",
-                "data": {
-                    "id": "LINSPACE-cc55781a-14c8-4405-8fd1-0157351b3486",
-                    "label": "LINSPACE",
-                    "func": "LINSPACE",
-                    "type": "default",
-                    "ctrls": {
-                        "start": {
-                            "type": "float",
-                            "default": 10,
-                            "functionName": "LINSPACE",
-                            "param": "start",
-                            "value": "0"
-                        },
-                        "end": {
-                            "type": "float",
-                            "default": 0,
-                            "functionName": "LINSPACE",
-                            "param": "end",
-                            "value": "2000"
-                        },
-                        "step": {
-                            "type": "int",
-                            "default": 1000,
-                            "functionName": "LINSPACE",
-                            "param": "step",
-                            "value": "2000"
-                        }
-                    },
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/LINSPACE/LINSPACE.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 71.58328955005041,
-                    "y": -121.19469825521614
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 71.58328955005041,
-                    "y": -121.19469825521614
-                },
-                "dragging": true
-            },
-            {
-                "width": 250,
-                "height": 159,
+                "width": 380,
+                "height": 293,
                 "id": "HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4",
                 "type": "VISUALIZERS",
                 "data": {
@@ -85,195 +31,19 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 807.1730016964145,
-                    "y": -111.45313449538975
+                    "x": 811.2928245068351,
+                    "y": -146.0596461029216
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 807.1730016964145,
-                    "y": -111.45313449538975
+                    "x": 811.2928245068351,
+                    "y": -146.0596461029216
                 },
                 "dragging": true
             },
             {
-                "width": 130,
-                "height": 130,
-                "id": "RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60a",
-                "type": "GENERATORS",
-                "data": {
-                    "id": "RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60a",
-                    "label": "RAND",
-                    "func": "RAND",
-                    "type": "GENERATORS",
-                    "ctrls": {
-                        "distribution": {
-                            "type": "select",
-                            "default": "normal",
-                            "options": [
-                                "normal",
-                                "uniform",
-                                "poisson"
-                            ],
-                            "functionName": "RAND",
-                            "param": "distribution",
-                            "value": "normal"
-                        },
-                        "lower_bound": {
-                            "type": "float",
-                            "default": 0,
-                            "functionName": "RAND",
-                            "param": "lower_bound",
-                            "value": "0"
-                        },
-                        "upper_bound": {
-                            "type": "float",
-                            "default": 1,
-                            "functionName": "RAND",
-                            "param": "upper_bound",
-                            "value": "1"
-                        },
-                        "normal_mean": {
-                            "type": "float",
-                            "default": 0,
-                            "functionName": "RAND",
-                            "param": "normal_mean",
-                            "value": "0"
-                        },
-                        "normal_standard_deviation": {
-                            "type": "float",
-                            "default": 1,
-                            "functionName": "RAND",
-                            "param": "normal_standard_deviation",
-                            "value": "5"
-                        },
-                        "poisson_events": {
-                            "type": "float",
-                            "default": 1,
-                            "functionName": "RAND",
-                            "param": "poisson_events",
-                            "value": "1"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair|Scalar"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/RAND/RAND.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 454.43802731096747,
-                    "y": -117.22102655068787
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 454.43802731096747,
-                    "y": -117.22102655068787
-                },
-                "dragging": true
-            },
-            {
-                "width": 130,
-                "height": 130,
-                "id": "RAND-e09e675f-ccaf-44b3-8842-6cea418c4b00",
-                "type": "GENERATORS",
-                "data": {
-                    "id": "RAND-e09e675f-ccaf-44b3-8842-6cea418c4b00",
-                    "label": "RAND 1",
-                    "func": "RAND",
-                    "type": "GENERATORS",
-                    "ctrls": {
-                        "distribution": {
-                            "type": "select",
-                            "default": "normal",
-                            "options": [
-                                "normal",
-                                "uniform",
-                                "poisson"
-                            ],
-                            "functionName": "RAND",
-                            "param": "distribution",
-                            "value": "normal"
-                        },
-                        "lower_bound": {
-                            "type": "float",
-                            "default": 0,
-                            "functionName": "RAND",
-                            "param": "lower_bound",
-                            "value": 0
-                        },
-                        "upper_bound": {
-                            "type": "float",
-                            "default": 1,
-                            "functionName": "RAND",
-                            "param": "upper_bound",
-                            "value": 1
-                        },
-                        "normal_mean": {
-                            "type": "float",
-                            "default": 0,
-                            "functionName": "RAND",
-                            "param": "normal_mean",
-                            "value": "30"
-                        },
-                        "normal_standard_deviation": {
-                            "type": "float",
-                            "default": 1,
-                            "functionName": "RAND",
-                            "param": "normal_standard_deviation",
-                            "value": "50"
-                        },
-                        "poisson_events": {
-                            "type": "float",
-                            "default": 1,
-                            "functionName": "RAND",
-                            "param": "poisson_events",
-                            "value": 1
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair|Vector",
-                            "multiple": false
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "OrderedPair|Scalar"
-                        }
-                    ],
-                    "path": "PYTHON/nodes/GENERATORS/SIMULATIONS/RAND/RAND.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 385.163294287524,
-                    "y": 328.61362457174704
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 385.163294287524,
-                    "y": 328.61362457174704
-                },
-                "dragging": true
-            },
-            {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266",
                 "type": "VISUALIZERS",
                 "data": {
@@ -330,38 +100,285 @@
                     "selected": false
                 },
                 "position": {
-                    "x": 818.3036219776461,
-                    "y": 287.8342828015806
+                    "x": 815.0077637293098,
+                    "y": 255.69966488030104
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 818.3036219776461,
-                    "y": 287.8342828015806
+                    "x": 815.0077637293098,
+                    "y": 255.69966488030104
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "RAND-110a9abb-d0df-4b06-9555-6b9e38cdd237",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "RAND-110a9abb-d0df-4b06-9555-6b9e38cdd237",
+                    "label": "RAND",
+                    "func": "RAND",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "distribution": {
+                            "type": "select",
+                            "options": [
+                                "normal",
+                                "uniform",
+                                "poisson"
+                            ],
+                            "default": "normal",
+                            "desc": "the distribution over the random samples",
+                            "overload": {
+                                "uniform": [
+                                    "size",
+                                    "lower_bound",
+                                    "upper_bound"
+                                ],
+                                "normal": [
+                                    "size",
+                                    "normal_mean",
+                                    "normal_standard_deviation"
+                                ],
+                                "poisson": [
+                                    "size",
+                                    "poisson_events"
+                                ]
+                            },
+                            "functionName": "RAND",
+                            "param": "distribution",
+                            "value": "normal"
+                        },
+                        "size": {
+                            "type": "int",
+                            "default": 1000,
+                            "desc": "the size of the output. =1 outputs Scalar, >1 outputs Vector",
+                            "overload": null,
+                            "functionName": "RAND",
+                            "param": "size",
+                            "value": 1000
+                        },
+                        "lower_bound": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "the lower bound of the output interval",
+                            "overload": null,
+                            "functionName": "RAND",
+                            "param": "lower_bound",
+                            "value": 0
+                        },
+                        "upper_bound": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "the upper bound of the output interval",
+                            "overload": null,
+                            "functionName": "RAND",
+                            "param": "upper_bound",
+                            "value": 1
+                        },
+                        "normal_mean": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "the mean or \"center\" of the normal distribution",
+                            "overload": null,
+                            "functionName": "RAND",
+                            "param": "normal_mean",
+                            "value": 0
+                        },
+                        "normal_standard_deviation": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "the spread or \"width\" of the normal distribution",
+                            "overload": null,
+                            "functionName": "RAND",
+                            "param": "normal_standard_deviation",
+                            "value": 1
+                        },
+                        "poisson_events": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "the expected number of events occurring in a fixed time-interval when distribution is poisson",
+                            "overload": null,
+                            "functionName": "RAND",
+                            "param": "poisson_events",
+                            "value": 1
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": "unused in this node"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector|Scalar",
+                            "desc": "Vector if size > 1\nv: the random samples\n\nScalar if size = 1\nc: the random number"
+                        }
+                    ],
+                    "path": "GENERATORS/SIMULATIONS/RAND/RAND.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 428.5700838695367,
+                    "y": -49.13895270504895
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 428.5700838695367,
+                    "y": -49.13895270504895
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "RAND-d9a6b7da-5ef2-4bb6-bf6d-cd92baca5f7d",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "RAND-d9a6b7da-5ef2-4bb6-bf6d-cd92baca5f7d",
+                    "label": "RAND 1",
+                    "func": "RAND",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "distribution": {
+                            "type": "select",
+                            "options": [
+                                "normal",
+                                "uniform",
+                                "poisson"
+                            ],
+                            "default": "normal",
+                            "desc": "the distribution over the random samples",
+                            "overload": {
+                                "uniform": [
+                                    "size",
+                                    "lower_bound",
+                                    "upper_bound"
+                                ],
+                                "normal": [
+                                    "size",
+                                    "normal_mean",
+                                    "normal_standard_deviation"
+                                ],
+                                "poisson": [
+                                    "size",
+                                    "poisson_events"
+                                ]
+                            },
+                            "functionName": "RAND",
+                            "param": "distribution",
+                            "value": "normal"
+                        },
+                        "size": {
+                            "type": "int",
+                            "default": 1000,
+                            "desc": "the size of the output. =1 outputs Scalar, >1 outputs Vector",
+                            "overload": null,
+                            "functionName": "RAND",
+                            "param": "size",
+                            "value": 1
+                        },
+                        "lower_bound": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "the lower bound of the output interval",
+                            "overload": null,
+                            "functionName": "RAND",
+                            "param": "lower_bound",
+                            "value": 0
+                        },
+                        "upper_bound": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "the upper bound of the output interval",
+                            "overload": null,
+                            "functionName": "RAND",
+                            "param": "upper_bound",
+                            "value": 1
+                        },
+                        "normal_mean": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "the mean or \"center\" of the normal distribution",
+                            "overload": null,
+                            "functionName": "RAND",
+                            "param": "normal_mean",
+                            "value": 0
+                        },
+                        "normal_standard_deviation": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "the spread or \"width\" of the normal distribution",
+                            "overload": null,
+                            "functionName": "RAND",
+                            "param": "normal_standard_deviation",
+                            "value": 1
+                        },
+                        "poisson_events": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "the expected number of events occurring in a fixed time-interval when distribution is poisson",
+                            "overload": null,
+                            "functionName": "RAND",
+                            "param": "poisson_events",
+                            "value": 1
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Any",
+                            "multiple": false,
+                            "desc": "unused in this node"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Vector|Scalar",
+                            "desc": "Vector if size > 1\nv: the random samples\n\nScalar if size = 1\nc: the random number"
+                        }
+                    ],
+                    "path": "GENERATORS/SIMULATIONS/RAND/RAND.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 424.11613231809054,
+                    "y": 352.35894002884334
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 424.11613231809054,
+                    "y": 352.35894002884334
                 },
                 "dragging": true
             }
         ],
         "edges": [
             {
-                "source": "LINSPACE-cc55781a-14c8-4405-8fd1-0157351b3486",
-                "sourceHandle": "default",
-                "target": "RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60a",
-                "targetHandle": "default",
-                "id": "reactflow__edge-LINSPACE-cc55781a-14c8-4405-8fd1-0157351b3486default-RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60adefault"
-            },
-            {
-                "source": "RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60a",
+                "source": "RAND-110a9abb-d0df-4b06-9555-6b9e38cdd237",
                 "sourceHandle": "default",
                 "target": "HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4",
                 "targetHandle": "default",
-                "id": "reactflow__edge-RAND-1fe43d0a-6b15-49d0-b6e0-35c61744a60adefault-HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4default"
+                "id": "reactflow__edge-RAND-110a9abb-d0df-4b06-9555-6b9e38cdd237default-HISTOGRAM-c5469532-dd28-4465-b8b0-524174db86e4default"
             },
             {
-                "source": "RAND-e09e675f-ccaf-44b3-8842-6cea418c4b00",
+                "source": "RAND-d9a6b7da-5ef2-4bb6-bf6d-cd92baca5f7d",
                 "sourceHandle": "default",
                 "target": "BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266",
                 "targetHandle": "default",
-                "id": "reactflow__edge-RAND-e09e675f-ccaf-44b3-8842-6cea418c4b00default-BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266default"
+                "id": "reactflow__edge-RAND-d9a6b7da-5ef2-4bb6-bf6d-cd92baca5f7ddefault-BIG_NUMBER-59ecc8d4-f674-4af7-869f-f429f0b1c266default"
             }
         ],
         "viewport": {

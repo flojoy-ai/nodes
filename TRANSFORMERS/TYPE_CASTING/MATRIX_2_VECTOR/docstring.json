@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\ndefault: Matrix\n    The input matrix that will be transformed into vector data type.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Vector",
+      "description": "Vector that is flatten from input matrix."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "description": null,
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair",
+      "description": "x: input matrix (data points)\ny: fitted line computed with returned regression weights"
+    },
+    {
+      "name": null,
+      "type": "Matrix",
+      "description": "m: fitted matrix computed with returned regression weights"
+    }
+  ]
+}

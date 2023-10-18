@@ -1,0 +1,16 @@
+{
+  "description": null,
+  "parameters": [
+    {
+      "name": "Calibration1",
+      "type": "float",
+      "description": "Calibration parameters to convert voltage into pressure."
+    },
+    {
+      "name": "calibration2",
+      "type": "float",
+      "description": "Calibration parameters to convert voltage into pressure."
+    }
+  ],
+  "returns": []
+}

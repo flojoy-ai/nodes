@@ -1,0 +1,11 @@
+{
+  "description": "When a constant is divided into an array or matrix, each element in the array or matrix will be divided by the constant value.\n\nInputs\n------\na : OrderedPair|Scalar|Vector\n    The input that will be divide by b.\nb : OrderedPair|Scalar|Vector\n    The input that will divide a.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair|Scalar|Vector",
+      "description": "OrderedPair if a is an OrderedPair.\nx: the x-axis of input a.\ny: the result of the division of input a by input b.\n\nScalar if a is a Scalar.\nc: the result of the division of input a by input b.\n\nVector if a is a Vector.\nv: the result of the division of input a by input b."
+    }
+  ]
+}

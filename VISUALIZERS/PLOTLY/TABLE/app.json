@@ -3,7 +3,7 @@
         "nodes": [
             {
                 "width": 150,
-                "height": 150,
+                "height": 180,
                 "id": "LINSPACE-96f418c8-14ed-4457-abea-9520da6d5078",
                 "type": "default",
                 "data": {
@@ -56,135 +56,6 @@
                 "dragging": true
             },
             {
-                "width": 150,
-                "height": 150,
-                "id": "R_DATASET-44eaa566-97ed-4dca-a9c5-0bcb7f680ad8",
-                "type": "GENERATORS",
-                "data": {
-                    "id": "R_DATASET-44eaa566-97ed-4dca-a9c5-0bcb7f680ad8",
-                    "label": "R DATASET",
-                    "func": "R_DATASET",
-                    "type": "GENERATORS",
-                    "ctrls": {
-                        "dataset_key": {
-                            "type": "select",
-                            "default": "iris",
-                            "options": [
-                                "ability.cov",
-                                "airmiles",
-                                "AirPassengers",
-                                "airquality",
-                                "anscombe",
-                                "attenu",
-                                "attitude",
-                                "austres",
-                                "BJsales",
-                                "BOD",
-                                "cars",
-                                "ChickWeight",
-                                "chickwts",
-                                "co2",
-                                "crimtab",
-                                "discoveries",
-                                "DNase",
-                                "esoph",
-                                "euro",
-                                "EuStockMarkets",
-                                "faithful",
-                                "Formaldehyde",
-                                "freeny",
-                                "HairEyeColor",
-                                "Harman23",
-                                "Harman74",
-                                "Indometh",
-                                "infert",
-                                "InsectSprays",
-                                "iris",
-                                "iris3",
-                                "islands",
-                                "JohnsonJohnson",
-                                "LakeHuron",
-                                "LifeCycleSavings",
-                                "Loblolly",
-                                "longley",
-                                "lynx",
-                                "morley",
-                                "mtcars",
-                                "nhtemp",
-                                "Nile",
-                                "nottem",
-                                "npk",
-                                "occupationalStatus",
-                                "Orange",
-                                "OrchardSprays",
-                                "PlantGrowth",
-                                "precip",
-                                "presidents",
-                                "pressure",
-                                "Puromycin",
-                                "quakes",
-                                "randu",
-                                "rivers",
-                                "rock",
-                                "Seatbelts",
-                                "sleep",
-                                "stackloss",
-                                "sunspot.month",
-                                "sunspot.year",
-                                "sunspots",
-                                "swiss",
-                                "Theoph",
-                                "Titanic",
-                                "ToothGrowth",
-                                "treering",
-                                "trees",
-                                "UCBAdmissions",
-                                "UKDriverDeaths",
-                                "UKgas",
-                                "USAccDeaths",
-                                "USArrests",
-                                "USJudgeRatings",
-                                "USPersonalExpenditure",
-                                "VADeaths",
-                                "volcano",
-                                "warpbreaks",
-                                "women",
-                                "WorldPhones",
-                                "WWWusage"
-                            ],
-                            "functionName": "R_DATASET",
-                            "param": "dataset_key",
-                            "value": "iris"
-                        }
-                    },
-                    "outputs": [
-                        {
-                            "name": "default",
-                            "id": "default",
-                            "type": "DataFrame"
-                        }
-                    ],
-                    "pip_dependencies": [
-                        {
-                            "name": "rdatasets",
-                            "v": "0.1.0"
-                        }
-                    ],
-                    "path": "PYTHON/nodes\\GENERATORS\\SAMPLE_DATASETS\\R_DATASET\\R_DATASET.py",
-                    "selected": false
-                },
-                "position": {
-                    "x": 48.515937476087885,
-                    "y": 399.8731016300469
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 48.515937476087885,
-                    "y": 399.8731016300469
-                },
-                "dragging": true
-            },
-            {
                 "width": 380,
                 "height": 293,
                 "id": "TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49b",
@@ -225,8 +96,8 @@
                 "dragging": true
             },
             {
-                "width": 225,
-                "height": 226,
+                "width": 380,
+                "height": 293,
                 "id": "TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9",
                 "type": "VISUALIZERS",
                 "data": {
@@ -263,22 +134,74 @@
                     "y": 379.87310163004656
                 },
                 "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "SCIKIT_LEARN_DATASET-0fb48f9e-ebe6-427e-b770-7c2ba14dfe92",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "SCIKIT_LEARN_DATASET-0fb48f9e-ebe6-427e-b770-7c2ba14dfe92",
+                    "label": "SCIKIT LEARN DATASET",
+                    "func": "SCIKIT_LEARN_DATASET",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "dataset_name": {
+                            "type": "select",
+                            "options": [
+                                "iris",
+                                "diabetes",
+                                "digits",
+                                "linnerud",
+                                "wine",
+                                "breast_cancer"
+                            ],
+                            "default": "iris",
+                            "desc": null,
+                            "overload": null,
+                            "functionName": "SCIKIT_LEARN_DATASET",
+                            "param": "dataset_name",
+                            "value": "iris"
+                        }
+                    },
+                    "initCtrls": {},
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "DataFrame",
+                            "desc": "A DataContainer object containing the retrieved pandas DataFrame."
+                        }
+                    ],
+                    "path": "GENERATORS/SAMPLE_DATASETS/SCIKIT_LEARN_DATASET/SCIKIT_LEARN_DATASET.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 59.534565049635674,
+                    "y": 450.0003568907141
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 59.534565049635674,
+                    "y": 450.0003568907141
+                },
+                "dragging": true
             }
         ],
         "edges": [
-            {
-                "source": "R_DATASET-44eaa566-97ed-4dca-a9c5-0bcb7f680ad8",
-                "sourceHandle": "default",
-                "target": "TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9",
-                "targetHandle": "default",
-                "id": "reactflow__edge-R_DATASET-44eaa566-97ed-4dca-a9c5-0bcb7f680ad8default-TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9default"
-            },
             {
                 "source": "LINSPACE-96f418c8-14ed-4457-abea-9520da6d5078",
                 "sourceHandle": "default",
                 "target": "TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49b",
                 "targetHandle": "default",
                 "id": "reactflow__edge-LINSPACE-96f418c8-14ed-4457-abea-9520da6d5078default-TABLE-41e3d344-1ece-4eb2-adb8-dc944c80b49bdefault"
+            },
+            {
+                "source": "SCIKIT_LEARN_DATASET-0fb48f9e-ebe6-427e-b770-7c2ba14dfe92",
+                "sourceHandle": "default",
+                "target": "TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9",
+                "targetHandle": "default",
+                "id": "reactflow__edge-SCIKIT_LEARN_DATASET-0fb48f9e-ebe6-427e-b770-7c2ba14dfe92default-TABLE-57c89935-c3df-4ba4-a8a5-f53534c47ee9default"
             }
         ],
         "viewport": {
@@ -305,5 +228,6 @@
                 "i": "INPUT_PLACEHOLDER"
             }
         }
-    ]
+    ],
+    "textNodes": []
 }

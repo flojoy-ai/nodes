@@ -1,0 +1,11 @@
+{
+  "description": "Inputs\n------\nip_address: TextBlob\n    The IP address of the robot arm.\n\ntime: float\n    The time of delay in seconds.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "ip_address",
+      "description": "The IP address of the robot arm."
+    }
+  ]
+}

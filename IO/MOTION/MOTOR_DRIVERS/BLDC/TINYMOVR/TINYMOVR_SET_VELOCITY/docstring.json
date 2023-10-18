@@ -1,0 +1,11 @@
+{
+  "description": "Input\n-----\nvelocity : Scalar\n    Servo velocity (10k ticks/sec [1, 15]).",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Textblob",
+      "description": "Traceback error (if any)"
+    }
+  ]
+}
