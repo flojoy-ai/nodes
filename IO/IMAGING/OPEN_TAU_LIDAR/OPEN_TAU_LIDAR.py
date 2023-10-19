@@ -5,7 +5,7 @@ from TauLidarCamera.camera import Camera
 from TauLidarCommon.color import ColorMode
 
 
-@flojoy
+@flojoy(deps={"taulidarcamera": "0.0.5"})
 def OPEN_TAU_LIDAR(
     device: SerialDevice,
     default: Optional[DataContainer] = None,
