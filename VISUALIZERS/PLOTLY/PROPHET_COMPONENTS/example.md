@@ -1,7 +1,5 @@
 In this example, the `TIMESERIES` node generates random time series data 
 
-<!-- '<table border="1" class="dataframe">  <thead>   <tr style="text-align: right;">     <th></th>     <th>Timestamp</th>     <th>Data</th>  </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>2023-01-01</td>      <td>-0.187903</td>    </tr>    <tr>      <th>1</th>      <td>2023-01-02</td>      <td>0.204290</td>    </tr>    <tr>      <th>2</th>      <td>2023-01-03</td>      <td>-0.659945</td>    </tr>  </tbody></table>' -->
-
 This dataframe is then passed to the `PROPHET_PREDICT` node, with the default parameters
 of `run_forecast=True` and `periods=365`. This node trains a `Prophet` model and runs a prediction
 forecast over a 365 period. 
