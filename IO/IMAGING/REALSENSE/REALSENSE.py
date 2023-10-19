@@ -30,7 +30,7 @@ def REALSENSE(connection: CameraConnection,
     x = np.arange(depth_image.shape[1])
     y = np.arange(depth_image.shape[0])
     xx, yy = np.meshgrid(x, y)
-    zz = depth_image * depth_scale
+    zz = depth_image * depth_scale * 100
 
     return OrderedTriple(x=xx.reshape(-1),
                          y=yy.reshape(-1),
