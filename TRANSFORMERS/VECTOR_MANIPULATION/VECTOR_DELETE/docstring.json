@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\nv : Vector\n    The input vector to delete from",
+  "long_description": "Inputs\n------\nv : Vector\n    The input vector to delete from",
+  "short_description": "The VECTOR_DELETE node returns a new Vector with elements deleted from requested indices",
   "parameters": [
     {
       "name": "indices",

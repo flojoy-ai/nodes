@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The DS_LOAD node loads data directly from in-memory data storage.",
   "parameters": [
     {
       "name": "referred_node",

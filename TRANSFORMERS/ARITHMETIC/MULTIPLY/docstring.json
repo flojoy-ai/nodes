@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\na : OrderedPair|Scalar|Vector\n    The input a use to compute the product of a and b.\nb : OrderedPair|Scalar|Vector\n    The input b use to compute the product of a and b.",
+  "long_description": "Inputs\n------\na : OrderedPair|Scalar|Vector\n    The input a use to compute the product of a and b.\nb : OrderedPair|Scalar|Vector\n    The input b use to compute the product of a and b.",
+  "short_description": "The MULTIPLY node multiplies two numeric arrays, vectors, matrices, or constants element-wise and returns the result.",
   "parameters": [],
   "returns": [
     {

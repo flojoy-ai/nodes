@@ -1,5 +1,6 @@
 {
-  "description": "With the FFT algorithm, the input matrix will undergo a change of basis from the space domain into the frequency domain.\n\ngrayscale, dataframe, image, or matrix\n\nInputs\n------\ndefault : Grayscale|DataFrame|Image|Matrix\n    The 2D data to apply 2DFFT to.",
+  "long_description": "With the FFT algorithm, the input matrix will undergo a change of basis from the space domain into the frequency domain.\n\ngrayscale, dataframe, image, or matrix\n\nInputs\n------\ndefault : Grayscale|DataFrame|Image|Matrix\n    The 2D data to apply 2DFFT to.",
+  "short_description": "The TWO_DIMENSIONAL_FFT node performs a two-dimensional fast fourier transform function on the input matrix.",
   "parameters": [
     {
       "name": "real_signal",

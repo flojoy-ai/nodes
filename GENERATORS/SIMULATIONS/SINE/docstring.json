@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault : OrderedPair|Vector\n    Input that defines the x-axis values of the function and output.",
+  "long_description": "Inputs\n------\ndefault : OrderedPair|Vector\n    Input that defines the x-axis values of the function and output.",
+  "short_description": "The SINE node generates a waveform function with the shape being defined by the input.",
   "parameters": [
     {
       "name": "waveform",

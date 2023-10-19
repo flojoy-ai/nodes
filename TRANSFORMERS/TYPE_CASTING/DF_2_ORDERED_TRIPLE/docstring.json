@@ -1,5 +1,6 @@
 {
-  "description": "It takes one dataframe type data and selects 3 different columns to generate the OrderedTriple type.\n\nInputs\n------\ndefault : DataFrame\n    The input dataframe to which we apply the conversion to.",
+  "long_description": "It takes one dataframe type data and selects 3 different columns to generate the OrderedTriple type.\n\nInputs\n------\ndefault : DataFrame\n    The input dataframe to which we apply the conversion to.",
+  "short_description": "The DF_2_ORDERED_TRIPLE node converts a dataframe type data into an OrderedTriple type data.",
   "parameters": [
     {
       "name": "x",

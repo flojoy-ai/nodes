@@ -1,5 +1,6 @@
 {
-  "description": "number of points by given factor\n\nInputs\n------\ndefault : Vector\n    The input vector",
+  "long_description": "number of points by given factor\n\nInputs\n------\ndefault : Vector\n    The input vector",
+  "short_description": "The DECIMATE_VECTOR node returns the input vector by reducing the",
   "parameters": [
     {
       "name": "factor",

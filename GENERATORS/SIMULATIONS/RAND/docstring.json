@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault : DataContainer\n    unused in this node",
+  "long_description": "Inputs\n------\ndefault : DataContainer\n    unused in this node",
+  "short_description": "The RAND node generates a random number or a list of random numbers, depending on the distribution selected.",
   "parameters": [
     {
       "name": "distribution",

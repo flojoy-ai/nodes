@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\nv : Vector\n    The input vector to shift elements from",
+  "long_description": "Inputs\n------\nv : Vector\n    The input vector to shift elements from",
+  "short_description": "The SHIFT_VECTOR node shifts the elements in the vector by the amount specified",
   "parameters": [
     {
       "name": "shift",

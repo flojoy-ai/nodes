@@ -1,5 +1,6 @@
 {
-  "description": "Examples can be found here:\nhttps://scikit-image.org/docs/stable/auto_examples/index.html",
+  "long_description": "Examples can be found here:\nhttps://scikit-image.org/docs/stable/auto_examples/index.html",
+  "short_description": "The SKIMAGE node is designed to load example images from 'scikit-image'.",
   "parameters": [
     {
       "name": "img_key",

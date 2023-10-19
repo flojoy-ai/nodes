@@ -1,5 +1,6 @@
 {
-  "description": "The input image is expected to be a DataContainer of an 'image' type.\n\nThe output is a DataContainer of an 'image' type with the same dimensions as the input image, but with the red, green, and blue channels replaced with the segmentation mask.",
+  "long_description": "The input image is expected to be a DataContainer of an 'image' type.\n\nThe output is a DataContainer of an 'image' type with the same dimensions as the input image, but with the red, green, and blue channels replaced with the segmentation mask.",
+  "short_description": "The DEEPLAB_V3 node returns a segmentation mask from an input image in a dataframe.",
   "parameters": [],
   "returns": [
     {

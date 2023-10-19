@@ -1,5 +1,6 @@
 {
-  "description": "The description of that function is as follows:\n\n    Remove a linear trend along an axis from data.",
+  "long_description": "The description of that function is as follows:\n\n    Remove a linear trend along an axis from data.",
+  "short_description": "The DETREND node is based on a numpy or scipy function.",
   "parameters": [
     {
       "name": "data",

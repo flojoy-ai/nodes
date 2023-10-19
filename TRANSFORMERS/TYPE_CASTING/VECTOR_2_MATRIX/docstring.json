@@ -1,5 +1,6 @@
 {
-  "description": "the shape is chosen by row and col parameters.\n\nInputs\n------\ndefault: Vector\n    The input vector that will be transformed into matrix.",
+  "long_description": "the shape is chosen by row and col parameters.\n\nInputs\n------\ndefault: Vector\n    The input vector that will be transformed into matrix.",
+  "short_description": "The VECTOR_2_MATRIX node takes a vector and transform it into matrix data type where",
   "parameters": [
     {
       "name": "row",

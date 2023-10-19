@@ -1,5 +1,6 @@
 {
-  "description": "into a single vector type by interleaving their elements\n\nInputs\n------\ndefault : Vector\n    The input vector",
+  "long_description": "into a single vector type by interleaving their elements\n\nInputs\n------\ndefault : Vector\n    The input vector",
+  "short_description": "The INTERLEAVE_VECTOR node combine multiple vectors",
   "parameters": [],
   "returns": [
     {

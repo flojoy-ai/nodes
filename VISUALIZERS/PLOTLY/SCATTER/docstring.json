@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault : OrderedPair|DataFrame|Matrix|Vector\n    the DataContainer to be visualized",
+  "long_description": "Inputs\n------\ndefault : OrderedPair|DataFrame|Matrix|Vector\n    the DataContainer to be visualized",
+  "short_description": "The SCATTER node creates a Plotly Scatter visualization for a given input DataContainer.",
   "parameters": [],
   "returns": [
     {

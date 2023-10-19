@@ -1,5 +1,6 @@
 {
-  "description": "A loop index in Flojoy starts at 1 and increases by 1 for each loop.",
+  "long_description": "A loop index in Flojoy starts at 1 and increases by 1 for each loop.",
+  "short_description": "The LOOP_INDEX node loads the loop index from the LOOP node.",
   "parameters": [
     {
       "name": "loop_node",

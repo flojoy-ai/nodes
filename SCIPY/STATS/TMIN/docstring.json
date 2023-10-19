@@ -1,5 +1,6 @@
 {
-  "description": "The description of that function is as follows:\n\n    Compute the trimmed minimum.\n\n    This function finds the miminum value of an array 'a' along the specified axis, but only considering values greater than a specified lower limit.",
+  "long_description": "The description of that function is as follows:\n\n    Compute the trimmed minimum.\n\n    This function finds the miminum value of an array 'a' along the specified axis, but only considering values greater than a specified lower limit.",
+  "short_description": "The TMIN node is based on a numpy or scipy function.",
   "parameters": [
     {
       "name": "a",

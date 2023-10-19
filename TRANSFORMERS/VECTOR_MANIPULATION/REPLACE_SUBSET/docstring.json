@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\nv : Vector\n    The input vector to replace subset from",
+  "long_description": "Inputs\n------\nv : Vector\n    The input vector to replace subset from",
+  "short_description": "The REPLACE_SUBSET node returns a new Vector with subset of elements replaced.",
   "parameters": [
     {
       "name": "indices",

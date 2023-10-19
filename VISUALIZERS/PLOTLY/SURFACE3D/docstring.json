@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault : OrderedTriple|DataFrame|Surface|Matrix\n    the DataContainer to be visualized",
+  "long_description": "Inputs\n------\ndefault : OrderedTriple|DataFrame|Surface|Matrix\n    the DataContainer to be visualized",
+  "short_description": "The SURFACE3D node creates a Plotly 3D Surface visualization for a given input DataContainer.",
   "parameters": [],
   "returns": [
     {

@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\nip_address: TextBlob\n    The IP address of the robot arm.\n\nParameters\n------\nv : float\n    The velocity to be set.",
+  "long_description": "Inputs\n------\nip_address: TextBlob\n    The IP address of the robot arm.\n\nParameters\n------\nv : float\n    The velocity to be set.",
+  "short_description": "The SET_CART_LIN_VEL node sets the robot arm's linear velocity in Cartesian coordinates.",
   "parameters": [],
   "returns": [
     {

@@ -1,5 +1,6 @@
 {
-  "description": "Requires a CONNECTION_33510B node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Keysight 33XXX wavefunction\ngenerators (although they are untested).",
+  "long_description": "Requires a CONNECTION_33510B node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Keysight 33XXX wavefunction\ngenerators (although they are untested).",
+  "short_description": "The ON_OFF_33510B node is used to turn the output on or off.",
   "parameters": [
     {
       "name": "connection",

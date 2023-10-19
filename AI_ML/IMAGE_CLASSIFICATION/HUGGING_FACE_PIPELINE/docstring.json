@@ -1,5 +1,6 @@
 {
-  "description": "For more information about Vision Transformers,\nsee: https://huggingface.co/google/vit-base-patch16-224\n\nFor a complete list of models, see:\nhttps://huggingface.co/models?pipeline_tag=image-classification\n\nFor examples of how revision parameters (such as 'main') is used,\nsee: https://huggingface.co/google/vit-base-patch16-224/commits/main",
+  "long_description": "For more information about Vision Transformers,\nsee: https://huggingface.co/google/vit-base-patch16-224\n\nFor a complete list of models, see:\nhttps://huggingface.co/models?pipeline_tag=image-classification\n\nFor examples of how revision parameters (such as 'main') is used,\nsee: https://huggingface.co/google/vit-base-patch16-224/commits/main",
+  "short_description": "The HUGGING_FACE_PIPELINE node uses a classification pipeline to process and classify an image.",
   "parameters": [
     {
       "name": "default",

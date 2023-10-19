@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The LIST_VISA node lists all VISA instruments available.",
   "parameters": [],
   "returns": [
     {

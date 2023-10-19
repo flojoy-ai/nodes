@@ -1,5 +1,6 @@
 {
-  "description": "It takes two dataframes of label and feature from labelled training data and a dataframe of unlabelled input data.",
+  "long_description": "It takes two dataframes of label and feature from labelled training data and a dataframe of unlabelled input data.",
+  "short_description": "The SUPPORT_VECTOR_MACHINE node is used to train a support vector machine model for classification tasks.",
   "parameters": [
     {
       "name": "kernel",

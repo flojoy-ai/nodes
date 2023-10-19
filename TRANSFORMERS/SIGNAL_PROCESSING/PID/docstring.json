@@ -1,5 +1,6 @@
 {
-  "description": "The returned value will be modified according to the PID parameters Kp, Ki, and Kd.\n\nInputs\n------\nsingle_input : Scalar\n    The data to apply the PID function to.",
+  "long_description": "The returned value will be modified according to the PID parameters Kp, Ki, and Kd.\n\nInputs\n------\nsingle_input : Scalar\n    The data to apply the PID function to.",
+  "short_description": "The PID node acts like a PID function.",
   "parameters": [
     {
       "name": "Kp",

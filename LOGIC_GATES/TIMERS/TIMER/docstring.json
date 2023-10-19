@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The TIMER node sleeps for a specified number of seconds.",
   "parameters": [
     {
       "name": "sleep_time",

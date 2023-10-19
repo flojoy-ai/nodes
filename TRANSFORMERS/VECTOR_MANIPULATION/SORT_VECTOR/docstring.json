@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault : Vector\n    The input vector",
+  "long_description": "Inputs\n------\ndefault : Vector\n    The input vector",
+  "short_description": "The SORT_VECTOR node returns the input Vector that is sorted",
   "parameters": [
     {
       "name": "reverse",

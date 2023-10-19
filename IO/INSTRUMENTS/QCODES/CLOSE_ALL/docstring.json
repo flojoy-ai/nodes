@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The CLOSE_ALL node closes all QCoDeS instruments and should be run at the start and end of each Flojoy app that uses QCoDeS.",
   "parameters": [],
   "returns": [
     {

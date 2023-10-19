@@ -1,5 +1,6 @@
 {
-  "description": "It should be used in conjunction with conditionals to determine when to break the loop.\n\nIt is needed to be able to generate 'while loops' in Flojoy (combined with an 'infinite loop').",
+  "long_description": "It should be used in conjunction with conditionals to determine when to break the loop.\n\nIt is needed to be able to generate 'while loops' in Flojoy (combined with an 'infinite loop').",
+  "short_description": "The BREAK node is designed to end the iteration of a loop.",
   "parameters": [
     {
       "name": "referred_node",

@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\nv : Vector\n    The input vector to use max peration",
+  "long_description": "Inputs\n------\nv : Vector\n    The input vector to use max peration",
+  "short_description": "The VECTOR_MAX node returns the maximum value from the Vector",
   "parameters": [],
   "returns": [
     {

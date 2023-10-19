@@ -1,5 +1,6 @@
 {
-  "description": "This node is designed to be used in a loop. The data is appended as the loop progresses and written to memory.\n\nInputs\n------\ndefault : Scalar\n    PID node output.",
+  "long_description": "This node is designed to be used in a loop. The data is appended as the loop progresses and written to memory.\n\nInputs\n------\ndefault : Scalar\n    PID node output.",
+  "short_description": "The SECOND_ORDER_SYSTEM has a second order exponential function.",
   "parameters": [
     {
       "name": "d1",

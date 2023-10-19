@@ -1,5 +1,6 @@
 {
-  "description": "Note: For \"gaussian\" and \"median\" type, you are only allowed an odd number for the kernel value.\n\nSee https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html for smoothing function information.\n\nInputs\n------\ndefault : Image\n    The input image to apply smoothing to.",
+  "long_description": "Note: For \"gaussian\" and \"median\" type, you are only allowed an odd number for the kernel value.\n\nSee https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html for smoothing function information.\n\nInputs\n------\ndefault : Image\n    The input image to apply smoothing to.",
+  "short_description": "The IMAGE_SMOOTHING node applies an image smoothing operation on the input DataContainer class, specifically for the 'image' type, represented by the RGB(A) channels.",
   "parameters": [
     {
       "name": "kernel",

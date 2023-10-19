@@ -1,5 +1,6 @@
 {
-  "description": "The description of that function is as follows:\n\n    Calculate the relative minima of 'data'.",
+  "long_description": "The description of that function is as follows:\n\n    Calculate the relative minima of 'data'.",
+  "short_description": "The ARGRELMIN node is based on a numpy or scipy function.",
   "parameters": [
     {
       "name": "data",

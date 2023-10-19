@@ -1,5 +1,6 @@
 {
-  "description": "If the entered value is a list of scalar, it returns the multiplciative inverse 1/x for each element of the list.\n\nInputs\n------\ndefault : OrderedPair|Matrix\n    The matrix or list of scalar to which we apply the invert.",
+  "long_description": "If the entered value is a list of scalar, it returns the multiplciative inverse 1/x for each element of the list.\n\nInputs\n------\ndefault : OrderedPair|Matrix\n    The matrix or list of scalar to which we apply the invert.",
+  "short_description": "The INVERT node takes two inputs, one matrix and one rcond if not a square matrix, then inverts them (or pseudo invert) and returns the result.",
   "parameters": [
     {
       "name": "rcond",

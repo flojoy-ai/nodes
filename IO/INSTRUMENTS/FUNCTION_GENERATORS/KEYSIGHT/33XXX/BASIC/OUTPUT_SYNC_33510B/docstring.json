@@ -1,5 +1,6 @@
 {
-  "description": "Can only be turned on for one channel.\n\nRequires a CONNECTION_33510B node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Keysight 33XXX wavefunction\ngenerators (although they are untested).",
+  "long_description": "Can only be turned on for one channel.\n\nRequires a CONNECTION_33510B node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Keysight 33XXX wavefunction\ngenerators (although they are untested).",
+  "short_description": "The OUTPUT_SYNC_33510B node is used sync multiple outputs phases.",
   "parameters": [
     {
       "name": "connection",

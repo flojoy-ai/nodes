@@ -1,6 +1,13 @@
 {
-  "description": "Inputs\n------\ndefault : OrderedPair|Vector|Scalar\n    The input to apply the absolute value to.",
-  "parameters": [],
+  "long_description": null,
+  "short_description": "The ABS node take a numeric array, a vector, or a scalar as input and returns its absolute value.",
+  "parameters": [
+    {
+      "name": "default",
+      "type": "OrderedPair|Vector|Scalar",
+      "description": "The input to apply the absolute value to."
+    }
+  ],
   "returns": [
     {
       "name": null,

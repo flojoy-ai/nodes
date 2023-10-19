@@ -1,6 +1,18 @@
 {
-  "description": "When a constant is added to an array or matrix, each element in the array or matrix will be increased by the constant value.\n\nIf two arrays or matrices of different sizes are added, the output will be the size of the larger array or matrix with only the overlapping elements changed.\n\nInputs\n------\na : OrderedPair|Scalar|Vector\n    The input a use to compute the sum of a and b.\nb : OrderedPair|Scalar|Vector\n    The input b use to compute the sum of a and b.",
-  "parameters": [],
+  "long_description": "When a constant is added to an array or matrix, each element in the array or matrix will be increased by the constant value.\n\nIf two arrays or matrices of different sizes are added, the output will be the size of the larger array or matrix with only the overlapping elements changed.",
+  "short_description": "The ADD node adds two or more numeric arrays, matrices, dataframes, or constants element-wise.",
+  "parameters": [
+    {
+      "name": "a",
+      "type": "OrderedPair|Scalar|Vector",
+      "description": "The input a use to compute the sum of a and b."
+    },
+    {
+      "name": "b",
+      "type": "OrderedPair|Scalar|Vector",
+      "description": "The input b use to compute the sum of a and b."
+    }
+  ],
   "returns": [
     {
       "name": null,

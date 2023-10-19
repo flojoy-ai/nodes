@@ -1,5 +1,6 @@
 {
-  "description": "The description of that function is as follows:\n\n    Compute the geometric standard score.\n\n    Compute the geometric z score of each strictly positive value in the sample, relative to the geometric mean and standard deviation.\n\n    Mathematically the geometric z score can be evaluated as::\n\n        gzscore = log(a/gmu) / log(gsigma)\n\n        where ``gmu`` (resp. ``gsigma``) is the geometric mean (resp. standard\n        deviation).",
+  "long_description": "The description of that function is as follows:\n\n    Compute the geometric standard score.\n\n    Compute the geometric z score of each strictly positive value in the sample, relative to the geometric mean and standard deviation.\n\n    Mathematically the geometric z score can be evaluated as::\n\n        gzscore = log(a/gmu) / log(gsigma)\n\n        where ``gmu`` (resp. ``gsigma``) is the geometric mean (resp. standard\n        deviation).",
+  "short_description": "The GZSCORE node is based on a numpy or scipy function.",
   "parameters": [
     {
       "name": "a",

@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": "Flojoy Cloud is still in beta, feel free to try it out and give us feedback!",
+  "short_description": "The FLOJOY_CLOUD_UPLOAD node takes a DataContainer as input and uploads it to Flojoy Cloud.",
   "parameters": [
     {
       "name": "measurement_id",

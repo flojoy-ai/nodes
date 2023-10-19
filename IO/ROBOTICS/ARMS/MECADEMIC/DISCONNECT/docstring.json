@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\nip_address\n    The IP address of the robot arm.",
+  "long_description": "Inputs\n------\nip_address\n    The IP address of the robot arm.",
+  "short_description": "The DISCONNECT node disconnect the Mecademic robot arm via its API.",
   "parameters": [],
   "returns": []
 }
