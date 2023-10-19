@@ -4,7 +4,7 @@ import numpy as np
 
 @flojoy(node_type="SCATTER3D", forward_result=True)
 def SCATTER3D(
-    default: OrderedTriple | DataFrame,
+    default: OrderedTriple | DataFrame | Vector,
     point_size: int = 4,
     show_xy_plane: bool = False,
     show_xz_plane: bool = True,
@@ -23,7 +23,7 @@ def SCATTER3D(
 
     Inputs
     ------
-    default : OrderedTriple|DataFrame
+    default : OrderedTriple|DataFrame|Vector
         the DataContainer to be visualized
 
     Returns
@@ -33,6 +33,8 @@ def SCATTER3D(
     """
 
     match default:
+        case Vector():
+            return default
         case OrderedTriple():
             x = default.x
             y = default.y
