@@ -60,13 +60,11 @@ for root, dirs, files in os.walk(current_directory):
                             warning += 1
 
                         if not parsed_docstring.params:
-                            print(
-                                f"ATTENTION: 'Parameters' not found for {function_name}"
-                            )
+                            print(f"ERROR: 'Parameters' not found for {function_name}")
                             error += 1
 
                         if not parsed_docstring.many_returns:
-                            print(f"ATTENTION: 'Returns' not found for {function_name}")
+                            print(f"WARNING: 'Returns' not found for {function_name}")
                             warning += 1
 
                         # Build the JSON data

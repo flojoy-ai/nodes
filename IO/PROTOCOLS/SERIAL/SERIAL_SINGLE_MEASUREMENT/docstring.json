@@ -10,8 +10,14 @@
     {
       "name": "comport",
       "type": "string",
-      "description": "Defines the comunication port on which the serial device is connected."
+      "description": "Defines the communication port on which the serial device is connected."
     }
   ],
-  "returns": []
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair",
+      "description": "the y axis contains the reading"
+    }
+  ]
 }

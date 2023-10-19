@@ -1,7 +1,13 @@
 {
   "long_description": null,
   "short_description": "The LIST_VISA node lists all VISA instruments available.",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "default",
+      "type": "DataContainer",
+      "description": "the input data container"
+    }
+  ],
   "returns": [
     {
       "name": null,
