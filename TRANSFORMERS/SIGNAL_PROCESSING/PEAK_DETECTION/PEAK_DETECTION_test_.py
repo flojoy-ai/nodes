@@ -11,6 +11,9 @@ def test_PEAK_DETECTION(mock_flojoy_decorator):
     element = OrderedPair(x=x, y=y)
     res = PEAK_DETECTION.PEAK_DETECTION(element)
 
+    heights = res["heights"]
+    widths = res["widths"]
     # PEAK_DETECTION should detect one peak at x = 0.5 y = 1
-    assert np.isclose(res.x[0], 0.5, atol=0.01)
-    assert np.isclose(res.y, 1, atol=0.01)
+    assert np.isclose(heights.x[0], 0.5, atol=0.01)
+    assert np.isclose(heights.y, 1, atol=0.01)
+    assert np.isclose(widths.y, 0.66, atol=0.01)
