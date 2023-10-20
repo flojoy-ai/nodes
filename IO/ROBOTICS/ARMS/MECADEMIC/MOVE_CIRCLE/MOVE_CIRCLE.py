@@ -1,22 +1,10 @@
 import math
 
+from PYTHON.utils.mecademic_state.mecademic_calculations import getCirclePositions
 from flojoy import flojoy, TextBlob
 from typing import Optional
 
 from PYTHON.utils.mecademic_state.mecademic_state import query_for_handle
-
-def getCirclePositions(radius, revolutions, center_X, center_Y, center_Z):
-    positions = []
-    for i in range(0, 360 * revolutions):
-        angle = i * math.pi / 180
-        positions.append(
-            [
-                center_X + radius * math.cos(angle),
-                center_Y + radius * math.sin(angle),
-                center_Z,
-            ]
-        )
-    return positions
 
 
 @flojoy(deps={"mecademicpy": "1.4.0"})
@@ -79,7 +67,7 @@ def MOVE_CIRCLE(
     robot.MoveLin(center_X, center_Y, center_Z)
     positions = getCirclePositions(radius, revolutions, center_X, center_Y, center_Z)
     for position in positions:
-        robot.MoveLin(position[0], position[1], position[2])
-    robot.MoveLin(center_X, center_Y, center_Z)
+        robot.MoveLinRelTRF(position[0], position[1], position[2])
+    robot.MoveLinRelTRF(center_X, center_Y, center_Z)
 
     return ip_address
