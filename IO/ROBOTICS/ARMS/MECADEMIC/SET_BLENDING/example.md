@@ -1,1 +1,1 @@
-In this example, the Mecademic bot is made to move between a set of keyframes read from a file.
+This node sets the blending (smoothing) of the moves of the robot arm.
