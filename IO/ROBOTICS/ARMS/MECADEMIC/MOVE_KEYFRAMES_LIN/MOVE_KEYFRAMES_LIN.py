@@ -1,5 +1,4 @@
 from flojoy import flojoy, TextBlob, DataFrame
-from typing import Optional
 
 from PYTHON.utils.mecademic_state.mecademic_calculations import calculateLimitingMaxVel
 from PYTHON.utils.mecademic_state.mecademic_state import query_for_handle
@@ -9,15 +8,11 @@ from PYTHON.utils.mecademic_state.mecademic_state import query_for_handle
 def MOVE_KEYFRAMES_LIN(
         ip_address: TextBlob,
         keyframes: DataFrame,
-        trfX: Optional[float] = 0.0,
-        trfY: Optional[float] = 0.0,
-        trfZ: Optional[float] = 0.0,
-        trfAlpha: Optional[float] = 0.0,
-        trfBeta: Optional[float] = 0.0,
-        trfGamma: Optional[float] = 0.0,
 ) -> TextBlob:
     """
     The MOVE_KEYFRAMES node LINEARLY RELATIVE TO A REFERENCE FRAME moves the robot's tool according to a set of 3d animation style keyframes.
+
+    Set a tool reference frame (TRF) to move the robot's tool relative to the TRF. The TRF is set using the SET_TRF node.
 
     Inputs
     ------
@@ -26,18 +21,6 @@ def MOVE_KEYFRAMES_LIN(
     keyframes: DataFrame
         A dataframe containing the keyframes to move to. The dataframe must have the following columns:
         x, y, z, alpha, beta, gamma, duration. The duration column is the time in seconds to move to the next keyframe.
-    trfX: Optional[float]
-        The X coordinate of the reference frame. If not specified, the default value of 0.0 is used.
-    trfY: Optional[float]
-        The Y coordinate of the reference frame. If not specified, the default value of 0.0 is used.
-    trfZ: Optional[float]
-        The Z coordinate of the reference frame. If not specified, the default value of 0.0 is used.
-    trfAlpha: Optional[float]
-        The alpha angle of the reference frame. If not specified, the default value of 0.0 is used.
-    trfBeta: Optional[float]
-        The beta angle of the reference frame. If not specified, the default value of 0.0 is used.
-    trfGamma: Optional[float]
-        The gamma angle of the reference frame. If not specified, the default value of 0.0 is used.
 
     Parameters:
     -------
@@ -51,9 +34,6 @@ def MOVE_KEYFRAMES_LIN(
 
     """
     robot = query_for_handle(ip_address)
-
-    # set reference frame
-    robot.SetTRF(trfX, trfY, trfZ, trfAlpha, trfBeta, trfGamma)
 
 
     # Data validation
