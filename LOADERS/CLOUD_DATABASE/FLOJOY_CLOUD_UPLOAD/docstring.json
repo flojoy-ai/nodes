@@ -1,0 +1,18 @@
+{
+  "long_description": "Flojoy Cloud is still in beta, feel free to try it out and give us feedback!",
+  "short_description": "The FLOJOY_CLOUD_UPLOAD node takes a DataContainer as input and uploads it to Flojoy Cloud.",
+  "parameters": [
+    {
+      "name": "measurement_id",
+      "type": "str",
+      "description": "The measurement id of the data to be uploaded to Flojoy Cloud."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "The input DataContainer will be returned as it is."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "long_description": null,
+  "short_description": "The FLOJOY_CLOUD_DOWNLOAD node downloads a DataContainer from Flojoy Cloud.",
+  "parameters": [
+    {
+      "name": "data_container_id",
+      "type": "str",
+      "description": "The data container id of the data to be downloaded from Flojoy Cloud."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "The downloaded DataContainer will be returned as it is."
+    }
+  ]
+}

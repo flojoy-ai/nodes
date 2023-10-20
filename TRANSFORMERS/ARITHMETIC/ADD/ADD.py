@@ -1,7 +1,9 @@
-import numpy as np
-from flojoy import flojoy, OrderedPair, Scalar, Vector
-from nodes.TRANSFORMERS.ARITHMETIC.utils.arithmetic_utils import get_val
 from functools import reduce
+
+import numpy as np
+from flojoy import OrderedPair, Scalar, Vector, flojoy
+
+from nodes.TRANSFORMERS.ARITHMETIC.utils.arithmetic_utils import get_val
 
 
 @flojoy
@@ -14,8 +16,8 @@ def ADD(
 
     If two arrays or matrices of different sizes are added, the output will be the size of the larger array or matrix with only the overlapping elements changed.
 
-    Inputs
-    ------
+    Parameters
+    ----------
     a : OrderedPair|Scalar|Vector
         The input a use to compute the sum of a and b.
     b : OrderedPair|Scalar|Vector

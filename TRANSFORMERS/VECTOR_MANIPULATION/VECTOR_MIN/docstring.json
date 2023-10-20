@@ -1,0 +1,18 @@
+{
+  "long_description": null,
+  "short_description": "The VECTOR_MIN node returns the minimum value from the Vector",
+  "parameters": [
+    {
+      "name": "v",
+      "type": "Vector",
+      "description": "The input vector to use min peration"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Scalar",
+      "description": "The minimum value found from the input vector"
+    }
+  ]
+}

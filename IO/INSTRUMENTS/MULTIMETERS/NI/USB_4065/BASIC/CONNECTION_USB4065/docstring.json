@@ -1,0 +1,18 @@
+{
+  "long_description": null,
+  "short_description": "The CONNECTION_MDO3XXX node connects Flojoy to a",
+  "parameters": [
+    {
+      "name": "NI_address",
+      "type": "str",
+      "description": "The NI instrument address for the instrument (e.g. 'Dev0', 'Dev1')."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "Optional: None"
+    }
+  ]
+}

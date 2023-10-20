@@ -1,0 +1,12 @@
+{
+  "long_description": "Inputs\n------\ndefault : OrderedPair|Vector\n    Input from which we get the two lists we use in the integration.",
+  "short_description": "The INTEGRATE node takes a numpy array, a vector, or a matrix as input and integrates it using the composite trapezoidal rule.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "OrderedPair",
+      "description": "x: the x-axis of the input.\ny: the result of the integral."
+    }
+  ]
+}

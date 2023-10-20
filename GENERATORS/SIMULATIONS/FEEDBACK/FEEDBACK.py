@@ -1,10 +1,11 @@
-from typing import Optional, Any
+from typing import Any, Optional
+
 from flojoy import (
-    flojoy,
     DataContainer,
-    get_job_result,
-    NodeReference,
     JobResultBuilder,
+    NodeReference,
+    flojoy,
+    get_job_result,
 )
 
 

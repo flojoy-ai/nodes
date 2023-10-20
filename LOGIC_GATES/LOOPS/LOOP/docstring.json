@@ -1,0 +1,12 @@
+{
+  "long_description": null,
+  "short_description": "The LOOP node is a specialized node that iterates through the body nodes for a given number of times.",
+  "parameters": [
+    {
+      "name": "num_loops",
+      "type": "int",
+      "description": "number of times to iterate through body nodes, default is \"-1\" meaning infinity."
+    }
+  ],
+  "returns": []
+}

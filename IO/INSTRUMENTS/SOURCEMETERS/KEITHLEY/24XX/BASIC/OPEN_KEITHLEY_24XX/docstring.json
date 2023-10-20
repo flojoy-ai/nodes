@@ -1,0 +1,18 @@
+{
+  "long_description": null,
+  "short_description": "The OPEN_KEITHLEY_24XX node opens a connection with the Keithley 2400 source meter.",
+  "parameters": [
+    {
+      "name": "device",
+      "type": "Serial",
+      "description": "The connected serial device corresponding to the Keithley 2400 source meter."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "None",
+      "description": null
+    }
+  ]
+}

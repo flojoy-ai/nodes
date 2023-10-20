@@ -1,0 +1,12 @@
+{
+  "long_description": null,
+  "short_description": "The CHANNEL_MERGE node returns the merged rgba channels of an image.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Image",
+      "description": "The image with each channel given by the appropriate channel\non the respective inputs."
+    }
+  ]
+}

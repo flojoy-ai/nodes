@@ -1,0 +1,12 @@
+{
+  "long_description": "Inputs\n------\ndefault : OrderedPair | Matrix\n    the DataContainer to be visualized in matrix format.",
+  "short_description": "The MATRIX_VIEW node takes a Matrix or OrderedPair DataContainer object as input, and visualizes it using a Plotly table in matrix format.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Plotly",
+      "description": "the DataContainer containing visualization of the input in matrix format"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "long_description": "Inputs\n------\ndefault : OrderedTriple|OrderedPair|DataFrame|Vector|Scalar\n    the DataContainer to be visualized",
+  "short_description": "The TABLE node creates a Plotly Table visualization for a given input DataContainer.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Plotly",
+      "description": "the DataContainer containing the Plotly Table visualization"
+    }
+  ]
+}

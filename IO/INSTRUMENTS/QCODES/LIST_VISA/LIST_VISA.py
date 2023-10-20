@@ -1,6 +1,7 @@
-from flojoy import flojoy, DataContainer, TextBlob
-import pyvisa
 from typing import Optional
+
+import pyvisa
+from flojoy import DataContainer, TextBlob, flojoy
 
 
 @flojoy(
@@ -15,6 +16,11 @@ def LIST_VISA(
     default: Optional[DataContainer] = None,
 ) -> Optional[DataContainer]:
     """The LIST_VISA node lists all VISA instruments available.
+
+    Parameters
+    ----------
+    default : DataContainer
+        the input data container
 
     Returns
     -------

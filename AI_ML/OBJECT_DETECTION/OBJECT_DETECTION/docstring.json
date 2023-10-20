@@ -1,0 +1,12 @@
+{
+  "long_description": "Inputs\n------\ndefault : Image",
+  "short_description": "The OBJECT_DETECTION node detects objects in the input image, and returns an 'image' DataContainer with those objects highlighted.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Image",
+      "description": null
+    }
+  ]
+}

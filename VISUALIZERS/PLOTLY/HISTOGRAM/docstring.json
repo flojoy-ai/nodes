@@ -1,0 +1,12 @@
+{
+  "long_description": "Inputs\n------\ndefault : OrderedPair|DataFrame|Matrix|Vector\n    the DataContainer to be visualized",
+  "short_description": "The HISTOGRAM node creates a Plotly Histogram visualization for a given input DataContainer.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Plotly",
+      "description": "the DataContainer containing the Plotly Histogram visualization"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "long_description": "Inputs\n------\na: TextBlob\n    The input text to be concatenated to input b\n\nb: TextBlob\n    The input text to be concatenated to input a",
+  "short_description": "The TEXT_CONCAT node takes in two TextBlob DataContainer type and concatenates the text string.",
+  "parameters": [
+    {
+      "name": "delimiter",
+      "type": "\"space\" | \"comma\" | \"semicolon\" | \"colon\" | \"new line\" | \"none\", default=\"space\"",
+      "description": "Select the delimiter to place between two text."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "TextBlob",
+      "description": "The text result from concatenation."
+    }
+  ]
+}

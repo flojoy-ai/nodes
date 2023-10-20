@@ -1,0 +1,18 @@
+{
+  "long_description": null,
+  "short_description": "The OPEN_SERIAL node opens a serial connection through your computer's USB or RS-232 port.",
+  "parameters": [
+    {
+      "name": "device",
+      "type": "Serial",
+      "description": "The connected serial device."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "TextBlob",
+      "description": null
+    }
+  ]
+}

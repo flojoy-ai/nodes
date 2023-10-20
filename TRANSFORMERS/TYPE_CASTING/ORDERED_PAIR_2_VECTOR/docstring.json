@@ -1,0 +1,12 @@
+{
+  "long_description": "Inputs\n------\ndefault : OrderedPair\n    The input OrderedPair.",
+  "short_description": "The ORDERED_PAIR_2_VECTOR return the y component of an ordered pair as a Vector.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": null,
+      "type": "Vector",
+      "description": "The y component of the input OrderedPair."
+    }
+  ]
+}

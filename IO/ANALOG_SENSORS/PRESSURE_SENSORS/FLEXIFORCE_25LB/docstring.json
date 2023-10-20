@@ -1,0 +1,17 @@
+{
+  "long_description": null,
+  "short_description": "The Flexiforce node allows you to convert voltages measured with the Phidget Interface Kit into pressures.",
+  "parameters": [
+    {
+      "name": "Calibration1",
+      "type": "float",
+      "description": "Calibration parameters to convert voltage into pressure."
+    },
+    {
+      "name": "calibration2",
+      "type": "float",
+      "description": "Calibration parameters to convert voltage into pressure."
+    }
+  ],
+  "returns": []
+}

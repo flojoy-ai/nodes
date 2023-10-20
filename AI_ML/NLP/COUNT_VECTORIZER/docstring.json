@@ -1,0 +1,17 @@
+{
+  "long_description": null,
+  "short_description": "The COUNT_VECTORIZER node receives a collection (matrix, vector or dataframe) of text documents and converts it to a matrix of token counts.",
+  "parameters": [],
+  "returns": [
+    {
+      "name": "tokens",
+      "type": "DataFrame",
+      "description": "Holds all the unique tokens observed from the input."
+    },
+    {
+      "name": "word_count_vector",
+      "type": "Vector",
+      "description": "Contains the occurences of these tokens from each sentence."
+    }
+  ]
+}

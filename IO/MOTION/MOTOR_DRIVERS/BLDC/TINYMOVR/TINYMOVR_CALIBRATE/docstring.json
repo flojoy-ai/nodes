@@ -1,0 +1,18 @@
+{
+  "long_description": null,
+  "short_description": "Discover and calibrate a connected tinymovr BLDC driver through a CANine USB-to-CAN controller.",
+  "parameters": [
+    {
+      "name": "None",
+      "type": null,
+      "description": null
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "TextBlob",
+      "description": "Traceback error"
+    }
+  ]
+}

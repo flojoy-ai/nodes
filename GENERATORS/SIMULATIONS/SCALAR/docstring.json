@@ -1,0 +1,18 @@
+{
+  "long_description": null,
+  "short_description": "The SCALAR node returns a single Scalar value.",
+  "parameters": [
+    {
+      "name": "value",
+      "type": "float",
+      "description": "The value set in Parameters"
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "Scalar",
+      "description": "c: return the value being set in Parameters"
+    }
+  ]
+}
