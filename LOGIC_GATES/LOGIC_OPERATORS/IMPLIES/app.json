@@ -1,0 +1,226 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 208,
+                "height": 96,
+                "id": "BOOLEAN-e7ff74be-dbcc-40ae-945d-398a45400324",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "BOOLEAN-e7ff74be-dbcc-40ae-945d-398a45400324",
+                    "label": "BOOLEAN",
+                    "func": "BOOLEAN",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "status": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": "either True or False value that you want to assign",
+                            "overload": null,
+                            "functionName": "BOOLEAN",
+                            "param": "status",
+                            "value": true
+                        }
+                    },
+                    "initCtrls": {},
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Boolean",
+                            "desc": "Boolean node"
+                        }
+                    ],
+                    "path": "GENERATORS/SIMULATIONS/BOOLEAN/BOOLEAN.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -315.34959538212695,
+                    "y": -100.01896329536366
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -315.34959538212695,
+                    "y": -100.01896329536366
+                },
+                "dragging": true
+            },
+            {
+                "width": 208,
+                "height": 96,
+                "id": "BOOLEAN-887065ff-21a1-434a-951a-e0327a83e346",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "BOOLEAN-887065ff-21a1-434a-951a-e0327a83e346",
+                    "label": "BOOLEAN 1",
+                    "func": "BOOLEAN",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "status": {
+                            "type": "bool",
+                            "default": true,
+                            "desc": "either True or False value that you want to assign",
+                            "overload": null,
+                            "functionName": "BOOLEAN",
+                            "param": "status",
+                            "value": true
+                        }
+                    },
+                    "initCtrls": {},
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Boolean",
+                            "desc": "Boolean node"
+                        }
+                    ],
+                    "path": "GENERATORS/SIMULATIONS/BOOLEAN/BOOLEAN.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -315.0204314020479,
+                    "y": 71.71905384405883
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -315.0204314020479,
+                    "y": 71.71905384405883
+                },
+                "dragging": true
+            },
+            {
+                "width": 96,
+                "height": 96,
+                "id": "IMPLIES-75f55afa-e9c6-4121-ac4b-2457040b0c02",
+                "type": "LOGIC_GATES",
+                "data": {
+                    "id": "IMPLIES-75f55afa-e9c6-4121-ac4b-2457040b0c02",
+                    "label": "IMPLIES",
+                    "func": "IMPLIES",
+                    "type": "LOGIC_GATES",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "x",
+                            "id": "x",
+                            "type": "Boolean",
+                            "multiple": false,
+                            "desc": null
+                        },
+                        {
+                            "name": "y",
+                            "id": "y",
+                            "type": "Boolean",
+                            "multiple": false,
+                            "desc": null
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Boolean",
+                            "desc": "The boolean result from the operation of the inputs."
+                        }
+                    ],
+                    "path": "LOGIC_GATES/LOGIC_OPERATORS/IMPLIES/IMPLIES.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 36.37223991746526,
+                    "y": -5.531890052385137
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 36.37223991746526,
+                    "y": -5.531890052385137
+                },
+                "dragging": true
+            },
+            {
+                "width": 225,
+                "height": 226,
+                "id": "TEXT_VIEW-b59bd95e-ce0b-4cfe-9da7-88560522ec31",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "TEXT_VIEW-b59bd95e-ce0b-4cfe-9da7-88560522ec31",
+                    "label": "TEXT VIEW",
+                    "func": "TEXT_VIEW",
+                    "type": "VISUALIZERS",
+                    "ctrls": {
+                        "prettify": {
+                            "type": "bool",
+                            "default": false,
+                            "desc": "Whether to prettify the displayed text (defaults to True)",
+                            "overload": null,
+                            "functionName": "TEXT_VIEW",
+                            "param": "prettify",
+                            "value": false
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob|Boolean",
+                            "multiple": false,
+                            "desc": "The DataContainer to be visualized in text format"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "TextBlob",
+                            "desc": "The DataContainer containing text data"
+                        }
+                    ],
+                    "path": "VISUALIZERS/DATA_STRUCTURE/TEXT_VIEW/TEXT_VIEW.py",
+                    "selected": true
+                },
+                "position": {
+                    "x": 298.1435570783008,
+                    "y": -73.92659439554598
+                },
+                "selected": true,
+                "positionAbsolute": {
+                    "x": 298.1435570783008,
+                    "y": -73.92659439554598
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "BOOLEAN-e7ff74be-dbcc-40ae-945d-398a45400324",
+                "sourceHandle": "default",
+                "target": "IMPLIES-75f55afa-e9c6-4121-ac4b-2457040b0c02",
+                "targetHandle": "y",
+                "id": "reactflow__edge-BOOLEAN-e7ff74be-dbcc-40ae-945d-398a45400324default-IMPLIES-75f55afa-e9c6-4121-ac4b-2457040b0c02y"
+            },
+            {
+                "source": "BOOLEAN-887065ff-21a1-434a-951a-e0327a83e346",
+                "sourceHandle": "default",
+                "target": "IMPLIES-75f55afa-e9c6-4121-ac4b-2457040b0c02",
+                "targetHandle": "x",
+                "id": "reactflow__edge-BOOLEAN-887065ff-21a1-434a-951a-e0327a83e346default-IMPLIES-75f55afa-e9c6-4121-ac4b-2457040b0c02x"
+            },
+            {
+                "source": "IMPLIES-75f55afa-e9c6-4121-ac4b-2457040b0c02",
+                "sourceHandle": "default",
+                "target": "TEXT_VIEW-b59bd95e-ce0b-4cfe-9da7-88560522ec31",
+                "targetHandle": "default",
+                "id": "reactflow__edge-IMPLIES-75f55afa-e9c6-4121-ac4b-2457040b0c02default-TEXT_VIEW-b59bd95e-ce0b-4cfe-9da7-88560522ec31default"
+            }
+        ],
+        "viewport": {
+            "x": 850.2065407835213,
+            "y": 460.14150061478784,
+            "zoom": 0.9481996567763689
+        }
+    },
+    "textNodes": []
+}
