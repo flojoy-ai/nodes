@@ -34,8 +34,8 @@ def INIT_SWEEP_FSV(
 
     Returns
     -------
-    DataContainer
-        TextBlob: Display and sweep settings.
+    TextBlob
+        Display and sweep settings.
     """
 
     rohde = connection.get_handle()
