@@ -1,0 +1,397 @@
+{
+    "rfInstance": {
+        "nodes": [
+            {
+                "width": 210,
+                "height": 96,
+                "id": "BASIC_OSCILLATOR-6873e667-bd4e-4228-bd9f-c52b7d983e91",
+                "type": "GENERATORS",
+                "data": {
+                    "id": "BASIC_OSCILLATOR-6873e667-bd4e-4228-bd9f-c52b7d983e91",
+                    "label": "BASIC OSCILLATOR",
+                    "func": "BASIC_OSCILLATOR",
+                    "type": "GENERATORS",
+                    "ctrls": {
+                        "sample_rate": {
+                            "type": "int",
+                            "default": 100,
+                            "desc": "The number of samples that are taken in a second.",
+                            "overload": null,
+                            "functionName": "BASIC_OSCILLATOR",
+                            "param": "sample_rate",
+                            "value": 50
+                        },
+                        "time": {
+                            "type": "int",
+                            "default": 10,
+                            "desc": "The total amount of time of the signal.",
+                            "overload": null,
+                            "functionName": "BASIC_OSCILLATOR",
+                            "param": "time",
+                            "value": 10
+                        },
+                        "waveform": {
+                            "type": "select",
+                            "options": [
+                                "sine",
+                                "square",
+                                "triangle",
+                                "sawtooth"
+                            ],
+                            "default": "sine",
+                            "desc": "The waveform type of the wave.",
+                            "overload": null,
+                            "functionName": "BASIC_OSCILLATOR",
+                            "param": "waveform",
+                            "value": "sine"
+                        },
+                        "amplitude": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "The amplitude of the wave.",
+                            "overload": null,
+                            "functionName": "BASIC_OSCILLATOR",
+                            "param": "amplitude",
+                            "value": 1
+                        },
+                        "frequency": {
+                            "type": "float",
+                            "default": 1,
+                            "desc": "The wave frequency in radians/2pi.",
+                            "overload": null,
+                            "functionName": "BASIC_OSCILLATOR",
+                            "param": "frequency",
+                            "value": 1
+                        },
+                        "offset": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "The y axis offset of the function.",
+                            "overload": null,
+                            "functionName": "BASIC_OSCILLATOR",
+                            "param": "offset",
+                            "value": 0
+                        },
+                        "phase": {
+                            "type": "float",
+                            "default": 0,
+                            "desc": "The x axis offset of the function.",
+                            "overload": null,
+                            "functionName": "BASIC_OSCILLATOR",
+                            "param": "phase",
+                            "value": -1.48
+                        }
+                    },
+                    "initCtrls": {},
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "desc": "x: time domain\ny: generated signal"
+                        }
+                    ],
+                    "path": "GENERATORS/SIMULATIONS/BASIC_OSCILLATOR/BASIC_OSCILLATOR.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": -270.97324932436595,
+                    "y": -234.6036314413538
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -270.97324932436595,
+                    "y": -234.6036314413538
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "LINE-17da5072-cb78-42b3-ac6d-e59939911f8f",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "LINE-17da5072-cb78-42b3-ac6d-e59939911f8f",
+                    "label": "LINE",
+                    "func": "LINE",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing the Plotly Line visualization of the input data"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/LINE/LINE.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 57.56264306491815,
+                    "y": -498.7082738501224
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 57.56264306491815,
+                    "y": -498.7082738501224
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "SCATTER-3c53e37d-bfb8-46b8-a022-923b2c0e339a",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "SCATTER-3c53e37d-bfb8-46b8-a022-923b2c0e339a",
+                    "label": "SCATTER",
+                    "func": "SCATTER",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing the Plotly Scatter visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/SCATTER/SCATTER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 544.661804041212,
+                    "y": -390.6006635307338
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 544.661804041212,
+                    "y": -390.6006635307338
+                },
+                "dragging": true
+            },
+            {
+                "width": 189,
+                "height": 160,
+                "id": "PEAK_DETECTION-db707f00-8693-4680-9b75-8a98bd5776f1",
+                "type": "TRANSFORMERS",
+                "data": {
+                    "id": "PEAK_DETECTION-db707f00-8693-4680-9b75-8a98bd5776f1",
+                    "label": "PEAK DETECTION",
+                    "func": "PEAK_DETECTION",
+                    "type": "TRANSFORMERS",
+                    "ctrls": {
+                        "height": {
+                            "type": "float",
+                            "default": null,
+                            "desc": "Required height of peaks. Either a number or `None`.",
+                            "overload": null,
+                            "functionName": "PEAK_DETECTION",
+                            "param": "height",
+                            "value": ""
+                        },
+                        "threshold": {
+                            "type": "float",
+                            "default": null,
+                            "desc": "Required threshold of peaks, the vertical distance to its neighboring\nsamples. Either a number or `None`",
+                            "overload": null,
+                            "functionName": "PEAK_DETECTION",
+                            "param": "threshold",
+                            "value": ""
+                        },
+                        "distance": {
+                            "type": "float",
+                            "default": null,
+                            "desc": "Required minimal horizontal distance (>= 1) in samples between\nneighbouring peaks. Smaller peaks are removed first until the condition\nis fulfilled for all remaining peaks.",
+                            "overload": null,
+                            "functionName": "PEAK_DETECTION",
+                            "param": "distance",
+                            "value": ""
+                        },
+                        "prominence": {
+                            "type": "float",
+                            "default": null,
+                            "desc": "Required prominence of peaks. Either a number or `None`",
+                            "overload": null,
+                            "functionName": "PEAK_DETECTION",
+                            "param": "prominence",
+                            "value": ""
+                        },
+                        "width": {
+                            "type": "float",
+                            "default": null,
+                            "desc": "Required width of peaks in samples. Either a number or `None`",
+                            "overload": null,
+                            "functionName": "PEAK_DETECTION",
+                            "param": "width",
+                            "value": ""
+                        },
+                        "wlen": {
+                            "type": "float",
+                            "default": null,
+                            "desc": "Used for calculation of the peaks prominences, thus it is only used if\none of the arguments `prominence` or `width` is given. See argument\n`wlen` in `peak_prominences` for a full description of its effects.",
+                            "overload": null,
+                            "functionName": "PEAK_DETECTION",
+                            "param": "wlen",
+                            "value": ""
+                        },
+                        "rel_height": {
+                            "type": "float",
+                            "default": null,
+                            "desc": "Used for calculation of the peaks width, thus it is only used if `width`\nis given. See scipy.signal.peak_widths at docs.scipy.org.",
+                            "overload": null,
+                            "functionName": "PEAK_DETECTION",
+                            "param": "rel_height",
+                            "value": ""
+                        },
+                        "plateau_size": {
+                            "type": "float",
+                            "default": null,
+                            "desc": "Required size of the flat top of peaks in samples. Either a number\nor `None`",
+                            "overload": null,
+                            "functionName": "PEAK_DETECTION",
+                            "param": "plateau_size",
+                            "value": ""
+                        }
+                    },
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair",
+                            "multiple": false,
+                            "desc": "The data to find peaks in."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "heights",
+                            "id": "heights",
+                            "type": "OrderedPair",
+                            "desc": null
+                        },
+                        {
+                            "name": "widths",
+                            "id": "widths",
+                            "type": "OrderedPair",
+                            "desc": null
+                        }
+                    ],
+                    "path": "TRANSFORMERS/SIGNAL_PROCESSING/PEAK_DETECTION/PEAK_DETECTION.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 68.2571846477422,
+                    "y": -130.3741087954212
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 68.2571846477422,
+                    "y": -130.3741087954212
+                },
+                "dragging": true
+            },
+            {
+                "width": 380,
+                "height": 293,
+                "id": "SCATTER-b96fc0d7-52e1-4387-80cf-1d7666a0f3a3",
+                "type": "VISUALIZERS",
+                "data": {
+                    "id": "SCATTER-b96fc0d7-52e1-4387-80cf-1d7666a0f3a3",
+                    "label": "SCATTER 1",
+                    "func": "SCATTER",
+                    "type": "VISUALIZERS",
+                    "ctrls": {},
+                    "initCtrls": {},
+                    "inputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "OrderedPair|DataFrame|Matrix|Vector",
+                            "multiple": false,
+                            "desc": "the DataContainer to be visualized"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "default",
+                            "id": "default",
+                            "type": "Plotly",
+                            "desc": "the DataContainer containing the Plotly Scatter visualization"
+                        }
+                    ],
+                    "path": "VISUALIZERS/PLOTLY/SCATTER/SCATTER.py",
+                    "selected": false
+                },
+                "position": {
+                    "x": 540.835615525991,
+                    "y": -73.02430755677514
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 540.835615525991,
+                    "y": -73.02430755677514
+                },
+                "dragging": true
+            }
+        ],
+        "edges": [
+            {
+                "source": "BASIC_OSCILLATOR-6873e667-bd4e-4228-bd9f-c52b7d983e91",
+                "sourceHandle": "default",
+                "target": "LINE-17da5072-cb78-42b3-ac6d-e59939911f8f",
+                "targetHandle": "default",
+                "id": "reactflow__edge-BASIC_OSCILLATOR-6873e667-bd4e-4228-bd9f-c52b7d983e91default-LINE-17da5072-cb78-42b3-ac6d-e59939911f8fdefault"
+            },
+            {
+                "source": "BASIC_OSCILLATOR-6873e667-bd4e-4228-bd9f-c52b7d983e91",
+                "sourceHandle": "default",
+                "target": "PEAK_DETECTION-db707f00-8693-4680-9b75-8a98bd5776f1",
+                "targetHandle": "default",
+                "id": "reactflow__edge-BASIC_OSCILLATOR-6873e667-bd4e-4228-bd9f-c52b7d983e91default-PEAK_DETECTION-db707f00-8693-4680-9b75-8a98bd5776f1default"
+            },
+            {
+                "source": "PEAK_DETECTION-db707f00-8693-4680-9b75-8a98bd5776f1",
+                "sourceHandle": "heights",
+                "target": "SCATTER-3c53e37d-bfb8-46b8-a022-923b2c0e339a",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PEAK_DETECTION-db707f00-8693-4680-9b75-8a98bd5776f1heights-SCATTER-3c53e37d-bfb8-46b8-a022-923b2c0e339adefault"
+            },
+            {
+                "source": "PEAK_DETECTION-db707f00-8693-4680-9b75-8a98bd5776f1",
+                "sourceHandle": "widths",
+                "target": "SCATTER-b96fc0d7-52e1-4387-80cf-1d7666a0f3a3",
+                "targetHandle": "default",
+                "id": "reactflow__edge-PEAK_DETECTION-db707f00-8693-4680-9b75-8a98bd5776f1widths-SCATTER-b96fc0d7-52e1-4387-80cf-1d7666a0f3a3default"
+            }
+        ],
+        "viewport": {
+            "x": 1139.470292881633,
+            "y": 572.2854272048312,
+            "zoom": 1.2136444284334926
+        }
+    },
+    "textNodes": []
+}
