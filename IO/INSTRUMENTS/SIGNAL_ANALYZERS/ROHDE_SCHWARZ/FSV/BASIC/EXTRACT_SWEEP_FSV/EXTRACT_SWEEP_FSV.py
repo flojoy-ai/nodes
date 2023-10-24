@@ -23,8 +23,8 @@ def EXTRACT_SWEEP_FSV(
 
     Returns
     -------
-    DataContainer
-        OrderedPair: The sweep trace from the FSV is returned.
+    OrderedPair
+        The sweep trace from the FSV is returned.
     """
 
     rohde = connection.get_handle()
