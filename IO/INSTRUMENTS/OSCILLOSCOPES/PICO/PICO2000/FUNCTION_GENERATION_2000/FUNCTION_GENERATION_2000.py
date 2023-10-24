@@ -66,7 +66,7 @@ def FUNCTION_GENERATION_2000(
         end_frequency,
         sweep_increment,
         dwell_time,
-        sweep_type,
+        int(sweep_type),
         sweeps,
     )
 
