@@ -23,7 +23,7 @@ def CONNECTION_FSV(
     Returns
     -------
     DataContainer
-        Optional: None
+        None
     """
 
     rm = ResourceManager("@py")
