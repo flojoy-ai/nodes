@@ -59,15 +59,15 @@ def FUNCTION_GENERATION_2000(
 
     res = ps.ps2000_set_sig_gen_built_in(
         device_num,
-        int(offset_voltage),
-        int(amplitude),  # amplitude,
-        wave_type,  # wave_type,
-        int(start_frequency),
-        int(end_frequency),
-        int(sweep_increment),
-        int(dwell_time),
+        offset_voltage,
+        amplitude,
+        wave_type,
+        start_frequency,
+        end_frequency,
+        sweep_increment,
+        dwell_time,
         sweep_type,
-        int(sweeps),
+        sweeps,
     )
 
     assert_pico2000_ok(res)
