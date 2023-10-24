@@ -1,6 +1,6 @@
 ---
-title: Waveform Generator Connection
-description: The CONNECTIONS_33510B node is used to connect to a 33510B WFG.
+title: Waveform Generator On Off
+description: The ON_OFF_33510B node is used to turn the output on or off.
 keywords: [Python, Instrument Control, Keysight, Wavefunction Generator, Function Generator, Keysight 33500B]
 ---
 
