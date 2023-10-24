@@ -18,9 +18,10 @@ def ORDERED_PAIR_2_VECTOR(default: OrderedPair) -> resultSplit:
 
     Returns
     -------
-    TypedDict:
-        x: Vector from input x
-        y: Vector from input y
+    x : Vector
+        Vector from input x
+    y : Vector
+        Vector from input y
     """
 
     return resultSplit(x=Vector(v=default.x), y=Vector(v=default.y))
