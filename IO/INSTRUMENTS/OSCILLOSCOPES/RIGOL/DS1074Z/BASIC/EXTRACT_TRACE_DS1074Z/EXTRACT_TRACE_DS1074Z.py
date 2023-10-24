@@ -24,8 +24,8 @@ def EXTRACT_TRACE_DS1074Z(
 
     Returns
     -------
-    DataContainer
-        OrderedPair: The trace of the oscilloscope.
+    OrderedPair
+        The trace of the oscilloscope.
     """
 
     rigol = connection.get_handle()

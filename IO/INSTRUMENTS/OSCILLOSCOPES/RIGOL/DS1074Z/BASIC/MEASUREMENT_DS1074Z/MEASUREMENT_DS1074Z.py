@@ -56,8 +56,8 @@ def MEASUREMENT_DS1074Z(
 
     Returns
     -------
-    DataContainer
-        Scalar: The extracted measurement.
+    Scalar
+        The extracted measurement.
     """
 
     # For ADV_MEASUREMENT node:
@@ -80,7 +80,6 @@ def MEASUREMENT_DS1074Z(
     sleep(0.05)
     measure = rigol.ask_raw(f":MEAS:STAT:ITEM? {stat},{measurement},{channel}")
 
-    print("debug: ", measure, flush=True)
     if measure == "measure error!":
         measure = inf
 

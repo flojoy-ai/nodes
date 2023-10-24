@@ -40,8 +40,8 @@ def VERTICAL_AXIS_DS1074Z(
 
     Returns
     -------
-    DataContainer
-        TextBlob: summary of the vertical axis settings.
+    TextBlob
+        Summary of the vertical axis settings.
     """
 
     rigol = connection.get_handle()

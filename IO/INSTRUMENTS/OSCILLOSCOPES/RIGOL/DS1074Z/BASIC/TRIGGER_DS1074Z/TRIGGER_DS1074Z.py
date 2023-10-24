@@ -39,8 +39,8 @@ def TRIGGER_DS1074Z(
 
     Returns
     -------
-    DataContainer
-        TextBlob: The triggering settings.
+    TextBlob
+        The triggering settings.
     """
 
     rigol = connection.get_handle()

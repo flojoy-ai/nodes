@@ -5,7 +5,7 @@ from qcodes.instrument_drivers.rigol import RigolDS1074Z
 from usb.core import USBError
 
 
-@flojoy()
+@flojoy
 def CONNECTION_DS1074Z(
     device: VisaDevice,
     default: Optional[DataContainer] = None,
@@ -24,7 +24,7 @@ def CONNECTION_DS1074Z(
     Returns
     -------
     DataContainer
-        Optional: None
+        None
     """
 
     try:

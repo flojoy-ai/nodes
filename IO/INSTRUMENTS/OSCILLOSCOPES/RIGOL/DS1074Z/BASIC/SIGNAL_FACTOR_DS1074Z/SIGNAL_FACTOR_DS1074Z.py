@@ -37,8 +37,8 @@ def SIGNAL_FACTOR_DS1074Z(
 
     Returns
     -------
-    DataContainer
-        TextBlob: The probe factor settings.
+    TextBlob
+        The probe factor settings.
     """
 
     rigol = connection.get_handle()

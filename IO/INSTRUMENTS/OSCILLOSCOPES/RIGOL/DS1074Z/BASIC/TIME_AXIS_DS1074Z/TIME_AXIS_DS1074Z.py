@@ -37,8 +37,8 @@ def TIME_AXIS_DS1074Z(
 
     Returns
     -------
-    DataContainer
-        TextBlob: summary of the time axis settings.
+    TextBlob
+        summary of the time axis settings.
     """
 
     rigol = connection.get_handle()

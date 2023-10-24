@@ -33,8 +33,8 @@ def CHANNEL_ON_OFF_DS1074Z(
 
     Returns
     -------
-    DataContainer
-        TextBlob: summary of channel settings.
+    TextBlob
+        Summary of channel settings.
     """
 
     rigol = connection.get_handle()
