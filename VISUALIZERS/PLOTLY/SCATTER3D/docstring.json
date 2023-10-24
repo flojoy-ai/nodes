@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault : OrderedTriple|DataFrame\n    the DataContainer to be visualized",
+  "long_description": "Inputs\n------\ndefault : OrderedTriple|DataFrame\n    the DataContainer to be visualized",
+  "short_description": "The SCATTER3D node creates a Plotly 3D Scatter visualization for a given input DataContainer.",
   "parameters": [],
   "returns": [
     {

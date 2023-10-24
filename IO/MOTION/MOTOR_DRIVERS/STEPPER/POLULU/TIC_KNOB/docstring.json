@@ -1,5 +1,6 @@
 {
-  "description": "The user controls the motor's rotation with the knob position, specified in the node's parameters.",
+  "long_description": "The user controls the motor's rotation with the knob position, specified in the node's parameters.",
+  "short_description": "The STEPPER_DRIVER_TIC_KNOB controls a stepper motor's movement with a TIC driver.",
   "parameters": [
     {
       "name": "knob_value",

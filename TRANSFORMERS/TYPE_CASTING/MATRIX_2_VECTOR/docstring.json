@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault: Matrix\n    The input matrix that will be transformed into vector data type.",
+  "long_description": "Inputs\n------\ndefault: Matrix\n    The input matrix that will be transformed into vector data type.",
+  "short_description": "The MATRIX_2_VECTOR node takes a matrix and flatten it into vector type data.",
   "parameters": [],
   "returns": [
     {

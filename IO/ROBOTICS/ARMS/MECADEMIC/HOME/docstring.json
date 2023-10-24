@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\nip_address\n    The IP address of the robot arm.",
+  "long_description": "Inputs\n------\nip_address\n    The IP address of the robot arm.",
+  "short_description": "The HOME node homes the robot arm. This node is required to be run before any other robot arm movement. It is recommended to run this node immediately after \"ACTIVATE\".",
   "parameters": [],
   "returns": [
     {

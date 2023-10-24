@@ -1,5 +1,6 @@
 {
-  "description": "It then computes a double integral of the given function.\n\nExample of proper syntax for the function input:\n2*x*y\n\nExample of improper syntax for the function input:\n2xy",
+  "long_description": "It then computes a double integral of the given function.\n\nExample of proper syntax for the function input:\n2*x*y\n\nExample of improper syntax for the function input:\n2xy",
+  "short_description": "The DOUBLE_DEFINITE_INTEGRAL node takes a function, upper, and lower bounds as input.",
   "parameters": [
     {
       "name": "function",

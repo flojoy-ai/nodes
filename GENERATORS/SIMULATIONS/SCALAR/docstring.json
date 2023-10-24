@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The SCALAR node returns a single Scalar value.",
   "parameters": [
     {
       "name": "value",

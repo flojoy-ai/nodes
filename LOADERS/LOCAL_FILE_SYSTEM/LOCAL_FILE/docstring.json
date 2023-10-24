@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The LOCAL_FILE node loads a local file of a different type and converts it to a DataContainer class.",
   "parameters": [
     {
       "name": "file_path",

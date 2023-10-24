@@ -1,5 +1,6 @@
 {
-  "description": "This is done through the Pillow image filter, FIND_EDGES.\n\nNote that the image is converted to greyscale during this processing.\n\nInputs\n------\ndefault : Image\n    The input image to apply edge detection to.",
+  "long_description": "This is done through the Pillow image filter, FIND_EDGES.\n\nNote that the image is converted to greyscale during this processing.\n\nInputs\n------\ndefault : Image\n    The input image to apply edge detection to.",
+  "short_description": "The EDGE_DETECTION node detects edges in the image that was passed to it.",
   "parameters": [],
   "returns": [
     {

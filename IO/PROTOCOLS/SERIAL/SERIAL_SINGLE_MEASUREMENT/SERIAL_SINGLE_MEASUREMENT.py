@@ -1,7 +1,8 @@
-from flojoy import SerialDevice, flojoy, OrderedPair
 from typing import Optional
-import serial
+
 import numpy as np
+import serial
+from flojoy import OrderedPair, SerialDevice, flojoy
 
 
 @flojoy(deps={"pyserial": "3.5"})
@@ -17,13 +18,18 @@ def SERIAL_SINGLE_MEASUREMENT(
     baudrate : int
         Baud rate for the serial communication.
     comport : string
-        Defines the comunication port on which the serial device is connected.
+        Defines the communication port on which the serial device is connected.
+
+    Returns
+    -------
+    OrderedPair
+        the y axis contains the reading
     """
 
-    ser = serial.Serial(device.port, timeout=1, baudrate=baudrate)
+    set = serial.Serial(device.port, timeout=1, baudrate=baudrate)
     s = ""
     while s == "":
-        s = ser.readline().decode()
+        s = set.readline().decode()
 
     reading = s[:-2].split(",")
     reading = np.array(reading)  # Create an array

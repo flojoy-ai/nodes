@@ -1,5 +1,6 @@
 {
-  "description": "We are planning to add support for more DataContainer types in the future.\n\nIt then enqueues nodes connected with a \"true\" or \"false\" output based on the comparison result.",
+  "long_description": "We are planning to add support for more DataContainer types in the future.\n\nIt then enqueues nodes connected with a \"true\" or \"false\" output based on the comparison result.",
+  "short_description": "The CONDITIONAL node is a specialized node that compares two given Scalar inputs.",
   "parameters": [
     {
       "name": "operator_type",

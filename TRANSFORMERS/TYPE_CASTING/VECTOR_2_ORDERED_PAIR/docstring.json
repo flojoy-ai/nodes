@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault : Vector\n    The input vector that will be the x axis of OrderedPair.\ny : Vector\n    The input vector that will be the y axis of OrderedPair.",
+  "long_description": "Inputs\n------\ndefault : Vector\n    The input vector that will be the x axis of OrderedPair.\ny : Vector\n    The input vector that will be the y axis of OrderedPair.",
+  "short_description": "The VECTOR_2_ORDERED_PAIR node returns the OrderedPair where x and y axes are the input nodes.",
   "parameters": [],
   "returns": [
     {

@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault : OrderedPair|OrderedTriple|DataFrame|Vector|Matrix|Grayscale\n    the DataContainer to be visualized",
+  "long_description": "Inputs\n------\ndefault : OrderedPair|OrderedTriple|DataFrame|Vector|Matrix|Grayscale\n    the DataContainer to be visualized",
+  "short_description": "The HEATMAP node creates a Plotly Heatmap visualization for a given input DataContainer.",
   "parameters": [
     {
       "name": "show_text",

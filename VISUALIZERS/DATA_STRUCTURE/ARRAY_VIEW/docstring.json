@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault : OrderedPair | DataFrame | Matrix | Image\n    the DataContainer to be visualized in array format",
+  "long_description": "Parameters\n------\ndefault : OrderedPair | DataFrame | Matrix | Image\n    the DataContainer to be visualized in array format",
+  "short_description": "The ARRAY_VIEW node takes OrderedPair, DataFrame, Matrix, and Image DataContainer objects as input, and visualizes it in array format.",
   "parameters": [],
   "returns": [
     {

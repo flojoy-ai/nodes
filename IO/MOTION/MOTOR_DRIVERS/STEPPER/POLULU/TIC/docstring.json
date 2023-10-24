@@ -1,5 +1,6 @@
 {
-  "description": "The user defines the speed and the sleep time between movements.\n\n(To choose the position, use the STEPPER_DRIVER_TIC_KNOB.)",
+  "long_description": "The user defines the speed and the sleep time between movements.\n\n(To choose the position, use the STEPPER_DRIVER_TIC_KNOB.)",
+  "short_description": "The STEPPER_DRIVER_TIC node controls a stepper motor's movement with a TIC driver.",
   "parameters": [
     {
       "name": "current_limit",

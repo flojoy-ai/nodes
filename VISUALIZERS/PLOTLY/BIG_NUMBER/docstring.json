@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault : OrderedPair|Scalar|Vector\n    the DataContainer to be visualized",
+  "long_description": "Inputs\n------\ndefault : OrderedPair|Scalar|Vector\n    the DataContainer to be visualized",
+  "short_description": "The BIG_NUMBER node generates a Plotly figure, displaying a big number with an optional prefix and suffix.",
   "parameters": [
     {
       "name": "relative_delta",

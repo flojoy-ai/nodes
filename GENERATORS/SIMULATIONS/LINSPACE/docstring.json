@@ -1,5 +1,6 @@
 {
-  "description": "It uses the 'linspace' numpy function. It is useful for generating an x-axis for the OrderedPair data type.\n\nInputs\n------\ndefault : OrderedPair\n    Optional input in case LINSPACE is used in a loop. Not used.",
+  "long_description": "It uses the 'linspace' numpy function. It is useful for generating an x-axis for the OrderedPair data type.\n\nInputs\n------\ndefault : OrderedPair\n    Optional input in case LINSPACE is used in a loop. Not used.",
+  "short_description": "The LINSPACE node generates data spaced evenly between two points.",
   "parameters": [
     {
       "name": "start",

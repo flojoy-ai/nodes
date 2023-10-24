@@ -1,5 +1,6 @@
 {
-  "description": "These dataframes should both be single columns.",
+  "long_description": "These dataframes should both be single columns.",
+  "short_description": "The ACCURACY node takes two dataframes with the true and predicted labels from a classification task, and indicates whether the prediction was correct or not.",
   "parameters": [
     {
       "name": "true_label",

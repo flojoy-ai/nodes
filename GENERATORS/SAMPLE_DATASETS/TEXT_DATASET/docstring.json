@@ -1,5 +1,6 @@
 {
-  "description": "The data is returned as a dataframe with one column containing the text and the other containing the category.",
+  "long_description": "The data is returned as a dataframe with one column containing the text and the other containing the category.",
+  "short_description": "The TEXT_DATASET node loads the 20 newsgroups dataset from scikit-learn.",
   "parameters": [
     {
       "name": "subset",

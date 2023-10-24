@@ -1,9 +1,6 @@
-from flojoy import OrderedPair, flojoy, Matrix, Scalar
 import numpy as np
-from collections import namedtuple
-from typing import Literal
-
 import scipy.signal
+from flojoy import Matrix, OrderedPair, Scalar, flojoy
 
 
 @flojoy
@@ -25,7 +22,7 @@ def BSPLINE(
         The order of the spline. Must be non-negative, i.e. n >= 0.
 
     Returns
-    ----------
+    -------
     DataContainer
         type 'ordered pair', 'scalar', or 'matrix'
     """

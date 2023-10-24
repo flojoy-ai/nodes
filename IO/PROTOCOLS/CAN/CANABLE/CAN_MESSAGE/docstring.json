@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\nmessage : Vector\n    The array of data to send to the CAN bus.",
+  "long_description": "Inputs\n------\nmessage : Vector\n    The array of data to send to the CAN bus.",
+  "short_description": "The CAN_MESSAGE node sends a message onto CAN network through a slcan-compatible USB-to-CAN adapter.",
   "parameters": [
     {
       "name": "arbitration_id",

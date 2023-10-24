@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\nip_address: TextBlob\n    The IP address of the robot arm.\n\nParameters\n------\nx : float\n    The x coordinate of the position to move to\ny : float\n    The y coordinate of the position to move to\nz : float\n    The z coordinate of the position to move to\nalpha : float, optional\n    The alpha coordinate (rotation in radians about the x axis) of the position to move to.\nbeta : float, optional\n    The beta coordinate   (rotation in radians about the y axis) of the position to move to.\ngamma : float, optional\n    The gamma coordinate (rotation in radians about the z axis) of the position to move to.",
+  "long_description": "Inputs\n------\nip_address: TextBlob\n    The IP address of the robot arm.\n\nParameters\n------\nx : float\n    The x coordinate of the position to move to\ny : float\n    The y coordinate of the position to move to\nz : float\n    The z coordinate of the position to move to\nalpha : float, optional\n    The alpha coordinate (rotation in radians about the x axis) of the position to move to.\nbeta : float, optional\n    The beta coordinate   (rotation in radians about the y axis) of the position to move to.\ngamma : float, optional\n    The gamma coordinate (rotation in radians about the z axis) of the position to move to.",
+  "short_description": "The MOVE_JOINT node linearly moves the robot's tool to an absolute Cartesian position.",
   "parameters": [],
   "returns": [
     {

@@ -1,5 +1,6 @@
 {
-  "description": "specified index.\n\nInputs\n------\nv : Vector\n    The input vector to insert value.",
+  "long_description": "specified index.\n\nInputs\n------\nv : Vector\n    The input vector to insert value.",
+  "short_description": "The VECTOR_INSERT node inserts a value to the Vector at the",
   "parameters": [
     {
       "name": "element",

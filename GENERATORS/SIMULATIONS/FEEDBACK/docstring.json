@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The FEEDBACK node captures the result of the specified node ID. If the result is not found, it passes the result of the parent node.",
   "parameters": [
     {
       "name": "referred_node",

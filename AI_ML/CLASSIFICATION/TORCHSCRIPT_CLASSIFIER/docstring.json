@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n----------\ninput_image : Image\n    The image to classify.\nclass_names : DataFrame\n    A dataframe containing the class names.",
+  "long_description": "Inputs\n----------\ninput_image : Image\n    The image to classify.\nclass_names : DataFrame\n    A dataframe containing the class names.",
+  "short_description": "Execute a torchscript classifier against an input image.",
   "parameters": [
     {
       "name": "model_path",

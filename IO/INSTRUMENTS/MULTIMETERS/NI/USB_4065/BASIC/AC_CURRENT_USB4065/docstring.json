@@ -1,5 +1,6 @@
 {
-  "description": "The USB-4065 is a NI (National Instruments) multimeter. It is possible that\nthe node will work with other NI DMMs (digital multimeters) such as the\n4070 and 4080 series.\n\nThis instrument will likely only be compatible with Windows systems due to\nNI driver availablity. To use the instrument you must install the runtime:\n\nhttps://www.ni.com/en/support/downloads/drivers/download.ni-dmm.html\n\nYou must also find the address/resource name for the instrument. You can\nfind this using the NI MAX programming which can be downloaded when\ninstalling the drivers.",
+  "long_description": "The USB-4065 is a NI (National Instruments) multimeter. It is possible that\nthe node will work with other NI DMMs (digital multimeters) such as the\n4070 and 4080 series.\n\nThis instrument will likely only be compatible with Windows systems due to\nNI driver availablity. To use the instrument you must install the runtime:\n\nhttps://www.ni.com/en/support/downloads/drivers/download.ni-dmm.html\n\nYou must also find the address/resource name for the instrument. You can\nfind this using the NI MAX programming which can be downloaded when\ninstalling the drivers.",
+  "short_description": "The AC_CURRENT_USB4065 node reads the AC current from a USB-4065.",
   "parameters": [
     {
       "name": "NI_address",

@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault : DataFrame|Matrix\n    Input to use as the table for column extraction",
+  "long_description": "Inputs\n------\ndefault : DataFrame|Matrix\n    Input to use as the table for column extraction",
+  "short_description": "The EXTRACT_COLUMNS node takes an input dataframe/matrix and returns a dataframe/matrix with only the specified columns.",
   "parameters": [
     {
       "name": "columns",

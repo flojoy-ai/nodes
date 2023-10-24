@@ -1,5 +1,6 @@
 {
-  "description": "It then reshapes the z array into a 2D grid using the unique values of x and y.\n\nThe resulting 2D grid is used to create a Surface object with corresponding x, y, and z values.\n\nInputs\n------\ndefault : OrderedTriple\n    The input OrderedTriple to which we apply the conversion to.",
+  "long_description": "It then reshapes the z array into a 2D grid using the unique values of x and y.\n\nThe resulting 2D grid is used to create a Surface object with corresponding x, y, and z values.\n\nInputs\n------\ndefault : OrderedTriple\n    The input OrderedTriple to which we apply the conversion to.",
+  "short_description": "The ORDERED_TRIPLE_2_SURFACE node takes an \"OrderedTriple\" instance of the DataContainer class that contains three arrays: x, y, and z.",
   "parameters": [],
   "returns": [
     {

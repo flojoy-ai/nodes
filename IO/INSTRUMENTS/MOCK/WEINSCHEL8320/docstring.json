@@ -1,5 +1,6 @@
 {
-  "description": "Note: This node is for testing purposes only.",
+  "long_description": "Note: This node is for testing purposes only.",
+  "short_description": "The WEINSCHEL8320 node mocks the WEINSCHEL 8320 instrument, which attenuates the input signal.",
   "parameters": [
     {
       "name": "attenuation",

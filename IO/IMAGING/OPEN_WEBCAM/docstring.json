@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The OPEN_WEBCAM node opens a connection with the selected camera.",
   "parameters": [
     {
       "name": "camera",

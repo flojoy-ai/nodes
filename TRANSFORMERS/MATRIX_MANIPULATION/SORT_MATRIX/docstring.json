@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\na : Matrix\n    The input matrix to be multiplied to input b",
+  "long_description": "Inputs\n------\na : Matrix\n    The input matrix to be multiplied to input b",
+  "short_description": "The SORT_MATRIX node takes a input matrix and sort it along the chosen axis.",
   "parameters": [
     {
       "name": "axis",

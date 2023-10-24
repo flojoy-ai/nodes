@@ -1,5 +1,6 @@
 {
-  "description": "The trigger voltage is the level at which an oscilloscope will find the\nstart of a signal.\n\nRequires a CONNECTION_MDO3XXX node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "long_description": "The trigger voltage is the level at which an oscilloscope will find the\nstart of a signal.\n\nRequires a CONNECTION_MDO3XXX node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "short_description": "The TRIGGER_LEVEL_MDO3XXX node sets the trigger voltage (or queries it).",
   "parameters": [
     {
       "name": "connection",

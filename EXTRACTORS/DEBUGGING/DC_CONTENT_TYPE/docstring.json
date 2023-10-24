@@ -1,5 +1,6 @@
 {
-  "description": "Must use the TEXT_VIEW node to view the text.",
+  "long_description": "Must use the TEXT_VIEW node to view the text.",
+  "short_description": "The DC_CONTENT_TYPE node returns a TextBlob containing the type of the input DataContainer's content.",
   "parameters": [],
   "returns": [
     {

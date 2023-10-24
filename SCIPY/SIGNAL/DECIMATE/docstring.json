@@ -1,5 +1,6 @@
 {
-  "description": "The description of that function is as follows:\n\n    Downsample the signal after applying an anti-aliasing filter.\n\n    By default, an order 8 Chebyshev type I filter is used. A 30 point FIR filter with Hamming window is used if `ftype` is 'fir'.",
+  "long_description": "The description of that function is as follows:\n\n    Downsample the signal after applying an anti-aliasing filter.\n\n    By default, an order 8 Chebyshev type I filter is used. A 30 point FIR filter with Hamming window is used if `ftype` is 'fir'.",
+  "short_description": "The DECIMATE node is based on a numpy or scipy function.",
   "parameters": [
     {
       "name": "x",

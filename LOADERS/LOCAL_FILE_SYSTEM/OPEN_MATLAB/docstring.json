@@ -1,5 +1,6 @@
 {
-  "description": "Note that if multiple 'tabs' of data are used, the number of rows must match in order to stack the arrays.",
+  "long_description": "Note that if multiple 'tabs' of data are used, the number of rows must match in order to stack the arrays.",
+  "short_description": "The OPEN_MATLAB node loads a local file of the .mat file format.",
   "parameters": [
     {
       "name": "file_path",

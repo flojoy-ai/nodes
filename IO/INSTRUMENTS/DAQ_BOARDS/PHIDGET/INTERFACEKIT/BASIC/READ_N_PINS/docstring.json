@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The READ_N_PINS node allows you to measure and output voltages from Flexiforce sensors using a Phidget InterfaceKit.",
   "parameters": [
     {
       "name": "n_sensors",

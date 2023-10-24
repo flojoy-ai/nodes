@@ -1,5 +1,6 @@
 {
-  "description": "The description of that function is as follows:\n\n    Estimate power spectral density using a periodogram.",
+  "long_description": "The description of that function is as follows:\n\n    Estimate power spectral density using a periodogram.",
+  "short_description": "The PERIODOGRAM node is based on a numpy or scipy function.",
   "parameters": [
     {
       "name": "select_return",

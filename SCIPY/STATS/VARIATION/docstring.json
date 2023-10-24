@@ -1,5 +1,6 @@
 {
-  "description": "The description of that function is as follows:\n\n    Compute the coefficient of variation.\n\n    The coefficient of variation is the standard deviation divided by the mean.\n\n    This function is equivalent to:\n\n    np.std(x, axis=axis, ddof=ddof) / np.mean(x)\n\n    The default for 'ddof' is 0, but many definitions of the coefficient of variation use the square root of the unbiased sample variance for the sample standard deviation, which corresponds to 'ddof=1'.\n\n    The function does not take the absolute value of the mean of the data, so the return value is negative if the mean is negative.",
+  "long_description": "The description of that function is as follows:\n\n    Compute the coefficient of variation.\n\n    The coefficient of variation is the standard deviation divided by the mean.\n\n    This function is equivalent to:\n\n    np.std(x, axis=axis, ddof=ddof) / np.mean(x)\n\n    The default for 'ddof' is 0, but many definitions of the coefficient of variation use the square root of the unbiased sample variance for the sample standard deviation, which corresponds to 'ddof=1'.\n\n    The function does not take the absolute value of the mean of the data, so the return value is negative if the mean is negative.",
+  "short_description": "The VARIATION node is based on a numpy or scipy function.",
   "parameters": [
     {
       "name": "a",
