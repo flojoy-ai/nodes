@@ -48,8 +48,8 @@ def SWEEP_SETTINGS_FSV(
 
     Returns
     -------
-    DataContainer
-        TextBlob: Sweep settings summary.
+    TextBlob
+        Sweep settings summary.
     """
 
     rohde = connection.get_handle()
