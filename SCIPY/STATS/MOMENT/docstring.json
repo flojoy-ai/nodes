@@ -1,5 +1,6 @@
 {
-  "description": "The description of that function is as follows:\n\n    Calculate the nth moment about the mean for a sample.\n\n    A moment is a specific quantitative measure of the shape of a set of points.\n    It is often used to calculate coefficients of skewness and kurtosis due to its close relationship with them.",
+  "long_description": "The description of that function is as follows:\n\n    Calculate the nth moment about the mean for a sample.\n\n    A moment is a specific quantitative measure of the shape of a set of points.\n    It is often used to calculate coefficients of skewness and kurtosis due to its close relationship with them.",
+  "short_description": "The MOMENT node is based on a numpy or scipy function.",
   "parameters": [
     {
       "name": "a",

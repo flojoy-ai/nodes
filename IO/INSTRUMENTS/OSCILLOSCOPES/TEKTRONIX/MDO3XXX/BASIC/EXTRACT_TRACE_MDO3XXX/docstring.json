@@ -1,5 +1,6 @@
 {
-  "description": "The number of points in the x axis is defined by x_length and length_type\nparameters. A length_type of pixels and a x_length of 5000 will result in\na trace with 5000 points. A length_type of nanoseconds instead results in\na trace with a length of defined by the number of (nano)seconds.\n\nRequires a CONNECTION_MDO3XXX node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "long_description": "The number of points in the x axis is defined by x_length and length_type\nparameters. A length_type of pixels and a x_length of 5000 will result in\na trace with 5000 points. A length_type of nanoseconds instead results in\na trace with a length of defined by the number of (nano)seconds.\n\nRequires a CONNECTION_MDO3XXX node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "short_description": "The EXTRACT_TRACE_MDO3XXX node extracts the trace from an MDO3xxx oscilloscope.",
   "parameters": [
     {
       "name": "connection",

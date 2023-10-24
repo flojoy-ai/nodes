@@ -1,6 +1,6 @@
 import os
-from flojoy import DataContainer, flojoy, get_env_var, node_preflight, FlojoyCloud
 
+from flojoy import DataContainer, FlojoyCloud, flojoy, get_env_var, node_preflight
 
 FLOJOY_CLOUD_URI: str = os.environ.get("FLOJOY_CLOUD_URI") or "https://cloud.flojoy.ai"
 
@@ -21,6 +21,8 @@ def FLOJOY_CLOUD_UPLOAD(
     measurement_id: str,
 ) -> DataContainer:
     """The FLOJOY_CLOUD_UPLOAD node takes a DataContainer as input and uploads it to Flojoy Cloud.
+
+    Flojoy Cloud is still in beta, feel free to try it out and give us feedback!
 
     Parameters
     ----------

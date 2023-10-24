@@ -7,7 +7,7 @@ from typing import Optional
 @flojoy(deps={"python-can": "4.2.2"})
 def CAN_MESSAGE(
     device: SerialDevice,
-    default: Vector | Optional[DataContainer] = None,
+    message: Vector | Optional[DataContainer] = None,
     # arbitration_id: hex = 0xC0FFEE, TODO: Support hex inputs
     is_extended_id: bool = True,
 ) -> TextBlob:
@@ -15,19 +15,20 @@ def CAN_MESSAGE(
 
     Inputs
     ------
-    default: Vector
+    message : Vector
         The array of data to send to the CAN bus.
 
     Parameters
     ----------
-    arbitration_id:
+    arbitration_id : int
         Unique ID for message being sent.
-    is_extended_id: bool
+    is_extended_id : bool
         Flag that controls the size of the arbitration_id field.
 
     Returns
     -------
-    None
+    Textblob
+        Traceback error
     """
 
     s = ""
@@ -39,7 +40,7 @@ def CAN_MESSAGE(
         s = json.dumps(can.rc)
 
         msg = can.Message(
-            data=default.v, arbitration_id=0xC0FFEE, is_extended_id=is_extended_id
+            data=message.v, arbitration_id=0xC0FFEE, is_extended_id=is_extended_id
         )
 
         with can.Bus() as bus:

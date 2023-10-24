@@ -1,5 +1,6 @@
 {
-  "description": "The description of that function is as follows:\n\n        Estimate power spectral density using Welch's method.\n\n        Welch's method [1]_ computes an estimate of the power spectral density by dividing the data into overlapping segments,\n        computing a modified periodogram for each segment, and averaging the periodograms.",
+  "long_description": "The description of that function is as follows:\n\n        Estimate power spectral density using Welch's method.\n\n        Welch's method [1]_ computes an estimate of the power spectral density by dividing the data into overlapping segments,\n        computing a modified periodogram for each segment, and averaging the periodograms.",
+  "short_description": "The WELCH node is based on a numpy or scipy function.",
   "parameters": [
     {
       "name": "select_return",

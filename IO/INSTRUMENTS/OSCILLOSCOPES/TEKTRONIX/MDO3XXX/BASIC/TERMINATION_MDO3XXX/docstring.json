@@ -1,5 +1,6 @@
 {
-  "description": "The termination is set by the output, and the set termination\nin the oscilloscope must match that value.\n\nNote that the termination is often called the \"electrical impedance\".\nNote that the 75 Ohm option is not compatible with all model numbers.\n\nIf the \"VISA_address\" parameter is not specified the VISA_index will be\nused to find the address. The LIST_VISA node can be used to show the\nindicies of all available VISA instruments.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "long_description": "The termination is set by the output, and the set termination\nin the oscilloscope must match that value.\n\nNote that the termination is often called the \"electrical impedance\".\nNote that the 75 Ohm option is not compatible with all model numbers.\n\nIf the \"VISA_address\" parameter is not specified the VISA_index will be\nused to find the address. The LIST_VISA node can be used to show the\nindicies of all available VISA instruments.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "short_description": "The TERMINATION_MDO3XXX node sets the termination ohms (or queries it).",
   "parameters": [
     {
       "name": "connection",

@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The READ_CSV node reads a .csv file from disk or a URL, and then returns a dataframe.",
   "parameters": [
     {
       "name": "file_path",

@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault : DataContainer\n    The input numpy array which we apply the conversion to.",
+  "long_description": "Inputs\n------\ndefault : DataContainer\n    The input numpy array which we apply the conversion to.",
+  "short_description": "The NP_2_DF node converts numpy array data into dataframe type data.",
   "parameters": [],
   "returns": [
     {

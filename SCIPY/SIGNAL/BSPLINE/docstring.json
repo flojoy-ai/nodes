@@ -1,5 +1,6 @@
 {
-  "description": "The description of that function is as follows:\n\n    B-spline basis function of order n.",
+  "long_description": "The description of that function is as follows:\n\n    B-spline basis function of order n.",
+  "short_description": "The BSPLINE node is based on a numpy or scipy function.",
   "parameters": [
     {
       "name": "x",
@@ -10,22 +11,13 @@
       "name": "n",
       "type": "int",
       "description": "The order of the spline. Must be non-negative, i.e. n >= 0."
-    },
-    {
-      "name": "Returns",
-      "type": null,
-      "description": null
-    },
-    {
-      "name": "----------",
-      "type": null,
-      "description": null
-    },
-    {
-      "name": "DataContainer",
-      "type": null,
-      "description": "type 'ordered pair', 'scalar', or 'matrix'"
     }
   ],
-  "returns": []
+  "returns": [
+    {
+      "name": null,
+      "type": "DataContainer",
+      "description": "type 'ordered pair', 'scalar', or 'matrix'"
+    }
+  ]
 }

@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The TEXT node returns a TextBlob DataContainer.",
   "parameters": [
     {
       "name": "value",

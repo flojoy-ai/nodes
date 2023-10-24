@@ -1,5 +1,6 @@
 {
-  "description": "It then computes the derivative of the array, y, with respect to x.\n\nInputs\n------\ndefault : OrderedPair|Vector\n    Input from which we get the x and y lists use in the derivative.",
+  "long_description": "It then computes the derivative of the array, y, with respect to x.\n\nInputs\n------\ndefault : OrderedPair|Vector\n    Input from which we get the x and y lists use in the derivative.",
+  "short_description": "The DIFFERENTIATE node takes two lists, x and y, as input.",
   "parameters": [],
   "returns": [
     {

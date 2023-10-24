@@ -1,0 +1,18 @@
+{
+  "long_description": "Inputs\n------\ndefault: DataContainer\n    Any DataContainer - likely connected to the output of the OPEN_SERIAL node.",
+  "short_description": "The PROLOGIX_HELP command returns a list of available Prologix USB-to-GPIB firmware commands.",
+  "parameters": [
+    {
+      "name": "connection",
+      "type": "Serial",
+      "description": "The open serial connection with the instrument."
+    }
+  ],
+  "returns": [
+    {
+      "name": null,
+      "type": "TextBlob",
+      "description": "A list of available Prologix USB-to-GPIB firmware commands"
+    }
+  ]
+}

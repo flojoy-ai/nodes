@@ -1,5 +1,6 @@
 {
-  "description": "Based on these inputs, it generates a random matrix where the integers inside the matrix are between 0 and 19.",
+  "long_description": "Based on these inputs, it generates a random matrix where the integers inside the matrix are between 0 and 19.",
+  "short_description": "The MATRIX node takes two arguments, 'row' and 'col', as input.",
   "parameters": [
     {
       "name": "row",

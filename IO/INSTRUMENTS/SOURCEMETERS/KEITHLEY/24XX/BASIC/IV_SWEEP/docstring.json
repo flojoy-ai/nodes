@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault: OrderedPair | Vector\n    The voltages to send to the Keithley 2400 source meter.",
+  "long_description": "Inputs\n------\ndefault: OrderedPair | Vector\n    The voltages to send to the Keithley 2400 source meter.",
+  "short_description": "The IV_SWEEP node takes an I-V curve measurement with a Keithley 2400 source meter, send voltages, and measures currents.",
   "parameters": [
     {
       "name": "connection",

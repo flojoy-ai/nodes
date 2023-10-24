@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\nv : vector\n    The input vector to index.",
+  "long_description": "Inputs\n------\nv : vector\n    The input vector to index.",
+  "short_description": "The VECTOR_INDEXING node returns the value of the vector at the requested index.",
   "parameters": [
     {
       "name": "index",

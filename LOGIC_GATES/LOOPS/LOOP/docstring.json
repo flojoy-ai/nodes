@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The LOOP node is a specialized node that iterates through the body nodes for a given number of times.",
   "parameters": [
     {
       "name": "num_loops",

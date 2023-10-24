@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The LM34 node allows you to convert voltages measured with a thermocouple (LM34) connected to a LabJack U3 device into temperatures.",
   "parameters": [
     {
       "name": "Calibration1, Calibration2, Calibration3",

@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\nv : Vector\n    The input vector to return subset of values from",
+  "long_description": "Inputs\n------\nv : Vector\n    The input vector to return subset of values from",
+  "short_description": "The VECTOR_SUBSET node returns the subset of values from requested indices",
   "parameters": [
     {
       "name": "indices",

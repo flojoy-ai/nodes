@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\nip_address: TextBlob\n    The IP address of the robot arm.\n\nParameters\n------\nsimulator\n    Whether to activate the simulator or not. Defaults to False.",
+  "long_description": "Inputs\n------\nip_address: TextBlob\n    The IP address of the robot arm.\n\nParameters\n------\nsimulator\n    Whether to activate the simulator or not. Defaults to False.",
+  "short_description": "The ACTIVATE node activates the robot arm.",
   "parameters": [],
   "returns": [
     {

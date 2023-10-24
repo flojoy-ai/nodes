@@ -1,5 +1,6 @@
 {
-  "description": "Requires a CONNECTION_MDO3XXX node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "long_description": "Requires a CONNECTION_MDO3XXX node at the start of the app to connect with\nthe instrument. The VISA address will then be listed under 'connection'.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "short_description": "The TRIGGER_CHANNEL_MDO3XXX node sets the triggering channel (or queries it).",
   "parameters": [
     {
       "name": "connection",

@@ -1,5 +1,6 @@
 {
-  "description": "The connection is made with the VISA address in the Flojoy UI.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "long_description": "The connection is made with the VISA address in the Flojoy UI.\n\nThis node should also work with compatible Tektronix scopes (untested):\nMDO4xxx, MSO4xxx, and DPO4xxx.",
+  "short_description": "The CONNECTION_MDO3XXX node connects Flojoy to a MDO3XXX oscilloscope.",
   "parameters": [
     {
       "name": "device",

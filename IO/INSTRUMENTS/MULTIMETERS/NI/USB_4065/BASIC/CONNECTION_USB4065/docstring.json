@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The CONNECTION_MDO3XXX node connects Flojoy to a",
   "parameters": [
     {
       "name": "NI_address",

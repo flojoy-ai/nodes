@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault: DataContainer\n    Any DataContainer - likely connected to the output of the OPEN_SERIAL node.",
+  "long_description": "Inputs\n------\ndefault: DataContainer\n    Any DataContainer - likely connected to the output of the OPEN_SERIAL node.",
+  "short_description": "The MEASURE_VOLTAGE node queries an instrument's measured output voltage, such as a DMM or power supply.",
   "parameters": [
     {
       "name": "connection",

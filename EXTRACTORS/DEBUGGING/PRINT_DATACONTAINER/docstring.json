@@ -1,5 +1,6 @@
 {
-  "description": "Must use the TEXT_VIEW node to view the text.",
+  "long_description": "Must use the TEXT_VIEW node to view the text.",
+  "short_description": "The PRINT_DATACONTAINER node returns a TextBlob containing input DataContainer information.",
   "parameters": [],
   "returns": [
     {

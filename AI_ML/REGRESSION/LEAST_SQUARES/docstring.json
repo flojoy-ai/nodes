@@ -1,5 +1,6 @@
 {
-  "description": null,
+  "long_description": null,
+  "short_description": "The LEAST_SQUARE node computes the coefficients that minimize the distance between the inputs 'Matrix' or 'OrderedPair' class and the regression.",
   "parameters": [],
   "returns": [
     {

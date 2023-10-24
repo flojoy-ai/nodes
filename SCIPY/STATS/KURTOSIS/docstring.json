@@ -1,5 +1,6 @@
 {
-  "description": "The description of that function is as follows:\n\n    Compute the kurtosis (Fisher or Pearson) of a dataset.\n\n    Kurtosis is the fourth central moment divided by the square of the variance.\n    If Fisher's definition is used, then 3.0 is subtracted from the result to give 0.0 for a normal distribution.\n\n    If bias is False then the kurtosis is calculated using k statistics to eliminate bias coming from biased moment estimators\n\n    Use `kurtosistest` to see if result is close enough to normal.",
+  "long_description": "The description of that function is as follows:\n\n    Compute the kurtosis (Fisher or Pearson) of a dataset.\n\n    Kurtosis is the fourth central moment divided by the square of the variance.\n    If Fisher's definition is used, then 3.0 is subtracted from the result to give 0.0 for a normal distribution.\n\n    If bias is False then the kurtosis is calculated using k statistics to eliminate bias coming from biased moment estimators\n\n    Use `kurtosistest` to see if result is close enough to normal.",
+  "short_description": "The KURTOSIS node is based on a numpy or scipy function.",
   "parameters": [
     {
       "name": "a",

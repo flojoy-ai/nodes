@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\nprimary_trace : OrderedPair|DataFrame|Matrix|Vector\n    the DataContainer to be visualized as the first figure\n\nsecondary_trace : OrderedPair|DataFrame|Matrix|Vector\n    the DataContainer to be visualized as the second figure",
+  "long_description": "Inputs\n------\nprimary_trace : OrderedPair|DataFrame|Matrix|Vector\n    the DataContainer to be visualized as the first figure\n\nsecondary_trace : OrderedPair|DataFrame|Matrix|Vector\n    the DataContainer to be visualized as the second figure",
+  "short_description": "The COMPOSITE node creates a combination of Plotly visualizations for a given input data container.",
   "parameters": [
     {
       "name": "first_figure",

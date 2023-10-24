@@ -1,5 +1,6 @@
 {
-  "description": "Note: If both the file_url and default are not specified when file_type=\"Image\", a default image will be loaded.\n\nFor now, REMOTE_FILE only supports HTTP file URLs, in particular GCP URL (starting with gcp://). S3 URL (starting with s3://) and other bucket-like URLs are not supported.\n\nIf the file url is not specified and the default input is not connected, or if the file url is not a valid URL, a ValueError is raised.",
+  "long_description": "Note: If both the file_url and default are not specified when file_type=\"Image\", a default image will be loaded.\n\nFor now, REMOTE_FILE only supports HTTP file URLs, in particular GCP URL (starting with gcp://). S3 URL (starting with s3://) and other bucket-like URLs are not supported.\n\nIf the file url is not specified and the default input is not connected, or if the file url is not a valid URL, a ValueError is raised.",
+  "short_description": "The REMOTE_FILE node loads a remote file using an HTTP URL and converts it to a DataContainer class.",
   "parameters": [
     {
       "name": "file_url",

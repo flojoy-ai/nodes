@@ -1,5 +1,6 @@
 {
-  "description": "Inputs\n------\ndefault : Vector\n    The input vector",
+  "long_description": "Inputs\n------\ndefault : Vector\n    The input vector",
+  "short_description": "The SPLIT_VECTOR node returns a vector that is splited by a given index",
   "parameters": [
     {
       "name": "index",
