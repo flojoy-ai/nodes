@@ -61,15 +61,12 @@ def PEAK_DETECTION(
 
     Returns
     -------
-    TypedDict:
-        heights:
-            OrderedPair
-                x: x axis location for peaks
-                y: peak heights
-        widths:
-            OrderedPair
-                x: x axis location for peaks
-                y: peak widths
+    heights : OrderedPair
+        x: x axis location for peaks
+        y: peak heights
+    widths : OrderedPair
+        x: x axis location for peaks
+        y: peak widths
     """
 
     signal = default.y
