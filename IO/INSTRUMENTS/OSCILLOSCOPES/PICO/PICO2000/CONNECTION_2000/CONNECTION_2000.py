@@ -20,8 +20,8 @@ def CONNECTION_2000(
 
     Returns
     -------
-    DataContainer
-        TextBlob: Placeholder return currently
+    TextBlob
+        Placeholder return currently
     """
 
     ps.ps2000_close_unit(ctypes.c_int16(1))

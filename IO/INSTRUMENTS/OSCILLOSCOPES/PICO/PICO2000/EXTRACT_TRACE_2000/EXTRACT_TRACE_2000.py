@@ -37,8 +37,8 @@ def EXTRACT_TRACE_2000(
 
     Returns
     -------
-    DataContainer
-        OrderedPair: The trace of the oscilloscope is returned.
+    OrderedPair
+        The trace of the oscilloscope is returned.
     """
 
     status = {}

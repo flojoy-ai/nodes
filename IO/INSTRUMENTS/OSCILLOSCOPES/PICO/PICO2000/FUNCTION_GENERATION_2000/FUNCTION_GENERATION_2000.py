@@ -48,8 +48,8 @@ def FUNCTION_GENERATION_2000(
 
     Returns
     -------
-    DataContainer
-        TextBlob: Placeholder return currently
+    TextBlob
+        Placeholder return currently
     """
 
     device_num = ctypes.c_int16(1)
