@@ -4,23 +4,25 @@ from flojoy import flojoy, Matrix
 
 @flojoy
 def SORT_MATRIX(a: Matrix, axis: int = -1) -> Matrix:
-    """The SORT_MATRIX node takes a input matrix and sort it along the chosen axis.
+    """The SORT_MATRIX node takes an input matrix and sorts it along the chosen axis.
 
     Inputs
     ------
     a : Matrix
-        The input matrix to be multiplied to input b
+        The input matrix to be multiplied with input b.
 
     Parameters
     ----------
     axis : int
-        Axis along which to sort. Default is -1, which means sort along the last axis.
+        The axis along which to sort.
+        Default is -1, which indicates sort along the last axis.
 
     Returns
     -------
     Matrix
-        The matrix result from sorting.
+        The matrix result after sorting.
     """
+
     inputMatrix = a.m
     sortedMatrix = sort(inputMatrix, axis=axis)
 

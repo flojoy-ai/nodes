@@ -10,8 +10,8 @@ def VECTOR_INDEXING(
 
     Inputs
     ------
-    v : vector
-        The input vector to index.
+    default : vector
+        The input vector to be indexed.
 
     Parameters
     ----------

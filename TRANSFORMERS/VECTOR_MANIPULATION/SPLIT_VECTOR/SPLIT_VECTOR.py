@@ -14,23 +14,24 @@ def SPLIT_VECTOR(
     default: Vector,
     index: int = 0,
 ) -> resultSplit:
-    """The SPLIT_VECTOR node returns a vector that is splited by a given index
+    """The SPLIT_VECTOR node returns a vector that is split by a given index.
 
     Inputs
     ------
     default : Vector
-        The input vector
+        The input vector.
 
     Parameters
     ----------
     index : int
-        index which you want to split your vector by
+        The index by which the vector should be split.
 
     Returns
     -------
     Vector
-        Splited input vector
+        The splited input vector.
     """
+    
     if index > len(default.v) - 1:
         raise ValueError(f"Given index is larger than the input vector, index: {index}")
 

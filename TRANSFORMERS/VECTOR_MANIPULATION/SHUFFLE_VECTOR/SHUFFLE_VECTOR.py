@@ -6,17 +6,17 @@ from flojoy import flojoy, Vector
 def SHUFFLE_VECTOR(
     default: Vector,
 ) -> Vector:
-    """The SHUFFLE_VECTOR node returns a vector that is randomly shuffled
+    """The SHUFFLE_VECTOR node returns a vector that is randomly shuffled.
 
     Inputs
     ------
     default : Vector
-        The input vector
+        The input vector.
 
     Returns
     -------
     Vector
-        Shuffled input vector
+        The shuffled input vector.
     """
 
     shuffledVector = permutation(default.v)

@@ -14,31 +14,30 @@ def ONNX_MODEL(
     file_path: str,
     default: Vector,
 ) -> Vector:
-    """ONNX_MODEL loads a serialized ONNX model and uses it to make predictions using ONNX Runtime.
+    """The ONNX_MODEL node loads a serialized ONNX model and uses it to make predictions using ONNX Runtime.
 
-    This allows supporting a wide range of deep learning frameworks and hardware platforms.
+    This allows for the support of a wide range of deep learning frameworks and hardware platforms.
 
-    Notes
-    -----
+    Notes:
 
     On the one hand, ONNX is an open format to represent deep learning models.
     ONNX defines a common set of operators - the building blocks of machine learning
     and deep learning models - and a common file format to enable AI developers
     to use models with a variety of frameworks, tools, runtimes, and compilers.
 
-    See: https://onnx.ai/
+    For more information, see: https://onnx.ai/
 
     On the other hand, ONNX Runtime is a high-performance inference engine for machine
     learning models in the ONNX format. ONNX Runtime has proved to considerably increase
-    performance in inferencing for a broad range of ML models and hardware platforms.
+    performance in inferencing for a broad range of machine learning models and hardware platforms.
 
-    See: https://onnxruntime.ai/docs/
+    For more information, see: https://onnxruntime.ai/docs/
 
     Moreover, the ONNX Model Zoo is a collection of pre-trained models for common
     machine learning tasks. The models are stored in ONNX format and are ready to use
     in different inference scenarios.
 
-    See: https://github.com/onnx/models
+    For more information, see: https://github.com/onnx/models
 
     Parameters
     ----------

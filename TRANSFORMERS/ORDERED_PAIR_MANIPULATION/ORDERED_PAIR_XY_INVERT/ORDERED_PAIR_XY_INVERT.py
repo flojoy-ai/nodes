@@ -10,7 +10,7 @@ def ORDERED_PAIR_XY_INVERT(
     Inputs
     ------
     default : OrderedPair
-        The input OrderedPair that we would like to invert the axes.
+        The input OrderedPair that will be used to invert the axes.
 
     Returns
     -------
