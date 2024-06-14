@@ -1,12 +1,12 @@
 from numpy import append
-from flojoy import flojoy, OrderedPair, Matrix, DataFrame, Vector, Scalar
+from flojoy import flojoy, OrderedPair, OrderedTriple, Matrix, DataFrame, Vector, Scalar
 
 
 @flojoy
 def APPEND(
-    primary_dp: OrderedPair | Matrix | DataFrame | Scalar | Vector,
+    primary_dp: OrderedPair | OrderedTriple | Matrix | DataFrame | Scalar | Vector,
     secondary_dp: OrderedPair | Matrix | DataFrame | Scalar | Vector,
-) -> OrderedPair | Matrix | DataFrame | Vector:
+) -> OrderedPair | OrderedTriple | Matrix | DataFrame | Vector:
     """The APPEND node appends a single data point to an array.
 
     The large array must be passed to the bottom "array" connection.
@@ -72,6 +72,20 @@ def APPEND(
 
         v = append([c0], [c1], axis=0)
         return Vector(v=v)
+    elif (
+        isinstance(primary_dp, OrderedTriple)
+        and isinstance(secondary_dp, Vector)
+        and len(secondary_dp.v) == 3
+    ):
+        x0 = primary_dp.x
+        y0 = primary_dp.y
+        z0 = primary_dp.z
+
+        x = append(x0, secondary_dp.v[0])
+        y = append(y0, secondary_dp.v[1])
+        z = append(z0, secondary_dp.v[2])
+
+        return OrderedTriple(x=x, y=y, z=z)
 
     else:
         raise ValueError(

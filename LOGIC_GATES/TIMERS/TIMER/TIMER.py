@@ -1,9 +1,6 @@
-from flojoy import flojoy, DataContainer, DefaultParams
-from flojoy.utils import PlotlyJSONEncoder
+from flojoy import flojoy, DataContainer
 from flojoy.job_result_builder import JobResultBuilder
-import plotly.graph_objects as go
 import time
-import json
 from typing import Optional, cast
 
 
@@ -25,5 +22,4 @@ def TIMER(
         DataContainer,
         JobResultBuilder().from_inputs([default] if default else []).build(),
     )
-
     return result
